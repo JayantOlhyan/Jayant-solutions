@@ -3,21 +3,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Hero() {
-  const handleScrollTo = (id: string) => {
-    const element = document.querySelector(id);
-    if (element) {
-      const topOffset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - topOffset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-  };
-
   return (
     <section id="top" className="relative min-h-[90vh] flex flex-col justify-center items-center overflow-hidden py-24 md:py-32">
       {/* Background Subtle Accent Glow */}
@@ -47,8 +35,8 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-base leading-[1.1] max-w-3xl mb-6"
         >
-          Websites That Win Customers. <br className="hidden md:inline" />
-          <span className="text-primary">AI Systems</span> That Save Time.
+          Build a Business That <br className="hidden md:inline" />
+          Works Even When You <span className="text-primary">Sleep.</span>
         </motion.h1>
 
         {/* Subtitle (Sans-Serif Outfit) */}
@@ -58,7 +46,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-base md:text-xl text-text-muted leading-relaxed max-w-2xl mb-10"
         >
-          I design websites, AI chatbots, WhatsApp automation, CRM workflows, and custom business systems that help Indian businesses grow without unnecessary complexity.
+          We design AI-powered websites, automation systems, and digital solutions that help businesses generate more leads, automate operations, and scale faster.
         </motion.p>
 
         {/* Action Buttons */}
@@ -69,20 +57,28 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
         >
           {/* Primary CTA */}
-          <button
-            onClick={() => handleScrollTo("#contact")}
+          <Link
+            href="/contact"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-primary hover:bg-primary-hover px-8 py-3.5 text-sm md:text-base font-semibold text-white shadow-md active:scale-[0.98] transition-all duration-200 cursor-pointer"
           >
-            Book a Free Strategy Call
-          </button>
+            Book Free Consultation
+          </Link>
 
-          {/* Secondary CTA */}
-          <button
-            onClick={() => handleScrollTo("#work")}
+          {/* Secondary CTA - Get Proposal */}
+          <Link
+            href="/pricing"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-border-custom hover:bg-card-bg px-8 py-3.5 text-sm md:text-base font-medium text-text-base hover:border-text-muted active:scale-[0.98] transition-all duration-200 cursor-pointer"
           >
-            View My Work <ArrowRight className="size-4" />
-          </button>
+            Get Proposal
+          </Link>
+
+          {/* Tertiary CTA - Case Studies */}
+          <Link
+            href="/portfolio"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-border-custom hover:bg-card-bg px-8 py-3.5 text-sm md:text-base font-medium text-text-base hover:border-text-muted active:scale-[0.98] transition-all duration-200 cursor-pointer"
+          >
+            View Case Studies <ArrowRight className="size-4" />
+          </Link>
         </motion.div>
       </div>
     </section>
