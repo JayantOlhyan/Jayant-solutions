@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { caseStudies, otherProjects } from "../data/content";
+import { caseStudies } from "../data/content";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Cpu, GraduationCap, Eye, FileText } from "lucide-react";
 
@@ -9,6 +9,9 @@ export default function CaseStudies() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
   const activeStudy = caseStudies.find((s) => s.id === selectedId);
+
+  // Filter down target client case studies
+  const otherStudies = caseStudies.slice(3);
 
   return (
     <section id="work" className="py-20 md:py-28 relative">
@@ -106,7 +109,7 @@ export default function CaseStudies() {
             Other Shipped Work
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {otherProjects.map((proj) => (
+            {otherStudies.map((proj) => (
               <div
                 key={proj.title}
                 className="glass-card rounded-[20px] p-6 border border-border-custom flex flex-col justify-between"
@@ -116,7 +119,7 @@ export default function CaseStudies() {
                     {proj.title}
                   </h4>
                   <p className="text-xs md:text-sm text-text-muted mb-4 leading-relaxed">
-                    {proj.description}
+                    {proj.problem}
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-1.5 mt-auto">

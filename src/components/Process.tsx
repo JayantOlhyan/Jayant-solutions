@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { processSteps } from "../data/content";
+import { clientJourneyDays } from "../data/content";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Process() {
@@ -28,9 +28,9 @@ export default function Process() {
           {/* Continuous connector line */}
           <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-border-custom -translate-y-1/2 z-0 min-w-[700px]" />
           
-          {processSteps.map((step, index) => (
+          {clientJourneyDays.map((step, index) => (
             <button
-              key={step.number}
+              key={step.day}
               onClick={() => setActiveStep(index)}
               className="relative z-10 flex flex-col items-center gap-2 group min-w-[100px] shrink-0 cursor-pointer focus:outline-none"
             >
@@ -42,7 +42,7 @@ export default function Process() {
                     : "bg-background border-border-custom text-text-muted group-hover:border-text-base group-hover:text-text-base"
                 }`}
               >
-                {step.number}
+                {index + 1}
               </div>
               {/* Step Label */}
               <span
@@ -50,7 +50,7 @@ export default function Process() {
                   activeStep === index ? "text-primary font-bold" : "text-text-muted group-hover:text-text-base"
                 }`}
               >
-                {step.title}
+                {step.day}
               </span>
             </button>
           ))}
@@ -70,10 +70,10 @@ export default function Process() {
             >
               <div>
                 <span className="font-mono text-xs text-primary font-bold uppercase tracking-wider block mb-2">
-                  Phase {processSteps[activeStep].number} — {processSteps[activeStep].title}
+                  {clientJourneyDays[activeStep].day} — {clientJourneyDays[activeStep].title}
                 </span>
                 <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-3xl">
-                  {processSteps[activeStep].description}
+                  {clientJourneyDays[activeStep].description}
                 </p>
               </div>
             </motion.div>
