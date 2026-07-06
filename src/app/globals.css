@@ -1,26 +1,87 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F4F4F4;
+  --foreground: #0D0D0F;
+  --muted: #6A7282;
+  --border: rgba(13, 13, 15, 0.08);
+  --primary: #4F39F6;
+  --primary-hover: #432DD7;
+  --glow: rgba(79, 57, 246, 0.03);
+  --card-bg: rgba(255, 255, 255, 0.7);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark {
+  --background: #0A0A0A;
+  --foreground: #FFFFFF;
+  --muted: #99A1AF;
+  --border: rgba(255, 255, 255, 0.08);
+  --primary: #625FFF;
+  --primary-hover: #4F39F6;
+  --glow: rgba(98, 95, 255, 0.08);
+  --card-bg: rgba(10, 10, 10, 0.7);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@theme {
+  /* Font Family Definitions mapped to CSS variables set by Next.js Font Loader */
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  --font-mono: var(--font-dm-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Color Custom Tokens */
+  --color-bg-base: var(--background);
+  --color-text-base: var(--foreground);
+  --color-text-muted: var(--muted);
+  --color-border-custom: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-glow-accent: var(--glow);
+  --color-card-bg: var(--card-bg);
+
+  /* Animation Overrides */
+  --animate-shiny-text: shiny-text 8s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes shiny-text {
+    0%, 100% { background-position: 200% center; }
+    50% { background-position: -200% center; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
   }
 }
 
-body {
-  background: var(--background);
+/* Base Styles */
+html, body {
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+
+/* Glassmorphism Card Style */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+}
+
+/* Custom Scrollbar for premium visual polish */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
 }
