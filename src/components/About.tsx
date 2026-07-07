@@ -5,22 +5,12 @@ export default function About() {
     <section id="about" className="py-20 md:py-28 relative">
       <div className="max-w-5xl mx-auto px-4">
         <div className="flex flex-col md:flex-row gap-12 items-center">
-          {/* Left Column: Visual Profile Placeholder */}
-          <div className="w-full md:w-2/5 aspect-[4/5] max-w-[320px] rounded-3xl relative overflow-hidden glass-card flex flex-col justify-center items-center shadow-lg border-2 border-border-custom">
-            <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent opacity-80" />
-            
-            {/* Monogram Silhouette (Sleek Fallback) */}
-            <div className="relative z-10 flex flex-col items-center gap-3">
-              <div className="size-20 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary text-3xl font-serif font-bold">
-                JO
-              </div>
-              <span className="font-mono text-[10px] tracking-widest uppercase text-text-muted mt-2">
-                Jayant Olhyan
-              </span>
-              <span className="font-sans text-[11px] text-text-muted text-center px-4">
-                Founder, Jayant&apos;s Studio
-              </span>
-            </div>
+          <div className="w-full md:w-2/5 aspect-[4/5] max-w-[320px] rounded-3xl relative overflow-hidden flex flex-col justify-center items-center shadow-lg border-2 border-border-custom">
+            <img
+              src="/jayant.jpg"
+              alt="Jayant Olhyan"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
           </div>
 
           {/* Right Column: Founder Copy */}
