@@ -1,30 +1,32 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F7F4ED;
-  --foreground: #111111;
-  --muted: #6B7280;
-  --border: #2B2B2B;
+  --background: #FFFFFF;
+  --foreground: #111827;
+  --muted: #4B5563;
+  --muted-light: #6B7280;
+  --border: #E5E7EB;
   --primary: #FF8A00;
   --primary-hover: #E07A00;
-  --glow: rgba(255, 138, 0, 0.08);
+  --glow: rgba(255, 138, 0, 0.04);
   --card-bg: #FFFFFF;
 }
 
 .dark {
-  --background: #111111;
-  --foreground: #F7F4ED;
+  --background: #0B0F19;
+  --foreground: #F9FAFB;
   --muted: #9CA3AF;
-  --border: #F7F4ED;
+  --muted-light: #6B7280;
+  --border: #1F2937;
   --primary: #FF8A00;
   --primary-hover: #FFA333;
-  --glow: rgba(255, 138, 0, 0.15);
-  --card-bg: #111111;
+  --glow: rgba(255, 138, 0, 0.08);
+  --card-bg: #111827;
 }
 
 @theme {
-  --font-sans: var(--font-geist), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-geist), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-ibm-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   --color-bg-base: var(--background);
@@ -41,65 +43,54 @@
 .hog-grid {
   background-color: var(--background);
   background-image: 
-    linear-gradient(to right, rgba(43, 43, 43, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(43, 43, 43, 0.04) 1px, transparent 1px);
-  background-size: 40px 40px;
+    linear-gradient(to right, rgba(17, 24, 39, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(17, 24, 39, 0.02) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
 
 .dark .hog-grid {
   background-image: 
-    linear-gradient(to right, rgba(247, 244, 237, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(247, 244, 237, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(249, 250, 251, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(249, 250, 251, 0.015) 1px, transparent 1px);
 }
 
-/* Brand Retro Button */
+/* Brand Button (Stripe / Vercel style) */
 .hog-btn {
   background: var(--primary);
-  color: #111111 !important;
-  border: 2px solid #2B2B2B;
-  font-family: var(--font-mono);
-  font-weight: 700;
-  box-shadow: 3px 3px 0px 0px #2B2B2B;
-  transition: all 0.15s ease-in-out;
+  color: #FFFFFF !important;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 14px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(255, 138, 0, 0.15);
 }
 
 .hog-btn:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0px 0px #2B2B2B;
+  transform: translateY(-1px);
+  background: var(--primary-hover);
+  box-shadow: 0 6px 16px rgba(255, 138, 0, 0.2);
 }
 
 .hog-btn:active {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0px 0px #2B2B2B;
+  transform: translateY(1px);
 }
 
-.dark .hog-btn {
-  border-color: #F7F4ED;
-  box-shadow: 3px 3px 0px 0px #F7F4ED;
-}
-
-.dark .hog-btn:hover {
-  box-shadow: 4px 4px 0px 0px #F7F4ED;
-}
-
-.dark .hog-btn:active {
-  box-shadow: 1px 1px 0px 0px #F7F4ED;
-}
-
-/* Retro Card Outline */
+/* Clean UI Card (OpenAI / Linear Style) */
 .hog-card {
   background: var(--card-bg);
-  border: 2px solid var(--border);
-  box-shadow: 4px 4px 0px 0px var(--border);
-  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hog-card:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px 0px var(--border);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.06);
 }
 
-/* Global resets */
+/* Global resets & Typography guidelines */
 html, body {
   background-color: var(--background);
   color: var(--foreground);
@@ -107,6 +98,25 @@ html, body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
+  letter-spacing: 0;
+}
+
+h1, .h1 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+h2, .h2 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+h3, .h3 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 /* Keyboard Shortcut Kbd Badge Styling */
