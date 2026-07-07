@@ -184,13 +184,13 @@ export default function Contact() {
           </div>
 
           {/* Right Column: Embedded Cal.com Scheduler */}
-          <div className="lg:col-span-8 glass-card rounded-3xl p-4 md:p-6 border border-border-custom shadow-md min-h-[580px] flex flex-col">
+          <div className="lg:col-span-8 glass-card rounded-3xl p-4 md:p-6 border border-border-custom shadow-md h-[680px] md:h-[750px] flex flex-col">
             <span className="font-mono text-[10px] tracking-wider uppercase text-text-muted mb-2 block">
               Direct Scheduler
             </span>
-            <div className="w-full flex-1 rounded-2xl overflow-hidden border border-border-custom bg-white/5 min-h-[520px]">
+            <div className="w-full flex-1 rounded-2xl overflow-hidden border border-border-custom bg-white/5 h-full">
               <iframe
-                src="https://cal.com/jayant-web-and-ai-systems/strategy-call?embed=true"
+                src="https://cal.com/jayant-web-and-ai-systems/strategy-call"
                 className="w-full h-full border-0"
                 allowFullScreen
                 loading="lazy"
