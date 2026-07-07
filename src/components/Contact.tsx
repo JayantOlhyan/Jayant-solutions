@@ -183,153 +183,20 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Right Column: Custom Interactive Calendar Scheduler */}
-          <div className="lg:col-span-8 glass-card rounded-3xl p-6 md:p-8 border border-border-custom shadow-md min-h-[460px]">
-            <AnimatePresence mode="wait">
-              {!formSubmitted ? (
-                <motion.form
-                  key="scheduler-form"
-                  onSubmit={handleSubmit}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="space-y-6"
-                >
-                  {/* Step 1: Select Date */}
-                  <div>
-                    <label className="font-mono text-[10px] tracking-wider uppercase text-text-muted mb-3.5 block">
-                      1. Select a Date
-                    </label>
-                    <div className="grid grid-cols-5 gap-2 md:gap-3">
-                      {dates.map((date, i) => (
-                        <button
-                          key={i}
-                          type="button"
-                          onClick={() => {
-                            setSelectedDate(i);
-                            setSelectedTime(null);
-                          }}
-                          className={`flex flex-col items-center justify-center p-2.5 md:p-4 rounded-xl border text-center transition-all duration-200 cursor-pointer ${
-                            selectedDate === i
-                              ? "bg-primary border-primary text-white shadow-sm"
-                              : "border-border-custom hover:border-text-muted/40 text-text-muted hover:text-text-base"
-                          }`}
-                        >
-                          <span className="text-[10px] uppercase font-mono tracking-wider">{date.dayOfWeek}</span>
-                          <span className="text-lg md:text-xl font-bold font-serif leading-tight mt-0.5">
-                            {date.dayOfMonth}
-                          </span>
-                          <span className="text-[9px] uppercase tracking-wide opacity-80">{date.month}</span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Step 2: Select Time */}
-                  {selectedDate !== null && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="animate-in fade-in slide-in-from-top-2 duration-300"
-                    >
-                      <label className="font-mono text-[10px] tracking-wider uppercase text-text-muted mb-3 block">
-                        2. Select a Time (IST)
-                      </label>
-                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                        {timeSlots.map((time) => (
-                          <button
-                            key={time}
-                            type="button"
-                            onClick={() => setSelectedTime(time)}
-                            className={`py-2 px-4 rounded-xl border text-center text-xs md:text-sm font-medium transition-all duration-200 cursor-pointer ${
-                              selectedTime === time
-                                ? "bg-primary border-primary text-white shadow-sm"
-                                : "border-border-custom hover:border-text-muted/40 text-text-muted hover:text-text-base"
-                            }`}
-                          >
-                            {time}
-                          </button>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-
-                  {/* Step 3: Fill Form & Submit */}
-                  {selectedDate !== null && selectedTime && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="space-y-4 pt-2 border-t border-border-custom/50 animate-in fade-in slide-in-from-top-2 duration-300"
-                    >
-                      <label className="font-mono text-[10px] tracking-wider uppercase text-text-muted block">
-                        3. Share Your Context
-                      </label>
-                      
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <input
-                          type="text"
-                          name="name"
-                          placeholder="Your Name"
-                          required
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          className="w-full bg-background border border-border-custom rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary transition-all text-text-base"
-                        />
-                        <input
-                          type="email"
-                          name="email"
-                          placeholder="Business Email"
-                          required
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          className="w-full bg-background border border-border-custom rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary transition-all text-text-base"
-                        />
-                      </div>
-                      <textarea
-                        name="desc"
-                        rows={3}
-                        placeholder="Briefly describe your website or AI requirements"
-                        value={formData.desc}
-                        onChange={handleInputChange}
-                        className="w-full bg-background border border-border-custom rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary transition-all text-text-base"
-                      />
-
-                      <button
-                        type="submit"
-                        className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary-hover py-3.5 text-sm font-semibold text-white shadow-md active:scale-[0.98] transition-all duration-200 cursor-pointer"
-                      >
-                        Confirm Strategy Booking ({dates[selectedDate].dayOfMonth} {dates[selectedDate].month} @ {selectedTime})
-                      </button>
-                    </motion.div>
-                  )}
-                </motion.form>
-              ) : (
-                <motion.div
-                  key="booking-success"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="flex flex-col items-center justify-center text-center py-10 space-y-4"
-                >
-                  <div className="size-14 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
-                    <Check className="size-6" />
-                  </div>
-                  <h3 className="font-serif text-xl md:text-2xl font-bold text-text-base">
-                    Strategy Session Confirmed
-                  </h3>
-                  <div className="max-w-md text-text-muted text-sm space-y-2">
-                    <p className="flex items-center justify-center gap-2 font-medium text-text-base">
-                      <Calendar className="size-4 text-primary" /> {dates[selectedDate!].dayOfWeek}, {dates[selectedDate!].dayOfMonth} {dates[selectedDate!].month}
-                    </p>
-                    <p className="flex items-center justify-center gap-2 font-medium text-text-base">
-                      <Clock className="size-4 text-primary" /> {selectedTime} (IST)
-                    </p>
-                    <p className="pt-2">
-                      An invitation with Google Meet coordinates has been dispatched to <span className="text-text-base font-semibold">{formData.email}</span>. See you there!
-                    </p>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+          {/* Right Column: Embedded Cal.com Scheduler */}
+          <div className="lg:col-span-8 glass-card rounded-3xl p-4 md:p-6 border border-border-custom shadow-md min-h-[580px] flex flex-col">
+            <span className="font-mono text-[10px] tracking-wider uppercase text-text-muted mb-2 block">
+              Direct Scheduler
+            </span>
+            <div className="w-full flex-1 rounded-2xl overflow-hidden border border-border-custom bg-white/5 min-h-[520px]">
+              <iframe
+                src="https://cal.com/jayant-web-and-ai-systems/strategy-call?embed=true"
+                className="w-full h-full border-0"
+                allowFullScreen
+                loading="lazy"
+                title="Book a Strategy Call with Jayant"
+              />
+            </div>
           </div>
         </div>
       </div>
