@@ -26,12 +26,12 @@ export default function Footer() {
   ];
 
   const solutions = [
-    { name: "AI Solutions", href: "/services" },
-    { name: "Custom Software", href: "/services" },
-    { name: "Web Development", href: "/services" },
-    { name: "Mobile Apps", href: "/services" },
-    { name: "Business Automation", href: "/services" },
-    { name: "Cloud Solutions", href: "/services" }
+    { name: "AI Solutions", href: "/blog/ai-solutions" },
+    { name: "Custom Software", href: "/blog/custom-software" },
+    { name: "Web Development", href: "/blog/web-development" },
+    { name: "Mobile Apps", href: "/blog/mobile-apps" },
+    { name: "Business Automation", href: "/blog/business-automation" },
+    { name: "Cloud Solutions", href: "/blog/cloud-solutions" }
   ];
 
   const resources = [
