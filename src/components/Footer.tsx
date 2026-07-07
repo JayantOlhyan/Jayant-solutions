@@ -39,7 +39,8 @@ export default function Footer() {
     { name: "Portfolio", href: "/portfolio" },
     { name: "FAQs", href: "/#faq" },
     { name: "Pricing Guide", href: "/pricing" },
-    { name: "Project Process", href: "/process" }
+    { name: "Project Process", href: "/process" },
+    { name: "Support Desk", href: "/support" }
   ];
 
   const socials = [
