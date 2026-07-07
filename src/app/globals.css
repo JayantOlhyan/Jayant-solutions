@@ -6,9 +6,9 @@
   --muted: #4B5563;
   --muted-light: #6B7280;
   --border: #E5E7EB;
-  --primary: #2563EB;
-  --primary-hover: #1D4ED8;
-  --glow: rgba(37, 99, 235, 0.04);
+  --primary: #FF8A00;
+  --primary-hover: #E07A00;
+  --glow: rgba(255, 138, 0, 0.04);
   --card-bg: #FFFFFF;
 }
 
@@ -18,9 +18,9 @@
   --muted: #9CA3AF;
   --muted-light: #6B7280;
   --border: #1F2937;
-  --primary: #2563EB;
-  --primary-hover: #3B82F6;
-  --glow: rgba(37, 99, 235, 0.08);
+  --primary: #FF8A00;
+  --primary-hover: #FFA333;
+  --glow: rgba(255, 138, 0, 0.08);
   --card-bg: #111827;
 }
 
@@ -63,13 +63,13 @@
   font-size: 15px;
   border-radius: 14px;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+  box-shadow: 0 4px 12px rgba(255, 138, 0, 0.15);
 }
 
 .hog-btn:hover {
   transform: translateY(-1px);
   background: var(--primary-hover);
-  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.2);
+  box-shadow: 0 6px 16px rgba(255, 138, 0, 0.2);
 }
 
 .hog-btn:active {
