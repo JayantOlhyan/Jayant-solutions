@@ -8,7 +8,7 @@ export default function About() {
           <div className="w-full md:w-2/5 aspect-[4/5] max-w-[320px] rounded-3xl relative overflow-hidden flex flex-col justify-center items-center shadow-lg border-2 border-border-custom">
             <img
               src="/jayant.jpg"
-              alt="Jayant Olhyan"
+              alt="Jayant Olhyan - Founder of Jayant Web & AI Systems"
               className="absolute inset-0 w-full h-full object-cover"
             />
           </div>

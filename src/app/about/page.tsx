@@ -46,7 +46,7 @@ export default function AboutPage() {
             <div className="size-28 rounded-full overflow-hidden mb-6 border-2 border-border-custom shadow-md">
               <img
                 src="/jayant.jpg"
-                alt="Jayant Olhyan"
+                alt="Jayant Olhyan - Founder of Jayant Web & AI Systems"
                 className="w-full h-full object-cover"
               />
             </div>
