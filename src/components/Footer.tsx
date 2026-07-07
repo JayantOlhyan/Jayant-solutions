@@ -37,6 +37,7 @@ export default function Footer() {
   const resources = [
     { name: "Case Studies", href: "/portfolio" },
     { name: "Portfolio", href: "/portfolio" },
+    { name: "Blog", href: "/blog" },
     { name: "FAQs", href: "/#faq" },
     { name: "Pricing Guide", href: "/pricing" },
     { name: "Project Process", href: "/process" },

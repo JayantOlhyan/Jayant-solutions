@@ -64,4 +64,32 @@
     <loc>https://jayant-solution.netlify.app/support</loc>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://jayant-solution.netlify.app/blog</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jayant-solution.netlify.app/blog/ai-solutions</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jayant-solution.netlify.app/blog/custom-software</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jayant-solution.netlify.app/blog/web-development</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jayant-solution.netlify.app/blog/mobile-apps</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jayant-solution.netlify.app/blog/business-automation</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jayant-solution.netlify.app/blog/cloud-solutions</loc>
+    <priority>0.8</priority>
+  </url>
 </urlset>
