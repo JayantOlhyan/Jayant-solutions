@@ -161,7 +161,7 @@ export default function Navbar() {
 
       {/* Mobile Full-width Drawer */}
       {isOpen && (
-        <div className="absolute top-16 left-4 right-4 rounded-2xl p-6 bg-card-bg shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-border-custom md:hidden flex flex-col gap-4 animate-in fade-in slide-in-from-top-4 duration-200">
+        <div className="absolute top-16 left-4 right-4 rounded-2xl p-6 bg-card-bg shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] border-2 border-border-custom md:hidden flex flex-col gap-4 overflow-y-auto max-h-[calc(100vh-5rem)] animate-in fade-in slide-in-from-top-4 duration-200">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
             return (
