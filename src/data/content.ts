@@ -558,24 +558,82 @@ export const agencyServices: AgencyService[] = [
   }
 ];
 
-// Sales Funnel Steps
-export const funnelSteps = [
-  { stage: "1. Book Consultation", desc: "Select a slot on our booking scheduler below to request your session." },
-  { stage: "2. Operations Audit Discussion", desc: "A brief conversation where we audit your current manual tasks and spreadsheets." },
-  { stage: "3. Custom System Proposal", desc: "A transparent proposal outlining deliverables, timelines, and pricing before work starts." },
-  { stage: "4. Development & Demos", desc: "We write the custom code and run weekly prototype demos so you track progress." },
-  { stage: "5. Setup & System Launch", desc: "Rigorous testing, connecting your custom domains, training your staff, and launching live." }
+export interface DevProcessStep {
+  step: string;
+  name: string;
+  desc: string;
+  timeline: string;
+  deliverables: string[];
+  icon: string;
+}
+
+export const devProcessSteps: DevProcessStep[] = [
+  {
+    step: "01",
+    name: "Discovery & Strategy",
+    desc: "We begin by understanding your business, goals, target audience, technical requirements, and project scope. Through collaborative discussions, we define a clear roadmap and success metrics.",
+    timeline: "1–3 Days",
+    deliverables: ["Requirements Document", "Project Scope", "Timeline Estimate", "Technical Consultation", "Proposal"],
+    icon: "🔍"
+  },
+  {
+    step: "02",
+    name: "Planning & UI/UX Design",
+    desc: "We translate ideas into user-friendly experiences by creating wireframes, user flows, and high-fidelity designs that align with your brand and business objectives.",
+    timeline: "3–7 Days",
+    deliverables: ["Wireframes", "User Flow", "UI/UX Design", "Interactive Prototype", "Design Approval"],
+    icon: "🎨"
+  },
+  {
+    step: "03",
+    name: "Development & Integration",
+    desc: "Our team develops the frontend, backend, databases, APIs, AI features, and third-party integrations using modern technologies and best engineering practices.",
+    timeline: "2–8 Weeks",
+    deliverables: ["Responsive Application", "Backend APIs", "Database", "AI Integrations", "Authentication", "Admin Dashboard"],
+    icon: "💻"
+  },
+  {
+    step: "04",
+    name: "Testing & Quality Assurance",
+    desc: "Every feature undergoes comprehensive testing to ensure security, performance, responsiveness, compatibility, and reliability before deployment.",
+    timeline: "3–5 Days",
+    deliverables: ["Bug Fixes", "Performance Optimization", "Security Checks", "Cross-Browser Testing", "QA Report"],
+    icon: "🧪"
+  },
+  {
+    step: "05",
+    name: "Deployment & Launch",
+    desc: "After final approval, we deploy your application to a secure production environment, configure domains, SSL, analytics, and monitoring for a successful launch.",
+    timeline: "1–2 Days",
+    deliverables: ["Live Website/Application", "Cloud Deployment", "SSL Configuration", "Analytics Setup", "Production Environment"],
+    icon: "🚀"
+  },
+  {
+    step: "06",
+    name: "Support & Growth",
+    desc: "We continue supporting your product after launch with maintenance, updates, monitoring, performance improvements, feature enhancements, and technical guidance.",
+    timeline: "Ongoing",
+    deliverables: ["Technical Support", "Maintenance", "Performance Monitoring", "Feature Updates", "Monthly Reports"],
+    icon: "🤝"
+  }
 ];
 
-// Client Journey Stepper Schedule
+// Backward compatibility layers
+export const funnelSteps = [
+  { stage: "1. Discovery & Strategy", desc: "Collaborative scoping to map out requirements." },
+  { stage: "2. UI/UX Design", desc: "Interactive wireframes and layout assets approval." },
+  { stage: "3. Development", desc: "Building frontend, APIs, and AI integrations." },
+  { stage: "4. Testing & QA", desc: "Rigorous responsive, security, and performance audits." },
+  { stage: "5. Launch", desc: "Secure production hosting deployment and domain mapping." }
+];
+
 export const clientJourneyDays: ClientJourneyDay[] = [
-  { day: "Day 1 - 3", title: "Discovery & Alignment", description: "Mapping core offers, scoping dependencies, and setting project KPIs." },
-  { day: "Day 4 - 7", title: "Strategic Proposal & Sign-off", description: "Reviewing the deliverables blueprint, signing agreements, and setting up workspace communication." },
-  { day: "Day 8 - 12", title: "Interactive Wireframes", description: "Designing typography, layout flow, and high-fidelity mockups for desktop and mobile." },
-  { day: "Day 13 - 22", title: "Development & Integrations", description: "Writing pure components, database structures, CRM hooks, and AI model weights." },
-  { day: "Day 23 - 26", title: "Testing & Access Audits", description: "Running Lighthouse audits, viewport checks, and simulated user flows." },
-  { day: "Day 27 - 30", title: "Launch & Training", description: "Pushing production code to live servers, linking domains, and training your staff." },
-  { day: "Day 30+", title: "Retainer Support", description: "Weekly review checks, security updates, and performance optimizations." }
+  { day: "01", title: "Discovery & Strategy", description: "🔍 Requirements document, roadmap scoping." },
+  { day: "02", title: "Planning & Design", description: "🎨 Wireframes, interactive layout prototypes." },
+  { day: "03", title: "Development", description: "💻 Responsive components, databases, and APIs." },
+  { day: "04", title: "Testing & QA", description: "🧪 Cross-browser testing and performance optimization." },
+  { day: "05", title: "Deployment & Launch", description: "🚀 Domain DNS routing, SSL certificates setup." },
+  { day: "06", title: "Support & Retainers", description: "🤝 Ongoing maintenance updates and monitoring." }
 ];
 
 // FAQ
