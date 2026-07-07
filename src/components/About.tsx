@@ -43,7 +43,7 @@ export default function About() {
                 I work with a trusted network of specialists when projects require additional custom expertise, ensuring you receive robust delivery while retaining a single point of communication.
               </p>
               <p className="text-xs text-text-muted border-t border-border-custom pt-3 font-mono">
-                Background: B.Tech Computer Science (MSIT Delhi) & IIT Guwahati student credentials.
+                Background: B.Tech Computer Science (MSIT Delhi) & IIT Guwahati student credentials • 35+ Professional Certifications • 33 Hackathon selections.
               </p>
             </div>
           </div>

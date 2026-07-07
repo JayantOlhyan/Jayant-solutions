@@ -2,23 +2,10 @@
 
 import React from "react";
 import { packages } from "../data/content";
-import { Check } from "lucide-react";
+import { Check, Star, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Packages() {
-  const handleScrollToContact = () => {
-    const element = document.querySelector("#contact");
-    if (element) {
-      const topOffset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - topOffset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-  };
-
   return (
     <section id="packages" className="py-20 md:py-28 relative">
       <div className="max-w-5xl mx-auto px-4">
@@ -28,75 +15,98 @@ export default function Packages() {
             Pricing & Offers
           </span>
           <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mb-4 mt-2">
-            Clear, Predictable Pricing
+            Outcome-Based Packages
           </h2>
           <p className="text-sm md:text-base text-text-muted">
             No endless hourly billing. Choose the package that aligns with your current business goals.
           </p>
         </div>
 
-        {/* 3-Column Packages Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+        {/* 6-Column Packages Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {packages.map((pkg, index) => (
             <motion.div
               key={pkg.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`glass-card rounded-[24px] p-8 flex flex-col justify-between relative overflow-hidden transition-all duration-300 ${
-                pkg.isPopular
-                  ? "border-primary/40 shadow-md shadow-primary/5 ring-1 ring-primary/20 md:-translate-y-2 scale-[1.02]"
-                  : "border-border-custom hover:border-text-muted/30"
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              className={`hog-card rounded-[32px] p-6 md:p-8 flex flex-col justify-between relative transition-all duration-300 ${
+                pkg.isPopular || pkg.featured ? "border-primary" : "border-border-custom"
               }`}
             >
               {/* Highlight Tag */}
               {pkg.isPopular && (
-                <div className="absolute top-0 right-0 bg-primary text-white text-[10px] tracking-wider uppercase font-semibold px-4 py-1.5 rounded-bl-[16px]">
-                  Most Popular
-                </div>
+                <span className="absolute -top-3 left-6 font-mono text-[9px] tracking-widest uppercase text-white bg-primary px-3 py-0.5 rounded-full flex items-center gap-1 font-bold">
+                  <Star className="size-2.5 fill-white" /> Popular
+                </span>
+              )}
+              {pkg.featured && (
+                <span className="absolute -top-3 left-6 font-mono text-[9px] tracking-widest uppercase text-white bg-primary px-3 py-0.5 rounded-full flex items-center gap-1 font-bold">
+                  🔥 Featured
+                </span>
               )}
 
               <div>
-                {/* Name */}
-                <h3 className="font-serif text-xl md:text-2xl font-bold text-text-base mb-1">
-                  {pkg.name}
-                </h3>
-                {/* Tagline */}
-                <p className="text-xs text-text-muted mb-6 leading-normal min-h-[32px]">
-                  {pkg.tagline}
-                </p>
-
-                {/* Price Anchor */}
-                <div className="flex items-baseline gap-1 mb-8 border-b border-border-custom pb-6">
-                  <span className="text-3xl md:text-4xl font-bold tracking-tight text-text-base">
-                    {pkg.price}
+                <div className="border-b border-border-custom pb-4 mb-4">
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-text-muted block mb-1">
+                    Ideal for: {pkg.idealFor}
                   </span>
-                  <span className="text-xs text-text-muted">starting rate</span>
+                  <h3 className="font-serif text-xl md:text-2xl font-bold text-text-base mb-1">
+                    {pkg.name}
+                  </h3>
+                  <p className="text-xs text-text-muted leading-normal min-h-[32px]">
+                    {pkg.tagline}
+                  </p>
                 </div>
 
-                {/* Features List */}
-                <ul className="space-y-4 mb-8">
-                  {pkg.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-2.5 text-sm text-text-base">
-                      <Check className="size-4.5 text-primary mt-0.5 shrink-0" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="flex items-baseline gap-1 my-4">
+                  <span className="text-3xl font-bold text-text-base">{pkg.price}</span>
+                  <span className="text-xs text-text-muted">starting price</span>
+                </div>
+
+                {/* Scope items */}
+                <div className="mb-6">
+                  <span className="font-mono text-[10px] uppercase text-text-muted block mb-2">Deliverables:</span>
+                  <ul className="space-y-2">
+                    {pkg.features.map((feature, idx) => (
+                      <li key={idx} className="text-xs text-text-muted flex items-start gap-2">
+                        <Check className="size-3.5 text-primary shrink-0 mt-0.5" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Timeline and addons */}
+                <div className="mb-6 border-t border-border-custom/30 pt-4">
+                  <div className="flex items-center gap-1 text-xs text-text-base font-mono mb-2">
+                    <Clock className="size-3 text-primary" /> Delivery: {pkg.timeline}
+                  </div>
+                  <span className="font-mono text-[10px] uppercase text-text-muted block mb-1.5">Optional Add-ons:</span>
+                  <div className="flex flex-wrap gap-1">
+                    {pkg.addons.map((add) => (
+                      <span
+                        key={add}
+                        className="text-[9px] font-mono text-text-muted bg-neutral-100 dark:bg-neutral-900 border border-border-custom/20 px-1.5 py-0.5 rounded"
+                      >
+                        +{add}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
 
-              {/* Action Call to Action */}
-              <button
-                onClick={handleScrollToContact}
-                className={`w-full text-center py-3 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer ${
-                  pkg.isPopular
-                    ? "bg-primary text-white hover:bg-primary-hover shadow-sm hover:shadow active:scale-[0.98]"
-                    : "border border-border-custom text-text-base hover:bg-card-bg hover:border-text-muted active:scale-[0.98]"
-                }`}
-              >
-                Choose {pkg.name}
-              </button>
+              <div className="mt-4 pt-4 border-t border-border-custom">
+                <a
+                  href="https://cal.com/jayant-web-and-ai-systems/strategy-call"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full text-center py-2.5 text-xs font-mono font-bold rounded-xl bg-background-base text-text-base border-2 border-border-custom hover:border-primary transition-colors block"
+                >
+                  Choose Package
+                </a>
+              </div>
             </motion.div>
           ))}
         </div>

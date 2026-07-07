@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
-import { Outfit, Instrument_Serif, DM_Mono } from "next/font/google";
+import { Geist, Inter, Instrument_Serif, IBM_Plex_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const geist = Geist({
+  variable: "--font-geist",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
@@ -18,37 +24,33 @@ const instrumentSerif = Instrument_Serif({
   display: "swap",
 });
 
-const dmMono = DM_Mono({
-  variable: "--font-dm-mono",
+const ibmMono = IBM_Plex_Mono({
+  variable: "--font-ibm-mono",
   subsets: ["latin"],
   weight: "400",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Jayant's Studio | Websites That Win Customers. AI Systems That Save Time.",
-  description: "I design websites, AI chatbots, WhatsApp automation, and custom CRM systems for Indian businesses to get more leads and save time.",
+  title: "Jayant Web & AI Systems | We Build Revenue Systems. Not Just Websites.",
+  description: "We help businesses generate more leads, automate operations, and scale with custom websites, AI systems, and business software.",
   metadataBase: new URL("https://jayantolhyan.in"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Jayant's Studio | Websites That Win Customers. AI Systems That Save Time.",
-    description: "I build high-converting websites and AI automation systems that help businesses grow and eliminate manual busywork.",
+    title: "Jayant Web & AI Systems | We Build Revenue Systems. Not Just Websites.",
+    description: "We build custom systems for business growth, automated workflows, and custom dashboards.",
     url: "https://jayantolhyan.in",
-    siteName: "Jayant's Studio",
+    siteName: "Jayant Web & AI Systems",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jayant's Studio | High-Converting Web & AI Automation",
-    description: "I build high-converting websites and AI automation systems that help businesses operate more efficiently.",
+    title: "Jayant Web & AI Systems | Operational Systems & AI Automation",
+    description: "We build custom systems for business growth, automated workflows, and custom dashboards.",
     creator: "@jayantolhyan",
-  },
-  robots: {
-    index: true,
-    follow: true,
   },
 };
 
@@ -58,11 +60,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${outfit.variable} ${instrumentSerif.variable} ${dmMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full bg-bg-base text-text-base flex flex-col justify-between selection:bg-primary/10 selection:text-primary transition-colors duration-300">
+    <html lang="en" className="h-full">
+      <body className={`${geist.variable} ${inter.variable} ${instrumentSerif.variable} ${ibmMono.variable} min-h-full bg-bg-base text-text-base flex flex-col justify-between selection:bg-primary/10 selection:text-primary transition-colors duration-300 antialiased`}>
         <Navbar />
         <div className="flex-1 w-full pt-16">
           {children}

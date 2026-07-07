@@ -1,31 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  --background: #EBEBE4;
-  --foreground: #1c1c1f;
-  --muted: #5e6066;
-  --border: #1c1c1f;
-  --primary: #F08C2D;
-  --primary-hover: #D77B22;
-  --glow: rgba(240, 140, 45, 0.1);
+  --background: #F7F4ED;
+  --foreground: #111111;
+  --muted: #6B7280;
+  --border: #2B2B2B;
+  --primary: #FF8A00;
+  --primary-hover: #E07A00;
+  --glow: rgba(255, 138, 0, 0.08);
   --card-bg: #FFFFFF;
 }
 
 .dark {
   --background: #111111;
-  --foreground: #EEEEEE;
-  --muted: #A1A1AA;
-  --border: #27272A;
-  --primary: #F08C2D;
-  --primary-hover: #FFA347;
-  --glow: rgba(240, 140, 45, 0.15);
-  --card-bg: #18181B;
+  --foreground: #F7F4ED;
+  --muted: #9CA3AF;
+  --border: #F7F4ED;
+  --primary: #FF8A00;
+  --primary-hover: #FFA333;
+  --glow: rgba(255, 138, 0, 0.15);
+  --card-bg: #111111;
 }
 
 @theme {
-  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
-  --font-mono: var(--font-dm-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-mono: var(--font-ibm-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   --color-bg-base: var(--background);
   --color-text-base: var(--foreground);
@@ -37,53 +37,53 @@
   --color-card-bg: var(--card-bg);
 }
 
-/* PostHog Grid Pattern Background */
+/* PostHog Grid Pattern Background adjusted for brand colors */
 .hog-grid {
   background-color: var(--background);
   background-image: 
-    linear-gradient(to right, rgba(28, 28, 31, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(28, 28, 31, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(43, 43, 43, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(43, 43, 43, 0.04) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
 .dark .hog-grid {
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(247, 244, 237, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(247, 244, 237, 0.03) 1px, transparent 1px);
 }
 
-/* PostHog Retro Shadow Button Class */
+/* Brand Retro Button */
 .hog-btn {
   background: var(--primary);
-  color: #000000;
-  border: 2px solid #000000;
+  color: #111111 !important;
+  border: 2px solid #2B2B2B;
   font-family: var(--font-mono);
   font-weight: 700;
-  box-shadow: 3px 3px 0px 0px #000000;
+  box-shadow: 3px 3px 0px 0px #2B2B2B;
   transition: all 0.15s ease-in-out;
 }
 
 .hog-btn:hover {
   transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0px 0px #000000;
+  box-shadow: 4px 4px 0px 0px #2B2B2B;
 }
 
 .hog-btn:active {
   transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0px 0px #000000;
+  box-shadow: 1px 1px 0px 0px #2B2B2B;
 }
 
 .dark .hog-btn {
-  border-color: #FFFFFF;
-  box-shadow: 3px 3px 0px 0px #FFFFFF;
+  border-color: #F7F4ED;
+  box-shadow: 3px 3px 0px 0px #F7F4ED;
 }
 
 .dark .hog-btn:hover {
-  box-shadow: 4px 4px 0px 0px #FFFFFF;
+  box-shadow: 4px 4px 0px 0px #F7F4ED;
 }
 
 .dark .hog-btn:active {
-  box-shadow: 1px 1px 0px 0px #FFFFFF;
+  box-shadow: 1px 1px 0px 0px #F7F4ED;
 }
 
 /* Retro Card Outline */

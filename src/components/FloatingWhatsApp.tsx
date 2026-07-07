@@ -18,7 +18,7 @@ export default function FloatingWhatsApp() {
 
   return (
     <a
-      href="https://wa.me/919999999999" // Fallback number to be updated by Jayant
+      href="https://wa.me/919667344125?text=Hi%20Jayant,%20I'm%20interested%20in%20discussing%20a%20project.%0A%0ABusiness%20Name:%0AIndustry:%0AProject%20Requirement:%0AEstimated%20Budget:%0ATimeline:"
       target="_blank"
       rel="noreferrer"
       aria-label="Chat on WhatsApp"

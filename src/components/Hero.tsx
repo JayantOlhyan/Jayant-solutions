@@ -32,8 +32,8 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-base leading-[1.05] max-w-3xl mb-6"
         >
-          Websites That Generate Leads. <br className="hidden md:inline" />
-          <span className="text-primary underline decoration-primary decoration-4">AI Systems</span> That Save Time.
+          We Build Revenue Systems. <br className="hidden md:inline" />
+          <span className="text-primary underline decoration-primary decoration-4">Not Just Websites.</span>
         </motion.h1>
 
         {/* Subtitle */}
@@ -43,7 +43,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-sm md:text-lg text-text-muted leading-relaxed max-w-2xl font-mono mb-10"
         >
-          We design custom websites, WhatsApp automations, and customer management systems that help Indian businesses save operational hours and capture more leads.
+          We help businesses generate more leads, automate operations, and scale with custom websites, AI systems, and business software.
         </motion.p>
 
         {/* Dashboard Mockup (PostHog Style UX) */}
@@ -118,14 +118,14 @@ export default function Hero() {
 
           <Link
             href="/pricing"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border-custom bg-card-bg hover:bg-neutral-100 dark:hover:bg-neutral-900 px-8 py-3.5 text-sm md:text-base font-mono font-bold text-text-base shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,1)] active:translate-y-0.5 active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border-custom bg-card-bg hover:bg-neutral-100 dark:hover:bg-neutral-900 px-8 py-3.5 text-sm md:text-base font-mono font-bold text-text-base shadow-[3px_3px_0px_0px_rgba(43,43,43,1)] dark:shadow-[3px_3px_0px_0px_rgba(247,244,237,1)] active:translate-y-0.5 active:shadow-[1px_1px_0px_0px_rgba(43,43,43,1)] transition-all cursor-pointer"
           >
             Get Proposal
           </Link>
 
           <Link
             href="/portfolio"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border-custom bg-card-bg hover:bg-neutral-100 dark:hover:bg-neutral-900 px-8 py-3.5 text-sm md:text-base font-mono font-bold text-text-base shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,1)] active:translate-y-0.5 active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border-custom bg-card-bg hover:bg-neutral-100 dark:hover:bg-neutral-900 px-8 py-3.5 text-sm md:text-base font-mono font-bold text-text-base shadow-[3px_3px_0px_0px_rgba(43,43,43,1)] dark:shadow-[3px_3px_0px_0px_rgba(247,244,237,1)] active:translate-y-0.5 active:shadow-[1px_1px_0px_0px_rgba(43,43,43,1)] transition-all cursor-pointer"
           >
             View Case Studies <ArrowRight className="size-4" />
           </Link>

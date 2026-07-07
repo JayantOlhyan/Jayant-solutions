@@ -154,12 +154,11 @@ export default function CaseStudies() {
               onClick={() => setSelectedId(null)}
               className="absolute inset-0 bg-black/60 backdrop-blur-sm"
             />
-            {/* Modal Body */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative z-10 w-full max-w-2xl max-h-[85vh] overflow-y-auto glass-card rounded-[28px] p-6 md:p-10 border border-border-custom shadow-2xl"
+              className="relative z-10 w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-card-bg rounded-[28px] p-6 md:p-10 border-2 border-border-custom shadow-[8px_8px_0px_0px_rgba(43,43,43,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]"
             >
               {/* Close button */}
               <button
@@ -179,31 +178,90 @@ export default function CaseStudies() {
               <div className="space-y-6 text-sm md:text-base text-text-muted">
                 <div>
                   <strong className="text-text-base font-semibold block mb-1">Client Profile</strong>
-                  <p>{activeStudy.client}</p>
+                  <p className="font-mono text-xs">{activeStudy.client} ({activeStudy.industry})</p>
                 </div>
 
-                <div>
-                  <strong className="text-text-base font-semibold block mb-1">Problem & Requirement</strong>
-                  <p>{activeStudy.problem}</p>
+                <div className="border-t border-border-custom pt-4">
+                  <strong className="text-text-base font-semibold block mb-2">What was happening before?</strong>
+                  <div className="border-l-4 border-red-500 bg-red-500/5 px-4 py-3 rounded-r-xl">
+                    <span className="font-bold text-xs text-red-600 block mb-1">❌ BEFORE:</span>
+                    <p className="text-xs md:text-sm text-text-base">{activeStudy.beforeState}</p>
+                  </div>
                 </div>
 
-                <div>
-                  <strong className="text-text-base font-semibold block mb-1">Solution Built</strong>
-                  <p>{activeStudy.solution}</p>
+                <div className="border-t border-border-custom pt-4">
+                  <strong className="text-text-base font-semibold block mb-2">What improvements did this project bring?</strong>
+                  <div className="border-l-4 border-emerald-500 bg-emerald-500/5 px-4 py-3 rounded-r-xl">
+                    <span className="font-bold text-xs text-emerald-600 block mb-1">✅ AFTER:</span>
+                    <p className="text-xs md:text-sm text-text-base">{activeStudy.afterState}</p>
+                  </div>
                 </div>
 
-                <div>
-                  <strong className="text-text-base font-semibold block mb-1">Result & Business Outcome</strong>
-                  <p className="text-primary font-medium">{activeStudy.result}</p>
+                <div className="border-t border-border-custom pt-4">
+                  <strong className="text-text-base font-semibold block mb-1">Operational Helper Built</strong>
+                  <p className="text-xs md:text-sm text-text-base">{activeStudy.solution}</p>
                 </div>
 
-                <div>
-                  <strong className="text-text-base font-semibold block mb-1">Technologies Employed</strong>
-                  <div className="flex flex-wrap gap-2 mt-2">
+                <div className="border-t border-border-custom pt-4">
+                  <strong className="text-text-base font-semibold block mb-1">Verifiable Outcome</strong>
+                  <p className="text-sm font-semibold text-primary">{activeStudy.result}</p>
+                </div>
+
+                {activeStudy.features && activeStudy.features.length > 0 && (
+                  <div className="border-t border-border-custom pt-4">
+                    <strong className="text-text-base font-semibold block mb-2">Key System Features</strong>
+                    <ul className="grid grid-cols-2 gap-2">
+                      {activeStudy.features.map((feature, idx) => (
+                        <li key={idx} className="text-xs text-text-muted flex items-center gap-1.5">
+                          <span className="text-primary font-bold">✓</span> {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {activeStudy.duration && (
+                  <div className="border-t border-border-custom pt-4">
+                    <strong className="text-text-base font-semibold block mb-1">Project Duration</strong>
+                    <p className="text-xs md:text-sm text-text-base font-mono">{activeStudy.duration}</p>
+                  </div>
+                )}
+
+                {(activeStudy.liveWebsite || activeStudy.githubLink) && (
+                  <div className="border-t border-border-custom pt-4 flex flex-wrap gap-4">
+                    {activeStudy.liveWebsite && (
+                      <a
+                        href={activeStudy.liveWebsite}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs font-mono font-bold text-primary hover:underline flex items-center gap-1"
+                      >
+                        🔗 View Live Website
+                      </a>
+                    )}
+                    {activeStudy.githubLink && (
+                      <a
+                        href={activeStudy.githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs font-mono font-bold text-text-base hover:underline flex items-center gap-1"
+                      >
+                        📂 View GitHub Repository
+                      </a>
+                    )}
+                  </div>
+                )}
+
+                {/* Below the fold: Technical details */}
+                <div className="border-t-2 border-dashed border-border-custom pt-6 mt-8">
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-text-muted block mb-2">
+                    ⚙️ Technical Specifications (For Developers)
+                  </span>
+                  <div className="flex flex-wrap gap-2">
                     {activeStudy.tech.map((t) => (
                       <span
                         key={t}
-                        className="font-mono text-xs border border-border-custom bg-card-bg/40 px-3 py-1 rounded"
+                        className="font-mono text-[10px] border border-border-custom bg-card-bg/40 px-2 py-0.5 rounded"
                       >
                         {t}
                       </span>

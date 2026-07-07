@@ -3,11 +3,10 @@ import { CheckCircle, Award, GraduationCap, Code } from "lucide-react";
 
 export default function ProofStrip() {
   const credentials = [
-    { label: "12+ Projects Shipped", icon: CheckCircle },
-    { label: "Hackathon Finalist", icon: Award },
-    { label: "MSIT Delhi (CSE)", icon: GraduationCap },
-    { label: "IIT Guwahati (Data Science & AI)", icon: GraduationCap },
-    { label: "Open Source Contributor", icon: Code },
+    { label: "14+ Projects Shipped", icon: CheckCircle },
+    { label: "33 Hackathons Selected", icon: Award },
+    { label: "10+ Universities (IITs)", icon: GraduationCap },
+    { label: "50+ Open Source Commits", icon: Code },
   ];
 
   return (

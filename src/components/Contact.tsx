@@ -43,11 +43,13 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || selectedDate === null || !selectedTime) return;
     
-    // Simulate booking submission
+    // Simulate booking email submission log
+    console.log(`Routing booking request for ${formData.name} to jayantwebaisystems@gmail.com`);
+    
     setFormSubmitted(true);
   };
 
@@ -102,11 +104,34 @@ export default function Contact() {
               <div>
                 <h4 className="font-bold text-sm text-text-base mb-1">Email directly</h4>
                 <a
-                  href="mailto:hello@jayantolhyan.in"
+                  href="mailto:jayantwebaisystems@gmail.com"
                   className="text-xs md:text-sm text-text-muted hover:text-primary transition-colors"
                 >
-                  hello@jayantolhyan.in
+                  jayantwebaisystems@gmail.com
                 </a>
+              </div>
+            </div>
+
+            <div className="glass-card rounded-2xl p-6 border border-border-custom flex items-start gap-4">
+              <span className="text-lg shrink-0 mt-0.5">📞</span>
+              <div>
+                <h4 className="font-bold text-sm text-text-base mb-1">Call directly</h4>
+                <a
+                  href="tel:+919667344125"
+                  className="text-xs md:text-sm text-text-muted hover:text-primary transition-colors"
+                >
+                  +91 9667344125
+                </a>
+              </div>
+            </div>
+
+            <div className="glass-card rounded-2xl p-6 border border-border-custom flex items-start gap-4">
+              <span className="text-lg shrink-0 mt-0.5">📍</span>
+              <div>
+                <h4 className="font-bold text-sm text-text-base mb-1">Office Location</h4>
+                <span className="text-xs md:text-sm text-text-muted">
+                  Remote (Dwarka, New Delhi)
+                </span>
               </div>
             </div>
 
@@ -128,23 +153,33 @@ export default function Contact() {
               <div>
                 <h4 className="font-bold text-sm text-text-base mb-1">LinkedIn</h4>
                 <a
-                  href="https://linkedin.com/in/jayantolhyan"
+                  href="https://linkedin.com/company/jayant-systems"
                   target="_blank"
                   rel="noreferrer"
                   className="text-xs md:text-sm text-text-muted hover:text-primary transition-colors"
                 >
-                  linkedin.com/in/jayantolhyan
+                  linkedin.com/company/jayant-systems
                 </a>
               </div>
             </div>
 
-            <div className="glass-card rounded-2xl p-6 border border-border-custom text-xs text-text-muted leading-relaxed">
-              <p className="font-semibold text-text-base mb-1">What to expect:</p>
-              <ul className="list-disc pl-4 space-y-1.5">
-                <li>30 minutes total over Google Meet.</li>
-                <li>We analyze your current landing page or manual business flows.</li>
-                <li>You walk away with an actionable execution proposal.</li>
-              </ul>
+            <div className="glass-card rounded-2xl p-6 border border-border-custom text-xs text-text-muted leading-relaxed space-y-3">
+              <div>
+                <p className="font-semibold text-text-base mb-1">⏱️ Response Time:</p>
+                <p>Usually within 12 Hours (Monday–Saturday).</p>
+              </div>
+              <div className="border-t border-border-custom/30 pt-2.5">
+                <p className="font-semibold text-text-base mb-1">📅 Business Hours:</p>
+                <p>Monday – Saturday<br />7:00 AM – 9:00 PM IST</p>
+              </div>
+              <div className="border-t border-border-custom/30 pt-2.5">
+                <p className="font-semibold text-text-base mb-1">What to expect:</p>
+                <ul className="list-disc pl-4 space-y-1 mt-1">
+                  <li>15 minutes total over Google Meet.</li>
+                  <li>We analyze your current landing page or manual business flows.</li>
+                  <li>You walk away with an actionable execution proposal.</li>
+                </ul>
+              </div>
             </div>
           </div>
 

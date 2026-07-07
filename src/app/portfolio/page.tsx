@@ -33,27 +33,63 @@ export default function PortfolioPage() {
                   <span className="text-xs text-text-muted">{study.client}</span>
                 </div>
                 <h3 className="font-serif text-xl md:text-2xl font-bold text-text-base mb-3">{study.title}</h3>
-                <div className="space-y-3 mb-6">
-                  <div>
-                    <span className="text-xs font-bold text-text-base block">Problem</span>
-                    <p className="text-xs md:text-sm text-text-muted">{study.problem}</p>
-                  </div>
-                  <div>
-                    <span className="text-xs font-bold text-text-base block">Solution</span>
-                    <p className="text-xs md:text-sm text-text-muted">{study.solution}</p>
-                  </div>
-                  <div>
-                    <span className="text-xs font-bold text-text-base block">Result</span>
-                    <p className="text-xs md:text-sm text-text-muted font-medium text-emerald-500">{study.result}</p>
-                  </div>
+                
+                <div className="mt-2.5">
+                  <span className="font-bold text-[10px] text-red-600 block mb-0.5">❌ BEFORE:</span>
+                  <p className="text-xs text-text-muted">{study.beforeState}</p>
+                </div>
+                <div className="mt-2.5">
+                  <span className="font-bold text-[10px] text-emerald-600 block mb-0.5">✅ AFTER:</span>
+                  <p className="text-xs text-text-muted">{study.afterState}</p>
+                </div>
+                <div className="mt-2.5">
+                  <span className="text-[10px] font-mono text-text-base block">Operational Helper Built</span>
+                  <p className="text-xs text-text-muted">{study.solution}</p>
+                </div>
+                <div className="mt-2.5">
+                  <span className="text-[10px] font-mono text-text-base block">Result</span>
+                  <p className="text-xs font-semibold text-primary">{study.result}</p>
                 </div>
               </div>
-              <div className="flex flex-wrap gap-2 border-t border-border-custom pt-4">
-                {study.tech.map((t) => (
-                  <span key={t} className="text-[10px] font-mono text-text-muted bg-white/5 border border-border-custom px-2 py-0.5 rounded-md">
-                    {t}
-                  </span>
-                ))}
+              <div className="border-t border-border-custom pt-4 mt-6">
+                {study.features && (
+                  <div className="mb-4">
+                    <span className="text-[10px] font-mono text-text-base block mb-1">Key Features:</span>
+                    <div className="flex flex-wrap gap-1.5">
+                      {study.features.slice(0, 3).map((f) => (
+                        <span key={f} className="text-[9px] bg-neutral-100 dark:bg-neutral-900 border border-border-custom/35 px-1.5 py-0.5 rounded text-text-muted">
+                          {f}
+                        </span>
+                      ))}
+                      {study.features.length > 3 && (
+                        <span className="text-[9px] text-text-muted font-mono self-center">+{study.features.length - 3} more</span>
+                      )}
+                    </div>
+                  </div>
+                )}
+                
+                {(study.liveWebsite || study.githubLink) && (
+                  <div className="flex items-center gap-3 mb-4">
+                    {study.liveWebsite && (
+                      <a href={study.liveWebsite} target="_blank" rel="noreferrer" className="text-[10px] font-mono font-bold text-primary hover:underline">
+                        🔗 Website
+                      </a>
+                    )}
+                    {study.githubLink && (
+                      <a href={study.githubLink} target="_blank" rel="noreferrer" className="text-[10px] font-mono font-bold text-text-base hover:underline">
+                        📂 GitHub
+                      </a>
+                    )}
+                  </div>
+                )}
+
+                <div className="flex flex-wrap gap-2 pt-2 border-t border-border-custom/30">
+                  {study.tech.map((t) => (
+                    <span key={t} className="text-[9px] font-mono text-text-muted bg-white/5 border border-border-custom px-2 py-0.5 rounded-md">
+                      {t}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
