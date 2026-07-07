@@ -1,13 +1,115 @@
 import React from "react";
+import Link from "next/link";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
+  const services = [
+    { name: "AI Solutions Development", href: "/services" },
+    { name: "Custom Web Development", href: "/services" },
+    { name: "Business Automation", href: "/services" },
+    { name: "Mobile App Development", href: "/services" },
+    { name: "Cloud & Backend Engineering", href: "/services" },
+    { name: "UI/UX & Product Design", href: "/services" }
+  ];
+
+  const navigation = [
+    { name: "About", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "Portfolio", href: "/portfolio" },
+    { name: "Process", href: "/process" },
+    { name: "Contact", href: "/contact" }
+  ];
+
+  const resources = [
+    { name: "Cal.com Strategy Booking", href: "https://cal.com/jayant-web-and-ai-systems/strategy-call" },
+    { name: "WhatsApp Support", href: "https://wa.me/9667344125" },
+    { name: "Email Inquiries", href: "mailto:jayantwebaisystems@gmail.com" }
+  ];
+
+  const socials = [
+    { name: "GitHub", href: "https://github.com/JayantOlhyan" },
+    { name: "LinkedIn", href: "https://linkedin.com/company/jayant-systems" },
+    { name: "Twitter / X", href: "https://x.com/JayantSystems" },
+    { name: "Instagram", href: "https://www.instagram.com/jayantolhyan/" },
+    { name: "YouTube", href: "https://www.youtube.com/@JayantWebAISystems" }
+  ];
+
   return (
-    <footer className="w-full border-t border-border-custom bg-card-bg/10 py-12">
-      <div className="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6 text-center">
-        {/* Left Side: Brand & Copyright */}
-        <div className="flex flex-col md:items-start items-center gap-1.5">
+    <footer className="w-full border-t border-border-custom bg-card-bg/25 pt-16 pb-8">
+      <div className="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        {/* Navigation */}
+        <div className="flex flex-col gap-3">
+          <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">Navigation</span>
+          <ul className="space-y-1.5 text-xs text-text-muted">
+            {navigation.map((item) => (
+              <li key={item.name}>
+                <Link href={item.href} className="hover:text-text-base transition-colors">
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Services */}
+        <div className="flex flex-col gap-3">
+          <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">Services</span>
+          <ul className="space-y-1.5 text-xs text-text-muted">
+            {services.map((item) => (
+              <li key={item.name}>
+                <Link href={item.href} className="hover:text-text-base transition-colors">
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Resources */}
+        <div className="flex flex-col gap-3">
+          <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">Resources</span>
+          <ul className="space-y-1.5 text-xs text-text-muted">
+            {resources.map((item) => (
+              <li key={item.name}>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-text-base transition-colors"
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Social Links */}
+        <div className="flex flex-col gap-3">
+          <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">Social Links</span>
+          <ul className="space-y-1.5 text-xs text-text-muted">
+            {socials.map((item) => (
+              <li key={item.name}>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-text-base transition-colors"
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {/* Brand, Copyright and Legal Compliance */}
+      <div className="max-w-5xl mx-auto px-6 border-t border-border-custom/30 pt-8 flex flex-col gap-6">
+        {/* Brand Lockup */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <div className="size-6 text-text-base">
               <svg viewBox="0 0 200 200" className="w-full h-full">
@@ -20,84 +122,34 @@ export default function Footer() {
               Jayant Web & AI Systems
             </span>
           </div>
-          <span className="text-[11px] font-mono tracking-wide text-text-muted mt-1">
+          <span className="text-[11px] font-mono text-text-muted">
             © {currentYear} Jayant Olhyan. All system protocols active.
           </span>
         </div>
 
-        {/* Right Side: Links & Contact */}
-        <div className="flex flex-wrap items-center justify-center gap-6 text-xs md:text-sm text-text-muted">
-          <a
-            href="https://github.com/JayantOlhyan"
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-text-base transition-colors"
-          >
-            GitHub
-          </a>
-          <a
-            href="https://linkedin.com/company/jayant-systems"
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-text-base transition-colors"
-          >
-            LinkedIn
-          </a>
-          <a
-            href="https://x.com/JayantSystems"
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-text-base transition-colors"
-          >
-            Twitter/X
-          </a>
-          <a
-            href="https://www.instagram.com/jayantolhyan/"
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-text-base transition-colors"
-          >
-            Instagram
-          </a>
-          <a
-            href="https://www.youtube.com/@JayantWebAISystems"
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-text-base transition-colors"
-          >
-            YouTube
-          </a>
-          <a
-            href="mailto:jayantwebaisystems@gmail.com"
-            className="hover:text-text-base transition-colors"
-          >
-            Email
-          </a>
+        {/* Legal Links bar */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-border-custom/10 pt-4 text-center">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-[10px] text-text-muted font-mono">
+            <Link href="/privacy" className="hover:text-primary hover:underline transition-colors">
+              Privacy Policy
+            </Link>
+            <span className="text-border-custom/50">•</span>
+            <Link href="/terms" className="hover:text-primary hover:underline transition-colors">
+              Terms & Conditions
+            </Link>
+            <span className="text-border-custom/50">•</span>
+            <Link href="/cookies" className="hover:text-primary hover:underline transition-colors">
+              Cookie Policy
+            </Link>
+            <span className="text-border-custom/50">•</span>
+            <Link href="/pricing-policy" className="hover:text-primary hover:underline transition-colors">
+              Pricing Policy
+            </Link>
+          </div>
+          <span className="text-[10px] font-mono text-text-muted">
+            Systems engineered in Dwarka, New Delhi.
+          </span>
         </div>
-      </div>
-
-      {/* Compliance / Legal Links Sub-Footer */}
-      <div className="max-w-5xl mx-auto px-4 mt-8 pt-6 border-t border-border-custom/30 flex flex-col sm:flex-row items-center justify-between gap-4 text-center">
-        <div className="flex flex-wrap items-center justify-center gap-4 text-[11px] text-text-muted font-mono">
-          <a href="/privacy" className="hover:text-primary hover:underline transition-colors">
-            Privacy Policy
-          </a>
-          <span className="text-border-custom">•</span>
-          <a href="/terms" className="hover:text-primary hover:underline transition-colors">
-            Terms & Conditions
-          </a>
-          <span className="text-border-custom">•</span>
-          <a href="/cookies" className="hover:text-primary hover:underline transition-colors">
-            Cookie Policy
-          </a>
-          <span className="text-border-custom">•</span>
-          <a href="/pricing-policy" className="hover:text-primary hover:underline transition-colors">
-            Pricing Policy
-          </a>
-        </div>
-        <span className="text-[10px] font-mono text-text-muted">
-          Systems engineered in Dwarka, New Delhi.
-        </span>
       </div>
     </footer>
   );
