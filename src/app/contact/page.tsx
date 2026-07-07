@@ -2,6 +2,7 @@ import React from "react";
 import ContactForm from "@/components/ContactForm";
 import FAQ from "@/components/FAQ";
 import CallToAction from "@/components/CallToAction";
+import PageTransition from "@/components/PageTransition";
 import { Mail, MessageSquare, MapPin, Clock } from "lucide-react";
 
 export default function ContactPage() {
@@ -43,8 +44,9 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="hog-grid min-h-screen pb-20 pt-10">
-      <main className="max-w-5xl mx-auto px-6 flex flex-col gap-16">
+    <PageTransition>
+      <div className="hog-grid min-h-screen pb-20 pt-10">
+        <main className="max-w-5xl mx-auto px-6 flex flex-col gap-16">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto">
           <span className="font-mono text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3 py-1 rounded-full mb-4 inline-block">
@@ -129,5 +131,6 @@ export default function ContactPage() {
         </div>
       </main>
     </div>
+  </PageTransition>
   );
 }

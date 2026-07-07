@@ -1,11 +1,12 @@
 import React from "react";
 import { caseStudies, customerPersonas, industriesList } from "@/data/content";
 import { Heart, GraduationCap, Coffee } from "lucide-react";
-
+import PageTransition from "@/components/PageTransition";
 
 export default function PortfolioPage() {
   return (
-    <section className="py-20 md:py-28 max-w-5xl mx-auto px-4">
+    <PageTransition>
+      <section className="py-20 md:py-28 max-w-5xl mx-auto px-4">
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto mb-16">
         <span className="font-mono text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3 py-1 rounded-full mb-4 inline-block">
@@ -171,5 +172,6 @@ export default function PortfolioPage() {
         </div>
       </div>
     </section>
+  </PageTransition>
   );
 }

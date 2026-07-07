@@ -1,6 +1,7 @@
 import React from "react";
 import { coreValues, MISSION, VISION, USP } from "@/data/content";
 import { Check, Code, Cpu, Award, GraduationCap, Server, Shield, Layers, MessageSquare, Terminal, Building2, Target, Globe, Languages, Users } from "lucide-react";
+import PageTransition from "@/components/PageTransition";
 
 export default function AboutPage() {
   const skillsList = [
@@ -66,8 +67,9 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="hog-grid min-h-screen pb-20 pt-10">
-      <main className="max-w-5xl mx-auto px-6 flex flex-col gap-16">
+    <PageTransition>
+      <div className="hog-grid min-h-screen pb-20 pt-10">
+        <main className="max-w-5xl mx-auto px-6 flex flex-col gap-16">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto">
           <span className="font-mono text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3 py-1 rounded-full mb-4 inline-block">
@@ -295,5 +297,6 @@ export default function AboutPage() {
         </div>
       </main>
     </div>
+  </PageTransition>
   );
 }

@@ -1,11 +1,13 @@
 import React from "react";
 import { packages, recommendedAddons } from "@/data/content";
 import { Check, ShieldCheck, Clock, Layers, Star } from "lucide-react";
+import PageTransition from "@/components/PageTransition";
 
 export default function PricingPage() {
   return (
-    <div className="hog-grid min-h-screen pb-20 pt-10">
-      <main className="max-w-5xl mx-auto px-6 flex flex-col gap-20">
+    <PageTransition>
+      <div className="hog-grid min-h-screen pb-20 pt-10">
+        <main className="max-w-5xl mx-auto px-6 flex flex-col gap-20">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-6">
           <span className="font-mono text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3 py-1 rounded-full mb-4 inline-block">
@@ -143,5 +145,6 @@ export default function PricingPage() {
         </div>
       </main>
     </div>
+  </PageTransition>
   );
 }

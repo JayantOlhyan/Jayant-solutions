@@ -10,15 +10,17 @@ import FAQ from "@/components/FAQ";
 import CallToAction from "@/components/CallToAction";
 import Contact from "@/components/Contact";
 import Link from "next/link";
+import PageTransition from "@/components/PageTransition";
 import { ArrowRight, Check } from "lucide-react";
 import { USP, whyWorkWithMe, projectInclusions, frequentlyBuilt } from "@/data/content";
 
 export default function Home() {
   return (
-    <div className="hog-grid min-h-screen pb-20">
-      <main className="flex-1 w-full max-w-5xl mx-auto px-4 md:px-6 pt-16 flex flex-col gap-24 overflow-x-hidden">
-        {/* 1. Hero Section */}
-        <Hero />
+    <PageTransition>
+      <div className="hog-grid min-h-screen pb-20">
+        <main className="flex-1 w-full max-w-5xl mx-auto px-4 md:px-6 pt-16 flex flex-col gap-24 overflow-x-hidden">
+          {/* 1. Hero Section */}
+          <Hero />
 
         {/* 2. Logos / Credentials Proof Strip */}
         <div className="border-y-2 border-border-custom py-6 bg-card-bg/60">
@@ -143,5 +145,6 @@ export default function Home() {
         </div>
       </main>
     </div>
+  </PageTransition>
   );
 }
