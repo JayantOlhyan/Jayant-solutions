@@ -22,7 +22,7 @@ export default function CaseStudies() {
             Proven Proof
           </span>
           <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mb-4 mt-2">
-            Verifiable Case Studies
+            Projects & Case Studies
           </h2>
           <p className="text-sm md:text-base text-text-muted">
             Direct, sourced outcomes of real projects designed and implemented for healthcare, education, and automation.

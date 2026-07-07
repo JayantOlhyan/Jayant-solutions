@@ -166,6 +166,14 @@ export default function AboutPage() {
           </div>
         </div>
 
+        {/* Presentation of hackathons presentation bio note */}
+        <div className="hog-card rounded-2xl p-6 text-left">
+          <span className="font-mono text-xs text-primary font-bold block mb-1">Presented Technical Events</span>
+          <p className="text-xs text-text-muted leading-relaxed">
+            Jayant has actively presented technical projects and solutions at technical events and participated in hackathons hosted by IITs and leading universities.
+          </p>
+        </div>
+
         {/* Industries Served */}
         <div>
           <div className="text-center mb-8 max-w-xl mx-auto">

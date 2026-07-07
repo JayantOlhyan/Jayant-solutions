@@ -192,22 +192,6 @@ export default function Footer() {
             <Link href="/pricing-policy" className="hover:text-primary hover:underline transition-colors">
               Refund Policy
             </Link>
-            <span className="text-border-custom/50">•</span>
-            <Link href="/disclaimer" className="hover:text-primary hover:underline transition-colors">
-              Disclaimer
-            </Link>
-            <span className="text-border-custom/50">•</span>
-            <Link href="/accessibility" className="hover:text-primary hover:underline transition-colors">
-              Accessibility
-            </Link>
-            <span className="text-border-custom/50">•</span>
-            <Link href="/security" className="hover:text-primary hover:underline transition-colors">
-              Security Policy
-            </Link>
-            <span className="text-border-custom/50">•</span>
-            <Link href="/ai-policy" className="hover:text-primary hover:underline transition-colors">
-              AI Usage Policy
-            </Link>
           </div>
           <span className="text-[10px] font-mono text-text-muted shrink-0">
             Built with ❤️ in India. Dwarka, New Delhi.

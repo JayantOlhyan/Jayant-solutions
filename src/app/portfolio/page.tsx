@@ -22,7 +22,7 @@ export default function PortfolioPage() {
 
       {/* Case Studies sorted by Industry */}
       <div className="mb-24">
-        <h2 className="font-serif text-2xl md:text-3xl font-bold text-text-base mb-8">Case Studies by Industry</h2>
+        <h2 className="font-serif text-2xl md:text-3xl font-bold text-text-base mb-8">Projects & Case Studies</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {caseStudies.map((study) => (
             <div key={study.id} className="glass-card rounded-[28px] border border-border-custom p-6 md:p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1">

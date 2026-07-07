@@ -1,12 +1,12 @@
 import React from "react";
-import { CheckCircle, Award, GraduationCap, Code } from "lucide-react";
+import { CheckCircle, Award, Shield, Layers } from "lucide-react";
 
 export default function ProofStrip() {
   const credentials = [
-    { label: "14+ Projects Shipped", icon: CheckCircle },
-    { label: "33 Hackathons Selected", icon: Award },
-    { label: "10+ Universities (IITs)", icon: GraduationCap },
-    { label: "50+ Open Source Commits", icon: Code },
+    { label: "14+ Projects", icon: CheckCircle },
+    { label: "33 Hackathons", icon: Award },
+    { label: "5+ Industries", icon: Layers },
+    { label: "100% Custom Development", icon: Shield }
   ];
 
   return (
@@ -18,10 +18,10 @@ export default function ProofStrip() {
             return (
               <div
                 key={i}
-                className="flex items-center gap-2.5 text-text-muted hover:text-text-base transition-colors duration-300"
+                className="flex items-center gap-2.5 text-text-muted hover:text-text-base transition-colors duration-300 animate-pulse"
               >
                 <Icon className="size-4 text-primary opacity-80" />
-                <span className="font-mono text-[11px] md:text-xs tracking-wider uppercase">
+                <span className="font-mono text-[11px] md:text-xs tracking-wider uppercase font-bold">
                   {cred.label}
                 </span>
               </div>

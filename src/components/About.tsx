@@ -16,24 +16,24 @@ export default function About() {
           {/* Right Column: Founder Copy */}
           <div className="w-full md:w-3/5 flex flex-col justify-center items-start text-left">
             <span className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-primary mb-2">
-              Who is speaking
+              Founder's Note
             </span>
             <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mb-6">
-              Hi, I&apos;m Jayant.
+              My Philosophy
             </h2>
             
             <div className="space-y-4 text-sm md:text-base text-text-muted leading-relaxed">
               <p className="text-text-base font-semibold">
-                I help businesses build websites and AI systems that solve real operational problems.
+                I believe great software should solve real problems, not just showcase technology. Every product we build is designed with scalability, usability, and long-term value in mind.
               </p>
               <p>
                 Whether it is streamlining customer bookings, automating repetitive daily tracking spreadsheets, or launching custom client portals, I translate your manual bottlenecks into automated software outcomes.
               </p>
               <p>
-                I work with a trusted network of specialists when projects require additional custom expertise, ensuring you receive robust delivery while retaining a single point of communication.
+                Jayant Web & AI Systems is founded and led by me. For larger engagements, we collaborate with trusted specialists across design, backend engineering, and cloud infrastructure, ensuring you receive robust delivery while retaining a single point of communication.
               </p>
               <p className="text-xs text-text-muted border-t border-border-custom pt-3 font-mono">
-                Background: B.Tech Computer Science (MSIT Delhi) & IIT Guwahati student credentials • 35+ Professional Certifications • 33 Hackathon selections.
+                Background: B.Tech Computer Science (MSIT Delhi) • Participated in hackathons hosted by IITs and leading universities • 33 Hackathon selections.
               </p>
             </div>
           </div>
