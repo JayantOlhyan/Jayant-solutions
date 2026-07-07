@@ -6,9 +6,9 @@
   --muted: #4B5563;
   --muted-light: #6B7280;
   --border: #E5E7EB;
-  --primary: #FF8A00;
-  --primary-hover: #E07A00;
-  --glow: rgba(255, 138, 0, 0.04);
+  --primary: #2563EB;
+  --primary-hover: #1D4ED8;
+  --glow: rgba(37, 99, 235, 0.04);
   --card-bg: #FFFFFF;
 }
 
@@ -18,14 +18,14 @@
   --muted: #9CA3AF;
   --muted-light: #6B7280;
   --border: #1F2937;
-  --primary: #FF8A00;
-  --primary-hover: #FFA333;
-  --glow: rgba(255, 138, 0, 0.08);
+  --primary: #2563EB;
+  --primary-hover: #3B82F6;
+  --glow: rgba(37, 99, 235, 0.08);
   --card-bg: #111827;
 }
 
 @theme {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-geist), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-ibm-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
@@ -39,7 +39,7 @@
   --color-card-bg: var(--card-bg);
 }
 
-/* PostHog Grid Pattern Background adjusted for brand colors */
+/* Grid Pattern Background adjusted for brand colors */
 .hog-grid {
   background-color: var(--background);
   background-image: 
@@ -60,16 +60,16 @@
   color: #FFFFFF !important;
   font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 16px;
+  font-size: 15px;
   border-radius: 14px;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 12px rgba(255, 138, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
 }
 
 .hog-btn:hover {
   transform: translateY(-1px);
   background: var(--primary-hover);
-  box-shadow: 0 6px 16px rgba(255, 138, 0, 0.2);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.2);
 }
 
 .hog-btn:active {

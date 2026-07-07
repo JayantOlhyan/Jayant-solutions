@@ -41,22 +41,22 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full border-b border-border-custom/10 bg-white/75 dark:bg-[#0B0F19]/75 backdrop-blur-[20px] ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full border-b border-border-custom/10 bg-white/80 dark:bg-[#0B0F19]/80 backdrop-blur-[20px] ${
         scrolled ? "h-16 shadow-[0_1px_0_rgba(0,0,0,0.04)]" : "h-20"
       }`}
     >
       <div className="max-w-[1280px] mx-auto h-full px-6 md:px-10 flex items-center justify-between">
         {/* Brand Monogram & Logo Lockup */}
-        <Link href="/" className="flex items-center gap-3 text-left group">
-          <div className="size-10 shrink-0 font-serif text-2xl font-bold flex items-center justify-center text-primary bg-primary/5 border border-primary/20 rounded-xl transition-all duration-300 group-hover:scale-[1.03] group-hover:border-primary">
-            J•
+        <Link href="/" className="flex items-center gap-4 text-left group">
+          <div className="size-[54px] shrink-0 font-sans text-xl font-bold flex items-center justify-center text-primary bg-white dark:bg-neutral-900 border border-border-custom rounded-xl transition-all duration-300 group-hover:scale-[1.02]">
+            J
           </div>
           <div className="flex flex-col">
-            <span className="font-serif text-lg font-bold tracking-tight text-text-base leading-none">
-              Jayant
+            <span className="font-sans text-lg font-bold tracking-tight text-text-base leading-none">
+              Jayant Web & AI Systems
             </span>
-            <span className="font-sans text-[10px] tracking-[0.12em] uppercase text-text-muted font-medium mt-1">
-              Web & AI Systems
+            <span className="font-sans text-[11px] tracking-[0.08em] uppercase text-text-muted font-medium mt-1">
+              AI & Software Development
             </span>
           </div>
         </Link>
