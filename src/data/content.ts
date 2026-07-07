@@ -639,24 +639,64 @@ export const clientJourneyDays: ClientJourneyDay[] = [
 // FAQ
 export const faqItems: FAQItem[] = [
   {
-    question: "How long does a website take to launch?",
-    answer: "A standard landing page or high-converting site takes 2 to 4 weeks. Custom database apps or deep AI chatbot engines take 3 to 6 weeks."
+    question: "How much does a project cost?",
+    answer: "Every project is unique, so pricing depends on the scope, complexity, features, and timeline. Our website packages start at ₹15,000, while AI-powered applications and custom software typically start at ₹75,000. After understanding your requirements, we provide a detailed proposal with transparent pricing and no hidden charges."
   },
   {
-    question: "Do you offer post-launch support?",
-    answer: "Yes, every custom project includes 30 Days of Free Maintenance support. For ongoing updates, we offer monthly retainer packages."
+    question: "How long does it take to complete a project?",
+    answer: "Timelines vary depending on the project. A business website generally takes 1–4 weeks, while SaaS platforms, AI applications, or enterprise software may require 4–16 weeks. Before development begins, you'll receive a project roadmap with clear milestones and delivery dates."
   },
   {
-    question: "Can you automate WhatsApp or SMS notifications?",
-    answer: "Yes, we integrate with Meta Cloud API and Twilio to trigger automatic invoice notifications, lead booking updates, and review prompts."
+    question: "Do you provide support after the project is launched?",
+    answer: "Yes. We offer post-launch support to ensure your application continues to run smoothly. This includes bug fixes, security updates, technical assistance, performance monitoring, and optional maintenance plans for ongoing improvements and new features."
   },
   {
-    question: "How is AI context managed for custom chatbots?",
-    answer: "We train bots using Retrieval-Augmented Generation (RAG) directly on your company's PDFs, guidelines, and pricing charts so they don't hallucinate."
+    question: "Can you handle hosting and deployment?",
+    answer: "Absolutely. We can deploy your project to cloud platforms such as Vercel, Netlify, AWS, Google Cloud, or other providers based on your requirements. We also assist with domain setup, SSL certificates, email configuration, backups, and production monitoring."
   },
   {
-    question: "Do you build custom dashboard platforms?",
-    answer: "Yes, we specialize in high-performance React/Next.js client portals, operational dashboards, and database pipelines using PostgreSQL/Supabase."
+    question: "Can you integrate Artificial Intelligence into my business?",
+    answer: "Yes. We specialize in AI-powered solutions including chatbots, AI assistants, document processing, workflow automation, recommendation systems, computer vision, and custom AI applications using modern large language models and machine learning technologies."
+  },
+  {
+    question: "Who owns the source code and intellectual property?",
+    answer: "Once the project is completed and the agreed payment has been received, ownership of the custom-developed source code and project assets is transferred to you, unless a different licensing arrangement has been agreed upon in writing. Any third-party libraries remain subject to their respective licenses."
+  },
+  {
+    question: "What payment methods do you accept?",
+    answer: "We typically work with milestone-based payments. A common structure is 40% upfront, 30% after the development milestone, and 30% before final deployment. We support bank transfers, UPI, and other agreed payment methods."
+  },
+  {
+    question: "Do you offer website and software maintenance?",
+    answer: "Yes. We provide flexible maintenance plans that include security updates, server monitoring, backups, feature enhancements, performance optimization, bug fixes, and technical support. Clients can choose monthly or annual maintenance packages."
+  },
+  {
+    question: "How do you ensure project security?",
+    answer: "Security is built into every project. We follow industry best practices including HTTPS, secure authentication, encrypted data transmission, role-based access control, input validation, regular dependency updates, secure API development, and cloud security standards."
+  },
+  {
+    question: "Will my website be mobile-friendly?",
+    answer: "Yes. Every website and application we build is fully responsive and optimized for desktops, tablets, and smartphones to provide a consistent user experience across all devices."
+  },
+  {
+    question: "Can you redesign my existing website or software?",
+    answer: "Yes. We can modernize existing websites, migrate legacy systems, improve UI/UX, optimize performance, add new features, and integrate AI or automation without rebuilding everything from scratch if it's technically feasible."
+  },
+  {
+    question: "Do you sign NDAs and keep project information confidential?",
+    answer: "Yes. We respect client confidentiality and are happy to sign Non-Disclosure Agreements (NDAs) before discussing or starting your project. All project information is handled securely and shared only with authorized team members."
+  },
+  {
+    question: "Can you integrate third-party APIs and business tools?",
+    answer: "Absolutely. We integrate payment gateways, CRM systems, ERP platforms, WhatsApp Business, email services, Google Workspace, cloud storage, analytics tools, and many other third-party APIs to streamline your workflows."
+  },
+  {
+    question: "What technologies do you work with?",
+    answer: "Our primary stack includes Next.js, React, TypeScript, Node.js, Python, FastAPI, Flutter, PostgreSQL, MongoDB, Firebase, Supabase, Docker, AWS, Google Cloud, OpenAI, Google Gemini, Anthropic Claude, and LangChain. We select technologies based on your project's requirements rather than using a one-size-fits-all approach."
+  },
+  {
+    question: "How do I get started?",
+    answer: "Simply contact us through our website, email, or LinkedIn with your project idea. We'll schedule a discovery call to understand your goals, recommend the best technical approach, provide a detailed proposal, and begin development once the scope and timeline are approved."
   }
 ];
 export const processSteps = funnelSteps; // Backward compatibility
