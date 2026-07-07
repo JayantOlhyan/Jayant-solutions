@@ -7,6 +7,9 @@ export interface BlogPost {
   readTime: string;
   author: string;
   content: string;
+  startingPrice: string;
+  timeline: string;
+  deliverables: string[];
 }
 
 export const blogPosts: BlogPost[] = [
@@ -18,6 +21,15 @@ export const blogPosts: BlogPost[] = [
     date: "July 7, 2026",
     readTime: "5 Min Read",
     author: "Jayant Olhyan",
+    startingPrice: "₹75,000",
+    timeline: "3–8 Weeks",
+    deliverables: [
+      "Custom LLM API Integrations (Gemini, OpenAI, Claude)",
+      "Retrieval-Augmented Generation (RAG) Database Pipelines",
+      "Context-Trained Customer Chatbot Assistants",
+      "Intelligent Document Processing (OCR/Parsing) Automations",
+      "Security Protocols & IP Safeguard Setup"
+    ],
     content: `
       <h2>The Shift to AI-First Operations</h2>
       <p>Artificial Intelligence is no longer just a buzzword reserved for enterprise tech labs. Today, generative AI and Large Language Models (LLMs) are accessible utilities that startups and small businesses can leverage to optimize workflows, decrease response times, and scale operations without multiplying headcount.</p>
@@ -41,6 +53,15 @@ export const blogPosts: BlogPost[] = [
     date: "July 6, 2026",
     readTime: "4 Min Read",
     author: "Jayant Olhyan",
+    startingPrice: "₹75,000",
+    timeline: "4–16 Weeks",
+    deliverables: [
+      "Proprietary Database Architectures (PostgreSQL/MongoDB)",
+      "High-Performance Custom Admin Dashboards",
+      "Role-Based Access Controls (RBAC) & Secure JWT Auth",
+      "Modular Frontend Panels (React/Next.js)",
+      "Full Codebase & Intellectual Property Transfer"
+    ],
     content: `
       <h2>The Limit of Pre-packaged Templates</h2>
       <p>Many early-stage businesses launch using generic off-the-shelf software tools. However, as workflows grow complex, companies find themselves paying for multiple monthly SaaS subscriptions while building manual spreadsheet bridges to connect them all. This creates fragmentation and operational bottlenecks.</p>
@@ -64,6 +85,15 @@ export const blogPosts: BlogPost[] = [
     date: "July 5, 2026",
     readTime: "6 Min Read",
     author: "Jayant Olhyan",
+    startingPrice: "₹35,000",
+    timeline: "2–6 Weeks",
+    deliverables: [
+      "Responsive UI layout styled using Tailwind CSS",
+      "Dynamic data queries with Next.js App Router API hooks",
+      "Optimized Google Core Web Vitals (LCP & INP optimization)",
+      "Full SEO setup with robots.txt, sitemaps, and JSON-LD organization markup",
+      "Domain routing setup & production SSL certificates deployment"
+    ],
     content: `
       <h2>Why Web Performance Correlates with Conversions</h2>
       <p>A website is not just a digital brochure; it is the entry funnel for your business operations. Studies show that websites taking longer than 3 seconds to load suffer from 50% drop-off rates. Fast page render speeds and clean responsive layouts directly impact search engine indexing and user trust.</p>
@@ -87,6 +117,15 @@ export const blogPosts: BlogPost[] = [
     date: "July 4, 2026",
     readTime: "5 Min Read",
     author: "Jayant Olhyan",
+    startingPrice: "₹80,000",
+    timeline: "4–10 Weeks",
+    deliverables: [
+      "iOS and Android App Store-Ready Codebase via Flutter",
+      "Custom UI layouts custom-branded for mobile screen ratios",
+      "Push Notifications (FCM) & SMS alert integration hooks",
+      "Local storage cache & offline usability setups",
+      "App Store & Google Play Console deployment guides"
+    ],
     content: `
       <h2>The Rise of Mobile-First Operations</h2>
       <p>With mobile phones generating more than half of global web traffic, having a dedicated mobile app gives companies direct access to client engagement. From women's safety SOS applications to tournament tracker networks, mobile apps serve as real-time interaction hubs.</p>
@@ -110,6 +149,15 @@ export const blogPosts: BlogPost[] = [
     date: "July 3, 2026",
     readTime: "4 Min Read",
     author: "Jayant Olhyan",
+    startingPrice: "₹25,000",
+    timeline: "1–4 Weeks",
+    deliverables: [
+      "Integrations with Meta Cloud APIs for WhatsApp notifications",
+      "Automatic data routing from client submissions to databases",
+      "Custom integrations with Google Workspace APIs (Sheets, Drive, Gmail)",
+      "Automated invoice generations & payment receipt alerts",
+      "Operational audits mapping manual bottlenecks to API scripts"
+    ],
     content: `
       <h2>The Hidden Cost of Manual Operations</h2>
       <p>Every hour your staff spends copying data from client emails into spreadsheets, generating PDF invoices, or sending manual reminders is an hour lost. Manual workflows scale poorly and are highly prone to data entry mistakes.</p>
@@ -133,6 +181,15 @@ export const blogPosts: BlogPost[] = [
     date: "July 2, 2026",
     readTime: "5 Min Read",
     author: "Jayant Olhyan",
+    startingPrice: "₹50,000",
+    timeline: "2–6 Weeks",
+    deliverables: [
+      "Scalable infrastructure layout configured on AWS or GCP networks",
+      "Dockerized container builds for clean workspace migrations",
+      "Automated CI/CD deployment flow via GitHub Actions",
+      "Safe database backups, recovery routes, and SSL mapping",
+      "Uptime status alerts & server performance log monitoring setups"
+    ],
     content: `
       <h2>The Architecture of Scalable Systems</h2>
       <p>Building high-quality code is only half the battle. To serve users reliably, your application requires a secure, auto-scaling cloud environment. Modern DevOps practices ensure your platform handles traffic spikes without crashing.</p>
