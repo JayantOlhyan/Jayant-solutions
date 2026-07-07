@@ -90,6 +90,10 @@ export default function Footer() {
           <a href="/cookies" className="hover:text-primary hover:underline transition-colors">
             Cookie Policy
           </a>
+          <span className="text-border-custom">•</span>
+          <a href="/pricing-policy" className="hover:text-primary hover:underline transition-colors">
+            Pricing Policy
+          </a>
         </div>
         <span className="text-[10px] font-mono text-text-muted">
           Systems engineered in Dwarka, New Delhi.
