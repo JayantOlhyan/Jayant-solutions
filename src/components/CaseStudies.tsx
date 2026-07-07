@@ -71,13 +71,17 @@ export default function CaseStudies() {
                   {study.title}
                 </h3>
                 
-                <p className="text-sm md:text-base text-text-muted mb-4">
+                <p className="text-sm md:text-base text-text-muted mb-3">
                   <strong className="text-text-base font-semibold block mb-1">Problem:</strong>
                   {study.problem}
                 </p>
+                <p className="text-sm md:text-base text-text-muted mb-3">
+                  <strong className="text-text-base font-semibold block mb-1">Solution:</strong>
+                  {study.solution}
+                </p>
                 <p className="text-sm md:text-base text-text-muted mb-6">
-                  <strong className="text-text-base font-semibold block mb-1">Outcome:</strong>
-                  <span className="text-primary font-medium">{study.outcome}</span>
+                  <strong className="text-text-base font-semibold block mb-1">Result:</strong>
+                  <span className="text-primary font-medium">{study.result}</span>
                 </p>
 
                 {/* Tech Badges */}
@@ -184,13 +188,13 @@ export default function CaseStudies() {
                 </div>
 
                 <div>
-                  <strong className="text-text-base font-semibold block mb-1">Engineering & Build Specification</strong>
-                  <p>{activeStudy.built}</p>
+                  <strong className="text-text-base font-semibold block mb-1">Solution Built</strong>
+                  <p>{activeStudy.solution}</p>
                 </div>
 
                 <div>
-                  <strong className="text-text-base font-semibold block mb-1">Verifiable Outcome</strong>
-                  <p className="text-primary font-medium">{activeStudy.outcome}</p>
+                  <strong className="text-text-base font-semibold block mb-1">Result & Business Outcome</strong>
+                  <p className="text-primary font-medium">{activeStudy.result}</p>
                 </div>
 
                 <div>

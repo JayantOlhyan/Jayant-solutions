@@ -39,12 +39,12 @@ export default function PortfolioPage() {
                     <p className="text-xs md:text-sm text-text-muted">{study.problem}</p>
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-text-base block">Built Solution</span>
-                    <p className="text-xs md:text-sm text-text-muted">{study.built}</p>
+                    <span className="text-xs font-bold text-text-base block">Solution</span>
+                    <p className="text-xs md:text-sm text-text-muted">{study.solution}</p>
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-text-base block">Business Outcome</span>
-                    <p className="text-xs md:text-sm text-text-muted font-medium text-emerald-500">{study.outcome}</p>
+                    <span className="text-xs font-bold text-text-base block">Result</span>
+                    <p className="text-xs md:text-sm text-text-muted font-medium text-emerald-500">{study.result}</p>
                   </div>
                 </div>
               </div>

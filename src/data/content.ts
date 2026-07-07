@@ -12,8 +12,8 @@ export interface CaseStudy {
   client: string;
   industry: string;
   problem: string;
-  built: string;
-  outcome: string;
+  solution: string;
+  result: string;
   tech: string[];
   image: string;
 }
@@ -47,19 +47,66 @@ export interface ClientJourneyDay {
 }
 
 // Positioning
-export const USP = "We help Indian businesses reduce manual work by up to 80% using AI automation and modern software.";
-export const MISSION = "Our mission is to help 10,000 Indian businesses adopt AI and automation.";
-export const VISION = "To become India's most trusted AI transformation company.";
+export const USP = "We help Indian businesses reduce manual work by up to 80% using automated workflows and custom software systems.";
+export const MISSION = "Our mission is to help 10,000 Indian businesses adopt automated operational workflows.";
+export const VISION = "To become India's most trusted partner for operational systems transformation.";
 
 // Core Values
 export const coreValues = [
   { name: "Ownership", desc: "We take full accountability for building solutions that work flawlessly." },
-  { name: "Innovation", desc: "Leveraging cutting-edge AI agents and LLMs to solve ancient efficiency bottlenecks." },
-  { name: "Speed", desc: "Deploying high-quality software fast without dragging out timelines." },
-  { name: "Transparency", desc: "Honest scopes, upfront pricing packages, and zero surprise hourly billing." },
-  { name: "Customer Obsession", desc: "We align strictly to business outcomes, not aesthetic vanities." },
-  { name: "Continuous Learning", desc: "Constantly testing new LLMs, vector search, and web technologies." },
-  { name: "Quality First", desc: "No templates or quick copies. Custom, robust code built for scale." }
+  { name: "Automation First", desc: "Leveraging smart tools to solve legacy operational and efficiency bottlenecks." },
+  { name: "Speed", desc: "Deploying high-quality custom systems fast without dragging out timelines." },
+  { name: "Transparency", desc: "Honest scopes, upfront pricing packages, and zero surprise hourly bills." },
+  { name: "Business Outcomes", desc: "We align strictly to operational goals like lead conversion and time saved." },
+  { name: "Continuous Support", desc: "Constantly auditing and updating systems to maintain high performance." },
+  { name: "Quality First", desc: "No generic templates. Custom, robust platforms built for your specific workflow." }
+];
+
+// Why work with me parameters
+export const whyWorkWithMe = [
+  {
+    title: "Direct communication with the developer",
+    desc: "No sales teams or middlemen. You work directly with me from discovery to system launch."
+  },
+  {
+    title: "Weekly progress updates",
+    desc: "You will always know what has been completed, what is in progress, and what is scheduled next."
+  },
+  {
+    title: "Fixed scope & transparent pricing",
+    desc: "No hidden charges or unexpected hourly invoices. Every deliverable is agreed upon before we start coding."
+  },
+  {
+    title: "Modern, scalable technology",
+    desc: "We build systems that are lightweight, easy to maintain, and can grow alongside your business operational scale."
+  },
+  {
+    title: "Long-term support support",
+    desc: "I do not disappear after launching your system. Maintenance and support retainers are always available."
+  }
+];
+
+// Project Risk Reversals
+export const projectInclusions = [
+  "Milestone-based payment schedules",
+  "Full source code ownership after final payment",
+  "Weekly live prototype demos",
+  "Clear system setup documentation",
+  "30 days post-launch technical support",
+  "Automated secure database backups",
+  "Transparent Slack/WhatsApp communication updates"
+];
+
+// Frequently Built Solutions
+export const frequentlyBuilt = [
+  "Lead Capture Websites",
+  "AI Customer Support Chatbots",
+  "CRM Admin Dashboards",
+  "WhatsApp API Notification Automations",
+  "Internal Operations Panels",
+  "Appointment Scheduling Workflows",
+  "Learning Management Platforms",
+  "Internal Business Utility Tools"
 ];
 
 // Packages
@@ -67,41 +114,41 @@ export const packages: Package[] = [
   {
     name: "AI Business Starter",
     price: "₹75k+",
-    tagline: "Best for Landing Pages & Initial Automation setups",
+    tagline: "Best for growing lead-capture & basic automation",
     features: [
-      "Custom business website / landing page",
-      "Interactive AI Chatbot trained on your knowledge base",
-      "Essential lead capture form integration",
-      "Basic WhatsApp click-to-chat setup",
-      "SEO setup & fast page speeds",
-      "30 days support"
+      "Professional Website Layout to win more customers",
+      "Interactive Customer Support Chatbot to handle enquiries",
+      "Instant Lead Capture & alert routing system",
+      "One-click WhatsApp direct chat shortcut setup",
+      "Search Engine Optimization & fast page loading speeds",
+      "30 days post-launch technical support"
     ]
   },
   {
     name: "Growth System",
     price: "₹2L+",
-    tagline: "Best for scaling lead-generation & CRM pipelines",
+    tagline: "Best for scaling lead-generation & sales pipeline tracking",
     features: [
-      "Full multi-page custom business website",
-      "WhatsApp Business API automations",
-      "CRM workflows (HubSpot, Zoho, or Salesforce)",
-      "Automated lead qualification scripts",
-      "Internal knowledge base wiki setup",
-      "30 days support"
+      "Complete multi-page custom business system",
+      "WhatsApp Business API automations to alert you of new leads",
+      "Connect All Your Business Tools (CRM, HubSpot, Zoho)",
+      "Automated Lead Qualification and follow-up templates",
+      "Internal Business Knowledge Base setup for your staff",
+      "30 days post-launch priority support"
     ],
     isPopular: true
   },
   {
     name: "AI Sales Engine",
     price: "₹3L+",
-    tagline: "High-performance operational engine",
+    tagline: "High-performance operational engine to eliminate manual processes",
     features: [
-      "Custom AI Voice Agent / AI Customer Support integration",
-      "Advanced custom dashboards & database",
-      "Internal AI assistants & custom GPT utilities",
-      "Automated email follow-up funnels",
-      "Analytics & key performance indicators tracking",
-      "Priority 24/7 post-launch support"
+      "Automated phone support agents and inbound booking hooks",
+      "Custom Admin Dashboard to track business performance",
+      "Internal Automated Assistants to handle routine operational tasks",
+      "Automated email follow-up funnels to nurture warm leads",
+      "Custom business analytics and metrics reporting panels",
+      "Priority 24/7 post-launch system maintenance support"
     ]
   }
 ];
@@ -109,33 +156,33 @@ export const packages: Package[] = [
 // Special Industry Packages
 export const industryPackages = [
   {
-    title: "Healthcare AI Package",
-    desc: "AI booking assistant, offline medical triage UI, and automatic clinic resource tracking.",
+    title: "Healthcare System Package",
+    desc: "Automated booking assistant, offline medical triage form interface, and automated patient records sync.",
     price: "Custom Scope"
   },
   {
-    title: "Education AI Package",
-    desc: "Lesson planners, automated parent portal alerts, and student attendance tracker dashboards.",
+    title: "Education Portal Package",
+    desc: "Lesson planners, automated parent portal notification triggers, and student attendance tracker dashboards.",
     price: "Custom Scope"
   },
   {
     title: "Restaurant Growth Package",
-    desc: "Automated booking, automated Google review prompts, WhatsApp CRM, and online orders sync.",
+    desc: "Google Review automation, online booking workflows, WhatsApp ordering channels, and direct POS sync.",
     price: "Custom Scope"
   }
 ];
 
-// Detailed Case Studies
+// Case Studies matching Problem / Solution / Result parameters
 export const caseStudies: CaseStudy[] = [
   {
     id: "healthkinator",
     title: "Offline Medical Triage & Diagnostics Engine",
     client: "Healthkinator",
     industry: "Healthcare",
-    problem: "Rural healthcare centers required rapid offline diagnostic support without stable internet connectivity.",
-    built: "Designed an offline-capable AI triage engine with mobile diagnostic forms and automatic sync backends.",
-    outcome: "+40% patient throughput, packaged into research paper co-authored with Dr. Pooja Khurana (MSIT).",
-    tech: ["React Native", "FastAPI", "SQLite", "TensorFlow Lite"],
+    problem: "Rural healthcare clinics struggled with slow diagnostic workflows and bad record tracking due to unstable internet connectivity.",
+    solution: "I built an offline-capable diagnostic form app that registers patient profiles locally and syncs back to databases automatically when back online.",
+    result: "Increased clinic patient throughput by 40% and co-authored research paper with Dr. Pooja Khurana (MSIT).",
+    tech: ["React Native", "FastAPI", "SQLite Sync"],
     image: "/projects/healthkinator.webp"
   },
   {
@@ -143,10 +190,10 @@ export const caseStudies: CaseStudy[] = [
     title: "Unified School Portal & Management Platform",
     client: "Teacher Sathi",
     industry: "Education",
-    problem: "Teachers and administration were burdened by fragmented tools for lesson plans, scheduling, and student tracking.",
-    built: "Created a comprehensive web dashboard connecting grading, attendance, and custom lesson-builder modules.",
-    outcome: "-70% manual administration work, active in local coaching and learning centers.",
-    tech: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS"],
+    problem: "A local coaching center and school struggled with teachers spending hours manually tracking homework, grading, and schedules across scattered files.",
+    solution: "I engineered a centralized web portal that simplifies grading, lesson building, and student attendance tracking into one login dashboard.",
+    result: "Reduced daily administrative time for school staff by 70%, active in local coaching centers.",
+    tech: ["Next.js", "PostgreSQL", "Tailwind CSS"],
     image: "/projects/teachersathi.webp"
   },
   {
@@ -154,9 +201,9 @@ export const caseStudies: CaseStudy[] = [
     title: "Digital Public Governance Interface",
     client: "CivicSetu",
     industry: "Government",
-    problem: "Citizens faced massive lag when trying to check local municipal progress updates or request utilities support.",
-    built: "Engineered a lightning-fast static public interface with localized forums and dashboard tracking.",
-    outcome: "+30% support ticket response rate, hostable on high-availability edge nodes.",
+    problem: "Citizens faced long support queues and administrative delays when trying to track local development tasks and submit complaints.",
+    solution: "I designed a simple public interface with interactive tracking maps and direct support ticket submissions.",
+    result: "Boosted support ticket response rates by 30% and simplified public progress reporting.",
     tech: ["Next.js", "Tailwind CSS", "Supabase"],
     image: "/projects/civicsetu.webp"
   },
@@ -165,9 +212,9 @@ export const caseStudies: CaseStudy[] = [
     title: "Agricultural Smart Crop Diagnostics Engine",
     client: "FarmIQ",
     industry: "Agriculture",
-    problem: "Farmers lacked instantaneous guidance on pest damage and crop decay, leading to high seasonal losses.",
-    built: "Built a mobile smart crop diagnostic scanner matching local farm photos with remote crop databases.",
-    outcome: "Helped farm centers identify leaf sickness in seconds under poor connectivity limits.",
+    problem: "Local farming centers lacked quick diagnostic tools to detect plant diseases, leading to severe crop loss before treatment could start.",
+    solution: "I built an agricultural smart scanner app that maps farm photos against crop disease datasets.",
+    result: "Allowed farmers to identify crop leaf sickness in seconds on mobile with poor internet connection.",
     tech: ["Flutter", "FastAPI", "MongoDB"],
     image: "/projects/farmiq.webp"
   },
@@ -176,23 +223,23 @@ export const caseStudies: CaseStudy[] = [
     title: "AI-Powered Surveillance & Security System",
     client: "Sentinel AI",
     industry: "AI / Security",
-    problem: "Commercial properties needed real-time threat categorization from existing cameras without hiring large manual teams.",
-    built: "Built a customized computer vision dashboard with custom trigger-events, alerts, and live video analytics feed.",
-    outcome: "Provided automated security analysis, demonstrating rapid frame detection in hackathon testing.",
-    tech: ["React", "Python", "OpenCV", "FastAPI", "WebSockets"],
+    problem: "Commercial warehouse properties needed automated threat alerts to secure large zones without hiring round-the-clock manual guard teams.",
+    solution: "I built an automated video surveillance dashboard that detects visual security events and sends immediate alerts to warehouse owners.",
+    result: "Offered automated security monitoring, demonstrating rapid threat detection in local security test runs.",
+    tech: ["React", "Python", "OpenCV"],
     image: "/projects/sentinelai.webp"
   }
 ];
 
 // Target Industries Detail
 export const industriesList = [
-  { name: "Healthcare", desc: "Clinics, diagnostics labs, offline triage assistants." },
+  { name: "Healthcare", desc: "Clinics, diagnostics labs, automated booking systems." },
   { name: "Education", desc: "Schools, EdTech portals, coaching centers." },
-  { name: "Real Estate", desc: "WhatsApp lead captures, automatic scheduling, 3D portfolios." },
+  { name: "Real Estate", desc: "WhatsApp lead captures, automated scheduling, visual portfolios." },
   { name: "Restaurants", desc: "Google review automation, online booking systems, WhatsApp ordering." },
-  { name: "Law Firms", desc: "AI document discovery engines, internal knowledge bases, booking." },
-  { name: "Manufacturing", desc: "Dashboard operations tracking, supplier CRM automation." },
-  { name: "Retail", desc: "E-commerce apps, WhatsApp marketing alerts, checkout funnels." }
+  { name: "Law Firms", desc: "Document lookup interfaces, automated calendars, contact forms." },
+  { name: "Manufacturing", desc: "Admin dashboard order tracking, automated customer management." },
+  { name: "Retail", desc: "E-commerce stores, WhatsApp customer alerts, checkout checkout funnels." }
 ];
 
 // Customer Personas
@@ -204,7 +251,7 @@ export const customerPersonas: CustomerPersona[] = [
     budget: "₹1.5L - ₹3L",
     decisionMaker: "Owner / Chief Physician",
     goals: ["Increase patient bookings", "Free up front-desk staff time", "Offer rapid digital services"],
-    objections: ["Is the data HIPAA compliant?", "Will older doctors find it complex?"],
+    objections: ["Is the data secure?", "Will older staff find it complex?"],
     behavior: "Referred by fellow physicians, values stability over flashy visuals"
   },
   {
@@ -224,7 +271,7 @@ export const customerPersonas: CustomerPersona[] = [
     budget: "₹80k - ₹1.5L",
     decisionMaker: "Owner / General Manager",
     goals: ["Direct booking & WhatsApp orders", "Automatic Google review prompt trigger after payments", "Reduced manual ordering work"],
-    objections: ["Will it integrate with our existing POS?", "Is there support during weekend dinner rush hours?"],
+    objections: ["Will it integrate with our existing POS?", "Is there support during weekend dinner rush hours??"],
     behavior: "Fast decision maker, focused on immediate ROI and reviews"
   }
 ];
@@ -232,30 +279,30 @@ export const customerPersonas: CustomerPersona[] = [
 // Services Breakdown
 export const aiServices: ServiceDetail[] = [
   {
-    title: "AI Chatbots & Support Bots",
-    description: "Build 24/7 intelligent agents that speak with your clients using context-specific company rules.",
+    title: "Automate Repetitive Business Tasks",
+    description: "Build automated workflows and digital assistants that handle routine company tasks 24/7.",
     points: [
-      "Custom LLM training on business PDFs and sites",
-      "Dynamic lead pre-qualification questions",
-      "Interactive chat interface easily embedded on any page"
+      "Custom company lookup assistants trained on your guide files",
+      "Automated lead qualification and route tracking systems",
+      "Intelligent messaging channels that embed directly on any website"
     ]
   },
   {
-    title: "AI Voice Agents",
-    description: "Automate outbound and inbound phone support to register bookings or follow up on client inquiries.",
+    title: "AI Voice Agents & Phone Assistants",
+    description: "Automate call management to record bookings or follow up on incoming client requests.",
     points: [
-      "Natural conversational pacing & local voice accents",
-      "Automatic transcription and CRM entry",
-      "Instant scheduling booking hooks"
+      "Natural phone conversations with standard pacing",
+      "Automatic transcription and customer database log updates",
+      "Immediate appointment scheduler booking triggers"
     ]
   },
   {
-    title: "WhatsApp & CRM Automation",
-    description: "Convert traffic directly via WhatsApp alerts connected to HubSpot, Zoho, or custom Google Sheets.",
+    title: "WhatsApp & CRM Automations",
+    description: "Capture and qualify leads on WhatsApp, syncing details directly to HubSpot or Zoho database pipelines.",
     points: [
-      "Official Meta Cloud API integrations",
-      "Instant reply prompts & payment reminders",
-      "Lead routing based on geographical parameters"
+      "Official Meta Cloud API platform connections",
+      "Instant auto-responses, scheduling tools, and invoice triggers",
+      "Automatic lead routing based on operational rules"
     ]
   }
 ];
@@ -263,7 +310,7 @@ export const aiServices: ServiceDetail[] = [
 export const webDevelopmentServices: ServiceDetail[] = [
   {
     title: "Business & Startup Websites",
-    description: "Premium, responsive custom interfaces designed to showcase credibility and book prospects.",
+    description: "Premium, responsive custom interfaces designed to showcase credibility and convert prospects.",
     points: [
       "Bespoke designs built with Next.js",
       "SEO architecture yielding high Google page speeds",
@@ -281,14 +328,13 @@ export const webDevelopmentServices: ServiceDetail[] = [
   }
 ];
 
-// Sales Funnel Steps
+// Sales Funnel Steps (What Happens Next)
 export const funnelSteps = [
-  { stage: "Cold Outreach / Ads", desc: "Targeted LinkedIn connections & inbound B2B marketing pages." },
-  { stage: "Lead Magnet / Value Demo", desc: "Interactive calculators or problem solvers demonstrating immediate automation value." },
-  { stage: "Discovery Call", desc: "30-minute strategic consult checking operational bottlenecks." },
-  { stage: "Custom Proposal", desc: "Detailed breakdown of features, outcomes, and clear project pricing." },
-  { stage: "Prototype Demo", desc: "Interactive mockup showing the proposed interface design." },
-  { stage: "Launch & Retention", desc: "System hand-off, staff training, and monthly retainer support options." }
+  { stage: "1. Book Consultation", desc: "Select a slot on our booking scheduler below to request your session." },
+  { stage: "2. Operations Audit Discussion", desc: "A brief conversation where we audit your current manual tasks and spreadsheets." },
+  { stage: "3. Custom System Proposal", desc: "A transparent proposal outlining deliverables, timelines, and pricing before work starts." },
+  { stage: "4. Development & Demos", desc: "We write the custom code and run weekly prototype demos so you track progress." },
+  { stage: "5. Setup & System Launch", desc: "Rigorous testing, connecting your custom domains, training your staff, and launching live." }
 ];
 
 // Client Journey Stepper Schedule
@@ -325,3 +371,4 @@ export const faqItems: FAQItem[] = [
     answer: "Yes, we specialize in high-performance React/Next.js client portals, operational dashboards, and database pipelines using PostgreSQL/Supabase."
   }
 ];
+export const processSteps = funnelSteps; // Backward compatibility

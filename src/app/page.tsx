@@ -2,29 +2,67 @@ import React from "react";
 import Hero from "@/components/Hero";
 import ProofStrip from "@/components/ProofStrip";
 import ProblemSolver from "@/components/ProblemSolver";
+import CaseStudies from "@/components/CaseStudies";
+import Packages from "@/components/Packages";
+import Process from "@/components/Process";
+import About from "@/components/About";
 import FAQ from "@/components/FAQ";
+import Contact from "@/components/Contact";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { USP } from "@/data/content";
+import { ArrowRight, Check } from "lucide-react";
+import { USP, whyWorkWithMe, projectInclusions, frequentlyBuilt } from "@/data/content";
 
 export default function Home() {
   return (
-    <div className="hog-grid min-h-screen pb-16">
-      <main className="flex-1 w-full max-w-5xl mx-auto px-4 md:px-6 pt-16 flex flex-col gap-20 overflow-x-hidden">
-        {/* Hero Section */}
+    <div className="hog-grid min-h-screen pb-20">
+      <main className="flex-1 w-full max-w-5xl mx-auto px-4 md:px-6 pt-16 flex flex-col gap-24 overflow-x-hidden">
+        {/* 1. Hero Section */}
         <Hero />
 
-        {/* Credibility Proof Strip */}
+        {/* 2. Logos / Credentials Proof Strip */}
         <div className="border-y-2 border-border-custom py-6 bg-card-bg/60">
           <ProofStrip />
         </div>
 
-        {/* Dynamic / Interactive Problem Solver */}
+        {/* Why Work With Me Section (B2B Trust Builder) */}
+        <div className="border-2 border-border-custom rounded-[32px] p-6 md:p-8 bg-card-bg shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]">
+          <span className="font-mono text-xs tracking-widest uppercase text-primary mb-2 block">Value Partner</span>
+          <h2 className="font-serif text-2xl md:text-4xl font-bold text-text-base mb-8">Why Businesses Choose Me</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {whyWorkWithMe.map((item, idx) => (
+              <div key={idx} className="border border-border-custom p-5 rounded-2xl bg-background-base">
+                <h4 className="font-bold text-text-base text-sm md:text-base flex items-center gap-2">
+                  <span className="text-emerald-500 font-bold">✓</span> {item.title}
+                </h4>
+                <p className="text-xs md:text-sm text-text-muted mt-2 leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Frequently Built Solutions Section */}
+        <div className="border-2 border-border-custom rounded-[32px] p-6 md:p-8 bg-card-bg shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]">
+          <span className="font-mono text-xs tracking-widest uppercase text-primary mb-2 block">Our Scope</span>
+          <h2 className="font-serif text-2xl md:text-4xl font-bold text-text-base mb-8">Frequently Shipped Solutions</h2>
+          
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {frequentlyBuilt.map((item, idx) => (
+              <div key={idx} className="border border-border-custom p-4 rounded-xl text-center bg-background-base flex items-center justify-center font-mono text-xs font-bold">
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 3. Problems We Solve (Interactive Bottleneck / Solution Selector) */}
         <div className="border-2 border-border-custom rounded-[32px] p-6 bg-card-bg shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]">
           <ProblemSolver />
         </div>
 
-        {/* Unique Selling Proposition Highlight Panel */}
+        {/* 4. Unique Selling Proposition Highlight Panel */}
         <div className="hog-card rounded-[28px] p-8 md:p-12 text-center max-w-3xl mx-auto">
           <span className="font-mono text-xs tracking-widest uppercase text-primary mb-2 block">Our USP</span>
           <p className="font-serif text-xl md:text-2xl font-bold text-text-base leading-snug">
@@ -32,7 +70,30 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Quick Route Shortcuts to New Pages */}
+        {/* 5. Case Studies */}
+        <div className="border-t border-border-custom pt-8">
+          <CaseStudies />
+        </div>
+
+        {/* 6. Pricing Packages */}
+        <div>
+          <Packages />
+          
+          {/* Risk Reversal Checklist under Packages */}
+          <div className="mt-12 border-2 border-border-custom rounded-[28px] p-6 md:p-8 bg-card-bg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] max-w-3xl mx-auto">
+            <h4 className="font-serif text-lg md:text-xl font-bold text-text-base mb-4 text-center">Every Automated Project Includes:</h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              {projectInclusions.map((inclusion, idx) => (
+                <div key={idx} className="flex items-start gap-2 text-xs md:text-sm text-text-muted">
+                  <Check className="size-4 text-primary shrink-0 mt-0.5" />
+                  <span>{inclusion}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Quick Capabilities Shortcuts */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="hog-card rounded-3xl p-6 flex flex-col justify-between items-start">
             <div>
@@ -61,9 +122,20 @@ export default function Home() {
           </div>
         </div>
 
-        {/* FAQ Segment */}
+        {/* 7. Stepper Process Timeline */}
+        <Process />
+
+        {/* 8. About the Founder */}
+        <About />
+
+        {/* 9. FAQ Segment */}
         <div className="border-2 border-border-custom rounded-[32px] p-6 bg-card-bg shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]">
           <FAQ />
+        </div>
+
+        {/* 10. Contact / Scheduler Audit Hook */}
+        <div className="border-t border-border-custom pt-8">
+          <Contact />
         </div>
       </main>
     </div>

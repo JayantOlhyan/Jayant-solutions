@@ -6,7 +6,7 @@ export default function About() {
       <div className="max-w-5xl mx-auto px-4">
         <div className="flex flex-col md:flex-row gap-12 items-center">
           {/* Left Column: Visual Profile Placeholder */}
-          <div className="w-full md:w-2/5 aspect-[4/5] max-w-[320px] rounded-3xl relative overflow-hidden glass-card flex flex-col justify-center items-center shadow-lg">
+          <div className="w-full md:w-2/5 aspect-[4/5] max-w-[320px] rounded-3xl relative overflow-hidden glass-card flex flex-col justify-center items-center shadow-lg border-2 border-border-custom">
             <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent opacity-80" />
             
             {/* Monogram Silhouette (Sleek Fallback) */}
@@ -17,8 +17,8 @@ export default function About() {
               <span className="font-mono text-[10px] tracking-widest uppercase text-text-muted mt-2">
                 Jayant Olhyan
               </span>
-              <span className="font-sans text-[11px] text-text-muted">
-                MSIT CSE & IIT Guwahati AI Student
+              <span className="font-sans text-[11px] text-text-muted text-center px-4">
+                Founder, Jayant&apos;s Studio
               </span>
             </div>
           </div>
@@ -33,14 +33,17 @@ export default function About() {
             </h2>
             
             <div className="space-y-4 text-sm md:text-base text-text-muted leading-relaxed">
-              <p>
-                I&apos;m a Computer Science student at MSIT, New Delhi, building websites, AI automation systems, and digital products for businesses.
+              <p className="text-text-base font-semibold">
+                I help businesses build websites and AI systems that solve real operational problems.
               </p>
               <p>
-                I work directly with every client—from discovery to launch—to ensure clear communication and high-quality execution.
+                Whether it is streamlining customer bookings, automating repetitive daily tracking spreadsheets, or launching custom client portals, I translate your manual bottlenecks into automated software outcomes.
               </p>
-              <p className="border-l-2 border-primary/40 pl-4 italic text-text-base">
-                For specialized requirements outside my expertise, I collaborate with trusted professionals while remaining your single point of contact.
+              <p>
+                I work with a trusted network of specialists when projects require additional custom expertise, ensuring you receive robust delivery while retaining a single point of communication.
+              </p>
+              <p className="text-xs text-text-muted border-t border-border-custom pt-3 font-mono">
+                Background: B.Tech Computer Science (MSIT Delhi) & IIT Guwahati student credentials.
               </p>
             </div>
           </div>

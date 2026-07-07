@@ -60,10 +60,10 @@ export default function Contact() {
             Get Started
           </span>
           <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mb-4 mt-2">
-            Ready to Win More Customers?
+            Let&apos;s Discuss Your Project
           </h2>
           <p className="text-sm md:text-base text-text-muted">
-            Select an upcoming day and time below to schedule a 30-minute free strategy consultation call.
+            Select a convenient slot below to schedule a free 15-minute operational systems audit and project consultation.
           </p>
         </div>
 
