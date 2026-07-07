@@ -7,6 +7,7 @@ import Packages from "@/components/Packages";
 import Process from "@/components/Process";
 import About from "@/components/About";
 import FAQ from "@/components/FAQ";
+import CallToAction from "@/components/CallToAction";
 import Contact from "@/components/Contact";
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
@@ -132,6 +133,9 @@ export default function Home() {
         <div className="border-2 border-border-custom rounded-[32px] p-6 bg-card-bg shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]">
           <FAQ />
         </div>
+
+        {/* Call to Action (CTA) block */}
+        <CallToAction />
 
         {/* 10. Contact / Scheduler Audit Hook */}
         <div className="border-t border-border-custom pt-8">
