@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, MessageSquare, Calendar, Mail } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -84,7 +85,7 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* Desktop CTA Segment */}
+        {/* Desktop CTA Segment with Animated Dropdown */}
         <div className="hidden md:flex items-center gap-4">
           <div className="relative" ref={dropdownRef}>
             <button
@@ -95,38 +96,46 @@ export default function Navbar() {
               <ChevronDown className={`size-3.5 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
             </button>
 
-            {dropdownOpen && (
-              <div className="absolute right-0 mt-2 w-56 rounded-xl bg-card-bg border border-border-custom shadow-[0_8px_30px_rgba(0,0,0,0.06)] py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-                <a
-                  href="https://cal.com/jayant-web-and-ai-systems/strategy-call"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setDropdownOpen(false)}
-                  className="flex items-center gap-2.5 px-4 py-2 text-xs font-mono font-bold text-text-base hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors"
+            <AnimatePresence>
+              {dropdownOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                  transition={{ duration: 0.15, ease: "easeOut" }}
+                  className="absolute right-0 mt-2 w-56 rounded-xl bg-card-bg border border-border-custom shadow-[0_8px_30px_rgba(0,0,0,0.06)] py-2 z-50 origin-top-right"
                 >
-                  <Calendar className="size-4 text-primary" />
-                  <span>Book a Strategy Call</span>
-                </a>
-                <a
-                  href="https://wa.me/919667344125?text=Hi%20Jayant,%20I'm%20interested%20in%20discussing%20a%20project."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setDropdownOpen(false)}
-                  className="flex items-center gap-2.5 px-4 py-2 text-xs font-mono font-bold text-text-base hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors"
-                >
-                  <MessageSquare className="size-4 text-primary" />
-                  <span>Chat on WhatsApp</span>
-                </a>
-                <a
-                  href="mailto:jayantwebaisystems@gmail.com"
-                  onClick={() => setDropdownOpen(false)}
-                  className="flex items-center gap-2.5 px-4 py-2 text-xs font-mono font-bold text-text-base hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors"
-                >
-                  <Mail className="size-4 text-primary" />
-                  <span>Send an Email</span>
-                </a>
-              </div>
-            )}
+                  <a
+                    href="https://cal.com/jayant-web-and-ai-systems/strategy-call"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setDropdownOpen(false)}
+                    className="flex items-center gap-2.5 px-4 py-2 text-xs font-mono font-bold text-text-base hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors"
+                  >
+                    <Calendar className="size-4 text-primary" />
+                    <span>Book a Strategy Call</span>
+                  </a>
+                  <a
+                    href="https://wa.me/919667344125?text=Hi%20Jayant,%20I'm%20interested%20in%20discussing%20a%20project."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setDropdownOpen(false)}
+                    className="flex items-center gap-2.5 px-4 py-2 text-xs font-mono font-bold text-text-base hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors"
+                  >
+                    <MessageSquare className="size-4 text-primary" />
+                    <span>Chat on WhatsApp</span>
+                  </a>
+                  <a
+                    href="mailto:jayantwebaisystems@gmail.com"
+                    onClick={() => setDropdownOpen(false)}
+                    className="flex items-center gap-2.5 px-4 py-2 text-xs font-mono font-bold text-text-base hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors"
+                  >
+                    <Mail className="size-4 text-primary" />
+                    <span>Send an Email</span>
+                  </a>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
 
