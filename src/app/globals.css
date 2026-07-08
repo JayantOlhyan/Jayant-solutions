@@ -26,7 +26,7 @@
 
 @theme {
   --font-sans: var(--font-geist), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-geist), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono: var(--font-ibm-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   --color-bg-base: var(--background);
