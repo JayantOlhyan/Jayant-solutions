@@ -12,13 +12,16 @@ export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [companyOpen, setCompanyOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
+  const [industriesOpen, setIndustriesOpen] = useState(false);
   const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
   const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
+  const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
   
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const companyRef = useRef<HTMLDivElement>(null);
   const resourcesRef = useRef<HTMLDivElement>(null);
+  const industriesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,6 +42,9 @@ export default function Navbar() {
       if (resourcesRef.current && !resourcesRef.current.contains(event.target as Node)) {
         setResourcesOpen(false);
       }
+      if (industriesRef.current && !industriesRef.current.contains(event.target as Node)) {
+        setIndustriesOpen(false);
+      }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -58,6 +64,14 @@ export default function Navbar() {
     { label: "Technologies We Use", href: "/resources/technologies-we-use" },
     { label: "Industries We Serve", href: "/resources/industries-we-serve" },
     { label: "Downloads", href: "/resources/downloads" },
+  ];
+
+  const industriesSubLinks = [
+    { label: "AI for Healthcare", href: "/industries/ai-for-healthcare" },
+    { label: "AI for Education", href: "/industries/ai-for-education" },
+    { label: "AI for Startups", href: "/industries/ai-for-startups" },
+    { label: "AI for Manufacturing", href: "/industries/ai-for-manufacturing" },
+    { label: "AI for Retail", href: "/industries/ai-for-retail" },
   ];
 
   return (
@@ -94,6 +108,47 @@ export default function Navbar() {
             >
               <span>Services</span>
             </Link>
+
+            {/* Industries Dropdown Trigger */}
+            <div className="relative" ref={industriesRef}>
+              <button
+                onClick={() => {
+                  setIndustriesOpen(!industriesOpen);
+                  setCompanyOpen(false);
+                  setResourcesOpen(false);
+                }}
+                className={`flex items-center gap-1.5 text-[14px] font-sans font-medium transition-colors py-1 focus:outline-none cursor-pointer ${
+                  pathname.startsWith("/industries") ? "text-primary font-semibold" : "text-white/70 hover:text-white"
+                }`}
+              >
+                <span>Industries</span>
+                <ChevronDown className="size-3" />
+              </button>
+
+              <AnimatePresence>
+                {industriesOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                    transition={{ duration: 0.15, ease: "easeOut" }}
+                    className="absolute left-0 mt-2 w-48 rounded-xl bg-[#111827] border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.5)] py-2 z-50 origin-top-left"
+                  >
+                    {industriesSubLinks.map((subLink) => (
+                      <Link
+                        key={subLink.label}
+                        href={subLink.href}
+                        onClick={() => setIndustriesOpen(false)}
+                        className="block px-4 py-2 text-xs font-mono font-bold text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+                      >
+                        {subLink.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
             <Link
               href="/portfolio"
               className={`relative text-[14px] font-sans font-medium transition-colors py-1 group ${
@@ -117,6 +172,7 @@ export default function Navbar() {
                 onClick={() => {
                   setCompanyOpen(!companyOpen);
                   setResourcesOpen(false);
+                  setIndustriesOpen(false);
                 }}
                 className={`flex items-center gap-1.5 text-[14px] font-sans font-medium transition-colors py-1 focus:outline-none cursor-pointer ${
                   pathname.startsWith("/company") ? "text-primary font-semibold" : "text-white/70 hover:text-white"
@@ -156,6 +212,7 @@ export default function Navbar() {
                 onClick={() => {
                   setResourcesOpen(!resourcesOpen);
                   setCompanyOpen(false);
+                  setIndustriesOpen(false);
                 }}
                 className={`flex items-center gap-1.5 text-[14px] font-sans font-medium transition-colors py-1 focus:outline-none cursor-pointer ${
                   pathname.startsWith("/resources") || pathname === "/blog" ? "text-primary font-semibold" : "text-white/70 hover:text-white"
@@ -288,6 +345,46 @@ export default function Navbar() {
               >
                 Services
               </Link>
+
+              {/* Mobile Industries Dropdown */}
+              <div className="flex flex-col border-b border-white/5">
+                <button
+                  onClick={() => {
+                    setMobileIndustriesOpen(!mobileIndustriesOpen);
+                    setMobileCompanyOpen(false);
+                    setMobileResourcesOpen(false);
+                  }}
+                  className="flex items-center justify-between text-sm font-sans font-bold px-2 py-2 text-white/70 hover:text-white focus:outline-none w-full"
+                >
+                  <span>Industries</span>
+                  <ChevronDown className={`size-3.5 transition-transform ${mobileIndustriesOpen ? "rotate-180" : ""}`} />
+                </button>
+                <AnimatePresence>
+                  {mobileIndustriesOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="pl-4 flex flex-col gap-2 py-1 bg-white/5 rounded-lg mb-2"
+                    >
+                      {industriesSubLinks.map((subLink) => (
+                        <Link
+                          key={subLink.label}
+                          href={subLink.href}
+                          onClick={() => {
+                            setIsOpen(false);
+                            setMobileIndustriesOpen(false);
+                          }}
+                          className="block py-1.5 text-xs font-mono font-bold text-white/70 hover:text-white"
+                        >
+                          {subLink.label}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
               <Link
                 href="/portfolio"
                 onClick={() => setIsOpen(false)}
@@ -313,6 +410,7 @@ export default function Navbar() {
                   onClick={() => {
                     setMobileCompanyOpen(!mobileCompanyOpen);
                     setMobileResourcesOpen(false);
+                    setMobileIndustriesOpen(false);
                   }}
                   className="flex items-center justify-between text-sm font-sans font-bold px-2 py-2 text-white/70 hover:text-white focus:outline-none w-full"
                 >
@@ -351,6 +449,7 @@ export default function Navbar() {
                   onClick={() => {
                     setMobileResourcesOpen(!mobileResourcesOpen);
                     setMobileCompanyOpen(false);
+                    setMobileIndustriesOpen(false);
                   }}
                   className="flex items-center justify-between text-sm font-sans font-bold px-2 py-2 text-white/70 hover:text-white focus:outline-none w-full"
                 >

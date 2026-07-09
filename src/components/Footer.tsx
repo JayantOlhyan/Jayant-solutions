@@ -35,6 +35,14 @@ export default function Footer() {
     { name: "Testimonials", href: "/company/testimonials" }
   ];
 
+  const industriesLinks = [
+    { name: "AI for Healthcare", href: "/industries/ai-for-healthcare" },
+    { name: "AI for Education", href: "/industries/ai-for-education" },
+    { name: "AI for Startups", href: "/industries/ai-for-startups" },
+    { name: "AI for Manufacturing", href: "/industries/ai-for-manufacturing" },
+    { name: "AI for Retail", href: "/industries/ai-for-retail" }
+  ];
+
   const resources = [
     { name: "Blog", href: "/blog" },
     { name: "Case Studies", href: "/resources/case-studies" },
@@ -63,7 +71,7 @@ export default function Footer() {
   return (
     <footer className="w-full border-t border-border-custom bg-card-bg/25 pt-16 pb-8 text-left">
       {/* Top Footer Grid */}
-      <div className="max-w-none px-6 grid grid-cols-1 md:grid-cols-6 gap-8 mb-12">
+      <div className="max-w-none px-6 grid grid-cols-1 md:grid-cols-7 gap-8 mb-12">
         {/* Brand Column */}
         <div className="md:col-span-2 flex flex-col gap-4 text-left">
           <div className="flex items-center gap-2">
@@ -102,6 +110,20 @@ export default function Footer() {
           <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">Company</span>
           <ul className="space-y-1.5 text-xs text-text-muted">
             {companyLinks.map((item) => (
+              <li key={item.name}>
+                <Link href={item.href} className="hover:text-text-base transition-colors">
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Industries */}
+        <div className="flex flex-col gap-3 text-left">
+          <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">Industries</span>
+          <ul className="space-y-1.5 text-xs text-text-muted">
+            {industriesLinks.map((item) => (
               <li key={item.name}>
                 <Link href={item.href} className="hover:text-text-base transition-colors">
                   {item.name}
