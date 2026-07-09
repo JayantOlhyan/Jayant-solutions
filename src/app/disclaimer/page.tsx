@@ -5,90 +5,79 @@ import PageTransition from "@/components/PageTransition";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-export default function RefundCancellationPolicyPage() {
-  const [activeSection, setActiveSection] = useState("1. General Policy");
+export default function DisclaimerPage() {
+  const [activeSection, setActiveSection] = useState("1. General Information");
 
   const sections = [
     {
-      id: "1. General Policy",
-      title: "1. General Policy",
+      id: "1. General Information",
+      title: "1. General Information",
       content: (
         <>
-          <p>We value your business and aim to deliver high-quality services. Our refund and cancellation terms are designed to be fair to both our clients and our team.</p>
+          <p>All content on this website, including text, graphics, logos, images, and other material, is provided in good faith and for general information purposes only.</p>
         </>
       )
     },
     {
-      id: "2. Cancellation by Client",
-      title: "2. Cancellation by Client",
+      id: "2. No Professional Advice",
+      title: "2. No Professional Advice",
       content: (
         <>
-          <p>You may cancel your project or service at any time by notifying us in writing. The effective date of cancellation will be the date we receive your written request.</p>
+          <p>The content on this website does not constitute professional, technical, legal, financial, or any other type of advice. You should not rely solely on the information provided here and should seek professional advice relevant to your specific situation.</p>
         </>
       )
     },
     {
-      id: "3. Refund Eligibility",
-      title: "3. Refund Eligibility",
+      id: "3. Accuracy of Information",
+      title: "3. Accuracy of Information",
       content: (
         <>
-          <p>Refunds are applicable based on the stage of the project at the time of cancellation:</p>
-          <ul className="list-disc pl-5 space-y-1.5 mt-2">
-            <li><strong>100% refund</strong> if the project has not yet been started.</li>
-            <li><strong>70% refund</strong> if the project is in the initial planning or requirement gathering stage.</li>
-            <li><strong>50% refund</strong> if the project is in progress (design, development, or content creation).</li>
-            <li><strong>No refund</strong> once the project is in the final stages or completed.</li>
-          </ul>
+          <p>While we strive to keep the information on this website accurate and up-to-date, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability of the website or the information, products, services, or related graphics contained on the website for any purpose.</p>
         </>
       )
     },
     {
-      id: "4. Non-Refundable Items",
-      title: "4. Non-Refundable Items",
+      id: "4. External Links",
+      title: "4. External Links",
       content: (
         <>
-          <p>The following are non-refundable:</p>
-          <ul className="list-disc pl-5 space-y-1.5 mt-2">
-            <li>Domain names, hosting, third-party licenses, or subscriptions purchased on your behalf.</li>
-            <li>Any third-party service fees (e.g., APIs, payment gateway charges).</li>
-            <li><strong>Partial work delivered</strong> including research, design, or development.</li>
-          </ul>
+          <p>Our website may contain links to external websites that are not provided or maintained by us. We do not endorse and are not responsible for the content, privacy policies, or practices of any third-party websites.</p>
         </>
       )
     },
     {
-      id: "5. Refund Process",
-      title: "5. Refund Process",
+      id: "5. Service Availability",
+      title: "5. Service Availability",
       content: (
         <>
-          <p>Eligible refunds will be processed within 7–10 business days to the original payment method after deducting any applicable charges or expenses incurred.</p>
+          <p>We do our best to ensure uninterrupted access to our website and services; however, we do not guarantee that the website will be available at all times or free from errors, viruses, or other harmful components.</p>
         </>
       )
     },
     {
-      id: "6. Cancellation by Us",
-      title: "6. Cancellation by Us",
+      id: "6. Limitation of Liability",
+      title: "6. Limitation of Liability",
       content: (
         <>
-          <p>We reserve the right to cancel a project if there is a breach of terms, non-payment, or inappropriate behavior. In such cases, we will inform you in advance and provide a refund for any eligible amount.</p>
+          <p>To the fullest extent permitted by law, Jayant Web & AI Systems shall not be liable for any direct, indirect, incidental, consequential, or special damages arising out of or in connection with your use of our website or services.</p>
         </>
       )
     },
     {
-      id: "7. Dispute Resolution",
-      title: "7. Dispute Resolution",
+      id: "7. Third-Party Services",
+      title: "7. Third-Party Services",
       content: (
         <>
-          <p>If you are not satisfied with our policy or have any dispute, please contact us first. We will work with you to resolve the issue amicably.</p>
+          <p>We may use third-party tools, platforms, or services to deliver our solutions. We are not responsible for any downtime, data loss, or issues caused by these third-party providers.</p>
         </>
       )
     },
     {
-      id: "8. Changes to This Policy",
-      title: "8. Changes to This Policy",
+      id: "8. Changes to This Disclaimer",
+      title: "8. Changes to This Disclaimer",
       content: (
         <>
-          <p>We may update this Refund & Cancellation Policy from time to time. Any changes will be posted on this page with the updated &quot;Last Updated&quot; date.</p>
+          <p>We may update this Disclaimer from time to time without prior notice. Any changes will be posted on this page with the updated &quot;Last Updated&quot; date.</p>
         </>
       )
     },
@@ -97,7 +86,7 @@ export default function RefundCancellationPolicyPage() {
       title: "9. Contact Us",
       content: (
         <>
-          <p>For any refund or cancellation requests, please contact us:</p>
+          <p>If you have any questions about this Disclaimer, please contact us:</p>
           <div className="mt-3 flex flex-wrap gap-4 text-xs font-mono">
             <span>✉️ hello@jayantwebai.com</span>
             <span>📞 +91 98765 43210</span>
@@ -119,7 +108,7 @@ export default function RefundCancellationPolicyPage() {
             <span>&gt;</span>
             <span className="text-text-muted">Legal</span>
             <span>&gt;</span>
-            <span className="text-text-base">Refund & Cancellation Policy</span>
+            <span className="text-text-base">Disclaimer</span>
           </nav>
 
           {/* Hero */}
@@ -127,17 +116,11 @@ export default function RefundCancellationPolicyPage() {
             
             {/* Left */}
             <div className="lg:col-span-7 flex flex-col items-start text-left">
-              <span className="font-mono text-[9px] uppercase tracking-widest text-primary border border-primary/20 bg-primary/5 px-2.5 py-0.5 rounded-full mb-4">
-                GET IN TOUCH
-              </span>
               <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
-                Refund & <br /> Cancellation{" "}
-                <span className="text-primary underline decoration-primary/40 decoration-4 underline-offset-8">
-                  Policy
-                </span>
+                Disclaimer
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-6">
-                At Jayant Web & AI Systems, we are committed to transparency and customer satisfaction. Please read our Refund & Cancellation Policy carefully before purchasing our services.
+                The information provided by Jayant Web & AI Systems on this website is for general informational purposes only. By using this website and our services, you acknowledge and agree to the terms of this disclaimer.
               </p>
               
               <div className="flex flex-wrap gap-4 text-[10px] font-mono font-bold text-text-muted">
@@ -151,11 +134,11 @@ export default function RefundCancellationPolicyPage() {
               <div className="relative w-full max-w-[420px] aspect-[4/3] rounded-[24px] overflow-hidden border border-border-custom bg-neutral-900 shadow-2xl p-6 flex justify-between items-center text-white">
                 <div className="flex items-center gap-3">
                   <div className="size-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary text-xl">
-                    🪙
+                    ⚖️
                   </div>
                   <div className="flex flex-col text-left">
-                    <span className="text-xs font-bold text-white leading-none">Refund Policy</span>
-                    <span className="text-[9px] text-white/50 mt-1 uppercase tracking-widest leading-none">Refunds & cancellations</span>
+                    <span className="text-xs font-bold text-white leading-none">Disclaimer</span>
+                    <span className="text-[9px] text-white/50 mt-1 uppercase tracking-widest leading-none">Legal disclaimer</span>
                   </div>
                 </div>
               </div>
@@ -190,13 +173,13 @@ export default function RefundCancellationPolicyPage() {
                 </div>
               </div>
 
-              {/* Need Help box */}
+              {/* Questions card */}
               <div className="hog-card rounded-3xl p-6 bg-card-bg/60 border border-border-custom flex flex-col gap-3">
                 <h4 className="font-serif text-xs font-bold text-text-base flex items-center gap-2">
-                  <span>🙋</span> Need Help?
+                  <span>📢</span> Questions?
                 </h4>
                 <p className="text-[10px] text-text-muted leading-relaxed">
-                  If you have any questions regarding refunds or cancellations, our support team is here to help.
+                  If you have any questions about this Disclaimer, please contact us.
                 </p>
                 <Link
                   href="/contact"

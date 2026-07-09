@@ -1,164 +1,225 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
+import PageTransition from "@/components/PageTransition";
+import Link from "next/link";
+import { ArrowRight, Shield, Lock, Eye, Check, Mail } from "lucide-react";
 
 export default function PrivacyPolicyPage() {
-  return (
-    <div className="hog-grid min-h-screen pb-20 pt-10">
-      <main className="max-w-none px-6 md:px-12 lg:px-16 py-12 bg-card-bg border-2 border-border-custom rounded-[32px] shadow-[6px_6px_0px_0px_rgba(43,43,43,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]">
-        <h1 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mb-2">
-          Privacy Policy
-        </h1>
-        <p className="font-mono text-xs text-text-muted mb-8">
-          Effective Date: July 7, 2026
-        </p>
+  const [activeSection, setActiveSection] = useState("1. Information We Collect");
 
-        <div className="prose prose-neutral dark:prose-invert max-w-none text-xs md:text-sm text-text-muted space-y-6 leading-relaxed">
-          <p>
-            Welcome to <strong>Jayant Web & AI Systems</strong> (&ldquo;Company&rdquo;, &ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our services, or interact with us.
-          </p>
-
-          <h2 className="font-serif text-lg font-bold text-text-base pt-4 border-t border-border-custom/50">
-            1. Information We Collect
-          </h2>
-          <p>We may collect the following information:</p>
-          <div className="pl-4 space-y-4">
-            <div>
-              <strong className="text-text-base">Personal Information:</strong>
-              <ul className="list-disc pl-5 mt-1 space-y-1">
-                <li>Full name</li>
-                <li>Email address</li>
-                <li>Phone number</li>
-                <li>Company name</li>
-                <li>Project requirements</li>
-                <li>Any information you voluntarily provide through contact forms or email</li>
-              </ul>
-            </div>
-            <div>
-              <strong className="text-text-base">Technical Information:</strong>
-              <ul className="list-disc pl-5 mt-1 space-y-1">
-                <li>IP address</li>
-                <li>Browser type and version</li>
-                <li>Device information</li>
-                <li>Operating system</li>
-                <li>Website usage data</li>
-                <li>Pages visited</li>
-                <li>Date and time of visits</li>
-              </ul>
-            </div>
-            <div>
-              <strong className="text-text-base">Cookies:</strong>
-              <p className="mt-1">
-                We use cookies and similar technologies to improve website functionality, analyze traffic, and enhance your browsing experience.
-              </p>
-            </div>
+  const sections = [
+    {
+      id: "1. Information We Collect",
+      title: "1. Information We Collect",
+      content: (
+        <>
+          <p>We collect information that you provide directly to us, such as your name, email address, phone number, company name, and project details when you contact us, request a quote, or use our services.</p>
+          <p className="mt-2">We may also collect automatically certain information about your device and usage, such as IP address, browser type, pages visited, and browsing behavior.</p>
+        </>
+      )
+    },
+    {
+      id: "2. How We Use Your Information",
+      title: "2. How We Use Your Information",
+      content: (
+        <>
+          <p>We use the information we collect to provide, maintain, and improve our services, communicate with you, process your requests, send you updates, and ensure better user experience.</p>
+        </>
+      )
+    },
+    {
+      id: "3. How We Share Your Information",
+      title: "3. How We Share Your Information",
+      content: (
+        <>
+          <p>We do not sell or rent your personal information. We may share your information with trusted service providers who assist us in operating our website and delivering services, under strict confidentiality agreements or as required by law.</p>
+        </>
+      )
+    },
+    {
+      id: "4. Cookies & Tracking Technologies",
+      title: "4. Cookies & Tracking Technologies",
+      content: (
+        <>
+          <p>We use cookies and similar technologies to enhance your experience, analyze website traffic, and understand user behavior. You can manage your cookie preferences through your browser settings.</p>
+        </>
+      )
+    },
+    {
+      id: "5. Data Security",
+      title: "5. Data Security",
+      content: (
+        <>
+          <p>We implement industry-standard security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction.</p>
+        </>
+      )
+    },
+    {
+      id: "6. Your Rights & Choices",
+      title: "6. Your Rights & Choices",
+      content: (
+        <>
+          <p>You have the right to access, update, or delete your personal information. You can also opt out of marketing communications at any time by contacting us.</p>
+        </>
+      )
+    },
+    {
+      id: "7. Third-Party Links",
+      title: "7. Third-Party Links",
+      content: (
+        <>
+          <p>Our website may contain links to third-party websites. We are not responsible for the privacy practices or content of those websites.</p>
+        </>
+      )
+    },
+    {
+      id: "8. Children's Privacy",
+      title: "8. Children's Privacy",
+      content: (
+        <>
+          <p>Our services are not directed to individuals under the age of 13. We do not knowingly collect personal information from children.</p>
+        </>
+      )
+    },
+    {
+      id: "9. Changes to This Policy",
+      title: "9. Changes to This Policy",
+      content: (
+        <>
+          <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated &quot;Last Updated&quot; date.</p>
+        </>
+      )
+    },
+    {
+      id: "10. Contact Us",
+      title: "10. Contact Us",
+      content: (
+        <>
+          <p>If you have any questions or concerns about this Privacy Policy, please contact us:</p>
+          <div className="mt-3 flex flex-wrap gap-4 text-xs font-mono">
+            <span>✉️ hello@jayantwebai.com</span>
+            <span>📞 +91 98765 43210</span>
+            <span>📍 New Delhi, India</span>
           </div>
+        </>
+      )
+    }
+  ];
 
-          <h2 className="font-serif text-lg font-bold text-text-base pt-4 border-t border-border-custom/50">
-            2. How We Use Your Information
-          </h2>
-          <p>We use your information to:</p>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Respond to enquiries</li>
-            <li>Deliver software, AI, automation, and web development services</li>
-            <li>Improve our website and user experience</li>
-            <li>Send important updates regarding our services</li>
-            <li>Maintain website security</li>
-            <li>Comply with legal obligations</li>
-          </ul>
-          <p className="font-medium text-text-base">We never sell your personal information.</p>
+  return (
+    <PageTransition>
+      <div className="hog-grid min-h-screen pb-20 pt-10 text-left">
+        <main className="max-w-none px-6 md:px-12 lg:px-16 flex flex-col gap-20 md:gap-28">
+          
+          {/* Breadcrumbs */}
+          <nav className="text-xs font-mono text-text-muted flex items-center gap-2 pt-8">
+            <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+            <span>&gt;</span>
+            <span className="text-text-muted">Legal</span>
+            <span>&gt;</span>
+            <span className="text-text-base">Privacy Policy</span>
+          </nav>
 
-          <h2 className="font-serif text-lg font-bold text-text-base pt-4 border-t border-border-custom/50">
-            3. Sharing Information
-          </h2>
-          <p>Your information may be shared only with:</p>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Trusted cloud service providers</li>
-            <li>Payment processors (when applicable)</li>
-            <li>Analytics providers</li>
-            <li>Government or legal authorities where required by law</li>
-          </ul>
-          <p>All third-party providers are expected to protect your information.</p>
+          {/* Hero */}
+          <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Left */}
+            <div className="lg:col-span-7 flex flex-col items-start text-left">
+              <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
+                Privacy Policy
+              </h1>
+              <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-6">
+                At Jayant Web & AI Systems, we value your trust and are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
+              </p>
+              
+              <div className="flex flex-wrap gap-4 text-[10px] font-mono font-bold text-text-muted">
+                <span className="flex items-center gap-1">📅 Last Updated: 12 May 2025</span>
+                <span className="flex items-center gap-1">🗓️ Effective Date: 12 May 2025</span>
+              </div>
+            </div>
 
-          <h2 className="font-serif text-lg font-bold text-text-base pt-4 border-t border-border-custom/50">
-            4. Data Security
-          </h2>
-          <p>
-            We implement appropriate administrative, technical, and organizational safeguards to protect your personal information. However, no internet transmission or electronic storage system is completely secure.
-          </p>
+            {/* Right: Graphic mockup */}
+            <div className="lg:col-span-5 w-full flex justify-center">
+              <div className="relative w-full max-w-[420px] aspect-[4/3] rounded-[24px] overflow-hidden border border-border-custom bg-neutral-900 shadow-2xl p-6 flex justify-between items-center text-white">
+                <div className="flex items-center gap-3">
+                  <div className="size-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary text-xl">
+                    🛡️
+                  </div>
+                  <div className="flex flex-col text-left">
+                    <span className="text-xs font-bold text-white leading-none">Privacy Shield</span>
+                    <span className="text-[9px] text-white/50 mt-1 uppercase tracking-widest leading-none">Your data is secure</span>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-          <h2 className="font-serif text-lg font-bold text-text-base pt-4 border-t border-border-custom/50">
-            5. Data Retention
-          </h2>
-          <p>We retain personal information only for as long as necessary to:</p>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Provide our services</li>
-            <li>Meet legal obligations</li>
-            <li>Resolve disputes</li>
-            <li>Enforce agreements</li>
-          </ul>
+          </section>
 
-          <h2 className="font-serif text-lg font-bold text-text-base pt-4 border-t border-border-custom/50">
-            6. Your Rights
-          </h2>
-          <p>Depending on applicable laws, you may have the right to:</p>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Access your personal information</li>
-            <li>Correct inaccurate information</li>
-            <li>Request deletion of your information</li>
-            <li>Withdraw consent</li>
-            <li>Request a copy of your data</li>
-            <li>Object to certain processing activities</li>
-          </ul>
+          {/* Policy navigation & text split */}
+          <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start py-8 border-t border-border-custom/20 pt-16">
+            
+            {/* Left sidebar nav */}
+            <div className="lg:col-span-4 flex flex-col gap-6 text-left w-full sticky top-28">
+              <div className="hog-card rounded-3xl p-6 bg-card-bg/60 border border-border-custom flex flex-col gap-4">
+                <h3 className="font-serif text-sm font-bold text-text-base border-b border-border-custom pb-2">On this Page</h3>
+                <div className="flex flex-col gap-1.5">
+                  {sections.map((s) => (
+                    <button
+                      key={s.id}
+                      onClick={() => {
+                        setActiveSection(s.id);
+                        document.getElementById(s.id)?.scrollIntoView({ behavior: "smooth" });
+                      }}
+                      className={`text-left text-[11px] font-mono font-bold px-3 py-2 rounded-xl transition-all ${
+                        activeSection === s.id
+                          ? "bg-primary/10 text-primary"
+                          : "text-text-muted hover:text-text-base hover:bg-neutral-100 dark:hover:bg-neutral-900"
+                      }`}
+                    >
+                      {s.title}
+                    </button>
+                  ))}
+                </div>
+              </div>
 
-          <h2 className="font-serif text-lg font-bold text-text-base pt-4 border-t border-border-custom/50">
-            7. Third-Party Links
-          </h2>
-          <p>
-            Our website may contain links to third-party websites including GitHub, LinkedIn, YouTube, Instagram, and X. We are not responsible for the privacy practices of those websites.
-          </p>
+              {/* Questions/Need Help box */}
+              <div className="hog-card rounded-3xl p-6 bg-card-bg/60 border border-border-custom flex flex-col gap-3">
+                <h4 className="font-serif text-xs font-bold text-text-base flex items-center gap-2">
+                  <span>❓</span> Questions?
+                </h4>
+                <p className="text-[10px] text-text-muted leading-relaxed">
+                  If you have any questions about this Privacy Policy, feel free to contact us.
+                </p>
+                <Link
+                  href="/contact"
+                  className="w-full text-center border border-border-custom bg-white hover:bg-neutral-50 dark:bg-card-bg dark:hover:bg-neutral-900 py-2 text-[10px] font-mono font-bold rounded-lg block mt-2 text-text-base"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </div>
 
-          <h2 className="font-serif text-lg font-bold text-text-base pt-4 border-t border-border-custom/50">
-            8. Children&apos;s Privacy
-          </h2>
-          <p>
-            Our services are not intended for children under 13 years of age, and we do not knowingly collect personal information from children.
-          </p>
+            {/* Right text details */}
+            <div className="lg:col-span-8 flex flex-col gap-10 text-left w-full">
+              {sections.map((s) => (
+                <div
+                  key={s.id}
+                  id={s.id}
+                  className="border-b border-border-custom/30 pb-8 scroll-mt-28"
+                >
+                  <h3 className="font-serif text-base md:text-lg font-bold text-text-base mb-4">{s.title}</h3>
+                  <div className="text-xs md:text-sm text-text-muted leading-relaxed space-y-2">
+                    {s.content}
+                  </div>
+                </div>
+              ))}
+            </div>
 
-          <h2 className="font-serif text-lg font-bold text-text-base pt-4 border-t border-border-custom/50">
-            9. Changes to This Policy
-          </h2>
-          <p>
-            We may update this Privacy Policy from time to time. Updated versions will be published on this page with a revised effective date.
-          </p>
+          </section>
 
-          <h2 className="font-serif text-lg font-bold text-text-base pt-4 border-t border-border-custom/50">
-            10. Contact Us
-          </h2>
-          <p className="font-bold text-text-base">Jayant Web & AI Systems</p>
-          <ul className="list-none space-y-1 pl-0">
-            <li>
-              Website: <a href="https://jayant-solution.netlify.app/" className="text-primary hover:underline">https://jayant-solution.netlify.app/</a>
-            </li>
-            <li>
-              Email: <a href="mailto:jayantwebaisystems@gmail.com" className="text-primary hover:underline">jayantwebaisystems@gmail.com</a>
-            </li>
-            <li>
-              LinkedIn: <a href="https://linkedin.com/company/jayant-systems" target="_blank" rel="noreferrer" className="text-primary hover:underline">https://linkedin.com/company/jayant-systems</a>
-            </li>
-            <li>
-              GitHub: <a href="https://github.com/JayantOlhyan" target="_blank" rel="noreferrer" className="text-primary hover:underline">https://github.com/JayantOlhyan</a>
-            </li>
-            <li>
-              Instagram: <a href="https://www.instagram.com/jayantolhyan/" target="_blank" rel="noreferrer" className="text-primary hover:underline">https://www.instagram.com/jayantolhyan/</a>
-            </li>
-            <li>
-              YouTube: <a href="https://www.youtube.com/@JayantWebAISystems" target="_blank" rel="noreferrer" className="text-primary hover:underline">https://www.youtube.com/@JayantWebAISystems</a>
-            </li>
-            <li>
-              X: <a href="https://x.com/JayantSystems" target="_blank" rel="noreferrer" className="text-primary hover:underline">https://x.com/JayantSystems</a>
-            </li>
-          </ul>
-        </div>
-      </main>
-    </div>
+        </main>
+      </div>
+    </PageTransition>
   );
 }
