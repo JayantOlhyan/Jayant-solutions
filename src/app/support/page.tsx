@@ -1,270 +1,254 @@
+"use client";
+
 import React from "react";
-import { Mail, ShieldAlert, Cpu, Heart, CheckCircle2, XCircle, Clock, Zap } from "lucide-react";
+import PageTransition from "@/components/PageTransition";
+import Link from "next/link";
+import { ArrowRight, HelpCircle, BookOpen, Download, Mail, Phone, Clock, MessageSquare, ShieldCheck, Heart, Laptop, Video } from "lucide-react";
 
 export default function SupportPage() {
-  const maintenancePlans = [
+  const indicators = [
+    { label: "Fast & Reliable Support", icon: <ShieldCheck className="size-4 text-primary" /> },
+    { label: "Expert Assistance", icon: <Heart className="size-4 text-primary" /> },
+    { label: "Quick Response Time", icon: <Clock className="size-4 text-primary" /> },
+    { label: "Your Success is Our Priority", icon: <Laptop className="size-4 text-primary" /> },
+  ];
+
+  const channels = [
     {
-      name: "1. Basic Care",
-      price: "₹2,500/month",
-      bestFor: "Portfolio websites, landing pages, and small business websites.",
-      features: [
-        "Website uptime monitoring",
-        "Security updates",
-        "Monthly backups",
-        "Minor bug fixes",
-        "Content updates (up to 2 requests/month)",
-        "Email support"
-      ]
+      title: "Create a Ticket",
+      desc: "Submit your issue or request support from our team.",
+      cta: "Create Ticket",
+      href: "/support/report-a-bug",
+      icon: "🎫",
     },
     {
-      name: "2. Growth Care",
-      price: "₹7,500/month",
-      bestFor: "Business websites, dashboards, and SaaS products.",
-      features: [
-        "Everything in Basic, plus:",
-        "Weekly backups",
-        "Performance optimization",
-        "Database maintenance",
-        "Monthly health reports",
-        "Priority support",
-        "Up to 5 support requests/month",
-        "Basic SEO maintenance"
-      ]
+      title: "FAQ",
+      desc: "Find answers to commonly asked questions.",
+      cta: "View FAQs",
+      href: "/faq",
+      icon: "❓",
     },
     {
-      name: "3. Business Care",
-      price: "₹15,000/month",
-      bestFor: "Growing startups and business-critical applications.",
-      features: [
-        "Everything in Growth, plus:",
-        "API monitoring",
-        "Security audits",
-        "Feature enhancements (up to 10 hours/month)",
-        "Server monitoring",
-        "Database optimization",
-        "Quarterly performance reviews",
-        "Faster response times"
-      ]
+      title: "Knowledge Base",
+      desc: "Browse our guides and documentation.",
+      cta: "Browse Articles",
+      href: "/blog",
+      icon: "📖",
     },
     {
-      name: "4. Enterprise Support",
-      price: "Custom Quote",
-      bestFor: "Enterprise applications, large SaaS platforms, and mission-critical systems.",
-      features: [
-        "Dedicated technical support",
-        "Service Level Agreement (SLA)",
-        "DevOps monitoring",
-        "AI model maintenance",
-        "Infrastructure management",
-        "Performance optimization",
-        "Security compliance assistance",
-        "Unlimited support requests",
-        "Dedicated account manager"
-      ]
-    }
+      title: "Downloads",
+      desc: "Access useful resources, guides, and files.",
+      cta: "View Downloads",
+      href: "/resources/downloads",
+      icon: "📥",
+    },
+  ];
+
+  const footerLinks = [
+    { label: "Community", desc: "Join our community & get help", icon: <UsersIcon className="size-5 text-primary" />, href: "/company/partners" },
+    { label: "Live Chat", desc: "Chat with our team in real-time", icon: <MessageSquare className="size-5 text-primary" />, href: "https://wa.me/919667344125" },
+    { label: "System Status", desc: "Check live status of our services", icon: <Laptop className="size-5 text-primary" />, href: "/support/service-status" },
+    { label: "Video Tutorials", desc: "Watch step-by-step video guides", icon: <Video className="size-5 text-primary" />, href: "https://youtube.com" },
   ];
 
   return (
-    <div className="hog-grid min-h-screen pb-20 pt-10">
-      <main className="max-w-none px-6 md:px-12 lg:px-16 flex flex-col gap-16">
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto">
-          <span className="font-mono text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3 py-1 rounded-full mb-4 inline-block">
-            Support Center
-          </span>
-          <h1 className="font-serif text-4xl md:text-6xl font-bold tracking-tight text-text-base mb-4 mt-2">
-            Support & Maintenance
-          </h1>
-          <p className="text-sm md:text-base text-text-muted">
-            Reliable support SLAs, maintenance contracts, and issue resolution protocols for your business systems.
-          </p>
-        </div>
+    <PageTransition>
+      <div className="hog-grid min-h-screen pb-20 pt-10 text-left">
+        <main className="max-w-none px-6 md:px-12 lg:px-16 flex flex-col gap-20 md:gap-28">
+          
+          {/* Breadcrumbs */}
+          <nav className="text-xs font-mono text-text-muted flex items-center gap-2 pt-8">
+            <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+            <span>&gt;</span>
+            <span className="text-text-muted">Support</span>
+            <span>&gt;</span>
+            <span className="text-text-base">Support</span>
+          </nav>
 
-        {/* Section 1: Support Channels & Contacts */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="hog-card rounded-[32px] p-8 flex flex-col justify-between">
-            <div>
-              <h3 className="font-serif text-2xl font-bold text-text-base mb-4 flex items-center gap-2">
-                <Mail className="size-6 text-primary" /> Support Channels
-              </h3>
-              <p className="text-xs md:text-sm text-text-muted leading-relaxed mb-6">
-                Reach out to our engineering desk for help. General inquiries and support issues are monitored during standard business hours.
+          {/* Hero */}
+          <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Left */}
+            <div className="lg:col-span-7 flex flex-col items-start text-left">
+              <span className="font-mono text-[9px] uppercase tracking-widest text-primary border border-primary/20 bg-primary/5 px-2.5 py-0.5 rounded-full mb-4">
+                SUPPORT
+              </span>
+              <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
+                We&apos;re Here to <br />
+                <span className="text-primary underline decoration-primary/40 decoration-4 underline-offset-8">
+                  Help You
+                </span>
+              </h1>
+              <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
+                Our support team is ready to assist you. Get quick answers, resolve issues, and keep your business running smoothly.
               </p>
-              <div className="space-y-4">
-                <div className="border-b border-border-custom/20 pb-3 last:border-b-0">
-                  <span className="font-mono text-[9px] uppercase tracking-wider text-text-muted block mb-1">General & Technical Email:</span>
-                  <a href="mailto:jayantwebaisystems@gmail.com" className="text-sm font-serif font-bold text-primary hover:underline">
-                    jayantwebaisystems@gmail.com
-                  </a>
-                </div>
-                <div className="border-b border-border-custom/20 pb-3 last:border-b-0">
-                  <span className="font-mono text-[9px] uppercase tracking-wider text-text-muted block mb-1">Estimated Responses:</span>
-                  <ul className="space-y-1 text-xs text-text-muted">
-                    <li>🚨 Critical Issues: <strong className="text-text-base font-semibold">4–8 business hours</strong></li>
-                    <li>📨 General Support: <strong className="text-text-base font-semibold">Within 24 business hours</strong></li>
-                    <li>💡 Feature Requests: <strong className="text-text-base font-semibold">2–3 business days</strong></li>
-                  </ul>
+
+              {/* Action buttons */}
+              <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-10">
+                <Link
+                  href="/support/report-a-bug"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary-hover text-white px-7 py-3 text-xs font-mono font-bold transition-all shadow-md active:scale-[0.98]"
+                >
+                  <span>Create a Support Ticket</span>
+                  <ArrowRight className="size-4" />
+                </Link>
+              </div>
+
+              {/* Stats/Indicators */}
+              <div className="grid grid-cols-2 gap-4 border-t border-border-custom/50 pt-6 w-full max-w-lg">
+                {indicators.map((ind, i) => (
+                  <div key={i} className="flex items-center gap-2.5">
+                    <div className="size-6 rounded-full border border-border-custom bg-card-bg flex items-center justify-center shrink-0">
+                      {ind.icon}
+                    </div>
+                    <span className="text-[10px] font-mono font-bold text-text-base leading-none">{ind.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: Graphic mockup */}
+            <div className="lg:col-span-5 w-full flex justify-center">
+              <div className="relative w-full max-w-[420px] aspect-square flex items-center justify-center p-8 select-none">
+                <div className="w-full h-[85%] rounded-2xl bg-[#0B0F19] border-2 border-white/10 shadow-2xl p-6 flex flex-col justify-center text-left text-white/90">
+                  <h4 className="font-serif text-lg font-bold mb-2">Support That</h4>
+                  <h3 className="font-serif text-2xl font-black text-primary leading-tight mb-2">Always Supports You.</h3>
+                  <p className="text-xs text-white/70">From technical issues to general inquiries, we&apos;re just a message away.</p>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div className="hog-card rounded-[32px] p-8">
-            <h3 className="font-serif text-2xl font-bold text-text-base mb-4 flex items-center gap-2">
-              <ShieldAlert className="size-6 text-primary" /> Emergency Desk
-            </h3>
-            <p className="text-xs md:text-sm text-text-muted leading-relaxed mb-4">
-              Emergency support pathways are reserved exclusively for critical production level issues directly affecting workflow operations.
-            </p>
-            <div className="bg-red-500/5 border border-red-500/20 rounded-2xl p-4 mb-4">
-              <span className="font-mono text-[9px] uppercase tracking-wider text-red-500 font-bold block mb-1.5">Emergency Thresholds Include:</span>
-              <ul className="space-y-1 text-xs text-text-muted">
-                <li>• Live website outages or application down events</li>
-                <li>• Active security incidents or credential leaks</li>
-                <li>• Production deployment blockers</li>
-                <li>• Payment gateway integration failure</li>
-              </ul>
+          </section>
+
+          {/* Split Options & Sidebar */}
+          <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start py-8 border-t border-border-custom/20 pt-16">
+            
+            {/* Left 4 cards */}
+            <div className="lg:col-span-8 flex flex-col gap-6 text-left w-full">
+              <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-tight text-text-base mb-2">
+                How Can We Help You?
+              </h2>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {channels.map((chan, idx) => (
+                  <div
+                    key={idx}
+                    className="hog-card rounded-2xl p-6 border border-border-custom bg-card-bg/40 flex flex-col justify-between text-left min-h-[180px] group"
+                  >
+                    <div className="flex flex-col gap-4">
+                      <div className="size-11 rounded-full border border-border-custom bg-card-bg flex items-center justify-center text-xl shadow-sm shrink-0">
+                        {chan.icon}
+                      </div>
+                      <h4 className="font-serif text-sm md:text-base font-bold text-text-base leading-snug">{chan.title}</h4>
+                      <p className="text-[10px] md:text-xs text-text-muted leading-relaxed">{chan.desc}</p>
+                    </div>
+
+                    <Link
+                      href={chan.href}
+                      className="inline-flex items-center gap-1.5 rounded-xl border border-border-custom bg-white hover:bg-neutral-50 dark:bg-card-bg dark:hover:bg-neutral-900 px-5 py-2 text-xs font-mono font-bold text-text-base transition-colors self-start mt-6 group-hover:border-primary/50"
+                    >
+                      <span>{chan.cta}</span>
+                      <ArrowRight className="size-3.5" />
+                    </Link>
+                  </div>
+                ))}
+              </div>
             </div>
-            <p className="text-[11px] text-text-muted leading-relaxed">
-              Availability and response bounds are mapped to your active support plan or custom SLA agreements.
-            </p>
-          </div>
-        </div>
 
-        {/* Section 2: Maintenance Plans Grid */}
-        <div>
-          <div className="text-center mb-10 max-w-xl mx-auto">
-            <h2 className="font-serif text-3xl font-bold text-text-base mb-2">Maintenance Plans</h2>
-            <p className="text-xs md:text-sm text-text-muted">
-              Choose the right tier to keep your system fast, safe, and up-to-date.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {maintenancePlans.map((plan) => (
-              <div key={plan.name} className="hog-card rounded-3xl p-6 flex flex-col justify-between">
-                <div>
-                  <h4 className="font-serif text-lg font-bold text-text-base mb-1">{plan.name}</h4>
-                  <span className="text-primary font-mono font-bold text-base block mb-3">{plan.price}</span>
-                  <p className="text-[10px] font-mono text-text-muted leading-relaxed bg-neutral-100 dark:bg-neutral-900 border border-border-custom/20 p-2 rounded mb-4">
-                    Best For: {plan.bestFor}
-                  </p>
-                  <ul className="space-y-1.5 border-t border-border-custom/25 pt-3">
-                    {plan.features.map((feature, idx) => (
-                      <li key={idx} className="text-[11px] text-text-muted leading-snug flex items-start gap-1.5">
-                        <span className="text-primary mt-0.5">•</span>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+            {/* Right Contact Sidebar */}
+            <div className="lg:col-span-4 flex flex-col gap-6 text-left w-full">
+              <div className="hog-card rounded-3xl p-6 md:p-8 bg-card-bg/60 border border-border-custom flex flex-col gap-6">
+                <h3 className="font-serif text-lg font-bold text-text-base border-b border-border-custom pb-2">
+                  Get in Touch
+                </h3>
+
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <Mail className="size-4 text-primary shrink-0 mt-0.5" />
+                    <div className="flex flex-col">
+                      <span className="text-[10px] font-mono font-bold text-text-base leading-none">Email Support</span>
+                      <a href="mailto:support@jayantwebai.com" className="text-[10px] text-text-muted mt-1 hover:underline">
+                        support@jayantwebai.com
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <Phone className="size-4 text-primary shrink-0 mt-0.5" />
+                    <div className="flex flex-col">
+                      <span className="text-[10px] font-mono font-bold text-text-base leading-none">Call Us</span>
+                      <a href="tel:+919876543210" className="text-[10px] text-text-muted mt-1 hover:underline">
+                        +91 98765 43210
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <Clock className="size-4 text-primary shrink-0 mt-0.5" />
+                    <div className="flex flex-col">
+                      <span className="text-[10px] font-mono font-bold text-text-base leading-none">Support Hours</span>
+                      <span className="text-[10px] text-text-muted mt-1">
+                        Mon - Sat: 10:00 AM - 7:00 PM (IST)
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Average response time badge */}
+                <div className="bg-primary/5 border border-primary/10 rounded-2xl p-4 mt-2">
+                  <span className="text-[9px] font-mono text-primary font-bold uppercase tracking-wider block mb-1">Average Response Time</span>
+                  <span className="font-serif text-sm font-bold text-text-base">Under 2 Hours</span>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Section 3: SLA Priority Matrix */}
-        <div className="hog-card rounded-[32px] p-8">
-          <h3 className="font-serif text-2xl font-bold text-text-base mb-6">Service Level Agreement (SLA) Matrix</h3>
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs font-mono text-text-muted border-collapse">
-              <thead>
-                <tr className="border-b border-border-custom text-text-base">
-                  <th className="py-2.5 font-bold">Priority</th>
-                  <th className="py-2.5 font-bold">Scope Examples</th>
-                  <th className="py-2.5 font-bold">Response Goal</th>
-                  <th className="py-2.5 font-bold">Resolution Target</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-border-custom/30">
-                <tr>
-                  <td className="py-3 font-bold text-text-base">Critical (P1)</td>
-                  <td className="py-3">Outage, security incident, server down</td>
-                  <td className="py-3 text-red-500">4–8 business hours</td>
-                  <td className="py-3">As quickly as possible</td>
-                </tr>
-                <tr>
-                  <td className="py-3 font-bold text-text-base">High (P2)</td>
-                  <td className="py-3">Core feature unavailable, payment failure</td>
-                  <td className="py-3">1 business day</td>
-                  <td className="py-3">1–3 business days</td>
-                </tr>
-                <tr>
-                  <td className="py-3 font-bold text-text-base">Medium (P3)</td>
-                  <td className="py-3">Minor layout error, partial bug</td>
-                  <td className="py-3">1 business day</td>
-                  <td className="py-3">3–5 business days</td>
-                </tr>
-                <tr>
-                  <td className="py-3 font-bold text-text-base">Low (P4)</td>
-                  <td className="py-3">Cosmetic bugs, enhancement request</td>
-                  <td className="py-3">2 business days</td>
-                  <td className="py-3">Scheduled updates</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {/* Section 4: Support Scope Split */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="hog-card rounded-[32px] p-8 border-t-4 border-t-primary">
-            <h3 className="font-serif text-xl font-bold text-text-base mb-4 flex items-center gap-2">
-              <CheckCircle2 className="size-5 text-primary" /> Included in Scope
-            </h3>
-            <ul className="space-y-2 text-xs md:text-sm text-text-muted">
-              <li className="flex items-start gap-2">✔ Bug fixing & patches</li>
-              <li className="flex items-start gap-2">✔ Performance optimizations</li>
-              <li className="flex items-start gap-2">✔ Server stability monitoring</li>
-              <li className="flex items-start gap-2">✔ Scheduled data backups & restoration checks</li>
-              <li className="flex items-start gap-2">✔ Security certificate maintenance</li>
-            </ul>
-          </div>
-
-          <div className="hog-card rounded-[32px] p-8 border-t-4 border-t-neutral-400">
-            <h3 className="font-serif text-xl font-bold text-text-base mb-4 flex items-center gap-2">
-              <XCircle className="size-5 text-text-muted" /> Out of Support Scope
-            </h3>
-            <ul className="space-y-2 text-xs md:text-sm text-text-muted">
-              <li className="flex items-start gap-2">✖ Creating new features or sections from scratch</li>
-              <li className="flex items-start gap-2">✖ Major interface redesign modifications</li>
-              <li className="flex items-start gap-2">✖ Third-party licensing costs & integration fees</li>
-              <li className="flex items-start gap-2">✖ Core system hosting, domains or database billing dues</li>
-              <li className="flex items-start gap-2">✖ Scope changes outside signed SLA blueprints</li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Section 5: Bug Reporting Procedures */}
-        <div className="hog-card rounded-[32px] p-8">
-          <h3 className="font-serif text-2xl font-bold text-text-base mb-4 flex items-center gap-2">
-            <Clock className="size-5 text-primary" /> Bug Reporting Guidelines
-          </h3>
-          <p className="text-xs md:text-sm text-text-muted leading-relaxed mb-6">
-            Help us debug your platform quickly. When reporting an issue, please send an email formatted with these guidelines:
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 font-mono text-xs text-text-muted bg-neutral-100 dark:bg-neutral-900/60 p-6 rounded-2xl border border-border-custom/30">
-            <div>
-              <span className="font-bold text-text-base block mb-2">Subject Title Schema:</span>
-              <span className="bg-background-base px-2 py-1 rounded border border-border-custom text-primary block">
-                [BUG] Project Name - Short Issue Description
-              </span>
-              <span className="block mt-2 italic text-[11px]">
-                Example: [BUG] Teacher Sathi - Login Button Not Working
-              </span>
             </div>
-            <div>
-              <span className="font-bold text-text-base block mb-2">Required Information:</span>
-              <ul className="space-y-0.5 text-[11px] list-disc pl-4">
-                <li>Your name, project name, and contact</li>
-                <li>Clear description of the bug and steps to reproduce</li>
-                <li>Actual vs expected behaviors</li>
-                <li>Browser model, device, and viewport sizes</li>
-                <li>Screenshots/Screen recordings if available</li>
-              </ul>
+
+          </section>
+
+          {/* More Ways to Get Help footer strip */}
+          <section className="py-8 border-t border-border-custom/20 pt-16">
+            <div className="grid grid-cols-1 sm:grid-cols-4 gap-6">
+              {footerLinks.map((link, idx) => (
+                <Link
+                  key={idx}
+                  href={link.href}
+                  className="hog-card rounded-2xl p-5 border border-border-custom bg-card-bg/40 flex items-start gap-4 text-left group hover:-translate-y-1 transition-all duration-300"
+                >
+                  <div className="size-9 rounded-xl border border-border-custom bg-card-bg flex items-center justify-center shrink-0">
+                    {link.icon}
+                  </div>
+                  <div>
+                    <h5 className="font-serif text-xs font-bold text-text-base leading-none mb-1 group-hover:text-primary transition-colors">{link.label}</h5>
+                    <p className="text-[10px] text-text-muted mt-1 leading-tight">{link.desc}</p>
+                  </div>
+                </Link>
+              ))}
             </div>
-          </div>
-        </div>
-      </main>
-    </div>
+          </section>
+
+        </main>
+      </div>
+    </PageTransition>
+  );
+}
+
+function UsersIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+    </svg>
   );
 }

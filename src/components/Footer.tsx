@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 
@@ -15,13 +17,13 @@ export default function Footer() {
     "💬 Free Consultation"
   ];
 
-  const navigation = [
+  const quickLinks = [
     { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
     { name: "Portfolio", href: "/portfolio" },
-    { name: "Pricing", href: "/pricing" },
     { name: "Process", href: "/process" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" }
   ];
 
@@ -30,17 +32,7 @@ export default function Footer() {
     { name: "Founder", href: "/company/founder" },
     { name: "Careers", href: "/company/careers" },
     { name: "Partners", href: "/company/partners" },
-    { name: "Testimonials", href: "/company/testimonials" },
-    { name: "FAQ", href: "/faq" }
-  ];
-
-  const solutions = [
-    { name: "AI Solutions", href: "/blog/ai-solutions" },
-    { name: "Custom Software", href: "/blog/custom-software" },
-    { name: "Web Development", href: "/blog/web-development" },
-    { name: "Mobile Apps", href: "/blog/mobile-apps" },
-    { name: "Business Automation", href: "/blog/business-automation" },
-    { name: "Cloud Solutions", href: "/blog/cloud-solutions" }
+    { name: "Testimonials", href: "/company/testimonials" }
   ];
 
   const resources = [
@@ -52,6 +44,14 @@ export default function Footer() {
     { name: "FAQs", href: "/faq" }
   ];
 
+  const supportLinks = [
+    { name: "Support", href: "/support" },
+    { name: "Report a Bug", href: "/support/report-a-bug" },
+    { name: "Maintenance", href: "/services/maintenance" },
+    { name: "Service Status", href: "/support/service-status" },
+    { name: "Client Portal", href: "/support/client-portal" }
+  ];
+
   const socials = [
     { name: "GitHub", href: "https://github.com/JayantOlhyan" },
     { name: "LinkedIn", href: "https://linkedin.com/company/jayant-systems" },
@@ -61,20 +61,20 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full border-t border-border-custom bg-card-bg/25 pt-16 pb-8">
+    <footer className="w-full border-t border-border-custom bg-card-bg/25 pt-16 pb-8 text-left">
       {/* Top Footer Grid */}
       <div className="max-w-none px-6 grid grid-cols-1 md:grid-cols-6 gap-8 mb-12">
         {/* Brand Column */}
-        <div className="md:col-span-2 flex flex-col gap-4">
+        <div className="md:col-span-2 flex flex-col gap-4 text-left">
           <div className="flex items-center gap-2">
-            <div className="size-6 text-text-base">
+            <div className="size-6 text-text-base shrink-0">
               <svg viewBox="0 0 200 200" className="w-full h-full">
                 <rect x="10" y="10" width="180" height="180" rx="42" fill="none" stroke="currentColor" strokeWidth="16" />
                 <path d="M 100 50 L 132 50 L 132 115 C 132 135, 115 152, 95 152 C 78 152, 65 140, 65 125 L 89 125 C 89 130, 91 132, 95 132 C 99 132, 108 128, 108 115 L 108 72 L 100 72 Z" fill="currentColor" />
                 <path d="M 52 108 L 82 108 L 82 128 L 67 141 L 65 128 L 52 128 Z" fill="#FF8A00" />
               </svg>
             </div>
-            <span className="font-mono text-sm font-bold tracking-tight text-text-base">
+            <span className="font-serif text-sm font-bold tracking-tight text-text-base">
               Jayant Web & AI Systems
             </span>
           </div>
@@ -83,8 +83,22 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Navigation */}
-        <div className="flex flex-col gap-3">
+        {/* Quick Links */}
+        <div className="flex flex-col gap-3 text-left">
+          <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">Quick Links</span>
+          <ul className="space-y-1.5 text-xs text-text-muted">
+            {quickLinks.map((item) => (
+              <li key={item.name}>
+                <Link href={item.href} className="hover:text-text-base transition-colors">
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Company */}
+        <div className="flex flex-col gap-3 text-left">
           <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">Company</span>
           <ul className="space-y-1.5 text-xs text-text-muted">
             {companyLinks.map((item) => (
@@ -97,22 +111,8 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Solutions */}
-        <div className="flex flex-col gap-3">
-          <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">Solutions</span>
-          <ul className="space-y-1.5 text-xs text-text-muted">
-            {solutions.map((item) => (
-              <li key={item.name}>
-                <Link href={item.href} className="hover:text-text-base transition-colors">
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
         {/* Resources */}
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 text-left">
           <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">Resources</span>
           <ul className="space-y-1.5 text-xs text-text-muted">
             {resources.map((item) => (
@@ -125,33 +125,23 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Contact/CTA */}
-        <div className="flex flex-col gap-3">
-          <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">Contact</span>
-          <div className="space-y-3 text-xs">
-            <a href="mailto:jayantwebaisystems@gmail.com" className="text-text-muted hover:text-text-base block truncate transition-colors">
-              jayantwebaisystems@gmail.com
-            </a>
-            <div className="bg-primary/5 border border-primary/10 rounded-2xl p-3">
-              <p className="font-semibold text-text-base mb-1">Let's Build Together</p>
-              <p className="text-[10px] text-text-muted mb-2 leading-relaxed">
-                Schedule a consultation to discuss your project requirements.
-              </p>
-              <a
-                href="https://cal.com/jayant-web-and-ai-systems/strategy-call"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full text-center py-1.5 text-[10px] font-mono font-bold bg-primary hover:bg-primary-hover text-white rounded-lg block transition-colors shadow-sm"
-              >
-                Free Consultation
-              </a>
-            </div>
-          </div>
+        {/* Support Links */}
+        <div className="flex flex-col gap-3 text-left">
+          <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">Support</span>
+          <ul className="space-y-1.5 text-xs text-text-muted">
+            {supportLinks.map((item) => (
+              <li key={item.name}>
+                <Link href={item.href} className="hover:text-text-base transition-colors">
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
       {/* Social Icons row */}
-      <div className="max-w-none px-6 mb-8 border-y border-border-custom/20 py-4 flex items-center justify-between flex-wrap gap-4">
+      <div className="max-w-none px-6 mb-8 border-y border-border-custom/20 py-4 flex items-center justify-between flex-wrap gap-4 text-left">
         <div className="flex flex-wrap gap-4 text-xs font-mono">
           {socials.map((item) => (
             <a
@@ -165,10 +155,15 @@ export default function Footer() {
             </a>
           ))}
         </div>
+        <div className="text-xs font-mono text-text-muted flex flex-wrap gap-4">
+          <span>📞 +91 98765 43210</span>
+          <span>✉️ hello@jayantwebai.com</span>
+          <span>📍 New Delhi, India</span>
+        </div>
       </div>
 
       {/* Trust Badges */}
-      <div className="max-w-none px-6 mb-8">
+      <div className="max-w-none px-6 mb-8 text-left">
         <div className="flex flex-wrap gap-2 justify-center md:justify-start">
           {trustBadges.map((badge) => (
             <span
@@ -182,7 +177,7 @@ export default function Footer() {
       </div>
 
       {/* Copyright and Legal bar */}
-      <div className="max-w-none px-6 border-t border-border-custom/30 pt-8 flex flex-col gap-6">
+      <div className="max-w-none px-6 border-t border-border-custom/30 pt-8 flex flex-col gap-6 text-left">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center">
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[10px] text-text-muted font-mono">
             <Link href="/privacy" className="hover:text-primary hover:underline transition-colors">
@@ -208,7 +203,7 @@ export default function Footer() {
 
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-border-custom/10 pt-4">
           <span className="text-[10px] font-mono text-text-muted">
-            © 2026 Jayant Web & AI Systems. All Rights Reserved.
+            © {currentYear} Jayant Web & AI Systems. All Rights Reserved.
           </span>
           <span className="text-[9px] font-mono text-text-muted italic">
             Designed and Developed with Next.js, React, TypeScript, and AI.
