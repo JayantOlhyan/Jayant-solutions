@@ -1,111 +1,101 @@
 "use client";
 
-import React, { useState } from "react";
-import { clientJourneyDays } from "../data/content";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { ArrowRight, Eye, ClipboardList, Code, CheckSquare, Rocket, HelpCircle } from "lucide-react";
+import Link from "next/link";
 
 export default function Process() {
-  const [activeStep, setActiveStep] = useState(0);
+  const steps = [
+    {
+      id: 1,
+      name: "Discovery",
+      desc: "We understand your goals, challenges, and requirements.",
+      icon: <Eye className="size-5 text-primary" />,
+    },
+    {
+      id: 2,
+      name: "Planning",
+      desc: "We create a clear roadmap, timeline, and project plan.",
+      icon: <ClipboardList className="size-5 text-primary" />,
+    },
+    {
+      id: 3,
+      name: "Development",
+      desc: "We build scalable, clean, and maintainable solutions.",
+      icon: <Code className="size-5 text-primary" />,
+    },
+    {
+      id: 4,
+      name: "Testing",
+      desc: "We test thoroughly for quality, security, and performance.",
+      icon: <CheckSquare className="size-5 text-primary" />,
+    },
+    {
+      id: 5,
+      name: "Deployment",
+      desc: "We deploy smoothly and ensure everything runs perfectly.",
+      icon: <Rocket className="size-5 text-primary" />,
+    },
+    {
+      id: 6,
+      name: "Support",
+      desc: "We provide ongoing support and iterate for continuous growth.",
+      icon: <HelpCircle className="size-5 text-primary" />,
+    },
+  ];
 
   return (
     <section id="process" className="py-20 md:py-28 relative">
-      <div className="max-w-5xl mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-            Collaboration Model
-          </span>
-          <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mb-4 mt-2">
-            The Client Journey
-          </h2>
-          <p className="text-sm md:text-base text-text-muted">
-            Weekly updates, direct access to me—no project managers, account handlers, or layered delays.
-          </p>
-        </div>
-
-        {/* Stepper Navigation (Horizontal Timeline on Desktop) */}
-        <div className="w-full relative flex items-center justify-between mb-12 overflow-x-auto scrollbar-none pb-4 select-none">
-          {/* Continuous background connector line */}
-          <div className="absolute top-1/2 left-0 right-0 h-[2px] bg-border-custom -translate-y-1/2 z-0 min-w-[700px]" />
+      <div className="w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          {/* Animated active progress line indicator */}
-          <motion.div 
-            className="absolute top-1/2 left-0 h-[2px] bg-primary -translate-y-1/2 z-0 min-w-[700px] origin-left"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: activeStep / (clientJourneyDays.length - 1) }}
-            transition={{ type: "spring", stiffness: 60, damping: 15 }}
-          />
-          
-          {clientJourneyDays.map((step, index) => {
-            const isCompleted = index <= activeStep;
-            const isActive = index === activeStep;
-
-            return (
-              <button
-                key={step.day}
-                onClick={() => setActiveStep(index)}
-                className="relative z-10 flex flex-col items-center gap-2 group min-w-[100px] shrink-0 cursor-pointer focus:outline-none"
-              >
-                {/* Stepper Dot */}
-                <motion.div
-                  className={`size-9 rounded-full border-2 flex items-center justify-center font-mono text-xs font-bold transition-colors duration-300 ${
-                    isActive
-                      ? "bg-primary border-primary text-white shadow-md shadow-primary/10"
-                      : isCompleted
-                      ? "bg-primary/10 border-primary text-primary"
-                      : "bg-background-base border-border-custom text-text-muted group-hover:border-text-base group-hover:text-text-base"
-                  }`}
-                  whileHover={{ scale: 1.08 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {index + 1}
-                </motion.div>
-                
-                {/* Step Label */}
-                <span
-                  className={`text-xs font-semibold transition-all duration-300 ${
-                    isActive 
-                      ? "text-primary font-bold" 
-                      : isCompleted 
-                      ? "text-primary/80 font-medium" 
-                      : "text-text-muted group-hover:text-text-base"
-                  }`}
-                >
-                  {step.day}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Active Step Content Block */}
-        <div className="glass-card rounded-[28px] border-2 border-border-custom p-8 md:p-10 shadow-[6px_6px_0px_0px_rgba(43,43,43,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] min-h-[160px] relative overflow-hidden">
-          {/* Animated left indicator block */}
-          <motion.div 
-            layoutId="leftIndicator"
-            className="absolute top-0 left-0 bottom-0 w-2 bg-primary" 
-            transition={{ type: "spring", stiffness: 80, damping: 15 }}
-          />
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeStep}
-              initial={{ opacity: 0, x: 15, filter: "blur(2px)" }}
-              animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-              exit={{ opacity: 0, x: -15, filter: "blur(2px)" }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-              className="flex flex-col md:flex-row md:items-center justify-between gap-6"
+          {/* Left Column: Process Copy */}
+          <div className="lg:col-span-4 flex flex-col items-start text-left">
+            <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
+              OUR PROCESS
+            </span>
+            <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mb-4 mt-2">
+              A Proven Process. Predictable Results.
+            </h2>
+            <p className="text-sm md:text-base text-text-muted leading-relaxed mb-8">
+              We follow a transparent and collaborative process to deliver solutions that make an impact.
+            </p>
+            <Link
+              href="/process"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-neutral-900 text-white hover:bg-neutral-800 px-6 py-3 text-xs font-mono font-bold transition-all"
             >
-              <div>
-                <span className="font-mono text-xs text-primary font-bold uppercase tracking-wider block mb-2">
-                  {clientJourneyDays[activeStep].day} — {clientJourneyDays[activeStep].title}
-                </span>
-                <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-3xl">
-                  {clientJourneyDays[activeStep].description}
-                </p>
+              <span>View Our Process</span>
+              <ArrowRight className="size-4" />
+            </Link>
+          </div>
+
+          {/* Right Column: Steps Chain */}
+          <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 relative">
+            {steps.map((step, index) => (
+              <div key={step.id} className="flex flex-col items-center text-center relative group">
+                {/* Visual Step Icon inside Circle */}
+                <div className="relative z-10 size-14 rounded-full border border-border-custom bg-card-bg shadow-sm flex items-center justify-center mb-4 transition-transform group-hover:scale-105">
+                  {step.icon}
+                </div>
+
+                {/* Connecting Line to next item (rendered only on desktop screens) */}
+                {index < steps.length - 1 && (
+                  <div className="hidden lg:block absolute top-7 left-[calc(50%+28px)] right-[calc(-50%+28px)] h-[1px] border-t border-dashed border-border-custom z-0 pointer-events-none" />
+                )}
+
+                {/* Description */}
+                <div className="flex flex-col gap-1">
+                  <span className="font-serif text-xs md:text-sm font-bold text-text-base leading-none">
+                    {step.id}. {step.name}
+                  </span>
+                  <span className="text-[10px] md:text-xs text-text-muted leading-tight mt-1.5 px-1">
+                    {step.desc}
+                  </span>
+                </div>
               </div>
-            </motion.div>
-          </AnimatePresence>
+            ))}
+          </div>
+
         </div>
       </div>
     </section>

@@ -25,6 +25,15 @@ export default function Footer() {
     { name: "Contact", href: "/contact" }
   ];
 
+  const companyLinks = [
+    { name: "About Us", href: "/about" },
+    { name: "Founder", href: "/company/founder" },
+    { name: "Careers", href: "/company/careers" },
+    { name: "Partners", href: "/company/partners" },
+    { name: "Testimonials", href: "/company/testimonials" },
+    { name: "FAQ", href: "/faq" }
+  ];
+
   const solutions = [
     { name: "AI Solutions", href: "/blog/ai-solutions" },
     { name: "Custom Software", href: "/blog/custom-software" },
@@ -35,13 +44,12 @@ export default function Footer() {
   ];
 
   const resources = [
-    { name: "Case Studies", href: "/portfolio" },
-    { name: "Portfolio", href: "/portfolio" },
     { name: "Blog", href: "/blog" },
-    { name: "FAQs", href: "/#faq" },
-    { name: "Pricing Guide", href: "/pricing" },
-    { name: "Project Process", href: "/process" },
-    { name: "Support Desk", href: "/support" }
+    { name: "Case Studies", href: "/resources/case-studies" },
+    { name: "Technologies We Use", href: "/resources/technologies-we-use" },
+    { name: "Industries We Serve", href: "/resources/industries-we-serve" },
+    { name: "Downloads", href: "/resources/downloads" },
+    { name: "FAQs", href: "/faq" }
   ];
 
   const socials = [
@@ -55,7 +63,7 @@ export default function Footer() {
   return (
     <footer className="w-full border-t border-border-custom bg-card-bg/25 pt-16 pb-8">
       {/* Top Footer Grid */}
-      <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-6 gap-8 mb-12">
+      <div className="max-w-none px-6 grid grid-cols-1 md:grid-cols-6 gap-8 mb-12">
         {/* Brand Column */}
         <div className="md:col-span-2 flex flex-col gap-4">
           <div className="flex items-center gap-2">
@@ -79,7 +87,7 @@ export default function Footer() {
         <div className="flex flex-col gap-3">
           <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">Company</span>
           <ul className="space-y-1.5 text-xs text-text-muted">
-            {navigation.map((item) => (
+            {companyLinks.map((item) => (
               <li key={item.name}>
                 <Link href={item.href} className="hover:text-text-base transition-colors">
                   {item.name}
@@ -143,7 +151,7 @@ export default function Footer() {
       </div>
 
       {/* Social Icons row */}
-      <div className="max-w-5xl mx-auto px-6 mb-8 border-y border-border-custom/20 py-4 flex items-center justify-between flex-wrap gap-4">
+      <div className="max-w-none px-6 mb-8 border-y border-border-custom/20 py-4 flex items-center justify-between flex-wrap gap-4">
         <div className="flex flex-wrap gap-4 text-xs font-mono">
           {socials.map((item) => (
             <a
@@ -160,7 +168,7 @@ export default function Footer() {
       </div>
 
       {/* Trust Badges */}
-      <div className="max-w-5xl mx-auto px-6 mb-8">
+      <div className="max-w-none px-6 mb-8">
         <div className="flex flex-wrap gap-2 justify-center md:justify-start">
           {trustBadges.map((badge) => (
             <span
@@ -174,7 +182,7 @@ export default function Footer() {
       </div>
 
       {/* Copyright and Legal bar */}
-      <div className="max-w-5xl mx-auto px-6 border-t border-border-custom/30 pt-8 flex flex-col gap-6">
+      <div className="max-w-none px-6 border-t border-border-custom/30 pt-8 flex flex-col gap-6">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center">
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[10px] text-text-muted font-mono">
             <Link href="/privacy" className="hover:text-primary hover:underline transition-colors">

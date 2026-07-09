@@ -1,310 +1,309 @@
+"use client";
+
 import React from "react";
-import { coreValues, MISSION, VISION, USP } from "@/data/content";
-import { Check, Code, Cpu, Award, GraduationCap, Server, Shield, Layers, MessageSquare, Terminal, Building2, Target, Globe, Languages, Users } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowRight, Brain, Code, Target, Shield, Heart, Lightbulb, Users, CheckCircle, Zap } from "lucide-react";
+import CallToAction from "@/components/CallToAction";
 
 export default function AboutPage() {
-  const skillsList = [
-    { category: "Artificial Intelligence", items: ["Generative AI", "Large Language Models (LLMs)", "Prompt Engineering", "RAG Systems", "AI Agents", "Computer Vision", "Natural Language Processing"] },
-    { category: "Frontend Development", items: ["React", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "Framer Motion"] },
-    { category: "Backend Development", items: ["Node.js", "Express.js", "FastAPI", "Python", "REST APIs", "JWT", "OAuth"] },
-    { category: "Databases & Cloud", items: ["PostgreSQL", "MongoDB", "Firebase", "Supabase", "Redis", "Docker", "AWS", "GCP", "Vercel", "Netlify"] },
-    { category: "Workflow Automation", items: ["n8n", "Make", "Zapier", "Google Workspace APIs", "WhatsApp Automation"] },
-    { category: "AI APIs & Tools", items: ["Google Gemini", "OpenAI", "Anthropic Claude", "LangChain", "LlamaIndex", "Hugging Face"] }
+  const stats = [
+    { number: "50+", label: "Projects Delivered", desc: "Successful solutions across industries" },
+    { number: "100%", label: "Client Satisfaction", desc: "We prioritize quality and relationships" },
+    { number: "5+", label: "Years Of Experience", desc: "Building innovative digital products" },
+    { number: "10+", label: "Industries Served", desc: "Healthcare, Education, NGO, SaaS & more" },
   ];
 
-  const certifications = [
-    "Google AI & Machine Learning Fundamentals",
-    "Google Cloud Fundamentals",
-    "Introduction to Generative AI",
-    "Git & GitHub",
-    "Responsive Web Design",
-    "JavaScript Algorithms",
-    "Python Programming",
-    "SQL & Database Fundamentals"
+  const coreAdvantages = [
+    {
+      title: "AI-First Approach",
+      description: "I build intelligent solutions using the latest generative AI and LLM technologies.",
+      icon: <Brain className="size-6 text-primary" />,
+    },
+    {
+      title: "Custom Solutions",
+      description: "Every product is tailored precisely to your unique business operational workflows.",
+      icon: <Code className="size-6 text-primary" />,
+    },
+    {
+      title: "Agile & Fast",
+      description: "I follow agile methodologies to deliver work faster, allowing rapid adaptation.",
+      icon: <Zap className="size-6 text-primary" />,
+    },
+    {
+      title: "Secure & Scalable",
+      description: "Security, robust performance, and scalable infrastructure are built in from day one.",
+      icon: <Shield className="size-6 text-primary" />,
+    },
+    {
+      title: "Dedicated Support",
+      description: "I partner with you at every step — from initial discovery call to post-launch maintenance.",
+      icon: <Heart className="size-6 text-primary" />,
+    },
   ];
 
-  const industries = [
-    { name: "🤖 Artificial Intelligence", desc: "AI Apps, Generative AI, AI Agents, Machine Learning, Computer Vision, NLP" },
-    { name: "💼 Business & Enterprise", desc: "Business Automation, CRM Systems, ERP Solutions, Dashboards, Workflows" },
-    { name: "🏥 Healthcare", desc: "Healthcare Platforms, AI Symptom Checkers, Medical Dashboards, Appointments" },
-    { name: "🎓 Education (EdTech)", desc: "School Websites, Learning Management Systems, Student Portals, Teacher Platforms" },
-    { name: "🌾 Agriculture (AgriTech)", desc: "Farm Management, Crop Monitoring, AI Recommendations, Agri Dashboards" },
-    { name: "🏛 Government & CivicTech", desc: "Digital Governance, Citizen Portals, Grievance Management Systems" },
-    { name: "🛡 Cybersecurity", desc: "AI Scam Detection, Security Dashboards, Risk Monitoring, Auth Systems" },
-    { name: "🛒 E-Commerce & Retail", desc: "Online Stores, Inventory Systems, Order Management, Payment Integration" },
-    { name: "🏆 Sports Technology", desc: "Tournament Management, Player Registration, Team Communities" },
-    { name: "🚀 SaaS & Startups", desc: "MVP Development, Multi-Tenant SaaS, Subscription Platforms" },
-    { name: "📊 Finance & Productivity", desc: "Business Dashboards, Analytics Platforms, Reporting Tools, Productivity Apps" }
-  ];
-
-  const clientSizes = [
-    { name: "👤 Individuals & Freelancers", desc: "Personal portfolios, landing pages, and digital presence." },
-    { name: "🚀 Startups", desc: "MVP development, AI integration, SaaS platforms, and product engineering." },
-    { name: "🏢 Small Businesses", desc: "Business websites, automation, CRM systems, and digital transformation." },
-    { name: "🏬 Medium Enterprises", desc: "Custom software, internal tools, cloud migration, and scalable applications." },
-    { name: "🏛 Large Enterprises", desc: "Enterprise software, AI solutions, cloud infrastructure, and ongoing partnerships." },
-    { name: "🎓 Educational Institutions", desc: "Schools, colleges, universities, coaching institutes, and training organizations." },
-    { name: "🏢 Government & NGOs", desc: "Digital public services, civic platforms, and social impact solutions." }
-  ];
-
-  const targetClients = [
-    { name: "Startups", desc: "Early-stage founders, SaaS startups, AI startups, and product companies" },
-    { name: "Businesses", desc: "Local businesses, service providers, manufacturing companies, and professional firms" },
-    { name: "Educational Organizations", desc: "Schools, colleges, coaching institutes, and EdTech companies" },
-    { name: "Healthcare Organizations", desc: "Clinics, hospitals, health startups, and medical professionals" },
-    { name: "Technology Companies", desc: "SaaS providers, software companies, IT consultancies, and digital agencies" },
-    { name: "Government & NGOs", desc: "Public sector organizations, civic technology initiatives, and NGO programs" }
-  ];
-
-  const regions = [
-    { name: "🇮🇳 India", desc: "Primary market with support for startups, businesses, education, and enterprises." },
-    { name: "🌏 Asia-Pacific", desc: "Supporting businesses and organizations across the APAC region." },
-    { name: "🌍 Europe", desc: "Remote software development and AI consulting for European clients." },
-    { name: "🌎 North America", desc: "Technology partnerships with startups and businesses in the US and Canada." },
-    { name: "🌍 Middle East", desc: "Custom software, AI, and automation solutions for organizations across the GCC." },
-    { name: "🌍 Worldwide", desc: "Remote-first delivery for clients around the globe." }
+  const journeyYears = [
+    {
+      year: "2021",
+      title: "The Beginning",
+      desc: "Started as a solo developer passionate about coding and automation problems.",
+    },
+    {
+      year: "2022",
+      title: "First Clients",
+      desc: "Partnered with local businesses and delivered our first custom CRM systems.",
+    },
+    {
+      year: "2023",
+      title: "Expansion",
+      desc: "Expanded my services and capabilities to meet growing business demands.",
+    },
+    {
+      year: "2024",
+      title: "Innovation Focus",
+      desc: "Focused on AI chatbots, WhatsApp integrations, and cloud analytics platforms.",
+    },
+    {
+      year: "2025 & Beyond",
+      title: "Building the Future",
+      desc: "Continuing my mission to build intelligent technology that drives real impact.",
+    },
   ];
 
   return (
     <PageTransition>
-      <div className="hog-grid min-h-screen pb-20 pt-10">
-        <main className="max-w-5xl mx-auto px-6 flex flex-col gap-16">
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto">
-          <span className="font-mono text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3 py-1 rounded-full mb-4 inline-block">
-            About Us
-          </span>
-          <h1 className="font-serif text-4xl md:text-6xl font-bold tracking-tight text-text-base mb-4 mt-2">
-            Company & Founder
-          </h1>
-          <p className="text-sm md:text-base text-text-muted">
-            Empowering businesses by automating operations, designing modern software, and deploying AI solutions.
-          </p>
-        </div>
-
-        {/* Brand Overview & Business Information */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="hog-card rounded-2xl p-6 flex flex-col gap-2">
-            <Building2 className="size-6 text-primary" />
-            <h4 className="font-serif font-bold text-text-base text-base">Company Information</h4>
-            <p className="text-xs text-text-muted leading-relaxed">
-              <strong>Founded:</strong> 2026<br />
-              <strong>Type:</strong> AI & Software Development Agency<br />
-              <strong>HQ:</strong> New Delhi, India (Remote-First)
-            </p>
-          </div>
-          <div className="hog-card rounded-2xl p-6 flex flex-col gap-2">
-            <Target className="size-6 text-primary" />
-            <h4 className="font-serif font-bold text-text-base text-base">Engagement Models</h4>
-            <p className="text-xs text-text-muted leading-relaxed">
-              • Fixed-Price Projects<br />
-              • Milestone-Based Development<br />
-              • Monthly Retainer Agreements<br />
-              • Technical Consulting Partnerships
-            </p>
-          </div>
-          <div className="hog-card rounded-2xl p-6 flex flex-col gap-2">
-            <Languages className="size-6 text-primary" />
-            <h4 className="font-serif font-bold text-text-base text-base">Languages & Localization</h4>
-            <p className="text-xs text-text-muted leading-relaxed">
-              <strong>Communication:</strong> English, Hindi<br />
-              <strong>Localization:</strong> Multilingual support (English, Hindi, Spanish, French, German, Arabic, Japanese, Chinese, etc.)
-            </p>
-          </div>
-        </div>
-
-        {/* Founder Showcase Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-          {/* Profile Card left */}
-          <div className="lg:col-span-1 hog-card rounded-[32px] p-8 flex flex-col items-center text-center">
-            <div className="size-28 rounded-full overflow-hidden mb-6 border-2 border-border-custom shadow-md">
-              <img
-                src="/jayant.jpg"
-                alt="Jayant Olhyan - Founder of Jayant Web & AI Systems"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <h2 className="font-serif text-2xl font-bold text-text-base mb-1">Jayant Olhyan</h2>
-            <p className="font-mono text-xs text-primary font-bold mb-4">Founder & AI Engineer</p>
-            <p className="text-xs text-text-muted mb-6 italic">
-              "Building intelligent software that transforms ideas into impactful digital solutions through AI, automation, and modern engineering."
-            </p>
-            <div className="flex flex-wrap justify-center gap-1.5 border-t border-border-custom/50 pt-4 w-full">
-              <span className="text-[9px] font-mono text-text-muted bg-neutral-100 dark:bg-neutral-900 border border-border-custom/20 px-2 py-0.5 rounded">🚀 AI Enthusiast</span>
-              <span className="text-[9px] font-mono text-text-muted bg-neutral-100 dark:bg-neutral-900 border border-border-custom/20 px-2 py-0.5 rounded">💻 Full-Stack</span>
-              <span className="text-[9px] font-mono text-text-muted bg-neutral-100 dark:bg-neutral-900 border border-border-custom/20 px-2 py-0.5 rounded">⚡ Automation</span>
-            </div>
-          </div>
-
-          {/* Profile Timeline right */}
-          <div className="lg:col-span-2 hog-card rounded-[32px] p-8 flex flex-col gap-6 text-left">
-            <div>
-              <h3 className="font-serif text-2xl font-bold text-text-base mb-3">Professional Bio</h3>
-              <p className="text-xs md:text-sm text-text-muted leading-relaxed mb-4">
-                Jayant Olhyan is a software developer, AI engineer, and entrepreneur. He is the Founder of Jayant Web & AI Systems, an AI-first software development company focused on building intelligent digital products that solve real-world problems. He specializes in Artificial Intelligence, full-stack web development, workflow automation, and scalable cloud solutions.
+      <div className="hog-grid min-h-screen pb-20 pt-10 text-left">
+        <main className="max-w-none px-6 md:px-12 lg:px-16 flex flex-col gap-20 md:gap-28">
+          
+          {/* About Hero & Desk Layout */}
+          <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center pt-8">
+            {/* Left Column: Hero Text */}
+            <div className="lg:col-span-6 flex flex-col items-start">
+              <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
+                ABOUT US
+              </span>
+              <h1 className="font-serif text-4xl md:text-6xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
+                Building Technology That Drives Real{" "}
+                <span className="text-primary underline decoration-primary/40 decoration-4 underline-offset-8">
+                  Impact
+                </span>
+              </h1>
+              <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
+                At Jayant Web & AI Systems, I help startups, businesses, and enterprises transform ideas into powerful digital products. From concept to code, I build solutions that are intelligent, scalable, and future-ready.
               </p>
-              <p className="text-xs md:text-sm text-text-muted leading-relaxed">
-                Driven by a passion for innovation, Jayant has developed projects across healthcare, education, cybersecurity, agriculture, civic technology, and public safety. His work combines modern AI models with practical software engineering to create products that improve efficiency, automate workflows, and deliver measurable business value.
-              </p>
+              
+              <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto">
+                <Link
+                  href="/contact"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-neutral-900 text-white hover:bg-neutral-800 px-7 py-3 text-xs font-mono font-bold transition-all"
+                >
+                  <span>Let&apos;s Build Together</span>
+                  <ArrowRight className="size-4" />
+                </Link>
+                <Link
+                  href="/process"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-border-custom bg-white hover:bg-neutral-50 dark:bg-card-bg dark:hover:bg-neutral-900 px-7 py-3 text-xs font-mono font-bold text-text-base transition-all"
+                >
+                  <span>Our Process</span>
+                  <ArrowRight className="size-4" />
+                </Link>
+              </div>
             </div>
 
-            {/* Certifications and achievements list */}
-            <div>
-              <h4 className="font-serif text-lg font-bold text-text-base mb-3 flex items-center gap-2">
-                <Award className="size-5 text-primary" /> Key Certifications
-              </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {certifications.map((cert) => (
-                  <div key={cert} className="flex items-center gap-2 text-xs text-text-muted font-mono">
-                    <span className="size-1.5 rounded-full bg-primary shrink-0" />
-                    <span>{cert}</span>
+            {/* Right Column: Desk image overlay quote */}
+            <div className="lg:col-span-6 relative flex justify-center items-center">
+              <div className="w-full aspect-[4/3] rounded-3xl overflow-hidden border border-border-custom relative shadow-lg">
+                <img
+                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80"
+                  alt="Workspace"
+                  className="absolute inset-0 w-full h-full object-cover brightness-[0.85] dark:brightness-[0.7]"
+                />
+                
+                {/* Overlapping Quote container */}
+                <div className="absolute bottom-6 left-6 right-6 md:right-auto md:max-w-md rounded-2xl bg-primary text-white p-5 shadow-2xl">
+                  <div className="flex flex-col gap-2">
+                    <span className="text-3xl font-black leading-none text-white/50">&ldquo;</span>
+                    <p className="text-xs md:text-sm font-serif font-bold leading-relaxed -mt-2">
+                      We don&apos;t just build software, we craft digital experiences that create long-term value.
+                    </p>
                   </div>
-                ))}
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+          </section>
 
-        {/* Presentation of hackathons presentation bio note */}
-        <div className="hog-card rounded-2xl p-6 text-left">
-          <span className="font-mono text-xs text-primary font-bold block mb-1">Presented Technical Events</span>
-          <p className="text-xs text-text-muted leading-relaxed">
-            Jayant has actively presented technical projects and solutions at technical events and participated in hackathons hosted by IITs and leading universities.
-          </p>
-        </div>
-
-        {/* Industries Served */}
-        <div>
-          <div className="text-center mb-8 max-w-xl mx-auto">
-            <h3 className="font-serif text-2xl md:text-3xl font-bold text-text-base mb-2">Industries We Serve</h3>
-            <p className="text-xs text-text-muted">Deploying customized systems engineered for industry-specific bottlenecks.</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {industries.map((ind) => (
-              <div key={ind.name} className="border border-border-custom/40 p-5 rounded-2xl bg-background-base/60 flex flex-col gap-2">
-                <h4 className="font-serif font-bold text-text-base text-sm">{ind.name}</h4>
-                <p className="text-[11px] text-text-muted leading-relaxed">{ind.desc}</p>
+          {/* Stats Counter Section */}
+          <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {stats.map((stat, i) => (
+              <div key={i} className="hog-card rounded-2xl p-6 flex flex-col justify-between border border-border-custom bg-card-bg/50">
+                <span className="text-3xl md:text-4xl font-serif font-black text-primary mb-2">
+                  {stat.number}
+                </span>
+                <div>
+                  <h4 className="font-serif text-sm font-bold text-text-base mb-1">{stat.label}</h4>
+                  <p className="text-[11px] md:text-xs text-text-muted">{stat.desc}</p>
+                </div>
               </div>
             ))}
-          </div>
-        </div>
+          </section>
 
-        {/* Business Sizes & Target Clients */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="hog-card rounded-[32px] p-8">
-            <h3 className="font-serif text-2xl font-bold text-text-base mb-6 flex items-center gap-2">
-              <Users className="size-5 text-primary" /> Business Scale
-            </h3>
-            <div className="space-y-4">
-              {clientSizes.map((size) => (
-                <div key={size.name} className="border-b border-border-custom/20 pb-3 last:border-0 last:pb-0">
-                  <h4 className="font-serif font-bold text-text-base text-sm mb-1">{size.name}</h4>
-                  <p className="text-xs text-text-muted leading-relaxed">{size.desc}</p>
+          {/* Our Story ("How It All Started") */}
+          <section className="py-8 relative">
+            <div className="text-left mb-12">
+              <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
+                OUR STORY
+              </span>
+              <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
+                How It All Started
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+              
+              {/* Left Column: Founder Copy */}
+              <div className="lg:col-span-5 flex flex-col gap-6">
+                <p className="text-xs md:text-sm text-text-muted leading-relaxed">
+                  Jayant Web & AI Systems was founded with a simple mission — to help businesses leverage modern technology to solve real-world problems.
+                </p>
+                <p className="text-xs md:text-sm text-text-muted leading-relaxed">
+                  What started as a passion for coding and automation has grown into a full-service digital solutions practice trusted by startups, non-profits, and professionals.
+                </p>
+                <div className="border-l-4 border-primary pl-4 py-2 mt-4">
+                  <p className="text-xs md:text-sm font-serif font-bold italic text-text-base">
+                    &ldquo;My goal is to empower businesses with technology that is not only smart but also meaningful.&rdquo;
+                  </p>
+                  <span className="text-[10px] text-text-muted font-mono uppercase font-semibold mt-2 block">
+                    — Jayant Olhyan, Founder
+                  </span>
+                </div>
+              </div>
+
+              {/* Center Column: Portrait */}
+              <div className="lg:col-span-3 flex justify-center">
+                <div className="w-full max-w-[280px] aspect-[3/4] rounded-3xl overflow-hidden border-2 border-border-custom shadow-lg relative bg-neutral-900">
+                  <img
+                    src="/jayant.jpg"
+                    alt="Jayant Olhyan"
+                    className="absolute inset-0 w-full h-full object-cover"
+                    onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80" }}
+                  />
+                </div>
+              </div>
+
+              {/* Right Column: Mission/Vision/Values */}
+              <div className="lg:col-span-4 flex flex-col gap-6">
+                <div className="border border-border-custom/80 rounded-2xl p-5 bg-card-bg/40">
+                  <h4 className="font-serif text-sm font-bold text-text-base mb-1.5 flex items-center gap-2">
+                    <Target className="size-4 text-primary" /> Our Mission
+                  </h4>
+                  <p className="text-[11px] md:text-xs text-text-muted leading-relaxed">
+                    To deliver intelligent, innovative, and scalable digital solutions that help businesses grow and operate more efficiently.
+                  </p>
+                </div>
+
+                <div className="border border-border-custom/80 rounded-2xl p-5 bg-card-bg/40">
+                  <h4 className="font-serif text-sm font-bold text-text-base mb-1.5 flex items-center gap-2">
+                    <Lightbulb className="size-4 text-primary" /> Our Vision
+                  </h4>
+                  <p className="text-[11px] md:text-xs text-text-muted leading-relaxed">
+                    To be a trusted global technology partner known for engineering excellence, transparency, and creating long-term business value.
+                  </p>
+                </div>
+
+                <div className="border border-border-custom/80 rounded-2xl p-5 bg-card-bg/40">
+                  <h4 className="font-serif text-sm font-bold text-text-base mb-1.5 flex items-center gap-2">
+                    <Users className="size-4 text-primary" /> Our Values
+                  </h4>
+                  <div className="flex flex-wrap gap-1.5 mt-2">
+                    {["Innovation First", "Client Success", "Transparency", "Quality & Excellence", "Long-term Impact"].map((v) => (
+                      <span key={v} className="text-[9px] font-mono text-text-muted bg-neutral-100 dark:bg-neutral-900 border border-border-custom/20 px-2.5 py-0.5 rounded-full">
+                        {v}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          {/* Why Choose Us ("What Sets Us Apart") */}
+          <section className="py-8 relative">
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
+                WHY CHOOSE US
+              </span>
+              <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
+                What Sets Us Apart
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+              {coreAdvantages.map((adv, idx) => (
+                <div
+                  key={idx}
+                  className="hog-card rounded-2xl p-5 bg-card-bg/50 border border-border-custom flex flex-col justify-between"
+                >
+                  <div className="flex flex-col gap-4">
+                    <div className="size-11 rounded-full border border-border-custom bg-card-bg flex items-center justify-center shadow-sm">
+                      {adv.icon}
+                    </div>
+                    <h4 className="font-serif text-xs md:text-sm font-bold text-text-base leading-snug">
+                      {adv.title}
+                    </h4>
+                    <p className="text-[10px] md:text-xs text-text-muted leading-relaxed">
+                      {adv.description}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
-          </div>
+          </section>
 
-          <div className="hog-card rounded-[32px] p-8">
-            <h3 className="font-serif text-2xl font-bold text-text-base mb-6 flex items-center gap-2">
-              <Target className="size-5 text-primary" /> Target Clients
-            </h3>
-            <div className="space-y-4">
-              {targetClients.map((client) => (
-                <div key={client.name} className="border-b border-border-custom/20 pb-3 last:border-0 last:pb-0">
-                  <h4 className="font-serif font-bold text-text-base text-sm mb-1">{client.name}</h4>
-                  <p className="text-xs text-text-muted leading-relaxed">{client.desc}</p>
-                </div>
-              ))}
+          {/* Our Journey Timeline */}
+          <section className="py-8 relative">
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
+                OUR JOURNEY
+              </span>
+              <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
+                From Beginning to Now
+              </h2>
             </div>
-          </div>
-        </div>
 
-        {/* Regions Served */}
-        <div className="hog-card rounded-[32px] p-8">
-          <h3 className="font-serif text-2xl font-bold text-text-base mb-6 flex items-center gap-2">
-            <Globe className="size-5 text-primary" /> Regions We Serve
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {regions.map((reg) => (
-              <div key={reg.name} className="border border-border-custom/30 p-4 rounded-xl bg-background-base">
-                <h4 className="font-serif font-bold text-text-base text-sm mb-1">{reg.name}</h4>
-                <p className="text-[11px] text-text-muted leading-relaxed">{reg.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+            {/* Horizontal Timeline flow */}
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-6 relative">
+              {journeyYears.map((item, index) => (
+                <div key={item.year} className="flex flex-col items-start relative group pl-4 border-l-2 border-primary/20 md:border-l-0 md:pl-0">
+                  
+                  {/* Timeline circle node */}
+                  <div className="absolute -left-[23px] md:-left-0 top-0.5 md:relative md:mb-4 z-10 size-4 rounded-full border border-primary bg-primary flex items-center justify-center" />
 
-        {/* Skills Board Grid */}
-        <div className="hog-card rounded-[32px] p-8">
-          <h3 className="font-serif text-2xl font-bold text-text-base mb-8 text-center flex items-center justify-center gap-2">
-            <Layers className="size-6 text-primary" /> Skills Blueprint
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {skillsList.map((skillGroup) => (
-              <div key={skillGroup.category} className="border border-border-custom/40 p-5 rounded-2xl bg-background-base/60">
-                <h4 className="font-mono text-xs text-primary uppercase font-bold border-b border-border-custom/30 pb-2 mb-3">
-                  {skillGroup.category}
-                </h4>
-                <div className="flex flex-wrap gap-1.5">
-                  {skillGroup.items.map((item) => (
-                    <span
-                      key={item}
-                      className="text-[10px] font-mono text-text-muted bg-white/5 border border-border-custom px-2 py-0.5 rounded-md"
-                    >
-                      {item}
+                  {/* Horizontal line connector (for desktop screens) */}
+                  {index < journeyYears.length - 1 && (
+                    <div className="hidden md:block absolute top-[7px] left-4 right-0 h-[1.5px] bg-primary/20 z-0" />
+                  )}
+
+                  <div className="flex flex-col gap-1 mt-1 md:mt-0">
+                    <span className="font-mono text-sm font-bold text-primary">{item.year}</span>
+                    <span className="font-serif text-xs md:text-sm font-bold text-text-base leading-none mt-1">
+                      {item.title}
                     </span>
-                  ))}
+                    <span className="text-[10px] md:text-xs text-text-muted leading-tight mt-1.5">
+                      {item.desc}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
+              ))}
+            </div>
+          </section>
 
-        {/* Mission & Vision Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="hog-card rounded-[28px] p-8 flex flex-col gap-4">
-            <span className="font-mono text-xs tracking-widest uppercase text-primary">Our Mission</span>
-            <h3 className="font-serif text-2xl md:text-3xl font-bold text-text-base">{MISSION}</h3>
-            <p className="text-xs md:text-sm text-text-muted leading-relaxed">
-              We aim to empower small and medium enterprises in India by integrating intelligent automations into their operational workflows.
-            </p>
-          </div>
+          {/* Ready to Build CTA */}
+          <CallToAction />
 
-          <div className="hog-card rounded-[28px] p-8 flex flex-col gap-4">
-            <span className="font-mono text-xs tracking-widest uppercase text-primary">Our Vision</span>
-            <h3 className="font-serif text-2xl md:text-3xl font-bold text-text-base">{VISION}</h3>
-            <p className="text-xs md:text-sm text-text-muted leading-relaxed">
-              Becoming the standard of trust, quality, and quick turnaround execution for AI agent deployment and modern Web development.
-            </p>
-          </div>
-        </div>
-
-        {/* Core USP */}
-        <div className="hog-card rounded-[28px] p-8 md:p-12 text-center max-w-3xl mx-auto w-full">
-          <span className="font-mono text-xs tracking-widest uppercase text-primary mb-2 block">Our Core USP</span>
-          <p className="font-serif text-xl md:text-2xl font-semibold text-text-base">
-            &ldquo;{USP}&rdquo;
-          </p>
-        </div>
-
-        {/* Core Values Section */}
-        <div>
-          <h2 className="font-serif text-3xl font-bold text-text-base text-center mb-10">Our Core Values</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {coreValues.map((val) => (
-              <div key={val.name} className="hog-card rounded-2xl p-6 flex flex-col gap-2">
-                <h4 className="font-bold text-text-base flex items-center gap-2">
-                  <Check className="size-4 text-primary" /> {val.name}
-                </h4>
-                <p className="text-xs md:text-sm text-text-muted">{val.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </main>
-    </div>
-  </PageTransition>
+        </main>
+      </div>
+    </PageTransition>
   );
 }

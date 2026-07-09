@@ -3,7 +3,7 @@ import React from "react";
 export default function About() {
   return (
     <section id="about" className="py-20 md:py-28 relative">
-      <div className="max-w-5xl mx-auto px-4">
+      <div className="w-full">
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <div className="w-full md:w-2/5 aspect-[4/5] max-w-[320px] rounded-3xl relative overflow-hidden flex flex-col justify-center items-center shadow-lg border-2 border-border-custom">
             <img

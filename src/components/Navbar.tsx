@@ -10,8 +10,15 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [companyOpen, setCompanyOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
+  const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
+  const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
+  
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const companyRef = useRef<HTMLDivElement>(null);
+  const resourcesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,169 +33,401 @@ export default function Navbar() {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setDropdownOpen(false);
       }
+      if (companyRef.current && !companyRef.current.contains(event.target as Node)) {
+        setCompanyOpen(false);
+      }
+      if (resourcesRef.current && !resourcesRef.current.contains(event.target as Node)) {
+        setResourcesOpen(false);
+      }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const navItems = [
-    { label: "Services", href: "/services" },
-    { label: "Work", href: "/portfolio" },
-    { label: "Process", href: "/process" },
-    { label: "Pricing", href: "/pricing" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
+  const companySubLinks = [
+    { label: "Founder", href: "/company/founder" },
+    { label: "Careers", href: "/company/careers" },
+    { label: "Partners", href: "/company/partners" },
+    { label: "Testimonials", href: "/company/testimonials" },
+    { label: "Why Choose Us", href: "/company/why-choose-us" },
+  ];
+
+  const resourcesSubLinks = [
+    { label: "Blog", href: "/blog" },
+    { label: "Case Studies", href: "/resources/case-studies" },
+    { label: "Technologies We Use", href: "/resources/technologies-we-use" },
+    { label: "Industries We Serve", href: "/resources/industries-we-serve" },
+    { label: "Downloads", href: "/resources/downloads" },
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full border-b border-border-custom/10 bg-white/80 dark:bg-[#0B0F19]/80 backdrop-blur-[20px] ${
-        scrolled ? "h-16 shadow-[0_1px_0_rgba(0,0,0,0.04)]" : "h-20"
-      }`}
-    >
-      <div className="max-w-[1280px] mx-auto h-full px-6 md:px-10 flex items-center justify-between">
-        {/* Brand Monogram & Logo Lockup */}
-        <Link href="/" className="flex items-center gap-4 text-left group">
-          <div className="size-[54px] shrink-0 font-sans text-xl font-bold flex items-center justify-center text-primary bg-white dark:bg-neutral-900 border border-border-custom rounded-xl transition-all duration-300 group-hover:scale-[1.02]">
-            J
-          </div>
-          <div className="flex flex-col">
-            <span className="font-sans text-lg font-bold tracking-tight text-text-base leading-none">
-              Jayant Web & AI Systems
-            </span>
-            <span className="font-sans text-[11px] tracking-[0.08em] uppercase text-text-muted font-medium mt-1">
-              AI & Software Development
-            </span>
-          </div>
-        </Link>
+    <header className="fixed top-0 left-0 right-0 z-50 w-full px-4 sm:px-6 md:px-8 py-4 transition-all duration-300">
+      <div 
+        className={`w-full bg-[#111827] border border-white/10 rounded-2xl md:rounded-[20px] shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300 ${
+          scrolled ? "py-2.5 px-5 md:px-6" : "py-3.5 px-6 md:px-8"
+        }`}
+      >
+        <div className="flex items-center justify-between">
+          
+          {/* Brand Monogram & Logo Lockup */}
+          <Link href="/" className="flex items-center gap-3.5 text-left group">
+            <div className="size-11 shrink-0 font-sans text-lg font-bold flex items-center justify-center text-primary bg-[#0B0F19] border border-white/10 rounded-xl transition-all duration-300 group-hover:scale-[1.02]">
+              J
+            </div>
+            <div className="flex flex-col">
+              <span className="font-serif text-sm md:text-base font-bold tracking-tight text-white leading-none">
+                Jayant Web & AI Systems
+              </span>
+              <span className="font-sans text-[9px] tracking-[0.08em] uppercase text-white/50 font-medium mt-1">
+                AI & Software Development
+              </span>
+            </div>
+          </Link>
 
-        {/* Desktop Navigation Links */}
-        <div className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => {
-            const isActive = pathname === item.href;
-            return (
-              <Link
-                key={item.label}
-                href={item.href}
-                className={`relative text-[15px] font-sans font-medium transition-colors py-1 group ${
-                  isActive ? "text-primary font-semibold" : "text-text-muted hover:text-text-base"
+          {/* Desktop Navigation Links */}
+          <div className="hidden md:flex items-center gap-7">
+            <Link
+              href="/services"
+              className={`relative text-[14px] font-sans font-medium transition-colors py-1 group ${
+                pathname.startsWith("/services") ? "text-primary font-semibold" : "text-white/70 hover:text-white"
+              }`}
+            >
+              <span>Services</span>
+            </Link>
+            <Link
+              href="/portfolio"
+              className={`relative text-[14px] font-sans font-medium transition-colors py-1 group ${
+                pathname === "/portfolio" ? "text-primary font-semibold" : "text-white/70 hover:text-white"
+              }`}
+            >
+              <span>Work</span>
+            </Link>
+            <Link
+              href="/process"
+              className={`relative text-[14px] font-sans font-medium transition-colors py-1 group ${
+                pathname === "/process" ? "text-primary font-semibold" : "text-white/70 hover:text-white"
+              }`}
+            >
+              <span>Process</span>
+            </Link>
+
+            {/* Company Dropdown Trigger */}
+            <div className="relative" ref={companyRef}>
+              <button
+                onClick={() => {
+                  setCompanyOpen(!companyOpen);
+                  setResourcesOpen(false);
+                }}
+                className={`flex items-center gap-1.5 text-[14px] font-sans font-medium transition-colors py-1 focus:outline-none cursor-pointer ${
+                  pathname.startsWith("/company") ? "text-primary font-semibold" : "text-white/70 hover:text-white"
                 }`}
               >
-                <span>{item.label}</span>
-                <span
-                  className={`absolute bottom-0 left-0 w-full h-[1.5px] bg-primary transition-transform duration-200 ${
-                    isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                  }`}
-                />
-              </Link>
-            );
-          })}
-        </div>
+                <span>Company</span>
+                <ChevronDown className="size-3" />
+              </button>
 
-        {/* Desktop CTA Segment with Animated Dropdown */}
-        <div className="hidden md:flex items-center gap-4">
-          <div className="relative" ref={dropdownRef}>
-            <button
-              onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="hog-btn px-5 py-2.5 text-xs rounded-xl flex items-center gap-1.5 cursor-pointer focus:outline-none"
+              <AnimatePresence>
+                {companyOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                    transition={{ duration: 0.15, ease: "easeOut" }}
+                    className="absolute left-0 mt-2 w-48 rounded-xl bg-[#111827] border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.5)] py-2 z-50 origin-top-left"
+                  >
+                    {companySubLinks.map((subLink) => (
+                      <Link
+                        key={subLink.label}
+                        href={subLink.href}
+                        onClick={() => setCompanyOpen(false)}
+                        className="block px-4 py-2 text-xs font-mono font-bold text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+                      >
+                        {subLink.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Resources Dropdown Trigger */}
+            <div className="relative" ref={resourcesRef}>
+              <button
+                onClick={() => {
+                  setResourcesOpen(!resourcesOpen);
+                  setCompanyOpen(false);
+                }}
+                className={`flex items-center gap-1.5 text-[14px] font-sans font-medium transition-colors py-1 focus:outline-none cursor-pointer ${
+                  pathname.startsWith("/resources") || pathname === "/blog" ? "text-primary font-semibold" : "text-white/70 hover:text-white"
+                }`}
+              >
+                <span>Resources</span>
+                <ChevronDown className="size-3" />
+              </button>
+
+              <AnimatePresence>
+                {resourcesOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                    transition={{ duration: 0.15, ease: "easeOut" }}
+                    className="absolute left-0 mt-2 w-52 rounded-xl bg-[#111827] border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.5)] py-2 z-50 origin-top-left"
+                  >
+                    {resourcesSubLinks.map((subLink) => (
+                      <Link
+                        key={subLink.label}
+                        href={subLink.href}
+                        onClick={() => setResourcesOpen(false)}
+                        className="block px-4 py-2 text-xs font-mono font-bold text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+                      >
+                        {subLink.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            <Link
+              href="/pricing"
+              className={`relative text-[14px] font-sans font-medium transition-colors py-1 group ${
+                pathname.startsWith("/pricing") ? "text-primary font-semibold" : "text-white/70 hover:text-white"
+              }`}
             >
-              <span>Book a Free Consultation</span>
-              <ChevronDown className={`size-3.5 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
-            </button>
-
-            <AnimatePresence>
-              {dropdownOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                  transition={{ duration: 0.15, ease: "easeOut" }}
-                  className="absolute right-0 mt-2 w-56 rounded-xl bg-card-bg border border-border-custom shadow-[0_8px_30px_rgba(0,0,0,0.06)] py-2 z-50 origin-top-right"
-                >
-                  <a
-                    href="https://cal.com/jayant-web-and-ai-systems/strategy-call"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setDropdownOpen(false)}
-                    className="flex items-center gap-2.5 px-4 py-2 text-xs font-mono font-bold text-text-base hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors"
-                  >
-                    <Calendar className="size-4 text-primary" />
-                    <span>Book a Strategy Call</span>
-                  </a>
-                  <a
-                    href="https://wa.me/919667344125?text=Hi%20Jayant,%20I'm%20interested%20in%20discussing%20a%20project."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setDropdownOpen(false)}
-                    className="flex items-center gap-2.5 px-4 py-2 text-xs font-mono font-bold text-text-base hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors"
-                  >
-                    <MessageSquare className="size-4 text-primary" />
-                    <span>Chat on WhatsApp</span>
-                  </a>
-                  <a
-                    href="mailto:jayantwebaisystems@gmail.com"
-                    onClick={() => setDropdownOpen(false)}
-                    className="flex items-center gap-2.5 px-4 py-2 text-xs font-mono font-bold text-text-base hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors"
-                  >
-                    <Mail className="size-4 text-primary" />
-                    <span>Send an Email</span>
-                  </a>
-                </motion.div>
-              )}
-            </AnimatePresence>
+              <span>Pricing</span>
+            </Link>
+            <Link
+              href="/contact"
+              className={`relative text-[14px] font-sans font-medium transition-colors py-1 group ${
+                pathname === "/contact" ? "text-primary font-semibold" : "text-white/70 hover:text-white"
+              }`}
+            >
+              <span>Contact</span>
+            </Link>
           </div>
+
+          {/* Desktop CTA Segment with Animated Dropdown */}
+          <div className="hidden md:flex items-center gap-4">
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-primary hover:bg-primary-hover text-white px-5 py-2.5 text-xs font-semibold transition-all duration-200 shadow-md hover:shadow-lg active:scale-[0.98] cursor-pointer focus:outline-none"
+              >
+                <span>Book a Free Consultation</span>
+                <ChevronDown className={`size-3.5 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
+              </button>
+
+              <AnimatePresence>
+                {dropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                    transition={{ duration: 0.15, ease: "easeOut" }}
+                    className="absolute right-0 mt-2 w-56 rounded-xl bg-[#111827] border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.5)] py-2 z-50 origin-top-right"
+                  >
+                    <a
+                      href="https://cal.com/jayant-web-and-ai-systems/strategy-call"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setDropdownOpen(false)}
+                      className="flex items-center gap-2.5 px-4 py-2 text-xs font-mono font-bold text-white hover:bg-white/5 transition-colors"
+                    >
+                      <Calendar className="size-4 text-primary" />
+                      <span>Book a Strategy Call</span>
+                    </a>
+                    <a
+                      href="https://wa.me/919667344125?text=Hi%20Jayant,%20I'm%20interested%20in%20discussing%20a%20project."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setDropdownOpen(false)}
+                      className="flex items-center gap-2.5 px-4 py-2 text-xs font-mono font-bold text-white hover:bg-white/5 transition-colors"
+                    >
+                      <MessageSquare className="size-4 text-primary" />
+                      <span>Chat on WhatsApp</span>
+                    </a>
+                    <a
+                      href="mailto:jayantwebaisystems@gmail.com"
+                      onClick={() => setDropdownOpen(false)}
+                      className="flex items-center gap-2.5 px-4 py-2 text-xs font-mono font-bold text-white hover:bg-white/5 transition-colors"
+                    >
+                      <Mail className="size-4 text-primary" />
+                      <span>Send an Email</span>
+                    </a>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
+
+          {/* Mobile Menu Trigger */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="p-1.5 md:hidden text-white hover:opacity-85 focus:outline-none border border-white/10 rounded-xl bg-[#0B0F19]"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+          </button>
         </div>
 
-        {/* Mobile Menu Trigger */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="p-1.5 md:hidden text-text-base hover:opacity-85 focus:outline-none border border-border-custom rounded-xl bg-background-base"
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X className="size-5" /> : <Menu className="size-5" />}
-        </button>
-      </div>
-
-      {/* Mobile Drawer */}
-      {isOpen && (
-        <div className="absolute top-16 left-4 right-4 rounded-2xl p-6 bg-card-bg shadow-[0_8px_30px_rgba(0,0,0,0.06)] border border-border-custom md:hidden flex flex-col gap-4 overflow-y-auto max-h-[calc(100vh-5rem)] animate-in fade-in slide-in-from-top-4 duration-200">
-          {navItems.map((item) => {
-            const isActive = pathname === item.href;
-            return (
+        {/* Mobile Drawer */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2 }}
+              className="mt-4 pt-4 border-t border-white/10 md:hidden flex flex-col gap-4 overflow-y-auto max-h-[calc(100vh-8rem)]"
+            >
               <Link
-                key={item.label}
-                href={item.href}
+                href="/services"
                 onClick={() => setIsOpen(false)}
-                className={`text-sm font-sans font-bold px-2 py-2 transition-colors border-b border-border-custom/50 last:border-0 ${
-                  isActive ? "text-primary" : "text-text-muted hover:text-text-base"
+                className={`text-sm font-sans font-bold px-2 py-2 border-b border-white/5 transition-colors ${
+                  pathname.startsWith("/services") ? "text-primary" : "text-white/70 hover:text-white"
                 }`}
               >
-                {item.label}
+                Services
               </Link>
-            );
-          })}
-          <div className="border-t border-border-custom/50 pt-4 flex flex-col gap-3">
-            <a
-              href="https://wa.me/919667344125"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setIsOpen(false)}
-              className="w-full text-center border border-border-custom py-2 text-xs font-mono font-bold rounded-xl bg-background-base text-text-base"
-            >
-              💬 Chat on WhatsApp
-            </a>
-            <a
-              href="https://cal.com/jayant-web-and-ai-systems/strategy-call"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setIsOpen(false)}
-              className="w-full text-center hog-btn py-2.5 text-xs rounded-xl"
-            >
-              📅 Book Free Consultation
-            </a>
-          </div>
-        </div>
-      )}
+              <Link
+                href="/portfolio"
+                onClick={() => setIsOpen(false)}
+                className={`text-sm font-sans font-bold px-2 py-2 border-b border-white/5 transition-colors ${
+                  pathname === "/portfolio" ? "text-primary" : "text-white/70 hover:text-white"
+                }`}
+              >
+                Work
+              </Link>
+              <Link
+                href="/process"
+                onClick={() => setIsOpen(false)}
+                className={`text-sm font-sans font-bold px-2 py-2 border-b border-white/5 transition-colors ${
+                  pathname === "/process" ? "text-primary" : "text-white/70 hover:text-white"
+                }`}
+              >
+                Process
+              </Link>
+
+              {/* Mobile Company Dropdown */}
+              <div className="flex flex-col border-b border-white/5">
+                <button
+                  onClick={() => {
+                    setMobileCompanyOpen(!mobileCompanyOpen);
+                    setMobileResourcesOpen(false);
+                  }}
+                  className="flex items-center justify-between text-sm font-sans font-bold px-2 py-2 text-white/70 hover:text-white focus:outline-none w-full"
+                >
+                  <span>Company</span>
+                  <ChevronDown className={`size-3.5 transition-transform ${mobileCompanyOpen ? "rotate-180" : ""}`} />
+                </button>
+                <AnimatePresence>
+                  {mobileCompanyOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="pl-4 flex flex-col gap-2 py-1 bg-white/5 rounded-lg mb-2"
+                    >
+                      {companySubLinks.map((subLink) => (
+                        <Link
+                          key={subLink.label}
+                          href={subLink.href}
+                          onClick={() => {
+                            setIsOpen(false);
+                            setMobileCompanyOpen(false);
+                          }}
+                          className="block py-1.5 text-xs font-mono font-bold text-white/70 hover:text-white"
+                        >
+                          {subLink.label}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Mobile Resources Dropdown */}
+              <div className="flex flex-col border-b border-white/5">
+                <button
+                  onClick={() => {
+                    setMobileResourcesOpen(!mobileResourcesOpen);
+                    setMobileCompanyOpen(false);
+                  }}
+                  className="flex items-center justify-between text-sm font-sans font-bold px-2 py-2 text-white/70 hover:text-white focus:outline-none w-full"
+                >
+                  <span>Resources</span>
+                  <ChevronDown className={`size-3.5 transition-transform ${mobileResourcesOpen ? "rotate-180" : ""}`} />
+                </button>
+                <AnimatePresence>
+                  {mobileResourcesOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="pl-4 flex flex-col gap-2 py-1 bg-white/5 rounded-lg mb-2"
+                    >
+                      {resourcesSubLinks.map((subLink) => (
+                        <Link
+                          key={subLink.label}
+                          href={subLink.href}
+                          onClick={() => {
+                            setIsOpen(false);
+                            setMobileResourcesOpen(false);
+                          }}
+                          className="block py-1.5 text-xs font-mono font-bold text-white/70 hover:text-white"
+                        >
+                          {subLink.label}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              <Link
+                href="/pricing"
+                onClick={() => setIsOpen(false)}
+                className={`text-sm font-sans font-bold px-2 py-2 border-b border-white/5 transition-colors ${
+                  pathname.startsWith("/pricing") ? "text-primary" : "text-white/70 hover:text-white"
+                }`}
+              >
+                Pricing
+              </Link>
+              <Link
+                href="/contact"
+                onClick={() => setIsOpen(false)}
+                className={`text-sm font-sans font-bold px-2 py-2 transition-colors ${
+                  pathname === "/contact" ? "text-primary" : "text-white/70 hover:text-white"
+                }`}
+              >
+                Contact
+              </Link>
+              
+              <div className="pt-2 flex flex-col gap-3">
+                <a
+                  href="https://wa.me/919667344125"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                  className="w-full text-center border border-white/10 py-2 text-xs font-mono font-bold rounded-xl bg-[#0B0F19] text-white"
+                >
+                  💬 Chat on WhatsApp
+                </a>
+                <a
+                  href="https://cal.com/jayant-web-and-ai-systems/strategy-call"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                  className="w-full text-center inline-flex items-center justify-center gap-1.5 rounded-xl bg-primary hover:bg-primary-hover text-white py-2.5 text-xs font-semibold transition-all duration-200"
+                >
+                  📅 Book Free Consultation
+                </a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </header>
   );
 }

@@ -3,7 +3,7 @@ import React from "react";
 export default function PrivacyPolicyPage() {
   return (
     <div className="hog-grid min-h-screen pb-20 pt-10">
-      <main className="max-w-3xl mx-auto px-6 py-12 bg-card-bg border-2 border-border-custom rounded-[32px] shadow-[6px_6px_0px_0px_rgba(43,43,43,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]">
+      <main className="max-w-none px-6 md:px-12 lg:px-16 py-12 bg-card-bg border-2 border-border-custom rounded-[32px] shadow-[6px_6px_0px_0px_rgba(43,43,43,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]">
         <h1 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mb-2">
           Privacy Policy
         </h1>

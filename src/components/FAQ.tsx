@@ -14,7 +14,7 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="py-20 md:py-28 relative">
-      <div className="max-w-4xl mx-auto px-4">
+      <div className="w-full">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">

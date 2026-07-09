@@ -1,150 +1,375 @@
-import React from "react";
-import { packages, recommendedAddons } from "@/data/content";
-import { Check, ShieldCheck, Clock, Layers, Star } from "lucide-react";
+"use client";
+
+import React, { useState } from "react";
 import PageTransition from "@/components/PageTransition";
+import Link from "next/link";
+import { Check, ArrowRight, HelpCircle, Shield, Clock, Plus, Minus } from "lucide-react";
 
 export default function PricingPage() {
+  const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">("yearly");
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const plans = [
+    {
+      name: "Starter",
+      desc: "Perfect for startups & small businesses",
+      price: billingPeriod === "yearly" ? "₹24,999" : "₹29,999",
+      billing: billingPeriod === "yearly" ? "Billed yearly" : "Billed monthly",
+      features: [
+        "Up to 5 Pages Website",
+        "Responsive Design",
+        "Basic SEO Setup",
+        "Contact / Inquiry Form",
+        "1 Round of Revisions",
+        "Email Support",
+      ],
+      cta: "Get Started",
+      popular: false,
+    },
+    {
+      name: "Growth",
+      desc: "Ideal for growing businesses looking to scale",
+      price: billingPeriod === "yearly" ? "₹49,999" : "₹58,999",
+      billing: billingPeriod === "yearly" ? "Billed yearly" : "Billed monthly",
+      features: [
+        "Up to 15 Pages Website",
+        "Custom Design",
+        "Advanced SEO Setup",
+        "CMS Integration",
+        "2 Integration (e.g. API, Chat, etc.)",
+        "2 Rounds of Revisions",
+        "Priority Support",
+      ],
+      cta: "Get Started",
+      popular: true,
+    },
+    {
+      name: "Business",
+      desc: "Best for established businesses",
+      price: billingPeriod === "yearly" ? "₹99,999" : "₹1,19,999",
+      billing: billingPeriod === "yearly" ? "Billed yearly" : "Billed monthly",
+      features: [
+        "Unlimited Pages",
+        "Custom Web Application",
+        "Advanced Integrations",
+        "Performance Optimization",
+        "3rd Party Integrations",
+        "3 Rounds of Revisions",
+        "Priority Support",
+        "Monthly Maintenance",
+      ],
+      cta: "Get Started",
+      popular: false,
+    },
+    {
+      name: "Enterprise",
+      desc: "For large organizations with complex needs",
+      price: "Custom",
+      billing: "Tailored to your requirements",
+      features: [
+        "Everything in Business Plan",
+        "Dedicated Project Manager",
+        "Custom Integrations",
+        "Scalable Architecture",
+        "Security & Compliance",
+        "Ongoing Support & Maintenance",
+        "SLA & Priority Support",
+      ],
+      cta: "Talk to Us",
+      popular: false,
+    },
+  ];
+
+  const addons = [
+    { title: "Content Writing", price: "₹4,999 /project" },
+    { title: "Logo & Branding", price: "₹6,999 /project" },
+    { title: "E-commerce Setup", price: "₹14,999 /project" },
+    { title: "Website Maintenance", price: "₹4,999 /month" },
+    { title: "UI/UX Design", price: "₹9,999 /project" },
+  ];
+
+  const pricingSteps = [
+    { id: "1", name: "Discuss", desc: "Tell us your requirements and goals." },
+    { id: "2", name: "Get Estimate", desc: "We provide a transparent proposal & timeline." },
+    { id: "3", name: "Plan & Agreement", desc: "We finalize the plan that works for you." },
+    { id: "4", name: "Build & Deliver", desc: "We build, test, and deliver high-quality solutions." },
+    { id: "5", name: "Support & Grow", desc: "We provide ongoing support to help you grow." },
+  ];
+
+  const faqs = [
+    { q: "Can I upgrade or downgrade my plan?", a: "Yes! You can change or upgrade your plan at any time based on your needs." },
+    { q: "Do you offer monthly payment?", a: "Yes, we offer both monthly and yearly payment options. Choosing the yearly option saves you 15%." },
+    { q: "Will my website be mobile-friendly?", a: "Absolutely. All our websites are 100% responsive and optimized for mobile, tablet, and desktop screens." },
+    { q: "Do you provide support after delivery?", a: "Yes, we provide ongoing support and maintenance plans to keep your website secure and updated." },
+  ];
+
   return (
     <PageTransition>
-      <div className="hog-grid min-h-screen pb-20 pt-10">
-        <main className="max-w-5xl mx-auto px-6 flex flex-col gap-20">
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-6">
-          <span className="font-mono text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3 py-1 rounded-full mb-4 inline-block">
-            Pricing
-          </span>
-          <h1 className="font-serif text-4xl md:text-6xl font-bold tracking-tight text-text-base mb-4 mt-2">
-            Outcome Packages
-          </h1>
-          <p className="text-sm md:text-base text-text-muted">
-            Predictable flat-fee pricing options aligned directly with your business goals.
-          </p>
-        </div>
+      <div className="hog-grid min-h-screen pb-20 pt-10 text-left">
+        <main className="max-w-none px-6 md:px-12 lg:px-16 flex flex-col gap-20 md:gap-28">
+          
+          {/* Breadcrumbs */}
+          <nav className="text-xs font-mono text-text-muted flex items-center gap-2 pt-8">
+            <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+            <span>&gt;</span>
+            <span className="text-text-base">Pricing</span>
+          </nav>
 
-        {/* 6 Packages Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {packages.map((pkg) => (
-            <div
-              key={pkg.name}
-              className={`hog-card rounded-[32px] p-6 md:p-8 flex flex-col justify-between relative transition-all duration-300 ${
-                pkg.isPopular || pkg.featured ? "border-primary" : "border-border-custom"
-              }`}
-            >
-              {pkg.isPopular && (
-                <span className="absolute -top-3 left-6 font-mono text-[9px] tracking-widest uppercase text-white bg-primary px-3 py-0.5 rounded-full flex items-center gap-1 font-bold">
-                  <Star className="size-2.5 fill-white" /> Popular
+          {/* Pricing Split Hero */}
+          <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Left */}
+            <div className="lg:col-span-7 flex flex-col items-start text-left">
+              <span className="font-mono text-[9px] uppercase tracking-widest text-primary border border-primary/20 bg-primary/5 px-2.5 py-0.5 rounded-full mb-4">
+                PRICING
+              </span>
+              <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
+                Simple. Transparent.{" "}
+                <span className="text-primary underline decoration-primary/40 decoration-4 underline-offset-8">
+                  Built for Value.
                 </span>
-              )}
-              {pkg.featured && (
-                <span className="absolute -top-3 left-6 font-mono text-[9px] tracking-widest uppercase text-white bg-primary px-3 py-0.5 rounded-full flex items-center gap-1 font-bold">
-                  🔥 Featured
-                </span>
-              )}
+              </h1>
+              <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl">
+                Choose a plan that fits your business needs. Whether you&apos;re a startup, growing business, or enterprise — we have the right solution for you.
+              </p>
+            </div>
 
-              <div>
-                <div className="border-b border-border-custom pb-4 mb-4">
-                  <span className="font-mono text-[9px] uppercase tracking-wider text-text-muted block mb-1">
-                    Ideal for: {pkg.idealFor}
-                  </span>
-                  <h3 className="font-serif text-2xl font-bold text-text-base mb-1">
-                    {pkg.name}
-                  </h3>
-                  <p className="text-xs text-text-muted leading-relaxed">
-                    {pkg.tagline}
-                  </p>
+            {/* Right: Custom Request card */}
+            <div className="lg:col-span-5 w-full flex justify-center">
+              <div className="w-full max-w-[420px] rounded-3xl border border-border-custom bg-card-bg/60 p-6 flex flex-col gap-4 text-left shadow-lg">
+                <div className="flex items-center gap-3">
+                  <div className="size-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-serif text-lg">
+                    🏷️
+                  </div>
+                  <div>
+                    <h4 className="text-xs md:text-sm font-serif font-bold text-text-base leading-none">Need something custom?</h4>
+                    <p className="text-[10px] text-text-muted mt-1 leading-normal">We understand that every business is unique. Let&apos;s build a solution tailored to your goals.</p>
+                  </div>
                 </div>
+                <Link
+                  href="/contact"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-white hover:bg-neutral-50 dark:bg-card-bg dark:hover:bg-neutral-900 border border-border-custom py-2.5 text-xs font-mono font-bold text-text-base transition-colors"
+                >
+                  <span>Discuss Your Project</span>
+                  <ArrowRight className="size-3.5" />
+                </Link>
+              </div>
+            </div>
 
-                <div className="flex items-baseline gap-1 my-4">
-                  <span className="text-3xl md:text-4xl font-bold text-text-base">{pkg.price}</span>
-                  <span className="text-xs text-text-muted">starting price</span>
-                </div>
+          </section>
 
-                {/* Scope items */}
-                <div className="mb-6">
-                  <span className="font-mono text-[10px] uppercase text-text-muted block mb-2">Deliverables:</span>
-                  <ul className="space-y-2">
-                    {pkg.features.map((feature, idx) => (
-                      <li key={idx} className="text-xs text-text-muted flex items-start gap-2">
-                        <Check className="size-3.5 text-primary shrink-0 mt-0.5" />
+          {/* Toggle Switch */}
+          <div className="flex flex-col items-center gap-4 py-4">
+            <div className="inline-flex items-center gap-1.5 p-1 bg-neutral-100 dark:bg-neutral-900 border border-border-custom rounded-xl select-none">
+              <button
+                onClick={() => setBillingPeriod("monthly")}
+                className={`px-4 py-2 rounded-lg text-xs font-mono font-bold transition-all ${
+                  billingPeriod === "monthly"
+                    ? "bg-white dark:bg-card-bg text-text-base shadow-sm"
+                    : "text-text-muted hover:text-text-base"
+                }`}
+              >
+                Monthly
+              </button>
+              <button
+                onClick={() => setBillingPeriod("yearly")}
+                className={`px-4 py-2 rounded-lg text-xs font-mono font-bold transition-all ${
+                  billingPeriod === "yearly"
+                    ? "bg-white dark:bg-card-bg text-text-base shadow-sm"
+                    : "text-text-muted hover:text-text-base"
+                }`}
+              >
+                Yearly
+              </button>
+            </div>
+            <span className="text-[10px] font-mono text-primary font-bold bg-primary/10 border border-primary/25 px-2.5 py-0.5 rounded-full">
+              Save 15% with Yearly Billing
+            </span>
+          </div>
+
+          {/* Pricing Grid */}
+          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {plans.map((plan, idx) => (
+              <div
+                key={idx}
+                className={`hog-card rounded-3xl p-6 bg-card-bg/60 border flex flex-col justify-between transition-all duration-300 ${
+                  plan.popular 
+                    ? "border-primary shadow-lg ring-1 ring-primary/20 scale-[1.02]" 
+                    : "border-border-custom"
+                }`}
+              >
+                <div className="flex flex-col gap-5 text-left">
+                  {plan.popular && (
+                    <span className="font-mono text-[9px] font-bold text-white bg-primary px-2.5 py-0.5 rounded-full uppercase tracking-wider self-start">
+                      Most Popular
+                    </span>
+                  )}
+                  <div>
+                    <h3 className="font-serif text-base font-bold text-text-base leading-none mb-1">{plan.name}</h3>
+                    <p className="text-[10px] text-text-muted leading-tight">{plan.desc}</p>
+                  </div>
+
+                  <div className="flex flex-col">
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-2xl md:text-3xl font-serif font-black text-text-base">{plan.price}</span>
+                      {plan.price !== "Custom" && <span className="text-xs text-text-muted font-sans">/month</span>}
+                    </div>
+                    <span className="text-[9px] font-mono text-text-muted mt-0.5">{plan.billing}</span>
+                  </div>
+
+                  <div className="h-[1px] bg-border-custom/50 w-full" />
+
+                  <ul className="space-y-2 text-xs">
+                    {plan.features.map((feature, i) => (
+                      <li key={i} className="flex items-start gap-2.5 text-text-muted leading-snug">
+                        <Check className="size-4 text-primary shrink-0 mt-0.5" />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* Timeline and addons */}
-                <div className="mb-6 border-t border-border-custom/30 pt-4">
-                  <div className="flex items-center gap-1 text-xs text-text-base font-mono mb-2">
-                    <Clock className="size-3 text-primary" /> Delivery: {pkg.timeline}
-                  </div>
-                  <span className="font-mono text-[10px] uppercase text-text-muted block mb-1.5">Optional Add-ons:</span>
-                  <div className="flex flex-wrap gap-1">
-                    {pkg.addons.map((add) => (
-                      <span
-                        key={add}
-                        className="text-[9px] font-mono text-text-muted bg-neutral-100 dark:bg-neutral-900 border border-border-custom/20 px-1.5 py-0.5 rounded"
-                      >
-                        +{add}
-                      </span>
-                    ))}
+                <Link
+                  href="/contact"
+                  className={`w-full inline-flex items-center justify-center gap-1.5 rounded-xl py-3 text-xs font-mono font-bold transition-all mt-8 active:scale-[0.98] ${
+                    plan.popular
+                      ? "bg-primary hover:bg-primary-hover text-white shadow-md"
+                      : "border border-border-custom bg-white hover:bg-neutral-50 dark:bg-card-bg dark:hover:bg-neutral-900 text-text-base"
+                  }`}
+                >
+                  <span>{plan.cta}</span>
+                  <ArrowRight className="size-3.5" />
+                </Link>
+              </div>
+            ))}
+          </section>
+
+          {/* Add-ons segment */}
+          <section className="py-8 relative border-t border-border-custom/30 pt-16">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
+                ADD-ONS (OPTIONAL)
+              </span>
+              <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
+                Custom Add-ons
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-5 gap-6">
+              {addons.map((addon, idx) => (
+                <div key={idx} className="hog-card rounded-2xl p-5 border border-border-custom bg-card-bg/40 flex flex-col justify-between min-h-[110px]">
+                  <div className="flex flex-col gap-3 text-left">
+                    <h5 className="font-serif text-xs md:text-sm font-bold text-text-base leading-snug">{addon.title}</h5>
+                    <p className="text-xs font-serif font-black text-primary leading-none mt-1">{addon.price}</p>
                   </div>
                 </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Our Simple Pricing Process */}
+          <section className="py-8 relative border-t border-border-custom/30 pt-16">
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
+                PRICING PROCESS
+              </span>
+              <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
+                Our Simple Pricing Process
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 relative">
+              {pricingSteps.map((step, idx) => (
+                <div key={step.id} className="flex flex-col items-center text-center relative group">
+                  <div className="relative z-10 size-12 rounded-full border border-border-custom bg-card-bg shadow-sm flex items-center justify-center mb-4 text-xs font-mono font-bold text-primary">
+                    {step.id}
+                  </div>
+                  
+                  {idx < pricingSteps.length - 1 && (
+                    <div className="hidden md:block absolute top-6 left-[calc(50%+24px)] right-[calc(-50%+24px)] h-[1px] border-t border-dashed border-border-custom/80 z-0 pointer-events-none" />
+                  )}
+
+                  <div className="flex flex-col gap-1">
+                    <h5 className="font-serif text-xs md:text-sm font-bold text-text-base leading-none mt-1">{step.name}</h5>
+                    <p className="text-[10px] text-text-muted leading-tight mt-2 px-1">{step.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* FAQ Segment & CTA banner split */}
+          <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start py-8 border-t border-border-custom/30 pt-16">
+            
+            {/* Left FAQ Accordion */}
+            <div className="lg:col-span-7 flex flex-col gap-6 text-left w-full">
+              <div>
+                <span className="font-mono text-[9px] uppercase tracking-wider text-primary border border-primary/20 bg-primary/10 px-2.5 py-0.5 rounded-full mb-3 inline-block">
+                  FAQ
+                </span>
+                <h3 className="font-serif text-2xl md:text-4xl font-bold text-text-base leading-tight">
+                  Frequently Asked Questions
+                </h3>
               </div>
 
-              <div className="mt-4 pt-4 border-t border-border-custom">
+              <div className="space-y-3">
+                {faqs.map((faq, idx) => (
+                  <div
+                    key={idx}
+                    className="border border-border-custom bg-card-bg/40 rounded-2xl overflow-hidden"
+                  >
+                    <button
+                      onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                      className="w-full px-5 py-4 flex items-center justify-between text-left focus:outline-none"
+                    >
+                      <span className="font-serif text-xs md:text-sm font-bold text-text-base">{faq.q}</span>
+                      <span className="text-text-muted text-lg leading-none">{openFaq === idx ? "−" : "+"}</span>
+                    </button>
+                    {openFaq === idx && (
+                      <div className="px-5 pb-4 text-xs text-text-muted leading-relaxed border-t border-border-custom/30 pt-3">
+                        {faq.a}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right CTA Box: Ready to get started? */}
+            <div className="lg:col-span-5 flex flex-col gap-6 text-left w-full">
+              <div className="hog-card rounded-3xl p-6 md:p-8 bg-card-bg/60 border border-border-custom relative overflow-hidden flex flex-col justify-between min-h-[300px]">
+                <div className="flex flex-col gap-4">
+                  <h3 className="font-serif text-xl font-bold text-text-base">
+                    Ready to get started?
+                  </h3>
+                  <p className="text-xs text-text-muted leading-relaxed">
+                    Let&apos;s build something amazing together. Reach out to schedule your free consultation call.
+                  </p>
+
+                  <div className="flex flex-col gap-2 mt-4 text-xs font-mono">
+                    <div className="flex items-center gap-2">
+                      <span className="text-primary font-bold">Call / WhatsApp:</span>
+                      <span className="text-text-base font-bold">+91 98765 43210</span>
+                    </div>
+                  </div>
+                </div>
+
                 <a
                   href="https://cal.com/jayant-web-and-ai-systems/strategy-call"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full text-center py-2.5 text-xs font-mono font-bold rounded-xl bg-background-base text-text-base border-2 border-border-custom hover:border-primary transition-colors block"
+                  className="w-full inline-flex items-center justify-center gap-1.5 rounded-xl bg-primary hover:bg-primary-hover text-white py-3 text-xs font-mono font-bold transition-all shadow-md mt-8"
                 >
-                  Choose Package
+                  <span>Book a Free Consultation</span>
+                  <ArrowRight className="size-3.5" />
                 </a>
               </div>
             </div>
-          ))}
-        </div>
 
-        {/* Recommended Add-ons segment */}
-        <div className="hog-card rounded-[32px] p-6 md:p-8 bg-card-bg mt-8">
-          <span className="font-mono text-xs tracking-widest uppercase text-primary mb-2 block">Optional Upgrades</span>
-          <h2 className="font-serif text-2xl md:text-3xl font-bold text-text-base mb-6">Recommended Add-ons</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-            {recommendedAddons.map((addon) => (
-              <div
-                key={addon}
-                className="border border-border-custom/40 p-3 rounded-2xl text-center bg-background-base text-xs font-mono font-bold hover:border-primary transition-colors flex items-center justify-center"
-              >
-                {addon}
-              </div>
-            ))}
-          </div>
-        </div>
+          </section>
 
-        {/* Quality Guarantee Panel */}
-        <div className="hog-card rounded-[28px] p-8 md:p-10 flex flex-col md:flex-row gap-6 items-center justify-between max-w-4xl mx-auto w-full">
-          <div className="flex items-center gap-4">
-            <div className="p-3 bg-emerald-500/10 rounded-2xl text-emerald-500 shrink-0">
-              <ShieldCheck className="size-8" />
-            </div>
-            <div>
-              <h4 className="font-serif text-lg md:text-xl font-bold text-text-base">Our Quality Guarantee</h4>
-              <p className="text-xs md:text-sm text-text-muted">
-                We stand fully behind our builds. Zero templates, custom high-performance code, and 30 days support.
-              </p>
-            </div>
-          </div>
-          <a
-            href="https://cal.com/jayant-web-and-ai-systems/strategy-call"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 rounded-xl bg-white/5 border-2 border-border-custom hover:bg-white/10 px-5 py-2.5 text-xs font-mono font-bold text-text-base transition-all"
-          >
-            Have questions? Ask us
-          </a>
-        </div>
-      </main>
-    </div>
-  </PageTransition>
+        </main>
+      </div>
+    </PageTransition>
   );
 }

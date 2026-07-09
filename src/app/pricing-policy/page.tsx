@@ -39,7 +39,7 @@ export default function PricingPolicyPage() {
 
   return (
     <div className="hog-grid min-h-screen pb-20 pt-10">
-      <main className="max-w-5xl mx-auto px-6 flex flex-col gap-16">
+      <main className="max-w-none px-6 md:px-12 lg:px-16 flex flex-col gap-16">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto">
           <span className="font-mono text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3 py-1 rounded-full mb-4 inline-block">

@@ -1,148 +1,124 @@
 import React from "react";
 import Hero from "@/components/Hero";
 import ProofStrip from "@/components/ProofStrip";
-import ProblemSolver from "@/components/ProblemSolver";
-import CaseStudies from "@/components/CaseStudies";
-import Packages from "@/components/Packages";
 import Process from "@/components/Process";
-import About from "@/components/About";
-import FAQ from "@/components/FAQ";
+import CaseStudies from "@/components/CaseStudies";
+import Testimonials from "@/components/Testimonials";
 import CallToAction from "@/components/CallToAction";
-import Contact from "@/components/Contact";
-import Link from "next/link";
 import PageTransition from "@/components/PageTransition";
-import { ArrowRight, Check } from "lucide-react";
-import { USP, whyWorkWithMe, projectInclusions, frequentlyBuilt } from "@/data/content";
+import Link from "next/link";
+import { ArrowRight, Brain, Code, Globe, Smartphone, Zap, Cloud } from "lucide-react";
 
 export default function Home() {
+  const homeServices = [
+    {
+      title: "AI Development",
+      description: "Custom AI solutions, LLM integrations, chatbots, and intelligent automation.",
+      icon: <Brain className="size-6 text-primary" />,
+    },
+    {
+      title: "Custom Software",
+      description: "Scalable, secure, and high-performance software tailored to your needs.",
+      icon: <Code className="size-6 text-primary" />,
+    },
+    {
+      title: "Website Development",
+      description: "Modern, responsive, and SEO-friendly websites that convert visitors into customers.",
+      icon: <Globe className="size-6 text-primary" />,
+    },
+    {
+      title: "Mobile App Development",
+      description: "Cross-platform mobile apps for iOS and Android that deliver exceptional experiences.",
+      icon: <Smartphone className="size-6 text-primary" />,
+    },
+    {
+      title: "Automation",
+      description: "Automate workflows, integrate tools, and eliminate repetitive tasks to save time.",
+      icon: <Zap className="size-6 text-primary" />,
+    },
+    {
+      title: "Cloud & DevOps",
+      description: "Cloud infrastructure, deployment pipelines, monitoring, and scalability done right.",
+      icon: <Cloud className="size-6 text-primary" />,
+    },
+  ];
+
   return (
     <PageTransition>
       <div className="hog-grid min-h-screen pb-16 md:pb-28">
-        <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 md:pt-20 flex flex-col gap-16 md:gap-28 overflow-x-hidden">
+        <main className="flex-1 w-full max-w-none px-6 md:px-12 lg:px-16 pt-12 md:pt-20 flex flex-col gap-16 md:gap-28 overflow-x-hidden">
+          
           {/* 1. Hero Section */}
           <Hero />
 
-          {/* 2. Logos / Credentials Proof Strip */}
-          <div className="border-y border-border-custom/50 py-6 bg-card-bg/60">
-            <ProofStrip />
-          </div>
+          {/* 2. Proof Strip (Trusted Logos) */}
+          <ProofStrip />
 
-          {/* Why Work With Me Section (B2B Trust Builder) */}
-          <div className="border border-border-custom rounded-3xl p-6 sm:p-8 md:p-10 bg-card-bg shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
-            <span className="font-mono text-xs tracking-widest uppercase text-primary mb-2 block">Value Partner</span>
-            <h2 className="font-serif text-2xl md:text-4xl font-bold text-text-base mb-8">Why Businesses Choose Me</h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {whyWorkWithMe.map((item, idx) => (
-                <div key={idx} className="border border-border-custom p-5 rounded-2xl bg-background-base/50">
-                  <h4 className="font-bold text-text-base text-sm md:text-base flex items-center gap-2">
-                    <span className="text-emerald-500 font-bold">✓</span> {item.title}
-                  </h4>
-                  <p className="text-xs md:text-sm text-text-muted mt-2 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              ))}
+          {/* 3. Services Section ("End-to-End Digital Solutions") */}
+          <section id="services" className="py-12 relative text-left">
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
+                OUR SERVICES
+              </span>
+              <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mb-4 mt-2">
+                End-to-End Digital Solutions
+              </h2>
+              <p className="text-sm md:text-base text-text-muted">
+                From idea to deployment — we deliver scalable, secure, and high-performance solutions tailored to your business goals.
+              </p>
             </div>
-          </div>
 
-          {/* Frequently Built Solutions Section */}
-          <div className="border border-border-custom rounded-3xl p-6 sm:p-8 md:p-10 bg-card-bg shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
-            <span className="font-mono text-xs tracking-widest uppercase text-primary mb-2 block">Our Scope</span>
-            <h2 className="font-serif text-2xl md:text-4xl font-bold text-text-base mb-8">Frequently Shipped Solutions</h2>
-            
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              {frequentlyBuilt.map((item, idx) => (
-                <div key={idx} className="border border-border-custom p-4 rounded-xl text-center bg-background-base/50 flex items-center justify-center font-mono text-xs font-bold">
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* 3. Problems We Solve (Interactive Bottleneck / Solution Selector) */}
-          <div className="border border-border-custom rounded-3xl p-6 sm:p-8 md:p-10 bg-card-bg shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
-            <ProblemSolver />
-          </div>
-
-          {/* 4. Unique Selling Proposition Highlight Panel */}
-          <div className="hog-card rounded-3xl p-8 md:p-12 text-center max-w-3xl mx-auto w-full">
-            <span className="font-mono text-xs tracking-widest uppercase text-primary mb-2 block">Our USP</span>
-            <p className="font-serif text-xl md:text-2xl font-bold text-text-base leading-snug">
-              &ldquo;{USP}&rdquo;
-            </p>
-          </div>
-
-          {/* 5. Case Studies */}
-          <div className="border-t border-border-custom/50 pt-8">
-            <CaseStudies />
-          </div>
-
-          {/* 6. Pricing Packages */}
-          <div>
-            <Packages />
-            
-            {/* Risk Reversal Checklist under Packages */}
-            <div className="mt-12 border border-border-custom rounded-3xl p-6 md:p-8 bg-card-bg shadow-[0_8px_30px_rgba(0,0,0,0.04)] max-w-3xl mx-auto">
-              <h4 className="font-serif text-lg md:text-xl font-bold text-text-base mb-4 text-center">Every Automated Project Includes:</h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                {projectInclusions.map((inclusion, idx) => (
-                  <div key={idx} className="flex items-start gap-2 text-xs md:text-sm text-text-muted">
-                    <Check className="size-4 text-primary shrink-0 mt-0.5" />
-                    <span>{inclusion}</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {homeServices.map((service, idx) => (
+                <div
+                  key={idx}
+                  className="hog-card rounded-3xl p-6 md:p-8 bg-card-bg/60 backdrop-blur-sm flex flex-col justify-between hover:-translate-y-1 transition-all duration-300"
+                >
+                  <div className="flex flex-col gap-4">
+                    <div className="size-12 rounded-full border border-border-custom bg-card-bg flex items-center justify-center shadow-sm">
+                      {service.icon}
+                    </div>
+                    <h3 className="font-serif text-lg md:text-xl font-bold text-text-base leading-snug">
+                      {service.title}
+                    </h3>
+                    <p className="text-xs md:text-sm text-text-muted leading-relaxed">
+                      {service.description}
+                    </p>
                   </div>
-                ))}
-              </div>
+                  <Link
+                    href="/services"
+                    className="inline-flex items-center gap-1 text-xs font-mono font-bold text-primary hover:underline mt-6"
+                  >
+                    <span>Learn more</span>
+                    <ArrowRight className="size-3.5" />
+                  </Link>
+                </div>
+              ))}
             </div>
-          </div>
 
-          {/* Quick Capabilities Shortcuts */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="hog-card rounded-3xl p-6 md:p-8 flex flex-col justify-between items-start gap-4">
-              <div>
-                <span className="font-mono text-[9px] bg-primary/20 text-primary border border-primary/30 px-2.5 py-0.5 rounded">Capabilities</span>
-                <h3 className="font-serif text-2xl font-bold text-text-base mt-3 mb-2">Our Capabilities</h3>
-                <p className="text-xs md:text-sm text-text-muted mb-4 font-mono">
-                  Explore our full list of services including WhatsApp automations, custom CRM pipelines, and intelligent chatbots.
-                </p>
-              </div>
-              <Link href="/services" className="text-xs font-mono font-bold text-primary flex items-center gap-1 hover:underline">
-                Explore Services <ArrowRight className="size-3" />
+            <div className="flex justify-center mt-12">
+              <Link
+                href="/services"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border-custom bg-white hover:bg-neutral-50 dark:bg-card-bg dark:hover:bg-neutral-900 text-xs font-mono font-bold text-text-base transition-colors"
+              >
+                <span>Explore All Services</span>
+                <ArrowRight className="size-4" />
               </Link>
             </div>
+          </section>
 
-            <div className="hog-card rounded-3xl p-6 md:p-8 flex flex-col justify-between items-start gap-4">
-              <div>
-                <span className="font-mono text-[9px] bg-primary/20 text-primary border border-primary/30 px-2.5 py-0.5 rounded">Pricing</span>
-                <h3 className="font-serif text-2xl font-bold text-text-base mt-3 mb-2">Outcome Packages</h3>
-                <p className="text-xs md:text-sm text-text-muted mb-4 font-mono">
-                  We believe in packaging outcomes, not billing hourly. Review our starting pricing packages.
-                </p>
-              </div>
-              <Link href="/pricing" className="text-xs font-mono font-bold text-primary flex items-center gap-1 hover:underline">
-                View Pricing Tiers <ArrowRight className="size-3" />
-              </Link>
-            </div>
-          </div>
-
-          {/* 7. Stepper Process Timeline */}
+          {/* 4. Process Section */}
           <Process />
 
-          {/* 8. About the Founder */}
-          <About />
+          {/* 5. Case Studies Section */}
+          <CaseStudies />
 
-          {/* 9. FAQ Segment */}
-          <div className="border border-border-custom rounded-3xl p-6 sm:p-8 md:p-10 bg-card-bg shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
-            <FAQ />
-          </div>
+          {/* 6. Testimonials Section */}
+          <Testimonials />
 
-          {/* Call to Action (CTA) block */}
+          {/* 7. Ready to Build CTA Banner */}
           <CallToAction />
 
-          {/* 10. Contact / Scheduler Audit Hook */}
-          <div className="border-t border-border-custom/50 pt-8">
-            <Contact />
-          </div>
         </main>
       </div>
     </PageTransition>
