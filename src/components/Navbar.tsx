@@ -227,16 +227,14 @@ export default function Navbar() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                     className="absolute right-0 mt-2 w-56 rounded-xl bg-[#111827] border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.5)] py-2 z-50 origin-top-right"
                   >
-                    <a
-                      href="https://cal.com/jayant-web-and-ai-systems/strategy-call"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      href="/contact/book-a-consultation"
                       onClick={() => setDropdownOpen(false)}
                       className="flex items-center gap-2.5 px-4 py-2 text-xs font-mono font-bold text-white hover:bg-white/5 transition-colors"
                     >
                       <Calendar className="size-4 text-primary" />
                       <span>Book a Strategy Call</span>
-                    </a>
+                    </Link>
                     <a
                       href="https://wa.me/919667344125?text=Hi%20Jayant,%20I'm%20interested%20in%20discussing%20a%20project."
                       target="_blank"
@@ -414,15 +412,13 @@ export default function Navbar() {
                 >
                   💬 Chat on WhatsApp
                 </a>
-                <a
-                  href="https://cal.com/jayant-web-and-ai-systems/strategy-call"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/contact/book-a-consultation"
                   onClick={() => setIsOpen(false)}
                   className="w-full text-center inline-flex items-center justify-center gap-1.5 rounded-xl bg-primary hover:bg-primary-hover text-white py-2.5 text-xs font-semibold transition-all duration-200"
                 >
                   📅 Book Free Consultation
-                </a>
+                </Link>
               </div>
             </motion.div>
           )}

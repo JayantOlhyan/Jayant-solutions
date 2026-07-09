@@ -3,70 +3,38 @@
 import React, { useState } from "react";
 import PageTransition from "@/components/PageTransition";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-import { Check, Mail, Phone, MessageSquare, MapPin, Clock, ShieldCheck, Star, Users, Lock, Send, Plus, Minus, ArrowRight } from "lucide-react";
+import { ArrowRight, Mail, Phone, MapPin, Calendar, Clock, CheckCircle2, ShieldCheck, Heart, Laptop, Globe } from "lucide-react";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    company: "",
-    interest: "",
+    subject: "Select a subject",
     message: "",
+    agree: false,
   });
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  const [submitted, setSubmitted] = useState(false);
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Submitting contact form data:", formData);
-    setFormSubmitted(true);
+    setSubmitted(true);
   };
 
-  const trustStats = [
-    { title: "Client-Focused", desc: "We prioritize your goals and business success.", icon: <Users className="size-5 text-primary" /> },
-    { title: "Secure & Reliable", desc: "Your data and ideas are always protected.", icon: <Lock className="size-5 text-primary" /> },
-    { title: "Results-Driven", desc: "We build solutions that deliver real impact.", icon: <ShieldCheck className="size-5 text-primary" /> },
-    { title: "Long-Term Partner", desc: "We grow with you and support your journey.", icon: <Star className="size-5 text-primary" /> },
+  const bottomIndicators = [
+    { label: "Quick Response", desc: "We reply within 24 hours", icon: <Clock className="size-5 text-primary" /> },
+    { label: "Secure & Confidential", desc: "Your information is safe with us", icon: <ShieldCheck className="size-5 text-primary" /> },
+    { label: "Expert Support", desc: "Get help from our experts", icon: <Heart className="size-5 text-primary" /> },
+    { label: "Global Reach", desc: "We serve clients worldwide", icon: <Globe className="size-5 text-primary" /> },
   ];
 
-  const offices = [
-    {
-      country: "India (Head Office)",
-      location: "New Delhi, India",
-      address: "123, Tech Park, Dwarka, New Delhi - 110075",
-      flag: "🇮🇳",
-      img: "https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=400&q=80",
-    },
-    {
-      country: "USA (Partner Office)",
-      location: "San Francisco, CA, USA",
-      address: "585 Market Street, Suite 300, San Francisco, CA 94105",
-      flag: "🇺🇸",
-      img: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=400&q=80",
-    },
-    {
-      country: "UAE (Partner Office)",
-      location: "Dubai, UAE",
-      address: "Business Bay, Bay Square, Dubai, UAE",
-      flag: "🇦🇪",
-      img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=400&q=80",
-    },
-  ];
-
-  const faqItems = [
-    { q: "How quickly will you respond?", a: "I typically respond within 24 hours to all inquiries received through the contact form or email." },
-    { q: "Do you offer a free consultation?", a: "Yes, absolutely! We can schedule a free 30-minute consultation call to map your operational bottlenecks and explore AI/software ideas." },
-    { q: "What information should I include in my message?", a: "Include details about your business, the manual workflows you want to automate, timeline expectations, and target budget range if known." },
-    { q: "What industries do you work with?", a: "I focus primarily on Education, Healthcare, and Professional Services, but I build custom systems for any business vertical." },
-    { q: "Do you work with startups?", a: "Yes, I regularly partner with startup founders to build MVPs, scalable web platforms, and automated lead generation pipelines." },
-    { q: "Can you sign an NDA?", a: "Yes, we can sign a standard Mutual NDA before discussing proprietary requirements, ensuring your business ideas remain secure." },
+  const socials = [
+    { name: "GitHub", href: "https://github.com/JayantOlhyan" },
+    { name: "LinkedIn", href: "https://linkedin.com/company/jayant-systems" },
+    { name: "Twitter / X", href: "https://x.com/JayantSystems" },
+    { name: "Instagram", href: "https://www.instagram.com/jayantolhyan/" },
+    { name: "YouTube", href: "https://www.youtube.com/@JayantWebAISystems" }
   ];
 
   return (
@@ -74,397 +42,264 @@ export default function ContactPage() {
       <div className="hog-grid min-h-screen pb-20 pt-10 text-left">
         <main className="max-w-none px-6 md:px-12 lg:px-16 flex flex-col gap-20 md:gap-28">
           
-          {/* Hero Section */}
-          <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center pt-8">
-            <div className="lg:col-span-6 flex flex-col items-start">
-              <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
+          {/* Breadcrumbs */}
+          <nav className="text-xs font-mono text-text-muted flex items-center gap-2 pt-8">
+            <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+            <span>&gt;</span>
+            <span className="text-text-base">Contact</span>
+          </nav>
+
+          {/* Hero */}
+          <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Left */}
+            <div className="lg:col-span-7 flex flex-col items-start text-left">
+              <span className="font-mono text-[9px] uppercase tracking-widest text-primary border border-primary/20 bg-primary/5 px-2.5 py-0.5 rounded-full mb-4">
                 GET IN TOUCH
               </span>
-              <h1 className="font-serif text-4xl md:text-6xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
-                Let&apos;s Build Something Amazing{" "}
+              <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
+                Let&apos;s Build Something <br /> Amazing{" "}
                 <span className="text-primary underline decoration-primary/40 decoration-4 underline-offset-8">
                   Together
                 </span>
               </h1>
-              <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                Have a project in mind or want to explore how we can help your business grow? I&apos;d love to hear from you.
+              <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl">
+                Have a project in mind or want to learn more about our services? We&apos;d love to hear from you. Drop us a message and our team will get back to you as soon as possible.
               </p>
+            </div>
 
-              {/* Three Bullets */}
-              <div className="flex flex-col gap-4 text-xs md:text-sm text-text-muted">
-                <div className="flex items-start gap-3">
-                  <div className="size-6 rounded-full border border-border-custom bg-card-bg flex items-center justify-center text-primary shrink-0">
-                    <Check className="size-3.5" />
+            {/* Right: Graphic mockup */}
+            <div className="lg:col-span-5 w-full flex justify-center">
+              <div className="relative w-full max-w-[420px] aspect-[4/3] rounded-[24px] overflow-hidden border border-border-custom bg-neutral-900 shadow-2xl p-6 flex justify-between items-center text-white">
+                <div className="flex items-center gap-3">
+                  <div className="size-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary text-xl">
+                    💬
                   </div>
-                  <div>
-                    <span className="font-bold text-text-base block">Quick Response</span>
-                    <span className="text-[11px]">I reply within 24 hours.</span>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="size-6 rounded-full border border-border-custom bg-card-bg flex items-center justify-center text-primary shrink-0">
-                    <Check className="size-3.5" />
-                  </div>
-                  <div>
-                    <span className="font-bold text-text-base block">Confidential</span>
-                    <span className="text-[11px]">Your information is completely safe.</span>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="size-6 rounded-full border border-border-custom bg-card-bg flex items-center justify-center text-primary shrink-0">
-                    <Check className="size-3.5" />
-                  </div>
-                  <div>
-                    <span className="font-bold text-text-base block">Expert Consultation</span>
-                    <span className="text-[11px]">Get tech and automation advice tailored to your needs.</span>
+                  <div className="flex flex-col text-left">
+                    <span className="text-xs font-bold text-white leading-none">Let&apos;s Build</span>
+                    <span className="text-[9px] text-white/50 mt-1 uppercase tracking-widest leading-none">something great together</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Right Map graphic */}
-            <div className="lg:col-span-6 relative flex justify-center items-center">
-              <div className="w-full aspect-[16/10] rounded-3xl overflow-hidden border border-border-custom relative bg-neutral-950 shadow-lg">
-                {/* World map background overlay grid pattern */}
-                <div 
-                  className="absolute inset-0 opacity-10"
-                  style={{
-                    backgroundImage: "radial-gradient(#ffffff 1px, transparent 1px)",
-                    backgroundSize: "20px 20px"
-                  }}
-                />
-                
-                {/* Visual bubble */}
-                <div className="absolute bottom-6 left-6 rounded-2xl bg-white dark:bg-[#111827] text-text-base p-4 border border-border-custom shadow-2xl max-w-xs flex gap-3 items-start">
-                  <div className="size-8 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
-                    <MapPin className="size-4" />
-                  </div>
-                  <div className="flex flex-col">
-                    <p className="text-xs font-serif font-bold">
-                      I work with clients <span className="text-primary">worldwide</span> and am available for new projects.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </section>
 
-          {/* Form & Reach split grid */}
-          <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          {/* Form and sidebar split */}
+          <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start py-8 border-t border-border-custom/20 pt-16">
             
-            {/* Left: Form */}
-            <div className="lg:col-span-7 hog-card rounded-3xl p-6 md:p-8 bg-card-bg/60 border border-border-custom">
-              <h3 className="font-serif text-2xl font-bold text-text-base mb-2">Send Us a Message</h3>
-              <p className="text-xs text-text-muted mb-6">Fill out the form and I will get back to you shortly.</p>
-
-              {formSubmitted ? (
-                <div className="py-12 text-center flex flex-col items-center gap-4">
-                  <div className="size-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-500">
-                    <Check className="size-8 stroke-[3px]" />
-                  </div>
-                  <h4 className="font-serif text-xl font-bold text-text-base">Message Sent Successfully!</h4>
-                  <p className="text-xs text-text-muted max-w-sm">
-                    Thank you for reaching out. I have received your message and will respond within 24 hours.
+            {/* Left Form */}
+            <div className="lg:col-span-7 flex flex-col gap-6 text-left w-full">
+              {submitted ? (
+                <div className="border border-border-custom bg-card-bg/60 p-8 rounded-3xl text-center flex flex-col items-center gap-4 max-w-lg mx-auto w-full">
+                  <CheckCircle2 className="size-16 text-primary" />
+                  <h3 className="font-serif text-2xl font-bold text-text-base">Message Sent!</h3>
+                  <p className="text-xs text-text-muted leading-relaxed">
+                    Thank you for reaching out. We have received your message and will get back to you within 24 hours.
                   </p>
+                  <button
+                    onClick={() => setSubmitted(false)}
+                    className="inline-flex items-center gap-2 rounded-xl bg-primary hover:bg-primary-hover text-white px-6 py-2.5 text-xs font-mono font-bold transition-all shadow-md mt-4"
+                  >
+                    <span>Send Another Message</span>
+                  </button>
                 </div>
               ) : (
-                <form onSubmit={handleFormSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="border border-border-custom bg-card-bg/60 p-6 md:p-8 rounded-3xl space-y-6">
+                  <div className="border-b border-border-custom/50 pb-3 mb-6">
+                    <h3 className="font-serif text-lg font-bold text-text-base">Send Us a Message</h3>
+                    <p className="text-[10px] text-text-muted">Fill out the form below and we&apos;ll get back to you.</p>
+                  </div>
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="flex flex-col gap-1.5">
-                      <label className="text-[10px] font-mono font-bold text-text-muted uppercase">Full Name *</label>
+                      <label className="text-[10px] font-mono font-bold text-text-base">Your Name *</label>
                       <input
-                        type="text"
-                        name="name"
                         required
+                        type="text"
+                        placeholder="Enter your full name"
                         value={formData.name}
-                        onChange={handleInputChange}
-                        placeholder="John Doe"
-                        className="rounded-xl border border-border-custom bg-background-base px-4 py-2.5 text-xs text-text-base focus:border-primary focus:outline-none transition-colors"
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="px-4 py-2.5 rounded-xl border border-border-custom bg-white dark:bg-card-bg text-xs text-text-base focus:outline-none focus:border-primary shadow-sm"
                       />
                     </div>
+
                     <div className="flex flex-col gap-1.5">
-                      <label className="text-[10px] font-mono font-bold text-text-muted uppercase">Email Address *</label>
+                      <label className="text-[10px] font-mono font-bold text-text-base">Your Email *</label>
                       <input
-                        type="email"
-                        name="email"
                         required
+                        type="email"
+                        placeholder="Enter your email address"
                         value={formData.email}
-                        onChange={handleInputChange}
-                        placeholder="john@example.com"
-                        className="rounded-xl border border-border-custom bg-background-base px-4 py-2.5 text-xs text-text-base focus:border-primary focus:outline-none transition-colors"
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className="px-4 py-2.5 rounded-xl border border-border-custom bg-white dark:bg-card-bg text-xs text-text-base focus:outline-none focus:border-primary shadow-sm"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="flex flex-col gap-1.5">
-                      <label className="text-[10px] font-mono font-bold text-text-muted uppercase">Phone Number</label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        placeholder="+91 99999 99999"
-                        className="rounded-xl border border-border-custom bg-background-base px-4 py-2.5 text-xs text-text-base focus:border-primary focus:outline-none transition-colors"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-1.5">
-                      <label className="text-[10px] font-mono font-bold text-text-muted uppercase">Company / Organization</label>
+                      <label className="text-[10px] font-mono font-bold text-text-base">Phone Number</label>
                       <input
                         type="text"
-                        name="company"
-                        value={formData.company}
-                        onChange={handleInputChange}
-                        placeholder="Acme Corp"
-                        className="rounded-xl border border-border-custom bg-background-base px-4 py-2.5 text-xs text-text-base focus:border-primary focus:outline-none transition-colors"
+                        placeholder="Enter your phone number"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        className="px-4 py-2.5 rounded-xl border border-border-custom bg-white dark:bg-card-bg text-xs text-text-base focus:outline-none focus:border-primary shadow-sm"
                       />
+                    </div>
+
+                    <div className="flex flex-col gap-1.5">
+                      <label className="text-[10px] font-mono font-bold text-text-base">Subject *</label>
+                      <select
+                        value={formData.subject}
+                        onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                        className="px-4 py-2.5 rounded-xl border border-border-custom bg-white dark:bg-card-bg text-xs text-text-base focus:outline-none focus:border-primary shadow-sm"
+                      >
+                        <option>Select a subject</option>
+                        <option>General Inquiry</option>
+                        <option>Project Request</option>
+                        <option>Support Request</option>
+                        <option>Partnership</option>
+                        <option>Other</option>
+                      </select>
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-[10px] font-mono font-bold text-text-muted uppercase">I&apos;m interested in</label>
-                    <select
-                      name="interest"
-                      value={formData.interest}
-                      onChange={handleInputChange}
-                      className="rounded-xl border border-border-custom bg-background-base px-4 py-2.5 text-xs text-text-base focus:border-primary focus:outline-none transition-colors"
-                    >
-                      <option value="">Select an option</option>
-                      <option value="ai">AI Solutions & Chatbots</option>
-                      <option value="web">Web & Software Development</option>
-                      <option value="automation">WhatsApp & CRM Automation</option>
-                      <option value="other">Other Scope</option>
-                    </select>
-                  </div>
-
-                  <div className="flex flex-col gap-1.5">
-                    <label className="text-[10px] font-mono font-bold text-text-muted uppercase">Tell us about your project *</label>
+                    <label className="text-[10px] font-mono font-bold text-text-base">Your Message *</label>
                     <textarea
-                      name="message"
                       required
                       rows={5}
+                      placeholder="Tell us about your project or requirements..."
                       value={formData.message}
-                      onChange={handleInputChange}
-                      placeholder="Please describe what workflows or systems you want to build..."
-                      className="rounded-xl border border-border-custom bg-background-base px-4 py-2.5 text-xs text-text-base focus:border-primary focus:outline-none transition-colors resize-none"
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="px-4 py-2.5 rounded-xl border border-border-custom bg-white dark:bg-card-bg text-xs text-text-base focus:outline-none focus:border-primary shadow-sm"
                     />
                   </div>
 
-                  <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <div className="flex items-center gap-2">
+                    <input
+                      required
+                      type="checkbox"
+                      id="agree"
+                      checked={formData.agree}
+                      onChange={(e) => setFormData({ ...formData, agree: e.target.checked })}
+                      className="rounded border-border-custom text-primary focus:ring-primary size-4"
+                    />
+                    <label htmlFor="agree" className="text-[10px] font-mono text-text-muted">
+                      I agree to the <Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link> and <Link href="/terms" className="text-primary hover:underline">Terms & Conditions</Link>.
+                    </label>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
                     <button
                       type="submit"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary-hover text-white px-7 py-3 text-xs font-mono font-bold transition-all shadow-md"
+                      className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary-hover text-white px-7 py-3 text-xs font-mono font-bold transition-all shadow-md active:scale-[0.98] w-full sm:w-auto shrink-0"
                     >
                       <span>Send Message</span>
-                      <Send className="size-3.5" />
+                      <ArrowRight className="size-4" />
                     </button>
-                    <span className="flex items-center gap-1.5 text-[10px] text-text-muted">
-                      <Lock className="size-3.5 text-primary" /> We never share your information.
-                    </span>
+                    <span className="text-[8px] font-mono text-text-muted leading-tight">🛡️ We respect your privacy. Your information is safe with us.</span>
                   </div>
                 </form>
               )}
             </div>
 
-            {/* Right: Reach Info */}
+            {/* Right sidebar */}
             <div className="lg:col-span-5 flex flex-col gap-6 text-left w-full">
+              
+              {/* Contact info */}
               <div className="hog-card rounded-3xl p-6 md:p-8 bg-card-bg/60 border border-border-custom flex flex-col gap-6">
-                <h3 className="font-serif text-xl font-bold text-text-base border-b border-border-custom pb-3 mb-2">
-                  Other Ways to Reach Us
-                </h3>
+                <div className="border-b border-border-custom/50 pb-2">
+                  <h3 className="font-serif text-sm font-bold text-text-base">Contact Information</h3>
+                  <p className="text-[9px] text-text-muted">Reach out to us through any of the following.</p>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <Phone className="size-4.5 text-primary shrink-0 mt-0.5" />
+                    <div className="flex flex-col">
+                      <span className="text-[10px] font-mono font-bold text-text-base leading-none">Call Us</span>
+                      <a href="tel:+919876543210" className="text-[11px] font-bold text-text-base mt-1 hover:underline">
+                        +91 98765 43210
+                      </a>
+                      <span className="text-[9px] text-text-muted mt-0.5">Mon - Sat: 10:00 AM - 7:00 PM (IST)</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <Mail className="size-4.5 text-primary shrink-0 mt-0.5" />
+                    <div className="flex flex-col">
+                      <span className="text-[10px] font-mono font-bold text-text-base leading-none">Email Us</span>
+                      <a href="mailto:hello@jayantwebai.com" className="text-[11px] font-bold text-text-base mt-1 hover:underline">
+                        hello@jayantwebai.com
+                      </a>
+                      <span className="text-[9px] text-text-muted mt-0.5">We usually reply within a few hours.</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <MapPin className="size-4.5 text-primary shrink-0 mt-0.5" />
+                    <div className="flex flex-col">
+                      <span className="text-[10px] font-mono font-bold text-text-base leading-none">Our Location</span>
+                      <span className="text-[11px] font-bold text-text-base mt-1">New Delhi, India</span>
+                      <span className="text-[9px] text-text-muted mt-0.5">Serving clients globally.</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <Calendar className="size-4.5 text-primary shrink-0 mt-0.5" />
+                    <div className="flex flex-col">
+                      <span className="text-[10px] font-mono font-bold text-text-base leading-none">Book a Meeting</span>
+                      <span className="text-[9px] text-text-muted mt-1">Schedule a free consultation call</span>
+                      <Link href="/contact/book-a-consultation" className="text-[10px] font-mono font-bold text-primary hover:underline mt-1.5 inline-flex items-center gap-1">
+                        <span>Book Now</span>
+                        <ArrowRight className="size-3" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Connect with us socials */}
+              <div className="hog-card rounded-3xl p-6 md:p-8 bg-card-bg/60 border border-border-custom flex flex-col gap-4">
+                <h3 className="font-serif text-sm font-bold text-text-base border-b border-border-custom pb-2">Connect With Us</h3>
+                <p className="text-[10px] text-text-muted">Follow us on social media to stay updated.</p>
                 
-                <div className="flex items-start gap-4">
-                  <div className="size-10 rounded-xl border border-border-custom bg-card-bg flex items-center justify-center text-primary shrink-0">
-                    <Mail className="size-4" />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-[10px] font-mono uppercase font-bold text-text-muted">Email Us</span>
-                    <a href="mailto:hello@jayantwebai.com" className="text-xs md:text-sm font-bold text-text-base hover:text-primary transition-colors">
-                      hello@jayantwebai.com
+                <div className="flex flex-wrap gap-4 text-xs font-mono mt-2">
+                  {socials.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-text-muted hover:text-primary transition-colors border border-border-custom px-3 py-1.5 rounded-lg bg-white dark:bg-card-bg"
+                    >
+                      {item.name}
                     </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="size-10 rounded-xl border border-border-custom bg-card-bg flex items-center justify-center text-primary shrink-0">
-                    <Phone className="size-4" />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-[10px] font-mono uppercase font-bold text-text-muted">Call Us</span>
-                    <a href="tel:+919999999999" className="text-xs md:text-sm font-bold text-text-base hover:text-primary transition-colors">
-                      +91 99999 99999
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="size-10 rounded-xl border border-border-custom bg-card-bg flex items-center justify-center text-primary shrink-0">
-                    <MessageSquare className="size-4" />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-[10px] font-mono uppercase font-bold text-text-muted">WhatsApp</span>
-                    <a href="https://wa.me/919999999999" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm font-bold text-text-base hover:text-primary transition-colors">
-                      +91 99999 99999
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="size-10 rounded-xl border border-border-custom bg-card-bg flex items-center justify-center text-primary shrink-0">
-                    <MapPin className="size-4" />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-[10px] font-mono uppercase font-bold text-text-muted">Location</span>
-                    <span className="text-xs md:text-sm font-bold text-text-base">
-                      New Delhi, India
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="size-10 rounded-xl border border-border-custom bg-card-bg flex items-center justify-center text-primary shrink-0">
-                    <Clock className="size-4" />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-[10px] font-mono uppercase font-bold text-text-muted">Business Hours</span>
-                    <span className="text-xs md:text-sm font-bold text-text-base">
-                      Monday - Saturday <br />
-                      <span className="text-[10px] text-text-muted font-normal">10:00 AM - 8:00 PM IST</span>
-                    </span>
-                  </div>
+                  ))}
                 </div>
               </div>
-            </div>
-          </section>
 
-          {/* Trust stats Counter */}
-          <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {trustStats.map((stat, i) => (
-              <div key={i} className="flex items-start gap-4 p-5 rounded-2xl border border-border-custom bg-card-bg/30">
-                <div className="size-10 rounded-full border border-border-custom bg-card-bg flex items-center justify-center shrink-0">
-                  {stat.icon}
-                </div>
-                <div className="flex flex-col">
-                  <h4 className="font-serif text-sm font-bold text-text-base leading-none mb-1.5">{stat.title}</h4>
-                  <p className="text-[11px] text-text-muted leading-relaxed">{stat.desc}</p>
-                </div>
-              </div>
-            ))}
-          </section>
-
-          {/* Where We Work */}
-          <section className="py-8 relative border-t border-border-custom/50 pt-16">
-            <div className="text-left mb-12">
-              <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-                OUR OFFICES
-              </span>
-              <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
-                Where We Work
-              </h2>
-              <p className="text-sm md:text-base text-text-muted mt-2">
-                We have a strong presence and serve clients across the globe.
-              </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {offices.map((office) => (
-                <div key={office.country} className="hog-card rounded-2xl overflow-hidden border border-border-custom bg-card-bg/40 flex flex-col h-full">
-                  <div className="w-full aspect-video relative overflow-hidden">
-                    <img src={office.img} alt={office.location} className="absolute inset-0 w-full h-full object-cover brightness-[0.9] dark:brightness-[0.7]" />
-                    <span className="absolute top-4 left-4 text-2xl leading-none bg-black/45 backdrop-blur-sm p-1.5 rounded-lg">
-                      {office.flag}
-                    </span>
+          </section>
+
+          {/* Bottom Indicators strip */}
+          <section className="border-t border-border-custom/25 pt-12 pb-6 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-4 gap-8">
+              {bottomIndicators.map((ind, i) => (
+                <div key={i} className="flex gap-4 text-left">
+                  <div className="size-10 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-center shrink-0">
+                    {ind.icon}
                   </div>
-                  <div className="p-5 flex-1 flex flex-col gap-2">
-                    <h4 className="font-serif text-base font-bold text-text-base">{office.country}</h4>
-                    <span className="text-[10px] font-mono text-primary font-bold">{office.location}</span>
-                    <p className="text-xs text-text-muted leading-relaxed mt-2">{office.address}</p>
+                  <div>
+                    <h5 className="font-serif text-xs font-bold text-text-base leading-none mb-1">{ind.label}</h5>
+                    <p className="text-[10px] text-text-muted mt-1 leading-tight">{ind.desc}</p>
                   </div>
                 </div>
               ))}
-            </div>
-          </section>
-
-          {/* Frequently Asked Questions */}
-          <section className="py-8 relative border-t border-border-custom/50 pt-16">
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-                FAQ
-              </span>
-              <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
-                Frequently Asked Questions
-              </h2>
-            </div>
-
-            <div className="max-w-4xl mx-auto flex flex-col gap-3">
-              {faqItems.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="border border-border-custom/60 rounded-2xl overflow-hidden bg-card-bg/40 backdrop-blur-sm"
-                >
-                  <button
-                    onClick={() => setOpenFaqIndex(openFaqIndex === idx ? null : idx)}
-                    className="w-full flex items-center justify-between p-5 text-left font-serif text-sm md:text-base font-bold text-text-base hover:bg-neutral-50 dark:hover:bg-neutral-900/40 transition-colors"
-                  >
-                    <span>{item.q}</span>
-                    {openFaqIndex === idx ? (
-                      <Minus className="size-4 text-primary shrink-0 ml-4" />
-                    ) : (
-                      <Plus className="size-4 text-primary shrink-0 ml-4" />
-                    )}
-                  </button>
-                  
-                  <AnimatePresence initial={false}>
-                    {openFaqIndex === idx && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <div className="p-5 pt-0 border-t border-border-custom/30 text-xs md:text-sm text-text-muted leading-relaxed">
-                          {item.a}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* bottom CTA */}
-          <section className="relative overflow-hidden rounded-[32px] border border-white/10 bg-[#0B0F19] px-8 py-16 md:py-20 text-center shadow-lg">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,138,0,0.04),transparent)] pointer-events-none" />
-            
-            <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
-              <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-white mb-4 leading-tight">
-                Ready to Start Your Project?
-              </h2>
-
-              <p className="text-xs md:text-sm text-white/70 max-w-lg mb-8 leading-relaxed">
-                Let&apos;s turn your ideas into powerful digital solutions that drive growth and success.
-              </p>
-
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-                <a
-                  href="https://cal.com/jayant-web-and-ai-systems/strategy-call"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary-hover px-7 py-3 text-xs font-mono font-bold text-white shadow-md transition-all duration-200"
-                >
-                  Book a Free Consultation <ArrowRight className="size-3.5" />
-                </a>
-                
-                <Link
-                  href="/portfolio"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 hover:bg-white/5 px-7 py-3 text-xs font-mono font-bold text-white transition-all duration-200"
-                >
-                  View Our Work <ArrowRight className="size-3.5" />
-                </Link>
-              </div>
             </div>
           </section>
 
