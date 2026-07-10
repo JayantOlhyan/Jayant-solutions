@@ -99,8 +99,8 @@ export default function RefundCancellationPolicyPage() {
         <>
           <p>For any refund or cancellation requests, please contact us:</p>
           <div className="mt-3 flex flex-wrap gap-4 text-xs font-mono">
-            <span>✉️ hello@jayantwebai.com</span>
-            <span>📞 +91 98765 43210</span>
+            <span>✉️ jayantwebaisystems@gmail.com</span>
+            <span>📞 +91 96673 44125</span>
             <span>📍 New Delhi, India</span>
           </div>
         </>

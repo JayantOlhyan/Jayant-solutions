@@ -299,7 +299,7 @@ export default function RequestQuotePage() {
                     <div>
                       <h4 className="font-serif text-base font-bold text-white">Prefer to talk to someone?</h4>
                       <p className="text-[10px] text-white/70 leading-relaxed mt-1">
-                        Call us at +91 98765 43210 (Mon - Sat: 10:00 AM - 7:00 PM IST)
+                        Call us at +91 96673 44125 (Mon - Sat: 10:00 AM - 7:00 PM IST)
                       </p>
                     </div>
                   </div>

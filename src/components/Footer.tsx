@@ -220,8 +220,8 @@ export default function Footer() {
           ))}
         </div>
         <div className="text-xs font-mono text-text-muted flex flex-wrap gap-4">
-          <span>📞 +91 98765 43210</span>
-          <span>✉️ hello@jayantwebai.com</span>
+          <a href="tel:+919667344125" className="hover:text-primary transition-colors">📞 +91 96673 44125</a>
+          <a href="mailto:jayantwebaisystems@gmail.com" className="hover:text-primary transition-colors">✉️ jayantwebaisystems@gmail.com</a>
           <span>📍 New Delhi, India</span>
         </div>
       </div>

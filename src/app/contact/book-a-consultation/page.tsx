@@ -306,7 +306,7 @@ export default function BookConsultationPage() {
           <section className="border border-border-custom bg-card-bg/40 rounded-3xl p-6 md:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6 text-left">
             <div>
               <h4 className="font-serif text-sm md:text-base font-bold text-text-base mb-1">Prefer to talk right away?</h4>
-              <p className="text-[10px] md:text-xs text-text-muted">Call us at +91 98765 43210 or email hello@jayantwebai.com</p>
+              <p className="text-[10px] md:text-xs text-text-muted">Call us at +91 96673 44125 or email jayantwebaisystems@gmail.com</p>
             </div>
             <Link
               href="/contact"

@@ -6,15 +6,14 @@ import Link from "next/link";
 import { Check, ArrowRight, HelpCircle, Shield, Clock, Plus, Minus } from "lucide-react";
 
 export default function PricingPage() {
-  const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">("yearly");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const plans = [
     {
       name: "Starter",
       desc: "Perfect for startups & small businesses",
-      price: billingPeriod === "yearly" ? "₹24,999" : "₹29,999",
-      billing: billingPeriod === "yearly" ? "Billed yearly" : "Billed monthly",
+      price: "₹24,999",
+      billing: "One-time cost",
       features: [
         "Up to 5 Pages Website",
         "Responsive Design",
@@ -29,8 +28,8 @@ export default function PricingPage() {
     {
       name: "Growth",
       desc: "Ideal for growing businesses looking to scale",
-      price: billingPeriod === "yearly" ? "₹49,999" : "₹58,999",
-      billing: billingPeriod === "yearly" ? "Billed yearly" : "Billed monthly",
+      price: "₹49,999",
+      billing: "One-time cost",
       features: [
         "Up to 15 Pages Website",
         "Custom Design",
@@ -46,8 +45,8 @@ export default function PricingPage() {
     {
       name: "Business",
       desc: "Best for established businesses",
-      price: billingPeriod === "yearly" ? "₹99,999" : "₹1,19,999",
-      billing: billingPeriod === "yearly" ? "Billed yearly" : "Billed monthly",
+      price: "₹99,999",
+      billing: "One-time cost",
       features: [
         "Unlimited Pages",
         "Custom Web Application",
@@ -97,8 +96,8 @@ export default function PricingPage() {
   ];
 
   const faqs = [
-    { q: "Can I upgrade or downgrade my plan?", a: "Yes! You can change or upgrade your plan at any time based on your needs." },
-    { q: "Do you offer monthly payment?", a: "Yes, we offer both monthly and yearly payment options. Choosing the yearly option saves you 15%." },
+    { q: "Can I upgrade or customize my package?", a: "Yes! You can customize any package or add specific features based on your project requirements." },
+    { q: "Are these prices one-time or recurring?", a: "All website and software development prices shown above are one-time costs. Only our ongoing website maintenance plans (optional) are billed monthly or yearly." },
     { q: "Will my website be mobile-friendly?", a: "Absolutely. All our websites are 100% responsive and optimized for mobile, tablet, and desktop screens." },
     { q: "Do you provide support after delivery?", a: "Yes, we provide ongoing support and maintenance plans to keep your website secure and updated." },
   ];
@@ -158,35 +157,6 @@ export default function PricingPage() {
 
           </section>
 
-          {/* Toggle Switch */}
-          <div className="flex flex-col items-center gap-4 py-4">
-            <div className="inline-flex items-center gap-1.5 p-1 bg-neutral-100 dark:bg-neutral-900 border border-border-custom rounded-xl select-none">
-              <button
-                onClick={() => setBillingPeriod("monthly")}
-                className={`px-4 py-2 rounded-lg text-xs font-mono font-bold transition-all ${
-                  billingPeriod === "monthly"
-                    ? "bg-white dark:bg-card-bg text-text-base shadow-sm"
-                    : "text-text-muted hover:text-text-base"
-                }`}
-              >
-                Monthly
-              </button>
-              <button
-                onClick={() => setBillingPeriod("yearly")}
-                className={`px-4 py-2 rounded-lg text-xs font-mono font-bold transition-all ${
-                  billingPeriod === "yearly"
-                    ? "bg-white dark:bg-card-bg text-text-base shadow-sm"
-                    : "text-text-muted hover:text-text-base"
-                }`}
-              >
-                Yearly
-              </button>
-            </div>
-            <span className="text-[10px] font-mono text-primary font-bold bg-primary/10 border border-primary/25 px-2.5 py-0.5 rounded-full">
-              Save 15% with Yearly Billing
-            </span>
-          </div>
-
           {/* Pricing Grid */}
           <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {plans.map((plan, idx) => (
@@ -210,9 +180,9 @@ export default function PricingPage() {
                   </div>
 
                   <div className="flex flex-col">
-                    <div className="flex items-baseline gap-1">
+                    <div className="flex items-baseline gap-1.5">
                       <span className="text-2xl md:text-3xl font-serif font-black text-text-base">{plan.price}</span>
-                      {plan.price !== "Custom" && <span className="text-xs text-text-muted font-sans">/month</span>}
+                      {plan.price !== "Custom" && <span className="text-xs text-text-muted font-sans">one-time</span>}
                     </div>
                     <span className="text-[9px] font-mono text-text-muted mt-0.5">{plan.billing}</span>
                   </div>
@@ -349,7 +319,7 @@ export default function PricingPage() {
                   <div className="flex flex-col gap-2 mt-4 text-xs font-mono">
                     <div className="flex items-center gap-2">
                       <span className="text-primary font-bold">Call / WhatsApp:</span>
-                      <span className="text-text-base font-bold">+91 98765 43210</span>
+                      <span className="text-text-base font-bold">+91 96673 44125</span>
                     </div>
                   </div>
                 </div>

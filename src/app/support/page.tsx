@@ -167,8 +167,8 @@ export default function SupportPage() {
                     <Mail className="size-4 text-primary shrink-0 mt-0.5" />
                     <div className="flex flex-col">
                       <span className="text-[10px] font-mono font-bold text-text-base leading-none">Email Support</span>
-                      <a href="mailto:support@jayantwebai.com" className="text-[10px] text-text-muted mt-1 hover:underline">
-                        support@jayantwebai.com
+                      <a href="mailto:jayantwebaisystems@gmail.com" className="text-[10px] text-text-muted mt-1 hover:underline">
+                        jayantwebaisystems@gmail.com
                       </a>
                     </div>
                   </div>
@@ -177,8 +177,8 @@ export default function SupportPage() {
                     <Phone className="size-4 text-primary shrink-0 mt-0.5" />
                     <div className="flex flex-col">
                       <span className="text-[10px] font-mono font-bold text-text-base leading-none">Call Us</span>
-                      <a href="tel:+919876543210" className="text-[10px] text-text-muted mt-1 hover:underline">
-                        +91 98765 43210
+                      <a href="tel:+919667344125" className="text-[10px] text-text-muted mt-1 hover:underline">
+                        +91 96673 44125
                       </a>
                     </div>
                   </div>

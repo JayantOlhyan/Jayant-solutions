@@ -122,8 +122,12 @@ export default function Navbar() {
           
           {/* Brand Monogram & Logo Lockup */}
           <Link href="/" className="flex items-center gap-3.5 text-left group">
-            <div className="size-11 shrink-0 font-sans text-lg font-bold flex items-center justify-center text-primary bg-[#0B0F19] border border-white/10 rounded-xl transition-all duration-300 group-hover:scale-[1.02]">
-              J
+            <div className="size-11 shrink-0 p-1.5 flex items-center justify-center text-white bg-[#0B0F19] border border-white/10 rounded-xl transition-all duration-300 group-hover:scale-[1.02] shadow-sm">
+              <svg viewBox="0 0 200 200" className="w-full h-full">
+                <rect x="10" y="10" width="180" height="180" rx="42" fill="none" stroke="currentColor" strokeWidth="16" />
+                <path d="M 100 50 L 132 50 L 132 115 C 132 135, 115 152, 95 152 C 78 152, 65 140, 65 125 L 89 125 C 89 130, 91 132, 95 132 C 99 132, 108 128, 108 115 L 108 72 L 100 72 Z" fill="currentColor" />
+                <path d="M 52 108 L 82 108 L 82 128 L 67 141 L 65 128 L 52 128 Z" fill="#FF8A00" />
+              </svg>
             </div>
             <div className="flex flex-col">
               <span className="font-serif text-sm md:text-base font-bold tracking-tight text-white leading-none">

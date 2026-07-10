@@ -11,7 +11,7 @@ export default function EnterprisePlansPage() {
       name: "Scale",
       desc: "For growing businesses with evolving needs",
       price: "₹49,999",
-      billing: "/month",
+      billing: "one-time",
       features: [
         "Everything in Business Plan",
         "Unlimited Pages",
@@ -28,7 +28,7 @@ export default function EnterprisePlansPage() {
       name: "Advanced",
       desc: "For high-growth companies needing more power",
       price: "₹99,999",
-      billing: "/month",
+      billing: "one-time",
       features: [
         "Everything in Scale Plan",
         "Custom Web / App Development",
@@ -46,7 +46,7 @@ export default function EnterprisePlansPage() {
       name: "Enterprise",
       desc: "For large organizations with mission-critical systems",
       price: "₹1,99,999",
-      billing: "/month",
+      billing: "one-time",
       features: [
         "Everything in Advanced Plan",
         "Multi-Environment Management",
@@ -185,9 +185,9 @@ export default function EnterprisePlansPage() {
                     <p className="text-[10px] text-text-muted leading-tight">{plan.desc}</p>
                   </div>
 
-                  <div className="flex flex-baseline gap-1">
+                  <div className="flex flex-baseline gap-1.5">
                     <span className="text-2xl md:text-3xl font-serif font-black text-text-base">{plan.price}</span>
-                    <span className="text-xs text-text-muted font-sans">{plan.billing}</span>
+                    {plan.price !== "Custom" && <span className="text-xs text-text-muted font-sans">{plan.billing}</span>}
                   </div>
 
                   <div className="h-[1px] bg-border-custom/50 w-full" />

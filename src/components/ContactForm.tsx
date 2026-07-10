@@ -165,7 +165,7 @@ export default function ContactForm() {
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
-              placeholder="+91 98765 43210"
+              placeholder="+91 96673 44125"
               className="w-full bg-background-base border border-border-custom hover:border-primary/50 focus:border-primary rounded-xl px-4 py-2.5 text-xs outline-none transition-colors"
             />
           </div>

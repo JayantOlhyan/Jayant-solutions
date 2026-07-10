@@ -262,8 +262,8 @@ export default function ClientPortalPage() {
                 <div className="flex flex-col text-left">
                   <span className="text-xs font-bold text-text-base leading-none">Jayant Olhyan</span>
                   <span className="text-[9px] text-text-muted mt-1 leading-none">Founder & Project Lead</span>
-                  <a href="mailto:support@jayantwebai.com" className="text-[9px] text-primary mt-1.5 hover:underline">
-                    support@jayantwebai.com
+                  <a href="mailto:jayantwebaisystems@gmail.com" className="text-[9px] text-primary mt-1.5 hover:underline">
+                    jayantwebaisystems@gmail.com
                   </a>
                 </div>
               </div>
