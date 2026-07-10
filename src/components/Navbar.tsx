@@ -10,10 +10,12 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [solutionsOpen, setSolutionsOpen] = useState(false);
   const [companyOpen, setCompanyOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const [industriesOpen, setIndustriesOpen] = useState(false);
   const [technologiesOpen, setTechnologiesOpen] = useState(false);
+  const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
   const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
   const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
   const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
@@ -21,6 +23,7 @@ export default function Navbar() {
   
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const solutionsRef = useRef<HTMLDivElement>(null);
   const companyRef = useRef<HTMLDivElement>(null);
   const resourcesRef = useRef<HTMLDivElement>(null);
   const industriesRef = useRef<HTMLDivElement>(null);
@@ -39,6 +42,9 @@ export default function Navbar() {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setDropdownOpen(false);
       }
+      if (solutionsRef.current && !solutionsRef.current.contains(event.target as Node)) {
+        setSolutionsOpen(false);
+      }
       if (companyRef.current && !companyRef.current.contains(event.target as Node)) {
         setCompanyOpen(false);
       }
@@ -55,6 +61,14 @@ export default function Navbar() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  const solutionsSubLinks = [
+    { label: "Build an AI Chatbot", href: "/promo/build-ai-chatbot" },
+    { label: "Build Your Startup MVP", href: "/promo/build-startup-mvp" },
+    { label: "Modern Business Website", href: "/promo/modern-business-website" },
+    { label: "Business Automation Solutions", href: "/promo/business-automation-solutions" },
+    { label: "AI Consulting", href: "/promo/ai-consulting" },
+  ];
 
   const companySubLinks = [
     { label: "Founder", href: "/company/founder" },
@@ -123,6 +137,48 @@ export default function Navbar() {
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center gap-7">
+            {/* Solutions Dropdown Trigger */}
+            <div className="relative" ref={solutionsRef}>
+              <button
+                onClick={() => {
+                  setSolutionsOpen(!solutionsOpen);
+                  setCompanyOpen(false);
+                  setResourcesOpen(false);
+                  setIndustriesOpen(false);
+                  setTechnologiesOpen(false);
+                }}
+                className={`flex items-center gap-1.5 text-[14px] font-sans font-medium transition-colors py-1 focus:outline-none cursor-pointer ${
+                  pathname.startsWith("/promo") ? "text-primary font-semibold" : "text-white/70 hover:text-white"
+                }`}
+              >
+                <span>Solutions</span>
+                <ChevronDown className="size-3" />
+              </button>
+
+              <AnimatePresence>
+                {solutionsOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                    transition={{ duration: 0.15, ease: "easeOut" }}
+                    className="absolute left-0 mt-2 w-56 rounded-xl bg-[#111827] border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.5)] py-2 z-50 origin-top-left"
+                  >
+                    {solutionsSubLinks.map((subLink) => (
+                      <Link
+                        key={subLink.label}
+                        href={subLink.href}
+                        onClick={() => setSolutionsOpen(false)}
+                        className="block px-4 py-2 text-xs font-mono font-bold text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+                      >
+                        {subLink.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
             <Link
               href="/services"
               className={`relative text-[14px] font-sans font-medium transition-colors py-1 group ${
@@ -140,6 +196,7 @@ export default function Navbar() {
                   setCompanyOpen(false);
                   setResourcesOpen(false);
                   setTechnologiesOpen(false);
+                  setSolutionsOpen(false);
                 }}
                 className={`flex items-center gap-1.5 text-[14px] font-sans font-medium transition-colors py-1 focus:outline-none cursor-pointer ${
                   pathname.startsWith("/industries") ? "text-primary font-semibold" : "text-white/70 hover:text-white"
@@ -181,6 +238,7 @@ export default function Navbar() {
                   setCompanyOpen(false);
                   setResourcesOpen(false);
                   setIndustriesOpen(false);
+                  setSolutionsOpen(false);
                 }}
                 className={`flex items-center gap-1.5 text-[14px] font-sans font-medium transition-colors py-1 focus:outline-none cursor-pointer ${
                   pathname.startsWith("/technologies") ? "text-primary font-semibold" : "text-white/70 hover:text-white"
@@ -239,6 +297,7 @@ export default function Navbar() {
                   setResourcesOpen(false);
                   setIndustriesOpen(false);
                   setTechnologiesOpen(false);
+                  setSolutionsOpen(false);
                 }}
                 className={`flex items-center gap-1.5 text-[14px] font-sans font-medium transition-colors py-1 focus:outline-none cursor-pointer ${
                   pathname.startsWith("/company") ? "text-primary font-semibold" : "text-white/70 hover:text-white"
@@ -280,6 +339,7 @@ export default function Navbar() {
                   setCompanyOpen(false);
                   setIndustriesOpen(false);
                   setTechnologiesOpen(false);
+                  setSolutionsOpen(false);
                 }}
                 className={`flex items-center gap-1.5 text-[14px] font-sans font-medium transition-colors py-1 focus:outline-none cursor-pointer ${
                   pathname.startsWith("/resources") || pathname === "/blog" ? "text-primary font-semibold" : "text-white/70 hover:text-white"
@@ -403,6 +463,47 @@ export default function Navbar() {
               transition={{ duration: 0.2 }}
               className="mt-4 pt-4 border-t border-white/10 md:hidden flex flex-col gap-4 overflow-y-auto max-h-[calc(100vh-8rem)]"
             >
+              {/* Mobile Solutions Dropdown */}
+              <div className="flex flex-col border-b border-white/5">
+                <button
+                  onClick={() => {
+                    setMobileSolutionsOpen(!mobileSolutionsOpen);
+                    setMobileCompanyOpen(false);
+                    setMobileResourcesOpen(false);
+                    setMobileIndustriesOpen(false);
+                    setMobileTechnologiesOpen(false);
+                  }}
+                  className="flex items-center justify-between text-sm font-sans font-bold px-2 py-2 text-white/70 hover:text-white focus:outline-none w-full"
+                >
+                  <span>Solutions</span>
+                  <ChevronDown className={`size-3.5 transition-transform ${mobileSolutionsOpen ? "rotate-180" : ""}`} />
+                </button>
+                <AnimatePresence>
+                  {mobileSolutionsOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="pl-4 flex flex-col gap-2 py-1 bg-white/5 rounded-lg mb-2"
+                    >
+                      {solutionsSubLinks.map((subLink) => (
+                        <Link
+                          key={subLink.label}
+                          href={subLink.href}
+                          onClick={() => {
+                            setIsOpen(false);
+                            setMobileSolutionsOpen(false);
+                          }}
+                          className="block py-1.5 text-xs font-mono font-bold text-white/70 hover:text-white"
+                        >
+                          {subLink.label}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
               <Link
                 href="/services"
                 onClick={() => setIsOpen(false)}
@@ -421,6 +522,7 @@ export default function Navbar() {
                     setMobileCompanyOpen(false);
                     setMobileResourcesOpen(false);
                     setMobileTechnologiesOpen(false);
+                    setMobileSolutionsOpen(false);
                   }}
                   className="flex items-center justify-between text-sm font-sans font-bold px-2 py-2 text-white/70 hover:text-white focus:outline-none w-full"
                 >
@@ -461,6 +563,7 @@ export default function Navbar() {
                     setMobileCompanyOpen(false);
                     setMobileResourcesOpen(false);
                     setMobileIndustriesOpen(false);
+                    setMobileSolutionsOpen(false);
                   }}
                   className="flex items-center justify-between text-sm font-sans font-bold px-2 py-2 text-white/70 hover:text-white focus:outline-none w-full"
                 >
@@ -520,6 +623,7 @@ export default function Navbar() {
                     setMobileResourcesOpen(false);
                     setMobileIndustriesOpen(false);
                     setMobileTechnologiesOpen(false);
+                    setMobileSolutionsOpen(false);
                   }}
                   className="flex items-center justify-between text-sm font-sans font-bold px-2 py-2 text-white/70 hover:text-white focus:outline-none w-full"
                 >
@@ -560,6 +664,7 @@ export default function Navbar() {
                     setMobileCompanyOpen(false);
                     setMobileIndustriesOpen(false);
                     setMobileTechnologiesOpen(false);
+                    setMobileSolutionsOpen(false);
                   }}
                   className="flex items-center justify-between text-sm font-sans font-bold px-2 py-2 text-white/70 hover:text-white focus:outline-none w-full"
                 >

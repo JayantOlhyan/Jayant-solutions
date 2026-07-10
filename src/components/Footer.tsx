@@ -27,6 +27,14 @@ export default function Footer() {
     { name: "Contact", href: "/contact" }
   ];
 
+  const solutionsLinks = [
+    { name: "Build an AI Chatbot", href: "/promo/build-ai-chatbot" },
+    { name: "Build Your Startup MVP", href: "/promo/build-startup-mvp" },
+    { name: "Modern Business Website", href: "/promo/modern-business-website" },
+    { name: "Business Automation", href: "/promo/business-automation-solutions" },
+    { name: "AI Consulting", href: "/promo/ai-consulting" },
+  ];
+
   const companyLinks = [
     { name: "About Us", href: "/about" },
     { name: "Founder", href: "/company/founder" },
@@ -88,9 +96,9 @@ export default function Footer() {
   return (
     <footer className="w-full border-t border-border-custom bg-card-bg/25 pt-16 pb-8 text-left">
       {/* Top Footer Grid */}
-      <div className="max-w-none px-6 grid grid-cols-1 md:grid-cols-8 gap-8 mb-12">
+      <div className="max-w-none px-6 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-10 gap-8 mb-12">
         {/* Brand Column */}
-        <div className="md:col-span-2 flex flex-col gap-4 text-left">
+        <div className="col-span-2 flex flex-col gap-4 text-left">
           <div className="flex items-center gap-2">
             <div className="size-6 text-text-base shrink-0">
               <svg viewBox="0 0 200 200" className="w-full h-full">
@@ -106,6 +114,20 @@ export default function Footer() {
           <p className="text-xs text-text-muted leading-relaxed">
             Building intelligent software, AI-powered solutions, and scalable digital products that help businesses innovate, automate, and grow.
           </p>
+        </div>
+
+        {/* Solutions */}
+        <div className="flex flex-col gap-3 text-left">
+          <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">Solutions</span>
+          <ul className="space-y-1.5 text-xs text-text-muted">
+            {solutionsLinks.map((item) => (
+              <li key={item.name}>
+                <Link href={item.href} className="hover:text-text-base transition-colors">
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
 
         {/* Quick Links */}
