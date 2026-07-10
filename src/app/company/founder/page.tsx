@@ -156,22 +156,22 @@ export default function FounderPage() {
               <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
                 WHAT DRIVES ME
               </span>
-              <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
-                Core Values & Beliefs
-              </h2>
-            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-4 gap-6">
-              {values.map((val, idx) => (
-                <div key={idx} className="hog-card rounded-2xl p-5 border border-border-custom bg-card-bg/40 flex flex-col gap-3 text-left">
-                  <div className="size-9 rounded-full border border-border-custom bg-card-bg flex items-center justify-center">
-                    {val.icon}
-                  </div>
-                  <h5 className="font-serif text-xs md:text-sm font-bold text-text-base leading-snug">{val.title}</h5>
-                  <p className="text-[10px] md:text-xs text-text-muted leading-relaxed">{val.desc}</p>
-                </div>
-              ))}
+              {/* My Development Principles */}
+              <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mb-4">
+                My Development Principles
+              </h2>
+              <ul className="list-disc list-inside text-[11px] md:text-xs text-text-muted leading-relaxed">
+                <li>Performance‑first engineering</li>
+                <li>Accessibility & responsive design</li>
+                <li>Scalable, modular architecture</li>
+                <li>Security‑conscious implementation</li>
+                <li>Thoughtful user experience</li>
+                <li>Maintainable, well‑documented codebases</li>
+                <li>Modern frameworks & tooling</li>
+              </ul>
             </div>
+            
           </section>
 
           {/* Milestones timeline */}

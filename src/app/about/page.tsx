@@ -193,35 +193,51 @@ export default function AboutPage() {
 
               {/* Right Column: Mission/Vision/Values */}
               <div className="lg:col-span-4 flex flex-col gap-6">
+                {/* How I Work */}
                 <div className="border border-border-custom/80 rounded-2xl p-5 bg-card-bg/40">
                   <h4 className="font-serif text-sm font-bold text-text-base mb-1.5 flex items-center gap-2">
-                    <Target className="size-4 text-primary" /> Our Mission
+                    <Target className="size-4 text-primary" /> How I Work
                   </h4>
-                  <p className="text-[11px] md:text-xs text-text-muted leading-relaxed">
-                    To deliver intelligent, innovative, and scalable digital solutions that help businesses grow and operate more efficiently.
-                  </p>
+                  <ul className="list-disc list-inside text-[11px] md:text-xs text-text-muted leading-relaxed">
+                    <li>Discovery & Requirements Gathering</li>
+                    <li>Planning & Architecture</li>
+                    <li>Design & Prototyping</li>
+                    <li>Development & Iterative Delivery</li>
+                    <li>Testing & Quality Assurance</li>
+                    <li>Deployment & Release</li>
+                    <li>Ongoing Support & Maintenance</li>
+                  </ul>
                 </div>
 
+                {/* What You Can Expect */}
                 <div className="border border-border-custom/80 rounded-2xl p-5 bg-card-bg/40">
                   <h4 className="font-serif text-sm font-bold text-text-base mb-1.5 flex items-center gap-2">
-                    <Lightbulb className="size-4 text-primary" /> Our Vision
+                    <Lightbulb className="size-4 text-primary" /> What You Can Expect
                   </h4>
-                  <p className="text-[11px] md:text-xs text-text-muted leading-relaxed">
-                    To be a trusted global technology partner known for engineering excellence, transparency, and creating long-term business value.
-                  </p>
+                  <ul className="list-disc list-inside text-[11px] md:text-xs text-text-muted leading-relaxed">
+                    <li>Direct collaboration with the founder</li>
+                    <li>Clear, transparent communication throughout</li>
+                    <li>Regular progress updates and demos</li>
+                    <li>Clean, maintainable code with documentation</li>
+                    <li>Practical AI solutions that add real value</li>
+                    <li>Comprehensive handover and knowledge transfer</li>
+                  </ul>
                 </div>
 
+                {/* My Development Principles */}
                 <div className="border border-border-custom/80 rounded-2xl p-5 bg-card-bg/40">
                   <h4 className="font-serif text-sm font-bold text-text-base mb-1.5 flex items-center gap-2">
-                    <Users className="size-4 text-primary" /> Our Values
+                    <Users className="size-4 text-primary" /> My Development Principles
                   </h4>
-                  <div className="flex flex-wrap gap-1.5 mt-2">
-                    {["Innovation First", "Client Success", "Transparency", "Quality & Excellence", "Long-term Impact"].map((v) => (
-                      <span key={v} className="text-[9px] font-mono text-text-muted bg-neutral-100 dark:bg-neutral-900 border border-border-custom/20 px-2.5 py-0.5 rounded-full">
-                        {v}
-                      </span>
-                    ))}
-                  </div>
+                  <ul className="list-disc list-inside text-[11px] md:text-xs text-text-muted leading-relaxed">
+                    <li>Performance‑first engineering</li>
+                    <li>Accessibility & responsive design</li>
+                    <li>Scalable, modular architecture</li>
+                    <li>Security‑conscious implementation</li>
+                    <li>Thoughtful user experience</li>
+                    <li>Maintainable, well‑documented codebases</li>
+                    <li>Modern frameworks & tooling</li>
+                  </ul>
                 </div>
               </div>
 
