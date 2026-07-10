@@ -53,6 +53,11 @@ export default function Footer() {
     { name: "FastAPI Development", href: "/technologies/fastapi-development" },
     { name: "Python Development", href: "/technologies/python-development" },
     { name: "Flutter Development", href: "/technologies/flutter-development" },
+    { name: "OpenAI Integration", href: "/technologies/openai-integration" },
+    { name: "Google Gemini Development", href: "/technologies/google-gemini-development" },
+    { name: "LangChain Development", href: "/technologies/langchain-development" },
+    { name: "Supabase Development", href: "/technologies/supabase-development" },
+    { name: "PostgreSQL Development", href: "/technologies/postgresql-development" }
   ];
 
   const resources = [

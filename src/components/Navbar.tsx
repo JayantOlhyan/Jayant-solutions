@@ -90,6 +90,11 @@ export default function Navbar() {
     { label: "FastAPI Development", href: "/technologies/fastapi-development" },
     { label: "Python Development", href: "/technologies/python-development" },
     { label: "Flutter Development", href: "/technologies/flutter-development" },
+    { label: "OpenAI Integration", href: "/technologies/openai-integration" },
+    { label: "Google Gemini Development", href: "/technologies/google-gemini-development" },
+    { label: "LangChain Development", href: "/technologies/langchain-development" },
+    { label: "Supabase Development", href: "/technologies/supabase-development" },
+    { label: "PostgreSQL Development", href: "/technologies/postgresql-development" },
   ];
 
   return (
