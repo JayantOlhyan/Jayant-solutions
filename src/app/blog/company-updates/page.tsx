@@ -1,0 +1,327 @@
+"use client";
+
+import React, { useState } from "react";
+import PageTransition from "@/components/PageTransition";
+import Link from "next/link";
+import { Search, ArrowRight } from "lucide-react";
+
+export default function CompanyUpdatesCategoryPage() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activeSubTab, setActiveSubTab] = useState("All");
+
+  const subTabs = [
+    "All",
+    "Announcements",
+    "Milestones",
+    "Events",
+    "Partnerships",
+    "Team News",
+    "Product Updates",
+    "Behind the Scenes"
+  ];
+
+  const highlights = [
+    { label: "50+ Updates Shared", icon: "📅" },
+    { label: "10+ Milestones Achieved", icon: "🏆" },
+    { label: "Growing Our Team", icon: "👥" },
+    { label: "Building the Future", icon: "🚀" },
+  ];
+
+  const posts = [
+    {
+      title: "We've Been Awarded \"Excellence in Tech Innovation 2024\"",
+      category: "Announcements",
+      desc: "Honored to be recognized for our innovation, impact, and commitment to building intelligent digital solutions.",
+      date: "May 20, 2024",
+      readTime: "Announcement",
+      author: "Jayant Olhyan"
+    },
+    {
+      title: "Crossed 100+ Successful Projects Milestone!",
+      category: "Milestones",
+      desc: "A huge thank you to our amazing clients and team for helping us reach this incredible milestone.",
+      date: "May 15, 2024",
+      readTime: "Milestone",
+      author: "Jayant Olhyan"
+    },
+    {
+      title: "Jayant Web & AI Systems at Tech Summit 2024",
+      category: "Events",
+      desc: "Our team shared insights on AI, automation, and the future of digital transformation.",
+      date: "May 10, 2024",
+      readTime: "Event",
+      author: "Jayant Olhyan"
+    },
+    {
+      title: "Welcoming 5 New Talents to Our Team!",
+      category: "Team News",
+      desc: "We&apos;re excited to have talented and passionate individuals join us on our mission.",
+      date: "May 8, 2024",
+      readTime: "Team News",
+      author: "Jayant Olhyan"
+    },
+    {
+      title: "New Partnership with Google Cloud",
+      category: "Partnerships",
+      desc: "Excited to partner with Google Cloud to deliver scalable, secure, and innovative solutions.",
+      date: "May 5, 2024",
+      readTime: "Partnership",
+      author: "Jayant Olhyan"
+    },
+    {
+      title: "Introducing Our New Website & Brand Identity",
+      category: "Product Updates",
+      desc: "A fresh new look for a bigger vision. Explore our new website and brand experience.",
+      date: "Apr 30, 2024",
+      readTime: "Product Update",
+      author: "Jayant Olhyan"
+    }
+  ];
+
+  const latestAnnouncements = [
+    { title: "Excellence in Tech Innovation 2024", date: "May 20, 2024" },
+    { title: "100+ Successful Projects Milestone", date: "May 15, 2024" },
+    { title: "Welcoming 5 New Talents", date: "May 8, 2024" },
+    { title: "New Partnership with Google Cloud", date: "May 5, 2024" },
+    { title: "New Website & Brand Launch", date: "Apr 30, 2024" }
+  ];
+
+  const socialLinks = [
+    { name: "LinkedIn", url: "https://linkedin.com" },
+    { name: "Twitter", url: "https://twitter.com" },
+    { name: "Instagram", url: "https://instagram.com" },
+    { name: "YouTube", url: "https://youtube.com" },
+    { name: "GitHub", url: "https://github.com" }
+  ];
+
+  const filteredPosts = posts.filter((post) => {
+    const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          post.desc.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesTab = activeSubTab === "All" || post.category === activeSubTab;
+    return matchesSearch && matchesTab;
+  });
+
+  return (
+    <PageTransition>
+      <div className="hog-grid min-h-screen pb-20 pt-10 text-left">
+        <main className="max-w-none px-6 md:px-12 lg:px-16 flex flex-col gap-20 md:gap-28">
+          
+          {/* Breadcrumbs */}
+          <nav className="text-xs font-mono text-text-muted flex items-center gap-2 pt-8">
+            <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+            <span>&gt;</span>
+            <Link href="/blog" className="hover:text-primary transition-colors">Blog</Link>
+            <span>&gt;</span>
+            <span className="text-text-base">Company Updates</span>
+          </nav>
+
+          {/* Hero */}
+          <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Left */}
+            <div className="lg:col-span-7 flex flex-col items-start text-left">
+              <span className="font-mono text-[9px] uppercase tracking-widest text-primary border border-primary/20 bg-primary/5 px-2.5 py-0.5 rounded-full mb-4">
+                BLOG CATEGORY
+              </span>
+              <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
+                Company Updates
+              </h1>
+              <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
+                Stay up to date with the latest news, milestones, achievements, and behind-the-scenes stories from Jayant Web & AI Systems.
+              </p>
+
+              {/* Highlights */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-border-custom/50 pt-6 w-full">
+                {highlights.map((h, i) => (
+                  <div key={i} className="flex items-center gap-2">
+                    <span className="text-lg leading-none shrink-0">{h.icon}</span>
+                    <span className="text-[10px] font-mono font-bold text-text-base leading-tight">{h.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: Graphic illustration */}
+            <div className="lg:col-span-5 w-full flex justify-center">
+              <div className="relative w-full max-w-[420px] aspect-[4/3] rounded-[24px] overflow-hidden border border-border-custom bg-neutral-900 shadow-2xl p-6 flex flex-col justify-between text-white/95">
+                <div className="flex flex-col gap-3 font-mono text-[9px] text-white/60">
+                  <div className="flex justify-between border-b border-white/5 pb-1">
+                    <span>Award Win</span><span className="text-primary font-bold">Innovation 2024</span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/5 pb-1">
+                    <span>Successful Projects</span><span className="text-primary font-bold">100+ Completed</span>
+                  </div>
+                </div>
+                <div className="bg-white/5 border border-white/5 p-3 rounded-xl flex justify-between items-center text-[10px] mt-4">
+                  <div className="flex flex-col text-left">
+                    <span className="text-white/40 uppercase tracking-widest font-mono">Company Values</span>
+                    <span className="font-bold font-serif text-white mt-1">Building intelligent solutions. Empowering businesses.</span>
+                  </div>
+                  <span className="text-lg">📢</span>
+                </div>
+              </div>
+            </div>
+
+          </section>
+
+          {/* Sub Navigation Bar & Search Bar Split */}
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-t border-border-custom/25 pt-8 py-4 w-full">
+            {/* Tabs */}
+            <div className="flex flex-wrap gap-2">
+              {subTabs.map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveSubTab(tab)}
+                  className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all border ${
+                    activeSubTab === tab
+                      ? "bg-neutral-900 border-neutral-900 text-white dark:bg-white dark:border-white dark:text-neutral-950 shadow-sm"
+                      : "bg-white border-border-custom text-text-muted hover:text-text-base dark:bg-card-bg/40"
+                  }`}
+                >
+                  {tab}
+                </button>
+              ))}
+            </div>
+
+            {/* Search Input */}
+            <div className="relative w-full lg:w-72 shrink-0">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 size-4 text-text-muted" />
+              <input
+                type="text"
+                placeholder="Search updates..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-11 pr-4 py-2.5 rounded-xl border border-border-custom bg-white dark:bg-card-bg/60 text-xs text-text-base focus:outline-none focus:border-primary shadow-sm"
+              />
+            </div>
+          </div>
+
+          {/* Grid List & Sidebar */}
+          <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start py-8">
+            
+            {/* Left Posts cards */}
+            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6 text-left w-full">
+              {filteredPosts.length > 0 ? (
+                filteredPosts.map((post, idx) => (
+                  <div
+                    key={idx}
+                    className="hog-card rounded-3xl p-6 border border-border-custom bg-card-bg/40 flex flex-col justify-between h-full group"
+                  >
+                    <div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-[9px] font-mono font-bold text-primary bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">
+                          {post.category}
+                        </span>
+                        <span className="text-[9px] font-mono text-text-muted">{post.readTime}</span>
+                      </div>
+                      <h4 className="font-serif text-xs md:text-sm font-bold text-text-base leading-snug mb-2 group-hover:text-primary transition-colors">
+                        {post.title}
+                      </h4>
+                      <p className="text-[10px] text-text-muted leading-relaxed mb-4">{post.desc}</p>
+                    </div>
+
+                    <div className="flex items-center justify-between border-t border-border-custom/30 pt-4 mt-4 text-[9px] font-mono">
+                      <span className="text-text-muted">By {post.author} • {post.date}</span>
+                      <Link href="/blog" className="inline-flex items-center gap-1 font-bold text-primary hover:underline">
+                        <span>Read More</span>
+                        <ArrowRight className="size-3.5" />
+                      </Link>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="col-span-2 text-center py-12 border border-dashed border-border-custom rounded-2xl w-full">
+                  <p className="text-xs text-text-muted font-mono">No matching updates found.</p>
+                </div>
+              )}
+            </div>
+
+            {/* Right Sidebar */}
+            <div className="lg:col-span-4 flex flex-col gap-6 text-left w-full">
+              
+              {/* About Category */}
+              <div className="hog-card rounded-3xl p-6 md:p-8 bg-[#0B0F19] text-white border border-border-custom flex flex-col gap-4">
+                <h3 className="font-serif text-sm font-bold border-b border-white/10 pb-2">
+                  About This Category
+                </h3>
+                <p className="text-[10px] text-white/70 leading-relaxed">
+                  This is where we share important updates about our journey, achievements, events, partnerships, and everything happening at Jayant Web & AI Systems.
+                </p>
+                <Link href="/about" className="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-primary hover:underline">
+                  <span>Learn more about us</span>
+                  <ArrowRight className="size-3.5" />
+                </Link>
+              </div>
+
+              {/* Latest Announcements */}
+              <div className="hog-card rounded-3xl p-6 md:p-8 bg-card-bg/60 border border-border-custom flex flex-col gap-6">
+                <h3 className="font-serif text-sm font-bold text-text-base border-b border-border-custom pb-2">
+                  Latest Announcements
+                </h3>
+                <div className="space-y-4">
+                  {latestAnnouncements.map((p, idx) => (
+                    <div key={idx} className="flex items-start gap-3">
+                      <span className="size-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-[10px] font-mono font-bold shrink-0">
+                        {idx + 1}
+                      </span>
+                      <div className="flex flex-col">
+                        <span className="text-[10px] font-serif font-bold text-text-base leading-snug">
+                          {p.title}
+                        </span>
+                        <span className="text-[9px] font-mono text-text-muted mt-1">{p.date}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Newsletter */}
+              <div className="hog-card rounded-3xl p-6 md:p-8 bg-card-bg/60 border border-border-custom flex flex-col gap-4">
+                <h3 className="font-serif text-sm font-bold text-text-base border-b border-border-custom pb-2">
+                  Subscribe to Our Newsletter
+                </h3>
+                <p className="text-[10px] text-text-muted leading-relaxed">
+                  Get the latest company updates, news, and announcements.
+                </p>
+                <div className="flex flex-col gap-2 w-full mt-2">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    className="px-3 py-2.5 rounded-xl border border-border-custom bg-white dark:bg-card-bg/60 text-xs text-text-base focus:outline-none focus:border-primary shadow-sm w-full"
+                  />
+                  <button className="w-full py-2.5 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-mono font-bold shadow-sm transition-colors">
+                    Subscribe
+                  </button>
+                </div>
+              </div>
+
+              {/* Socials */}
+              <div className="hog-card rounded-3xl p-6 md:p-8 bg-card-bg/60 border border-border-custom flex flex-col gap-4">
+                <h3 className="font-serif text-sm font-bold text-text-base border-b border-border-custom pb-2">
+                  Follow Our Journey
+                </h3>
+                <p className="text-[10px] text-text-muted">Connect with us on social media</p>
+                <div className="flex flex-wrap gap-2">
+                  {socialLinks.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[9px] font-mono text-text-base bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-850 dark:hover:bg-neutral-800 px-2.5 py-1 rounded"
+                    >
+                      {item.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+            </div>
+
+          </section>
+
+        </main>
+      </div>
+    </PageTransition>
+  );
+}

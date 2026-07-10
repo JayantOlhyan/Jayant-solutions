@@ -16,6 +16,10 @@ export default function BlogPage() {
     { name: "Web Development", href: "/blog/web-development" },
     { name: "Startup Guides", href: "/blog/startup-guides" },
     { name: "Automation", href: "/blog/automation" },
+    { name: "Cloud", href: "/blog/cloud" },
+    { name: "UI/UX", href: "/blog/ui-ux" },
+    { name: "Case Studies", href: "/blog/case-studies" },
+    { name: "Company Updates", href: "/blog/company-updates" },
   ];
 
   const popularPosts = [
@@ -32,6 +36,10 @@ export default function BlogPage() {
     { name: "Web Development", href: "/blog/web-development" },
     { name: "Startup Guides", href: "/blog/startup-guides" },
     { name: "Automation", href: "/blog/automation" },
+    { name: "Cloud", href: "/blog/cloud" },
+    { name: "UI/UX", href: "/blog/ui-ux" },
+    { name: "Case Studies", href: "/blog/case-studies" },
+    { name: "Company Updates", href: "/blog/company-updates" },
   ];
 
   const filteredPosts = blogPosts.filter((post) => {
@@ -95,12 +103,16 @@ export default function BlogPage() {
               <div className="relative w-full max-w-[420px] aspect-square flex items-center justify-center p-8 select-none">
                 <div className="w-full h-[85%] rounded-2xl bg-[#0B0F19] border-2 border-white/10 shadow-2xl p-6 flex flex-col justify-center text-left text-white/90">
                   <span className="text-xs font-mono text-white/40 uppercase tracking-widest border-b border-white/5 pb-2 mb-4">Blog Categories</span>
-                  <div className="flex flex-col gap-2 text-[10px] font-mono text-white/70">
+                  <div className="flex flex-wrap gap-x-4 gap-y-2 text-[10px] font-mono text-white/70">
                     <Link href="/blog/artificial-intelligence" className="hover:text-primary transition-colors">→ Artificial Intelligence</Link>
                     <Link href="/blog/software-development" className="hover:text-primary transition-colors">→ Software Development</Link>
                     <Link href="/blog/web-development" className="hover:text-primary transition-colors">→ Web Development</Link>
                     <Link href="/blog/startup-guides" className="hover:text-primary transition-colors">→ Startup Guides</Link>
                     <Link href="/blog/automation" className="hover:text-primary transition-colors">→ Automation</Link>
+                    <Link href="/blog/cloud" className="hover:text-primary transition-colors">→ Cloud</Link>
+                    <Link href="/blog/ui-ux" className="hover:text-primary transition-colors">→ UI/UX</Link>
+                    <Link href="/blog/case-studies" className="hover:text-primary transition-colors">→ Case Studies</Link>
+                    <Link href="/blog/company-updates" className="hover:text-primary transition-colors">→ Company Updates</Link>
                   </div>
                 </div>
               </div>
