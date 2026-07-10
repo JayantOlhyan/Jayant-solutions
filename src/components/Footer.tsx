@@ -6,17 +6,6 @@ import Link from "next/link";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const trustBadges = [
-    "✅ AI-First Development",
-    "🔒 Secure by Design",
-    "⚡ Fast Delivery",
-    "📱 Mobile Responsive",
-    "☁️ Cloud Ready",
-    "🚀 Startup Friendly",
-    "🌍 Remote Worldwide",
-    "💬 Free Consultation"
-  ];
-
   const quickLinks = [
     { name: "Home", href: "/" },
     { name: "Services", href: "/services" },
@@ -237,20 +226,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Trust Badges */}
-      <div className="max-w-none px-6 mb-8 text-left">
-        <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-          {trustBadges.map((badge) => (
-            <span
-              key={badge}
-              className="text-[9px] font-mono text-text-muted bg-neutral-100 dark:bg-neutral-900 border border-border-custom/25 px-2 py-0.5 rounded-full"
-            >
-              {badge}
-            </span>
-          ))}
-        </div>
-      </div>
-
       {/* Copyright and Legal bar */}
       <div className="max-w-none px-6 border-t border-border-custom/30 pt-8 flex flex-col gap-6 text-left">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center">
@@ -275,17 +250,11 @@ export default function Footer() {
               Disclaimer
             </Link>
           </div>
-          <span className="text-[10px] font-mono text-text-muted shrink-0">
-            Built with ❤️ in India. Dwarka, New Delhi.
-          </span>
         </div>
 
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-border-custom/10 pt-4">
           <span className="text-[10px] font-mono text-text-muted">
             © {currentYear} Jayant Web & AI Systems. All Rights Reserved.
-          </span>
-          <span className="text-[9px] font-mono text-text-muted italic">
-            Designed and Developed with Next.js, React, TypeScript, and AI.
           </span>
         </div>
       </div>
