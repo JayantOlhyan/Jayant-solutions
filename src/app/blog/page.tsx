@@ -3,21 +3,19 @@
 import React, { useState } from "react";
 import PageTransition from "@/components/PageTransition";
 import Link from "next/link";
-import { Search, Calendar, Clock, ArrowRight } from "lucide-react";
+import { Search, ArrowRight } from "lucide-react";
 import { blogPosts } from "@/data/blog";
 
 export default function BlogPage() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [activeTab, setActiveTab] = useState("All Articles");
 
   const categories = [
-    "All Articles",
-    "Web Development",
-    "AI & Machine Learning",
-    "Business & Growth",
-    "Design & UX",
-    "Tech Stack",
-    "News & Updates",
+    { name: "All Articles", href: "/blog", active: true },
+    { name: "Artificial Intelligence", href: "/blog/artificial-intelligence" },
+    { name: "Software Development", href: "/blog/software-development" },
+    { name: "Web Development", href: "/blog/web-development" },
+    { name: "Startup Guides", href: "/blog/startup-guides" },
+    { name: "Automation", href: "/blog/automation" },
   ];
 
   const popularPosts = [
@@ -29,31 +27,17 @@ export default function BlogPage() {
   ];
 
   const topics = [
-    "All",
-    "Web Development",
-    "AI & ML",
-    "Business",
-    "Design & UX",
-    "Tech Stack",
-    "News",
-    "Career",
+    { name: "Artificial Intelligence", href: "/blog/artificial-intelligence" },
+    { name: "Software Development", href: "/blog/software-development" },
+    { name: "Web Development", href: "/blog/web-development" },
+    { name: "Startup Guides", href: "/blog/startup-guides" },
+    { name: "Automation", href: "/blog/automation" },
   ];
-
-  const categoryMapping: { [key: string]: string } = {
-    "Web Development": "Web Development",
-    "AI & Machine Learning": "AI Solutions",
-    "Business & Growth": "Custom Software",
-    "Design & UX": "UI/UX Design",
-    "Tech Stack": "Cloud Solutions",
-    "News & Updates": "News & Updates",
-  };
 
   const filteredPosts = blogPosts.filter((post) => {
     const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                           post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
-    const mappedCategory = categoryMapping[activeTab];
-    const matchesTab = activeTab === "All Articles" || post.category === mappedCategory;
-    return matchesSearch && matchesTab;
+    return matchesSearch;
   });
 
   return (
@@ -110,11 +94,13 @@ export default function BlogPage() {
             <div className="lg:col-span-5 w-full flex justify-center">
               <div className="relative w-full max-w-[420px] aspect-square flex items-center justify-center p-8 select-none">
                 <div className="w-full h-[85%] rounded-2xl bg-[#0B0F19] border-2 border-white/10 shadow-2xl p-6 flex flex-col justify-center text-left text-white/90">
-                  <span className="text-xs font-mono text-white/40 uppercase tracking-widest border-b border-white/5 pb-2 mb-4">Blog Mockup View</span>
-                  <div className="h-28 w-full bg-white/5 border border-white/5 rounded-xl p-3 flex flex-col justify-center gap-1.5 text-white/60 text-[10px] font-mono">
-                    <div className="h-3 w-16 bg-primary/25 rounded" />
-                    <div className="h-4 w-4/5 bg-white/10 rounded mt-1" />
-                    <div className="h-3 w-3/5 bg-white/5 rounded" />
+                  <span className="text-xs font-mono text-white/40 uppercase tracking-widest border-b border-white/5 pb-2 mb-4">Blog Categories</span>
+                  <div className="flex flex-col gap-2 text-[10px] font-mono text-white/70">
+                    <Link href="/blog/artificial-intelligence" className="hover:text-primary transition-colors">→ Artificial Intelligence</Link>
+                    <Link href="/blog/software-development" className="hover:text-primary transition-colors">→ Software Development</Link>
+                    <Link href="/blog/web-development" className="hover:text-primary transition-colors">→ Web Development</Link>
+                    <Link href="/blog/startup-guides" className="hover:text-primary transition-colors">→ Startup Guides</Link>
+                    <Link href="/blog/automation" className="hover:text-primary transition-colors">→ Automation</Link>
                   </div>
                 </div>
               </div>
@@ -125,17 +111,17 @@ export default function BlogPage() {
           {/* Filter Categories Tabs */}
           <div className="flex flex-wrap gap-2 justify-center py-4 border-t border-border-custom/20 pt-8">
             {categories.map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
+              <Link
+                key={tab.name}
+                href={tab.href}
                 className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all border ${
-                  activeTab === tab
+                  tab.active
                     ? "bg-neutral-900 border-neutral-900 text-white dark:bg-white dark:border-white dark:text-neutral-950 shadow-sm"
                     : "bg-white border-border-custom text-text-muted hover:text-text-base dark:bg-card-bg/40"
                 }`}
               >
-                {tab}
-              </button>
+                {tab.name}
+              </Link>
             ))}
           </div>
 
@@ -214,17 +200,17 @@ export default function BlogPage() {
               {/* Topics Tag List */}
               <div className="hog-card rounded-3xl p-6 md:p-8 bg-card-bg/60 border border-border-custom flex flex-col gap-4">
                 <h3 className="font-serif text-base font-bold text-text-base border-b border-border-custom pb-2">
-                  Topics
+                  Categories
                 </h3>
                 <div className="flex flex-wrap gap-1.5">
                   {topics.map((t) => (
-                    <button
-                      key={t}
-                      onClick={() => setActiveTab(t === "All" ? "All Articles" : (categoryMapping[t] ? t : "All Articles"))}
-                      className="text-[9px] font-mono text-text-base bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-850 dark:hover:bg-neutral-800 px-2 py-1 rounded"
+                    <Link
+                      key={t.name}
+                      href={t.href}
+                      className="text-[9px] font-mono text-text-base bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-850 dark:hover:bg-neutral-800 px-2.5 py-1 rounded"
                     >
-                      {t}
-                    </button>
+                      {t.name}
+                    </Link>
                   ))}
                 </div>
               </div>
