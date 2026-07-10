@@ -38,31 +38,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  keywords: [
-    "AI Development Company",
-    "Software Development Company",
-    "Custom Software Development",
-    "Web Development Agency",
-    "AI Solutions",
-    "Generative AI",
-    "Business Automation",
-    "AI Chatbot Development",
-    "Next.js Development",
-    "React Development",
-    "Python Development",
-    "FastAPI Development",
-    "SaaS Development",
-    "Cloud Solutions",
-    "Machine Learning",
-    "Artificial Intelligence",
-    "Mobile App Development",
-    "UI UX Design",
-    "Startup Technology Partner",
-    "Digital Transformation",
-    "Automation Solutions",
-    "India Software Company",
-    "Jayant Web AI Systems"
-  ],
+
   authors: [{ name: "Jayant Web & AI Systems" }],
   applicationName: "Jayant Web & AI Systems",
   appleWebApp: {
