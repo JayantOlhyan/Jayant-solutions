@@ -47,6 +47,14 @@ export default function Footer() {
     { name: "AI for Finance", href: "/industries/ai-for-finance" }
   ];
 
+  const technologiesLinks = [
+    { name: "Next.js Development", href: "/technologies/nextjs-development" },
+    { name: "React Development", href: "/technologies/react-development" },
+    { name: "FastAPI Development", href: "/technologies/fastapi-development" },
+    { name: "Python Development", href: "/technologies/python-development" },
+    { name: "Flutter Development", href: "/technologies/flutter-development" },
+  ];
+
   const resources = [
     { name: "Blog", href: "/blog" },
     { name: "Case Studies", href: "/resources/case-studies" },
@@ -75,7 +83,7 @@ export default function Footer() {
   return (
     <footer className="w-full border-t border-border-custom bg-card-bg/25 pt-16 pb-8 text-left">
       {/* Top Footer Grid */}
-      <div className="max-w-none px-6 grid grid-cols-1 md:grid-cols-7 gap-8 mb-12">
+      <div className="max-w-none px-6 grid grid-cols-1 md:grid-cols-8 gap-8 mb-12">
         {/* Brand Column */}
         <div className="md:col-span-2 flex flex-col gap-4 text-left">
           <div className="flex items-center gap-2">
@@ -128,6 +136,20 @@ export default function Footer() {
           <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">Industries</span>
           <ul className="space-y-1.5 text-xs text-text-muted">
             {industriesLinks.map((item) => (
+              <li key={item.name}>
+                <Link href={item.href} className="hover:text-text-base transition-colors">
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Technologies */}
+        <div className="flex flex-col gap-3 text-left">
+          <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">Technologies</span>
+          <ul className="space-y-1.5 text-xs text-text-muted">
+            {technologiesLinks.map((item) => (
               <li key={item.name}>
                 <Link href={item.href} className="hover:text-text-base transition-colors">
                   {item.name}

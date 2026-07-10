@@ -13,15 +13,18 @@ export default function Navbar() {
   const [companyOpen, setCompanyOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const [industriesOpen, setIndustriesOpen] = useState(false);
+  const [technologiesOpen, setTechnologiesOpen] = useState(false);
   const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
   const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
   const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
+  const [mobileTechnologiesOpen, setMobileTechnologiesOpen] = useState(false);
   
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const companyRef = useRef<HTMLDivElement>(null);
   const resourcesRef = useRef<HTMLDivElement>(null);
   const industriesRef = useRef<HTMLDivElement>(null);
+  const technologiesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,6 +47,9 @@ export default function Navbar() {
       }
       if (industriesRef.current && !industriesRef.current.contains(event.target as Node)) {
         setIndustriesOpen(false);
+      }
+      if (technologiesRef.current && !technologiesRef.current.contains(event.target as Node)) {
+        setTechnologiesOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -76,6 +82,14 @@ export default function Navbar() {
     { label: "AI for Agriculture", href: "/industries/ai-for-agriculture" },
     { label: "AI for Real Estate", href: "/industries/ai-for-real-estate" },
     { label: "AI for Finance", href: "/industries/ai-for-finance" },
+  ];
+
+  const technologiesSubLinks = [
+    { label: "Next.js Development", href: "/technologies/nextjs-development" },
+    { label: "React Development", href: "/technologies/react-development" },
+    { label: "FastAPI Development", href: "/technologies/fastapi-development" },
+    { label: "Python Development", href: "/technologies/python-development" },
+    { label: "Flutter Development", href: "/technologies/flutter-development" },
   ];
 
   return (
@@ -120,6 +134,7 @@ export default function Navbar() {
                   setIndustriesOpen(!industriesOpen);
                   setCompanyOpen(false);
                   setResourcesOpen(false);
+                  setTechnologiesOpen(false);
                 }}
                 className={`flex items-center gap-1.5 text-[14px] font-sans font-medium transition-colors py-1 focus:outline-none cursor-pointer ${
                   pathname.startsWith("/industries") ? "text-primary font-semibold" : "text-white/70 hover:text-white"
@@ -143,6 +158,47 @@ export default function Navbar() {
                         key={subLink.label}
                         href={subLink.href}
                         onClick={() => setIndustriesOpen(false)}
+                        className="block px-4 py-2 text-xs font-mono font-bold text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+                      >
+                        {subLink.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Technologies Dropdown Trigger */}
+            <div className="relative" ref={technologiesRef}>
+              <button
+                onClick={() => {
+                  setTechnologiesOpen(!technologiesOpen);
+                  setCompanyOpen(false);
+                  setResourcesOpen(false);
+                  setIndustriesOpen(false);
+                }}
+                className={`flex items-center gap-1.5 text-[14px] font-sans font-medium transition-colors py-1 focus:outline-none cursor-pointer ${
+                  pathname.startsWith("/technologies") ? "text-primary font-semibold" : "text-white/70 hover:text-white"
+                }`}
+              >
+                <span>Technologies</span>
+                <ChevronDown className="size-3" />
+              </button>
+
+              <AnimatePresence>
+                {technologiesOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                    transition={{ duration: 0.15, ease: "easeOut" }}
+                    className="absolute left-0 mt-2 w-48 rounded-xl bg-[#111827] border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.5)] py-2 z-50 origin-top-left"
+                  >
+                    {technologiesSubLinks.map((subLink) => (
+                      <Link
+                        key={subLink.label}
+                        href={subLink.href}
+                        onClick={() => setTechnologiesOpen(false)}
                         className="block px-4 py-2 text-xs font-mono font-bold text-white/80 hover:text-white hover:bg-white/5 transition-colors"
                       >
                         {subLink.label}
@@ -177,6 +233,7 @@ export default function Navbar() {
                   setCompanyOpen(!companyOpen);
                   setResourcesOpen(false);
                   setIndustriesOpen(false);
+                  setTechnologiesOpen(false);
                 }}
                 className={`flex items-center gap-1.5 text-[14px] font-sans font-medium transition-colors py-1 focus:outline-none cursor-pointer ${
                   pathname.startsWith("/company") ? "text-primary font-semibold" : "text-white/70 hover:text-white"
@@ -217,6 +274,7 @@ export default function Navbar() {
                   setResourcesOpen(!resourcesOpen);
                   setCompanyOpen(false);
                   setIndustriesOpen(false);
+                  setTechnologiesOpen(false);
                 }}
                 className={`flex items-center gap-1.5 text-[14px] font-sans font-medium transition-colors py-1 focus:outline-none cursor-pointer ${
                   pathname.startsWith("/resources") || pathname === "/blog" ? "text-primary font-semibold" : "text-white/70 hover:text-white"
@@ -357,6 +415,7 @@ export default function Navbar() {
                     setMobileIndustriesOpen(!mobileIndustriesOpen);
                     setMobileCompanyOpen(false);
                     setMobileResourcesOpen(false);
+                    setMobileTechnologiesOpen(false);
                   }}
                   className="flex items-center justify-between text-sm font-sans font-bold px-2 py-2 text-white/70 hover:text-white focus:outline-none w-full"
                 >
@@ -378,6 +437,46 @@ export default function Navbar() {
                           onClick={() => {
                             setIsOpen(false);
                             setMobileIndustriesOpen(false);
+                          }}
+                          className="block py-1.5 text-xs font-mono font-bold text-white/70 hover:text-white"
+                        >
+                          {subLink.label}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Mobile Technologies Dropdown */}
+              <div className="flex flex-col border-b border-white/5">
+                <button
+                  onClick={() => {
+                    setMobileTechnologiesOpen(!mobileTechnologiesOpen);
+                    setMobileCompanyOpen(false);
+                    setMobileResourcesOpen(false);
+                    setMobileIndustriesOpen(false);
+                  }}
+                  className="flex items-center justify-between text-sm font-sans font-bold px-2 py-2 text-white/70 hover:text-white focus:outline-none w-full"
+                >
+                  <span>Technologies</span>
+                  <ChevronDown className={`size-3.5 transition-transform ${mobileTechnologiesOpen ? "rotate-180" : ""}`} />
+                </button>
+                <AnimatePresence>
+                  {mobileTechnologiesOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="pl-4 flex flex-col gap-2 py-1 bg-white/5 rounded-lg mb-2"
+                    >
+                      {technologiesSubLinks.map((subLink) => (
+                        <Link
+                          key={subLink.label}
+                          href={subLink.href}
+                          onClick={() => {
+                            setIsOpen(false);
+                            setMobileTechnologiesOpen(false);
                           }}
                           className="block py-1.5 text-xs font-mono font-bold text-white/70 hover:text-white"
                         >
@@ -415,6 +514,7 @@ export default function Navbar() {
                     setMobileCompanyOpen(!mobileCompanyOpen);
                     setMobileResourcesOpen(false);
                     setMobileIndustriesOpen(false);
+                    setMobileTechnologiesOpen(false);
                   }}
                   className="flex items-center justify-between text-sm font-sans font-bold px-2 py-2 text-white/70 hover:text-white focus:outline-none w-full"
                 >
@@ -454,6 +554,7 @@ export default function Navbar() {
                     setMobileResourcesOpen(!mobileResourcesOpen);
                     setMobileCompanyOpen(false);
                     setMobileIndustriesOpen(false);
+                    setMobileTechnologiesOpen(false);
                   }}
                   className="flex items-center justify-between text-sm font-sans font-bold px-2 py-2 text-white/70 hover:text-white focus:outline-none w-full"
                 >
