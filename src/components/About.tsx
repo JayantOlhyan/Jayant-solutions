@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -6,10 +7,12 @@ export default function About() {
       <div className="w-full">
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <div className="w-full md:w-2/5 aspect-[4/5] max-w-[320px] rounded-3xl relative overflow-hidden flex flex-col justify-center items-center shadow-lg border-2 border-border-custom">
-            <img
+            <Image
               src="/jayant.jpg"
               alt="Jayant Olhyan - Founder of Jayant Web & AI Systems"
-              className="absolute inset-0 w-full h-full object-cover"
+              fill
+              sizes="(max-width: 768px) 100vw, 320px"
+              className="object-cover"
             />
           </div>
 

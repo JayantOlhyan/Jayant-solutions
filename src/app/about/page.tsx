@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Brain, Code, Target, Shield, Heart, Lightbulb, Users, CheckCircle, Zap } from "lucide-react";
 import CallToAction from "@/components/CallToAction";
+import Image from "next/image";
 
 export default function AboutPage() {
   const stats = [
@@ -114,10 +115,13 @@ export default function AboutPage() {
             {/* Right Column: Desk image overlay quote */}
             <div className="lg:col-span-6 relative flex justify-center items-center">
               <div className="w-full aspect-[4/3] rounded-3xl overflow-hidden border border-border-custom relative shadow-lg">
-                <img
+                <Image
                   src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80"
                   alt="Jayant Web & AI Systems collaborative digital workspace - Team designing software"
-                  className="absolute inset-0 w-full h-full object-cover brightness-[0.85] dark:brightness-[0.7]"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                  className="object-cover brightness-[0.85] dark:brightness-[0.7]"
                 />
                 
                 {/* Overlapping Quote container */}
@@ -182,11 +186,12 @@ export default function AboutPage() {
               {/* Center Column: Portrait */}
               <div className="lg:col-span-3 flex justify-center">
                 <div className="w-full max-w-[280px] aspect-[3/4] rounded-3xl overflow-hidden border-2 border-border-custom shadow-lg relative bg-neutral-900">
-                  <img
+                  <Image
                     src="/jayant.jpg"
                     alt="Jayant Olhyan - Founder and Lead Developer at Jayant Web & AI Systems"
-                    className="absolute inset-0 w-full h-full object-cover"
-                    onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80" }}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 280px"
+                    className="object-cover"
                   />
                 </div>
               </div>
