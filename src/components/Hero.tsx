@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Zap } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import NetworkDiagram from "./NetworkDiagram";
 
 export default function Hero() {
@@ -87,9 +88,30 @@ export default function Hero() {
             >
               <div className="flex items-center">
                 <div className="flex -space-x-2">
-                  <img className="size-8 rounded-full border border-border-custom object-cover" src="/avatar1.jpg" alt="Happy client testimonial avatar 1" onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" }} />
-                  <img className="size-8 rounded-full border border-border-custom object-cover" src="/avatar2.jpg" alt="Happy client testimonial avatar 2" onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" }} />
-                  <img className="size-8 rounded-full border border-border-custom object-cover" src="/avatar3.jpg" alt="Happy client testimonial avatar 3" onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" }} />
+                  <Image
+                    className="rounded-full border border-border-custom object-cover"
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
+                    alt="Happy client testimonial avatar 1"
+                    width={32}
+                    height={32}
+                    priority
+                  />
+                  <Image
+                    className="rounded-full border border-border-custom object-cover"
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80"
+                    alt="Happy client testimonial avatar 2"
+                    width={32}
+                    height={32}
+                    priority
+                  />
+                  <Image
+                    className="rounded-full border border-border-custom object-cover"
+                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
+                    alt="Happy client testimonial avatar 3"
+                    width={32}
+                    height={32}
+                    priority
+                  />
                 </div>
                 <div className="ml-3 flex flex-col">
                   <span className="text-sm font-bold text-text-base leading-none">50+</span>
