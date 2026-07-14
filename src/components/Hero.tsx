@@ -32,28 +32,18 @@ export default function Hero() {
               </span>
             </motion.div>
 
-            {/* Hero Title */}
-            <motion.h1
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="font-serif text-4xl md:text-6xl lg:text-7.5xl font-bold tracking-tight text-text-base leading-[1.05] mb-6"
-            >
+            {/* Hero Title (LCP Optimized - rendered instantly without animation) */}
+            <h1 className="font-serif text-4xl md:text-6xl lg:text-7.5xl font-bold tracking-tight text-text-base leading-[1.05] mb-6">
               Building Intelligent Digital Solutions for{" "}
               <span className="text-primary underline decoration-primary/40 decoration-4 underline-offset-8">
                 Startups & Businesses
               </span>
-            </motion.h1>
+            </h1>
 
-            {/* Subtitle */}
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8"
-            >
+            {/* Subtitle (LCP Optimized - rendered instantly without animation) */}
+            <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
               I build custom websites, AI solutions, automated workflows, and high-performance software that help businesses innovate, automate, and scale with confidence.
-            </motion.p>
+            </p>
 
             {/* Action Buttons */}
             <motion.div

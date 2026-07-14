@@ -100,12 +100,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" className="h-full" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://images.unsplash.com" />
-        <link rel="dns-prefetch" href="https://images.unsplash.com" />
-        <link rel="preconnect" href="https://cal.com" />
-        <link rel="dns-prefetch" href="https://cal.com" />
-      </head>
+      <head></head>
       <body className={`${geist.variable} ${inter.variable} ${instrumentSerif.variable} ${ibmMono.variable} min-h-full bg-bg-base text-text-base flex flex-col justify-between selection:bg-primary/10 selection:text-primary transition-colors duration-300 antialiased`}>
         <script
           type="application/ld+json"

@@ -12,5 +12,13 @@ export const metadata: Metadata = {
   },
 };
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <>
+      <head>
+        <link rel="preconnect" href="https://cal.com" />
+        <link rel="dns-prefetch" href="https://cal.com" />
+      </head>
+      {children}
+    </>
+  );
 }
