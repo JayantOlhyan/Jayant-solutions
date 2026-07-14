@@ -111,7 +111,7 @@ export default function Footer() {
           <ul className="text-xs text-text-muted">
             {solutionsLinks.map((item) => (
               <li key={item.name}>
-                <Link href={item.href} className="inline-block py-2.5 w-full md:inline-block md:py-0.5 md:w-auto hover:text-text-base transition-colors">
+                <Link href={item.href} className="flex items-center min-h-[48px] w-full md:inline-block md:min-h-0 md:py-0.5 md:w-auto hover:text-text-base transition-colors">
                   {item.name}
                 </Link>
               </li>
@@ -125,7 +125,7 @@ export default function Footer() {
           <ul className="text-xs text-text-muted">
             {quickLinks.map((item) => (
               <li key={item.name}>
-                <Link href={item.href} className="inline-block py-2.5 w-full md:inline-block md:py-0.5 md:w-auto hover:text-text-base transition-colors">
+                <Link href={item.href} className="flex items-center min-h-[48px] w-full md:inline-block md:min-h-0 md:py-0.5 md:w-auto hover:text-text-base transition-colors">
                   {item.name}
                 </Link>
               </li>
@@ -139,7 +139,7 @@ export default function Footer() {
           <ul className="text-xs text-text-muted">
             {companyLinks.map((item) => (
               <li key={item.name}>
-                <Link href={item.href} className="inline-block py-2.5 w-full md:inline-block md:py-0.5 md:w-auto hover:text-text-base transition-colors">
+                <Link href={item.href} className="flex items-center min-h-[48px] w-full md:inline-block md:min-h-0 md:py-0.5 md:w-auto hover:text-text-base transition-colors">
                   {item.name}
                 </Link>
               </li>
@@ -153,7 +153,7 @@ export default function Footer() {
           <ul className="text-xs text-text-muted">
             {industriesLinks.map((item) => (
               <li key={item.name}>
-                <Link href={item.href} className="inline-block py-2.5 w-full md:inline-block md:py-0.5 md:w-auto hover:text-text-base transition-colors">
+                <Link href={item.href} className="flex items-center min-h-[48px] w-full md:inline-block md:min-h-0 md:py-0.5 md:w-auto hover:text-text-base transition-colors">
                   {item.name}
                 </Link>
               </li>
@@ -167,7 +167,7 @@ export default function Footer() {
           <ul className="text-xs text-text-muted">
             {technologiesLinks.map((item) => (
               <li key={item.name}>
-                <Link href={item.href} className="inline-block py-2.5 w-full md:inline-block md:py-0.5 md:w-auto hover:text-text-base transition-colors">
+                <Link href={item.href} className="flex items-center min-h-[48px] w-full md:inline-block md:min-h-0 md:py-0.5 md:w-auto hover:text-text-base transition-colors">
                   {item.name}
                 </Link>
               </li>
@@ -181,7 +181,7 @@ export default function Footer() {
           <ul className="text-xs text-text-muted">
             {resources.map((item) => (
               <li key={item.name}>
-                <Link href={item.href} className="inline-block py-2.5 w-full md:inline-block md:py-0.5 md:w-auto hover:text-text-base transition-colors">
+                <Link href={item.href} className="flex items-center min-h-[48px] w-full md:inline-block md:min-h-0 md:py-0.5 md:w-auto hover:text-text-base transition-colors">
                   {item.name}
                 </Link>
               </li>
@@ -195,7 +195,7 @@ export default function Footer() {
           <ul className="text-xs text-text-muted">
             {supportLinks.map((item) => (
               <li key={item.name}>
-                <Link href={item.href} className="inline-block py-2.5 w-full md:inline-block md:py-0.5 md:w-auto hover:text-text-base transition-colors">
+                <Link href={item.href} className="flex items-center min-h-[48px] w-full md:inline-block md:min-h-0 md:py-0.5 md:w-auto hover:text-text-base transition-colors">
                   {item.name}
                 </Link>
               </li>
