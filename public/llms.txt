@@ -1,0 +1,20 @@
+# Jayant Web & AI Systems
+
+Jayant Web & AI Systems builds intelligent software, AI-powered solutions, and high-performance digital products to help businesses automate, innovate, and grow.
+
+## Core Services
+- AI Chatbot & LLM Development
+- Custom Software Development
+- Website & Mobile App Development
+- API Development & System Integrations
+- Cloud, DevOps, and Maintenance
+- Technology Consulting & UI/UX Design
+
+## Primary Site Map
+- Home Page: /
+- Services Overview: /services
+- Case Studies & Portfolio: /portfolio
+- Development Process: /process
+- Pricing Plans: /pricing
+- Blog: /blog
+- Contact & Booking: /contact
