@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <!-- White Background Container -->
+  <rect x="0" y="0" width="200" height="200" fill="#FFFFFF" />
+  
+  <!-- Outer Rounded Square container matching logo block -->
+  <rect x="25" y="25" width="150" height="150" rx="35" fill="none" stroke="#111111" stroke-width="14" />
+  
+  <!-- J Letter Vector Path -->
+  <path d="M 100 58 L 126 58 L 126 112 C 126 128, 112 142, 96 142 C 82 142, 71 132, 71 120 L 91 120 C 91 124, 93 126, 96 126 C 99 126, 106 122, 106 112 L 106 76 L 100 76 Z" fill="#111111" />
+  
+  <!-- Accent Chat Bubble / Action square block indicator in Brand Orange -->
+  <path d="M 60 106 L 85 106 L 85 122 L 72 133 L 71 122 L 60 122 Z" fill="#FF8A00" />
+</svg>

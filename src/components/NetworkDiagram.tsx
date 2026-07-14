@@ -41,7 +41,7 @@ export default function NetworkDiagram() {
   ];
 
   return (
-    <div className="relative w-full max-w-[500px] aspect-square flex items-center justify-center p-8 select-none">
+    <div className="relative w-full max-w-[500px] aspect-square flex items-center justify-center p-8 select-none scale-[0.75] min-[400px]:scale-90 md:scale-100 origin-center">
       
       {/* Animated Connector lines */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 500 500">
