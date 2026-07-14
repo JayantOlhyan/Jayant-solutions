@@ -40,6 +40,8 @@ export default function FAQ() {
                 {/* Header Toggle Click Zone */}
                 <button
                   onClick={() => toggleFAQ(index)}
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${index}`}
                   className="w-full flex items-center justify-between p-6 text-left font-serif text-base md:text-lg font-bold text-text-base focus:outline-none cursor-pointer"
                 >
                   <span>{item.question}</span>
@@ -61,7 +63,11 @@ export default function FAQ() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.25 }}
                     >
-                      <div className="px-6 pb-6 pt-1 text-sm md:text-base text-text-muted border-t border-border-custom/50 leading-relaxed">
+                      <div 
+                        id={`faq-answer-${index}`}
+                        role="region"
+                        className="px-6 pb-6 pt-1 text-sm md:text-base text-text-muted border-t border-border-custom/50 leading-relaxed"
+                      >
                         {item.answer}
                       </div>
                     </motion.div>

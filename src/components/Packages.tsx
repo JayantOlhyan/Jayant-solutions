@@ -102,6 +102,7 @@ export default function Packages() {
                   href="https://cal.com/jayant-web-and-ai-systems/strategy-call"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`Choose ${pkg.name} package`}
                   className="w-full text-center py-2.5 text-xs font-mono font-bold rounded-xl bg-background-base text-text-base border-2 border-border-custom hover:border-primary transition-colors block"
                 >
                   Choose Package

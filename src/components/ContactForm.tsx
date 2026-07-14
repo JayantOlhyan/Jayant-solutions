@@ -68,7 +68,7 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="hog-card rounded-[32px] p-8 md:p-12 text-center flex flex-col items-center justify-center min-h-[480px]">
+      <div aria-live="polite" className="hog-card rounded-[32px] p-8 md:p-12 text-center flex flex-col items-center justify-center min-h-[480px]">
         <div className="size-16 rounded-full bg-emerald-100 dark:bg-emerald-950/50 flex items-center justify-center mb-6">
           <CheckCircle2 className="size-10 text-emerald-500" />
         </div>
@@ -111,10 +111,11 @@ export default function ContactForm() {
         {/* Personal Details */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="font-mono text-[10px] uppercase tracking-wider text-text-muted block mb-1.5">
+            <label htmlFor="name" className="font-mono text-[10px] uppercase tracking-wider text-text-muted block mb-1.5">
               Full Name *
             </label>
             <input
+              id="name"
               type="text"
               name="name"
               required
@@ -126,10 +127,11 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label className="font-mono text-[10px] uppercase tracking-wider text-text-muted block mb-1.5">
+            <label htmlFor="company" className="font-mono text-[10px] uppercase tracking-wider text-text-muted block mb-1.5">
               Company Name
             </label>
             <input
+              id="company"
               type="text"
               name="company"
               value={formData.company}
@@ -142,10 +144,11 @@ export default function ContactForm() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="font-mono text-[10px] uppercase tracking-wider text-text-muted block mb-1.5">
+            <label htmlFor="email" className="font-mono text-[10px] uppercase tracking-wider text-text-muted block mb-1.5">
               Email Address *
             </label>
             <input
+              id="email"
               type="email"
               name="email"
               required
@@ -157,10 +160,11 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label className="font-mono text-[10px] uppercase tracking-wider text-text-muted block mb-1.5">
+            <label htmlFor="phone" className="font-mono text-[10px] uppercase tracking-wider text-text-muted block mb-1.5">
               Phone Number
             </label>
             <input
+              id="phone"
               type="tel"
               name="phone"
               value={formData.phone}
@@ -174,10 +178,11 @@ export default function ContactForm() {
         {/* Project Selectors */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
-            <label className="font-mono text-[10px] uppercase tracking-wider text-text-muted block mb-1.5">
+            <label htmlFor="projectType" className="font-mono text-[10px] uppercase tracking-wider text-text-muted block mb-1.5">
               Project Type *
             </label>
             <select
+              id="projectType"
               name="projectType"
               required
               value={formData.projectType}
@@ -192,10 +197,11 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label className="font-mono text-[10px] uppercase tracking-wider text-text-muted block mb-1.5">
+            <label htmlFor="budget" className="font-mono text-[10px] uppercase tracking-wider text-text-muted block mb-1.5">
               Budget Range *
             </label>
             <select
+              id="budget"
               name="budget"
               required
               value={formData.budget}
@@ -210,10 +216,11 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label className="font-mono text-[10px] uppercase tracking-wider text-text-muted block mb-1.5">
+            <label htmlFor="timeline" className="font-mono text-[10px] uppercase tracking-wider text-text-muted block mb-1.5">
               Timeline *
             </label>
             <select
+              id="timeline"
               name="timeline"
               required
               value={formData.timeline}
@@ -230,10 +237,11 @@ export default function ContactForm() {
 
         {/* Project Description Textarea */}
         <div>
-          <label className="font-mono text-[10px] uppercase tracking-wider text-text-muted block mb-1.5">
+          <label htmlFor="description" className="font-mono text-[10px] uppercase tracking-wider text-text-muted block mb-1.5">
             Project Description *
           </label>
           <textarea
+            id="description"
             name="description"
             required
             rows={5}

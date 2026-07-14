@@ -100,7 +100,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full border-t border-border-custom bg-white dark:bg-card-bg/25 pt-16 pb-8 text-left">
+    <footer aria-label="Footer navigation" className="w-full border-t border-border-custom bg-white dark:bg-card-bg/25 pt-16 pb-8 text-left">
       {/* Top Footer Grid */}
       <div className="max-w-none px-6 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-10 gap-8 mb-12">
         {/* Brand Column */}
@@ -148,6 +148,7 @@ export default function Footer() {
             <a
               key={item.name}
               href={item.href}
+              aria-label={item.name}
               target="_blank"
               rel="noopener noreferrer"
               className="text-text-muted hover:text-primary transition-colors"

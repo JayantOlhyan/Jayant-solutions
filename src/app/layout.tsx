@@ -102,12 +102,13 @@ export default function RootLayout({
     <html lang="en" className="h-full" suppressHydrationWarning>
       <head></head>
       <body className={`${geist.variable} ${inter.variable} ${instrumentSerif.variable} ${ibmMono.variable} min-h-full bg-bg-base text-text-base flex flex-col justify-between selection:bg-primary/10 selection:text-primary transition-colors duration-300 antialiased`}>
+        <a className="skip-link" href="#main-content">Skip to main content</a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <Navbar />
-        <div className="flex-1 w-full pt-16">
+        <div id="main-content" className="flex-1 w-full pt-16">
           <Breadcrumbs />
           {children}
         </div>

@@ -83,7 +83,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header ref={navRef} className="fixed top-0 left-0 right-0 z-50 w-full px-4 sm:px-6 md:px-8 py-4 transition-all duration-300">
+    <nav ref={navRef} aria-label="Main navigation" className="fixed top-0 left-0 right-0 z-50 w-full px-4 sm:px-6 md:px-8 py-4 transition-all duration-300">
       <div 
         className={`w-full bg-[#111827] border border-white/10 rounded-2xl md:rounded-[20px] shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300 ${
           scrolled ? "py-2.5 px-5 md:px-6" : "py-3.5 px-6 md:px-8"
@@ -392,7 +392,8 @@ export default function Navbar() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="p-1.5 md:hidden text-white hover:opacity-85 focus:outline-none border border-white/10 rounded-xl bg-[#0B0F19]"
-            aria-label="Toggle menu"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
           >
             {isOpen ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
