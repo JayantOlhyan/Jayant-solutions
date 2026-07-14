@@ -6,72 +6,89 @@ import Link from "next/link";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const quickLinks = [
-    { name: "Home", href: "/" },
-    { name: "Services", href: "/services" },
-    { name: "Portfolio", href: "/portfolio" },
-    { name: "Process", href: "/process" },
-    { name: "Pricing", href: "/pricing" },
-    { name: "Blog", href: "/blog" },
-    { name: "Contact", href: "/contact" }
-  ];
-
-  const solutionsLinks = [
-    { name: "Build an AI Chatbot", href: "/promo/build-ai-chatbot" },
-    { name: "Build Your Startup MVP", href: "/promo/build-startup-mvp" },
-    { name: "Modern Business Website", href: "/promo/modern-business-website" },
-    { name: "Business Automation", href: "/promo/business-automation-solutions" },
-    { name: "AI Consulting", href: "/promo/ai-consulting" },
-  ];
-
-  const companyLinks = [
-    { name: "About Us", href: "/about" },
-    { name: "Founder", href: "/company/founder" },
-    { name: "Careers", href: "/company/careers" },
-    { name: "Partners", href: "/company/partners" },
-    { name: "Testimonials", href: "/company/testimonials" }
-  ];
-
-  const industriesLinks = [
-    { name: "AI for Healthcare", href: "/industries/ai-for-healthcare" },
-    { name: "AI for Education", href: "/industries/ai-for-education" },
-    { name: "AI for Startups", href: "/industries/ai-for-startups" },
-    { name: "AI for Manufacturing", href: "/industries/ai-for-manufacturing" },
-    { name: "AI for Retail", href: "/industries/ai-for-retail" },
-    { name: "AI for Government", href: "/industries/ai-for-government" },
-    { name: "AI for Agriculture", href: "/industries/ai-for-agriculture" },
-    { name: "AI for Real Estate", href: "/industries/ai-for-real-estate" },
-    { name: "AI for Finance", href: "/industries/ai-for-finance" }
-  ];
-
-  const technologiesLinks = [
-    { name: "Next.js Development", href: "/technologies/nextjs-development" },
-    { name: "React Development", href: "/technologies/react-development" },
-    { name: "FastAPI Development", href: "/technologies/fastapi-development" },
-    { name: "Python Development", href: "/technologies/python-development" },
-    { name: "Flutter Development", href: "/technologies/flutter-development" },
-    { name: "OpenAI Integration", href: "/technologies/openai-integration" },
-    { name: "Google Gemini Development", href: "/technologies/google-gemini-development" },
-    { name: "LangChain Development", href: "/technologies/langchain-development" },
-    { name: "Supabase Development", href: "/technologies/supabase-development" },
-    { name: "PostgreSQL Development", href: "/technologies/postgresql-development" }
-  ];
-
-  const resources = [
-    { name: "Blog", href: "/blog" },
-    { name: "Case Studies", href: "/resources/case-studies" },
-    { name: "Technologies We Use", href: "/resources/technologies-we-use" },
-    { name: "Industries We Serve", href: "/resources/industries-we-serve" },
-    { name: "Downloads", href: "/resources/downloads" },
-    { name: "FAQs", href: "/faq" }
-  ];
-
-  const supportLinks = [
-    { name: "Support", href: "/support" },
-    { name: "Report a Bug", href: "/support/report-a-bug" },
-    { name: "Maintenance", href: "/services/maintenance" },
-    { name: "Service Status", href: "/support/service-status" },
-    { name: "Client Portal", href: "/support/client-portal" }
+    const sections = [
+    {
+      title: "Solutions",
+      links: [
+        { name: "Build an AI Chatbot", href: "/promo/build-ai-chatbot" },
+        { name: "Build Your Startup MVP", href: "/promo/build-startup-mvp" },
+        { name: "Modern Business Website", href: "/promo/modern-business-website" },
+        { name: "Business Automation", href: "/promo/business-automation-solutions" },
+        { name: "AI Consulting", href: "/promo/ai-consulting" },
+      ]
+    },
+    {
+      title: "Quick Links",
+      links: [
+        { name: "Home", href: "/" },
+        { name: "Services", href: "/services" },
+        { name: "Portfolio", href: "/portfolio" },
+        { name: "Process", href: "/process" },
+        { name: "Pricing", href: "/pricing" },
+        { name: "Blog", href: "/blog" },
+        { name: "Contact", href: "/contact" }
+      ]
+    },
+    {
+      title: "Company",
+      links: [
+        { name: "About Us", href: "/about" },
+        { name: "Founder", href: "/company/founder" },
+        { name: "Careers", href: "/company/careers" },
+        { name: "Partners", href: "/company/partners" },
+        { name: "Testimonials", href: "/company/testimonials" }
+      ]
+    },
+    {
+      title: "Industries",
+      links: [
+        { name: "AI for Healthcare", href: "/industries/ai-for-healthcare" },
+        { name: "AI for Education", href: "/industries/ai-for-education" },
+        { name: "AI for Startups", href: "/industries/ai-for-startups" },
+        { name: "AI for Manufacturing", href: "/industries/ai-for-manufacturing" },
+        { name: "AI for Retail", href: "/industries/ai-for-retail" },
+        { name: "AI for Government", href: "/industries/ai-for-government" },
+        { name: "AI for Agriculture", href: "/industries/ai-for-agriculture" },
+        { name: "AI for Real Estate", href: "/industries/ai-for-real-estate" },
+        { name: "AI for Finance", href: "/industries/ai-for-finance" }
+      ]
+    },
+    {
+      title: "Technologies",
+      links: [
+        { name: "Next.js Development", href: "/technologies/nextjs-development" },
+        { name: "React Development", href: "/technologies/react-development" },
+        { name: "FastAPI Development", href: "/technologies/fastapi-development" },
+        { name: "Python Development", href: "/technologies/python-development" },
+        { name: "Flutter Development", href: "/technologies/flutter-development" },
+        { name: "OpenAI Integration", href: "/technologies/openai-integration" },
+        { name: "Google Gemini Development", href: "/technologies/google-gemini-development" },
+        { name: "LangChain Development", href: "/technologies/langchain-development" },
+        { name: "Supabase Development", href: "/technologies/supabase-development" },
+        { name: "PostgreSQL Development", href: "/technologies/postgresql-development" }
+      ]
+    },
+    {
+      title: "Resources",
+      links: [
+        { name: "Blog", href: "/blog" },
+        { name: "Case Studies", href: "/resources/case-studies" },
+        { name: "Technologies We Use", href: "/resources/technologies-we-use" },
+        { name: "Industries We Serve", href: "/resources/industries-we-serve" },
+        { name: "Downloads", href: "/resources/downloads" },
+        { name: "FAQs", href: "/faq" }
+      ]
+    },
+    {
+      title: "Support",
+      links: [
+        { name: "Support", href: "/support" },
+        { name: "Report a Bug", href: "/support/report-a-bug" },
+        { name: "Maintenance", href: "/services/maintenance" },
+        { name: "Service Status", href: "/support/service-status" },
+        { name: "Client Portal", href: "/support/client-portal" }
+      ]
+    }
   ];
 
   const socials = [
@@ -105,103 +122,23 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Solutions */}
-        <div className="flex flex-col gap-3 text-left">
-          <span className="font-mono text-xs uppercase tracking-wider text-[#C25E00] dark:text-primary font-bold">Solutions</span>
-          <ul className="text-xs text-text-muted">
-            {solutionsLinks.map((item) => (
-              <li key={item.name}>
-                <Link href={item.href} className="flex items-center min-h-[48px] w-full md:inline-block md:min-h-0 md:py-0.5 md:w-auto hover:text-text-base transition-colors">
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Quick Links */}
-        <div className="flex flex-col gap-3 text-left">
-          <span className="font-mono text-xs uppercase tracking-wider text-[#C25E00] dark:text-primary font-bold">Quick Links</span>
-          <ul className="text-xs text-text-muted">
-            {quickLinks.map((item) => (
-              <li key={item.name}>
-                <Link href={item.href} className="flex items-center min-h-[48px] w-full md:inline-block md:min-h-0 md:py-0.5 md:w-auto hover:text-text-base transition-colors">
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Company */}
-        <div className="flex flex-col gap-3 text-left">
-          <span className="font-mono text-xs uppercase tracking-wider text-[#C25E00] dark:text-primary font-bold">Company</span>
-          <ul className="text-xs text-text-muted">
-            {companyLinks.map((item) => (
-              <li key={item.name}>
-                <Link href={item.href} className="flex items-center min-h-[48px] w-full md:inline-block md:min-h-0 md:py-0.5 md:w-auto hover:text-text-base transition-colors">
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Industries */}
-        <div className="flex flex-col gap-3 text-left">
-          <span className="font-mono text-xs uppercase tracking-wider text-[#C25E00] dark:text-primary font-bold">Industries</span>
-          <ul className="text-xs text-text-muted">
-            {industriesLinks.map((item) => (
-              <li key={item.name}>
-                <Link href={item.href} className="flex items-center min-h-[48px] w-full md:inline-block md:min-h-0 md:py-0.5 md:w-auto hover:text-text-base transition-colors">
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Technologies */}
-        <div className="flex flex-col gap-3 text-left">
-          <span className="font-mono text-xs uppercase tracking-wider text-[#C25E00] dark:text-primary font-bold">Technologies</span>
-          <ul className="text-xs text-text-muted">
-            {technologiesLinks.map((item) => (
-              <li key={item.name}>
-                <Link href={item.href} className="flex items-center min-h-[48px] w-full md:inline-block md:min-h-0 md:py-0.5 md:w-auto hover:text-text-base transition-colors">
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Resources */}
-        <div className="flex flex-col gap-3 text-left">
-          <span className="font-mono text-xs uppercase tracking-wider text-[#C25E00] dark:text-primary font-bold">Resources</span>
-          <ul className="text-xs text-text-muted">
-            {resources.map((item) => (
-              <li key={item.name}>
-                <Link href={item.href} className="flex items-center min-h-[48px] w-full md:inline-block md:min-h-0 md:py-0.5 md:w-auto hover:text-text-base transition-colors">
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Support Links */}
-        <div className="flex flex-col gap-3 text-left">
-          <span className="font-mono text-xs uppercase tracking-wider text-[#C25E00] dark:text-primary font-bold">Support</span>
-          <ul className="text-xs text-text-muted">
-            {supportLinks.map((item) => (
-              <li key={item.name}>
-                <Link href={item.href} className="flex items-center min-h-[48px] w-full md:inline-block md:min-h-0 md:py-0.5 md:w-auto hover:text-text-base transition-colors">
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+                {/* Dynamic Sections */}
+        {sections.map((section) => (
+          <div key={section.title} className="flex flex-col gap-3 text-left">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#C25E00] dark:text-primary font-bold">
+              {section.title}
+            </span>
+            <ul className="text-xs text-text-muted">
+              {section.links.map((item) => (
+                <li key={item.name}>
+                  <Link href={item.href} className="flex items-center min-h-[48px] w-full md:inline-block md:min-h-0 md:py-0.5 md:w-auto hover:text-text-base transition-colors">
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
 
       {/* Social Icons row */}

@@ -9,25 +9,11 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [solutionsOpen, setSolutionsOpen] = useState(false);
-  const [companyOpen, setCompanyOpen] = useState(false);
-  const [resourcesOpen, setResourcesOpen] = useState(false);
-  const [industriesOpen, setIndustriesOpen] = useState(false);
-  const [technologiesOpen, setTechnologiesOpen] = useState(false);
-  const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
-  const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
-  const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
-  const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
-  const [mobileTechnologiesOpen, setMobileTechnologiesOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   
   const pathname = usePathname();
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const solutionsRef = useRef<HTMLDivElement>(null);
-  const companyRef = useRef<HTMLDivElement>(null);
-  const resourcesRef = useRef<HTMLDivElement>(null);
-  const industriesRef = useRef<HTMLDivElement>(null);
-  const technologiesRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,23 +25,8 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setDropdownOpen(false);
-      }
-      if (solutionsRef.current && !solutionsRef.current.contains(event.target as Node)) {
-        setSolutionsOpen(false);
-      }
-      if (companyRef.current && !companyRef.current.contains(event.target as Node)) {
-        setCompanyOpen(false);
-      }
-      if (resourcesRef.current && !resourcesRef.current.contains(event.target as Node)) {
-        setResourcesOpen(false);
-      }
-      if (industriesRef.current && !industriesRef.current.contains(event.target as Node)) {
-        setIndustriesOpen(false);
-      }
-      if (technologiesRef.current && !technologiesRef.current.contains(event.target as Node)) {
-        setTechnologiesOpen(false);
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setActiveDropdown(null);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -112,7 +83,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full px-4 sm:px-6 md:px-8 py-4 transition-all duration-300">
+    <header ref={navRef} className="fixed top-0 left-0 right-0 z-50 w-full px-4 sm:px-6 md:px-8 py-4 transition-all duration-300">
       <div 
         className={`w-full bg-[#111827] border border-white/10 rounded-2xl md:rounded-[20px] shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300 ${
           scrolled ? "py-2.5 px-5 md:px-6" : "py-3.5 px-6 md:px-8"
@@ -142,15 +113,9 @@ export default function Navbar() {
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center gap-7">
             {/* Solutions Dropdown Trigger */}
-            <div className="relative" ref={solutionsRef}>
+            <div className="relative">
               <button
-                onClick={() => {
-                  setSolutionsOpen(!solutionsOpen);
-                  setCompanyOpen(false);
-                  setResourcesOpen(false);
-                  setIndustriesOpen(false);
-                  setTechnologiesOpen(false);
-                }}
+                onClick={() => setActiveDropdown(activeDropdown === 'solutions' ? null : 'solutions')}
                 className={`flex items-center gap-1.5 text-[14px] font-sans font-medium transition-colors py-1 focus:outline-none cursor-pointer ${
                   pathname.startsWith("/promo") ? "text-primary font-semibold" : "text-white/70 hover:text-white"
                 }`}
@@ -160,7 +125,7 @@ export default function Navbar() {
               </button>
 
               <AnimatePresence>
-                {solutionsOpen && (
+                {activeDropdown === 'solutions' && (
                   <motion.div
                     initial={{ opacity: 0, y: -10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -172,7 +137,7 @@ export default function Navbar() {
                       <Link
                         key={subLink.label}
                         href={subLink.href}
-                        onClick={() => setSolutionsOpen(false)}
+                        onClick={() => setActiveDropdown(null)}
                         className="block px-4 py-2 text-xs font-mono font-bold text-white/80 hover:text-white hover:bg-white/5 transition-colors"
                       >
                         {subLink.label}
@@ -193,15 +158,9 @@ export default function Navbar() {
             </Link>
 
             {/* Industries Dropdown Trigger */}
-            <div className="relative" ref={industriesRef}>
+            <div className="relative">
               <button
-                onClick={() => {
-                  setIndustriesOpen(!industriesOpen);
-                  setCompanyOpen(false);
-                  setResourcesOpen(false);
-                  setTechnologiesOpen(false);
-                  setSolutionsOpen(false);
-                }}
+                onClick={() => setActiveDropdown(activeDropdown === 'industries' ? null : 'industries')}
                 className={`flex items-center gap-1.5 text-[14px] font-sans font-medium transition-colors py-1 focus:outline-none cursor-pointer ${
                   pathname.startsWith("/industries") ? "text-primary font-semibold" : "text-white/70 hover:text-white"
                 }`}
@@ -211,7 +170,7 @@ export default function Navbar() {
               </button>
 
               <AnimatePresence>
-                {industriesOpen && (
+                {activeDropdown === 'industries' && (
                   <motion.div
                     initial={{ opacity: 0, y: -10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -223,7 +182,7 @@ export default function Navbar() {
                       <Link
                         key={subLink.label}
                         href={subLink.href}
-                        onClick={() => setIndustriesOpen(false)}
+                        onClick={() => setActiveDropdown(null)}
                         className="block px-4 py-2 text-xs font-mono font-bold text-white/80 hover:text-white hover:bg-white/5 transition-colors"
                       >
                         {subLink.label}
@@ -235,15 +194,9 @@ export default function Navbar() {
             </div>
 
             {/* Technologies Dropdown Trigger */}
-            <div className="relative" ref={technologiesRef}>
+            <div className="relative">
               <button
-                onClick={() => {
-                  setTechnologiesOpen(!technologiesOpen);
-                  setCompanyOpen(false);
-                  setResourcesOpen(false);
-                  setIndustriesOpen(false);
-                  setSolutionsOpen(false);
-                }}
+                onClick={() => setActiveDropdown(activeDropdown === 'technologies' ? null : 'technologies')}
                 className={`flex items-center gap-1.5 text-[14px] font-sans font-medium transition-colors py-1 focus:outline-none cursor-pointer ${
                   pathname.startsWith("/technologies") ? "text-primary font-semibold" : "text-white/70 hover:text-white"
                 }`}
@@ -253,7 +206,7 @@ export default function Navbar() {
               </button>
 
               <AnimatePresence>
-                {technologiesOpen && (
+                {activeDropdown === 'technologies' && (
                   <motion.div
                     initial={{ opacity: 0, y: -10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -265,7 +218,7 @@ export default function Navbar() {
                       <Link
                         key={subLink.label}
                         href={subLink.href}
-                        onClick={() => setTechnologiesOpen(false)}
+                        onClick={() => setActiveDropdown(null)}
                         className="block px-4 py-2 text-xs font-mono font-bold text-white/80 hover:text-white hover:bg-white/5 transition-colors"
                       >
                         {subLink.label}
@@ -294,15 +247,9 @@ export default function Navbar() {
             </Link>
 
             {/* Company Dropdown Trigger */}
-            <div className="relative" ref={companyRef}>
+            <div className="relative">
               <button
-                onClick={() => {
-                  setCompanyOpen(!companyOpen);
-                  setResourcesOpen(false);
-                  setIndustriesOpen(false);
-                  setTechnologiesOpen(false);
-                  setSolutionsOpen(false);
-                }}
+                onClick={() => setActiveDropdown(activeDropdown === 'company' ? null : 'company')}
                 className={`flex items-center gap-1.5 text-[14px] font-sans font-medium transition-colors py-1 focus:outline-none cursor-pointer ${
                   pathname.startsWith("/company") ? "text-primary font-semibold" : "text-white/70 hover:text-white"
                 }`}
@@ -312,7 +259,7 @@ export default function Navbar() {
               </button>
 
               <AnimatePresence>
-                {companyOpen && (
+                {activeDropdown === 'company' && (
                   <motion.div
                     initial={{ opacity: 0, y: -10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -324,7 +271,7 @@ export default function Navbar() {
                       <Link
                         key={subLink.label}
                         href={subLink.href}
-                        onClick={() => setCompanyOpen(false)}
+                        onClick={() => setActiveDropdown(null)}
                         className="block px-4 py-2 text-xs font-mono font-bold text-white/80 hover:text-white hover:bg-white/5 transition-colors"
                       >
                         {subLink.label}
@@ -336,15 +283,9 @@ export default function Navbar() {
             </div>
 
             {/* Resources Dropdown Trigger */}
-            <div className="relative" ref={resourcesRef}>
+            <div className="relative">
               <button
-                onClick={() => {
-                  setResourcesOpen(!resourcesOpen);
-                  setCompanyOpen(false);
-                  setIndustriesOpen(false);
-                  setTechnologiesOpen(false);
-                  setSolutionsOpen(false);
-                }}
+                onClick={() => setActiveDropdown(activeDropdown === 'resources' ? null : 'resources')}
                 className={`flex items-center gap-1.5 text-[14px] font-sans font-medium transition-colors py-1 focus:outline-none cursor-pointer ${
                   pathname.startsWith("/resources") || pathname === "/blog" ? "text-primary font-semibold" : "text-white/70 hover:text-white"
                 }`}
@@ -354,7 +295,7 @@ export default function Navbar() {
               </button>
 
               <AnimatePresence>
-                {resourcesOpen && (
+                {activeDropdown === 'resources' && (
                   <motion.div
                     initial={{ opacity: 0, y: -10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -366,7 +307,7 @@ export default function Navbar() {
                       <Link
                         key={subLink.label}
                         href={subLink.href}
-                        onClick={() => setResourcesOpen(false)}
+                        onClick={() => setActiveDropdown(null)}
                         className="block px-4 py-2 text-xs font-mono font-bold text-white/80 hover:text-white hover:bg-white/5 transition-colors"
                       >
                         {subLink.label}
@@ -397,17 +338,17 @@ export default function Navbar() {
 
           {/* Desktop CTA Segment with Animated Dropdown */}
           <div className="hidden md:flex items-center gap-4">
-            <div className="relative" ref={dropdownRef}>
+            <div className="relative">
               <button
-                onClick={() => setDropdownOpen(!dropdownOpen)}
+                onClick={() => setActiveDropdown(activeDropdown === 'cta' ? null : 'cta')}
                 className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-primary hover:bg-primary-hover text-white px-5 py-2.5 text-xs font-semibold transition-all duration-200 shadow-md hover:shadow-lg active:scale-[0.98] cursor-pointer focus:outline-none"
               >
                 <span>Book a Free Consultation</span>
-                <ChevronDown className={`size-3.5 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
+                <ChevronDown className={`size-3.5 transition-transform ${activeDropdown === 'cta' ? "rotate-180" : ""}`} />
               </button>
 
               <AnimatePresence>
-                {dropdownOpen && (
+                {activeDropdown === 'cta' && (
                   <motion.div
                     initial={{ opacity: 0, y: -10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -417,7 +358,7 @@ export default function Navbar() {
                   >
                     <Link
                       href="/contact/book-a-consultation"
-                      onClick={() => setDropdownOpen(false)}
+                      onClick={() => setActiveDropdown(null)}
                       className="flex items-center gap-2.5 px-4 py-2 text-xs font-mono font-bold text-white hover:bg-white/5 transition-colors"
                     >
                       <Calendar className="size-4 text-primary" />
@@ -427,7 +368,7 @@ export default function Navbar() {
                       href="https://wa.me/919667344125?text=Hi%20Jayant,%20I'm%20interested%20in%20discussing%20a%20project."
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={() => setDropdownOpen(false)}
+                      onClick={() => setActiveDropdown(null)}
                       className="flex items-center gap-2.5 px-4 py-2 text-xs font-mono font-bold text-white hover:bg-white/5 transition-colors"
                     >
                       <MessageSquare className="size-4 text-primary" />
@@ -435,7 +376,7 @@ export default function Navbar() {
                     </a>
                     <a
                       href="mailto:jayantwebaisystems@gmail.com"
-                      onClick={() => setDropdownOpen(false)}
+                      onClick={() => setActiveDropdown(null)}
                       className="flex items-center gap-2.5 px-4 py-2 text-xs font-mono font-bold text-white hover:bg-white/5 transition-colors"
                     >
                       <Mail className="size-4 text-primary" />
@@ -470,20 +411,14 @@ export default function Navbar() {
               {/* Mobile Solutions Dropdown */}
               <div className="flex flex-col border-b border-white/5">
                 <button
-                  onClick={() => {
-                    setMobileSolutionsOpen(!mobileSolutionsOpen);
-                    setMobileCompanyOpen(false);
-                    setMobileResourcesOpen(false);
-                    setMobileIndustriesOpen(false);
-                    setMobileTechnologiesOpen(false);
-                  }}
+                  onClick={() => setMobileDropdown(mobileDropdown === 'solutions' ? null : 'solutions')}
                   className="flex items-center justify-between text-sm font-sans font-bold px-2 py-2 text-white/70 hover:text-white focus:outline-none w-full"
                 >
                   <span>Solutions</span>
-                  <ChevronDown className={`size-3.5 transition-transform ${mobileSolutionsOpen ? "rotate-180" : ""}`} />
+                  <ChevronDown className={`size-3.5 transition-transform ${mobileDropdown === 'solutions' ? "rotate-180" : ""}`} />
                 </button>
                 <AnimatePresence>
-                  {mobileSolutionsOpen && (
+                  {mobileDropdown === 'solutions' && (
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
@@ -494,10 +429,7 @@ export default function Navbar() {
                         <Link
                           key={subLink.label}
                           href={subLink.href}
-                          onClick={() => {
-                            setIsOpen(false);
-                            setMobileSolutionsOpen(false);
-                          }}
+                          onClick={() => { setIsOpen(false); setMobileDropdown(null); }}
                           className="block py-1.5 text-xs font-mono font-bold text-white/70 hover:text-white"
                         >
                           {subLink.label}
@@ -521,20 +453,14 @@ export default function Navbar() {
               {/* Mobile Industries Dropdown */}
               <div className="flex flex-col border-b border-white/5">
                 <button
-                  onClick={() => {
-                    setMobileIndustriesOpen(!mobileIndustriesOpen);
-                    setMobileCompanyOpen(false);
-                    setMobileResourcesOpen(false);
-                    setMobileTechnologiesOpen(false);
-                    setMobileSolutionsOpen(false);
-                  }}
+                  onClick={() => setMobileDropdown(mobileDropdown === 'industries' ? null : 'industries')}
                   className="flex items-center justify-between text-sm font-sans font-bold px-2 py-2 text-white/70 hover:text-white focus:outline-none w-full"
                 >
                   <span>Industries</span>
-                  <ChevronDown className={`size-3.5 transition-transform ${mobileIndustriesOpen ? "rotate-180" : ""}`} />
+                  <ChevronDown className={`size-3.5 transition-transform ${mobileDropdown === 'industries' ? "rotate-180" : ""}`} />
                 </button>
                 <AnimatePresence>
-                  {mobileIndustriesOpen && (
+                  {mobileDropdown === 'industries' && (
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
@@ -545,10 +471,7 @@ export default function Navbar() {
                         <Link
                           key={subLink.label}
                           href={subLink.href}
-                          onClick={() => {
-                            setIsOpen(false);
-                            setMobileIndustriesOpen(false);
-                          }}
+                          onClick={() => { setIsOpen(false); setMobileDropdown(null); }}
                           className="block py-1.5 text-xs font-mono font-bold text-white/70 hover:text-white"
                         >
                           {subLink.label}
@@ -562,20 +485,14 @@ export default function Navbar() {
               {/* Mobile Technologies Dropdown */}
               <div className="flex flex-col border-b border-white/5">
                 <button
-                  onClick={() => {
-                    setMobileTechnologiesOpen(!mobileTechnologiesOpen);
-                    setMobileCompanyOpen(false);
-                    setMobileResourcesOpen(false);
-                    setMobileIndustriesOpen(false);
-                    setMobileSolutionsOpen(false);
-                  }}
+                  onClick={() => setMobileDropdown(mobileDropdown === 'technologies' ? null : 'technologies')}
                   className="flex items-center justify-between text-sm font-sans font-bold px-2 py-2 text-white/70 hover:text-white focus:outline-none w-full"
                 >
                   <span>Technologies</span>
-                  <ChevronDown className={`size-3.5 transition-transform ${mobileTechnologiesOpen ? "rotate-180" : ""}`} />
+                  <ChevronDown className={`size-3.5 transition-transform ${mobileDropdown === 'technologies' ? "rotate-180" : ""}`} />
                 </button>
                 <AnimatePresence>
-                  {mobileTechnologiesOpen && (
+                  {mobileDropdown === 'technologies' && (
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
@@ -586,10 +503,7 @@ export default function Navbar() {
                         <Link
                           key={subLink.label}
                           href={subLink.href}
-                          onClick={() => {
-                            setIsOpen(false);
-                            setMobileTechnologiesOpen(false);
-                          }}
+                          onClick={() => { setIsOpen(false); setMobileDropdown(null); }}
                           className="block py-1.5 text-xs font-mono font-bold text-white/70 hover:text-white"
                         >
                           {subLink.label}
@@ -622,20 +536,14 @@ export default function Navbar() {
               {/* Mobile Company Dropdown */}
               <div className="flex flex-col border-b border-white/5">
                 <button
-                  onClick={() => {
-                    setMobileCompanyOpen(!mobileCompanyOpen);
-                    setMobileResourcesOpen(false);
-                    setMobileIndustriesOpen(false);
-                    setMobileTechnologiesOpen(false);
-                    setMobileSolutionsOpen(false);
-                  }}
+                  onClick={() => setMobileDropdown(mobileDropdown === 'company' ? null : 'company')}
                   className="flex items-center justify-between text-sm font-sans font-bold px-2 py-2 text-white/70 hover:text-white focus:outline-none w-full"
                 >
                   <span>Company</span>
-                  <ChevronDown className={`size-3.5 transition-transform ${mobileCompanyOpen ? "rotate-180" : ""}`} />
+                  <ChevronDown className={`size-3.5 transition-transform ${mobileDropdown === 'company' ? "rotate-180" : ""}`} />
                 </button>
                 <AnimatePresence>
-                  {mobileCompanyOpen && (
+                  {mobileDropdown === 'company' && (
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
@@ -646,10 +554,7 @@ export default function Navbar() {
                         <Link
                           key={subLink.label}
                           href={subLink.href}
-                          onClick={() => {
-                            setIsOpen(false);
-                            setMobileCompanyOpen(false);
-                          }}
+                          onClick={() => { setIsOpen(false); setMobileDropdown(null); }}
                           className="block py-1.5 text-xs font-mono font-bold text-white/70 hover:text-white"
                         >
                           {subLink.label}
@@ -663,20 +568,14 @@ export default function Navbar() {
               {/* Mobile Resources Dropdown */}
               <div className="flex flex-col border-b border-white/5">
                 <button
-                  onClick={() => {
-                    setMobileResourcesOpen(!mobileResourcesOpen);
-                    setMobileCompanyOpen(false);
-                    setMobileIndustriesOpen(false);
-                    setMobileTechnologiesOpen(false);
-                    setMobileSolutionsOpen(false);
-                  }}
+                  onClick={() => setMobileDropdown(mobileDropdown === 'resources' ? null : 'resources')}
                   className="flex items-center justify-between text-sm font-sans font-bold px-2 py-2 text-white/70 hover:text-white focus:outline-none w-full"
                 >
                   <span>Resources</span>
-                  <ChevronDown className={`size-3.5 transition-transform ${mobileResourcesOpen ? "rotate-180" : ""}`} />
+                  <ChevronDown className={`size-3.5 transition-transform ${mobileDropdown === 'resources' ? "rotate-180" : ""}`} />
                 </button>
                 <AnimatePresence>
-                  {mobileResourcesOpen && (
+                  {mobileDropdown === 'resources' && (
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
@@ -687,10 +586,7 @@ export default function Navbar() {
                         <Link
                           key={subLink.label}
                           href={subLink.href}
-                          onClick={() => {
-                            setIsOpen(false);
-                            setMobileResourcesOpen(false);
-                          }}
+                          onClick={() => { setIsOpen(false); setMobileDropdown(null); }}
                           className="block py-1.5 text-xs font-mono font-bold text-white/70 hover:text-white"
                         >
                           {subLink.label}
