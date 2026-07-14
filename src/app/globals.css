@@ -6,9 +6,9 @@
   --muted: #4B5563;
   --muted-light: #6B7280;
   --border: #E5E7EB;
-  --primary: #FF8A00;
-  --primary-hover: #E07A00;
-  --glow: rgba(255, 138, 0, 0.04);
+  --primary: #C25E00; /* High-contrast orange for Light Mode (passes WCAG AA 4.5:1) */
+  --primary-hover: #A34F00;
+  --glow: rgba(194, 94, 0, 0.04);
   --card-bg: #FFFFFF;
 }
 

@@ -86,7 +86,8 @@ export default function Home() {
                 </div>
                 <Link
                   href="/services"
-                  className="inline-flex items-center gap-1 text-xs font-mono font-bold text-primary hover:underline mt-6"
+                  className="inline-flex items-center gap-1 text-xs font-mono font-bold text-[#C25E00] dark:text-primary hover:underline mt-6"
+                  aria-label={`Learn more about ${service.title} services`}
                 >
                   <span>Learn more</span>
                   <ArrowRight className="size-3.5" />

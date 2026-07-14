@@ -107,11 +107,11 @@ export default function Footer() {
 
         {/* Solutions */}
         <div className="flex flex-col gap-3 text-left">
-          <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">Solutions</span>
-          <ul className="space-y-1.5 text-xs text-text-muted">
+          <span className="font-mono text-xs uppercase tracking-wider text-[#C25E00] dark:text-primary font-bold">Solutions</span>
+          <ul className="text-xs text-text-muted">
             {solutionsLinks.map((item) => (
               <li key={item.name}>
-                <Link href={item.href} className="hover:text-text-base transition-colors">
+                <Link href={item.href} className="inline-block py-2.5 w-full md:inline-block md:py-0.5 md:w-auto hover:text-text-base transition-colors">
                   {item.name}
                 </Link>
               </li>
@@ -121,11 +121,11 @@ export default function Footer() {
 
         {/* Quick Links */}
         <div className="flex flex-col gap-3 text-left">
-          <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">Quick Links</span>
-          <ul className="space-y-1.5 text-xs text-text-muted">
+          <span className="font-mono text-xs uppercase tracking-wider text-[#C25E00] dark:text-primary font-bold">Quick Links</span>
+          <ul className="text-xs text-text-muted">
             {quickLinks.map((item) => (
               <li key={item.name}>
-                <Link href={item.href} className="hover:text-text-base transition-colors">
+                <Link href={item.href} className="inline-block py-2.5 w-full md:inline-block md:py-0.5 md:w-auto hover:text-text-base transition-colors">
                   {item.name}
                 </Link>
               </li>
@@ -135,11 +135,11 @@ export default function Footer() {
 
         {/* Company */}
         <div className="flex flex-col gap-3 text-left">
-          <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">Company</span>
-          <ul className="space-y-1.5 text-xs text-text-muted">
+          <span className="font-mono text-xs uppercase tracking-wider text-[#C25E00] dark:text-primary font-bold">Company</span>
+          <ul className="text-xs text-text-muted">
             {companyLinks.map((item) => (
               <li key={item.name}>
-                <Link href={item.href} className="hover:text-text-base transition-colors">
+                <Link href={item.href} className="inline-block py-2.5 w-full md:inline-block md:py-0.5 md:w-auto hover:text-text-base transition-colors">
                   {item.name}
                 </Link>
               </li>
@@ -149,11 +149,11 @@ export default function Footer() {
 
         {/* Industries */}
         <div className="flex flex-col gap-3 text-left">
-          <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">Industries</span>
-          <ul className="space-y-1.5 text-xs text-text-muted">
+          <span className="font-mono text-xs uppercase tracking-wider text-[#C25E00] dark:text-primary font-bold">Industries</span>
+          <ul className="text-xs text-text-muted">
             {industriesLinks.map((item) => (
               <li key={item.name}>
-                <Link href={item.href} className="hover:text-text-base transition-colors">
+                <Link href={item.href} className="inline-block py-2.5 w-full md:inline-block md:py-0.5 md:w-auto hover:text-text-base transition-colors">
                   {item.name}
                 </Link>
               </li>
@@ -163,11 +163,11 @@ export default function Footer() {
 
         {/* Technologies */}
         <div className="flex flex-col gap-3 text-left">
-          <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">Technologies</span>
-          <ul className="space-y-1.5 text-xs text-text-muted">
+          <span className="font-mono text-xs uppercase tracking-wider text-[#C25E00] dark:text-primary font-bold">Technologies</span>
+          <ul className="text-xs text-text-muted">
             {technologiesLinks.map((item) => (
               <li key={item.name}>
-                <Link href={item.href} className="hover:text-text-base transition-colors">
+                <Link href={item.href} className="inline-block py-2.5 w-full md:inline-block md:py-0.5 md:w-auto hover:text-text-base transition-colors">
                   {item.name}
                 </Link>
               </li>
@@ -177,11 +177,11 @@ export default function Footer() {
 
         {/* Resources */}
         <div className="flex flex-col gap-3 text-left">
-          <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">Resources</span>
-          <ul className="space-y-1.5 text-xs text-text-muted">
+          <span className="font-mono text-xs uppercase tracking-wider text-[#C25E00] dark:text-primary font-bold">Resources</span>
+          <ul className="text-xs text-text-muted">
             {resources.map((item) => (
               <li key={item.name}>
-                <Link href={item.href} className="hover:text-text-base transition-colors">
+                <Link href={item.href} className="inline-block py-2.5 w-full md:inline-block md:py-0.5 md:w-auto hover:text-text-base transition-colors">
                   {item.name}
                 </Link>
               </li>
@@ -191,11 +191,11 @@ export default function Footer() {
 
         {/* Support Links */}
         <div className="flex flex-col gap-3 text-left">
-          <span className="font-mono text-xs uppercase tracking-wider text-primary font-bold">Support</span>
-          <ul className="space-y-1.5 text-xs text-text-muted">
+          <span className="font-mono text-xs uppercase tracking-wider text-[#C25E00] dark:text-primary font-bold">Support</span>
+          <ul className="text-xs text-text-muted">
             {supportLinks.map((item) => (
               <li key={item.name}>
-                <Link href={item.href} className="hover:text-text-base transition-colors">
+                <Link href={item.href} className="inline-block py-2.5 w-full md:inline-block md:py-0.5 md:w-auto hover:text-text-base transition-colors">
                   {item.name}
                 </Link>
               </li>
