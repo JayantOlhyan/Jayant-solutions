@@ -187,6 +187,7 @@ export default function ServicesPage() {
                   <Link
                     href={service.href}
                     className="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-primary hover:underline mt-6"
+                    aria-label={`Learn more about ${service.title} services`}
                   >
                     <span>Learn more</span>
                     <ArrowRight className="size-3.5" />
