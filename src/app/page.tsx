@@ -71,7 +71,7 @@ export default function Home() {
             {homeServices.map((service, idx) => (
               <div
                 key={idx}
-                className="hog-card rounded-3xl p-6 md:p-8 bg-card-bg/60 backdrop-blur-sm flex flex-col justify-between hover:-translate-y-1 transition-all duration-300"
+                className="hog-card rounded-3xl p-6 md:p-8 bg-white dark:bg-card-bg/60 backdrop-blur-sm flex flex-col justify-between hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="flex flex-col gap-4">
                   <div className="size-12 rounded-full border border-border-custom bg-card-bg flex items-center justify-center shadow-sm">
