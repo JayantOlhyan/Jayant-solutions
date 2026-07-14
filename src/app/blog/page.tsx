@@ -23,11 +23,11 @@ export default function BlogPage() {
   ];
 
   const popularPosts = [
-    { title: "How AI is Transforming Businesses in 2025", date: "May 8, 2025", slug: "ai-solutions" },
-    { title: "Next.js 14: What's New and Why It Matters", date: "Apr 28, 2025", slug: "web-development" },
-    { title: "10 UI/UX Design Trends to Watch in 2025", date: "Apr 18, 2025", slug: "ui-ux-design" },
-    { title: "Cloud vs. On-Premise: Which is Right for You?", date: "Apr 10, 2025", slug: "cloud-solutions" },
-    { title: "Web Security Best Practices Every Business Should Know", date: "Apr 2, 2025", slug: "security-best-practices" },
+    { title: "AI Solutions: How Generative AI & LLMs are Transforming Small Business Operations", date: "July 7, 2026", slug: "ai-solutions" },
+    { title: "Building Modern High-Performance Web Applications using Next.js & React", date: "July 5, 2026", slug: "web-development" },
+    { title: "Why Startups & Businesses Need Custom Software Over Off-the-Shelf Templates", date: "July 6, 2026", slug: "custom-software" },
+    { title: "Mobile App Development: Creating Highly Scalable Cross-Platform Apps", date: "July 4, 2026", slug: "mobile-apps" },
+    { title: "Business Process Automation: Eliminating Manual Overhead & Spreadsheet Errors", date: "July 3, 2026", slug: "business-automation" },
   ];
 
   const topics = [
