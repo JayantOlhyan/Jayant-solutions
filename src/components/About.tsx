@@ -8,7 +8,7 @@ export default function About() {
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <div className="w-full md:w-2/5 aspect-[4/5] max-w-[320px] rounded-3xl relative overflow-hidden flex flex-col justify-center items-center shadow-lg border-2 border-border-custom">
             <Image
-              src="/jayant.jpg"
+              src="/jayant.webp"
               alt="Jayant Olhyan - Founder of Jayant Web & AI Systems"
               fill
               sizes="(max-width: 768px) 100vw, 320px"

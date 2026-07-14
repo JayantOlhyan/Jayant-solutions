@@ -187,7 +187,7 @@ export default function AboutPage() {
               <div className="lg:col-span-3 flex justify-center">
                 <div className="w-full max-w-[280px] aspect-[3/4] rounded-3xl overflow-hidden border-2 border-border-custom shadow-lg relative bg-neutral-900">
                   <Image
-                    src="/jayant.jpg"
+                    src="/jayant.webp"
                     alt="Jayant Olhyan - Founder and Lead Developer at Jayant Web & AI Systems"
                     fill
                     sizes="(max-width: 768px) 100vw, 280px"
