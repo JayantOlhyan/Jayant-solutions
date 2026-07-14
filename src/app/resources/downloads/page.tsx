@@ -69,7 +69,7 @@ export default function DownloadsPage() {
 
           </section>
 
-          {/* Company Profile PDF details row */}
+                  {/* Company Profile PDF details row */}
           <section className="py-2">
             <div className="w-full rounded-3xl border border-border-custom bg-card-bg/60 p-6 md:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6 shadow-md">
               <div className="flex items-start gap-4 flex-1">
@@ -131,6 +131,53 @@ export default function DownloadsPage() {
                 </a>
                 <span className="text-[9px] font-mono text-text-muted">File size: 4.2 MB</span>
               </div>
+            </div>
+          </section>
+
+          {/* Detailed Content Section (SEO Expansion) */}
+          <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 py-4">
+            <div className="flex flex-col gap-4 text-left">
+              <h3 className="font-serif text-lg md:text-2xl font-bold text-text-base">Why Download Our Corporate Profile?</h3>
+              <p className="text-xs md:text-sm text-text-muted leading-relaxed">
+                Whether you are a startup founder looking for an agile development partner, or a seasoned corporate stakeholder evaluating AI integration capability, our corporate deck covers it all. It contains in-depth information about our technology selections, pricing models, and communication workflows.
+              </p>
+              <p className="text-xs md:text-sm text-text-muted leading-relaxed">
+                We believe in extreme transparency. That is why our booklet walks you through exactly how we audit datasets, protect user privacy, and ensure high-throughput API scaling. We also outline our strict 30-day post-launch support guarantee so you know you are supported long after deployment.
+              </p>
+            </div>
+            
+            <div className="flex flex-col gap-4 text-left border border-border-custom/50 rounded-3xl p-6 bg-card-bg/20">
+              <h3 className="font-serif text-lg font-bold text-text-base">What is Included inside the Booklet:</h3>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-text-muted">
+                <li className="flex items-start gap-2">
+                  <Check className="size-4 text-primary shrink-0 mt-0.5" />
+                  <span>Founder's engineering background and principles.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="size-4 text-primary shrink-0 mt-0.5" />
+                  <span>Full services catalog (AI, Web, Custom Software).</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="size-4 text-primary shrink-0 mt-0.5" />
+                  <span>Our detailed 6-step collaborative process.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="size-4 text-primary shrink-0 mt-0.5" />
+                  <span>4 real-world case studies with impact metrics.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="size-4 text-primary shrink-0 mt-0.5" />
+                  <span>Hosting, maintenance, and security architectures.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="size-4 text-primary shrink-0 mt-0.5" />
+                  <span>How to book your discovery and roadmap session.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="size-4 text-primary shrink-0 mt-0.5" />
+                  <span>E2E QA testing, deployment strategy, and Netlify hosting workflows.</span>
+                </li>
+              </ul>
             </div>
           </section>
 

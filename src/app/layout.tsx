@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Inter, Instrument_Serif, IBM_Plex_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import SEOLinks from "@/components/SEOLinks";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
@@ -105,8 +107,10 @@ export default function RootLayout({
         />
         <Navbar />
         <div className="flex-1 w-full pt-16">
+          <Breadcrumbs />
           {children}
         </div>
+        <SEOLinks />
         <FloatingWhatsApp />
         <Footer />
       </body>

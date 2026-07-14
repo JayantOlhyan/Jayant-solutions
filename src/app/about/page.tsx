@@ -116,7 +116,7 @@ export default function AboutPage() {
               <div className="w-full aspect-[4/3] rounded-3xl overflow-hidden border border-border-custom relative shadow-lg">
                 <img
                   src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80"
-                  alt="Workspace"
+                  alt="Jayant Web & AI Systems collaborative digital workspace - Team designing software"
                   className="absolute inset-0 w-full h-full object-cover brightness-[0.85] dark:brightness-[0.7]"
                 />
                 
@@ -141,7 +141,7 @@ export default function AboutPage() {
                   {stat.number}
                 </span>
                 <div>
-                  <h4 className="font-serif text-sm font-bold text-text-base mb-1">{stat.label}</h4>
+                  <h3 className="font-serif text-sm font-bold text-text-base mb-1">{stat.label}</h3>
                   <p className="text-[11px] md:text-xs text-text-muted">{stat.desc}</p>
                 </div>
               </div>
@@ -184,7 +184,7 @@ export default function AboutPage() {
                 <div className="w-full max-w-[280px] aspect-[3/4] rounded-3xl overflow-hidden border-2 border-border-custom shadow-lg relative bg-neutral-900">
                   <img
                     src="/jayant.jpg"
-                    alt="Jayant Olhyan"
+                    alt="Jayant Olhyan - Founder and Lead Developer at Jayant Web & AI Systems"
                     className="absolute inset-0 w-full h-full object-cover"
                     onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80" }}
                   />
@@ -195,9 +195,9 @@ export default function AboutPage() {
               <div className="lg:col-span-4 flex flex-col gap-6">
                 {/* How I Work */}
                 <div className="border border-border-custom/80 rounded-2xl p-5 bg-card-bg/40">
-                  <h4 className="font-serif text-sm font-bold text-text-base mb-1.5 flex items-center gap-2">
+                  <h3 className="font-serif text-sm font-bold text-text-base mb-1.5 flex items-center gap-2">
                     <Target className="size-4 text-primary" /> How I Work
-                  </h4>
+                  </h3>
                   <ul className="list-disc list-inside text-[11px] md:text-xs text-text-muted leading-relaxed">
                     <li>Discovery & Requirements Gathering</li>
                     <li>Planning & Architecture</li>
@@ -211,9 +211,9 @@ export default function AboutPage() {
 
                 {/* What You Can Expect */}
                 <div className="border border-border-custom/80 rounded-2xl p-5 bg-card-bg/40">
-                  <h4 className="font-serif text-sm font-bold text-text-base mb-1.5 flex items-center gap-2">
+                  <h3 className="font-serif text-sm font-bold text-text-base mb-1.5 flex items-center gap-2">
                     <Lightbulb className="size-4 text-primary" /> What You Can Expect
-                  </h4>
+                  </h3>
                   <ul className="list-disc list-inside text-[11px] md:text-xs text-text-muted leading-relaxed">
                     <li>Direct collaboration with the founder</li>
                     <li>Clear, transparent communication throughout</li>
@@ -226,9 +226,9 @@ export default function AboutPage() {
 
                 {/* My Development Principles */}
                 <div className="border border-border-custom/80 rounded-2xl p-5 bg-card-bg/40">
-                  <h4 className="font-serif text-sm font-bold text-text-base mb-1.5 flex items-center gap-2">
+                  <h3 className="font-serif text-sm font-bold text-text-base mb-1.5 flex items-center gap-2">
                     <Users className="size-4 text-primary" /> My Development Principles
-                  </h4>
+                  </h3>
                   <ul className="list-disc list-inside text-[11px] md:text-xs text-text-muted leading-relaxed">
                     <li>Performance‑first engineering</li>
                     <li>Accessibility & responsive design</li>
@@ -265,9 +265,9 @@ export default function AboutPage() {
                     <div className="size-11 rounded-full border border-border-custom bg-card-bg flex items-center justify-center shadow-sm">
                       {adv.icon}
                     </div>
-                    <h4 className="font-serif text-xs md:text-sm font-bold text-text-base leading-snug">
+                    <h3 className="font-serif text-xs md:text-sm font-bold text-text-base leading-snug">
                       {adv.title}
-                    </h4>
+                    </h3>
                     <p className="text-[10px] md:text-xs text-text-muted leading-relaxed">
                       {adv.description}
                     </p>
