@@ -41,13 +41,34 @@ export const metadata: Metadata = {
     canonical: "/",
   },
 
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon", type: "image/png", sizes: "32x32" },
+    ],
+    apple: [
+      { url: "/apple-icon", type: "image/png", sizes: "180x180" },
+    ],
+    other: [
+      {
+        rel: "mask-icon",
+        url: "/safari-pinned-tab.svg",
+        color: "#F37021",
+      },
+    ],
+  },
   authors: [{ name: "Jayant Web & AI Systems" }],
   applicationName: "Jayant Web & AI Systems",
   appleWebApp: {
     title: "Jayant Web & AI Systems",
+    statusBarStyle: "black-translucent",
   },
   formatDetection: {
     telephone: false,
+  },
+  other: {
+    "msapplication-TileColor": "#111111",
+    "msapplication-config": "/browserconfig.xml",
   },
   robots: "index,follow",
   openGraph: {
@@ -57,20 +78,11 @@ export const metadata: Metadata = {
     siteName: "Jayant Web & AI Systems",
     locale: "en_IN",
     type: "website",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Building AI Solutions That Automate, Scale & Transform Businesses"
-      }
-    ]
   },
   twitter: {
     card: "summary_large_image",
     title: "Jayant Web & AI Systems",
     description: "Custom AI, Software Development, Websites, SaaS Platforms & Business Automation.",
-    images: ["/twitter-image.png"],
   },
   verification: {
     google: "-a0wyjaTybF3gldEtwwHLwq_ChLau7TLls8Q1KFF7lE",
