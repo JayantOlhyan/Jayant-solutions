@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://jayant-solution.netlify.app";
+  const baseUrl = "https://jayant-systems.online";
   const appDir = path.join(process.cwd(), 'src', 'app');
   
   const routes: MetadataRoute.Sitemap = [

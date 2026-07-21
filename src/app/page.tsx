@@ -46,7 +46,7 @@ export default function Home() {
   return (
     <div className="hog-grid min-h-screen pb-16 md:pb-28">
       <main className="flex-1 w-full max-w-none px-6 md:px-12 lg:px-16 pt-12 md:pt-20 flex flex-col gap-16 md:gap-28 overflow-x-hidden">
-        
+
         {/* 1. Hero Section */}
         <Hero />
 

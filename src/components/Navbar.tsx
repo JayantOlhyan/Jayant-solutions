@@ -5,6 +5,16 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, MessageSquare, Calendar, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuPopup,
+  NavigationMenuPositioner,
+  NavigationMenuTrigger,
+} from '@/components/ui/navigation-menu-1';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -110,230 +120,134 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <div className="hidden md:flex items-center gap-7">
-            {/* Solutions Dropdown Trigger */}
-            <div className="relative">
-              <button
-                onClick={() => setActiveDropdown(activeDropdown === 'solutions' ? null : 'solutions')}
-                className={`flex items-center gap-1.5 text-[14px] font-sans font-medium transition-colors py-1 focus:outline-none cursor-pointer ${
-                  pathname.startsWith("/promo") ? "text-primary font-semibold" : "text-white/70 hover:text-white"
-                }`}
-              >
-                <span>Solutions</span>
-                <ChevronDown className="size-3" />
-              </button>
+          {/* Desktop Navigation Links using NavigationMenu */}
+          <div className="hidden xl:flex items-center">
+            <NavigationMenu>
+              <NavigationMenuList className="gap-0.5 lg:gap-1">
+                {/* Solutions */}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className={`bg-transparent px-2 lg:px-3 py-2 text-[14px] font-sans font-medium border-none shadow-none focus:ring-0 focus:outline-none transition-colors ${pathname.startsWith("/promo") ? "text-primary" : "text-white/70 hover:text-white hover:bg-white/5 data-[popup-open]:bg-white/10 data-[popup-open]:text-white"}`}>
+                    Solutions
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[240px] gap-1 p-2">
+                      {solutionsSubLinks.map((subLink) => (
+                        <li key={subLink.label}>
+                          <NavigationMenuLink render={<Link href={subLink.href} className="block px-3 py-2 text-[13px] font-sans font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-md transition-colors outline-none" />}>
+                            {subLink.label}
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
 
-              <AnimatePresence>
-                {activeDropdown === 'solutions' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                    transition={{ duration: 0.15, ease: "easeOut" }}
-                    className="absolute left-0 mt-2 w-56 rounded-xl bg-[#111827] border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.5)] py-2 z-50 origin-top-left"
-                  >
-                    {solutionsSubLinks.map((subLink) => (
-                      <Link
-                        key={subLink.label}
-                        href={subLink.href}
-                        onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2 text-xs font-mono font-bold text-white/80 hover:text-white hover:bg-white/5 transition-colors"
-                      >
-                        {subLink.label}
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+                {/* Services */}
+                <NavigationMenuItem>
+                  <NavigationMenuLink render={<Link href="/services" className={`block bg-transparent px-2 lg:px-3 py-2 text-[14px] font-sans font-medium border-none shadow-none focus:ring-0 focus:outline-none rounded-md transition-colors ${pathname.startsWith("/services") ? "text-primary" : "text-white/70 hover:text-white hover:bg-white/5 focus:bg-white/10 focus:text-white"}`} />}>
+                    Services
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
 
-            <Link
-              href="/services"
-              className={`relative text-[14px] font-sans font-medium transition-colors py-1 group ${
-                pathname.startsWith("/services") ? "text-primary font-semibold" : "text-white/70 hover:text-white"
-              }`}
-            >
-              <span>Services</span>
-            </Link>
+                {/* Industries */}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className={`bg-transparent px-2 lg:px-3 py-2 text-[14px] font-sans font-medium border-none shadow-none focus:ring-0 focus:outline-none transition-colors ${pathname.startsWith("/industries") ? "text-primary" : "text-white/70 hover:text-white hover:bg-white/5 data-[popup-open]:bg-white/10 data-[popup-open]:text-white"}`}>
+                    Industries
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[240px] gap-1 p-2">
+                      {industriesSubLinks.map((subLink) => (
+                        <li key={subLink.label}>
+                          <NavigationMenuLink render={<Link href={subLink.href} className="block px-3 py-2 text-[13px] font-sans font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-md transition-colors outline-none" />}>
+                            {subLink.label}
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
 
-            {/* Industries Dropdown Trigger */}
-            <div className="relative">
-              <button
-                onClick={() => setActiveDropdown(activeDropdown === 'industries' ? null : 'industries')}
-                className={`flex items-center gap-1.5 text-[14px] font-sans font-medium transition-colors py-1 focus:outline-none cursor-pointer ${
-                  pathname.startsWith("/industries") ? "text-primary font-semibold" : "text-white/70 hover:text-white"
-                }`}
-              >
-                <span>Industries</span>
-                <ChevronDown className="size-3" />
-              </button>
+                {/* Technologies */}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className={`bg-transparent px-2 lg:px-3 py-2 text-[14px] font-sans font-medium border-none shadow-none focus:ring-0 focus:outline-none transition-colors ${pathname.startsWith("/technologies") ? "text-primary" : "text-white/70 hover:text-white hover:bg-white/5 data-[popup-open]:bg-white/10 data-[popup-open]:text-white"}`}>
+                    Technologies
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[260px] gap-1 p-2">
+                      {technologiesSubLinks.map((subLink) => (
+                        <li key={subLink.label}>
+                          <NavigationMenuLink render={<Link href={subLink.href} className="block px-3 py-2 text-[13px] font-sans font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-md transition-colors outline-none" />}>
+                            {subLink.label}
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
 
-              <AnimatePresence>
-                {activeDropdown === 'industries' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                    transition={{ duration: 0.15, ease: "easeOut" }}
-                    className="absolute left-0 mt-2 w-48 rounded-xl bg-[#111827] border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.5)] py-2 z-50 origin-top-left"
-                  >
-                    {industriesSubLinks.map((subLink) => (
-                      <Link
-                        key={subLink.label}
-                        href={subLink.href}
-                        onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2 text-xs font-mono font-bold text-white/80 hover:text-white hover:bg-white/5 transition-colors"
-                      >
-                        {subLink.label}
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+                {/* Work */}
+                <NavigationMenuItem>
+                  <NavigationMenuLink render={<Link href="/portfolio" className={`block bg-transparent px-2 lg:px-3 py-2 text-[14px] font-sans font-medium border-none shadow-none focus:ring-0 focus:outline-none rounded-md transition-colors ${pathname === "/portfolio" ? "text-primary" : "text-white/70 hover:text-white hover:bg-white/5 focus:bg-white/10 focus:text-white"}`} />}>
+                    Work
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
 
-            {/* Technologies Dropdown Trigger */}
-            <div className="relative">
-              <button
-                onClick={() => setActiveDropdown(activeDropdown === 'technologies' ? null : 'technologies')}
-                className={`flex items-center gap-1.5 text-[14px] font-sans font-medium transition-colors py-1 focus:outline-none cursor-pointer ${
-                  pathname.startsWith("/technologies") ? "text-primary font-semibold" : "text-white/70 hover:text-white"
-                }`}
-              >
-                <span>Technologies</span>
-                <ChevronDown className="size-3" />
-              </button>
+                {/* Process */}
+                <NavigationMenuItem>
+                  <NavigationMenuLink render={<Link href="/process" className={`block bg-transparent px-2 lg:px-3 py-2 text-[14px] font-sans font-medium border-none shadow-none focus:ring-0 focus:outline-none rounded-md transition-colors ${pathname === "/process" ? "text-primary" : "text-white/70 hover:text-white hover:bg-white/5 focus:bg-white/10 focus:text-white"}`} />}>
+                    Process
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
 
-              <AnimatePresence>
-                {activeDropdown === 'technologies' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                    transition={{ duration: 0.15, ease: "easeOut" }}
-                    className="absolute left-0 mt-2 w-48 rounded-xl bg-[#111827] border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.5)] py-2 z-50 origin-top-left"
-                  >
-                    {technologiesSubLinks.map((subLink) => (
-                      <Link
-                        key={subLink.label}
-                        href={subLink.href}
-                        onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2 text-xs font-mono font-bold text-white/80 hover:text-white hover:bg-white/5 transition-colors"
-                      >
-                        {subLink.label}
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+                {/* Company */}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className={`bg-transparent px-2 lg:px-3 py-2 text-[14px] font-sans font-medium border-none shadow-none focus:ring-0 focus:outline-none transition-colors ${pathname.startsWith("/company") ? "text-primary" : "text-white/70 hover:text-white hover:bg-white/5 data-[popup-open]:bg-white/10 data-[popup-open]:text-white"}`}>
+                    Company
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[240px] gap-1 p-2">
+                      {companySubLinks.map((subLink) => (
+                        <li key={subLink.label}>
+                          <NavigationMenuLink render={<Link href={subLink.href} className="block px-3 py-2 text-[13px] font-sans font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-md transition-colors outline-none" />}>
+                            {subLink.label}
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
 
-            <Link
-              href="/portfolio"
-              className={`relative text-[14px] font-sans font-medium transition-colors py-1 group ${
-                pathname === "/portfolio" ? "text-primary font-semibold" : "text-white/70 hover:text-white"
-              }`}
-            >
-              <span>Work</span>
-            </Link>
-            <Link
-              href="/process"
-              className={`relative text-[14px] font-sans font-medium transition-colors py-1 group ${
-                pathname === "/process" ? "text-primary font-semibold" : "text-white/70 hover:text-white"
-              }`}
-            >
-              <span>Process</span>
-            </Link>
+                {/* Resources */}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className={`bg-transparent px-2 lg:px-3 py-2 text-[14px] font-sans font-medium border-none shadow-none focus:ring-0 focus:outline-none transition-colors ${pathname.startsWith("/resources") || pathname === "/blog" ? "text-primary" : "text-white/70 hover:text-white hover:bg-white/5 data-[popup-open]:bg-white/10 data-[popup-open]:text-white"}`}>
+                    Resources
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[240px] gap-1 p-2">
+                      {resourcesSubLinks.map((subLink) => (
+                        <li key={subLink.label}>
+                          <NavigationMenuLink render={<Link href={subLink.href} className="block px-3 py-2 text-[13px] font-sans font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-md transition-colors outline-none" />}>
+                            {subLink.label}
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
 
-            {/* Company Dropdown Trigger */}
-            <div className="relative">
-              <button
-                onClick={() => setActiveDropdown(activeDropdown === 'company' ? null : 'company')}
-                className={`flex items-center gap-1.5 text-[14px] font-sans font-medium transition-colors py-1 focus:outline-none cursor-pointer ${
-                  pathname.startsWith("/company") ? "text-primary font-semibold" : "text-white/70 hover:text-white"
-                }`}
-              >
-                <span>Company</span>
-                <ChevronDown className="size-3" />
-              </button>
+                {/* Pricing */}
+                <NavigationMenuItem>
+                  <NavigationMenuLink render={<Link href="/pricing" className={`block bg-transparent px-2 lg:px-3 py-2 text-[14px] font-sans font-medium border-none shadow-none focus:ring-0 focus:outline-none rounded-md transition-colors ${pathname.startsWith("/pricing") ? "text-primary" : "text-white/70 hover:text-white hover:bg-white/5 focus:bg-white/10 focus:text-white"}`} />}>
+                    Pricing
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
 
-              <AnimatePresence>
-                {activeDropdown === 'company' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                    transition={{ duration: 0.15, ease: "easeOut" }}
-                    className="absolute left-0 mt-2 w-48 rounded-xl bg-[#111827] border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.5)] py-2 z-50 origin-top-left"
-                  >
-                    {companySubLinks.map((subLink) => (
-                      <Link
-                        key={subLink.label}
-                        href={subLink.href}
-                        onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2 text-xs font-mono font-bold text-white/80 hover:text-white hover:bg-white/5 transition-colors"
-                      >
-                        {subLink.label}
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+              </NavigationMenuList>
 
-            {/* Resources Dropdown Trigger */}
-            <div className="relative">
-              <button
-                onClick={() => setActiveDropdown(activeDropdown === 'resources' ? null : 'resources')}
-                className={`flex items-center gap-1.5 text-[14px] font-sans font-medium transition-colors py-1 focus:outline-none cursor-pointer ${
-                  pathname.startsWith("/resources") || pathname === "/blog" ? "text-primary font-semibold" : "text-white/70 hover:text-white"
-                }`}
-              >
-                <span>Resources</span>
-                <ChevronDown className="size-3" />
-              </button>
-
-              <AnimatePresence>
-                {activeDropdown === 'resources' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                    transition={{ duration: 0.15, ease: "easeOut" }}
-                    className="absolute left-0 mt-2 w-52 rounded-xl bg-[#111827] border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.5)] py-2 z-50 origin-top-left"
-                  >
-                    {resourcesSubLinks.map((subLink) => (
-                      <Link
-                        key={subLink.label}
-                        href={subLink.href}
-                        onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2 text-xs font-mono font-bold text-white/80 hover:text-white hover:bg-white/5 transition-colors"
-                      >
-                        {subLink.label}
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            <Link
-              href="/pricing"
-              className={`relative text-[14px] font-sans font-medium transition-colors py-1 group ${
-                pathname.startsWith("/pricing") ? "text-primary font-semibold" : "text-white/70 hover:text-white"
-              }`}
-            >
-              <span>Pricing</span>
-            </Link>
-            <Link
-              href="/contact"
-              className={`relative text-[14px] font-sans font-medium transition-colors py-1 group ${
-                pathname === "/contact" ? "text-primary font-semibold" : "text-white/70 hover:text-white"
-              }`}
-            >
-              <span>Contact</span>
-            </Link>
+              <NavigationMenuPositioner>
+                <NavigationMenuPopup className="bg-[#111827] border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.5)] text-white" />
+              </NavigationMenuPositioner>
+            </NavigationMenu>
           </div>
 
           {/* Desktop CTA Segment with Animated Dropdown */}

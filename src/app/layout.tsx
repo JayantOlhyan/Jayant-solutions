@@ -36,7 +36,7 @@ const ibmMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: "Jayant Web & AI Systems | Custom AI, Web & Software Development Agency",
   description: "Jayant Web & AI Systems builds AI-powered applications, custom software, websites, SaaS platforms, mobile apps, and automation solutions for startups, businesses, and enterprises. Transform your ideas into scalable digital products.",
-  metadataBase: new URL("https://jayant-solution.netlify.app"),
+  metadataBase: new URL("https://jayant-systems.online"),
   alternates: {
     canonical: "/",
   },

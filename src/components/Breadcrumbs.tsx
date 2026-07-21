@@ -21,7 +21,7 @@ export default function Breadcrumbs() {
         "@type": "ListItem",
         "position": index + 1,
         "name": item.name,
-        "item": "https://jayant-solution.netlify.app" + item.url
+        "item": "https://jayant-systems.online" + item.url
       }))
     };
   };

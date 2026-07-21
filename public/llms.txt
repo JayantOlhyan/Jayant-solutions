@@ -14,10 +14,10 @@ Jayant Web & AI Systems builds intelligent software, AI-powered solutions, and h
 - [MVP Development](/services/mvp-development)
 
 ## Primary Site Map
-- [Home Page](https://jayant-solution.netlify.app/)
-- [Services Overview](https://jayant-solution.netlify.app/services)
-- [Case Studies & Portfolio](https://jayant-solution.netlify.app/portfolio)
-- [Development Process](https://jayant-solution.netlify.app/process)
-- [Pricing Plans](https://jayant-solution.netlify.app/pricing)
-- [Blog](https://jayant-solution.netlify.app/blog)
-- [Contact & Booking](https://jayant-solution.netlify.app/contact)
+- [Home Page](https://jayant-systems.online/)
+- [Services Overview](https://jayant-systems.online/services)
+- [Case Studies & Portfolio](https://jayant-systems.online/portfolio)
+- [Development Process](https://jayant-systems.online/process)
+- [Pricing Plans](https://jayant-systems.online/pricing)
+- [Blog](https://jayant-systems.online/blog)
+- [Contact & Booking](https://jayant-systems.online/contact)
