@@ -9,7 +9,7 @@ export default function About() {
           <div className="w-full md:w-2/5 aspect-[4/5] max-w-[320px] rounded-3xl relative overflow-hidden flex flex-col justify-center items-center shadow-lg border-2 border-border-custom">
             <Image
               src="/jayant.webp"
-              alt="Jayant Olhyan - Founder of Jayant Solutions"
+              alt="Jayant Olhyan - Founder of Jayant Web & AI Systems"
               fill
               sizes="(max-width: 768px) 100vw, 320px"
               className="object-cover"
@@ -33,7 +33,7 @@ export default function About() {
                 Whether it is streamlining customer bookings, automating repetitive daily tracking spreadsheets, or launching custom client portals, I translate your manual bottlenecks into automated software outcomes.
               </p>
               <p>
-                Jayant Solutions is founded and led by me. For larger engagements, I collaborate with trusted specialists across design, backend engineering, and cloud infrastructure, ensuring you receive robust delivery while retaining a single point of communication.
+                Jayant Web & AI Systems is founded and led by me. For larger engagements, I collaborate with trusted specialists across design, backend engineering, and cloud infrastructure, ensuring you receive robust delivery while retaining a single point of communication.
               </p>
               <p className="text-xs text-text-muted border-t border-border-custom pt-3 font-mono">
                 Background: B.Tech Computer Science (MSIT Delhi) • Participated in hackathons hosted by IITs and leading universities • 33 Hackathon selections.

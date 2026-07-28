@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Fastapi Development – Jayant Solutions",
-  description: "Explore the Fastapi Development page of Jayant Solutions. I build custom websites, AI automation systems, and business software designed for your operational needs.",
+  title: "Fastapi Development – Jayant Web & AI Systems",
+  description: "Explore the Fastapi Development page of Jayant Web & AI Systems. I build custom websites, AI automation systems, and business software designed for your operational needs.",
   alternates: {
     canonical: "/technologies/fastapi-development",
     languages: {

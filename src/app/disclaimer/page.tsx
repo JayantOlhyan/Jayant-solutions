@@ -59,7 +59,7 @@ export default function DisclaimerPage() {
       title: "6. Limitation of Liability",
       content: (
         <>
-          <p>To the fullest extent permitted by law, Jayant Solutions shall not be liable for any direct, indirect, incidental, consequential, or special damages arising out of or in connection with your use of our website or services.</p>
+          <p>To the fullest extent permitted by law, Jayant Web & AI Systems shall not be liable for any direct, indirect, incidental, consequential, or special damages arising out of or in connection with your use of our website or services.</p>
         </>
       )
     },
@@ -120,7 +120,7 @@ export default function DisclaimerPage() {
                 Disclaimer
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-6">
-                The information provided by Jayant Solutions on this website is for general informational purposes only. By using this website and my services, you acknowledge and agree to the terms of this disclaimer.
+                The information provided by Jayant Web & AI Systems on this website is for general informational purposes only. By using this website and my services, you acknowledge and agree to the terms of this disclaimer.
               </p>
               
               <div className="flex flex-wrap gap-4 text-[10px] font-mono font-bold text-text-muted">

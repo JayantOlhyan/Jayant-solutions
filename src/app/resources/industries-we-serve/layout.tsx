@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Industries We Serve – Jayant Solutions",
-  description: "Explore the Industries We Serve page of Jayant Solutions. I build custom websites, AI automation systems, and business software designed for your operational needs.",
+  title: "Industries We Serve – Jayant Web & AI Systems",
+  description: "Explore the Industries We Serve page of Jayant Web & AI Systems. I build custom websites, AI automation systems, and business software designed for your operational needs.",
   alternates: {
     canonical: "/resources/industries-we-serve",
     languages: {

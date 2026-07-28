@@ -23,7 +23,7 @@ export default function TermsPage() {
       title: "2. my services",
       content: (
         <>
-          <p>Jayant Solutions provides software development, web development, AI solutions, consulting, and related services as described on our website. We reserve the right to modify, suspend, or discontinue any service at any time without prior notice.</p>
+          <p>Jayant Web & AI Systems provides software development, web development, AI solutions, consulting, and related services as described on our website. We reserve the right to modify, suspend, or discontinue any service at any time without prior notice.</p>
         </>
       )
     },
@@ -41,7 +41,7 @@ export default function TermsPage() {
       title: "4. Intellectual Property",
       content: (
         <>
-          <p>All content, designs, logos, code, and materials on this website are the property of Jayant Solutions and are protected by intellectual property laws. You may not copy, reproduce, or distribute any content without our written permission.</p>
+          <p>All content, designs, logos, code, and materials on this website are the property of Jayant Web & AI Systems and are protected by intellectual property laws. You may not copy, reproduce, or distribute any content without our written permission.</p>
         </>
       )
     },
@@ -77,7 +77,7 @@ export default function TermsPage() {
       title: "8. Indemnification",
       content: (
         <>
-          <p>You agree to indemnify and hold Jayant Solutions harmless from any claims, losses, liabilities, damages, and expenses arising from your use of my services or violation of these terms.</p>
+          <p>You agree to indemnify and hold Jayant Web & AI Systems harmless from any claims, losses, liabilities, damages, and expenses arising from your use of my services or violation of these terms.</p>
         </>
       )
     },
@@ -147,7 +147,7 @@ export default function TermsPage() {
                 Terms & Conditions
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-6">
-                Welcome to Jayant Solutions. These Terms & Conditions govern your use of our website and services. By accessing or using my services, you agree to be bound by these terms.
+                Welcome to Jayant Web & AI Systems. These Terms & Conditions govern your use of our website and services. By accessing or using my services, you agree to be bound by these terms.
               </p>
               
               <div className="flex flex-wrap gap-4 text-[10px] font-mono font-bold text-text-muted">

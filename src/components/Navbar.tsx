@@ -106,7 +106,7 @@ export default function Navbar() {
             </div>
             <div className="flex flex-col">
               <span className="font-serif text-sm md:text-base font-bold tracking-tight text-white leading-none">
-                Jayant Solutions
+                Jayant Web & AI Systems
               </span>
               <span className="font-sans text-[9px] tracking-[0.08em] uppercase text-white/50 font-medium mt-1">
                 AI & Software Development

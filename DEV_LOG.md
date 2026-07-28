@@ -1,6 +1,6 @@
-# 📓 Jayant Solutions — Daily Developer Log
+# 📓 Jayant Web & AI Systems — Daily Developer Log
 
-**Project:** Jayant Solutions Agency Portfolio Website
+**Project:** Jayant Web & AI Systems Agency Portfolio Website
 **Framework:** Next.js (TypeScript)
 **Deployed on:** Netlify
 **Log Started:** 2026-07-16
@@ -68,7 +68,7 @@
 ### 🗓️ 2026-07-16 — Log Setup Day
 
 **Session Summary:**
-- Set up this Developer Log (DEV_LOG.md) to track daily changes to the Jayant Solutions portfolio website.
+- Set up this Developer Log (DEV_LOG.md) to track daily changes to the Jayant Web & AI Systems portfolio website.
 - Previous session covered website page structure overview.
 
 **Changes Made:**

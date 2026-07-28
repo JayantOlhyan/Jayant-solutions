@@ -45,7 +45,7 @@ export default function CompanyUpdatesCategoryPage() {
       author: "Jayant Olhyan"
     },
     {
-      title: "Jayant Solutions at Tech Summit 2024",
+      title: "Jayant Web & AI Systems at Tech Summit 2024",
       category: "Events",
       desc: "Our team shared insights on AI, automation, and the future of digital transformation.",
       date: "May 10, 2024",
@@ -127,7 +127,7 @@ export default function CompanyUpdatesCategoryPage() {
                 Company Updates
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                Stay up to date with the latest news, milestones, achievements, and behind-the-scenes stories from Jayant Solutions.
+                Stay up to date with the latest news, milestones, achievements, and behind-the-scenes stories from Jayant Web & AI Systems.
               </p>
 
               {/* Highlights */}
@@ -245,7 +245,7 @@ export default function CompanyUpdatesCategoryPage() {
                   About This Category
                 </h3>
                 <p className="text-[10px] text-white/70 leading-relaxed">
-                  This is where we share important updates about my journey, achievements, events, partnerships, and everything happening at Jayant Solutions.
+                  This is where we share important updates about my journey, achievements, events, partnerships, and everything happening at Jayant Web & AI Systems.
                 </p>
                 <Link href="/about" className="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-primary hover:underline">
                   <span>Learn more about me</span>

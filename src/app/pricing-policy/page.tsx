@@ -137,7 +137,7 @@ export default function RefundCancellationPolicyPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-6">
-                At Jayant Solutions, I am committed to transparency and customer satisfaction. Please read our Refund & Cancellation Policy carefully before purchasing my services.
+                At Jayant Web & AI Systems, I am committed to transparency and customer satisfaction. Please read our Refund & Cancellation Policy carefully before purchasing my services.
               </p>
               
               <div className="flex flex-wrap gap-4 text-[10px] font-mono font-bold text-text-muted">

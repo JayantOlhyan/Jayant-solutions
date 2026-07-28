@@ -69,12 +69,12 @@ export default function PartnersPage() {
 
   const partnerTestimonials = [
     {
-      text: "Jayant Solutions is a reliable technology partner. Their technical expertise and commitment to quality have helped us deliver outstanding solutions to my clients.",
+      text: "Jayant Web & AI Systems is a reliable technology partner. Their technical expertise and commitment to quality have helped us deliver outstanding solutions to my clients.",
       author: "Abhishek Sharma",
       role: "Partner Solutions Architect, AWS",
     },
     {
-      text: "Working with Jayant Solutions has been a great experience. Their team is proactive, professional, and always focused on delivering real value.",
+      text: "Working with Jayant Web & AI Systems has been a great experience. Their team is proactive, professional, and always focused on delivering real value.",
       author: "Neha Verma",
       role: "Program Manager, Google Cloud",
     },

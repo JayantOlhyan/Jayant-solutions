@@ -136,7 +136,7 @@ export default function ContactForm() {
               name="company"
               value={formData.company}
               onChange={handleInputChange}
-              placeholder="Jayant Solutions"
+              placeholder="Jayant Web & AI Systems"
               className="w-full bg-background-base border border-border-custom hover:border-primary/50 focus:border-primary rounded-xl px-4 py-2.5 text-xs outline-none transition-colors"
             />
           </div>

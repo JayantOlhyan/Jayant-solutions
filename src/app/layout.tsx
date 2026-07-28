@@ -34,8 +34,8 @@ const ibmMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jayant Solutions | Custom AI, Web & Software Development",
-  description: "Jayant Solutions builds AI-powered applications, custom software, websites, SaaS platforms, mobile apps, and automation solutions for startups, businesses, and enterprises. Transform your ideas into scalable digital products.",
+  title: "Jayant Web & AI Systems | Custom AI, Web & Software Development",
+  description: "Jayant Web & AI Systems builds AI-powered applications, custom software, websites, SaaS platforms, mobile apps, and automation solutions for startups, businesses, and enterprises. Transform your ideas into scalable digital products.",
   metadataBase: new URL("https://jayant-systems.online"),
   alternates: {
     canonical: "/",
@@ -57,10 +57,10 @@ export const metadata: Metadata = {
       },
     ],
   },
-  authors: [{ name: "Jayant Solutions" }],
-  applicationName: "Jayant Solutions",
+  authors: [{ name: "Jayant Web & AI Systems" }],
+  applicationName: "Jayant Web & AI Systems",
   appleWebApp: {
-    title: "Jayant Solutions",
+    title: "Jayant Web & AI Systems",
     statusBarStyle: "black-translucent",
   },
   formatDetection: {
@@ -72,16 +72,16 @@ export const metadata: Metadata = {
   },
   robots: "index,follow",
   openGraph: {
-    title: "Jayant Solutions | AI Solutions & Software Development",
+    title: "Jayant Web & AI Systems | AI Solutions & Software Development",
     description: "I build intelligent AI applications, scalable software, business automation systems, modern websites, and cloud solutions that help businesses innovate and grow.",
     url: "https://jayant-systems.online",
-    siteName: "Jayant Solutions",
+    siteName: "Jayant Web & AI Systems",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jayant Solutions",
+    title: "Jayant Web & AI Systems",
     description: "Custom AI, Software Development, Websites, SaaS Platforms & Business Automation.",
   },
   verification: {
@@ -97,7 +97,7 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Jayant Solutions",
+    "name": "Jayant Web & AI Systems",
     "url": "https://jayant-systems.online",
     "logo": "https://jayant-systems.online/logo.png",
     "sameAs": [

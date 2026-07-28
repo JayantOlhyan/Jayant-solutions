@@ -26,7 +26,7 @@ export default function FounderPage() {
     { year: "2020", title: "Started my development journey & built my first full-stack project." },
     { year: "2021", title: "Worked with startups and delivered multiple web solutions." },
     { year: "2022", title: "Deepened my expertise in AI/ML and automation technologies." },
-    { year: "2023", title: "Founded Jayant Solutions to help businesses scale." },
+    { year: "2023", title: "Founded Jayant Web & AI Systems to help businesses scale." },
     { year: "2024", title: "Expanded global reach and delivered 30+ successful projects." },
   ];
 
@@ -59,7 +59,7 @@ export default function FounderPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                I&apos;m Jayant Olhyan, the founder of Jayant Solutions. I believe technology should solve real problems, create meaningful experiences, and empower businesses to grow beyond limits.
+                I&apos;m Jayant Olhyan, the founder of Jayant Web & AI Systems. I believe technology should solve real problems, create meaningful experiences, and empower businesses to grow beyond limits.
               </p>
 
               {/* Action buttons */}
@@ -133,7 +133,7 @@ export default function FounderPage() {
                 My journey into tech started with curiosity and a passion for solving problems. What began as building small projects in college turned into a mission — to help startups, enterprises, and brands leverage the power of web technologies and AI.
               </p>
               <p>
-                With a strong foundation in software development, product thinking, and entrepreneurship, I founded Jayant Solutions to deliver end-to-end digital solutions that are scalable, efficient, and future-ready.
+                With a strong foundation in software development, product thinking, and entrepreneurship, I founded Jayant Web & AI Systems to deliver end-to-end digital solutions that are scalable, efficient, and future-ready.
               </p>
               <p>
                 When I&apos;m not coding or building products, you&apos;ll find me exploring new technologies, mentoring developers, or brainstorming ideas that can create real-world impact.

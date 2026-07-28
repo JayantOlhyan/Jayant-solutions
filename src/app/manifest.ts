@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Jayant Solutions',
+    name: 'Jayant Web & AI Systems',
     short_name: 'Jayant Systems',
     description:
       'Custom AI, Web & Software Development Agency — AI-powered applications, SaaS platforms, mobile apps, and automation solutions.',

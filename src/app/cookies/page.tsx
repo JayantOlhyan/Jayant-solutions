@@ -108,7 +108,7 @@ export default function CookiePolicyPage() {
                 Cookie Policy
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-6">
-                This Cookie Policy explains how Jayant Solutions uses cookies and similar technologies to recognize you when you visit our website. It explains what these technologies are and why we use them, as well as your rights to control our use of them.
+                This Cookie Policy explains how Jayant Web & AI Systems uses cookies and similar technologies to recognize you when you visit our website. It explains what these technologies are and why we use them, as well as your rights to control our use of them.
               </p>
               
               <div className="flex flex-wrap gap-4 text-[10px] font-mono font-bold text-text-muted">

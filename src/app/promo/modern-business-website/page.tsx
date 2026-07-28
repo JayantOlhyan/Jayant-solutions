@@ -200,7 +200,7 @@ export default function PromoModernWebsitePage() {
                   I am passionate about building innovative solutions.
                 </h3>
                 <p className="text-xs md:text-sm text-text-muted mb-8 leading-relaxed max-w-lg">
-                  At Jayant Solutions, we combine creativity, technology and strategy to build digital products that help businesses grow faster and achieve more.
+                  At Jayant Web & AI Systems, we combine creativity, technology and strategy to build digital products that help businesses grow faster and achieve more.
                 </p>
                 <Link
                   href="/about"

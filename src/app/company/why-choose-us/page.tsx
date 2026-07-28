@@ -62,7 +62,7 @@ export default function WhyChooseUsPage() {
                 by Impact.
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We go beyond delivering solutions—I build long-term partnerships. Here&apos;s why businesses choose Jayant Solutions.
+                We go beyond delivering solutions—I build long-term partnerships. Here&apos;s why businesses choose Jayant Web & AI Systems.
               </p>
 
               {/* Action buttons */}

@@ -91,7 +91,7 @@ export default function AboutPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                At Jayant Solutions, I help startups, businesses, and enterprises transform ideas into powerful digital products. From concept to code, I build solutions that are intelligent, scalable, and future-ready.
+                At Jayant Web & AI Systems, I help startups, businesses, and enterprises transform ideas into powerful digital products. From concept to code, I build solutions that are intelligent, scalable, and future-ready.
               </p>
               
               <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto">
@@ -117,7 +117,7 @@ export default function AboutPage() {
               <div className="w-full aspect-[4/3] rounded-3xl overflow-hidden border border-border-custom relative shadow-lg">
                 <Image
                   src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80"
-                  alt="Jayant Solutions collaborative digital workspace - Team designing software"
+                  alt="Jayant Web & AI Systems collaborative digital workspace - Team designing software"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   priority
@@ -168,7 +168,7 @@ export default function AboutPage() {
               {/* Left Column: Founder Copy */}
               <div className="lg:col-span-5 flex flex-col gap-6">
                 <p className="text-xs md:text-sm text-text-muted leading-relaxed">
-                  Jayant Solutions was founded with a simple mission — to help businesses leverage modern technology to solve real-world problems.
+                  Jayant Web & AI Systems was founded with a simple mission — to help businesses leverage modern technology to solve real-world problems.
                 </p>
                 <p className="text-xs md:text-sm text-text-muted leading-relaxed">
                   What started as a passion for coding and automation has grown into a full-service digital solutions practice trusted by startups, non-profits, and professionals.
@@ -188,7 +188,7 @@ export default function AboutPage() {
                 <div className="w-full max-w-[280px] aspect-[3/4] rounded-3xl overflow-hidden border-2 border-border-custom shadow-lg relative bg-neutral-900">
                   <Image
                     src="/jayant.webp"
-                    alt="Jayant Olhyan - Founder and Lead Developer at Jayant Solutions"
+                    alt="Jayant Olhyan - Founder and Lead Developer at Jayant Web & AI Systems"
                     fill
                     sizes="(max-width: 768px) 100vw, 280px"
                     className="object-cover"

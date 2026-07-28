@@ -37,7 +37,7 @@ export default function DownloadsPage() {
               <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
                 Discover More About <br />
                 <span className="text-primary underline decoration-primary/40 decoration-4 underline-offset-8">
-                  Jayant Solutions
+                  Jayant Web & AI Systems
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
