@@ -1,14 +1,13 @@
 import React from "react";
-import { GraduationCap, Heart, Shield, Landmark, Eye, HelpCircle } from "lucide-react";
+import { GraduationCap, Trophy, Code, Laptop, Cpu } from "lucide-react";
 
 export default function ProofStrip() {
-  const companies = [
-    { name: "Healthkinator", icon: <Heart className="size-4 text-primary/80" /> },
-    { name: "Teacher Sathi", icon: <GraduationCap className="size-4 text-primary/80" /> },
-    { name: "WeAct", icon: <Shield className="size-4 text-primary/80" /> },
-    { name: "KhelClan", icon: <Landmark className="size-4 text-primary/80" /> },
-    { name: "FarmIQ", icon: <Eye className="size-4 text-primary/80" /> },
-    { name: "CivicSetu", icon: <HelpCircle className="size-4 text-primary/80" /> },
+  const credentials = [
+    { text: "12+ Projects Shipped", icon: <Laptop className="size-4 text-primary/80" /> },
+    { text: "Hackathon Finalist (ET GenAI Hackathon 2025)", icon: <Trophy className="size-4 text-primary/80" /> },
+    { text: "MSIT Delhi (B.Tech CSE)", icon: <GraduationCap className="size-4 text-primary/80" /> },
+    { text: "IIT Guwahati (B.Sc. Data Science & AI)", icon: <Cpu className="size-4 text-primary/80" /> },
+    { text: "Open Source Contributor", icon: <Code className="size-4 text-primary/80" /> },
   ];
 
   return (
@@ -18,14 +17,14 @@ export default function ProofStrip() {
           VERIFIED CREDENTIALS
         </span>
         <div className="flex flex-wrap items-center justify-center gap-y-4 gap-x-8 md:gap-x-12 px-6">
-          {companies.map((company, i) => (
+          {credentials.map((cred, i) => (
             <div
               key={i}
               className="flex items-center gap-2 text-text-muted hover:text-text-base transition-colors duration-300"
             >
-              {company.icon}
+              {cred.icon}
               <span className="font-serif text-sm font-bold tracking-tight">
-                {company.name}
+                {cred.text}
               </span>
             </div>
           ))}
