@@ -151,7 +151,7 @@ export default function DownloadsPage() {
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-text-muted">
                 <li className="flex items-start gap-2">
                   <Check className="size-4 text-primary shrink-0 mt-0.5" />
-                  <span>Founder's engineering background and principles.</span>
+                  <span>Founder&apos;s engineering background and principles.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="size-4 text-primary shrink-0 mt-0.5" />

@@ -61,13 +61,13 @@ export default function NotFound() {
               Page Not Found
             </h2>
             <p className="text-base md:text-lg text-text-muted mb-8 leading-relaxed max-w-lg">
-              Oops! The page you're looking for seems to have wandered off. It might have been moved, deleted, or never existed in the first place.
+              Oops! The page you&apos;re looking for seems to have wandered off. It might have been moved, deleted, or never existed in the first place.
             </p>
 
             <div className="flex items-center gap-3 bg-card-bg border border-primary/20 rounded-xl p-4 mb-8 shadow-sm max-w-md">
               <Info className="size-5 text-primary flex-shrink-0" />
               <p className="text-sm text-text-base font-medium">
-                Let's get you back on track to exploring our digital solutions.
+                Let&apos;s get you back on track to exploring our digital solutions.
               </p>
             </div>
 
@@ -100,7 +100,7 @@ export default function NotFound() {
                 <div className="relative w-64 h-64 bg-card-bg rounded-3xl border-2 border-primary/20 shadow-2xl flex flex-col items-center justify-center">
                   <div className="absolute -top-6 -right-6 bg-white dark:bg-neutral-800 shadow-xl border border-border-custom rounded-2xl rounded-bl-none p-4 rotate-6 max-w-[200px]">
                     <p className="text-sm font-medium text-text-base leading-snug">
-                      Uh-oh! <br/>We couldn't find that page. <span className="text-primary animate-pulse">🔍</span>
+                      Uh-oh! <br/>We couldn&apos;t find that page. <span className="text-primary animate-pulse">🔍</span>
                     </p>
                   </div>
                   

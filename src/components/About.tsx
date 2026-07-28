@@ -19,7 +19,7 @@ export default function About() {
           {/* Right Column: Founder Copy */}
           <div className="w-full md:w-3/5 flex flex-col justify-center items-start text-left">
             <span className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-primary mb-2">
-              Founder's Note
+              Founder&apos;s Note
             </span>
             <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mb-6">
               My Philosophy
