@@ -44,7 +44,7 @@ export default function MaintenanceServicesPage() {
       price: "Custom",
       billing: "",
       desc: "Tailored for large-scale applications.",
-      cta: "Contact Us",
+      cta: "contact me",
       popular: false,
     },
   ];
@@ -162,11 +162,11 @@ export default function MaintenanceServicesPage() {
           {/* Why Choose Our Maintenance Services & Flexible Maintenance Plans Split */}
           <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start py-8 border-t border-border-custom/20 pt-16">
             
-            {/* Left: Why Choose us */}
+            {/* Left: why work with me */}
             <div className="lg:col-span-5 flex flex-col gap-6 text-left w-full">
               <div>
                 <span className="font-mono text-[9px] uppercase tracking-wider text-primary border border-primary/20 bg-primary/10 px-2.5 py-0.5 rounded-full mb-3 inline-block">
-                  WHY CHOOSE US
+                  why work with me
                 </span>
                 <h3 className="font-serif text-2xl md:text-4xl font-bold text-text-base leading-tight">
                   Why Choose Our Maintenance Services?

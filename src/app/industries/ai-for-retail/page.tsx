@@ -118,7 +118,7 @@ export default function AIRetailPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We help retailers leverage AI to understand customers better, optimize operations, reduce costs, and drive growth across online and offline channels.
+                I help retailers leverage AI to understand customers better, optimize operations, reduce costs, and drive growth across online and offline channels.
               </p>
 
               {/* Action buttons */}
@@ -195,7 +195,7 @@ export default function AIRetailPage() {
                 Our AI Solutions for Retail
               </h2>
               <p className="text-xs md:text-sm text-text-muted leading-relaxed mt-4">
-                From intelligent recommendations to supply chain optimization, we build AI solutions that help retailers stay ahead in a competitive market.
+                From intelligent recommendations to supply chain optimization, I build AI solutions that help retailers stay ahead in a competitive market.
               </p>
             </div>
 

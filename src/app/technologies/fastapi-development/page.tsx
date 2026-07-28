@@ -53,7 +53,7 @@ export default function FastAPIDevelopmentPage() {
   const services = [
     {
       title: "Custom API Development",
-      desc: "We build secure, robust, and efficient RESTful APIs tailored to your requirements.",
+      desc: "I build secure, robust, and efficient RESTful APIs tailored to your requirements.",
       icon: "🔌"
     },
     {
@@ -124,7 +124,7 @@ export default function FastAPIDevelopmentPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We build secure, fast, and scalable APIs using FastAPI – the modern Python framework for building production-ready backend systems.
+                I build secure, fast, and scalable APIs using FastAPI – the modern Python framework for building production-ready backend systems.
               </p>
 
               {/* Action buttons */}
@@ -271,7 +271,7 @@ export default function FastAPIDevelopmentPage() {
                   <span className="text-primary">with FastAPI</span>
                 </h3>
                 <p className="text-xs md:text-sm text-white/70 mb-6 leading-relaxed max-w-lg">
-                  From idea to deployment, we build secure, scalable, and high-performance APIs that power your products.
+                  From idea to deployment, I build secure, scalable, and high-performance APIs that power your products.
                 </p>
                 
                 <div className="flex flex-wrap gap-4 text-white/80">

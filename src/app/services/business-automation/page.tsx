@@ -60,8 +60,8 @@ export default function BusinessAutomationPage() {
   const steps = [
     { id: "01", name: "Discover", desc: "We understand your business, challenges, and goals.", icon: <Compass className="size-5 text-primary" /> },
     { id: "02", name: "Analyze", desc: "We map your current processes and identify automation opportunities.", icon: <ClipboardList className="size-5 text-primary" /> },
-    { id: "03", name: "Design", desc: "We design the right automation workflow and solution.", icon: <Layout className="size-5 text-primary" /> },
-    { id: "04", name: "Build", desc: "We build, integrate, and configure the automation seamlessly.", icon: <Code className="size-5 text-primary" /> },
+    { id: "03", name: "Design", desc: "I design the right automation workflow and solution.", icon: <Layout className="size-5 text-primary" /> },
+    { id: "04", name: "Build", desc: "I build, integrate, and configure the automation seamlessly.", icon: <Code className="size-5 text-primary" /> },
     { id: "05", name: "Test & Optimize", desc: "We test thoroughly and optimize for maximum efficiency.", icon: <CheckSquare className="size-5 text-primary" /> },
     { id: "06", name: "Deploy & Support", desc: "We deploy the solution and provide ongoing support & improvements.", icon: <Rocket className="size-5 text-primary" /> },
   ];
@@ -72,7 +72,7 @@ export default function BusinessAutomationPage() {
     { title: "Time & Cost Efficient", desc: "Save hours of manual work and reduce operational costs.", icon: <Clock className="size-5 text-primary" /> },
     { title: "Scalable & Flexible", desc: "Solutions that grow with your business.", icon: <Settings className="size-5 text-primary" /> },
     { title: "Secure & Reliable", desc: "Built with best practices for security and reliability.", icon: <Lock className="size-5 text-primary" /> },
-    { title: "Ongoing Support", desc: "We're with you beyond deployment.", icon: <Heart className="size-5 text-primary" /> },
+    { title: "Ongoing Support", desc: "I'm with you beyond deployment.", icon: <Heart className="size-5 text-primary" /> },
   ];
 
   const industries = [
@@ -131,7 +131,7 @@ export default function BusinessAutomationPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We help businesses automate repetitive tasks, streamline workflows, and connect tools to improve efficiency, reduce errors, and save valuable time and resources.
+                I help businesses automate repetitive tasks, streamline workflows, and connect tools to improve efficiency, reduce errors, and save valuable time and resources.
               </p>
 
               {/* Action buttons */}
@@ -286,11 +286,11 @@ export default function BusinessAutomationPage() {
             </div>
           </section>
 
-          {/* Why Choose Us */}
+          {/* why work with me */}
           <section className="py-8 relative border-t border-border-custom/30 pt-16">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-                WHY CHOOSE US
+                why work with me
               </span>
               <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
                 Automation That Transforms Your Business
@@ -322,7 +322,7 @@ export default function BusinessAutomationPage() {
                 Automation Solutions for Every Industry
               </h2>
               <p className="text-sm md:text-base text-text-muted mt-2">
-                From startups to enterprises, we help businesses across industries automate and scale.
+                From startups to enterprises, I help businesses across industries automate and scale.
               </p>
             </div>
 

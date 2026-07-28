@@ -138,7 +138,7 @@ export default function BookConsultationPage() {
 
                 <div className="bg-primary/5 border border-primary/10 rounded-2xl p-4 mt-2">
                   <span className="text-[9px] font-mono text-primary font-bold uppercase tracking-wider block mb-1">Security & Privacy</span>
-                  <span className="text-[9px] text-text-muted leading-normal block">Your information is safe with us. We respect your privacy and never share your details.</span>
+                  <span className="text-[9px] text-text-muted leading-normal block">Your information is safe with me. I respect your privacy and never share your details.</span>
                 </div>
               </div>
 
@@ -312,7 +312,7 @@ export default function BookConsultationPage() {
               href="/contact"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary hover:bg-primary-hover text-xs font-mono font-bold text-white transition-colors shrink-0 shadow-md"
             >
-              <span>Contact Us</span>
+              <span>contact me</span>
               <ArrowRight className="size-4" />
             </Link>
           </section>

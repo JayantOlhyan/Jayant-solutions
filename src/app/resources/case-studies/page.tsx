@@ -71,7 +71,7 @@ export default function CaseStudiesPage() {
 
   const trustPoints = [
     "We understand your business goals and challenges.",
-    "We build tailored solutions that deliver real results.",
+    "I build tailored solutions that deliver real results.",
     "We ensure transparency, timely delivery, and long-term support.",
     "We focus on measurable impact and continuous improvement.",
   ];
@@ -116,7 +116,7 @@ export default function CaseStudiesPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-6">
-                Explore how we help businesses turn ideas into powerful digital solutions that drive growth, efficiency, and impact.
+                Explore how I help businesses turn ideas into powerful digital solutions that drive growth, efficiency, and impact.
               </p>
               
               <div className="flex flex-wrap gap-4 text-[10px] font-mono font-bold text-text-muted">
@@ -205,7 +205,7 @@ export default function CaseStudiesPage() {
               {/* Why clients trust us */}
               <div className="hog-card rounded-3xl p-6 md:p-8 bg-card-bg/60 border border-border-custom flex flex-col gap-4">
                 <h3 className="font-serif text-base font-bold text-text-base border-b border-border-custom pb-2">
-                  Why Our Clients Trust Us
+                  Why my clients Trust Us
                 </h3>
                 <div className="space-y-4">
                   {trustPoints.map((item, idx) => (

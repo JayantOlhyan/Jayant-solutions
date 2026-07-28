@@ -15,7 +15,7 @@ export default function ProofStrip() {
     <section className="w-full py-8 border-y border-border-custom bg-card-bg/20 backdrop-blur-sm">
       <div className="w-full flex flex-col items-center gap-4">
         <span className="font-mono text-[10px] tracking-widest uppercase text-text-muted font-bold text-center">
-          TRUSTED BY INNOVATIVE COMPANIES
+          VERIFIED CREDENTIALS
         </span>
         <div className="flex flex-wrap items-center justify-center gap-y-4 gap-x-8 md:gap-x-12 px-6">
           {companies.map((company, i) => (

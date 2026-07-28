@@ -102,7 +102,7 @@ export default function ServicesPage() {
             {/* Left Column: Copy */}
             <div className="lg:col-span-7 flex flex-col items-start">
               <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-                OUR SERVICES
+                my services
               </span>
               <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
                 Powerful Digital Solutions Built to{" "}
@@ -240,7 +240,7 @@ export default function ServicesPage() {
                     href="/contact"
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 hover:bg-white/5 px-6 py-2.5 text-xs font-mono font-bold text-white transition-all duration-200"
                   >
-                    <span>Contact Us</span>
+                    <span>contact me</span>
                     <ArrowRight className="size-3.5" />
                   </Link>
                 </div>

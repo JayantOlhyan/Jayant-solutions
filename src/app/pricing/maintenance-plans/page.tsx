@@ -75,7 +75,7 @@ export default function MaintenancePlansPage() {
         "SLA & Guaranteed Response",
         "Quarterly Strategy Review",
       ],
-      cta: "Talk to Us",
+      cta: "Talk to me",
       popular: false,
     },
   ];
@@ -84,7 +84,7 @@ export default function MaintenancePlansPage() {
     { title: "24/7 Uptime Monitoring", desc: "We keep an eye on your website 24/7." },
     { title: "Regular Backups", desc: "Your data is safe with scheduled backups." },
     { title: "Security First", desc: "Proactive scans and threat detection." },
-    { title: "Quick Support", desc: "We're here when you need us." },
+    { title: "Quick Support", desc: "I'm here when you need us." },
     { title: "Detailed Reporting", desc: "Transparent reports every month." },
   ];
 
@@ -147,7 +147,7 @@ export default function MaintenancePlansPage() {
               <div className="relative w-full max-w-[420px] aspect-square flex items-center justify-center p-8 select-none">
                 <div className="w-full h-[85%] rounded-2xl bg-[#0B0F19] border-2 border-white/10 shadow-2xl p-6 flex flex-col justify-center text-left text-white/90">
                   <h4 className="font-serif text-lg font-bold mb-3">We don&apos;t just build.</h4>
-                  <h3 className="font-serif text-2xl font-black text-primary leading-tight">We take care of what we build.</h3>
+                  <h3 className="font-serif text-2xl font-black text-primary leading-tight">We take care of what I build.</h3>
                 </div>
               </div>
             </div>
@@ -316,7 +316,7 @@ export default function MaintenancePlansPage() {
                   <span className="text-primary">You Focus on Growth.</span>
                 </h3>
                 <p className="text-xs md:text-sm text-white/70 mb-6 leading-relaxed max-w-lg">
-                  Choose the perfect plan and leave the rest to us. Get in touch to get started!
+                  Choose the perfect plan and leave the rest to me. Get in touch to get started!
                 </p>
               </div>
 

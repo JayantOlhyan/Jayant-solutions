@@ -32,7 +32,7 @@ export default function Footer() {
     {
       title: "Company",
       links: [
-        { name: "About Us", href: "/about" },
+        { name: "about me", href: "/about" },
         { name: "Founder", href: "/company/founder" },
         { name: "Careers", href: "/company/careers" },
         { name: "Partners", href: "/company/partners" },
@@ -114,7 +114,7 @@ export default function Footer() {
               </svg>
             </div>
             <span className="font-serif text-sm font-bold tracking-tight text-text-base">
-              Jayant Web & AI Systems
+              Jayant Solutions
             </span>
           </div>
           <p className="text-xs text-text-muted leading-relaxed">
@@ -192,7 +192,7 @@ export default function Footer() {
 
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-border-custom/10 pt-4">
           <span className="text-[10px] font-mono text-text-muted">
-            © {currentYear} Jayant Web & AI Systems. All Rights Reserved.
+            © {currentYear} Jayant Solutions. All Rights Reserved.
           </span>
         </div>
       </div>

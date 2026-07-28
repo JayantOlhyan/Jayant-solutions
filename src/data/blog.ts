@@ -42,7 +42,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Measuring Business Value</h2>
-      <p>By implementing targeted AI agents, businesses observe immediate shifts in performance, reducing operational overhead by up to 40% and ensuring 24/7 client response readiness. We build custom models tailored to your business, safeguarding your intellectual property and data inputs throughout the deployment lifetime.</p>
+      <p>By implementing targeted AI agents, businesses observe immediate shifts in performance, reducing operational overhead by up to 40% and ensuring 24/7 client response readiness. I build custom models tailored to your business, safeguarding your intellectual property and data inputs throughout the deployment lifetime.</p>
     `
   },
   {
@@ -74,7 +74,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>A Future-Proof Investment</h2>
-      <p>Investing in custom software allows you to scale features seamlessly as your team grows. From custom partner databases to client portals, we build responsive, robust tools designed to last.</p>
+      <p>Investing in custom software allows you to scale features seamlessly as your team grows. From custom partner databases to client portals, I build responsive, robust tools designed to last.</p>
     `
   },
   {
@@ -106,7 +106,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Partnering for Growth</h2>
-      <p>We build web portals engineered for business growth. Our development methodology targets lightweight builds, clean components, and fast loading metrics.</p>
+      <p>I build web portals engineered for business growth. Our development methodology targets lightweight builds, clean components, and fast loading metrics.</p>
     `
   },
   {
@@ -138,7 +138,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Empowering Modern Teams</h2>
-      <p>We design custom mobile interfaces backed by scalable cloud infrastructure to ensure stable performance under load, helping you reach users wherever they are.</p>
+      <p>I design custom mobile interfaces backed by scalable cloud infrastructure to ensure stable performance under load, helping you reach users wherever they are.</p>
     `
   },
   {
@@ -170,7 +170,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Focusing on What Matters</h2>
-      <p>By automating repetitive tasks, you free your team to focus on sales, customer service, and product improvements. We design efficient automation paths tailored to your business.</p>
+      <p>By automating repetitive tasks, you free your team to focus on sales, customer service, and product improvements. I design efficient automation paths tailored to your business.</p>
     `
   },
   {

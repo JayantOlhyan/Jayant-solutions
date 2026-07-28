@@ -58,9 +58,9 @@ export default function AIChatbotDevelopmentPage() {
 
   const steps = [
     { id: "01", name: "Discover", desc: "We understand your business, goals, users and data sources.", icon: <Compass className="size-5 text-primary" /> },
-    { id: "02", name: "Design", desc: "We design conversation flows and user experience.", icon: <ClipboardList className="size-5 text-primary" /> },
-    { id: "03", name: "Develop", desc: "We build and train the chatbot using advanced AI technologies.", icon: <Code className="size-5 text-primary" /> },
-    { id: "04", name: "Integrate", desc: "We integrate the bot with your platforms and tools.", icon: <Layers className="size-5 text-primary" /> },
+    { id: "02", name: "Design", desc: "I design conversation flows and user experience.", icon: <ClipboardList className="size-5 text-primary" /> },
+    { id: "03", name: "Develop", desc: "I build and train the chatbot using advanced AI technologies.", icon: <Code className="size-5 text-primary" /> },
+    { id: "04", name: "Integrate", desc: "I integrate the bot with your platforms and tools.", icon: <Layers className="size-5 text-primary" /> },
     { id: "05", name: "Test", desc: "We test for accuracy, performance and edge cases.", icon: <CheckSquare className="size-5 text-primary" /> },
     { id: "06", name: "Deploy & Optimize", desc: "We deploy, monitor and continuously optimize for better results.", icon: <Rocket className="size-5 text-primary" /> },
   ];
@@ -132,7 +132,7 @@ export default function AIChatbotDevelopmentPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We build AI-powered chatbots that understand, engage, and deliver real value 24/7.
+                I build AI-powered chatbots that understand, engage, and deliver real value 24/7.
               </p>
 
               {/* Action buttons */}
@@ -284,11 +284,11 @@ export default function AIChatbotDevelopmentPage() {
             </div>
           </section>
 
-          {/* Why Choose Us */}
+          {/* why work with me */}
           <section className="py-8 relative border-t border-border-custom/30 pt-16">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-                WHY CHOOSE US
+                why work with me
               </span>
               <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
                 Chatbots That Deliver Real Business Impact

@@ -14,7 +14,7 @@ export default function PrivacyPolicyPage() {
       title: "1. Information We Collect",
       content: (
         <>
-          <p>We collect information that you provide directly to us, such as your name, email address, phone number, company name, and project details when you contact us, request a quote, or use our services.</p>
+          <p>We collect information that you provide directly to me, such as your name, email address, phone number, company name, and project details when you contact me, request a quote, or use my services.</p>
           <p className="mt-2">We may also collect automatically certain information about your device and usage, such as IP address, browser type, pages visited, and browsing behavior.</p>
         </>
       )
@@ -24,7 +24,7 @@ export default function PrivacyPolicyPage() {
       title: "2. How We Use Your Information",
       content: (
         <>
-          <p>We use the information we collect to provide, maintain, and improve our services, communicate with you, process your requests, send you updates, and ensure better user experience.</p>
+          <p>We use the information we collect to provide, maintain, and improve my services, communicate with you, process your requests, send you updates, and ensure better user experience.</p>
         </>
       )
     },
@@ -33,7 +33,7 @@ export default function PrivacyPolicyPage() {
       title: "3. How We Share Your Information",
       content: (
         <>
-          <p>We do not sell or rent your personal information. We may share your information with trusted service providers who assist us in operating our website and delivering services, under strict confidentiality agreements or as required by law.</p>
+          <p>I do not sell or rent your personal information. We may share your information with trusted service providers who assist us in operating our website and delivering services, under strict confidentiality agreements or as required by law.</p>
         </>
       )
     },
@@ -69,7 +69,7 @@ export default function PrivacyPolicyPage() {
       title: "7. Third-Party Links",
       content: (
         <>
-          <p>Our website may contain links to third-party websites. We are not responsible for the privacy practices or content of those websites.</p>
+          <p>Our website may contain links to third-party websites. I am not responsible for the privacy practices or content of those websites.</p>
         </>
       )
     },
@@ -78,7 +78,7 @@ export default function PrivacyPolicyPage() {
       title: "8. Children's Privacy",
       content: (
         <>
-          <p>Our services are not directed to individuals under the age of 13. We do not knowingly collect personal information from children.</p>
+          <p>my services are not directed to individuals under the age of 13. I do not knowingly collect personal information from children.</p>
         </>
       )
     },
@@ -92,11 +92,11 @@ export default function PrivacyPolicyPage() {
       )
     },
     {
-      id: "10. Contact Us",
-      title: "10. Contact Us",
+      id: "10. contact me",
+      title: "10. contact me",
       content: (
         <>
-          <p>If you have any questions or concerns about this Privacy Policy, please contact us:</p>
+          <p>If you have any questions or concerns about this Privacy Policy, please contact me:</p>
           <div className="mt-3 flex flex-wrap gap-4 text-xs font-mono">
             <span>✉️ jayantwebaisystems@gmail.com</span>
             <span>📞 +91 96673 44125</span>
@@ -130,7 +130,7 @@ export default function PrivacyPolicyPage() {
                 Privacy Policy
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-6">
-                At Jayant Web & AI Systems, we value your trust and are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
+                At Jayant Solutions, I value your trust and are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use my services.
               </p>
               
               <div className="flex flex-wrap gap-4 text-[10px] font-mono font-bold text-text-muted">
@@ -189,13 +189,13 @@ export default function PrivacyPolicyPage() {
                   <span>❓</span> Questions?
                 </h4>
                 <p className="text-[10px] text-text-muted leading-relaxed">
-                  If you have any questions about this Privacy Policy, feel free to contact us.
+                  If you have any questions about this Privacy Policy, feel free to contact me.
                 </p>
                 <Link
                   href="/contact"
                   className="w-full text-center border border-border-custom bg-white hover:bg-neutral-50 dark:bg-card-bg dark:hover:bg-neutral-900 py-2 text-[10px] font-mono font-bold rounded-lg block mt-2 text-text-base"
                 >
-                  Contact Us
+                  contact me
                 </Link>
               </div>
             </div>

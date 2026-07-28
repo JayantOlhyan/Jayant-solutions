@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Artificial Intelligence – Jayant Web & AI Systems",
-  description: "Explore the Artificial Intelligence page of Jayant Web & AI Systems. We provide custom AI, Web & Software Development solutions tailored for your business needs.",
+  title: "Artificial Intelligence – Jayant Solutions",
+  description: "Explore the Artificial Intelligence page of Jayant Solutions. I build custom websites, AI automation systems, and business software designed for your operational needs.",
   alternates: {
     canonical: "/blog/artificial-intelligence",
     languages: {

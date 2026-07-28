@@ -53,7 +53,7 @@ export default function NextjsDevelopmentPage() {
   const services = [
     {
       title: "Custom Next.js Development",
-      desc: "We build pixel-perfect, high-performance web applications tailored to your goals.",
+      desc: "I build pixel-perfect, high-performance web applications tailored to your goals.",
       icon: "💻"
     },
     {
@@ -124,7 +124,7 @@ export default function NextjsDevelopmentPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We build fast, SEO-friendly, and scalable web applications using Next.js – the React framework for production.
+                I build fast, SEO-friendly, and scalable web applications using Next.js – the React framework for production.
               </p>
 
               {/* Action buttons */}
@@ -271,7 +271,7 @@ export default function NextjsDevelopmentPage() {
                   <span className="text-primary">Scalable & Powerful</span>
                 </h3>
                 <p className="text-xs md:text-sm text-white/70 mb-6 leading-relaxed max-w-lg">
-                  From idea to deployment, we help you build modern web applications with Next.js that drive real business results.
+                  From idea to deployment, I help you build modern web applications with Next.js that drive real business results.
                 </p>
                 
                 <div className="flex flex-wrap gap-4 text-white/80">

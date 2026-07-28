@@ -108,7 +108,7 @@ export default function IndustriesPage() {
               <div className="relative w-full max-w-[420px] aspect-square flex items-center justify-center p-8 select-none">
                 <div className="w-full h-[85%] rounded-2xl bg-[#0B0F19] border-2 border-white/10 shadow-2xl p-6 flex flex-col justify-center text-left text-white/90">
                   <h4 className="font-serif text-lg font-bold mb-2">Every industry has unique challenges.</h4>
-                  <h3 className="font-serif text-2xl font-black text-primary leading-tight mb-2">We build solutions that make a difference.</h3>
+                  <h3 className="font-serif text-2xl font-black text-primary leading-tight mb-2">I build solutions that make a difference.</h3>
                   <p className="text-xs text-white/70">Let&apos;s build the right solution for your industry.</p>
                 </div>
               </div>
@@ -166,14 +166,14 @@ export default function IndustriesPage() {
             </div>
           </section>
 
-          {/* Why Partner With Us */}
+          {/* Why Partner with me */}
           <section className="py-8 relative border-t border-border-custom/30 pt-16">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-                WHY CHOOSE US
+                why work with me
               </span>
               <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
-                Why Partner With Us?
+                Why Partner with me?
               </h2>
             </div>
 

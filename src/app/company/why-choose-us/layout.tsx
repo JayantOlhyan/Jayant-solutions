@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Why Choose Us – Jayant Web & AI Systems",
-  description: "Explore the Why Choose Us page of Jayant Web & AI Systems. We provide custom AI, Web & Software Development solutions tailored for your business needs.",
+  title: "why work with me – Jayant Solutions",
+  description: "Explore the why work with me page of Jayant Solutions. I build custom websites, AI automation systems, and business software designed for your operational needs.",
   alternates: {
     canonical: "/company/why-choose-us",
     languages: {

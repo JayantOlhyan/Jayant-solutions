@@ -128,7 +128,7 @@ export default function PostgreSQLDevelopmentPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We design, develop, and optimize powerful applications using PostgreSQL – the world&apos;s most advanced open-source relational database.
+                I design, develop, and optimize powerful applications using PostgreSQL – the world&apos;s most advanced open-source relational database.
               </p>
 
               {/* Action buttons */}
@@ -275,7 +275,7 @@ export default function PostgreSQLDevelopmentPage() {
                   <span className="text-primary">Applications with PostgreSQL</span>
                 </h3>
                 <p className="text-xs md:text-sm text-white/70 mb-6 leading-relaxed max-w-lg">
-                  From idea to implementation, we build data-driven applications that are fast, secure and future-ready.
+                  From idea to implementation, I build data-driven applications that are fast, secure and future-ready.
                 </p>
                 
                 <div className="flex flex-wrap gap-4 text-white/80">

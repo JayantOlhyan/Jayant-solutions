@@ -13,7 +13,7 @@ export default function PortfolioPage() {
 
   const stats = [
     { number: "50+", label: "Projects Delivered", desc: "Across industries" },
-    { number: "100%", label: "Client Satisfaction", desc: "We build relationships" },
+    { number: "100%", label: "Client Satisfaction", desc: "I build relationships" },
     { number: "5+", label: "Years of Experience", desc: "Building digital solutions" },
     { number: "10+", label: "Industries Served", desc: "Startups to Enterprises" },
   ];
@@ -154,10 +154,10 @@ export default function PortfolioPage() {
               </span>
               <h1 className="font-serif text-4xl md:text-6xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
                 Solutions We&apos;ve Built.{" "}
-                <span className="text-primary block sm:inline">Impact We Deliver.</span>
+                <span className="text-primary block sm:inline">Impact I deliver.</span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                From AI-powered platforms to full-stack web applications, we build digital products that solve real problems and create measurable impact.
+                From AI-powered platforms to full-stack web applications, I build digital products that solve real problems and create measurable impact.
               </p>
               
               <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto">
@@ -276,7 +276,7 @@ export default function PortfolioPage() {
                 OUR COMMITMENT
               </span>
               <h3 className="font-serif text-2xl md:text-4xl font-bold text-white mb-4 leading-tight">
-                We don&apos;t just build products, we build partnerships.
+                We don&apos;t just build products, I build partnerships.
               </h3>
               <p className="text-xs md:text-sm text-white/70 mb-6 leading-relaxed max-w-lg">
                 Every project we take on is a partnership focused on understanding your goals, solving the right problems, and delivering solutions that drive long-term growth.

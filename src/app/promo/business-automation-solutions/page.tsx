@@ -60,13 +60,13 @@ export default function PromoAutomationSolutionsPage() {
     {
       step: "2",
       title: "Plan",
-      desc: "We design a custom automation strategy for your needs.",
+      desc: "I design a custom automation strategy for your needs.",
       icon: "📝"
     },
     {
       step: "3",
       title: "Build",
-      desc: "We build, integrate and configure automation workflows.",
+      desc: "I build, integrate and configure automation workflows.",
       icon: "⚙️"
     },
     {
@@ -125,7 +125,7 @@ export default function PromoAutomationSolutionsPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We help businesses automate repetitive tasks, streamline workflows and integrate powerful tools so you can focus on what truly matters.
+                I help businesses automate repetitive tasks, streamline workflows and integrate powerful tools so you can focus on what truly matters.
               </p>
 
               {/* Action buttons */}

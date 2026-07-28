@@ -118,7 +118,7 @@ export default function AIAgriculturePage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We help farmers, agri-businesses, and governments leverage AI to make data-driven decisions, optimize resources, reduce risks, and build a resilient agricultural ecosystem.
+                I help farmers, agri-businesses, and governments leverage AI to make data-driven decisions, optimize resources, reduce risks, and build a resilient agricultural ecosystem.
               </p>
 
               {/* Action buttons */}

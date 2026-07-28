@@ -219,7 +219,7 @@ export default function RequestQuotePage() {
                   </div>
 
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-[10px] font-mono font-bold text-text-base">How did you hear about us?</label>
+                    <label className="text-[10px] font-mono font-bold text-text-base">How did you hear about me?</label>
                     <select
                       value={formData.source}
                       onChange={(e) => setFormData({ ...formData, source: e.target.value })}
@@ -248,7 +248,7 @@ export default function RequestQuotePage() {
                   <div className="flex flex-col">
                     <span className="text-[10px] font-mono font-bold text-text-base">Your information is secure</span>
                     <p className="text-[9px] text-text-muted mt-1 leading-normal">
-                      We value your privacy. All information you provide will be kept confidential and used only to process your quote request.
+                      I value your privacy. All information you provide will be kept confidential and used only to process your quote request.
                     </p>
                   </div>
                 </div>
@@ -277,10 +277,10 @@ export default function RequestQuotePage() {
                   </div>
                 </div>
 
-                {/* Why choose us checkmarks */}
+                {/* why work with me checkmarks */}
                 <div className="hog-card rounded-3xl p-6 md:p-8 bg-card-bg/60 border border-border-custom flex flex-col gap-4">
                   <h3 className="font-serif text-sm font-bold text-text-base border-b border-border-custom pb-2">
-                    Why Choose Us?
+                    why work with me?
                   </h3>
                   <div className="space-y-3">
                     {benefits.map((b, i) => (
@@ -307,7 +307,7 @@ export default function RequestQuotePage() {
                     href="/contact"
                     className="w-full inline-flex items-center justify-center gap-1.5 rounded-xl bg-primary hover:bg-primary-hover text-white py-2 text-xs font-mono font-bold transition-all shadow-sm mt-4"
                   >
-                    <span>Contact Us</span>
+                    <span>contact me</span>
                     <ArrowRight className="size-3.5" />
                   </Link>
                 </div>

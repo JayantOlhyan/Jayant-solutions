@@ -12,9 +12,9 @@ export default function WhyChooseUsPage() {
     { title: "Innovation at Core", desc: "From AI to automation, we bring innovation to solve complex problems in simple ways.", icon: <Compass className="size-5 text-primary" /> },
     { title: "Experienced & Passionate Team", desc: "A team of skilled developers, designers, and problem solvers dedicated to your success.", icon: <UsersIcon className="size-5 text-primary" /> },
     { title: "Quality & Reliability", desc: "We follow a rigorous quality process to ensure reliable, bug-free, and secure solutions.", icon: <ShieldCheck className="size-5 text-primary" /> },
-    { title: "On-Time Delivery", desc: "We respect your time and always strive to deliver projects on time without compromising quality.", icon: <ClockIcon className="size-5 text-primary" /> },
+    { title: "On-Time Delivery", desc: "I respect your time and always strive to deliver projects on time without compromising quality.", icon: <ClockIcon className="size-5 text-primary" /> },
     { title: "Transparent Communication", desc: "Clear, consistent, and proactive communication at every stage of the project.", icon: <MessageSquare className="size-5 text-primary" /> },
-    { title: "Long-Term Partnership", desc: "We build long-term relationships and grow together with your business.", icon: <Heart className="size-5 text-primary" /> },
+    { title: "Long-Term Partnership", desc: "I build long-term relationships and grow together with your business.", icon: <Heart className="size-5 text-primary" /> },
   ];
 
   const stats = [
@@ -28,7 +28,7 @@ export default function WhyChooseUsPage() {
   const approach = [
     { id: "1", name: "Understand", desc: "We deeply understand your goals, challenges, and audience.", icon: <SearchIcon className="size-5 text-primary" /> },
     { id: "2", name: "Plan", desc: "We create a clear strategy and roadmap tailored to your needs.", icon: <ClipboardList className="size-5 text-primary" /> },
-    { id: "3", name: "Design & Build", desc: "We design and build with precision, following best practices.", icon: <Code className="size-5 text-primary" /> },
+    { id: "3", name: "Design & Build", desc: "I design and build with precision, following best practices.", icon: <Code className="size-5 text-primary" /> },
     { id: "4", name: "Test & Optimize", desc: "We test thoroughly and optimize for performance, security, and scalability.", icon: <CheckSquare className="size-5 text-primary" /> },
     { id: "5", name: "Deploy", desc: "We deploy seamlessly and ensure a smooth launch.", icon: <Rocket className="size-5 text-primary" /> },
     { id: "6", name: "Support & Grow", desc: "We provide continuous support and help your business grow.", icon: <Heart className="size-5 text-primary" /> },
@@ -43,7 +43,7 @@ export default function WhyChooseUsPage() {
           <nav className="text-xs font-mono text-text-muted flex items-center gap-2 pt-8">
             <Link href="/" className="hover:text-primary transition-colors">Home</Link>
             <span>&gt;</span>
-            <span className="text-text-base">Why Choose Us</span>
+            <span className="text-text-base">why work with me</span>
           </nav>
 
           {/* Hero split */}
@@ -52,7 +52,7 @@ export default function WhyChooseUsPage() {
             {/* Left */}
             <div className="lg:col-span-7 flex flex-col items-start">
               <span className="font-mono text-[9px] uppercase tracking-widest text-primary border border-primary/20 bg-primary/5 px-2.5 py-0.5 rounded-full mb-4">
-                WHY CHOOSE US
+                why work with me
               </span>
               <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
                 Built on Trust.{" "}
@@ -62,7 +62,7 @@ export default function WhyChooseUsPage() {
                 by Impact.
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We go beyond delivering solutions—we build long-term partnerships. Here&apos;s why businesses choose Jayant Web & AI Systems.
+                We go beyond delivering solutions—I build long-term partnerships. Here&apos;s why businesses choose Jayant Solutions.
               </p>
 
               {/* Action buttons */}
@@ -93,7 +93,7 @@ export default function WhyChooseUsPage() {
                     “
                   </div>
                   <div>
-                    <h5 className="text-xs font-serif font-bold">Our mission is simple: deliver smart, scalable, and impactful digital solutions that help businesses grow.</h5>
+                    <h5 className="text-xs font-serif font-bold">my mission is simple: deliver smart, scalable, and impactful digital solutions that help businesses grow.</h5>
                     <p className="text-[10px] text-text-muted mt-2 font-mono">Founder & CEO</p>
                   </div>
                 </div>
@@ -133,14 +133,14 @@ export default function WhyChooseUsPage() {
             ))}
           </section>
 
-          {/* Our Approach */}
+          {/* my approach */}
           <section className="py-8 relative border-t border-border-custom/30 pt-16">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-                OUR APPROACH
+                my approach
               </span>
               <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
-                Our Approach – Your Success
+                my approach – Your Success
               </h2>
             </div>
 
@@ -176,7 +176,7 @@ export default function WhyChooseUsPage() {
                   <span className="text-primary">A Perfect Combination.</span>
                 </h3>
                 <p className="text-xs md:text-sm text-white/70 mb-6 leading-relaxed max-w-lg">
-                  We don&apos;t just build software. We build trust, long-term relationships, and solutions that create real impact.
+                  We don&apos;t just build software. I build trust, long-term relationships, and solutions that create real impact.
                 </p>
               </div>
 

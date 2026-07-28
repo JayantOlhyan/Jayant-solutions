@@ -56,7 +56,7 @@ export default function Navbar() {
     { label: "Careers", href: "/company/careers" },
     { label: "Partners", href: "/company/partners" },
     { label: "Testimonials", href: "/company/testimonials" },
-    { label: "Why Choose Us", href: "/company/why-choose-us" },
+    { label: "why work with me", href: "/company/why-choose-us" },
   ];
 
   const resourcesSubLinks = [
@@ -112,7 +112,7 @@ export default function Navbar() {
             </div>
             <div className="flex flex-col">
               <span className="font-serif text-sm md:text-base font-bold tracking-tight text-white leading-none">
-                Jayant Web & AI Systems
+                Jayant Solutions
               </span>
               <span className="font-sans text-[9px] tracking-[0.08em] uppercase text-white/50 font-medium mt-1">
                 AI & Software Development

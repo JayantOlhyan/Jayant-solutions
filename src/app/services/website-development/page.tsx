@@ -61,16 +61,16 @@ export default function WebsiteDevelopmentPage() {
     { id: "01", name: "Discover", desc: "We understand your business, goals, and requirements.", icon: <Compass className="size-5 text-primary" /> },
     { id: "02", name: "Plan", desc: "We create a strategy, sitemap, and wireframes to define the structure.", icon: <ClipboardList className="size-5 text-primary" /> },
     { id: "03", name: "Design", desc: "We craft stunning UI/UX designs that align with your brand.", icon: <Layout className="size-5 text-primary" /> },
-    { id: "04", name: "Develop", desc: "We build fast, responsive, and secure websites using best practices.", icon: <Code className="size-5 text-primary" /> },
+    { id: "04", name: "Develop", desc: "I build fast, responsive, and secure websites using best practices.", icon: <Code className="size-5 text-primary" /> },
     { id: "05", name: "Test & Launch", desc: "We test thoroughly and launch your website without any hassle.", icon: <Rocket className="size-5 text-primary" /> },
   ];
 
   const whyChoose = [
     { title: "Experienced Team", desc: "Skilled developers and designers with years of experience.", icon: <UsersIcon className="size-5 text-primary" /> },
     { title: "Client-Focused", desc: "We listen, collaborate, and deliver solutions tailored to your goals.", icon: <Heart className="size-5 text-primary" /> },
-    { title: "On-Time Delivery", desc: "We value your time and ensure timely delivery every time.", icon: <Clock className="size-5 text-primary" /> },
+    { title: "On-Time Delivery", desc: "I value your time and ensure timely delivery every time.", icon: <Clock className="size-5 text-primary" /> },
     { title: "Transparent Process", desc: "Clear communication and regular updates throughout the project.", icon: <MessageSquare className="size-5 text-primary" /> },
-    { title: "Long-Term Support", desc: "We're here even after launch to support your growth.", icon: <Lock className="size-5 text-primary" /> },
+    { title: "Long-Term Support", desc: "I'm here even after launch to support your growth.", icon: <Lock className="size-5 text-primary" /> },
   ];
 
   const industries = [
@@ -120,7 +120,7 @@ export default function WebsiteDevelopmentPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We design and develop modern, responsive, and SEO-friendly websites that not only look great but also drive traffic, engage users, and grow your business.
+                I design and develop modern, responsive, and SEO-friendly websites that not only look great but also drive traffic, engage users, and grow your business.
               </p>
 
               {/* Action buttons */}
@@ -264,7 +264,7 @@ export default function WebsiteDevelopmentPage() {
             </div>
           </section>
 
-          {/* Why Choose Us */}
+          {/* why work with me */}
           <section className="py-8 relative border-t border-border-custom/30 pt-16">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
@@ -346,7 +346,7 @@ export default function WebsiteDevelopmentPage() {
                 Solutions for Every Industry
               </h2>
               <p className="text-sm md:text-base text-text-muted mt-2">
-                We build websites for businesses across industries with unique needs.
+                I build websites for businesses across industries with unique needs.
               </p>
             </div>
 

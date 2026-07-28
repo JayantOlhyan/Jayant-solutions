@@ -32,7 +32,7 @@ export default function DisclaimerPage() {
       title: "3. Accuracy of Information",
       content: (
         <>
-          <p>While we strive to keep the information on this website accurate and up-to-date, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability of the website or the information, products, services, or related graphics contained on the website for any purpose.</p>
+          <p>While I strive to keep the information on this website accurate and up-to-date, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability of the website or the information, products, services, or related graphics contained on the website for any purpose.</p>
         </>
       )
     },
@@ -41,7 +41,7 @@ export default function DisclaimerPage() {
       title: "4. External Links",
       content: (
         <>
-          <p>Our website may contain links to external websites that are not provided or maintained by us. We do not endorse and are not responsible for the content, privacy policies, or practices of any third-party websites.</p>
+          <p>Our website may contain links to external websites that are not provided or maintained by us. I do not endorse and are not responsible for the content, privacy policies, or practices of any third-party websites.</p>
         </>
       )
     },
@@ -50,7 +50,7 @@ export default function DisclaimerPage() {
       title: "5. Service Availability",
       content: (
         <>
-          <p>We do our best to ensure uninterrupted access to our website and services; however, we do not guarantee that the website will be available at all times or free from errors, viruses, or other harmful components.</p>
+          <p>We do our best to ensure uninterrupted access to our website and services; however, I do not guarantee that the website will be available at all times or free from errors, viruses, or other harmful components.</p>
         </>
       )
     },
@@ -59,7 +59,7 @@ export default function DisclaimerPage() {
       title: "6. Limitation of Liability",
       content: (
         <>
-          <p>To the fullest extent permitted by law, Jayant Web & AI Systems shall not be liable for any direct, indirect, incidental, consequential, or special damages arising out of or in connection with your use of our website or services.</p>
+          <p>To the fullest extent permitted by law, Jayant Solutions shall not be liable for any direct, indirect, incidental, consequential, or special damages arising out of or in connection with your use of our website or services.</p>
         </>
       )
     },
@@ -68,7 +68,7 @@ export default function DisclaimerPage() {
       title: "7. Third-Party Services",
       content: (
         <>
-          <p>We may use third-party tools, platforms, or services to deliver our solutions. We are not responsible for any downtime, data loss, or issues caused by these third-party providers.</p>
+          <p>We may use third-party tools, platforms, or services to deliver our solutions. I am not responsible for any downtime, data loss, or issues caused by these third-party providers.</p>
         </>
       )
     },
@@ -82,11 +82,11 @@ export default function DisclaimerPage() {
       )
     },
     {
-      id: "9. Contact Us",
-      title: "9. Contact Us",
+      id: "9. contact me",
+      title: "9. contact me",
       content: (
         <>
-          <p>If you have any questions about this Disclaimer, please contact us:</p>
+          <p>If you have any questions about this Disclaimer, please contact me:</p>
           <div className="mt-3 flex flex-wrap gap-4 text-xs font-mono">
             <span>✉️ jayantwebaisystems@gmail.com</span>
             <span>📞 +91 96673 44125</span>
@@ -120,7 +120,7 @@ export default function DisclaimerPage() {
                 Disclaimer
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-6">
-                The information provided by Jayant Web & AI Systems on this website is for general informational purposes only. By using this website and our services, you acknowledge and agree to the terms of this disclaimer.
+                The information provided by Jayant Solutions on this website is for general informational purposes only. By using this website and my services, you acknowledge and agree to the terms of this disclaimer.
               </p>
               
               <div className="flex flex-wrap gap-4 text-[10px] font-mono font-bold text-text-muted">
@@ -179,13 +179,13 @@ export default function DisclaimerPage() {
                   <span>📢</span> Questions?
                 </h4>
                 <p className="text-[10px] text-text-muted leading-relaxed">
-                  If you have any questions about this Disclaimer, please contact us.
+                  If you have any questions about this Disclaimer, please contact me.
                 </p>
                 <Link
                   href="/contact"
                   className="w-full text-center border border-border-custom bg-white hover:bg-neutral-50 dark:bg-card-bg dark:hover:bg-neutral-900 py-2 text-[10px] font-mono font-bold rounded-lg block mt-2 text-text-base"
                 >
-                  Contact Us
+                  contact me
                 </Link>
               </div>
             </div>

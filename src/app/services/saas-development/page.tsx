@@ -58,8 +58,8 @@ export default function SaaSDevelopmentPage() {
   const steps = [
     { id: "01", name: "Discover", desc: "We analyze your idea, market, and users to define success.", icon: <Compass className="size-5 text-primary" /> },
     { id: "02", name: "Plan", desc: "We create a product roadmap and technical architecture.", icon: <ClipboardList className="size-5 text-primary" /> },
-    { id: "03", name: "Design", desc: "We design intuitive UI/UX for a seamless user experience.", icon: <Layout className="size-5 text-primary" /> },
-    { id: "04", name: "Develop", desc: "We build your SaaS with clean code and modern technologies.", icon: <Code className="size-5 text-primary" /> },
+    { id: "03", name: "Design", desc: "I design intuitive UI/UX for a seamless user experience.", icon: <Layout className="size-5 text-primary" /> },
+    { id: "04", name: "Develop", desc: "I build your SaaS with clean code and modern technologies.", icon: <Code className="size-5 text-primary" /> },
     { id: "05", name: "Test", desc: "We test thoroughly for performance, security, and reliability.", icon: <CheckSquare className="size-5 text-primary" /> },
     { id: "06", name: "Launch & Scale", desc: "We deploy and help you scale with continuous improvements.", icon: <Rocket className="size-5 text-primary" /> },
   ];
@@ -69,7 +69,7 @@ export default function SaaSDevelopmentPage() {
     { title: "Secure & Compliant", desc: "Enterprise-grade security and compliance standards.", icon: <Lock className="size-5 text-primary" /> },
     { title: "Faster Time to Market", desc: "Agile development for quick launch and iteration.", icon: <Rocket className="size-5 text-primary" /> },
     { title: "Cost Effective", desc: "Optimize costs with efficient architecture and DevOps.", icon: <Settings className="size-5 text-primary" /> },
-    { title: "Dedicated Support", desc: "We're with you at every step of your SaaS journey.", icon: <Heart className="size-5 text-primary" /> },
+    { title: "Dedicated Support", desc: "I'm with you at every step of your SaaS journey.", icon: <Heart className="size-5 text-primary" /> },
   ];
 
   const techStack = [
@@ -121,7 +121,7 @@ export default function SaaSDevelopmentPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                From idea to enterprise-grade SaaS platform, we build secure, scalable, and feature-rich solutions that users love and businesses rely on.
+                From idea to enterprise-grade SaaS platform, I build secure, scalable, and feature-rich solutions that users love and businesses rely on.
               </p>
 
               {/* Action buttons */}
@@ -198,7 +198,7 @@ export default function SaaSDevelopmentPage() {
                 Our SaaS Development Services
               </h2>
               <p className="text-sm md:text-base text-text-muted mt-2">
-                We build robust, scalable, and secure SaaS platforms tailored to your business goals.
+                I build robust, scalable, and secure SaaS platforms tailored to your business goals.
               </p>
             </div>
 
@@ -262,11 +262,11 @@ export default function SaaSDevelopmentPage() {
             </div>
           </section>
 
-          {/* Why Choose Us */}
+          {/* why work with me */}
           <section className="py-8 relative border-t border-border-custom/30 pt-16">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-                WHY CHOOSE US
+                why work with me
               </span>
               <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
                 SaaS Solutions That Create Lasting Impact

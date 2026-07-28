@@ -146,7 +146,7 @@ export default function PromoAIConsultingPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We help businesses strategy, implement and scale AI solutions that drive growth, enhance efficiency and create a competitive advantage.
+                I help businesses strategy, implement and scale AI solutions that drive growth, enhance efficiency and create a competitive advantage.
               </p>
 
               {/* Action buttons */}
@@ -162,7 +162,7 @@ export default function PromoAIConsultingPage() {
                   href="/services"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-border-custom bg-white hover:bg-neutral-50 dark:bg-card-bg dark:hover:bg-neutral-900 px-7 py-3 text-xs font-mono font-bold text-text-base transition-colors"
                 >
-                  <span>Explore Our Services</span>
+                  <span>Explore my services</span>
                 </Link>
               </div>
 
@@ -206,7 +206,7 @@ export default function PromoAIConsultingPage() {
 
           {/* Client Logos strip */}
           <section className="py-4 border-y border-border-custom/15 text-center">
-            <span className="text-[9px] font-mono font-bold text-text-muted uppercase tracking-widest block mb-6">Trusted by Innovative Companies</span>
+            <span className="text-[9px] font-mono font-bold text-text-muted uppercase tracking-widest block mb-6">VERIFIED CREDENTIALS</span>
             <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-6">
               {clientLogos.map((logo) => (
                 <span key={logo} className="font-serif text-sm font-bold text-text-muted/60 hover:text-text-base transition-colors select-none">
@@ -298,7 +298,7 @@ export default function PromoAIConsultingPage() {
                 Success Stories
               </h2>
               <p className="text-xs md:text-sm text-text-muted leading-relaxed mt-4">
-                See how we help businesses transform with AI.
+                See how I help businesses transform with AI.
               </p>
             </div>
 

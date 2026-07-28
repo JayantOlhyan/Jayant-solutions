@@ -67,7 +67,7 @@ export default function CareersPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                At Jayant Web & AI Systems, we&apos;re more than just a team – we&apos;re builders, thinkers, and problem solvers. Join us in creating intelligent digital solutions that make a real impact.
+                At Jayant Solutions, we&apos;re more than just a team – we&apos;re builders, thinkers, and problem solvers. join me in creating intelligent digital solutions that make a real impact.
               </p>
 
               {/* Action buttons */}
@@ -118,14 +118,14 @@ export default function CareersPage() {
 
           </section>
 
-          {/* Why You'll Love Working With Us */}
+          {/* Why You'll Love Working with me */}
           <section className="py-8 relative border-t border-border-custom/30 pt-16">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-                WHY WORK WITH US
+                WHY WORK with me
               </span>
               <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
-                Why You&apos;ll Love Working With Us
+                Why You&apos;ll Love Working with me
               </h2>
             </div>
 
@@ -221,7 +221,7 @@ export default function CareersPage() {
                 Don&apos;t See the Right Role?
               </h2>
               <p className="text-xs md:text-sm text-white/70 max-w-lg mb-8 leading-relaxed">
-                We&apos;re always looking for passionate and talented people. Send us your resume and tell us how you can help!
+                We&apos;re always looking for passionate and talented people. send me your resume and tell us how you can help!
               </p>
 
               <Link

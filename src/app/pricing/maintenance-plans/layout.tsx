@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Maintenance Plans – Jayant Web & AI Systems",
-  description: "Explore the Maintenance Plans page of Jayant Web & AI Systems. We provide custom AI, Web & Software Development solutions tailored for your business needs.",
+  title: "Maintenance Plans – Jayant Solutions",
+  description: "Explore the Maintenance Plans page of Jayant Solutions. I build custom websites, AI automation systems, and business software designed for your operational needs.",
   alternates: {
     canonical: "/pricing/maintenance-plans",
     languages: {

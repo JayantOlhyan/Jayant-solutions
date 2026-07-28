@@ -36,7 +36,7 @@ export default function AboutSkeleton() {
           ))}
         </section>
 
-        {/* Our Story */}
+        {/* my story */}
         <section className="py-8 relative">
           <div className="text-left mb-12">
             <SkeletonBlock className="w-32 h-6 rounded-full mb-4" />
@@ -70,7 +70,7 @@ export default function AboutSkeleton() {
           </div>
         </section>
 
-        {/* Why Choose Us */}
+        {/* why work with me */}
         <section className="py-8 relative">
           <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center">
              <SkeletonBlock className="w-32 h-6 rounded-full mb-4" />

@@ -8,7 +8,7 @@ import { ArrowRight, Code, Layers, ShieldCheck, Heart, Clock, Compass, Clipboard
 
 export default function UIUXDesignPage() {
   const serviceStats = [
-    { label: "User-Centered Approach", icon: <UsersIcon className="size-4 text-primary" />, desc: "We design for real users" },
+    { label: "User-Centered Approach", icon: <UsersIcon className="size-4 text-primary" />, desc: "I design for real users" },
     { label: "Conversion Focused", icon: <ZapIcon className="size-4 text-primary" />, desc: "Designs that drive results" },
     { label: "Responsive on All Devices", icon: <Tablet className="size-4 text-primary" />, desc: "Seamless experience everywhere" },
     { label: "Modern & Pixel Perfect", icon: <Palette className="size-4 text-primary" />, desc: "Stunning aesthetic details" },
@@ -72,7 +72,7 @@ export default function UIUXDesignPage() {
     { title: "Pixel Perfect", desc: "Attention to detail in every single layout element.", icon: <Palette className="size-5 text-primary" /> },
     { title: "Scalable Solutions", desc: "Designs that grow with your product.", icon: <Rocket className="size-5 text-primary" /> },
     { title: "Collaborative", desc: "Transparent communication at every step.", icon: <MessageSquare className="size-5 text-primary" /> },
-    { title: "On-Time Delivery", desc: "We respect your time and deadlines.", icon: <Clock className="size-5 text-primary" /> },
+    { title: "On-Time Delivery", desc: "I respect your time and deadlines.", icon: <Clock className="size-5 text-primary" /> },
   ];
 
   const industries = [
@@ -122,7 +122,7 @@ export default function UIUXDesignPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We design intuitive, visually stunning, and user-centered digital experiences that not only look beautiful but also solve real problems and achieve business goals.
+                I design intuitive, visually stunning, and user-centered digital experiences that not only look beautiful but also solve real problems and achieve business goals.
               </p>
 
               {/* Action buttons */}
@@ -254,11 +254,11 @@ export default function UIUXDesignPage() {
             </div>
           </section>
 
-          {/* Why Choose Us */}
+          {/* why work with me */}
           <section className="py-8 relative border-t border-border-custom/30 pt-16">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-                WHY CHOOSE US
+                why work with me
               </span>
               <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
                 Design That Delivers More Than Just Looks
@@ -287,7 +287,7 @@ export default function UIUXDesignPage() {
           <section className="py-8 relative border-t border-border-custom/30 pt-16">
             <div className="text-left mb-12">
               <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-                INDUSTRIES WE DESIGN FOR
+                INDUSTRIES I design FOR
               </span>
               <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
                 Empowering Brands Across Industries

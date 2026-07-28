@@ -61,7 +61,7 @@ export default function MobileAppDevelopmentPage() {
     { id: "01", name: "Discover", desc: "We understand your business, users, and goals.", icon: <Compass className="size-5 text-primary" /> },
     { id: "02", name: "Plan", desc: "We define features, tech stack & project roadmap.", icon: <ClipboardList className="size-5 text-primary" /> },
     { id: "03", name: "Design", desc: "We create stunning UI/UX designs and prototypes.", icon: <Layout className="size-5 text-primary" /> },
-    { id: "04", name: "Develop", desc: "We build high-quality, scalable & secure mobile apps.", icon: <Code className="size-5 text-primary" /> },
+    { id: "04", name: "Develop", desc: "I build high-quality, scalable & secure mobile apps.", icon: <Code className="size-5 text-primary" /> },
     { id: "05", name: "Test", desc: "We test rigorously for performance, security & compatibility.", icon: <CheckSquare className="size-5 text-primary" /> },
     { id: "06", name: "Launch & Support", desc: "We launch your app and provide ongoing support.", icon: <Rocket className="size-5 text-primary" /> },
   ];
@@ -80,8 +80,8 @@ export default function MobileAppDevelopmentPage() {
     { title: "Experienced Team", desc: "Skilled developers & designers with proven expertise.", icon: <Users className="size-5 text-primary" /> },
     { title: "Scalable Solutions", desc: "Apps built to scale with your business.", icon: <Layers className="size-5 text-primary" /> },
     { title: "Transparent Communication", desc: "Clear updates & collaboration at every step.", icon: <MessageSquare className="size-5 text-primary" /> },
-    { title: "On-Time Delivery", desc: "We value your time and deliver on schedule.", icon: <Clock className="size-5 text-primary" /> },
-    { title: "Long-Term Support", desc: "We're with you beyond launch for continuous growth.", icon: <Heart className="size-5 text-primary" /> },
+    { title: "On-Time Delivery", desc: "I value your time and deliver on schedule.", icon: <Clock className="size-5 text-primary" /> },
+    { title: "Long-Term Support", desc: "I'm with you beyond launch for continuous growth.", icon: <Heart className="size-5 text-primary" /> },
   ];
 
   const recentProjects = [
@@ -288,7 +288,7 @@ export default function MobileAppDevelopmentPage() {
             </div>
           </section>
 
-          {/* Why Choose Us */}
+          {/* why work with me */}
           <section className="py-8 relative border-t border-border-custom/30 pt-16">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">

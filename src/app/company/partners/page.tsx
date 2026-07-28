@@ -69,12 +69,12 @@ export default function PartnersPage() {
 
   const partnerTestimonials = [
     {
-      text: "Jayant Web & AI Systems is a reliable technology partner. Their technical expertise and commitment to quality have helped us deliver outstanding solutions to our clients.",
+      text: "Jayant Solutions is a reliable technology partner. Their technical expertise and commitment to quality have helped us deliver outstanding solutions to my clients.",
       author: "Abhishek Sharma",
       role: "Partner Solutions Architect, AWS",
     },
     {
-      text: "Working with Jayant Web & AI Systems has been a great experience. Their team is proactive, professional, and always focused on delivering real value.",
+      text: "Working with Jayant Solutions has been a great experience. Their team is proactive, professional, and always focused on delivering real value.",
       author: "Neha Verma",
       role: "Program Manager, Google Cloud",
     },
@@ -122,7 +122,7 @@ export default function PartnersPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We collaborate with forward-thinking technology leaders, platforms, and organizations to deliver exceptional solutions and drive meaningful impact for businesses worldwide.
+                I collaborate with forward-thinking technology leaders, platforms, and organizations to deliver exceptional solutions and drive meaningful impact for businesses worldwide.
               </p>
 
               {/* Action buttons */}
@@ -238,7 +238,7 @@ export default function PartnersPage() {
                 PARTNERSHIP BENEFITS
               </span>
               <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
-                Benefits of Partnering with Us
+                Benefits of Partnering with me
               </h2>
             </div>
 
@@ -306,7 +306,7 @@ export default function PartnersPage() {
                   Let&apos;s Build Something Amazing Together
                 </h3>
                 <p className="text-xs md:text-sm text-white/70 mb-6 leading-relaxed">
-                  We are always open to exploring meaningful partnerships that create value and drive positive impact.
+                  I am always open to exploring meaningful partnerships that create value and drive positive impact.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">

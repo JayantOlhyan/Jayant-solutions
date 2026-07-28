@@ -16,7 +16,7 @@ export default function APIDevelopmentPage() {
   const offers = [
     {
       title: "Custom API Development",
-      description: "We design and build secure, scalable, and well-documented APIs tailored to your business requirements.",
+      description: "I design and build secure, scalable, and well-documented APIs tailored to your business requirements.",
       icon: <Code className="size-6 text-primary" />,
     },
     {
@@ -58,8 +58,8 @@ export default function APIDevelopmentPage() {
 
   const steps = [
     { id: "01", name: "Discover", desc: "We understand your business, systems, and integration goals.", icon: <Compass className="size-5 text-primary" /> },
-    { id: "02", name: "Design", desc: "We design API architecture, endpoints, data flow, and security model.", icon: <ClipboardList className="size-5 text-primary" /> },
-    { id: "03", name: "Develop", desc: "We build, integrate, and develop APIs following best practices.", icon: <Code className="size-5 text-primary" /> },
+    { id: "02", name: "Design", desc: "I design API architecture, endpoints, data flow, and security model.", icon: <ClipboardList className="size-5 text-primary" /> },
+    { id: "03", name: "Develop", desc: "I build, integrate, and develop APIs following best practices.", icon: <Code className="size-5 text-primary" /> },
     { id: "04", name: "Test", desc: "We test for functionality, security, performance, and reliability.", icon: <CheckSquare className="size-5 text-primary" /> },
     { id: "05", name: "Deploy", desc: "We deploy the APIs to production with proper monitoring.", icon: <Rocket className="size-5 text-primary" /> },
     { id: "06", name: "Support", desc: "We provide ongoing support, updates, and performance tuning.", icon: <MessageSquare className="size-5 text-primary" /> },
@@ -130,7 +130,7 @@ export default function APIDevelopmentPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We build, connect, and integrate powerful APIs that unlock new capabilities, automate workflows, and drive digital transformation.
+                I build, connect, and integrate powerful APIs that unlock new capabilities, automate workflows, and drive digital transformation.
               </p>
 
               {/* Action buttons */}
@@ -282,11 +282,11 @@ export default function APIDevelopmentPage() {
             </div>
           </section>
 
-          {/* Why Choose Us */}
+          {/* why work with me */}
           <section className="py-8 relative border-t border-border-custom/30 pt-16">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-                WHY CHOOSE US
+                why work with me
               </span>
               <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
                 APIs That Connect. Integrations That Create Value.
@@ -308,7 +308,7 @@ export default function APIDevelopmentPage() {
             </div>
           </section>
 
-          {/* Technologies we integrate with */}
+          {/* Technologies I integrate with */}
           <section className="py-8 relative border-t border-border-custom/30 pt-16">
             <div className="text-center max-w-2xl mx-auto mb-12">
               <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">

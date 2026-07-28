@@ -126,7 +126,7 @@ export default function LangChainDevelopmentPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We build production-ready, scalable, and secure LLM applications using LangChain – from intelligent chatbots to AI agents and complex automation workflows.
+                I build production-ready, scalable, and secure LLM applications using LangChain – from intelligent chatbots to AI agents and complex automation workflows.
               </p>
 
               {/* Action buttons */}
@@ -273,7 +273,7 @@ export default function LangChainDevelopmentPage() {
                   <span className="text-primary">Applications with LangChain</span>
                 </h3>
                 <p className="text-xs md:text-sm text-white/70 mb-6 leading-relaxed max-w-lg">
-                  From idea to implementation, we help you build smarter AI solutions that deliver real value.
+                  From idea to implementation, I help you build smarter AI solutions that deliver real value.
                 </p>
                 
                 <div className="flex flex-wrap gap-4 text-white/80">

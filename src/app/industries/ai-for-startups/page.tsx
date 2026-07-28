@@ -118,7 +118,7 @@ export default function AIStartupsPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We help startups ideate, build, and scale AI-powered products faster. From MVP to intelligent automation, we&apos;re your technical co-founder in the journey of growth.
+                I help startups ideate, build, and scale AI-powered products faster. From MVP to intelligent automation, we&apos;re your technical co-founder in the journey of growth.
               </p>
 
               {/* Action buttons */}
@@ -250,7 +250,7 @@ export default function AIStartupsPage() {
                   <span className="text-primary">Extraordinary Together</span>
                 </h3>
                 <p className="text-xs md:text-sm text-white/70 mb-6 leading-relaxed max-w-lg">
-                  From idea to impact, we help startups build intelligent products that scale, impress users, and attract investment.
+                  From idea to impact, I help startups build intelligent products that scale, impress users, and attract investment.
                 </p>
                 
                 <div className="flex flex-wrap gap-4 text-white/80">

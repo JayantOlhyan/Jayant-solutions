@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og'
 
-export const alt = 'Jayant Web & AI Systems — Custom AI & Software Development'
+export const alt = 'Jayant Solutions — Custom AI & Software Development'
 export const size = {
   width: 1200,
   height: 600,
@@ -95,7 +95,7 @@ export default function TwitterImage() {
               letterSpacing: '-1px',
             }}
           >
-            Jayant Web & AI Systems
+            Jayant Solutions
           </span>
           <span
             style={{

@@ -37,11 +37,11 @@ export default function DownloadsPage() {
               <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
                 Discover More About <br />
                 <span className="text-primary underline decoration-primary/40 decoration-4 underline-offset-8">
-                  Jayant Web & AI Systems
+                  Jayant Solutions
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                Download our company profile to learn about our mission, values, services, expertise, and the impact we create for our clients.
+                Download our company profile to learn about my mission, values, services, expertise, and the impact we create for my clients.
               </p>
 
               {/* Highlights */}
@@ -79,7 +79,7 @@ export default function DownloadsPage() {
                 <div className="flex flex-col text-left gap-1">
                   <h3 className="font-serif text-base font-bold text-text-base">Company Profile PDF</h3>
                   <p className="text-xs text-text-muted max-w-md leading-relaxed">
-                    Get a comprehensive overview of who we are, what we do, and how we help businesses grow.
+                    Get a comprehensive overview of who I am, what I do, and how I help businesses grow.
                   </p>
                 </div>
               </div>

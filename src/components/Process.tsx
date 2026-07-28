@@ -21,7 +21,7 @@ export default function Process() {
     {
       id: 3,
       name: "Development",
-      desc: "We build scalable, clean, and maintainable solutions.",
+      desc: "I build scalable, clean, and maintainable solutions.",
       icon: <Code className="size-5 text-primary" />,
     },
     {
@@ -52,7 +52,7 @@ export default function Process() {
           {/* Left Column: Process Copy */}
           <div className="lg:col-span-4 flex flex-col items-start text-left">
             <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-              OUR PROCESS
+              my process
             </span>
             <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mb-4 mt-2">
               A Proven Process. Predictable Results.
@@ -64,7 +64,7 @@ export default function Process() {
               href="/process"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-neutral-900 text-white hover:bg-neutral-800 px-6 py-3 text-xs font-mono font-bold transition-all"
             >
-              <span>View Our Process</span>
+              <span>View my process</span>
               <ArrowRight className="size-4" />
             </Link>
           </div>

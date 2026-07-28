@@ -82,7 +82,7 @@ export default function AboutPage() {
             {/* Left Column: Hero Text */}
             <div className="lg:col-span-6 flex flex-col items-start">
               <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-                ABOUT US
+                about me
               </span>
               <h1 className="font-serif text-4xl md:text-6xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
                 Building Technology That Drives Real{" "}
@@ -91,7 +91,7 @@ export default function AboutPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                At Jayant Web & AI Systems, I help startups, businesses, and enterprises transform ideas into powerful digital products. From concept to code, I build solutions that are intelligent, scalable, and future-ready.
+                At Jayant Solutions, I help startups, businesses, and enterprises transform ideas into powerful digital products. From concept to code, I build solutions that are intelligent, scalable, and future-ready.
               </p>
               
               <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto">
@@ -106,7 +106,7 @@ export default function AboutPage() {
                   href="/process"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-border-custom bg-white hover:bg-neutral-50 dark:bg-card-bg dark:hover:bg-neutral-900 px-7 py-3 text-xs font-mono font-bold text-text-base transition-all"
                 >
-                  <span>Our Process</span>
+                  <span>my process</span>
                   <ArrowRight className="size-4" />
                 </Link>
               </div>
@@ -117,7 +117,7 @@ export default function AboutPage() {
               <div className="w-full aspect-[4/3] rounded-3xl overflow-hidden border border-border-custom relative shadow-lg">
                 <Image
                   src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80"
-                  alt="Jayant Web & AI Systems collaborative digital workspace - Team designing software"
+                  alt="Jayant Solutions collaborative digital workspace - Team designing software"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   priority
@@ -152,11 +152,11 @@ export default function AboutPage() {
             ))}
           </section>
 
-          {/* Our Story ("How It All Started") */}
+          {/* my story ("How It All Started") */}
           <section className="py-8 relative">
             <div className="text-left mb-12">
               <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-                OUR STORY
+                my story
               </span>
               <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
                 How It All Started
@@ -168,7 +168,7 @@ export default function AboutPage() {
               {/* Left Column: Founder Copy */}
               <div className="lg:col-span-5 flex flex-col gap-6">
                 <p className="text-xs md:text-sm text-text-muted leading-relaxed">
-                  Jayant Web & AI Systems was founded with a simple mission — to help businesses leverage modern technology to solve real-world problems.
+                  Jayant Solutions was founded with a simple mission — to help businesses leverage modern technology to solve real-world problems.
                 </p>
                 <p className="text-xs md:text-sm text-text-muted leading-relaxed">
                   What started as a passion for coding and automation has grown into a full-service digital solutions practice trusted by startups, non-profits, and professionals.
@@ -188,7 +188,7 @@ export default function AboutPage() {
                 <div className="w-full max-w-[280px] aspect-[3/4] rounded-3xl overflow-hidden border-2 border-border-custom shadow-lg relative bg-neutral-900">
                   <Image
                     src="/jayant.webp"
-                    alt="Jayant Olhyan - Founder and Lead Developer at Jayant Web & AI Systems"
+                    alt="Jayant Olhyan - Founder and Lead Developer at Jayant Solutions"
                     fill
                     sizes="(max-width: 768px) 100vw, 280px"
                     className="object-cover"
@@ -249,11 +249,11 @@ export default function AboutPage() {
             </div>
           </section>
 
-          {/* Why Choose Us ("What Sets Us Apart") */}
+          {/* why work with me ("What Sets Us Apart") */}
           <section className="py-8 relative">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-                WHY CHOOSE US
+                why work with me
               </span>
               <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
                 What Sets Us Apart
@@ -282,11 +282,11 @@ export default function AboutPage() {
             </div>
           </section>
 
-          {/* Our Journey Timeline */}
+          {/* my journey Timeline */}
           <section className="py-8 relative">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-                OUR JOURNEY
+                my journey
               </span>
               <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
                 From Beginning to Now

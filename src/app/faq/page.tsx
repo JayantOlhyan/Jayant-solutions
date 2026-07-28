@@ -22,7 +22,7 @@ export default function FAQPage() {
 
   const faqs = [
     {
-      q: "What services does Jayant Web & AI Systems offer?",
+      q: "What services does Jayant Solutions offer?",
       a: "We offer a wide range of services including custom web development, mobile app development, AI/ML solutions, SaaS development, automation, UI/UX design, API development, and ongoing maintenance & support.",
       category: "Services",
     },
@@ -38,7 +38,7 @@ export default function FAQPage() {
     },
     {
       q: "Will my website or application be responsive?",
-      a: "Yes, absolutely. Every solution we build is fully responsive and optimized for mobile, tablet, laptop, and desktop screens to ensure a seamless user experience.",
+      a: "Yes, absolutely. Every solution I build is fully responsive and optimized for mobile, tablet, laptop, and desktop screens to ensure a seamless user experience.",
       category: "Services",
     },
     {
@@ -68,7 +68,7 @@ export default function FAQPage() {
     },
     {
       q: "How do I get started with my project?",
-      a: "The easiest way is to book a free 15-minute consultation call or send us a message through our contact form. We'll discuss your requirements, goals, and outline the next steps.",
+      a: "The easiest way is to book a free 15-minute consultation call or send me a message through our contact form. We'll discuss your requirements, goals, and outline the next steps.",
       category: "General",
     },
   ];
@@ -126,7 +126,7 @@ export default function FAQPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                Find answers to the most common questions about our services, process, pricing, and policies.
+                Find answers to the most common questions about my services, process, pricing, and policies.
               </p>
 
               {/* Search Bar */}
@@ -150,7 +150,7 @@ export default function FAQPage() {
                   <h4 className="font-serif text-lg font-bold mb-1">We&apos;re here to help.</h4>
                   <p className="text-xs text-white/70">Can&apos;t find the answer you&apos;re looking for?</p>
                   <Link href="/contact" className="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-primary hover:underline mt-4">
-                    <span>Contact us</span>
+                    <span>contact me</span>
                     <ArrowRight className="size-3.5" />
                   </Link>
                 </div>
@@ -272,7 +272,7 @@ export default function FAQPage() {
                   href="/contact"
                   className="w-full inline-flex items-center justify-center gap-1.5 rounded-xl bg-primary hover:bg-primary-hover text-white py-2.5 text-xs font-mono font-bold transition-all shadow-sm"
                 >
-                  <span>Contact Us</span>
+                  <span>contact me</span>
                   <ArrowRight className="size-3.5" />
                 </Link>
               </div>
@@ -284,7 +284,7 @@ export default function FAQPage() {
           <section className="border border-border-custom bg-card-bg/40 rounded-3xl p-6 md:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6 text-left">
             <div>
               <h4 className="font-serif text-sm md:text-base font-bold text-text-base mb-1">Can&apos;t find the answer you&apos;re looking for?</h4>
-              <p className="text-[10px] md:text-xs text-text-muted">We&apos;re just a message away. Reach out to us and we&apos;ll get back to you as soon as possible.</p>
+              <p className="text-[10px] md:text-xs text-text-muted">We&apos;re just a message away. Reach out to me and we&apos;ll get back to you as soon as possible.</p>
             </div>
             <Link
               href="/contact"

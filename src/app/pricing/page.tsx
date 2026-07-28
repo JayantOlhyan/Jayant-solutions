@@ -74,7 +74,7 @@ export default function PricingPage() {
         "Ongoing Support & Maintenance",
         "SLA & Priority Support",
       ],
-      cta: "Talk to Us",
+      cta: "Talk to me",
       popular: false,
     },
   ];
@@ -91,7 +91,7 @@ export default function PricingPage() {
     { id: "1", name: "Discuss", desc: "Tell us your requirements and goals." },
     { id: "2", name: "Get Estimate", desc: "We provide a transparent proposal & timeline." },
     { id: "3", name: "Plan & Agreement", desc: "We finalize the plan that works for you." },
-    { id: "4", name: "Build & Deliver", desc: "We build, test, and deliver high-quality solutions." },
+    { id: "4", name: "Build & Deliver", desc: "I build, test, and deliver high-quality solutions." },
     { id: "5", name: "Support & Grow", desc: "We provide ongoing support to help you grow." },
   ];
 

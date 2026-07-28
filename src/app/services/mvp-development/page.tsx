@@ -16,7 +16,7 @@ export default function MVPDevelopmentPage() {
   const offers = [
     {
       title: "MVP Strategy & Consulting",
-      description: "We help you validate your idea, analyze the market and create a winning MVP strategy.",
+      description: "I help you validate your idea, analyze the market and create a winning MVP strategy.",
       icon: <Compass className="size-6 text-primary" />,
     },
     {
@@ -26,12 +26,12 @@ export default function MVPDevelopmentPage() {
     },
     {
       title: "UI/UX Design",
-      description: "We design intuitive and engaging UI/UX that ensures great user experience from day one.",
+      description: "I design intuitive and engaging UI/UX that ensures great user experience from day one.",
       icon: <Layout className="size-6 text-primary" />,
     },
     {
       title: "MVP Development",
-      description: "We build fast, scalable and secure MVPs using modern technologies and best practices.",
+      description: "I build fast, scalable and secure MVPs using modern technologies and best practices.",
       icon: <Code className="size-6 text-primary" />,
     },
     {
@@ -60,7 +60,7 @@ export default function MVPDevelopmentPage() {
     { id: "01", name: "Discover", desc: "We understand your idea, target users and business goals.", icon: <Compass className="size-5 text-primary" /> },
     { id: "02", name: "Define", desc: "We define core features, user flows and MVP roadmap.", icon: <ClipboardList className="size-5 text-primary" /> },
     { id: "03", name: "Design", desc: "We create UI/UX and interactive prototypes for validation.", icon: <Layout className="size-5 text-primary" /> },
-    { id: "04", name: "Develop", desc: "We build your MVP with clean code and agile methodology.", icon: <Code className="size-5 text-primary" /> },
+    { id: "04", name: "Develop", desc: "I build your MVP with clean code and agile methodology.", icon: <Code className="size-5 text-primary" /> },
     { id: "05", name: "Launch & Validate", desc: "We deploy your MVP and help you validate with real users.", icon: <Rocket className="size-5 text-primary" /> },
   ];
 
@@ -70,7 +70,7 @@ export default function MVPDevelopmentPage() {
     { title: "User Focused", desc: "Designed for real users and real problems.", icon: <Heart className="size-5 text-primary" /> },
     { title: "Investor Ready", desc: "Get investor confidence with a working MVP.", icon: <ShieldCheck className="size-5 text-primary" /> },
     { title: "Future Ready", desc: "Scalable architecture for future growth.", icon: <Settings className="size-5 text-primary" /> },
-    { title: "End-to-End Support", desc: "We're with you at every step of your journey.", icon: <MessageSquare className="size-5 text-primary" /> },
+    { title: "End-to-End Support", desc: "I'm with you at every step of your journey.", icon: <MessageSquare className="size-5 text-primary" /> },
   ];
 
   const techStack = [
@@ -122,7 +122,7 @@ export default function MVPDevelopmentPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We help you launch a market-ready MVP quickly, validate your idea, attract early users and investors, and build the right product.
+                I help you launch a market-ready MVP quickly, validate your idea, attract early users and investors, and build the right product.
               </p>
 
               {/* Action buttons */}
@@ -263,11 +263,11 @@ export default function MVPDevelopmentPage() {
             </div>
           </section>
 
-          {/* Why Choose Us */}
+          {/* why work with me */}
           <section className="py-8 relative border-t border-border-custom/30 pt-16">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-                WHY CHOOSE US
+                why work with me
               </span>
               <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
                 Build Less. Learn More. Grow Faster.

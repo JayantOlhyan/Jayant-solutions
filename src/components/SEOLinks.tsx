@@ -7,7 +7,7 @@ export default function SEOLinks() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
           <div>
-            <h3 className="font-serif font-bold text-text-base mb-4 text-lg">Explore Our Services (Internal Links)</h3>
+            <h3 className="font-serif font-bold text-text-base mb-4 text-lg">Explore my services (Internal Links)</h3>
             <ul className="space-y-2 text-text-muted">
               <li>
                 <Link href="/services/ai-development" className="hover:text-primary transition-colors">

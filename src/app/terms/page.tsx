@@ -14,16 +14,16 @@ export default function TermsPage() {
       title: "1. Acceptance of Terms",
       content: (
         <>
-          <p>By accessing or using our website or services, you agree to comply with and be bound by these Terms & Conditions and our Privacy Policy. If you do not agree with any part of these terms, you may not access or use our services.</p>
+          <p>By accessing or using our website or services, you agree to comply with and be bound by these Terms & Conditions and our Privacy Policy. If you do not agree with any part of these terms, you may not access or use my services.</p>
         </>
       )
     },
     {
-      id: "2. Our Services",
-      title: "2. Our Services",
+      id: "2. my services",
+      title: "2. my services",
       content: (
         <>
-          <p>Jayant Web & AI Systems provides software development, web development, AI solutions, consulting, and related services as described on our website. We reserve the right to modify, suspend, or discontinue any service at any time without prior notice.</p>
+          <p>Jayant Solutions provides software development, web development, AI solutions, consulting, and related services as described on our website. We reserve the right to modify, suspend, or discontinue any service at any time without prior notice.</p>
         </>
       )
     },
@@ -32,7 +32,7 @@ export default function TermsPage() {
       title: "3. User Responsibilities",
       content: (
         <>
-          <p>You agree to use our services only for lawful purposes. You must not misuse our website or services or attempt to gain unauthorized access to any systems, data, or networks connected to our services.</p>
+          <p>You agree to use my services only for lawful purposes. You must not misuse our website or services or attempt to gain unauthorized access to any systems, data, or networks connected to my services.</p>
         </>
       )
     },
@@ -41,7 +41,7 @@ export default function TermsPage() {
       title: "4. Intellectual Property",
       content: (
         <>
-          <p>All content, designs, logos, code, and materials on this website are the property of Jayant Web & AI Systems and are protected by intellectual property laws. You may not copy, reproduce, or distribute any content without our written permission.</p>
+          <p>All content, designs, logos, code, and materials on this website are the property of Jayant Solutions and are protected by intellectual property laws. You may not copy, reproduce, or distribute any content without our written permission.</p>
         </>
       )
     },
@@ -59,7 +59,7 @@ export default function TermsPage() {
       title: "6. Confidentiality",
       content: (
         <>
-          <p>We value your trust. Any confidential information shared with us will be used solely for the purpose of providing our services and will not be disclosed to third parties without consent, except as required by law.</p>
+          <p>I value your trust. Any confidential information shared with me will be used solely for the purpose of providing my services and will not be disclosed to third parties without consent, except as required by law.</p>
         </>
       )
     },
@@ -68,7 +68,7 @@ export default function TermsPage() {
       title: "7. Limitation of Liability",
       content: (
         <>
-          <p>We shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of your use of our services. Our total liability shall not exceed the amount paid by you for the services in the past 3 months.</p>
+          <p>We shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of your use of my services. Our total liability shall not exceed the amount paid by you for the services in the past 3 months.</p>
         </>
       )
     },
@@ -77,7 +77,7 @@ export default function TermsPage() {
       title: "8. Indemnification",
       content: (
         <>
-          <p>You agree to indemnify and hold Jayant Web & AI Systems harmless from any claims, losses, liabilities, damages, and expenses arising from your use of our services or violation of these terms.</p>
+          <p>You agree to indemnify and hold Jayant Solutions harmless from any claims, losses, liabilities, damages, and expenses arising from your use of my services or violation of these terms.</p>
         </>
       )
     },
@@ -86,7 +86,7 @@ export default function TermsPage() {
       title: "9. Termination",
       content: (
         <>
-          <p>We may terminate or suspend your access to our services at any time without notice if we believe you have violated these Terms & Conditions or used our services unlawfully.</p>
+          <p>We may terminate or suspend your access to my services at any time without notice if we believe you have violated these Terms & Conditions or used my services unlawfully.</p>
         </>
       )
     },
@@ -104,16 +104,16 @@ export default function TermsPage() {
       title: "11. Changes to Terms",
       content: (
         <>
-          <p>We may update these Terms & Conditions from time to time. Any changes will be posted on this page with the updated &quot;Last Updated&quot; date. Your continued use of our services constitutes acceptance of the revised terms.</p>
+          <p>We may update these Terms & Conditions from time to time. Any changes will be posted on this page with the updated &quot;Last Updated&quot; date. Your continued use of my services constitutes acceptance of the revised terms.</p>
         </>
       )
     },
     {
-      id: "12. Contact Us",
-      title: "12. Contact Us",
+      id: "12. contact me",
+      title: "12. contact me",
       content: (
         <>
-          <p>If you have any questions about these Terms & Conditions, please contact us:</p>
+          <p>If you have any questions about these Terms & Conditions, please contact me:</p>
           <div className="mt-3 flex flex-wrap gap-4 text-xs font-mono">
             <span>✉️ jayantwebaisystems@gmail.com</span>
             <span>📞 +91 96673 44125</span>
@@ -147,7 +147,7 @@ export default function TermsPage() {
                 Terms & Conditions
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-6">
-                Welcome to Jayant Web & AI Systems. These Terms & Conditions govern your use of our website and services. By accessing or using our services, you agree to be bound by these terms.
+                Welcome to Jayant Solutions. These Terms & Conditions govern your use of our website and services. By accessing or using my services, you agree to be bound by these terms.
               </p>
               
               <div className="flex flex-wrap gap-4 text-[10px] font-mono font-bold text-text-muted">
@@ -206,13 +206,13 @@ export default function TermsPage() {
                   <span>❓</span> Questions?
                 </h4>
                 <p className="text-[10px] text-text-muted leading-relaxed">
-                  If you have any questions about these Terms & Conditions, please contact us.
+                  If you have any questions about these Terms & Conditions, please contact me.
                 </p>
                 <Link
                   href="/contact"
                   className="w-full text-center border border-border-custom bg-white hover:bg-neutral-50 dark:bg-card-bg dark:hover:bg-neutral-900 py-2 text-[10px] font-mono font-bold rounded-lg block mt-2 text-text-base"
                 >
-                  Contact Us
+                  contact me
                 </Link>
               </div>
             </div>

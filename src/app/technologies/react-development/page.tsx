@@ -53,7 +53,7 @@ export default function ReactDevelopmentPage() {
   const services = [
     {
       title: "Custom React.js Development",
-      desc: "We build custom, high-performance web applications tailored to your requirements.",
+      desc: "I build custom, high-performance web applications tailored to your requirements.",
       icon: "💻"
     },
     {
@@ -124,7 +124,7 @@ export default function ReactDevelopmentPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We build fast, responsive, and scalable web applications using React.js – the most popular JavaScript library for building modern user interfaces.
+                I build fast, responsive, and scalable web applications using React.js – the most popular JavaScript library for building modern user interfaces.
               </p>
 
               {/* Action buttons */}
@@ -271,7 +271,7 @@ export default function ReactDevelopmentPage() {
                   <span className="text-primary">Amazing with React</span>
                 </h3>
                 <p className="text-xs md:text-sm text-white/70 mb-6 leading-relaxed max-w-lg">
-                  From idea to deployment, we help you build modern, scalable, and high-performance web applications with React.js.
+                  From idea to deployment, I help you build modern, scalable, and high-performance web applications with React.js.
                 </p>
                 
                 <div className="flex flex-wrap gap-4 text-white/80">

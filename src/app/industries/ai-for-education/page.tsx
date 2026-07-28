@@ -113,7 +113,7 @@ export default function AIEducationPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We build intelligent AI solutions that personalize learning, automate administrative tasks, and empower educators to focus on what matters most—student success.
+                I build intelligent AI solutions that personalize learning, automate administrative tasks, and empower educators to focus on what matters most—student success.
               </p>
 
               {/* Action buttons */}
@@ -190,7 +190,7 @@ export default function AIEducationPage() {
                 Our AI Solutions for Education
               </h2>
               <p className="text-xs md:text-sm text-text-muted leading-relaxed mt-4">
-                From adaptive learning to intelligent automation, we help educational institutions and EdTech platforms unlock the full potential of AI.
+                From adaptive learning to intelligent automation, I help educational institutions and EdTech platforms unlock the full potential of AI.
               </p>
             </div>
 

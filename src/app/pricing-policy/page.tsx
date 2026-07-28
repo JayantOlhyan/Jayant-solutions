@@ -14,7 +14,7 @@ export default function RefundCancellationPolicyPage() {
       title: "1. General Policy",
       content: (
         <>
-          <p>We value your business and aim to deliver high-quality services. Our refund and cancellation terms are designed to be fair to both our clients and our team.</p>
+          <p>I value your business and aim to deliver high-quality services. Our refund and cancellation terms are designed to be fair to both my clients and our team.</p>
         </>
       )
     },
@@ -79,7 +79,7 @@ export default function RefundCancellationPolicyPage() {
       title: "7. Dispute Resolution",
       content: (
         <>
-          <p>If you are not satisfied with our policy or have any dispute, please contact us first. We will work with you to resolve the issue amicably.</p>
+          <p>If you are not satisfied with our policy or have any dispute, please contact me first. We will work with you to resolve the issue amicably.</p>
         </>
       )
     },
@@ -93,11 +93,11 @@ export default function RefundCancellationPolicyPage() {
       )
     },
     {
-      id: "9. Contact Us",
-      title: "9. Contact Us",
+      id: "9. contact me",
+      title: "9. contact me",
       content: (
         <>
-          <p>For any refund or cancellation requests, please contact us:</p>
+          <p>For any refund or cancellation requests, please contact me:</p>
           <div className="mt-3 flex flex-wrap gap-4 text-xs font-mono">
             <span>✉️ jayantwebaisystems@gmail.com</span>
             <span>📞 +91 96673 44125</span>
@@ -137,7 +137,7 @@ export default function RefundCancellationPolicyPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-6">
-                At Jayant Web & AI Systems, we are committed to transparency and customer satisfaction. Please read our Refund & Cancellation Policy carefully before purchasing our services.
+                At Jayant Solutions, I am committed to transparency and customer satisfaction. Please read our Refund & Cancellation Policy carefully before purchasing my services.
               </p>
               
               <div className="flex flex-wrap gap-4 text-[10px] font-mono font-bold text-text-muted">
@@ -202,7 +202,7 @@ export default function RefundCancellationPolicyPage() {
                   href="/contact"
                   className="w-full text-center border border-border-custom bg-white hover:bg-neutral-50 dark:bg-card-bg dark:hover:bg-neutral-900 py-2 text-[10px] font-mono font-bold rounded-lg block mt-2 text-text-base"
                 >
-                  Contact Us
+                  contact me
                 </Link>
               </div>
             </div>

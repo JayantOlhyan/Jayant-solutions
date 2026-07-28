@@ -45,7 +45,7 @@ export default function CompanyUpdatesCategoryPage() {
       author: "Jayant Olhyan"
     },
     {
-      title: "Jayant Web & AI Systems at Tech Summit 2024",
+      title: "Jayant Solutions at Tech Summit 2024",
       category: "Events",
       desc: "Our team shared insights on AI, automation, and the future of digital transformation.",
       date: "May 10, 2024",
@@ -55,7 +55,7 @@ export default function CompanyUpdatesCategoryPage() {
     {
       title: "Welcoming 5 New Talents to Our Team!",
       category: "Team News",
-      desc: "We&apos;re excited to have talented and passionate individuals join us on our mission.",
+      desc: "We&apos;re excited to have talented and passionate individuals join me on my mission.",
       date: "May 8, 2024",
       readTime: "Team News",
       author: "Jayant Olhyan"
@@ -127,7 +127,7 @@ export default function CompanyUpdatesCategoryPage() {
                 Company Updates
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                Stay up to date with the latest news, milestones, achievements, and behind-the-scenes stories from Jayant Web & AI Systems.
+                Stay up to date with the latest news, milestones, achievements, and behind-the-scenes stories from Jayant Solutions.
               </p>
 
               {/* Highlights */}
@@ -245,10 +245,10 @@ export default function CompanyUpdatesCategoryPage() {
                   About This Category
                 </h3>
                 <p className="text-[10px] text-white/70 leading-relaxed">
-                  This is where we share important updates about our journey, achievements, events, partnerships, and everything happening at Jayant Web & AI Systems.
+                  This is where we share important updates about my journey, achievements, events, partnerships, and everything happening at Jayant Solutions.
                 </p>
                 <Link href="/about" className="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-primary hover:underline">
-                  <span>Learn more about us</span>
+                  <span>Learn more about me</span>
                   <ArrowRight className="size-3.5" />
                 </Link>
               </div>
@@ -298,9 +298,9 @@ export default function CompanyUpdatesCategoryPage() {
               {/* Socials */}
               <div className="hog-card rounded-3xl p-6 md:p-8 bg-card-bg/60 border border-border-custom flex flex-col gap-4">
                 <h3 className="font-serif text-sm font-bold text-text-base border-b border-border-custom pb-2">
-                  Follow Our Journey
+                  Follow my journey
                 </h3>
-                <p className="text-[10px] text-text-muted">Connect with us on social media</p>
+                <p className="text-[10px] text-text-muted">Connect with me on social media</p>
                 <div className="flex flex-wrap gap-2">
                   {socialLinks.map((item) => (
                     <a

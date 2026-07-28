@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og'
 
-export const alt = 'Jayant Web & AI Systems — Building AI Solutions That Automate, Scale & Transform Businesses'
+export const alt = 'Jayant Solutions — Building AI Solutions That Automate, Scale & Transform Businesses'
 export const size = {
   width: 1200,
   height: 630,
@@ -102,7 +102,7 @@ export default function OGImage() {
             letterSpacing: '-1px',
           }}
         >
-          Jayant Web & AI Systems
+          Jayant Solutions
         </span>
 
         {/* Subtitle */}

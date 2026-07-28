@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Ai For Education – Jayant Web & AI Systems",
-  description: "Explore the Ai For Education page of Jayant Web & AI Systems. We provide custom AI, Web & Software Development solutions tailored for your business needs.",
+  title: "Ai For Education – Jayant Solutions",
+  description: "Explore the Ai For Education page of Jayant Solutions. I build custom websites, AI automation systems, and business software designed for your operational needs.",
   alternates: {
     canonical: "/industries/ai-for-education",
     languages: {

@@ -42,7 +42,7 @@ export default function Error({
       icon: <BookOpen className="size-6 text-primary" />,
     },
     {
-      title: "Check Our Services",
+      title: "Check my services",
       description: "Find the right solution for your business.",
       linkText: "Explore Services",
       href: "/services",
@@ -51,7 +51,7 @@ export default function Error({
     {
       title: "Get in Touch",
       description: "Let's discuss your next big idea.",
-      linkText: "Contact Us",
+      linkText: "contact me",
       href: "/contact",
       icon: <Mail className="size-6 text-primary" />,
     },

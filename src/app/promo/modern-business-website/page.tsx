@@ -83,16 +83,16 @@ export default function PromoModernWebsitePage() {
             {/* Left */}
             <div className="lg:col-span-7 flex flex-col items-start text-left">
               <span className="font-mono text-[9px] uppercase tracking-widest text-primary border border-primary/20 bg-primary/5 px-2.5 py-0.5 rounded-full mb-4">
-                WE BUILD DIGITAL PRODUCTS
+                I build DIGITAL PRODUCTS
               </span>
               <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
-                We Build Digital Products <br />
+                I build Digital Products <br />
                 <span className="text-primary underline decoration-primary/40 decoration-4 underline-offset-8">
                   That Drive Growth.
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We help businesses and startups design, build and scale powerful websites, web apps and AI-driven solutions that deliver real results.
+                I help businesses and startups design, build and scale powerful websites, web apps and AI-driven solutions that deliver real results.
               </p>
 
               {/* Action buttons */}
@@ -101,7 +101,7 @@ export default function PromoModernWebsitePage() {
                   href="/contact/book-a-consultation"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary-hover text-white px-7 py-3 text-xs font-mono font-bold transition-all shadow-md active:scale-[0.98]"
                 >
-                  <span>Our Services</span>
+                  <span>my services</span>
                   <ArrowRight className="size-4" />
                 </Link>
                 <Link
@@ -162,11 +162,11 @@ export default function PromoModernWebsitePage() {
             </div>
           </section>
 
-          {/* Our Services */}
+          {/* my services */}
           <section className="py-8 border-t border-border-custom/25 pt-16">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
-                Our Services
+                my services
               </h2>
               <p className="text-xs md:text-sm text-text-muted leading-relaxed mt-4">
                 End-to-end digital solutions tailored to your business needs.
@@ -189,24 +189,24 @@ export default function PromoModernWebsitePage() {
             </div>
           </section>
 
-          {/* About Us section */}
+          {/* about me section */}
           <section className="py-8 border-t border-border-custom/25 pt-16">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left">
               <div className="lg:col-span-6 flex flex-col items-start">
                 <span className="font-mono text-[9px] uppercase tracking-widest text-primary border border-primary/20 bg-primary/5 px-2.5 py-0.5 rounded-full mb-4">
-                  ABOUT US
+                  about me
                 </span>
                 <h3 className="font-serif text-2xl md:text-4xl font-bold text-text-base mb-6 leading-tight">
-                  We are passionate about building innovative solutions.
+                  I am passionate about building innovative solutions.
                 </h3>
                 <p className="text-xs md:text-sm text-text-muted mb-8 leading-relaxed max-w-lg">
-                  At Jayant Web & AI Systems, we combine creativity, technology and strategy to build digital products that help businesses grow faster and achieve more.
+                  At Jayant Solutions, we combine creativity, technology and strategy to build digital products that help businesses grow faster and achieve more.
                 </p>
                 <Link
                   href="/about"
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary-hover px-6 py-2.5 text-xs font-mono font-bold text-white shadow-md transition-all duration-200"
                 >
-                  <span>Learn More About Us</span>
+                  <span>Learn More about me</span>
                   <ArrowRight className="size-3.5" />
                 </Link>
               </div>

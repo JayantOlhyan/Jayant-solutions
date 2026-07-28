@@ -126,7 +126,7 @@ export default function OpenAIIntegrationPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We integrate the power of OpenAI&apos;s advanced models (GPT-4o, GPT-4 Turbo, Whisper, DALL-E and more) into your applications to automate tasks, enhance user experiences, and drive innovation.
+                I integrate the power of OpenAI&apos;s advanced models (GPT-4o, GPT-4 Turbo, Whisper, DALL-E and more) into your applications to automate tasks, enhance user experiences, and drive innovation.
               </p>
 
               {/* Action buttons */}
@@ -273,7 +273,7 @@ export default function OpenAIIntegrationPage() {
                   <span className="text-primary">with OpenAI</span>
                 </h3>
                 <p className="text-xs md:text-sm text-white/70 mb-6 leading-relaxed max-w-lg">
-                  From idea to implementation, we help you build innovative products that users love.
+                  From idea to implementation, I help you build innovative products that users love.
                 </p>
                 
                 <div className="flex flex-wrap gap-4 text-white/80">

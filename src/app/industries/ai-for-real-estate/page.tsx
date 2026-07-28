@@ -119,7 +119,7 @@ export default function AIRealEstatePage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We help real estate businesses leverage AI to find the right opportunities, understand markets, delight customers, and maximize ROI across residential, commercial, and industrial segments.
+                I help real estate businesses leverage AI to find the right opportunities, understand markets, delight customers, and maximize ROI across residential, commercial, and industrial segments.
               </p>
 
               {/* Action buttons */}
@@ -196,7 +196,7 @@ export default function AIRealEstatePage() {
                 Our AI Solutions for Real Estate
               </h2>
               <p className="text-xs md:text-sm text-text-muted leading-relaxed mt-4">
-                From intelligent analytics to automation, we deliver AI solutions that help you buy, sell, build, lease, and manage properties more effectively.
+                From intelligent analytics to automation, I deliver AI solutions that help you buy, sell, build, lease, and manage properties more effectively.
               </p>
             </div>
 

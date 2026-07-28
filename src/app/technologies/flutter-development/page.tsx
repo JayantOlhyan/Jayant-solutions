@@ -53,7 +53,7 @@ export default function FlutterDevelopmentPage() {
   const services = [
     {
       title: "Custom Flutter App Development",
-      desc: "We build scalable and feature-rich apps tailored to your requirements.",
+      desc: "I build scalable and feature-rich apps tailored to your requirements.",
       icon: "📱"
     },
     {
@@ -124,7 +124,7 @@ export default function FlutterDevelopmentPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We build fast, responsive, and feature-rich cross-platform applications using Flutter – empowering businesses to reach more users with a single codebase.
+                I build fast, responsive, and feature-rich cross-platform applications using Flutter – empowering businesses to reach more users with a single codebase.
               </p>
 
               {/* Action buttons */}
@@ -271,7 +271,7 @@ export default function FlutterDevelopmentPage() {
                   <span className="text-primary">Amazing with Flutter</span>
                 </h3>
                 <p className="text-xs md:text-sm text-white/70 mb-6 leading-relaxed max-w-lg">
-                  From idea to deployment, we help you build cross-platform apps that are fast, beautiful, and loved by users.
+                  From idea to deployment, I help you build cross-platform apps that are fast, beautiful, and loved by users.
                 </p>
                 
                 <div className="flex flex-wrap gap-4 text-white/80">

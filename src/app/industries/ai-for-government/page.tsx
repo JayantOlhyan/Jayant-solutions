@@ -118,7 +118,7 @@ export default function AIGovernmentPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We help government organizations leverage AI to improve public services, strengthen security, enhance efficiency, and build a transparent, data-driven future.
+                I help government organizations leverage AI to improve public services, strengthen security, enhance efficiency, and build a transparent, data-driven future.
               </p>
 
               {/* Action buttons */}
@@ -195,7 +195,7 @@ export default function AIGovernmentPage() {
                 Our AI Solutions for Government
               </h2>
               <p className="text-xs md:text-sm text-text-muted leading-relaxed mt-4">
-                From intelligent automation to advanced analytics, we deliver AI solutions that improve governance, enhance security, and empower citizens.
+                From intelligent automation to advanced analytics, I deliver AI solutions that improve governance, enhance security, and empower citizens.
               </p>
             </div>
 

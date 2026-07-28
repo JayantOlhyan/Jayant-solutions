@@ -128,7 +128,7 @@ export default function SupabaseDevelopmentPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We build fast, secure, and scalable applications using Supabase – the open-source Firebase alternative for modern apps.
+                I build fast, secure, and scalable applications using Supabase – the open-source Firebase alternative for modern apps.
               </p>
 
               {/* Action buttons */}
@@ -275,7 +275,7 @@ export default function SupabaseDevelopmentPage() {
                   <span className="text-primary">with Supabase</span>
                 </h3>
                 <p className="text-xs md:text-sm text-white/70 mb-6 leading-relaxed max-w-lg">
-                  From idea to deployment, we help you build secure, scalable, and real-time applications with Supabase.
+                  From idea to deployment, I help you build secure, scalable, and real-time applications with Supabase.
                 </p>
                 
                 <div className="flex flex-wrap gap-4 text-white/80">

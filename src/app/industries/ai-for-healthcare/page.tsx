@@ -108,7 +108,7 @@ export default function AIHealthcarePage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We build intelligent AI solutions that empower healthcare providers to improve patient outcomes, reduce costs, and deliver personalized care at scale.
+                I build intelligent AI solutions that empower healthcare providers to improve patient outcomes, reduce costs, and deliver personalized care at scale.
               </p>
 
               {/* Action buttons */}
@@ -185,7 +185,7 @@ export default function AIHealthcarePage() {
                 Our AI Solutions for Healthcare
               </h2>
               <p className="text-xs md:text-sm text-text-muted leading-relaxed mt-4">
-                From intelligent diagnostics to predictive analytics, we help healthcare organizations harness AI to drive innovation and transform care delivery.
+                From intelligent diagnostics to predictive analytics, I help healthcare organizations harness AI to drive innovation and transform care delivery.
               </p>
             </div>
 

@@ -21,7 +21,7 @@ export default function TechnologyConsultingPage() {
     },
     {
       title: "Solution Architecture",
-      description: "We design scalable, secure, and cost-efficient architectures for future growth.",
+      description: "I design scalable, secure, and cost-efficient architectures for future growth.",
       icon: <Layout className="size-6 text-primary" />,
     },
     {
@@ -36,7 +36,7 @@ export default function TechnologyConsultingPage() {
     },
     {
       title: "Digital Transformation",
-      description: "We help modernize processes, adopt new technologies, and drive business transformation.",
+      description: "I help modernize processes, adopt new technologies, and drive business transformation.",
       icon: <Rocket className="size-6 text-primary" />,
     },
     {
@@ -51,7 +51,7 @@ export default function TechnologyConsultingPage() {
     },
     {
       title: "Vendor & Tech Selection",
-      description: "We help you choose the right technologies and vendors that fit your unique needs.",
+      description: "I help you choose the right technologies and vendors that fit your unique needs.",
       icon: <HelpCircle className="size-6 text-primary" />,
     },
   ];
@@ -70,7 +70,7 @@ export default function TechnologyConsultingPage() {
     { title: "Deep Technical Expertise", desc: "Years of experience across modern technologies.", icon: <Cpu className="size-5 text-primary" /> },
     { title: "Actionable Insights", desc: "Clear recommendations you can implement.", icon: <Search className="size-5 text-primary" /> },
     { title: "Future Ready Solutions", desc: "Build a strong foundation for tomorrow.", icon: <Rocket className="size-5 text-primary" /> },
-    { title: "Ongoing Partnership", desc: "We're with you at every step of your journey.", icon: <Heart className="size-5 text-primary" /> },
+    { title: "Ongoing Partnership", desc: "I'm with you at every step of your journey.", icon: <Heart className="size-5 text-primary" /> },
   ];
 
   const techStack = [
@@ -121,7 +121,7 @@ export default function TechnologyConsultingPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We help businesses leverage the right technologies, architect scalable solutions, and build a roadmap for long-term success.
+                I help businesses leverage the right technologies, architect scalable solutions, and build a roadmap for long-term success.
               </p>
 
               {/* Action buttons */}
@@ -253,11 +253,11 @@ export default function TechnologyConsultingPage() {
             </div>
           </section>
 
-          {/* Why Choose Us */}
+          {/* why work with me */}
           <section className="py-8 relative border-t border-border-custom/30 pt-16">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-                WHY CHOOSE US
+                why work with me
               </span>
               <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
                 Consulting That Drives Real Business Impact

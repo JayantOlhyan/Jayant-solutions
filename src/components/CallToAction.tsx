@@ -31,7 +31,7 @@ export default function CallToAction() {
             href="/contact"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 hover:bg-white/5 px-7 py-3 text-xs font-mono font-bold text-white transition-all duration-200"
           >
-            Contact Us <ArrowRight className="size-3.5" />
+            contact me <ArrowRight className="size-3.5" />
           </Link>
         </div>
       </div>

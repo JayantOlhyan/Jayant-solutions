@@ -24,7 +24,7 @@ export default function ContactPage() {
 
   const bottomIndicators = [
     { label: "Quick Response", desc: "We reply within 24 hours", icon: <Clock className="size-5 text-primary" /> },
-    { label: "Secure & Confidential", desc: "Your information is safe with us", icon: <ShieldCheck className="size-5 text-primary" /> },
+    { label: "Secure & Confidential", desc: "Your information is safe with me", icon: <ShieldCheck className="size-5 text-primary" /> },
     { label: "Expert Support", desc: "Get help from our experts", icon: <Heart className="size-5 text-primary" /> },
     { label: "Global Reach", desc: "We serve clients worldwide", icon: <Globe className="size-5 text-primary" /> },
   ];
@@ -64,7 +64,7 @@ export default function ContactPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl">
-                Have a project in mind or want to learn more about our services? We&apos;d love to hear from you. Drop us a message and our team will get back to you as soon as possible.
+                Have a project in mind or want to learn more about my services? We&apos;d love to hear from you. Drop us a message and our team will get back to you as soon as possible.
               </p>
             </div>
 
@@ -107,7 +107,7 @@ export default function ContactPage() {
               ) : (
                 <form onSubmit={handleSubmit} className="border border-border-custom bg-card-bg/60 p-6 md:p-8 rounded-3xl space-y-6">
                   <div className="border-b border-border-custom/50 pb-3 mb-6">
-                    <h3 className="font-serif text-lg font-bold text-text-base">Send Us a Message</h3>
+                    <h3 className="font-serif text-lg font-bold text-text-base">send me a Message</h3>
                     <p className="text-[10px] text-text-muted">Fill out the form below and we&apos;ll get back to you.</p>
                   </div>
 
@@ -200,7 +200,7 @@ export default function ContactPage() {
                       <span>Send Message</span>
                       <ArrowRight className="size-4" />
                     </button>
-                    <span className="text-[8px] font-mono text-text-muted leading-tight">🛡️ We respect your privacy. Your information is safe with us.</span>
+                    <span className="text-[8px] font-mono text-text-muted leading-tight">🛡️ I respect your privacy. Your information is safe with me.</span>
                   </div>
                 </form>
               )}
@@ -213,7 +213,7 @@ export default function ContactPage() {
               <div className="hog-card rounded-3xl p-6 md:p-8 bg-card-bg/60 border border-border-custom flex flex-col gap-6">
                 <div className="border-b border-border-custom/50 pb-2">
                   <h3 className="font-serif text-sm font-bold text-text-base">Contact Information</h3>
-                  <p className="text-[9px] text-text-muted">Reach out to us through any of the following.</p>
+                  <p className="text-[9px] text-text-muted">Reach out to me through any of the following.</p>
                 </div>
 
                 <div className="space-y-4">
@@ -262,9 +262,9 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Connect with us socials */}
+              {/* Connect with me socials */}
               <div className="hog-card rounded-3xl p-6 md:p-8 bg-card-bg/60 border border-border-custom flex flex-col gap-4">
-                <h3 className="font-serif text-sm font-bold text-text-base border-b border-border-custom pb-2">Connect With Us</h3>
+                <h3 className="font-serif text-sm font-bold text-text-base border-b border-border-custom pb-2">Connect with me</h3>
                 <p className="text-[10px] text-text-muted">Follow us on social media to stay updated.</p>
                 
                 <div className="flex flex-wrap gap-4 text-xs font-mono mt-2">

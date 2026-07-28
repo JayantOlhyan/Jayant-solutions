@@ -129,7 +129,7 @@ export default function CloudAndDevOpsPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We help businesses leverage the power of cloud and DevOps to build, deploy, and scale applications faster, more securely, and more reliably.
+                I help businesses leverage the power of cloud and DevOps to build, deploy, and scale applications faster, more securely, and more reliably.
               </p>
 
               {/* Action buttons */}
@@ -284,7 +284,7 @@ export default function CloudAndDevOpsPage() {
             </div>
           </section>
 
-          {/* Why Choose Us */}
+          {/* why work with me */}
           <section className="py-8 relative border-t border-border-custom/30 pt-16">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
@@ -366,7 +366,7 @@ export default function CloudAndDevOpsPage() {
                 Cloud Solutions for Every Industry
               </h2>
               <p className="text-sm md:text-base text-text-muted mt-2">
-                We build secure, scalable, and reliable cloud solutions across industries.
+                I build secure, scalable, and reliable cloud solutions across industries.
               </p>
             </div>
 

@@ -24,13 +24,13 @@ export default function ProcessPage() {
     {
       id: "03",
       name: "Design & Prototype",
-      desc: "We design intuitive interfaces and prototypes to visualize the solution.",
+      desc: "I design intuitive interfaces and prototypes to visualize the solution.",
       icon: <Layout className="size-5 text-primary" />,
     },
     {
       id: "04",
       name: "Development",
-      desc: "We build scalable, secure, and high-performance solutions using best practices.",
+      desc: "I build scalable, secure, and high-performance solutions using best practices.",
       icon: <Code className="size-5 text-primary" />,
     },
     {
@@ -80,7 +80,7 @@ export default function ProcessPage() {
           <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center pt-8">
             <div className="lg:col-span-7 flex flex-col items-start">
               <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-                OUR PROCESS
+                my process
               </span>
               <h1 className="font-serif text-4xl md:text-6xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
                 A Clear Process.{" "}

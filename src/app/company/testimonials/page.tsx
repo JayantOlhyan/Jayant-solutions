@@ -29,7 +29,7 @@ export default function TestimonialsPage() {
   const reviews = [
     {
       company: "FinTrack",
-      text: "Jayant Web & AI Systems delivered an exceptional SaaS platform that transformed our business. Their expertise and communication were excellent throughout the entire process.",
+      text: "Jayant Solutions delivered an exceptional SaaS platform that transformed our business. Their expertise and communication were excellent throughout the entire process.",
       author: "Arjun Mehta",
       role: "CEO, FinTrack",
       rating: 5,
@@ -117,7 +117,7 @@ export default function TestimonialsPage() {
                 by Results.
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We take pride in the trust our clients place in us and the impact we create together. Here&apos;s what they have to say about their experience with Jayant Web & AI Systems.
+                I take pride in the trust my clients place in us and the impact we create together. Here&apos;s what they have to say about their experience with Jayant Solutions.
               </p>
 
               {/* Action buttons */}
@@ -149,7 +149,7 @@ export default function TestimonialsPage() {
                 </div>
                 <div className="relative z-20 flex flex-col gap-2">
                   <p className="font-serif text-sm italic text-white/90 leading-relaxed mb-4">
-                    The team at Jayant Web & AI Systems transformed our idea into a powerful digital product. Their technical expertise, communication, and dedication are outstanding.
+                    The team at Jayant Solutions transformed our idea into a powerful digital product. Their technical expertise, communication, and dedication are outstanding.
                   </p>
                   <h4 className="font-serif text-sm font-bold leading-none mb-1">Arjun Mehta</h4>
                   <span className="text-[10px] font-mono text-white/60">CEO, FinTrack</span>
@@ -176,7 +176,7 @@ export default function TestimonialsPage() {
                 REVIEWS
               </span>
               <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
-                What Our Clients Say
+                What my clients Say
               </h2>
             </div>
 
@@ -243,7 +243,7 @@ export default function TestimonialsPage() {
             
             <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
               <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-white mb-4 leading-tight">
-                Ready to Join Our Happy Clients?
+                Ready to start your project?
               </h2>
               <p className="text-xs md:text-sm text-white/70 max-w-lg mb-8 leading-relaxed">
                 Let&apos;s build something amazing together and create impact for your business.

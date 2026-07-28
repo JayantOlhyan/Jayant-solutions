@@ -183,7 +183,7 @@ export default function ServiceStatusPage() {
                     </button>
                   </form>
                 )}
-                <span className="text-[8px] font-mono text-text-muted">We respect your privacy. Unsubscribe anytime.</span>
+                <span className="text-[8px] font-mono text-text-muted">I respect your privacy. Unsubscribe anytime.</span>
               </div>
 
               {/* Upcoming maintenance */}

@@ -23,7 +23,7 @@ export default function CookiePolicyPage() {
       title: "2. How We Use Cookies",
       content: (
         <>
-          <p>We use cookies to make our website work properly, enhance your browsing experience, analyze site traffic, and personalize content. Cookies also help us understand how visitors use our website so we can improve our services.</p>
+          <p>We use cookies to make our website work properly, enhance your browsing experience, analyze site traffic, and personalize content. Cookies also help us understand how visitors use our website so we can improve my services.</p>
         </>
       )
     },
@@ -70,11 +70,11 @@ export default function CookiePolicyPage() {
       )
     },
     {
-      id: "7. Contact Us",
-      title: "7. Contact Us",
+      id: "7. contact me",
+      title: "7. contact me",
       content: (
         <>
-          <p>If you have any questions about our use of cookies, please contact us:</p>
+          <p>If you have any questions about our use of cookies, please contact me:</p>
           <div className="mt-3 flex flex-wrap gap-4 text-xs font-mono">
             <span>✉️ jayantwebaisystems@gmail.com</span>
             <span>📞 +91 96673 44125</span>
@@ -108,7 +108,7 @@ export default function CookiePolicyPage() {
                 Cookie Policy
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-6">
-                This Cookie Policy explains how Jayant Web & AI Systems uses cookies and similar technologies to recognize you when you visit our website. It explains what these technologies are and why we use them, as well as your rights to control our use of them.
+                This Cookie Policy explains how Jayant Solutions uses cookies and similar technologies to recognize you when you visit our website. It explains what these technologies are and why we use them, as well as your rights to control our use of them.
               </p>
               
               <div className="flex flex-wrap gap-4 text-[10px] font-mono font-bold text-text-muted">

@@ -118,7 +118,7 @@ export default function AIManufacturingPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We help manufacturers leverage AI to optimize production, predict equipment failures, ensure quality, and build resilient supply chains for a more competitive future.
+                I help manufacturers leverage AI to optimize production, predict equipment failures, ensure quality, and build resilient supply chains for a more competitive future.
               </p>
 
               {/* Action buttons */}
@@ -195,7 +195,7 @@ export default function AIManufacturingPage() {
                 Our AI Solutions for Manufacturing
               </h2>
               <p className="text-xs md:text-sm text-text-muted leading-relaxed mt-4">
-                From predictive insights to intelligent automation, we deliver AI solutions that drive efficiency, quality, and innovation across your operations.
+                From predictive insights to intelligent automation, I deliver AI solutions that drive efficiency, quality, and innovation across your operations.
               </p>
             </div>
 

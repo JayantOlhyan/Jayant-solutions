@@ -68,7 +68,7 @@ export default function TechnologiesPage() {
   const steps = [
     { id: "Understand", desc: "We understand your goals, challenges, and technical requirements." },
     { id: "Select", desc: "We choose the right technologies that fit your product and vision." },
-    { id: "Build", desc: "We build secure, scalable, and high-quality solutions using best practices." },
+    { id: "Build", desc: "I build secure, scalable, and high-quality solutions using best practices." },
     { id: "Deliver & Evolve", desc: "We deploy, optimize, and continuously improve for long-term success." },
   ];
 
@@ -166,7 +166,7 @@ export default function TechnologiesPage() {
             </div>
           </section>
 
-          {/* Why These Technologies & Our Approach split grid */}
+          {/* Why These Technologies & my approach split grid */}
           <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start py-8 border-t border-border-custom/30 pt-16">
             
             {/* Left: Why These Technologies */}
@@ -194,7 +194,7 @@ export default function TechnologiesPage() {
             <div className="lg:col-span-7 flex flex-col gap-6 text-left w-full">
               <div>
                 <span className="font-mono text-[9px] uppercase tracking-wider text-primary border border-primary/20 bg-primary/10 px-2.5 py-0.5 rounded-full mb-3 inline-block">
-                  OUR APPROACH
+                  my approach
                 </span>
                 <h3 className="font-serif text-2xl md:text-4xl font-bold text-text-base leading-tight">
                   Our Technology Approach

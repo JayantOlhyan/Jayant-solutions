@@ -57,13 +57,13 @@ export default function Home() {
         <section id="services" className="py-12 relative text-left">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-              OUR SERVICES
+              my services
             </span>
             <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mb-4 mt-2">
               End-to-End Digital Solutions
             </h2>
             <p className="text-sm md:text-base text-text-muted">
-              From idea to deployment — we deliver scalable, secure, and high-performance solutions tailored to your business goals.
+              From idea to deployment — I deliver scalable, secure, and high-performance solutions tailored to your business goals.
             </p>
           </div>
 

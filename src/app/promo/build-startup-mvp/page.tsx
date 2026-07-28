@@ -19,7 +19,7 @@ export default function PromoStartupMVPPage() {
   const needs = [
     {
       title: "Lightning Fast",
-      desc: "We build and deliver your MVP in 2-6 weeks, not months.",
+      desc: "I build and deliver your MVP in 2-6 weeks, not months.",
       icon: "⚡"
     },
     {
@@ -65,7 +65,7 @@ export default function PromoStartupMVPPage() {
     {
       step: "3",
       title: "Development",
-      desc: "We build your MVP with clean, scalable code.",
+      desc: "I build your MVP with clean, scalable code.",
       icon: "💻"
     },
     {
@@ -92,7 +92,7 @@ export default function PromoStartupMVPPage() {
     { value: "150+", label: "MVPs Delivered" },
     { value: "95%", label: "Client Satisfaction" },
     { value: "2-6 Weeks", label: "Average Delivery" },
-    { value: "50M+", label: "Raised by Our Clients" }
+    { value: "50M+", label: "Raised by my clients" }
   ];
 
   const benefits = [
@@ -131,7 +131,7 @@ export default function PromoStartupMVPPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We help founders turn ideas into powerful MVPs—fast. Validate your product, attract early users, and raise funding with confidence.
+                I help founders turn ideas into powerful MVPs—fast. Validate your product, attract early users, and raise funding with confidence.
               </p>
 
               {/* Action buttons */}

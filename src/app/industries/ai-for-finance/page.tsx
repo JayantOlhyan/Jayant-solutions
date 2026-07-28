@@ -119,7 +119,7 @@ export default function AIFinancePage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We help financial institutions and fintech companies harness the power of AI to automate processes, manage risks, enhance customer experiences, and drive growth.
+                I help financial institutions and fintech companies harness the power of AI to automate processes, manage risks, enhance customer experiences, and drive growth.
               </p>
 
               {/* Action buttons */}
@@ -196,7 +196,7 @@ export default function AIFinancePage() {
                 Our AI Solutions for Finance
               </h2>
               <p className="text-xs md:text-sm text-text-muted leading-relaxed mt-4">
-                From intelligent automation to advanced analytics, we deliver AI solutions that empower financial organizations to operate smarter and grow faster.
+                From intelligent automation to advanced analytics, I deliver AI solutions that empower financial organizations to operate smarter and grow faster.
               </p>
             </div>
 

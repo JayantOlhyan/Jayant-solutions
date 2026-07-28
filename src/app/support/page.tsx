@@ -47,7 +47,7 @@ export default function SupportPage() {
   const footerLinks = [
     { label: "Community", desc: "Join our community & get help", icon: <UsersIcon className="size-5 text-primary" />, href: "/company/partners" },
     { label: "Live Chat", desc: "Chat with our team in real-time", icon: <MessageSquare className="size-5 text-primary" />, href: "https://wa.me/919667344125" },
-    { label: "System Status", desc: "Check live status of our services", icon: <Laptop className="size-5 text-primary" />, href: "/support/service-status" },
+    { label: "System Status", desc: "Check live status of my services", icon: <Laptop className="size-5 text-primary" />, href: "/support/service-status" },
     { label: "Video Tutorials", desc: "Watch step-by-step video guides", icon: <Video className="size-5 text-primary" />, href: "https://youtube.com" },
   ];
 
@@ -126,7 +126,7 @@ export default function SupportPage() {
             {/* Left 4 cards */}
             <div className="lg:col-span-8 flex flex-col gap-6 text-left w-full">
               <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-tight text-text-base mb-2">
-                How Can We Help You?
+                How Can I help You?
               </h2>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

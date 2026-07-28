@@ -167,7 +167,7 @@ export default function BlogCaseStudiesCategoryPage() {
                 </div>
                 <div className="bg-white/5 border border-white/5 p-3 rounded-xl flex justify-between items-center text-[10px] mt-4">
                   <div className="flex flex-col text-left">
-                    <span className="text-white/40 uppercase tracking-widest font-mono">Our Approach</span>
+                    <span className="text-white/40 uppercase tracking-widest font-mono">my approach</span>
                     <span className="font-bold font-serif text-white mt-1">Understand → Strategy → Implement</span>
                   </div>
                   <span className="text-lg">📈</span>
