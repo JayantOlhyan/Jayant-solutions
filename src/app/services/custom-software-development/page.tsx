@@ -86,6 +86,7 @@ export default function CustomSoftwareDevelopmentPage() {
   ];
 
   const recentProjects = [
+    { id: "weact", title: "WeAct", tag: "NGO", desc: "Geographic volunteer dispatch dashboard and alert SMS router.", icon: "🤝" },
     { id: "khelclan", title: "KhelClan", tag: "Gaming", desc: "WebSocket clan matchmaking portal and bracket automatons.", icon: "🎮" },
     { id: "civicsetu", title: "CivicSetu", tag: "GovTech", desc: "Geo-tagged municipality ticket routing portal with PDF logs.", icon: "🏛️" },
     { id: "janganana", title: "JanGanana Digital", tag: "GovTech", desc: "Offline-first census data collection tablet sync database.", icon: "📊" },
