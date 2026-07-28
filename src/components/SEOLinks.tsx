@@ -26,7 +26,7 @@ export default function SEOLinks() {
               </li>
               <li>
                 <Link href="/blog" className="hover:text-primary transition-colors">
-                  Read our Latest AI Insights
+                  Read my Latest AI Insights
                 </Link>
               </li>
             </ul>

@@ -8,52 +8,22 @@ import { ArrowRight, Check, Heart, Shield, Laptop, MessageSquare, Handshake, Use
 export default function IndustriesPage() {
   const industries = [
     {
-      title: "Healthcare & Life Sciences",
+      title: "Healthcare",
       desc: "Digital solutions that improve patient care, streamline operations, and ensure compliance.",
       points: ["Telemedicine Platforms", "Health Records Management", "AI-Powered Diagnostics"],
       avatar: "🏥",
     },
     {
-      title: "Education & E-Learning",
-      desc: "Engaging platforms that empower institutions, educators, and learners in the digital age.",
+      title: "Education",
+      desc: "Engaging platforms that empower institutions, educators, and learners in the digital era.",
       points: ["LMS & E-Learning Platforms", "Student Information Systems", "Virtual Classrooms"],
       avatar: "🎓",
     },
     {
-      title: "Fintech & Banking",
-      desc: "Secure, scalable, and compliant solutions for modern financial services and fintech innovators.",
-      points: ["Digital Banking Platforms", "Payment Gateways", "Fraud Detection Systems"],
-      avatar: "🏦",
-    },
-    {
-      title: "E-commerce & Retail",
-      desc: "High-performance solutions that enhance customer experience and boost sales.",
+      title: "Retail & E-commerce",
+      desc: "High-performance solutions that enhance customer experience and boost online sales.",
       points: ["E-commerce Platforms", "Inventory Management", "Customer Analytics"],
       avatar: "🛒",
-    },
-    {
-      title: "Manufacturing",
-      desc: "Smart solutions to optimize production, improve efficiency, and reduce downtime.",
-      points: ["Process Automation", "ERP & Inventory Systems", "Predictive Maintenance"],
-      avatar: "🏭",
-    },
-    {
-      title: "Logistics & Supply Chain",
-      desc: "Real-time visibility and intelligent systems to optimize logistics and delivery operations.",
-      points: ["Fleet Management Systems", "Route Optimization", "Warehousing Solutions"],
-      avatar: "🚛",
-    },
-    {
-      title: "Real Estate",
-      desc: "Digital platforms that simplify property management, listings, and customer interactions.",
-      points: ["Property Listing Platforms", "CRM for Real Estate", "Virtual Tours & 3D Walkthroughs"],
-      avatar: "🏢",
-    },
-    {
-      title: "Startups & SMEs",
-      desc: "Scalable and cost-effective solutions to help startups and SMEs grow faster.",
-      points: ["MVP Development", "Product Engineering", "Growth & Automation"],
-      avatar: "🚀",
     },
   ];
 

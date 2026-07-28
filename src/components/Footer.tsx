@@ -43,14 +43,8 @@ export default function Footer() {
       title: "Industries",
       links: [
         { name: "AI for Healthcare", href: "/industries/ai-for-healthcare" },
-        { name: "AI for Education", href: "/industries/ai-for-education" },
-        { name: "AI for Startups", href: "/industries/ai-for-startups" },
-        { name: "AI for Manufacturing", href: "/industries/ai-for-manufacturing" },
-        { name: "AI for Retail", href: "/industries/ai-for-retail" },
-        { name: "AI for Government", href: "/industries/ai-for-government" },
-        { name: "AI for Agriculture", href: "/industries/ai-for-agriculture" },
-        { name: "AI for Real Estate", href: "/industries/ai-for-real-estate" },
-        { name: "AI for Finance", href: "/industries/ai-for-finance" }
+        { name: "AI for Retail & E-commerce", href: "/industries/ai-for-retail" },
+        { name: "AI for Education", href: "/industries/ai-for-education" }
       ]
     },
     {

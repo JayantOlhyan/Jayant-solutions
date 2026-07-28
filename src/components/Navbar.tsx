@@ -69,14 +69,8 @@ export default function Navbar() {
 
   const industriesSubLinks = [
     { label: "AI for Healthcare", href: "/industries/ai-for-healthcare" },
+    { label: "AI for Retail & E-commerce", href: "/industries/ai-for-retail" },
     { label: "AI for Education", href: "/industries/ai-for-education" },
-    { label: "AI for Startups", href: "/industries/ai-for-startups" },
-    { label: "AI for Manufacturing", href: "/industries/ai-for-manufacturing" },
-    { label: "AI for Retail", href: "/industries/ai-for-retail" },
-    { label: "AI for Government", href: "/industries/ai-for-government" },
-    { label: "AI for Agriculture", href: "/industries/ai-for-agriculture" },
-    { label: "AI for Real Estate", href: "/industries/ai-for-real-estate" },
-    { label: "AI for Finance", href: "/industries/ai-for-finance" },
   ];
 
   const technologiesSubLinks = [
