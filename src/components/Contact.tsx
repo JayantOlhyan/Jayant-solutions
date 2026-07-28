@@ -1,57 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
-import { Mail, Calendar, Clock, Check } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { Mail } from "lucide-react";
 
 export default function Contact() {
-  const [selectedDate, setSelectedDate] = useState<number | null>(null);
-  const [selectedTime, setSelectedTime] = useState<string | null>(null);
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "", desc: "" });
-
-  // Generate 5 business days starting tomorrow
-  const getUpcomingDays = () => {
-    const days = [];
-    const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    let count = 0;
-    let offset = 1;
-
-    while (count < 5) {
-      const date = new Date();
-      date.setDate(date.getDate() + offset);
-      // Skip weekends
-      if (date.getDay() !== 0 && date.getDay() !== 6) {
-        days.push({
-          dayOfWeek: weekdays[date.getDay()],
-          dayOfMonth: date.getDate(),
-          month: months[date.getMonth()],
-          fullDate: date.toDateString(),
-        });
-        count++;
-      }
-      offset++;
-    }
-    return days;
-  };
-
-  const dates = getUpcomingDays();
-  const timeSlots = ["10:00 AM", "11:30 AM", "2:00 PM", "4:30 PM"];
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email || selectedDate === null || !selectedTime) return;
-    
-    // Simulate booking email submission log
-    console.log(`Routing booking request for ${formData.name} to jayantwebaisystems@gmail.com`);
-    
-    setFormSubmitted(true);
-  };
 
   return (
     <section id="contact" className="py-20 md:py-28 relative">

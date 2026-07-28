@@ -129,36 +129,39 @@ export default function NetworkDiagram() {
 
       {/* 4 Connected Floating Node hexagons */}
       {nodes.map((node, index) => (
-        <motion.div
+        <div
           key={node.id}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: index * 0.1 }}
           className="absolute z-20"
           style={{
             transform: `translate(${node.x}px, ${node.y}px)`,
           }}
         >
           <motion.div
-            animate={{
-              y: [0, -4, 0],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: index * 0.5,
-            }}
-            className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-white dark:bg-[#111827] border border-border-custom shadow-md hover:shadow-lg transition-shadow min-w-[120px] text-center"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <div className="size-12 rounded-full border border-border-custom bg-card-bg flex items-center justify-center shadow-sm">
-              {node.icon}
-            </div>
-            <span className="font-serif text-xs md:text-sm font-bold text-text-base">
-              {node.title}
-            </span>
+            <motion.div
+              animate={{
+                y: [0, -4, 0],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: index * 0.5,
+              }}
+              className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-white dark:bg-[#111827] border border-border-custom shadow-md hover:shadow-lg transition-shadow min-w-[120px] text-center"
+            >
+              <div className="size-12 rounded-full border border-border-custom bg-card-bg flex items-center justify-center shadow-sm">
+                {node.icon}
+              </div>
+              <span className="font-serif text-xs md:text-sm font-bold text-text-base">
+                {node.title}
+              </span>
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
       ))}
 
     </div>

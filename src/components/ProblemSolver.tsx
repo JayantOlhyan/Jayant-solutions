@@ -56,7 +56,7 @@ export default function ProblemSolver() {
     if (element) {
       const topOffset = 80;
       const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - topOffset;
+      const offsetPosition = elementPosition + window.scrollY - topOffset;
       window.scrollTo({
         top: offsetPosition,
         behavior: "smooth",
