@@ -147,60 +147,52 @@ export const recommendedAddons = [
 ];
 export const packages: Package[] = [
   {
-    name: "Starter Launch",
-    price: "₹15,000",
-    tagline: "Best for individuals, freelancers, and small businesses",
-    features: ["5-page responsive website", "Contact form", "SEO basics", "Mobile optimization", "SSL setup", "Deployment"],
-    timeline: "1–2 Weeks",
-    addons: ["Logo Design", "Copywriting", "Blog Setup", "Business Email", "Domain & Hosting"],
-    isPopular: true,
-    idealFor: "Freelancers, small local businesses"
-  },
-  {
-    name: "Business Growth",
-    price: "₹35,000",
-    tagline: "Best for SMEs and growing companies",
-    features: ["Custom business website", "CMS (Content Management)", "Blog setup", "Advanced SEO", "Analytics integrations", "Lead forms", "Speed optimization"],
+    name: "Starter",
+    price: "₹40,000",
+    tagline: "High-converting responsive design, SEO setup, performance optimization, contact form integration, CMS setup.",
+    features: [
+      "High-converting responsive design",
+      "SEO setup & search visibility",
+      "Speed & performance optimization",
+      "Contact / lead form integration",
+      "CMS setup for content management"
+    ],
     timeline: "2–4 Weeks",
-    addons: ["Booking System", "CRM Integration", "WhatsApp Chat", "Multi-language Support"],
-    idealFor: "Established companies looking to generate leads"
+    addons: ["Content Writing", "Branding & Logo Design"],
+    idealFor: "Landing Pages & Small Business Websites"
   },
   {
-    name: "Startup MVP",
-    price: "₹80,000",
-    tagline: "Best for startups validating an idea",
-    features: ["Web app setup", "User authentication", "Admin dashboard", "Database setup", "APIs integration", "Cloud deployment", "User management"],
-    timeline: "4–8 Weeks",
-    addons: ["Mobile App", "Payment Gateway", "Notifications", "AI Features", "Investor Pitch Deck"],
-    idealFor: "Founders launching their first software product"
+    name: "Growth",
+    price: "₹90,000",
+    tagline: "Custom web application/dashboard, CRM integration, lead qualification workflows, automated email follow-ups, analytics setup.",
+    features: [
+      "Custom web application / dashboard",
+      "CRM pipeline integration",
+      "Lead qualification workflows",
+      "Automated email follow-ups",
+      "Analytics setup & dashboard"
+    ],
+    timeline: "2–4 Weeks",
+    addons: ["WhatsApp API Integration", "AI Chatbot Integration"],
+    isPopular: true,
+    idealFor: "Full Business Websites, Dashboards, CRM & Workflow Automation"
   },
   {
-    name: "AI Automation Suite",
-    price: "₹1,20,000",
-    tagline: "Best for businesses looking to automate workflows",
-    features: ["AI chatbot", "Workflow automation", "API integrations", "CRM sync", "Document processing", "Analytics dashboard"],
-    timeline: "3–6 Weeks",
-    addons: ["Voice AI", "WhatsApp Bot", "Email Automation", "OCR", "Custom AI Agent"],
+    name: "Scale",
+    price: "₹2,00,000",
+    tagline: "End-to-end custom business software, AI chatbot integration, WhatsApp automation, multi-platform CRM workflows, custom dashboards.",
+    features: [
+      "End-to-end custom business software",
+      "AI chatbot (trained on company data)",
+      "WhatsApp automation workflows",
+      "Multi-platform CRM syncing",
+      "Custom dashboards",
+      "Priority ongoing support"
+    ],
+    timeline: "2–6 Weeks",
+    addons: ["On-site Training", "Extended Support SLA"],
     featured: true,
-    idealFor: "Teams wasting hours on manual spreadsheets and admin work"
-  },
-  {
-    name: "Enterprise Digital Transformation",
-    price: "₹3,00,000",
-    tagline: "Best for large organizations and enterprises",
-    features: ["Custom software system", "Scalable architecture", "Role-Based Access Control (RBAC)", "Cloud infrastructure setup", "Monitoring & Alerts", "System integrations", "Documentation"],
-    timeline: "8–16 Weeks",
-    addons: ["Dedicated Team", "SLA Support", "Security Audit", "On-site Deployment", "Training Sessions"],
-    idealFor: "Large teams seeking high-performance private infrastructure"
-  },
-  {
-    name: "Innovation Partnership",
-    price: "₹1,50,000/mo",
-    tagline: "Best for organizations needing continuous product development",
-    features: ["Dedicated development team", "UI/UX updates", "AI consulting", "Product roadmap planning", "Monthly updates", "Maintenance", "Priority support"],
-    timeline: "Monthly Retainer",
-    addons: ["CTO-as-a-Service", "DevOps", "AI R&D", "24x7 Monitoring", "Dedicated Project Manager"],
-    idealFor: "Businesses requiring ongoing technical upgrades"
+    idealFor: "Complete AI Business System"
   }
 ];
 

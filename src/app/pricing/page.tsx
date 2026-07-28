@@ -11,70 +11,48 @@ export default function PricingPage() {
   const plans = [
     {
       name: "Starter",
-      desc: "Perfect for startups & small businesses",
-      price: "₹24,999",
+      desc: "High-converting responsive design, SEO setup, performance optimization.",
+      price: "₹40,000",
       billing: "One-time cost",
       features: [
-        "Up to 5 Pages Website",
-        "Responsive Design",
-        "Basic SEO Setup",
-        "Contact / Inquiry Form",
-        "1 Round of Revisions",
-        "Email Support",
+        "High-converting responsive design",
+        "SEO setup & search visibility",
+        "Speed & performance optimization",
+        "Contact / lead form integration",
+        "CMS setup for content management"
       ],
       cta: "Get Started",
       popular: false,
     },
     {
       name: "Growth",
-      desc: "Ideal for growing businesses looking to scale",
-      price: "₹49,999",
+      desc: "Custom web application/dashboard, CRM integration, lead qualification workflows.",
+      price: "₹90,000",
       billing: "One-time cost",
       features: [
-        "Up to 15 Pages Website",
-        "Custom Design",
-        "Advanced SEO Setup",
-        "CMS Integration",
-        "2 Integration (e.g. API, Chat, etc.)",
-        "2 Rounds of Revisions",
-        "Priority Support",
+        "Custom web application / dashboard",
+        "CRM pipeline integration",
+        "Lead qualification workflows",
+        "Automated email follow-ups",
+        "Analytics setup & dashboard"
       ],
       cta: "Get Started",
       popular: true,
     },
     {
-      name: "Business",
-      desc: "Best for established businesses",
-      price: "₹99,999",
+      name: "Scale",
+      desc: "Complete AI Business System: custom software, chatbot, and WhatsApp automation.",
+      price: "₹2,00,000",
       billing: "One-time cost",
       features: [
-        "Unlimited Pages",
-        "Custom Web Application",
-        "Advanced Integrations",
-        "Performance Optimization",
-        "3rd Party Integrations",
-        "3 Rounds of Revisions",
-        "Priority Support",
-        "Monthly Maintenance",
+        "End-to-end custom business software",
+        "AI chatbot (trained on company data)",
+        "WhatsApp automation workflows",
+        "Multi-platform CRM syncing",
+        "Custom dashboards",
+        "Priority ongoing support"
       ],
       cta: "Get Started",
-      popular: false,
-    },
-    {
-      name: "Enterprise",
-      desc: "For large organizations with complex needs",
-      price: "Custom",
-      billing: "Tailored to your requirements",
-      features: [
-        "Everything in Business Plan",
-        "Dedicated Project Manager",
-        "Custom Integrations",
-        "Scalable Architecture",
-        "Security & Compliance",
-        "Ongoing Support & Maintenance",
-        "SLA & Priority Support",
-      ],
-      cta: "Talk to me",
       popular: false,
     },
   ];
@@ -88,11 +66,11 @@ export default function PricingPage() {
   ];
 
   const pricingSteps = [
-    { id: "1", name: "Discuss", desc: "Tell us your requirements and goals." },
-    { id: "2", name: "Get Estimate", desc: "We provide a transparent proposal & timeline." },
-    { id: "3", name: "Plan & Agreement", desc: "We finalize the plan that works for you." },
+    { id: "1", name: "Discuss", desc: "Tell me your requirements and goals." },
+    { id: "2", name: "Get Estimate", desc: "I provide a transparent proposal & timeline." },
+    { id: "3", name: "Plan & Agreement", desc: "I finalize the plan that works for you." },
     { id: "4", name: "Build & Deliver", desc: "I build, test, and deliver high-quality solutions." },
-    { id: "5", name: "Support & Grow", desc: "We provide ongoing support to help you grow." },
+    { id: "5", name: "Support & Grow", desc: "I provide ongoing support to help you grow." },
   ];
 
   const faqs = [
@@ -158,7 +136,7 @@ export default function PricingPage() {
           </section>
 
           {/* Pricing Grid */}
-          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {plans.map((plan, idx) => (
               <div
                 key={idx}
