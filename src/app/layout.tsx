@@ -34,7 +34,7 @@ const ibmMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jayant Solutions | Custom AI, Web & Software Development Agency",
+  title: "Jayant Solutions | Custom AI, Web & Software Development",
   description: "Jayant Solutions builds AI-powered applications, custom software, websites, SaaS platforms, mobile apps, and automation solutions for startups, businesses, and enterprises. Transform your ideas into scalable digital products.",
   metadataBase: new URL("https://jayant-systems.online"),
   alternates: {
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Jayant Solutions | AI Solutions & Software Development",
     description: "I build intelligent AI applications, scalable software, business automation systems, modern websites, and cloud solutions that help businesses innovate and grow.",
-    url: "https://jayant-solution.netlify.app",
+    url: "https://jayant-systems.online",
     siteName: "Jayant Solutions",
     locale: "en_IN",
     type: "website",
@@ -98,8 +98,8 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Jayant Solutions",
-    "url": "https://jayant-solution.netlify.app",
-    "logo": "https://jayant-solution.netlify.app/logo.png",
+    "url": "https://jayant-systems.online",
+    "logo": "https://jayant-systems.online/logo.png",
     "sameAs": [
       "https://github.com/JayantOlhyan",
       "https://linkedin.com/company/jayant-systems",
