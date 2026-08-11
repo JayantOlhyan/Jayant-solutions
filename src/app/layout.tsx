@@ -5,6 +5,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import SEOLinks from "@/components/SEOLinks";
 import Footer from "@/components/Footer";
+import PWAHandler from "@/components/PWAHandler";
 import "./globals.css";
 
 const geist = Geist({
@@ -126,6 +127,7 @@ export default function RootLayout({
         </div>
         <SEOLinks />
         <FloatingWhatsApp />
+        <PWAHandler />
         <Footer />
       </body>
     </html>

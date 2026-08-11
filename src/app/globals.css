@@ -234,3 +234,19 @@ textarea:focus-visible,
 .skip-link:focus {
   top: 0;
 }
+
+/* PWA Animations */
+@keyframes slideIn {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

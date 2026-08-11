@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export default function ContactForm() {
@@ -16,6 +16,21 @@ export default function ContactForm() {
     description: "",
     agreement: false
   });
+
+  const [isOffline, setIsOffline] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    setIsOffline(!navigator.onLine);
+    const handleOnline = () => setIsOffline(false);
+    const handleOffline = () => setIsOffline(true);
+    window.addEventListener("online", handleOnline);
+    window.addEventListener("offline", handleOffline);
+    return () => {
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", handleOffline);
+    };
+  }, []);
 
   const projectTypes = [
     "AI Development",
@@ -271,10 +286,20 @@ export default function ContactForm() {
         {/* Action Button */}
         <button
           type="submit"
-          className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary-hover text-white font-mono text-xs font-bold py-3.5 shadow-md transition-all duration-200"
+          disabled={isOffline}
+          className={`w-full inline-flex items-center justify-center gap-2 rounded-xl text-white font-mono text-xs font-bold py-3.5 transition-all duration-200 ${
+            isOffline
+              ? "bg-neutral-400 dark:bg-neutral-800 cursor-not-allowed shadow-none"
+              : "bg-primary hover:bg-primary-hover shadow-md"
+          }`}
         >
-          Send Project Inquiry <ArrowRight className="size-3.5" />
+          {isOffline ? "Offline Mode Enabled" : "Send Project Inquiry"} <ArrowRight className="size-3.5" />
         </button>
+        {isOffline && (
+          <p className="text-red-500 font-mono text-[10px] text-center mt-2.5">
+            ⚠️ Inquiry submission is temporarily disabled while offline.
+          </p>
+        )}
       </form>
     </div>
   );
