@@ -22,7 +22,9 @@ import {
   AlertCircle,
   HelpCircle,
   Menu,
-  X
+  X,
+  Plus,
+  Minus
 } from "lucide-react";
 
 interface ProposalContentProps {
@@ -106,208 +108,205 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
 
   const navItems = [
     { label: "Overview", id: "overview" },
-    { label: "Current Position", id: "current-position" },
-    { label: "Strategy", id: "strategy" },
+    { label: "Today's Assessment", id: "current-position" },
+    { label: "What We Build", id: "strategy" },
     { label: "90-Day Roadmap", id: "roadmap" },
-    { label: "Deliverables", id: "deliverables" },
+    { label: "What You Receive", id: "deliverables" },
     { label: "Measurement", id: "measurement" },
-    { label: "Your Role", id: "your-role" },
+    { label: "Roles", id: "your-role" },
     { label: "Next Steps", id: "next-steps" }
   ];
 
-  // 12-week roadmap data
+  // 12-week roadmap data with strict key fields
   const roadmapWeeks = [
     {
       week: 1,
-      title: "Discovery and alignment",
-      objective: "Define growth goals, audit existing relationships, and map target segments.",
+      title: "Discovery and positioning",
+      objective: "Define goals, audience hypotheses and positioning.",
       activities: [
-        "Strategic discovery consultation.",
-        "Detailed review of personal business history and travel insights.",
-        "Gathering existing assets (stories, reference material, private notes).",
-        "Formulating audience profiles and communication angles."
+        "strategic discovery consultation.",
+        "business background review.",
+        "initial audience mapping.",
+        "content opportunity mapping."
       ],
       outputs: [
-        "Brand definition and positioning brief.",
-        "Target client segments mapping."
+        "positioning direction.",
+        "initial audience map.",
+        "initial content themes."
       ],
-      involvement: "1-hour alignment interview; provision of basic background history."
+      involvement: "participate in discovery discussions; provide background information.",
+      signal: "Clear direction is agreed for the first phase."
     },
     {
       week: 2,
-      title: "Positioning and messaging",
-      objective: "Formulate the core narrative matching client authority to the travel opportunity.",
+      title: "Digital foundation",
+      objective: "Setup initial profiles and pathways.",
       activities: [
-        "Structuring core message guidelines.",
-        "Formulating custom storytelling framework.",
-        "Preparing private engagement guides for online messaging.",
-        "Drafting customized visual layouts for the digital channels."
+        "profile layout mapping.",
+        "refining bio and messaging copy.",
+        "establishing meeting pathway links."
       ],
       outputs: [
-        "Personal brand messaging guide.",
-        "Core narrative copy templates."
+        "draft bios.",
+        "contact pathway framework.",
+        "meeting pathway framework."
       ],
-      involvement: "Review and approve draft messaging guidelines (15 to 20 mins)."
+      involvement: "provide access credentials; verify profile copy.",
+      signal: "Profile layouts are approved for setup."
     },
     {
       week: 3,
-      title: "Digital presence setup",
-      objective: "Build and structure the key touchpoints for professional interaction.",
+      title: "Content preparation",
+      objective: "Conduct first recording and draft initial assets.",
       activities: [
-        "Constructing customized entry profiles.",
-        "Setting up simple booking and response pathways.",
-        "Configuring enquiry validation questions.",
-        "Structuring calendar integration for qualified client review."
+        "recording session preparation.",
+        "guided storytelling interview.",
+        "text drafting and layout reviews."
       ],
       outputs: [
-        "Polished, professional digital entry points.",
-        "Active meeting scheduling pathway."
+        "initial short-form content library.",
+        "first publishing batch."
       ],
-      involvement: "Provide credential access where needed; test booking flow."
+      involvement: "participate in scheduled recording; review content assets.",
+      signal: "First content batch is signed off."
     },
     {
       week: 4,
-      title: "First content launch",
-      objective: "Introduce the personal brand presence and launch the initial batch of content.",
+      title: "Launch and learn",
+      objective: "Launch initial content and test communication pathways.",
       activities: [
-        "First production session to capture raw stories and lessons.",
-        "Editing, refining, and formatting content for clarity and premium appearance.",
-        "Setting up the weekly publishing schedule.",
-        "Activating inquiry pathways."
+        "publishing schedule activation.",
+        "profile configuration finalisation.",
+        "monitoring early reach."
       ],
       outputs: [
-        "Launch-ready content library.",
-        "First set of published insights and stories."
+        "active profiles.",
+        "first set of live content posts.",
+        "initial visitor logs."
       ],
-      involvement: "Participate in a 45-minute structured recording session; approve final edits."
+      involvement: "verify profiles are live; review first response report.",
+      signal: "All digital platforms are active and publishing."
     },
     {
       week: 5,
-      title: "Establishing rhythm",
-      objective: "Maintain consistency and begin analyzing early audience response.",
+      title: "Consistency and monitoring",
+      objective: "Maintain regular publishing and track initial visitor response.",
       activities: [
-        "Publishing structured content at set intervals.",
-        "Monitoring response, comments, and direct questions.",
-        "Compiling initial community feedback.",
-        "Refining the publication process for maximum output consistency."
+        "publish scheduled assets.",
+        "log early replies.",
+        "compile engagement statistics."
       ],
       outputs: [
-        "Second batch of published insights.",
-        "Initial feedback and engagement report."
+        "weekly content batch.",
+        "first engagement summary."
       ],
-      involvement: "Review weekly report; low-friction chat check-in."
+      involvement: "review response logs.",
+      signal: "Content is published on schedule with zero operational issues."
     },
     {
       week: 6,
       title: "Audience development",
-      objective: "Expand visibility to entrepreneurs, travellers, and network-marketing prospects.",
+      objective: "Grow profile visibility toward the target cohorts.",
       activities: [
-        "Refining content structure to highlight business opportunities and travel lifestyle.",
-        "Directing profile visibility toward qualified demographic targets.",
-        "Initiating outreach to industry-specific connections.",
-        "Monitoring growing interest metrics."
+        "relevant outreach and interactions.",
+        "comment responses.",
+        "profile visibility optimisation."
       ],
       outputs: [
-        "Audience expansion metrics report.",
-        "Qualified connection log."
+        "visibility reports.",
+        "growth analytics log."
       ],
-      involvement: "None (Fully handled by Jayant Web & AI Systems)."
+      involvement: "review monthly progress report.",
+      signal: "Profile impressions demonstrate positive trend."
     },
     {
       week: 7,
       title: "Enquiry activation",
-      objective: "Drive audience interest toward active enquiries.",
+      objective: "Encourage interested profile visitors to ask questions.",
       activities: [
-        "Deploying targeted call-to-actions in content.",
-        "Sharing lessons that encourage business dialogue.",
-        "Activating direct communication paths.",
-        "Reviewing incoming messages."
+        "introduce clear enquiry prompts in content.",
+        "share evaluation perspectives."
       ],
       outputs: [
-        "Initial flow of warm inbound messages.",
-        "Conversation tracking sheet."
+        "incoming enquiry tracking sheet."
       ],
-      involvement: "None (Fully handled by Jayant Web & AI Systems)."
+      involvement: "provide answers to specialized enquiry questions.",
+      signal: "First set of direct enquiries are logged."
     },
     {
       week: 8,
-      title: "Qualification and filtering",
-      objective: "Identify and shortlist highly qualified prospects.",
+      title: "Filter and qualify",
+      objective: "Identify high-relevance prospects.",
       activities: [
-        "Applying validation parameters to incoming enquiries.",
-        "Determining interest level, business experience, and resource fit.",
-        "Filtering out low-intent queries.",
-        "Inviting qualified prospects to schedule discussions."
+        "apply simple qualification questions.",
+        "review responses.",
+        "filter out casual queries."
       ],
       outputs: [
-        "Shortlist of vetted prospects.",
-        "Meeting bookings confirmed."
+        "list of suitable prospects ready for conversation."
       ],
-      involvement: "Review the vetted prospect summaries."
+      involvement: "review prospect backgrounds.",
+      signal: "Prospects are qualified using the structured framework."
     },
     {
       week: 9,
-      title: "Meeting setting flow",
-      objective: "Seamlessly transition qualified interest into structured meetings.",
+      title: "Meeting setting",
+      objective: "Book direct calls with suitable prospects.",
       activities: [
-        "Managing meeting schedules and calendar bookings.",
-        "Sending professional confirmation messages.",
-        "Delivering brief pre-meeting context to set expectation parameters.",
-        "Providing the client with structured background briefs for each attendee."
+        "send booking confirmations.",
+        "coordinate schedules.",
+        "deliver meeting brief context."
       ],
       outputs: [
-        "Active meeting calendar.",
-        "Briefing documents for each prospect."
+        "confirmed meeting entries on client calendar."
       ],
-      involvement: "Host and run the 20 to 30 minute introductory business calls (vetted leads only)."
+      involvement: "host business conversations with interested prospects.",
+      signal: "Qualified prospects are scheduled for direct meetings."
     },
     {
       week: 10,
-      title: "Follow-up systemization",
-      objective: "Nurture prospects post-meeting to finalize decisions.",
+      title: "Follow-up and nurture",
+      objective: "Maintain engagement post-meeting and support decisions.",
       activities: [
-        "Structuring custom follow-up messaging.",
-        "Sharing relevant travel or business information sheets with prospects.",
-        "Tracking decision stages of active conversations.",
-        "Providing guidance on next-step communications."
+        "send customized follow-up emails.",
+        "supply travel opportunity sheets."
       ],
       outputs: [
-        "Follow-up logs and templates.",
-        "Status tracking sheets."
+        "follow-up status records.",
+        "nurture communications."
       ],
-      involvement: "Maintain direct relations; update prospect status feedback."
+      involvement: "maintain personal relation updates.",
+      signal: "Prospects receive customized context information post-meeting."
     },
     {
       week: 11,
-      title: "Performance assessment",
-      objective: "Analyze growth data and identify improvement opportunities.",
+      title: "Performance review",
+      objective: "Evaluate initial calendar operations and conversion paths.",
       activities: [
-        "Evaluating total reach, enquiries, and booked conversations.",
-        "Analyzing conversion metrics from discovery to booking.",
-        "Gathering prospect feedback to adjust core messaging.",
-        "Compiling key performance indicators."
+        "compile reach statistics.",
+        "calculate enquiries and meetings attended.",
+        "highlight bottleneck areas."
       ],
       outputs: [
-        "Comprehensive 80-day growth report.",
-        "Refinement recommendations."
+        "80-day performance audit sheet."
       ],
-      involvement: "30-minute review session to discuss outcomes and strategies."
+      involvement: "participate in brief review meeting.",
+      signal: "Operational metrics are structured and ready for scaling adjustments."
     },
     {
       week: 12,
-      title: "Scale and growth strategy",
-      objective: "Prepare the digital acquisition asset for subsequent expansion stages.",
+      title: "Growth scaling strategy",
+      objective: "Setup scaling actions for the next quarter.",
       activities: [
-        "Increasing publishing resources for high-converting content topics.",
-        "Optimizing the meeting-booking journey for efficiency.",
-        "Outlining the strategy for the next quarter.",
-        "Confirming long-term content and distribution structures."
+        "design next-step content framework.",
+        "expand outreach parameters."
       ],
       outputs: [
-        "Quarter-2 scaling blueprint.",
-        "Final asset valuation and system transition overview."
+        "next-quarter scaling plan.",
+        "final system transition overview."
       ],
-      involvement: "Collaborative session to align on subsequent goals."
+      involvement: "align on future targets and resource allocations.",
+      signal: "Transition plan is finalized and signed off."
     }
   ];
 
@@ -325,10 +324,10 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
         
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex flex-col">
-            <span className="text-[10px] uppercase tracking-widest text-[#C5A880] font-bold font-mono">
+            <span className="proposal-eyebrow text-[#C5A880] text-xs font-bold font-mono">
               Private client proposal
             </span>
-            <span className="text-sm font-serif font-bold text-slate-200">
+            <span className="text-sm font-serif font-bold text-slate-200 mt-0.5">
               Prepared for: {clientName}
             </span>
           </div>
@@ -339,7 +338,7 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-xs font-semibold tracking-wide transition-all ${
+                className={`proposal-nav-text text-xs font-semibold tracking-wide transition-all ${
                   activeSection === item.id 
                     ? "text-[#C5A880] scale-105" 
                     : "text-slate-400 hover:text-slate-200"
@@ -355,7 +354,7 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
               onClick={() => scrollToSection("next-steps")}
               className="inline-flex items-center gap-1.5 px-4.5 py-2 text-xs font-bold rounded-lg bg-[#C5A880] hover:bg-[#D8B992] text-slate-950 transition-all duration-200 active:scale-95 shadow-md hover:shadow-[#C5A880]/10"
             >
-              <span>Discuss the plan</span>
+              <span className="proposal-nav-text">Book discovery session</span>
               <ArrowRight className="size-3.5" />
             </button>
           </div>
@@ -394,7 +393,7 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                 onClick={() => scrollToSection("next-steps")}
                 className="w-full inline-flex items-center justify-center gap-1.5 px-5 py-3 text-sm font-bold rounded-lg bg-[#C5A880] text-slate-950 hover:bg-[#D8B992] transition-all"
               >
-                <span>Discuss the plan</span>
+                <span>Book discovery session</span>
                 <ArrowRight className="size-4" />
               </button>
             </motion.div>
@@ -418,22 +417,22 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
           
           {/* Prepared by label */}
           <div className="inline-flex flex-col mb-8">
-            <span className="font-mono text-xs font-bold tracking-widest text-[#C5A880] uppercase">
+            <span className="proposal-eyebrow text-xs font-bold tracking-widest text-[#C5A880] uppercase">
               Prepared by
             </span>
-            <span className="text-sm font-semibold text-slate-400 mt-1">
-              JAYANT WEB & AI SYSTEMS
+            <span className="text-sm font-semibold text-slate-400 mt-1 font-mono">
+              Jayant Web & AI Systems
             </span>
           </div>
 
           {/* Headline */}
-          <h1 className="h1-proposal text-5xl md:text-7xl lg:text-8xl mb-8 max-w-5xl">
-            Your experience, built for the digital world.
+          <h1 className="h1-proposal mb-8 max-w-5xl">
+            Your Experience, Built for the Digital World.
           </h1>
 
           {/* Subheadline */}
-          <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-3xl mb-12 font-light">
-            A 90-day digital growth and business development plan designed to turn your existing business credibility, travel experience, and personal authority into a professional digital presence and a measurable flow of business conversations.
+          <p className="proposal-body-text text-slate-300 max-w-3xl mb-12 font-light">
+            A 90-day plan to turn your business experience into a professional digital presence and a consistent path to meaningful business conversations.
           </p>
 
           {/* Action CTAs */}
@@ -442,7 +441,7 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
               onClick={() => scrollToSection("roadmap")}
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#C5A880] hover:bg-[#D8B992] text-slate-950 px-8 py-4 text-sm font-semibold transition-all duration-200 shadow-lg hover:shadow-[#C5A880]/10 active:scale-[0.98]"
             >
-              <span>Review the 90-day plan</span>
+              <span>Explore the 90-Day Plan</span>
               <ArrowRight className="size-4" />
             </button>
 
@@ -450,7 +449,7 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
               onClick={() => scrollToSection("strategy")}
               className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-900/50 hover:bg-slate-900 text-slate-200 px-8 py-4 text-sm font-semibold transition-all duration-200 active:scale-[0.98]"
             >
-              <span>See what we are building</span>
+              <span>See What We’re Building</span>
               <ArrowRight className="size-4" />
             </button>
           </div>
@@ -458,39 +457,31 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
 
 
         {/* ==========================================
-            Executive summary section
+            Executive summary section (Why this matters)
             ========================================== */}
         <section className="border-b border-slate-800/40 pb-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-5">
-              <span className="text-xs uppercase tracking-widest text-[#C5A880] font-bold font-mono">
-                Executive summary
+              <span className="proposal-eyebrow text-xs tracking-widest text-[#C5A880] font-bold">
+                Why this matters
               </span>
-              <h2 className="h2-proposal text-3xl md:text-5xl mt-3">
-                Where you are today.<br />Where we want to go.
+              <h2 className="h2-proposal mt-3">
+                Where You Are Today. Where We Want to Go.
               </h2>
             </div>
             
-            <div className="lg:col-span-7 space-y-6 text-slate-300 leading-relaxed font-light text-base md:text-lg">
-              <p>
-                You have built a successful career in corporate governance, compliance, and large scale operations at global enterprises like NTT DATA. Your credibility in physical business environments is solid.
+            <div className="lg:col-span-7 space-y-6 text-slate-300 leading-relaxed font-light">
+              <p className="proposal-body-text">
+                You already have valuable assets that take years to build: business experience, professional credibility, relationships and real-world knowledge.
               </p>
-              <p>
-                However, when potential partners, associates, or opportunities look for you in the digital space, they find a gap. This absence of digital presence creates a friction point. It prevents prospective contacts from understanding your background and starting meaningful business relationships.
+              <p className="proposal-body-text">
+                The current gap is digital visibility.
               </p>
-              
-              {/* Highlight quote card */}
-              <div className="p-6 rounded-2xl bg-slate-900/40 border border-slate-800/80 my-8">
-                <span className="text-xs uppercase tracking-widest text-[#C5A880] font-bold font-mono block mb-2">
-                  The core strategy
-                </span>
-                <p className="font-serif text-xl md:text-2xl text-slate-200 italic leading-snug">
-                  "The objective is not to turn you into an influencer. The objective is to build a digital business asset around the credibility you already have."
-                </p>
-              </div>
-
-              <p>
-                We do not expect you to write posts daily, edit video footage, or manage code. Our purpose is to design, produce, and run a digital system that translates your expertise into digital authority, leaving you free to focus entirely on building high-value business relationships.
+              <p className="proposal-body-text">
+                The objective is not to turn you into an influencer. The objective is to build a professional online presence around the credibility you already have and create a clear path from discovery to meaningful business conversations.
+              </p>
+              <p className="proposal-body-text">
+                Over the next 90 days, the focus is on building the foundation, establishing the content presence, creating the enquiry and meeting journey, and using real response data to improve what works.
               </p>
             </div>
           </div>
@@ -498,15 +489,15 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
 
 
         {/* ==========================================
-            Current position section
+            Today's Assessment section (Where you are today)
             ========================================== */}
         <section ref={currentPositionRef} id="current-position" className="border-b border-slate-800/40 pb-20 scroll-mt-24">
           <div className="mb-12">
-            <span className="text-xs uppercase tracking-widest text-[#C5A880] font-bold font-mono">
-              The digital gap
+            <span className="proposal-eyebrow text-xs tracking-widest text-[#C5A880] font-bold">
+              Where you are today
             </span>
-            <h2 className="h2-proposal text-3xl md:text-5xl mt-2">
-              Today's assessment
+            <h2 className="h2-proposal mt-2">
+              Today’s Assessment
             </h2>
           </div>
 
@@ -519,34 +510,25 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                     <CheckCircle className="size-6" />
                   </div>
                   <h3 className="h3-proposal text-2xl">
-                    What already exists
+                    What Already Exists
                   </h3>
                 </div>
                 
                 <ul className="space-y-4">
                   {[
-                    "Proven executive leadership at global technology organizations.",
-                    "Deep understanding of corporate governance and compliance.",
-                    "An active, high-value professional network.",
-                    "First-hand corporate travel and logistics insights.",
-                    "Existing trust and direct relationship skills.",
-                    "Personal authority in executive boardrooms."
+                    "Established business experience",
+                    "Professional credibility",
+                    "Existing professional relationships",
+                    "Business and travel knowledge",
+                    "Direct relationship-building ability",
+                    "Real-world experience"
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-slate-300 font-light text-sm md:text-base">
+                    <li key={idx} className="flex items-start gap-3 text-slate-350 font-light proposal-body-text">
                       <span className="size-1.5 rounded-full bg-green-500 mt-2 shrink-0" />
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
-              </div>
-              
-              <div className="mt-8 pt-6 border-t border-slate-800/50">
-                <span className="text-xs text-green-400/80 font-mono uppercase tracking-wider block">
-                  Current asset valuation
-                </span>
-                <span className="text-sm text-slate-400 mt-1 block">
-                  High value foundation waiting to be leveraged.
-                </span>
               </div>
             </div>
 
@@ -558,43 +540,94 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                     <AlertCircle className="size-6" />
                   </div>
                   <h3 className="h3-proposal text-2xl">
-                    What is missing digitally
+                    What Is Missing Digitally
                   </h3>
                 </div>
 
                 <ul className="space-y-4">
                   {[
-                    "Professional and authoritative digital presence.",
-                    "Consistent, trust building insights and updates.",
-                    "Clear positioning showing who you are online.",
-                    "A structured enquiry path for digital visitors.",
-                    "An organized digital pathway to secure meetings.",
-                    "Complete performance data and conversation visibility."
+                    "Professional digital presence",
+                    "Consistent content presence",
+                    "Clear online positioning",
+                    "Clear enquiry path",
+                    "Structured meeting journey",
+                    "Performance visibility"
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-slate-300 font-light text-sm md:text-base">
+                    <li key={idx} className="flex items-start gap-3 text-slate-355 font-light proposal-body-text">
                       <span className="size-1.5 rounded-full bg-[#C5A880] mt-2 shrink-0" />
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-
-              <div className="mt-8 pt-6 border-t border-slate-800/50">
-                <span className="text-xs text-[#C5A880]/80 font-mono uppercase tracking-wider block">
-                  Current digital vulnerability
-                </span>
-                <span className="text-sm text-slate-400 mt-1 block">
-                  Lost leverage and missing connection pathways.
-                </span>
-              </div>
             </div>
           </div>
 
           {/* Bottom statement */}
           <div className="p-6 rounded-2xl bg-[#C5A880]/[0.02] border border-[#C5A880]/10 text-center">
-            <p className="text-base md:text-lg text-slate-300 font-light max-w-4xl mx-auto">
-              "Credibility already exists. The opportunity is to make it visible, understandable, and accessible online."
+            <p className="proposal-body-text text-slate-300 font-light max-w-4xl mx-auto">
+              "Credibility already exists. The opportunity is to make it visible, understandable and accessible online."
             </p>
+          </div>
+        </section>
+
+
+        {/* ==========================================
+            Target transformation section [NEW SECTION]
+            ========================================== */}
+        <section className="border-b border-slate-800/40 pb-20">
+          <div className="mb-12">
+            <span className="proposal-eyebrow text-xs tracking-widest text-[#C5A880] font-bold">
+              The transformation
+            </span>
+            <h2 className="h2-proposal mt-2">
+              Target Transformation
+            </h2>
+            <p className="proposal-body-text text-slate-400 mt-4 max-w-3xl font-light">
+              This represents our operational target, not a guaranteed result.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Today */}
+            <div className="p-8 rounded-2xl bg-[#0E1326]/20 border border-[#1E2544]">
+              <span className="proposal-eyebrow text-xs text-red-500 font-bold block mb-4">TODAY</span>
+              <ul className="space-y-4">
+                {[
+                  "limited digital visibility",
+                  "no structured content presence",
+                  "no clear enquiry pathway",
+                  "manual follow-up",
+                  "limited performance visibility"
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-slate-400 font-light proposal-body-text">
+                    <span className="size-1.5 rounded-full bg-red-500 mt-2 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* After 90 days */}
+            <div className="p-8 rounded-2xl bg-[#C5A880]/5 border border-[#C5A880]/20">
+              <span className="proposal-eyebrow text-xs text-[#C5A880] font-bold block mb-4">AFTER THE INITIAL 90 DAYS</span>
+              <ul className="space-y-4">
+                {[
+                  "professional digital presence",
+                  "consistent content system",
+                  "clear enquiry journey",
+                  "structured meeting process",
+                  "organised follow-up",
+                  "performance visibility",
+                  "clear next-step growth plan"
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-slate-200 font-light proposal-body-text">
+                    <span className="size-1.5 rounded-full bg-[#C5A880] mt-2 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </section>
 
@@ -605,15 +638,12 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
         <section className="border-b border-slate-800/40 pb-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-5">
-              <span className="text-xs uppercase tracking-widest text-[#C5A880] font-bold font-mono">
+              <span className="proposal-eyebrow text-xs tracking-widest text-[#C5A880] font-bold">
                 The objective
               </span>
-              <h2 className="h2-proposal text-3xl md:text-5xl mt-3">
-                Turn offline trust<br />into digital authority
+              <h2 className="h2-proposal mt-3">
+                Turn Offline Trust Into Digital Authority
               </h2>
-              <p className="text-slate-400 mt-6 font-light text-sm md:text-base leading-relaxed">
-                By bridging your physical track record with online structures, we unlock access to qualified business partners who value credentials and mature leadership.
-              </p>
             </div>
 
             <div className="lg:col-span-7 space-y-8">
@@ -623,10 +653,10 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                   01
                 </div>
                 <h3 className="h3-proposal text-xl mb-2">
-                  Build recognition
+                  Build Recognition
                 </h3>
-                <p className="text-slate-300 font-light text-sm md:text-base leading-relaxed">
-                  Establish a recognizable and highly credible online personality that matches your physical authority. We define your content layout, messaging tone, and profile layouts to build digital trust immediately.
+                <p className="proposal-body-text text-slate-400 font-light leading-relaxed">
+                  Create a recognisable and credible online presence that reflects the authority already established offline.
                 </p>
               </div>
 
@@ -636,10 +666,10 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                   02
                 </div>
                 <h3 className="h3-proposal text-xl mb-2">
-                  Create relevant conversations
+                  Create Relevant Conversations
                 </h3>
-                <p className="text-slate-300 font-light text-sm md:text-base leading-relaxed">
-                  Use structured insights and stories to attract individuals who are genuinely interested in travel lifestyle, entrepreneurship, and alternative business structures, starting clean, high intent dialogues.
+                <p className="proposal-body-text text-slate-400 font-light leading-relaxed">
+                  Use useful stories, experience and education to attract people who are genuinely interested in the subject.
                 </p>
               </div>
 
@@ -649,10 +679,10 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                   03
                 </div>
                 <h3 className="h3-proposal text-xl mb-2">
-                  Establish a repeatable business development process
+                  Establish a Repeatable Business-Development Process
                 </h3>
-                <p className="text-slate-300 font-light text-sm md:text-base leading-relaxed">
-                  Design a smooth pathway that guides prospects from initial discovery, through structured interest qualification, directly into scheduled consultations, followed by structured partner onboarding.
+                <p className="proposal-body-text text-slate-400 font-light leading-relaxed">
+                  Create a clear path from discovery to enquiry, serious conversation, meeting and follow-up.
                 </p>
               </div>
             </div>
@@ -665,14 +695,14 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
             ========================================== */}
         <section ref={strategyRef} id="strategy" className="border-b border-slate-800/40 pb-20 scroll-mt-24">
           <div className="mb-12">
-            <span className="text-xs uppercase tracking-widest text-[#C5A880] font-bold font-mono">
+            <span className="proposal-eyebrow text-xs tracking-widest text-[#C5A880] font-bold">
               The solution
             </span>
-            <h2 className="h2-proposal text-3xl md:text-5xl mt-2">
-              What we are building
+            <h2 className="h2-proposal mt-2">
+              What We Are Building
             </h2>
-            <p className="text-slate-400 mt-4 max-w-3xl font-light text-sm md:text-base">
-              A comprehensive digital asset designed to work in the background, reinforcing your credibility and delivering qualified enquiries without requiring your operational involvement.
+            <p className="proposal-body-text text-slate-400 mt-4 max-w-3xl font-light">
+              A structured digital presence and business-development system built around your experience, positioning and target audience.
             </p>
           </div>
 
@@ -680,14 +710,14 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
             {/* Card 1 */}
             <div className="p-8 rounded-2xl bg-[#0E1326]/30 border border-[#1E2544] flex flex-col justify-between hover:border-[#C5A880]/30 transition-all group">
               <div>
-                <span className="font-mono text-xs font-semibold text-[#C5A880]/60 block mb-6">
+                <span className="proposal-eyebrow text-[#C5A880]/60 block mb-6">
                   01 / PRESENCE
                 </span>
                 <h3 className="h3-proposal text-xl mb-3 group-hover:text-[#C5A880] transition-colors">
-                  Professional digital presence
+                  Professional Digital Presence
                 </h3>
-                <p className="text-slate-400 font-light text-xs md:text-sm leading-relaxed">
-                  A polished online landing portal that immediately communicates your background, expertise, and what a prospective partner should do next.
+                <p className="text-slate-450 font-light text-sm leading-relaxed">
+                  A clear online identity that communicates who you are, what you represent and what an interested person should do next.
                 </p>
               </div>
             </div>
@@ -695,14 +725,14 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
             {/* Card 2 */}
             <div className="p-8 rounded-2xl bg-[#0E1326]/30 border border-[#1E2544] flex flex-col justify-between hover:border-[#C5A880]/30 transition-all group">
               <div>
-                <span className="font-mono text-xs font-semibold text-[#C5A880]/60 block mb-6">
-                  02 / TRUST
+                <span className="proposal-eyebrow text-[#C5A880]/60 block mb-6">
+                  02 / POSITIONING
                 </span>
                 <h3 className="h3-proposal text-xl mb-3 group-hover:text-[#C5A880] transition-colors">
-                  Personal brand positioning
+                  Personal Brand Positioning
                 </h3>
-                <p className="text-slate-400 font-light text-xs md:text-sm leading-relaxed">
-                  A structured messaging framework that defines your target audience, core topics, and profile copy, establishing instant authority.
+                <p className="text-slate-450 font-light text-sm leading-relaxed">
+                  A clear framework for your story, expertise, audience and content themes.
                 </p>
               </div>
             </div>
@@ -710,14 +740,14 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
             {/* Card 3 */}
             <div className="p-8 rounded-2xl bg-[#0E1326]/30 border border-[#1E2544] flex flex-col justify-between hover:border-[#C5A880]/30 transition-all group">
               <div>
-                <span className="font-mono text-xs font-semibold text-[#C5A880]/60 block mb-6">
-                  03 / DISTRIBUTION
+                <span className="proposal-eyebrow text-[#C5A880]/60 block mb-6">
+                  03 / CONTENT
                 </span>
                 <h3 className="h3-proposal text-xl mb-3 group-hover:text-[#C5A880] transition-colors">
-                  Consistent content systems
+                  Consistent Content
                 </h3>
-                <p className="text-slate-400 font-light text-xs md:text-sm leading-relaxed">
-                  A high-end content pipeline that packages your insights and distributes them systematically, creating regular market visibility.
+                <p className="text-slate-450 font-light text-sm leading-relaxed">
+                  A professional content system that turns your experience and insights into a steady publishing presence.
                 </p>
               </div>
             </div>
@@ -725,14 +755,14 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
             {/* Card 4 */}
             <div className="p-8 rounded-2xl bg-[#0E1326]/30 border border-[#1E2544] flex flex-col justify-between hover:border-[#C5A880]/30 transition-all group">
               <div>
-                <span className="font-mono text-xs font-semibold text-[#C5A880]/60 block mb-6">
-                  04 / ACQUISITION
+                <span className="proposal-eyebrow text-[#C5A880]/60 block mb-6">
+                  04 / JOURNEY
                 </span>
                 <h3 className="h3-proposal text-xl mb-3 group-hover:text-[#C5A880] transition-colors">
-                  Enquiry and conversation journey
+                  Enquiry & Conversation Journey
                 </h3>
-                <p className="text-slate-400 font-light text-xs md:text-sm leading-relaxed">
-                  A clean, friction free mechanism that qualifies incoming interest and starts discussions with prospects who match your partner profile.
+                <p className="text-slate-450 font-light text-sm leading-relaxed">
+                  A clear path for interested people to start a conversation and understand the next step.
                 </p>
               </div>
             </div>
@@ -740,14 +770,14 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
             {/* Card 5 */}
             <div className="p-8 rounded-2xl bg-[#0E1326]/30 border border-[#1E2544] flex flex-col justify-between hover:border-[#C5A880]/30 transition-all group">
               <div>
-                <span className="font-mono text-xs font-semibold text-[#C5A880]/60 block mb-6">
-                  05 / RELATIONSHIP
+                <span className="proposal-eyebrow text-[#C5A880]/60 block mb-6">
+                  05 / PROCESS
                 </span>
                 <h3 className="h3-proposal text-xl mb-3 group-hover:text-[#C5A880] transition-colors">
-                  Meeting and onboarding process
+                  Meeting & Follow-Up Process
                 </h3>
-                <p className="text-slate-400 font-light text-xs md:text-sm leading-relaxed">
-                  A professional booking flow that manages invitations, coordinates reminders, and prepares prospects for serious, structured business calls.
+                <p className="text-slate-450 font-light text-sm leading-relaxed">
+                  A structured process for moving suitable conversations into meetings and keeping next steps visible.
                 </p>
               </div>
             </div>
@@ -755,14 +785,14 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
             {/* Card 6 */}
             <div className="p-8 rounded-2xl bg-[#0E1326]/30 border border-[#1E2544] flex flex-col justify-between hover:border-[#C5A880]/30 transition-all group">
               <div>
-                <span className="font-mono text-xs font-semibold text-[#C5A880]/60 block mb-6">
-                  06 / ANALYTICS
+                <span className="proposal-eyebrow text-[#C5A880]/60 block mb-6">
+                  06 / MEASUREMENT
                 </span>
                 <h3 className="h3-proposal text-xl mb-3 group-hover:text-[#C5A880] transition-colors">
-                  Reporting and system optimization
+                  Performance Review
                 </h3>
-                <p className="text-slate-400 font-light text-xs md:text-sm leading-relaxed">
-                  A transparent review dashboard that highlights reach metrics, qualified lead volume, and conversion trends to continuously improve outcomes.
+                <p className="text-slate-450 font-light text-sm leading-relaxed">
+                  Regular review of audience response, enquiries, meetings and outcomes so the plan can improve over time.
                 </p>
               </div>
             </div>
@@ -775,14 +805,14 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
             ========================================== */}
         <section className="border-b border-slate-800/40 pb-20">
           <div className="mb-12">
-            <span className="text-xs uppercase tracking-widest text-[#C5A880] font-bold font-mono">
+            <span className="proposal-eyebrow text-xs tracking-widest text-[#C5A880] font-bold">
               Audience alignment
             </span>
-            <h2 className="h2-proposal text-3xl md:text-5xl mt-2">
-              The right audience matters more than the biggest audience
+            <h2 className="h2-proposal mt-2">
+              The Right Audience Matters More Than the Biggest Audience
             </h2>
-            <p className="text-slate-400 mt-4 max-w-3xl font-light text-sm md:text-base">
-              We focus our efforts on targeting specific groups that match your background and hold high value for a travel business opportunity.
+            <p className="proposal-body-text text-slate-450 mt-4 max-w-3xl font-light">
+              These are initial audience hypotheses and will be refined during the discovery and testing phase.
             </p>
           </div>
 
@@ -793,10 +823,10 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                 <Plane className="size-5.5" />
               </div>
               <h3 className="h3-proposal text-lg mb-2">
-                The traveller
+                The Frequent Traveller
               </h3>
-              <p className="text-slate-400 font-light text-xs md:text-sm leading-relaxed">
-                Individuals motivated by premium travel experiences, unique destination access, lifestyle flexibility, and leisure oriented growth.
+              <p className="text-slate-400 font-light text-sm leading-relaxed">
+                People who value travel experiences, lifestyle flexibility and travel-related opportunities.
               </p>
             </div>
 
@@ -806,10 +836,10 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                 <Briefcase className="size-5.5" />
               </div>
               <h3 className="h3-proposal text-lg mb-2">
-                The entrepreneur
+                The Entrepreneur / Business Owner
               </h3>
-              <p className="text-slate-400 font-light text-xs md:text-sm leading-relaxed">
-                Existing business owners looking for secondary opportunities to diversify income using their current professional networks.
+              <p className="text-slate-400 font-light text-sm leading-relaxed">
+                Existing business owners who are open to additional opportunities and diversification.
               </p>
             </div>
 
@@ -819,10 +849,10 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                 <Users className="size-5.5" />
               </div>
               <h3 className="h3-proposal text-lg mb-2">
-                The corporate executive
+                The Experienced Professional
               </h3>
-              <p className="text-slate-400 font-light text-xs md:text-sm leading-relaxed">
-                Experienced directors, VPs, and corporate executives who understand high-level governance and are looking for professional diversification.
+              <p className="text-slate-400 font-light text-sm leading-relaxed">
+                Professionals with established careers who may be interested in new business directions.
               </p>
             </div>
 
@@ -832,19 +862,12 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                 <GraduationCap className="size-5.5" />
               </div>
               <h3 className="h3-proposal text-lg mb-2">
-                The professional
+                The Relationship-Driven Connector
               </h3>
-              <p className="text-slate-400 font-light text-xs md:text-sm leading-relaxed">
-                Experienced corporate leaders and specialists seeking a viable, high potential transition channel out of standard routines.
+              <p className="text-slate-400 font-light text-sm leading-relaxed">
+                People who are naturally comfortable with networking, referrals and relationship-based business.
               </p>
             </div>
-          </div>
-
-          <div className="p-5.5 rounded-xl border border-slate-800/50 bg-[#0C1225]/40 flex items-start gap-3.5">
-            <HelpCircle className="size-5 text-[#C5A880] mt-0.5 shrink-0" />
-            <p className="text-xs md:text-sm text-slate-400 leading-relaxed font-light">
-              <strong>Please note:</strong> This target audience definition will be refined, tested, and systematically adapted during Phase 1 (Discovery & Positioning) to focus on the absolute highest-converting profiles.
-            </p>
           </div>
         </section>
 
@@ -855,18 +878,18 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
         <section className="border-b border-slate-800/40 pb-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-5">
-              <span className="text-xs uppercase tracking-widest text-[#C5A880] font-bold font-mono">
+              <span className="proposal-eyebrow text-xs tracking-widest text-[#C5A880] font-bold">
                 Positioning framework
               </span>
-              <h2 className="h2-proposal text-3xl md:text-5xl mt-3">
-                Build the person before<br />promoting the opportunity
+              <h2 className="h2-proposal mt-3">
+                Build the Person Before Promoting the Opportunity
               </h2>
               <div className="p-6 rounded-2xl bg-[#0E1326]/30 border border-[#1E2544] mt-8">
-                <span className="text-xs uppercase tracking-widest text-[#C5A880] font-bold font-mono block mb-2">
-                  The ecosystem concept
+                <span className="proposal-eyebrow text-xs block mb-2 font-bold">
+                  The central framework
                 </span>
-                <p className="text-slate-300 font-light text-xs md:text-sm leading-relaxed">
-                  We establish your identity as a mature corporate leader and entrepreneur first. The specific travel business proposal will act as a natural extension of your lessons and leadership, not the sole focus of your presence.
+                <p className="proposal-body-text text-slate-300 font-light">
+                  The travel opportunity should become part of the broader story — not the only thing people see.
                 </p>
               </div>
             </div>
@@ -878,11 +901,11 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                   <div className="flex items-center gap-3 mb-4 text-[#C5A880]">
                     <Briefcase className="size-5" />
                     <h3 className="h3-proposal text-lg">
-                      Corporate governance
+                      BUSINESS
                     </h3>
                   </div>
-                  <p className="text-slate-400 font-light text-xs md:text-sm leading-relaxed">
-                    Business lessons, compliance guidelines, decision frameworks, career stories, and large scale global operational experiences.
+                  <p className="text-slate-400 font-light text-sm leading-relaxed">
+                    Business lessons, decisions, leadership and experience.
                   </p>
                 </div>
               </div>
@@ -893,11 +916,11 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                   <div className="flex items-center gap-3 mb-4 text-[#C5A880]">
                     <Plane className="size-5" />
                     <h3 className="h3-proposal text-lg">
-                      Travel insights
+                      TRAVEL
                     </h3>
                   </div>
-                  <p className="text-slate-400 font-light text-xs md:text-sm leading-relaxed">
-                    Destination analysis, premium travel reviews, cultural perspectives, and advice on balancing lifestyle freedom with operations.
+                  <p className="text-slate-400 font-light text-sm leading-relaxed">
+                    Real travel experiences, destinations, lessons and lifestyle.
                   </p>
                 </div>
               </div>
@@ -908,11 +931,11 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                   <div className="flex items-center gap-3 mb-4 text-[#C5A880]">
                     <TrendingUp className="size-5" />
                     <h3 className="h3-proposal text-lg">
-                      Entrepreneurship
+                      ENTREPRENEURSHIP
                     </h3>
                   </div>
-                  <p className="text-slate-400 font-light text-xs md:text-sm leading-relaxed">
-                    Modern business opportunities, diversification approaches, resilience, risk management, and scaling business networks.
+                  <p className="text-slate-400 font-light text-sm leading-relaxed">
+                    Business thinking, diversification, risk and opportunity.
                   </p>
                 </div>
               </div>
@@ -923,11 +946,11 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                   <div className="flex items-center gap-3 mb-4 text-[#C5A880]">
                     <Heart className="size-5" />
                     <h3 className="h3-proposal text-lg">
-                      Executive lifestyle
+                      PERSONAL EXPERIENCE
                     </h3>
                   </div>
-                  <p className="text-slate-400 font-light text-xs md:text-sm leading-relaxed">
-                    Personal updates, reflections on achievement, behind the scenes insights, showing the authentic professional behind the portfolio.
+                  <p className="text-slate-400 font-light text-sm leading-relaxed">
+                    Personal journey, opinions, milestones and the person behind the business.
                   </p>
                 </div>
               </div>
@@ -941,164 +964,164 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
             ========================================== */}
         <section className="border-b border-slate-800/40 pb-20">
           <div className="mb-12">
-            <span className="text-xs uppercase tracking-widest text-[#C5A880] font-bold font-mono">
+            <span className="proposal-eyebrow text-xs tracking-widest text-[#C5A880] font-bold">
               Narrative structure
             </span>
-            <h2 className="h2-proposal text-3xl md:text-5xl mt-2">
-              Content that builds recognition, trust, and conversation
+            <h2 className="h2-proposal mt-2">
+              Content That Builds Recognition, Trust and Conversation
             </h2>
-            <p className="text-slate-400 mt-4 max-w-3xl font-light text-sm md:text-base">
-              Content is our vehicle. We package your expertise into structured insights that establish trust with prospects before they reach out.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="p-6 rounded-2xl bg-slate-900/10 border border-slate-800/60">
-              <h3 className="h3-proposal text-lg border-b border-slate-850 pb-3 mb-4">
-                Core themes
+            {/* Block 1 */}
+            <div className="p-6 rounded-2xl bg-slate-900/10 border border-slate-800/60 space-y-4">
+              <h3 className="h3-proposal text-lg border-b border-slate-850 pb-3">
+                Business & Travel
               </h3>
-              <ul className="space-y-3 text-slate-300 font-light text-xs md:text-sm">
-                <li>&bull; Business history stories</li>
-                <li>&bull; Travel destination reviews</li>
-                <li>&bull; Leadership lessons</li>
-                <li>&bull; Personal success metrics</li>
-              </ul>
+              <div className="space-y-4">
+                <div>
+                  <span className="text-xs font-mono text-[#C5A880] uppercase tracking-wider block mb-1">Business Stories</span>
+                  <ul className="space-y-1 text-slate-300 font-light text-xs md:text-sm">
+                    <li>&bull; lessons from business</li>
+                    <li>&bull; decisions and mistakes</li>
+                    <li>&bull; leadership experiences</li>
+                    <li>&bull; business perspective</li>
+                  </ul>
+                </div>
+                <div className="border-t border-slate-850 pt-3">
+                  <span className="text-xs font-mono text-[#C5A880] uppercase tracking-wider block mb-1">Travel Stories</span>
+                  <ul className="space-y-1 text-slate-300 font-light text-xs md:text-sm">
+                    <li>&bull; destinations</li>
+                    <li>&bull; experiences</li>
+                    <li>&bull; travel lessons</li>
+                    <li>&bull; travel recommendations</li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-slate-900/10 border border-slate-800/60">
-              <h3 className="h3-proposal text-lg border-b border-slate-850 pb-3 mb-4">
-                Educational content
+            {/* Block 2 */}
+            <div className="p-6 rounded-2xl bg-slate-900/10 border border-slate-800/60 space-y-4">
+              <h3 className="h3-proposal text-lg border-b border-slate-850 pb-3">
+                Entrepreneurship & Personal
               </h3>
-              <ul className="space-y-3 text-slate-300 font-light text-xs md:text-sm">
-                <li>&bull; Industry trends analysis</li>
-                <li>&bull; Answering common partner concerns</li>
-                <li>&bull; Overcoming business misconceptions</li>
-                <li>&bull; Clarifying network growth dynamics</li>
-              </ul>
+              <div className="space-y-4">
+                <div>
+                  <span className="text-xs font-mono text-[#C5A880] uppercase tracking-wider block mb-1">Entrepreneurship</span>
+                  <ul className="space-y-1 text-slate-300 font-light text-xs md:text-sm">
+                    <li>&bull; diversification</li>
+                    <li>&bull; risk</li>
+                    <li>&bull; opportunity evaluation</li>
+                    <li>&bull; business thinking</li>
+                  </ul>
+                </div>
+                <div className="border-t border-slate-850 pt-3">
+                  <span className="text-xs font-mono text-[#C5A880] uppercase tracking-wider block mb-1">Personal Experience</span>
+                  <ul className="space-y-1 text-slate-300 font-light text-xs md:text-sm">
+                    <li>&bull; personal journey</li>
+                    <li>&bull; opinions</li>
+                    <li>&bull; milestones</li>
+                    <li>&bull; behind the scenes</li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-slate-900/10 border border-slate-800/60">
-              <h3 className="h3-proposal text-lg border-b border-slate-850 pb-3 mb-4">
-                Conversion assets
+            {/* Block 3 */}
+            <div className="p-6 rounded-2xl bg-slate-900/10 border border-slate-800/60 space-y-4">
+              <h3 className="h3-proposal text-lg border-b border-slate-850 pb-3">
+                Opportunity Education
               </h3>
-              <ul className="space-y-3 text-slate-300 font-light text-xs md:text-sm">
-                <li>&bull; Behind the scenes activity</li>
-                <li>&bull; Invitation parameters for meetings</li>
-                <li>&bull; Success patterns in team building</li>
-                <li>&bull; Travel luxury features</li>
-              </ul>
+              <div className="space-y-4">
+                <div>
+                  <span className="text-xs font-mono text-[#C5A880] uppercase tracking-wider block mb-1">Education Details</span>
+                  <ul className="space-y-1 text-slate-300 font-light text-xs md:text-sm">
+                    <li>&bull; how the business works</li>
+                    <li>&bull; common questions</li>
+                    <li>&bull; misconceptions</li>
+                    <li>&bull; who it may be suitable for</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Formula diagram */}
-          <div className="p-8 rounded-2xl bg-[#0E1326]/40 border border-[#1E2544] text-center flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
-            <div className="flex flex-col items-center">
-              <span className="text-[10px] uppercase font-mono tracking-wider text-slate-400 mb-1">Authentic authority</span>
-              <span className="text-lg md:text-xl font-serif font-bold text-slate-200">REAL PERSON</span>
-            </div>
-            <span className="text-xl text-[#C5A880] font-serif">+</span>
-            <div className="flex flex-col items-center">
-              <span className="text-[10px] uppercase font-mono tracking-wider text-slate-400 mb-1">Industry background</span>
-              <span className="text-lg md:text-xl font-serif font-bold text-slate-200">REAL EXPERIENCE</span>
-            </div>
-            <span className="text-xl text-[#C5A880] font-serif">+</span>
-            <div className="flex flex-col items-center">
-              <span className="text-[10px] uppercase font-mono tracking-wider text-slate-400 mb-1">Polished distribution</span>
-              <span className="text-lg md:text-xl font-serif font-bold text-slate-200">PROFESSIONAL STORYTELLING</span>
-            </div>
-            <span className="text-xl text-[#C5A880] font-serif">=</span>
-            <div className="flex flex-col items-center bg-[#C5A880]/5 px-6 py-3 rounded-xl border border-[#C5A880]/20">
-              <span className="text-[10px] uppercase font-mono tracking-wider text-[#C5A880] mb-1">The asset</span>
-              <span className="text-lg md:text-xl font-serif font-bold text-[#C5A880]">CREDIBLE DIGITAL PRESENCE</span>
+          {/* Example content strip */}
+          <div className="p-8 rounded-2xl bg-[#0E1326]/40 border border-[#1E2544]">
+            <span className="proposal-eyebrow text-xs block mb-4 text-[#C5A880] font-bold">EXAMPLE CONTENT</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+              {[
+                "\"Three lessons I learned from building a business.\"",
+                "\"What I learned from travelling to ___.\"",
+                "\"Why I decided to explore the travel industry.\"",
+                "\"What people usually misunderstand about this business.\""
+              ].map((exampleText, idx) => (
+                <div key={idx} className="p-4 rounded-xl bg-slate-900/40 border border-slate-800 text-sm font-serif italic text-slate-300">
+                  {exampleText}
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
 
         {/* ==========================================
-            Content production section
+            Content production section (How it works)
             ========================================== */}
         <section className="border-b border-slate-800/40 pb-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-5">
-              <span className="text-xs uppercase tracking-widest text-[#C5A880] font-bold font-mono">
+              <span className="proposal-eyebrow text-xs tracking-widest text-[#C5A880] font-bold">
                 Workflow efficiency
               </span>
-              <h2 className="h2-proposal text-3xl md:text-5xl mt-3 leading-tight">
-                A simple process that does not consume your time
+              <h2 className="h2-proposal mt-3 leading-tight">
+                A Simple Process That Minimises Your Day-to-Day Digital Work
               </h2>
-              <p className="text-slate-300 mt-6 font-light text-sm md:text-base leading-relaxed">
-                You do not need to create, film, or edit content. We structure low friction, scheduled recording sessions (e.g., 45 minutes once a month) where we interview you on stories, travel topics, and business decisions.
-              </p>
-              <p className="text-slate-300 mt-4 font-light text-sm md:text-base leading-relaxed">
-                Our production team then processes these raw assets into high end written insights and clean presentations, managing publishing and tracking responses completely.
+              <p className="proposal-body-text text-slate-300 mt-6 font-light">
+                Scheduled recording sessions sized to the agreed content plan. We gather your insights, stories, and background details, translating them directly into consistent public posts.
               </p>
             </div>
 
             <div className="lg:col-span-7">
               {/* Process flow diagram */}
               <div className="p-8 rounded-2xl bg-slate-900/20 border border-[#1E2544] relative overflow-hidden">
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-6 relative z-10">
+                <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 text-center sm:text-left">
                   {/* Step 1 */}
-                  <div className="flex-1 text-center sm:text-left">
-                    <div className="size-10 rounded-full bg-[#C5A880]/10 text-[#C5A880] flex items-center justify-center mx-auto sm:mx-0 mb-4 font-serif">
-                      01
-                    </div>
-                    <h4 className="h3-proposal text-base mb-1">RECORD</h4>
+                  <div>
+                    <span className="text-[10px] text-slate-500 font-mono block mb-1">STEP 01</span>
+                    <h4 className="font-bold text-sm text-[#C5A880] mb-2 uppercase">YOU SHARE</h4>
                     <p className="text-slate-400 font-light text-xs leading-relaxed">
-                      Monthly 45-min guided interview session to extract insights.
+                      Stories • experience • opinions • business knowledge
                     </p>
                   </div>
-
-                  {/* Arrow */}
-                  <div className="hidden sm:block text-[#C5A880]/40 font-bold text-lg">&rarr;</div>
 
                   {/* Step 2 */}
-                  <div className="flex-1 text-center sm:text-left">
-                    <div className="size-10 rounded-full bg-[#C5A880]/10 text-[#C5A880] flex items-center justify-center mx-auto sm:mx-0 mb-4 font-serif">
-                      02
-                    </div>
-                    <h4 className="h3-proposal text-base mb-1">PRODUCE</h4>
+                  <div>
+                    <span className="text-[10px] text-slate-500 font-mono block mb-1">STEP 02</span>
+                    <h4 className="font-bold text-sm text-[#C5A880] mb-2 uppercase">WE PRODUCE</h4>
                     <p className="text-slate-400 font-light text-xs leading-relaxed">
-                      We draft, edit, format, and package assets professionally.
+                      Professional short-form content • written content • publishing assets
                     </p>
                   </div>
-
-                  {/* Arrow */}
-                  <div className="hidden sm:block text-[#C5A880]/40 font-bold text-lg">&rarr;</div>
 
                   {/* Step 3 */}
-                  <div className="flex-1 text-center sm:text-left">
-                    <div className="size-10 rounded-full bg-[#C5A880]/10 text-[#C5A880] flex items-center justify-center mx-auto sm:mx-0 mb-4 font-serif">
-                      03
-                    </div>
-                    <h4 className="h3-proposal text-base mb-1">PUBLISH</h4>
+                  <div>
+                    <span className="text-[10px] text-slate-500 font-mono block mb-1">STEP 03</span>
+                    <h4 className="font-bold text-sm text-[#C5A880] mb-2 uppercase">WE PUBLISH</h4>
                     <p className="text-slate-400 font-light text-xs leading-relaxed">
-                      We manage layout, posting, and scheduling.
+                      Consistent agreed content
                     </p>
                   </div>
 
-                  {/* Arrow */}
-                  <div className="hidden sm:block text-[#C5A880]/40 font-bold text-lg">&rarr;</div>
-
                   {/* Step 4 */}
-                  <div className="flex-1 text-center sm:text-left">
-                    <div className="size-10 rounded-full bg-[#C5A880]/10 text-[#C5A880] flex items-center justify-center mx-auto sm:mx-0 mb-4 font-serif">
-                      04
-                    </div>
-                    <h4 className="h3-proposal text-base mb-1">LEARN</h4>
+                  <div>
+                    <span className="text-[10px] text-slate-500 font-mono block mb-1">STEP 04</span>
+                    <h4 className="font-bold text-sm text-[#C5A880] mb-2 uppercase">WE REVIEW</h4>
                     <p className="text-slate-400 font-light text-xs leading-relaxed">
-                      Review results and focus on topics with positive response.
+                      What attracts attention and meaningful responses
                     </p>
                   </div>
                 </div>
-              </div>
-
-              <div className="mt-6 flex items-start gap-3 text-slate-400 font-light text-xs leading-relaxed max-w-xl">
-                <CheckCircle className="size-4 text-green-400 mt-0.5 shrink-0" />
-                <span>
-                  <strong>Low friction for you:</strong> Scheduled, structured, and managed. You only focus on the raw storytelling; we handle the operational workload.
-                </span>
               </div>
             </div>
           </div>
@@ -1106,52 +1129,110 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
 
 
         {/* ==========================================
-            The business development journey section
+            What You Do NOT Need to Do [NEW SECTION]
             ========================================== */}
-        <section ref={roadmapRef} id="roadmap" className="border-b border-slate-800/40 pb-20 scroll-mt-24">
+        <section className="border-b border-slate-800/40 pb-20">
           <div className="mb-12">
-            <span className="text-xs uppercase tracking-widest text-[#C5A880] font-bold font-mono">
-              The relationship pathway
+            <span className="proposal-eyebrow text-xs tracking-widest text-[#C5A880] font-bold">
+              Operational clarity
             </span>
-            <h2 className="h2-proposal text-3xl md:text-5xl mt-2">
-              From attention to business conversation
+            <h2 className="h2-proposal mt-2">
+              What You Do NOT Need to Do
             </h2>
-            <p className="text-slate-400 mt-4 max-w-3xl font-light text-sm md:text-base">
-              Our plan outlines a clean pathway to shift attention into qualified one on one partner dialogues.
+            <p className="proposal-body-text text-slate-450 mt-4 max-w-3xl font-light">
+              You do not need to become a digital marketer to make this work.
             </p>
           </div>
 
-          {/* Business development funnel */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* What you do not need to do */}
+            <div className="p-8 rounded-2xl bg-slate-900/20 border border-[#1E2544]">
+              <h3 className="font-sans text-lg font-bold text-red-500 mb-6 uppercase tracking-wider flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-red-500" /> You do not need to:
+              </h3>
+              <ul className="space-y-4">
+                {[
+                  "learn video editing",
+                  "manage publishing every day",
+                  "create graphics",
+                  "learn technical systems",
+                  "build the enquiry process yourself"
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-slate-300 font-light proposal-body-text">
+                    <span className="size-1.5 rounded-full bg-red-500 mt-2.5 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* You do need to do */}
+            <div className="p-8 rounded-2xl bg-[#C5A880]/5 border border-[#C5A880]/20">
+              <h3 className="font-sans text-lg font-bold text-[#C5A880] mb-6 uppercase tracking-wider flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-[#C5A880]" /> You do need to:
+              </h3>
+              <ul className="space-y-4">
+                {[
+                  "share your experience",
+                  "participate in scheduled recording",
+                  "provide accurate information",
+                  "review important content",
+                  "speak with serious prospects"
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-slate-200 font-light proposal-body-text">
+                    <span className="size-1.5 rounded-full bg-[#C5A880] mt-2.5 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+
+        {/* ==========================================
+            Business development journey section (roadmap/journey)
+            ========================================== */}
+        <section ref={roadmapRef} id="roadmap" className="border-b border-slate-800/40 pb-20 scroll-mt-24">
+          <div className="mb-12">
+            <span className="proposal-eyebrow text-xs tracking-widest text-[#C5A880] font-bold">
+              The relationship pathway
+            </span>
+            <h2 className="h2-proposal mt-2">
+              From Attention to Business Conversation
+            </h2>
+            <p className="proposal-body-text text-slate-400 mt-4 max-w-3xl font-light">
+              This describes the intended relationship pathway from initial discovery to consultation.
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-7 gap-8 items-center mb-12">
             <div className="lg:col-span-4 space-y-6">
               {[
-                { title: "SEE", desc: "Qualified demographics view your insights and storytelling assets." },
-                { title: "UNDERSTAND", desc: "Visitors review your profile, discovering your credentials and alignment with the travel opportunity." },
-                { title: "BECOME INTERESTED", desc: "Prospects recognize value and bookmark your insights, demonstrating growing affinity." },
-                { title: "START A CONVERSATION", desc: "Prospects reach out via direct channels or leave positive comments on business topics." },
-                { title: "SERIOUS PROSPECT", desc: "We vet incoming enquiries to confirm business readiness, experience, and capability." },
-                { title: "MEETING", desc: "Qualified prospects book directly onto your calendar for a structured consultation." },
-                { title: "FOLLOW-UP", desc: "We supply post-discussion material to nurture decisions and close deals." }
+                { title: "SEE", desc: "Relevant people discover the content." },
+                { title: "UNDERSTAND", desc: "They learn who you are and what you represent." },
+                { title: "BECOME INTERESTED", desc: "They explore the subject further." },
+                { title: "START A CONVERSATION", desc: "They contact you through the agreed channel." },
+                { title: "SERIOUS CONVERSATION", desc: "Interest, fit and readiness are explored." },
+                { title: "MEETING", desc: "Suitable prospects are given a clear path to a business conversation." },
+                { title: "FOLLOW-UP", desc: "Next steps and relevant information are managed after the discussion." }
               ].map((step, idx) => (
                 <div key={idx} className="flex gap-4 items-start pl-6 border-l border-[#C5A880]/30 relative">
                   <div className="absolute -left-[6px] top-1.5 size-3 rounded-full bg-[#C5A880]" />
                   <div className="flex flex-col">
                     <span className="font-mono text-xs font-bold text-[#C5A880]">{step.title}</span>
-                    <p className="text-slate-300 font-light text-sm mt-1">{step.desc}</p>
+                    <p className="proposal-body-text text-slate-300 mt-1">{step.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
 
             <div className="lg:col-span-3 p-8 rounded-2xl bg-[#0E1326]/30 border border-[#1E2544]">
-              <span className="text-xs uppercase tracking-widest text-[#C5A880] font-bold font-mono block mb-3">
-                Focus on conversation
+              <span className="proposal-eyebrow text-xs block mb-3 font-bold">
+                Clear expectations
               </span>
               <p className="font-serif text-xl text-slate-200 mb-4 leading-snug">
-                "The objective is not maximum views. The objective is meaningful business conversations."
-              </p>
-              <p className="text-slate-400 font-light text-xs leading-relaxed">
-                Many online strategies focus on generic views and high follower counts. We prioritize relationship value. We want a smaller, highly vetted audience that turns into actual scheduled meetings on your calendar.
+                "We will build and operate the digital foundation and business-development process that creates a credible online presence and a measurable path to meaningful business conversations."
               </p>
             </div>
           </div>
@@ -1159,51 +1240,52 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
 
 
         {/* ==========================================
-            Enquiry and prospect management section
+            Prospect handling section
             ========================================== */}
         <section className="border-b border-slate-800/40 pb-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-5">
-              <span className="text-xs uppercase tracking-widest text-[#C5A880] font-bold font-mono">
+              <span className="proposal-eyebrow text-xs tracking-widest text-[#C5A880] font-bold">
                 Prospect handling
               </span>
-              <h2 className="h2-proposal text-3xl md:text-5xl mt-3 leading-tight">
-                Make sure serious opportunities do not get lost
+              <h2 className="h2-proposal mt-3 leading-tight">
+                Make Sure Serious Opportunities Do Not Get Lost
               </h2>
-              <p className="text-slate-300 mt-6 font-light text-sm md:text-base leading-relaxed">
-                When prospects inquire, they expect professional, prompt responses. We run a structured enquiry handling system that answers questions, checks suitability, and coordinates dates.
-              </p>
-              <p className="text-slate-300 mt-4 font-light text-sm md:text-base leading-relaxed">
-                Every active dialogue is logged, categorized, and nurtured, ensuring that serious business partners remain visible and follow up activities occur on time.
-              </p>
             </div>
 
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="p-6 rounded-xl bg-slate-900/20 border border-[#1E2544]">
-                <h4 className="h3-proposal text-base mb-2">Respond professionally</h4>
+                <h4 className="font-bold text-sm text-[#C5A880] mb-2 uppercase">RESPOND PROFESSIONALLY</h4>
                 <p className="text-slate-400 font-light text-xs leading-relaxed">
-                  Timely, high end messaging that respects prospective partner inquiries.
+                  Respond clearly and respectfully to incoming enquiries.
                 </p>
               </div>
 
               <div className="p-6 rounded-xl bg-slate-900/20 border border-[#1E2544]">
-                <h4 className="h3-proposal text-base mb-2">Qualify fit</h4>
+                <h4 className="font-bold text-sm text-[#C5A880] mb-2 uppercase">UNDERSTAND INTEREST</h4>
                 <p className="text-slate-400 font-light text-xs leading-relaxed">
-                  Brief, structured questions to separate curiosity seekers from business builders.
+                  Identify what the person is actually looking for.
                 </p>
               </div>
 
               <div className="p-6 rounded-xl bg-slate-900/20 border border-[#1E2544]">
-                <h4 className="h3-proposal text-base mb-2">Clear calendar pathway</h4>
+                <h4 className="font-bold text-sm text-[#C5A880] mb-2 uppercase">ASSESS FIT</h4>
                 <p className="text-slate-400 font-light text-xs leading-relaxed">
-                  Simplifying booking details so qualified candidates schedule calls instantly.
+                  Use a simple process to understand relevance and readiness for a business conversation.
                 </p>
               </div>
 
               <div className="p-6 rounded-xl bg-slate-900/20 border border-[#1E2544]">
-                <h4 className="h3-proposal text-base mb-2">Systematic follow-up</h4>
+                <h4 className="font-bold text-sm text-[#C5A880] mb-2 uppercase">CLARIFY THE NEXT STEP</h4>
                 <p className="text-slate-400 font-light text-xs leading-relaxed">
-                  Keeping track of next steps so positive conversations stay active and convert.
+                  Move suitable conversations toward the appropriate next step.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-xl bg-slate-900/20 border border-[#1E2544] sm:col-span-2">
+                <h4 className="font-bold text-sm text-[#C5A880] mb-2 uppercase">STAY ORGANISED</h4>
+                <p className="text-slate-400 font-light text-xs leading-relaxed">
+                  Keep active conversations and follow-up actions visible.
                 </p>
               </div>
             </div>
@@ -1221,13 +1303,13 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                 {/* Visual flow diagram */}
                 <div className="flex flex-wrap items-center gap-3">
                   {[
-                    "Warm inbound conversation",
-                    "Interest confirmed",
-                    "Qualified review",
-                    "Calendar booking",
-                    "Context reminder",
-                    "Strategy call",
-                    "Follow-up onboarding"
+                    "Enquiry",
+                    "Interest Confirmed",
+                    "Suitable for Conversation",
+                    "Meeting Scheduled",
+                    "Confirmation / Reminder",
+                    "Business Conversation",
+                    "Follow-Up"
                   ].map((flowStep, idx, arr) => (
                     <React.Fragment key={idx}>
                       <span className="px-3.5 py-2 text-xs font-semibold rounded-lg bg-[#0C1225] border border-slate-800 text-slate-300">
@@ -1243,17 +1325,14 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
             </div>
 
             <div className="lg:col-span-5 order-1 lg:order-2">
-              <span className="text-xs uppercase tracking-widest text-[#C5A880] font-bold font-mono">
-                Meeting management
+              <span className="proposal-eyebrow text-xs tracking-widest text-[#C5A880] font-bold">
+                Meeting pathway
               </span>
-              <h2 className="h2-proposal text-3xl md:text-5xl mt-3 leading-tight">
-                Turn interest into a clear next step
+              <h2 className="h2-proposal mt-3 leading-tight">
+                Turn Interest Into a Clear Next Step
               </h2>
-              <p className="text-slate-300 mt-6 font-light text-sm md:text-base leading-relaxed">
-                Before a prospect meets you, they receive a brief confirmation outlining the conversation purpose and background resources to review.
-              </p>
-              <p className="text-slate-300 mt-4 font-light text-sm md:text-base leading-relaxed">
-                <strong>Your role:</strong> Your main involvement begins only when the prospect is qualified, primed, and scheduled on your calendar for a direct discussion.
+              <p className="proposal-body-text text-slate-300 mt-6 font-light">
+                Your main involvement is focused on serious business conversations once a prospect is ready for direct discussion. We handle the process coordination leading up to the call.
               </p>
             </div>
           </div>
@@ -1266,20 +1345,15 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
         <section ref={measurementRef} id="measurement" className="border-b border-slate-800/40 pb-20 scroll-mt-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-5">
-              <span className="text-xs uppercase tracking-widest text-[#C5A880] font-bold font-mono">
+              <span className="proposal-eyebrow text-xs tracking-widest text-[#C5A880] font-bold">
                 Accountability
               </span>
-              <h2 className="h2-proposal text-3xl md:text-5xl mt-3">
-                What we measure
+              <h2 className="h2-proposal mt-3">
+                How We Measure
               </h2>
-              <p className="text-slate-400 mt-6 font-light text-sm md:text-base leading-relaxed">
-                We believe in tracking concrete, operational indicators that represent system health and real business conversations. We do not provide fabricated milestones.
+              <p className="proposal-body-text text-slate-400 mt-6 font-light">
+                Initial performance data will be used to establish realistic benchmarks and identify where the strongest response is coming from.
               </p>
-              <div className="p-5.5 rounded-xl border border-slate-800/80 bg-[#0C1225]/40 mt-8">
-                <p className="text-xs text-slate-400 leading-relaxed font-light">
-                  "Initial performance data gathered during the first 30 days will be used to establish realistic benchmarks and improve the overall journey."
-                </p>
-              </div>
             </div>
 
             <div className="lg:col-span-7 space-y-8">
@@ -1287,21 +1361,12 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
               <div>
                 <h3 className="h3-proposal text-xl border-b border-slate-850 pb-2 mb-4 flex items-center gap-2">
                   <span className="size-2 rounded-full bg-[#C5A880]" />
-                  Awareness indicators
+                  AWARENESS
                 </h3>
-                <div className="grid grid-cols-3 gap-4">
-                  <div className="p-4 rounded-xl bg-slate-900/30 border border-[#1E2544]">
-                    <span className="text-slate-400 text-xs font-mono block">REACH</span>
-                    <span className="text-slate-500 text-[10px] mt-1 block">Account views</span>
-                  </div>
-                  <div className="p-4 rounded-xl bg-slate-900/30 border border-[#1E2544]">
-                    <span className="text-slate-400 text-xs font-mono block">VISITS</span>
-                    <span className="text-slate-500 text-[10px] mt-1 block">Profile views</span>
-                  </div>
-                  <div className="p-4 rounded-xl bg-slate-900/30 border border-[#1E2544]">
-                    <span className="text-slate-400 text-xs font-mono block">IMPRESSIONS</span>
-                    <span className="text-slate-500 text-[10px] mt-1 block">Content discovery</span>
-                  </div>
+                <div className="grid grid-cols-3 gap-4 text-xs font-mono">
+                  <div className="p-4 rounded-xl bg-slate-900/30 border border-[#1E2544]">Reach</div>
+                  <div className="p-4 rounded-xl bg-slate-900/30 border border-[#1E2544]">Profile visits</div>
+                  <div className="p-4 rounded-xl bg-slate-900/30 border border-[#1E2544]">Content views</div>
                 </div>
               </div>
 
@@ -1309,21 +1374,13 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
               <div>
                 <h3 className="h3-proposal text-xl border-b border-slate-850 pb-2 mb-4 flex items-center gap-2">
                   <span className="size-2 rounded-full bg-[#C5A880]" />
-                  Interest indicators
+                  INTEREST
                 </h3>
-                <div className="grid grid-cols-4 gap-3">
-                  <div className="p-4 rounded-xl bg-slate-900/30 border border-[#1E2544]">
-                    <span className="text-slate-400 text-xs font-mono block">SAVES</span>
-                  </div>
-                  <div className="p-4 rounded-xl bg-slate-900/30 border border-[#1E2544]">
-                    <span className="text-slate-400 text-xs font-mono block">SHARES</span>
-                  </div>
-                  <div className="p-4 rounded-xl bg-slate-900/30 border border-[#1E2544]">
-                    <span className="text-slate-400 text-xs font-mono block">REPLIES</span>
-                  </div>
-                  <div className="p-4 rounded-xl bg-slate-900/30 border border-[#1E2544]">
-                    <span className="text-slate-400 text-xs font-mono block">ENQUIRIES</span>
-                  </div>
+                <div className="grid grid-cols-4 gap-3 text-xs font-mono">
+                  <div className="p-3 rounded-xl bg-slate-900/30 border border-[#1E2544]">Saves</div>
+                  <div className="p-3 rounded-xl bg-slate-900/30 border border-[#1E2544]">Shares</div>
+                  <div className="p-3 rounded-xl bg-slate-900/30 border border-[#1E2544]">Replies</div>
+                  <div className="p-3 rounded-xl bg-slate-900/30 border border-[#1E2544]">Enquiries</div>
                 </div>
               </div>
 
@@ -1331,21 +1388,13 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
               <div>
                 <h3 className="h3-proposal text-xl border-b border-slate-850 pb-2 mb-4 flex items-center gap-2">
                   <span className="size-2 rounded-full bg-[#C5A880]" />
-                  Business development indicators
+                  BUSINESS DEVELOPMENT
                 </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div className="p-4.5 rounded-xl bg-[#0E1326]/30 border border-[#1E2544] flex flex-col justify-between">
-                    <span className="text-slate-400 text-xs font-mono">QUALIFIED LEADS</span>
-                    <span className="text-[10px] text-slate-500 mt-2">Vetted prospect summaries</span>
-                  </div>
-                  <div className="p-4.5 rounded-xl bg-[#0E1326]/30 border border-[#1E2544] flex flex-col justify-between">
-                    <span className="text-slate-400 text-xs font-mono">CALLS SCHEDULED</span>
-                    <span className="text-[10px] text-slate-500 mt-2">Calendar booking confirmations</span>
-                  </div>
-                  <div className="p-4.5 rounded-xl bg-[#0E1326]/30 border border-[#1E2544] flex flex-col justify-between">
-                    <span className="text-slate-400 text-xs font-mono">PARTNER ONBOARDINGS</span>
-                    <span className="text-[10px] text-slate-500 mt-2">Successful business signups</span>
-                  </div>
+                <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 text-xs font-mono">
+                  <div className="p-4 rounded-xl bg-[#0E1326]/30 border border-[#1E2544]">Serious prospects</div>
+                  <div className="p-4 rounded-xl bg-[#0E1326]/30 border border-[#1E2544]">Meetings booked</div>
+                  <div className="p-4 rounded-xl bg-[#0E1326]/30 border border-[#1E2544]">Meetings attended</div>
+                  <div className="p-4 rounded-xl bg-[#0E1326]/30 border border-[#1E2544]">Follow-up status</div>
                 </div>
               </div>
             </div>
@@ -1358,14 +1407,14 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
             ========================================== */}
         <section className="border-b border-slate-800/40 pb-20">
           <div className="mb-12">
-            <span className="text-xs uppercase tracking-widest text-[#C5A880] font-bold font-mono">
+            <span className="proposal-eyebrow text-xs tracking-widest text-[#C5A880] font-bold">
               The launch plan
             </span>
-            <h2 className="h2-proposal text-3xl md:text-5xl mt-2">
-              The first 30 days: build the foundation
+            <h2 className="h2-proposal mt-2">
+              The First 30 Days: Build the Foundation
             </h2>
-            <p className="text-slate-400 mt-4 max-w-3xl font-light text-sm md:text-base">
-              A rapid, structured timeline designed to set up your profiles, messaging, and initial content pipeline within 4 weeks.
+            <p className="proposal-body-text text-slate-400 mt-4 max-w-3xl font-light">
+              A structured first-month launch designed to establish the core platforms and outline positioning parameters.
             </p>
           </div>
 
@@ -1374,13 +1423,14 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
             <div className="p-6.5 rounded-2xl bg-slate-900/20 border border-[#1E2544] relative">
               <span className="font-mono text-xs font-bold text-[#C5A880] block mb-4">WEEK 1</span>
               <h3 className="h3-proposal text-lg mb-3">
-                Discovery and positioning
+                Discovery & Positioning
               </h3>
               <ul className="space-y-2 text-slate-400 font-light text-xs leading-relaxed">
-                <li>&bull; Align brand requirements</li>
-                <li>&bull; Clarify audience definition</li>
-                <li>&bull; Draft core messaging tone</li>
-                <li>&bull; Identify content opportunities</li>
+                <li>&bull; understand the business</li>
+                <li>&bull; define initial audience hypotheses</li>
+                <li>&bull; clarify positioning</li>
+                <li>&bull; identify content opportunities</li>
+                <li>&bull; collect verified business information</li>
               </ul>
             </div>
 
@@ -1388,13 +1438,13 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
             <div className="p-6.5 rounded-2xl bg-slate-900/20 border border-[#1E2544] relative">
               <span className="font-mono text-xs font-bold text-[#C5A880] block mb-4">WEEK 2</span>
               <h3 className="h3-proposal text-lg mb-3">
-                Digital presence setup
+                Digital Foundation
               </h3>
               <ul className="space-y-2 text-slate-400 font-light text-xs leading-relaxed">
-                <li>&bull; Optimize profile details</li>
-                <li>&bull; Construct layout messaging</li>
-                <li>&bull; Setup contact pathways</li>
-                <li>&bull; Configure calendar links</li>
+                <li>&bull; establish the professional profile</li>
+                <li>&bull; refine messaging</li>
+                <li>&bull; create clear contact pathways</li>
+                <li>&bull; establish meeting journey</li>
               </ul>
             </div>
 
@@ -1402,13 +1452,13 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
             <div className="p-6.5 rounded-2xl bg-slate-900/20 border border-[#1E2544] relative">
               <span className="font-mono text-xs font-bold text-[#C5A880] block mb-4">WEEK 3</span>
               <h3 className="h3-proposal text-lg mb-3">
-                Content preparation
+                Content Preparation
               </h3>
               <ul className="space-y-2 text-slate-400 font-light text-xs leading-relaxed">
-                <li>&bull; First storytelling interview</li>
-                <li>&bull; Package core asset drafts</li>
-                <li>&bull; Compile baseline library</li>
-                <li>&bull; Plan publishing templates</li>
+                <li>&bull; first recording session</li>
+                <li>&bull; initial content library</li>
+                <li>&bull; first publishing batch</li>
+                <li>&bull; initial messaging tests</li>
               </ul>
             </div>
 
@@ -1416,13 +1466,13 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
             <div className="p-6.5 rounded-2xl bg-slate-900/20 border border-[#1E2544] relative">
               <span className="font-mono text-xs font-bold text-[#C5A880] block mb-4">WEEK 4</span>
               <h3 className="h3-proposal text-lg mb-3">
-                Launch and assessment
+                Launch & Learn
               </h3>
               <ul className="space-y-2 text-slate-400 font-light text-xs leading-relaxed">
-                <li>&bull; Initiate regular publishing</li>
-                <li>&bull; Track early user feedback</li>
-                <li>&bull; Review validation questions</li>
-                <li>&bull; Deliver first report summary</li>
+                <li>&bull; begin consistent publishing</li>
+                <li>&bull; observe audience response</li>
+                <li>&bull; monitor initial enquiries</li>
+                <li>&bull; establish first review</li>
               </ul>
             </div>
           </div>
@@ -1434,11 +1484,11 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
             ========================================== */}
         <section className="border-b border-slate-800/40 pb-20">
           <div className="mb-12">
-            <span className="text-xs uppercase tracking-widest text-[#C5A880] font-bold font-mono">
+            <span className="proposal-eyebrow text-xs tracking-widest text-[#C5A880] font-bold">
               Operational structure
             </span>
-            <h2 className="h2-proposal text-3xl md:text-5xl mt-2">
-              Strategic growth phases
+            <h2 className="h2-proposal mt-2">
+              Strategic Growth Phases
             </h2>
           </div>
 
@@ -1451,11 +1501,11 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                     PHASE 1 (WEEKS 1-4)
                   </span>
                   <h3 className="h3-proposal text-2xl mt-1">
-                    Foundation setup
+                    Phase 1 — Foundation | Weeks 1–4
                   </h3>
                 </div>
                 <div className="text-xs text-slate-400 font-mono">
-                  Objective: Establish presence, values, and narrative baseline.
+                  Objective: Establish a clear digital identity, positioning and initial content presence.
                 </div>
               </div>
 
@@ -1463,26 +1513,30 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                 <div>
                   <h4 className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider mb-2">Core activities</h4>
                   <ul className="space-y-2 text-slate-300 font-light text-xs leading-relaxed">
-                    <li>&bull; Brand positioning brief</li>
-                    <li>&bull; Content calendar layout</li>
-                    <li>&bull; Entry pathway setup</li>
-                    <li>&bull; First content recording</li>
+                    <li>&bull; positioning</li>
+                    <li>&bull; audience hypotheses</li>
+                    <li>&bull; digital presence</li>
+                    <li>&bull; content preparation</li>
+                    <li>&bull; first recording</li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider mb-2">Deliverable outputs</h4>
+                  <h4 className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider mb-2">Planned outputs</h4>
                   <ul className="space-y-2 text-slate-300 font-light text-xs leading-relaxed">
-                    <li>&bull; Formatted digital profile layouts</li>
-                    <li>&bull; Integrated calendar schedules</li>
-                    <li>&bull; Initial content library</li>
+                    <li>&bull; professional profile</li>
+                    <li>&bull; messaging direction</li>
+                    <li>&bull; initial content library</li>
+                    <li>&bull; enquiry pathway</li>
+                    <li>&bull; first publishing cycle</li>
                   </ul>
                 </div>
                 <div>
                   <h4 className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider mb-2">Client involvement</h4>
                   <ul className="space-y-2 text-slate-300 font-light text-xs leading-relaxed">
-                    <li>&bull; Share career stories and insights</li>
-                    <li>&bull; Participate in recording sessions</li>
-                    <li>&bull; Verify positioning statements</li>
+                    <li>&bull; provide information</li>
+                    <li>&bull; share experience</li>
+                    <li>&bull; participate in recording</li>
+                    <li>&bull; review important public-facing content</li>
                   </ul>
                 </div>
               </div>
@@ -1496,11 +1550,11 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                     PHASE 2 (MONTH 2)
                   </span>
                   <h3 className="h3-proposal text-2xl mt-1">
-                    Acquisition and dialogue
+                    Phase 2 — Acquisition | Month 2
                   </h3>
                 </div>
                 <div className="text-xs text-slate-400 font-mono">
-                  Objective: Drive consistent engagement and qualify prospective partners.
+                  Objective: Move from building the presence to actively creating meaningful business conversations.
                 </div>
               </div>
 
@@ -1508,25 +1562,29 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                 <div>
                   <h4 className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider mb-2">Core activities</h4>
                   <ul className="space-y-2 text-slate-300 font-light text-xs leading-relaxed">
-                    <li>&bull; Maintain publishing frequency</li>
-                    <li>&bull; Direct visibility to targeted cohorts</li>
-                    <li>&bull; Filter incoming questions</li>
-                    <li>&bull; Run conversation pathways</li>
+                    <li>&bull; consistent publishing</li>
+                    <li>&bull; audience development</li>
+                    <li>&bull; relevant outreach where appropriate</li>
+                    <li>&bull; enquiry handling</li>
+                    <li>&bull; identifying serious conversations</li>
+                    <li>&bull; meeting-setting</li>
+                    <li>&bull; follow-up</li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider mb-2">Deliverable outputs</h4>
+                  <h4 className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider mb-2">Planned outputs</h4>
                   <ul className="space-y-2 text-slate-300 font-light text-xs leading-relaxed">
-                    <li>&bull; Warm inbound message logs</li>
-                    <li>&bull; Vetted prospect lists</li>
-                    <li>&bull; Confirmed strategy meeting bookings</li>
+                    <li>&bull; enquiry response log</li>
+                    <li>&bull; candidate schedule lists</li>
+                    <li>&bull; next-step tracking</li>
                   </ul>
                 </div>
                 <div>
                   <h4 className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider mb-2">Client involvement</h4>
                   <ul className="space-y-2 text-slate-300 font-light text-xs leading-relaxed">
-                    <li>&bull; Host 20-min vetted strategy calls</li>
-                    <li>&bull; Review qualified lead reports</li>
+                    <p className="proposal-body-text text-slate-300">
+                      Review serious enquiries and participate in direct business conversations.
+                    </p>
                   </ul>
                 </div>
               </div>
@@ -1540,34 +1598,30 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                     PHASE 3 (MONTH 3)
                   </span>
                   <h3 className="h3-proposal text-2xl mt-1">
-                    Improve and expand
+                    Phase 3 — Improve & Expand | Month 3
                   </h3>
-                </div>
-                <div className="text-xs text-slate-400 font-mono">
-                  Objective: Scale proven narratives and improve booking conversions.
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {/* 3 blocks required: Measure, Learn, Expand */}
                 <div className="p-5 rounded-xl bg-[#0E1326]/40 border border-[#1E2544]">
-                  <h4 className="text-xs font-mono font-bold text-[#C5A880] uppercase tracking-wider mb-3">01 / MEASURE</h4>
+                  <h4 className="text-xs font-mono font-bold text-[#C5A880] uppercase tracking-wider mb-3">MEASURE</h4>
                   <p className="text-slate-300 font-light text-xs leading-relaxed">
-                    Trace where the highest-quality enquiries, relationship interactions, and meeting bookings are coming from.
+                    Review reach, enquiries, serious prospects, meetings and outcomes.
                   </p>
                 </div>
                 
                 <div className="p-5 rounded-xl bg-[#0E1326]/40 border border-[#1E2544]">
-                  <h4 className="text-xs font-mono font-bold text-[#C5A880] uppercase tracking-wider mb-3">02 / LEARN</h4>
+                  <h4 className="text-xs font-mono font-bold text-[#C5A880] uppercase tracking-wider mb-3">LEARN</h4>
                   <p className="text-slate-300 font-light text-xs leading-relaxed">
-                    Identify which storytelling frameworks, positioning angles, and topics generate the most positive feedback from prospects.
+                    Identify which topics, formats, messages and audiences are showing the strongest response.
                   </p>
                 </div>
 
                 <div className="p-5 rounded-xl bg-[#0E1326]/40 border border-[#1E2544]">
-                  <h4 className="text-xs font-mono font-bold text-[#C5A880] uppercase tracking-wider mb-3">03 / EXPAND</h4>
+                  <h4 className="text-xs font-mono font-bold text-[#C5A880] uppercase tracking-wider mb-3">EXPAND</h4>
                   <p className="text-slate-300 font-light text-xs leading-relaxed">
-                    Direct production efforts toward highest-value topics. Expand outreach activities that demonstrate the strongest prospect response.
+                    Increase focus on activities that have evidence of positive response and improve weaker parts of the journey.
                   </p>
                 </div>
               </div>
@@ -1581,14 +1635,14 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
             ========================================== */}
         <section className="border-b border-slate-800/40 pb-20">
           <div className="mb-12">
-            <span className="text-xs uppercase tracking-widest text-[#C5A880] font-bold font-mono">
+            <span className="proposal-eyebrow text-xs tracking-widest text-[#C5A880] font-bold">
               The calendar
             </span>
-            <h2 className="h2-proposal text-3xl md:text-5xl mt-2">
+            <h2 className="h2-proposal mt-2">
               90-day master calendar
             </h2>
-            <p className="text-slate-400 mt-4 max-w-3xl font-light text-sm md:text-base">
-              Explore the week-by-week actions. Click any week to review specific objectives, activities, outputs, and your expected involvement.
+            <p className="proposal-body-text text-slate-400 mt-4 max-w-3xl font-light">
+              Explore the week-by-week actions. Click any week to review specific objectives, activities, planned outputs, and your expected involvement.
             </p>
           </div>
 
@@ -1639,7 +1693,7 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                         <span className="font-mono text-xs font-bold bg-[#C5A880]/10 text-[#C5A880] px-2 py-0.5 rounded">
                           Week {expandedWeek < 10 ? `0${expandedWeek}` : expandedWeek}
                         </span>
-                        <span className="text-xs text-slate-400 uppercase tracking-widest font-mono font-bold">
+                        <span className="proposal-eyebrow text-xs text-slate-400 font-bold">
                           Detailed timeline overview
                         </span>
                       </div>
@@ -1675,7 +1729,7 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-slate-850">
                       <div>
                         <h4 className="text-xs font-mono font-bold text-[#C5A880] uppercase tracking-wider mb-1.5">
-                          Expected outputs
+                          Planned outputs
                         </h4>
                         <ul className="space-y-1">
                           {roadmapWeeks[expandedWeek - 1].outputs.map((out, idx) => (
@@ -1686,13 +1740,24 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                         </ul>
                       </div>
 
-                      <div>
-                        <h4 className="text-xs font-mono font-bold text-[#C5A880] uppercase tracking-wider mb-1.5">
-                          Your involvement
-                        </h4>
-                        <p className="text-xs text-slate-300 font-light leading-relaxed">
-                          {roadmapWeeks[expandedWeek - 1].involvement}
-                        </p>
+                      <div className="space-y-4">
+                        <div>
+                          <h4 className="text-xs font-mono font-bold text-[#C5A880] uppercase tracking-wider mb-1.5">
+                            Your involvement
+                          </h4>
+                          <p className="text-xs text-slate-300 font-light leading-relaxed">
+                            {roadmapWeeks[expandedWeek - 1].involvement}
+                          </p>
+                        </div>
+                        
+                        <div>
+                          <h4 className="text-xs font-mono font-bold text-[#C5A880] uppercase tracking-wider mb-1.5">
+                            Success signal
+                          </h4>
+                          <p className="text-xs text-slate-300 font-light leading-relaxed italic">
+                            "{roadmapWeeks[expandedWeek - 1].signal}"
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </motion.div>
@@ -1714,14 +1779,14 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
             ========================================== */}
         <section ref={deliverablesRef} id="deliverables" className="border-b border-slate-800/40 pb-20 scroll-mt-24">
           <div className="mb-12">
-            <span className="text-xs uppercase tracking-widest text-[#C5A880] font-bold font-mono">
+            <span className="proposal-eyebrow text-xs tracking-widest text-[#C5A880] font-bold">
               Strategic assets
             </span>
-            <h2 className="h2-proposal text-3xl md:text-5xl mt-2">
-              What you receive
+            <h2 className="h2-proposal mt-2">
+              What You Will Have in Place
             </h2>
-            <p className="text-slate-400 mt-4 max-w-3xl font-light text-sm md:text-base">
-              A comprehensive breakdown of all key digital business development structures we set up and run.
+            <p className="proposal-body-text text-slate-400 mt-4 max-w-3xl font-light">
+              The following assets and processes are built and managed as part of the 90-day plan.
             </p>
           </div>
 
@@ -1733,11 +1798,14 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
               </div>
               <div className="space-y-2">
                 <h3 className="h3-proposal text-xl">
-                  Digital presence and profiles
+                  Professional Digital Presence
                 </h3>
-                <p className="text-slate-400 font-light text-sm leading-relaxed">
-                  Fully configured landing page, copy parameters for relationship profiles, messaging assets, and validated calendar booking journeys.
-                </p>
+                <ul className="text-slate-400 font-light text-sm leading-relaxed space-y-1.5">
+                  <li>&bull; Profile positioning and bio details</li>
+                  <li>&bull; Unified brand narrative copy</li>
+                  <li>&bull; Direct contact pathway setup</li>
+                  <li>&bull; Meeting booking journey configuration</li>
+                </ul>
               </div>
             </div>
 
@@ -1748,11 +1816,14 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
               </div>
               <div className="space-y-2">
                 <h3 className="h3-proposal text-xl">
-                  Content production and strategy
+                  Content
                 </h3>
-                <p className="text-slate-400 font-light text-sm leading-relaxed">
-                  Monthly content guides, custom written insights, storytelling formats, raw file reviews, publishing pipeline management, and content calendar schedules.
-                </p>
+                <ul className="text-slate-400 font-light text-sm leading-relaxed space-y-1.5">
+                  <li>&bull; Editorial content strategy</li>
+                  <li>&bull; Storytelling content library</li>
+                  <li>&bull; Professional short-form text and visual assets</li>
+                  <li>&bull; Agreed publishing schedule</li>
+                </ul>
               </div>
             </div>
 
@@ -1763,11 +1834,14 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
               </div>
               <div className="space-y-2">
                 <h3 className="h3-proposal text-xl">
-                  Conversation and meeting setup
+                  Business Development
                 </h3>
-                <p className="text-slate-400 font-light text-sm leading-relaxed">
-                  Qualification question forms, inbox reply templates, vetted contact briefings, automated scheduling alerts, and post-call nurture templates.
-                </p>
+                <ul className="text-slate-400 font-light text-sm leading-relaxed space-y-1.5">
+                  <li>&bull; Enquiry handling process guidelines</li>
+                  <li>&bull; Simple qualification framework</li>
+                  <li>&bull; Meeting-setting process coordination</li>
+                  <li>&bull; Follow-up support templates</li>
+                </ul>
               </div>
             </div>
 
@@ -1778,11 +1852,13 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
               </div>
               <div className="space-y-2">
                 <h3 className="h3-proposal text-xl">
-                  Performance reports
+                  Measurement
                 </h3>
-                <p className="text-slate-400 font-light text-sm leading-relaxed">
-                  Comprehensive monthly analytics dashboard, reach insights, conversion metrics, audience response summaries, and operational adjustments list.
-                </p>
+                <ul className="text-slate-400 font-light text-sm leading-relaxed space-y-1.5">
+                  <li>&bull; Monthly performance reviews</li>
+                  <li>&bull; Audience response observations</li>
+                  <li>&bull; Continuous improvement recommendations</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -1794,15 +1870,12 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
             ========================================== */}
         <section ref={yourRoleRef} id="your-role" className="border-b border-slate-800/40 pb-20 scroll-mt-24">
           <div className="mb-12">
-            <span className="text-xs uppercase tracking-widest text-[#C5A880] font-bold font-mono">
+            <span className="proposal-eyebrow text-xs tracking-widest text-[#C5A880] font-bold">
               Partnership rules
             </span>
-            <h2 className="h2-proposal text-3xl md:text-5xl mt-2">
-              Roles and expectations
+            <h2 className="h2-proposal mt-2">
+              Roles and Expectations
             </h2>
-            <p className="text-slate-400 mt-4 max-w-3xl font-light text-sm md:text-base">
-              A clean breakdown of who handles what to ensure the digital asset functions seamlessly.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
@@ -1813,20 +1886,23 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                   <UserCheck className="size-6" />
                 </div>
                 <h3 className="h3-proposal text-2xl">
-                  Your role (The face and partner)
+                  YOUR ROLE
                 </h3>
               </div>
+              <span className="text-xs font-serif italic text-slate-350 block mb-4">
+                "Your expertise, experience and business conversations."
+              </span>
 
               <ul className="space-y-4">
                 {[
-                  "Provide raw corporate insights, governance lessons, and travel stories.",
-                  "Participate in the scheduled 45-min recording sessions.",
-                  "Deliver accurate, real world backgrounds and career facts.",
-                  "Review and approve major, public facing brand content.",
-                  "Conduct calls and build partnerships with warm, vetted leads.",
-                  "Provide feedback on call outcomes to improve qualification."
+                  "Provide accurate business information",
+                  "Share stories and experience",
+                  "Participate in scheduled recording sessions",
+                  "Review important public-facing content",
+                  "Speak with serious prospects",
+                  "Provide feedback on business outcomes"
                 ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-slate-300 font-light text-sm leading-relaxed">
+                  <li key={idx} className="flex items-start gap-3 text-slate-300 font-light proposal-body-text">
                     <span className="size-1.5 rounded-full bg-[#C5A880] mt-2.5 shrink-0" />
                     <span>{item}</span>
                   </li>
@@ -1841,20 +1917,26 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                   <Award className="size-6" />
                 </div>
                 <h3 className="h3-proposal text-2xl">
-                  Our role (The growth partner)
+                  OUR ROLE
                 </h3>
               </div>
+              <span className="text-xs font-serif italic text-slate-350 block mb-4">
+                "Strategy, content and digital execution."
+              </span>
 
               <ul className="space-y-4">
                 {[
-                  "Define positioning strategy, brand messaging, and audience paths.",
-                  "Run content outlines and interview scripts for sessions.",
-                  "Edit, write, refine, and schedule all digital content pieces.",
-                  "Build, optimize, and manage the profile and landing platforms.",
-                  "Coordinate dialogue filtering and vetted meeting bookings.",
-                  "Deliver analytical reports and continuous performance adjustments."
+                  "Positioning",
+                  "Content planning",
+                  "Production",
+                  "Publishing",
+                  "Audience development",
+                  "Enquiry support",
+                  "Meeting support",
+                  "Reporting",
+                  "Optimisation"
                 ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-slate-300 font-light text-sm leading-relaxed">
+                  <li key={idx} className="flex items-start gap-3 text-slate-300 font-light proposal-body-text">
                     <span className="size-1.5 rounded-full bg-[#C5A880] mt-2.5 shrink-0" />
                     <span>{item}</span>
                   </li>
@@ -1865,12 +1947,13 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
 
           {/* Responsible communication */}
           <div className="p-8 rounded-2xl bg-[#C5A880]/[0.02] border border-[#C5A880]/10 mb-12">
+            <span className="proposal-eyebrow text-xs block mb-2 text-[#C5A880] font-bold">COMPLIANCE AND STANDARDS</span>
             <h3 className="h3-proposal text-xl mb-3 flex items-center gap-2">
               <AlertCircle className="size-5 text-[#C5A880]" />
-              Responsible communication
+              Responsible Communication
             </h3>
-            <p className="text-slate-300 font-light text-sm md:text-base leading-relaxed">
-              To preserve credibility and target high-quality corporate partners, all business claims, lifestyle details, and experience testimonials must be accurate, verified, and approved before publication. We do not use fabricated reviews, guaranteed revenue representations, or misleading claims under any circumstances.
+            <p className="proposal-body-text text-slate-300 font-light leading-relaxed">
+              All public-facing business, product, income, testimonial and lifestyle claims must be accurate and approved before publication. We do not use fabricated testimonials, guaranteed-income claims or misleading representations.
             </p>
           </div>
         </section>
@@ -1883,22 +1966,22 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#C5A880]/5 rounded-full blur-[120px] pointer-events-none" />
           
           <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8 bg-[#0C1225]/30 border border-slate-800 rounded-3xl p-8 md:p-16">
-            <span className="text-xs uppercase tracking-widest text-[#C5A880] font-bold font-mono">
+            <span className="proposal-eyebrow text-xs tracking-widest text-[#C5A880] font-bold">
               Action plan
             </span>
-            <h2 className="h2-proposal text-4xl md:text-6xl font-bold tracking-tight text-slate-100 leading-tight">
-              Ready to establish your digital asset?
+            <h2 className="h2-proposal text-slate-100 leading-tight">
+              Ready to Build the Foundation?
             </h2>
-            <p className="text-slate-300 font-light text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-              The first step is to host our initial discovery session. We will align on your specific business details, confirm strategic directions, and prepare the foundation parameters.
+            <p className="proposal-body-text text-slate-305 font-light max-w-2xl mx-auto">
+              The first step is a discovery session to align goals, confirm direction and begin the foundation phase.
             </p>
 
             <div className="pt-6">
               <a
-                href={`mailto:jayantwebaisystems@gmail.com?subject=Proposal%20Discussion%20-%20${clientName}&body=Hi%20Jayant,%250A%250AI've%2520reviewed%2520the%252090-day%2520proposal%252520microsite.%2520Let's%2520schedule%2520our%2520initial%2520Discovery%2520Session.%250A%250APreferred%2520Days/Times:%250A%250ARegards,%250A${clientName}`}
+                href={`mailto:jayantwebaisystems@gmail.com?subject=Proposal%20Discussion%2520-%2520${clientName}&body=Hi%2520Jayant,%250A%250AI've%2520reviewed%2520the%252090-day%2520proposal%2520portal.%2520Let's%2520schedule%2520our%2520initial%2520Discovery%2520Session%2520to%2520align%2520goals%2520and%2520confirm%2520direction.%250A%250APreferred%2520Days/Times:%250A%250ARegards,%250A${clientName}`}
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#C5A880] hover:bg-[#D8B992] text-slate-950 px-8 py-4.5 text-base font-bold transition-all duration-200 shadow-xl hover:shadow-[#C5A880]/25 hover:scale-[1.02] active:scale-[0.98]"
               >
-                <span>Book the discovery session</span>
+                <span>BOOK DISCOVERY SESSION</span>
                 <ArrowRight className="size-5" />
               </a>
               <span className="text-xs text-slate-400 block mt-4 font-mono uppercase tracking-wider">
@@ -1929,7 +2012,7 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
       {/* Footer copyright */}
       <footer className="w-full py-12 border-t border-slate-800/40 text-center relative z-10">
         <p className="text-xs text-slate-500 font-mono uppercase tracking-widest">
-          &copy; {new Date().getFullYear()} JAYANT WEB & AI SYSTEMS. ALL RIGHTS RESERVED. CONFIDENTIAL PRIVATE PROPOSAL.
+          &copy; {new Date().getFullYear()} Jayant Web & AI Systems. All rights reserved. Confidential private proposal.
         </p>
       </footer>
 
