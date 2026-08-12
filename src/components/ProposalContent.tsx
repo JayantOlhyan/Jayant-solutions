@@ -323,93 +323,13 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
     <div className="proposal-page relative min-h-screen bg-[#070A13] text-slate-100 selection:bg-[#C5A880]/20 selection:text-[#C5A880] font-sans antialiased overflow-x-hidden">
       
       {/* 1. Persistent top navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#070A13]/85 backdrop-blur-md border-b border-slate-800 transition-all duration-300">
-        {/* Scroll progress bar */}
-        <div 
-          aria-hidden="true" 
-          className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[#C5A880] to-[#E5C8A0] origin-left transition-transform duration-75"
-          style={{ transform: `scaleX(${scrollProgress})`, width: "100%" }}
-        />
-        
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex flex-col">
-            <span className="proposal-eyebrow text-[#C5A880] text-xs font-bold font-mono">
-              Private client proposal
-            </span>
-            <span className="text-sm font-serif font-bold text-slate-200 mt-0.5">
-              Prepared for: {clientName}
-            </span>
-          </div>
-
-          {/* Desktop nav items */}
-          <div className="hidden lg:flex items-center space-x-6">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`proposal-nav-text text-xs font-semibold tracking-wide transition-all ${
-                  activeSection === item.id 
-                    ? "text-[#C5A880] scale-105" 
-                    : "text-slate-400 hover:text-slate-200"
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
-
-          <div className="hidden sm:flex items-center">
-            <Link
-              href={`/proposal/${clientSlug}/commercials`}
-              className="inline-flex items-center gap-1.5 px-4.5 py-2 text-xs font-bold rounded-lg bg-[#C5A880] hover:bg-[#D8B992] text-slate-950 transition-all duration-200 active:scale-95 shadow-md hover:shadow-[#C5A880]/10 font-mono"
-            >
-              <span>Commercial Proposal & Pricing</span>
-              <ArrowRight className="size-3.5" />
-            </Link>
-          </div>
-
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden text-slate-400 hover:text-slate-200 p-2"
-            aria-label="Toggle navigation menu"
-          >
-            {mobileMenuOpen ? <X className="size-6" /> : <Menu className="size-6" />}
-          </button>
-        </div>
-
-        {/* Mobile navigation drawer */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="absolute top-20 left-0 right-0 bg-[#0C1225] border-b border-slate-800 p-6 flex flex-col space-y-4 shadow-xl z-40 lg:hidden"
-            >
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`text-left text-sm font-semibold py-2 border-b border-slate-800/50 ${
-                    activeSection === item.id ? "text-[#C5A880]" : "text-slate-400"
-                  }`}
-                >
-                  {item.label}
-                </button>
-              ))}
-              <Link
-                href={`/proposal/${clientSlug}/commercials`}
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full inline-flex items-center justify-center gap-1.5 px-5 py-3 text-sm font-bold rounded-lg bg-[#C5A880] text-slate-950 hover:bg-[#D8B992] transition-all font-mono"
-              >
-                <span>Commercial Proposal & Pricing</span>
-                <ArrowRight className="size-4" />
-              </Link>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
+      <ProposalNavbar
+        clientSlug={clientSlug}
+        clientName={clientName}
+        sectionNavItems={navItems}
+        activeSection={activeSection}
+        onScrollToSection={scrollToSection}
+      />
 
       {/* Main content area */}
       <main className="max-w-7xl mx-auto px-6 pt-32 pb-24 flex flex-col gap-24 md:gap-36">
@@ -2021,12 +1941,8 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
         )}
       </AnimatePresence>
       
-      {/* Footer copyright */}
-      <footer className="w-full py-12 border-t border-slate-800/40 text-center relative z-10">
-        <p className="text-xs text-slate-500 font-mono uppercase tracking-widest">
-          &copy; {new Date().getFullYear()} Jayant Web & AI Systems. All rights reserved. Confidential private proposal.
-        </p>
-      </footer>
+      {/* Footer copyright & site links */}
+      <ProposalFooter clientSlug={clientSlug} clientName={clientName} />
 
     </div>
   );
