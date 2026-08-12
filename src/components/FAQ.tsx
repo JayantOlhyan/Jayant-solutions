@@ -18,10 +18,10 @@ export default function FAQ() {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-            Clear Logistics
+            clear logistics
           </span>
-          <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mb-4 mt-2">
-            Frequently Asked Questions
+          <h2 className="font-sans text-3xl md:text-5xl font-extrabold tracking-tight text-text-base mb-4 mt-2">
+            Frequently asked questions
           </h2>
           <p className="text-sm md:text-base text-text-muted">
             Everything you need to know about timelines, support commitments, and remote operations.
@@ -42,7 +42,7 @@ export default function FAQ() {
                   onClick={() => toggleFAQ(index)}
                   aria-expanded={isOpen}
                   aria-controls={`faq-answer-${index}`}
-                  className="w-full flex items-center justify-between p-6 text-left font-serif text-base md:text-lg font-bold text-text-base focus:outline-none cursor-pointer"
+                  className="w-full flex items-center justify-between p-6 text-left font-sans text-base md:text-lg font-bold text-text-base focus:outline-none cursor-pointer"
                 >
                   <span>{item.question}</span>
                   <span className="p-1 rounded-full border border-border-custom bg-card-bg shrink-0 ml-4">

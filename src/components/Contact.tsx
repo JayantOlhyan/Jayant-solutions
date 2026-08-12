@@ -11,10 +11,10 @@ export default function Contact() {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-            Get Started
+            get started
           </span>
-          <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mb-4 mt-2">
-            Let&apos;s Discuss Your Project
+          <h2 className="font-sans text-3xl md:text-5xl font-extrabold tracking-tight text-text-base mb-4 mt-2">
+            Let&apos;s discuss your project
           </h2>
           <p className="text-sm md:text-base text-text-muted">
             Select a convenient slot below to schedule a free 15-minute operational systems audit and project consultation.
@@ -24,8 +24,8 @@ export default function Contact() {
         {/* Pre-Qualification Banner / Fit Check (Inspired by fiveonline.in) */}
         <div className="glass-card rounded-[28px] border border-border-custom p-6 md:p-8 mb-10 flex flex-col md:flex-row gap-8 items-stretch select-none">
           <div className="w-full md:w-1/2 flex flex-col gap-3">
-            <h4 className="font-serif text-lg font-bold text-text-base flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-emerald-500" /> Best Fit If You Are:
+            <h4 className="font-sans text-lg font-bold text-text-base flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-emerald-500" /> Best fit if you are:
             </h4>
             <ul className="text-xs md:text-sm text-text-muted space-y-2.5 list-disc pl-5">
               <li>Running or launching a serious business, portal, or startup in India or globally.</li>
@@ -35,10 +35,10 @@ export default function Contact() {
           </div>
           
           <div className="hidden md:block w-px bg-border-custom" />
-
+ 
           <div className="w-full md:w-1/2 flex flex-col gap-3">
-            <h4 className="font-serif text-lg font-bold text-text-base flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-red-500" /> Not Ideal If You Are:
+            <h4 className="font-sans text-lg font-bold text-text-base flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-red-500" /> Not ideal if you are:
             </h4>
             <ul className="text-xs md:text-sm text-text-muted space-y-2.5 list-disc pl-5">
               <li>Looking for ₹5,000 generic templates or quick copies without custom scopes.</li>
@@ -80,13 +80,13 @@ export default function Contact() {
             <div className="glass-card rounded-2xl p-6 border border-border-custom flex items-start gap-4">
               <span className="text-lg shrink-0 mt-0.5">📍</span>
               <div>
-                <h4 className="font-bold text-sm text-text-base mb-1">Office Location</h4>
+                <h4 className="font-bold text-sm text-text-base mb-1">Office location</h4>
                 <span className="text-xs md:text-sm text-text-muted">
                   Remote (Dwarka, New Delhi)
                 </span>
               </div>
             </div>
-
+ 
             <div className="glass-card rounded-2xl p-6 border border-border-custom flex items-start gap-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -114,14 +114,14 @@ export default function Contact() {
                 </a>
               </div>
             </div>
-
+ 
             <div className="glass-card rounded-2xl p-6 border border-border-custom text-xs text-text-muted leading-relaxed space-y-3">
               <div>
-                <p className="font-semibold text-text-base mb-1">⏱️ Response Time:</p>
-                <p>Usually within 12 Hours (Monday–Saturday).</p>
+                <p className="font-semibold text-text-base mb-1">⏱️ Response time:</p>
+                <p>Usually within 12 hours (Monday–Saturday).</p>
               </div>
               <div className="border-t border-border-custom/30 pt-2.5">
-                <p className="font-semibold text-text-base mb-1">📅 Business Hours:</p>
+                <p className="font-semibold text-text-base mb-1">📅 Business hours:</p>
                 <p>Monday – Saturday<br />7:00 AM – 9:00 PM IST</p>
               </div>
               <div className="border-t border-border-custom/30 pt-2.5">

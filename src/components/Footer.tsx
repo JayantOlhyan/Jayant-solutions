@@ -2,19 +2,23 @@
 
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const pathname = usePathname();
+  if (pathname?.startsWith("/proposal/")) return null;
+
   const currentYear = new Date().getFullYear();
 
     const sections = [
     {
       title: "Solutions",
       links: [
-        { name: "Build an AI Chatbot", href: "/promo/build-ai-chatbot" },
-        { name: "Build Your Startup MVP", href: "/promo/build-startup-mvp" },
-        { name: "Modern Business Website", href: "/promo/modern-business-website" },
-        { name: "Business Automation", href: "/promo/business-automation-solutions" },
-        { name: "AI Consulting", href: "/promo/ai-consulting" },
+        { name: "Build an AI chatbot", href: "/promo/build-ai-chatbot" },
+        { name: "Build your startup MVP", href: "/promo/build-startup-mvp" },
+        { name: "Modern business website", href: "/promo/modern-business-website" },
+        { name: "Business automation", href: "/promo/business-automation-solutions" },
+        { name: "AI consulting", href: "/promo/ai-consulting" },
       ]
     },
     {
@@ -32,7 +36,7 @@ export default function Footer() {
     {
       title: "Company",
       links: [
-        { name: "about me", href: "/about" },
+        { name: "About me", href: "/about" },
         { name: "Founder", href: "/company/founder" },
         { name: "Careers", href: "/company/careers" },
         { name: "Partners", href: "/company/partners" },
@@ -42,33 +46,33 @@ export default function Footer() {
     {
       title: "Industries",
       links: [
-        { name: "AI for Healthcare", href: "/industries/ai-for-healthcare" },
-        { name: "AI for Retail & E-commerce", href: "/industries/ai-for-retail" },
-        { name: "AI for Education", href: "/industries/ai-for-education" }
+        { name: "AI for healthcare", href: "/industries/ai-for-healthcare" },
+        { name: "AI for retail & e-commerce", href: "/industries/ai-for-retail" },
+        { name: "AI for education", href: "/industries/ai-for-education" }
       ]
     },
     {
       title: "Technologies",
       links: [
-        { name: "Next.js Development", href: "/technologies/nextjs-development" },
-        { name: "React Development", href: "/technologies/react-development" },
-        { name: "FastAPI Development", href: "/technologies/fastapi-development" },
-        { name: "Python Development", href: "/technologies/python-development" },
-        { name: "Flutter Development", href: "/technologies/flutter-development" },
-        { name: "OpenAI Integration", href: "/technologies/openai-integration" },
-        { name: "Google Gemini Development", href: "/technologies/google-gemini-development" },
-        { name: "LangChain Development", href: "/technologies/langchain-development" },
-        { name: "Supabase Development", href: "/technologies/supabase-development" },
-        { name: "PostgreSQL Development", href: "/technologies/postgresql-development" }
+        { name: "Next.js development", href: "/technologies/nextjs-development" },
+        { name: "React development", href: "/technologies/react-development" },
+        { name: "FastAPI development", href: "/technologies/fastapi-development" },
+        { name: "Python development", href: "/technologies/python-development" },
+        { name: "Flutter development", href: "/technologies/flutter-development" },
+        { name: "OpenAI integration", href: "/technologies/openai-integration" },
+        { name: "Google Gemini development", href: "/technologies/google-gemini-development" },
+        { name: "LangChain development", href: "/technologies/langchain-development" },
+        { name: "Supabase development", href: "/technologies/supabase-development" },
+        { name: "PostgreSQL development", href: "/technologies/postgresql-development" }
       ]
     },
     {
       title: "Resources",
       links: [
         { name: "Blog", href: "/blog" },
-        { name: "Case Studies", href: "/resources/case-studies" },
-        { name: "Technologies We Use", href: "/resources/technologies-we-use" },
-        { name: "Industries We Serve", href: "/resources/industries-we-serve" },
+        { name: "Case studies", href: "/resources/case-studies" },
+        { name: "Technologies we use", href: "/resources/technologies-we-use" },
+        { name: "Industries we serve", href: "/resources/industries-we-serve" },
         { name: "Downloads", href: "/resources/downloads" },
         { name: "FAQs", href: "/faq" }
       ]
@@ -77,10 +81,10 @@ export default function Footer() {
       title: "Support",
       links: [
         { name: "Support", href: "/support" },
-        { name: "Report a Bug", href: "/support/report-a-bug" },
+        { name: "Report a bug", href: "/support/report-a-bug" },
         { name: "Maintenance", href: "/services/maintenance" },
-        { name: "Service Status", href: "/support/service-status" },
-        { name: "Client Portal", href: "/support/client-portal" }
+        { name: "Service status", href: "/support/service-status" },
+        { name: "Client portal", href: "/support/client-portal" }
       ]
     }
   ];
@@ -107,7 +111,7 @@ export default function Footer() {
                 <path d="M 52 108 L 82 108 L 82 128 L 67 141 L 65 128 L 52 128 Z" fill="#FF8A00" />
               </svg>
             </div>
-            <span className="font-serif text-sm font-bold tracking-tight text-text-base">
+            <span className="font-sans text-sm font-bold tracking-tight text-text-base">
               Jayant Web & AI Systems
             </span>
           </div>
@@ -163,19 +167,19 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center">
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[10px] text-text-muted font-mono">
             <Link href="/privacy" className="hover:text-primary hover:underline transition-colors">
-              Privacy Policy
+              Privacy policy
             </Link>
             <span className="text-border-custom/50">•</span>
             <Link href="/terms" className="hover:text-primary hover:underline transition-colors">
-              Terms & Conditions
+              Terms & conditions
             </Link>
             <span className="text-border-custom/50">•</span>
             <Link href="/cookies" className="hover:text-primary hover:underline transition-colors">
-              Cookie Policy
+              Cookie policy
             </Link>
             <span className="text-border-custom/50">•</span>
             <Link href="/pricing-policy" className="hover:text-primary hover:underline transition-colors">
-              Refund Policy
+              Refund policy
             </Link>
             <span className="text-border-custom/50">•</span>
             <Link href="/disclaimer" className="hover:text-primary hover:underline transition-colors">

@@ -54,11 +54,11 @@ export default function Process() {
             <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
               my process
             </span>
-            <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mb-4 mt-2">
-              A Proven Process. Predictable Results.
+            <h2 className="font-sans text-3xl md:text-5xl font-extrabold tracking-tight text-text-base mb-4 mt-2">
+              A proven process. Predictable results.
             </h2>
             <p className="text-sm md:text-base text-text-muted leading-relaxed mb-8">
-              We follow a transparent and collaborative process to deliver solutions that make an impact.
+              We work in clear steps to build systems that fit your team&apos;s workflow.
             </p>
             <Link
               href="/process"
@@ -68,7 +68,7 @@ export default function Process() {
               <ArrowRight className="size-4" />
             </Link>
           </div>
-
+ 
           {/* Right Column: Steps Chain */}
           <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 relative">
             {steps.map((step, index) => (
@@ -77,15 +77,15 @@ export default function Process() {
                 <div className="relative z-10 size-14 rounded-full border border-border-custom bg-card-bg shadow-sm flex items-center justify-center mb-4 transition-transform group-hover:scale-105">
                   {step.icon}
                 </div>
-
+ 
                 {/* Connecting Line to next item (rendered only on desktop screens) */}
                 {index < steps.length - 1 && (
                   <div className="hidden lg:block absolute top-7 left-[calc(50%+28px)] right-[calc(-50%+28px)] h-[1px] border-t border-dashed border-border-custom z-0 pointer-events-none" />
                 )}
-
+ 
                 {/* Description */}
                 <div className="flex flex-col gap-1">
-                  <span className="font-serif text-xs md:text-sm font-bold text-text-base leading-none">
+                  <span className="font-sans text-xs md:text-sm font-bold text-text-base leading-none">
                     {step.id}. {step.name}
                   </span>
                   <span className="text-[10px] md:text-xs text-text-muted leading-tight mt-1.5 px-1">

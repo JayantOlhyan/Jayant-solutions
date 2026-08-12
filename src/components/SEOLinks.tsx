@@ -1,7 +1,12 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function SEOLinks() {
+  const pathname = usePathname();
+  if (pathname?.startsWith("/proposal/")) return null;
   return (
     <section className="bg-bg-base py-12 border-t border-border-custom mt-auto">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">

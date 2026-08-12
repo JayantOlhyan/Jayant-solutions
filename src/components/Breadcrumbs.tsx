@@ -8,8 +8,8 @@ import { ChevronRight, Home } from "lucide-react";
 export default function Breadcrumbs() {
   const pathname = usePathname();
 
-  // Don't show breadcrumbs on home page
-  if (pathname === "/") return null;
+  // Don't show breadcrumbs on home page or proposal pages
+  if (pathname === "/" || pathname?.startsWith("/proposal/")) return null;
 
   const paths = pathname.split("/").filter((path) => path);
 

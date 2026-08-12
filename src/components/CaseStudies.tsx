@@ -23,11 +23,11 @@ export default function CaseStudies() {
             <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
               FEATURED PROJECTS
             </span>
-            <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mb-4 mt-2">
-              Solutions That Drive Results
+            <h2 className="font-sans text-3xl md:text-5xl font-extrabold tracking-tight text-text-base mb-4 mt-2">
+              Solutions that drive results
             </h2>
             <p className="text-sm md:text-base text-text-muted leading-relaxed">
-              Explore some of the impactful solutions we&apos;ve built for startups and businesses across industries.
+              We design custom software to address real-world business challenges.
             </p>
           </div>
           <div>
@@ -35,7 +35,7 @@ export default function CaseStudies() {
               href="/portfolio"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border-custom bg-white hover:bg-neutral-50 dark:bg-card-bg dark:hover:bg-neutral-900 text-xs font-mono font-bold text-text-base transition-colors"
             >
-              <span>View All Projects</span>
+              <span>View all projects</span>
               <ArrowRight className="size-4" />
             </Link>
           </div>
@@ -94,7 +94,7 @@ export default function CaseStudies() {
                       {study.industry}
                     </span>
                   </div>
-                  <h3 className="font-serif text-xl md:text-2xl font-bold text-text-base mb-2">{study.title}</h3>
+                  <h3 className="font-sans text-xl md:text-2xl font-bold text-text-base mb-2">{study.title}</h3>
                   <p className="text-xs md:text-sm text-text-muted leading-relaxed mb-6 line-clamp-2">
                     {study.solution}
                   </p>
@@ -104,7 +104,7 @@ export default function CaseStudies() {
                   onClick={() => setSelectedId(study.id)}
                   className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-primary hover:underline self-start"
                 >
-                  <span>View Case Study</span>
+                  <span>View case study</span>
                   <ArrowRight className="size-3.5" />
                 </button>
               </div>
@@ -136,7 +136,7 @@ export default function CaseStudies() {
                     <span className="font-mono text-[10px] tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-2.5 py-0.5 rounded-full mb-2 inline-block">
                       {activeStudy.industry}
                     </span>
-                    <h3 className="font-serif text-2xl md:text-3xl font-bold text-text-base">{activeStudy.title}</h3>
+                    <h3 className="font-sans text-2xl md:text-3xl font-bold text-text-base">{activeStudy.title}</h3>
                     <p className="text-xs text-text-muted mt-1">Client: {activeStudy.client}</p>
                   </div>
                   <button
@@ -151,23 +151,23 @@ export default function CaseStudies() {
                 <div className="space-y-6 text-xs md:text-sm text-text-muted leading-relaxed">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="border border-border-custom/60 rounded-2xl p-4 bg-red-500/5">
-                      <span className="font-bold text-[10px] text-red-600 block mb-1 uppercase tracking-wider">❌ Before (Manual Bottleneck)</span>
+                      <span className="font-bold text-[10px] text-red-600 block mb-1 uppercase tracking-wider">❌ Before (manual bottleneck)</span>
                       <p className="text-text-base">{activeStudy.beforeState}</p>
                     </div>
                     <div className="border border-border-custom/60 rounded-2xl p-4 bg-emerald-500/5">
-                      <span className="font-bold text-[10px] text-emerald-600 block mb-1 uppercase tracking-wider">✅ After (Automated Outcome)</span>
+                      <span className="font-bold text-[10px] text-emerald-600 block mb-1 uppercase tracking-wider">✅ After (automated outcome)</span>
                       <p className="text-text-base">{activeStudy.afterState}</p>
                     </div>
                   </div>
 
                   <div>
-                    <span className="font-serif font-bold text-text-base block mb-1">Operational Helper Built</span>
+                    <span className="font-sans font-bold text-text-base block mb-1">Operational system built</span>
                     <p>{activeStudy.solution}</p>
                   </div>
 
                   {activeStudy.features && (
                     <div>
-                      <span className="font-serif font-bold text-text-base block mb-2">Key System Features</span>
+                      <span className="font-sans font-bold text-text-base block mb-2">Key system features</span>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         {activeStudy.features.map((feature, idx) => (
                           <div key={idx} className="flex items-start gap-2">
@@ -181,7 +181,7 @@ export default function CaseStudies() {
 
                   <div className="border-t border-border-custom/50 pt-4 flex items-center justify-between">
                     <div>
-                      <span className="text-[10px] font-mono text-text-muted block uppercase">Measurable Result</span>
+                      <span className="text-[10px] font-mono text-text-muted block uppercase">Measurable result</span>
                       <span className="text-base md:text-lg font-bold text-primary">{activeStudy.result}</span>
                     </div>
                     {activeStudy.liveWebsite && activeStudy.liveWebsite !== "#" && (

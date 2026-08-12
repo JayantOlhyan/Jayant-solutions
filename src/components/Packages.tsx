@@ -12,10 +12,10 @@ export default function Packages() {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-            Pricing & Offers
+            pricing & offers
           </span>
-          <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mb-4 mt-2">
-            Outcome-Based Packages
+          <h2 className="font-sans text-3xl md:text-5xl font-extrabold tracking-tight text-text-base mb-4 mt-2">
+            Outcome-based packages
           </h2>
           <p className="text-sm md:text-base text-text-muted">
             No endless hourly billing. Choose the package that aligns with your current business goals.
@@ -52,7 +52,7 @@ export default function Packages() {
                   <span className="font-mono text-[9px] uppercase tracking-wider text-text-muted block mb-1">
                     Ideal for: {pkg.idealFor}
                   </span>
-                  <h3 className="font-serif text-xl md:text-2xl font-bold text-text-base mb-1">
+                  <h3 className="font-sans text-xl md:text-2xl font-bold text-text-base mb-1">
                     {pkg.name}
                   </h3>
                   <p className="text-xs text-text-muted leading-normal min-h-[32px]">
@@ -105,7 +105,7 @@ export default function Packages() {
                   aria-label={`Choose ${pkg.name} package`}
                   className="w-full text-center py-2.5 text-xs font-mono font-bold rounded-xl bg-background-base text-text-base border-2 border-border-custom hover:border-primary transition-colors block"
                 >
-                  Choose Package
+                  Choose package
                 </a>
               </div>
             </motion.div>

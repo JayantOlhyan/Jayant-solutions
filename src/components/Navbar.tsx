@@ -25,6 +25,10 @@ export default function Navbar() {
   const pathname = usePathname();
   const navRef = useRef<HTMLElement>(null);
 
+  if (pathname?.startsWith("/proposal/")) {
+    return null;
+  }
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -44,11 +48,11 @@ export default function Navbar() {
   }, []);
 
   const solutionsSubLinks = [
-    { label: "Build an AI Chatbot", href: "/promo/build-ai-chatbot" },
-    { label: "Build Your Startup MVP", href: "/promo/build-startup-mvp" },
-    { label: "Modern Business Website", href: "/promo/modern-business-website" },
-    { label: "Business Automation Solutions", href: "/promo/business-automation-solutions" },
-    { label: "AI Consulting", href: "/promo/ai-consulting" },
+    { label: "Build an AI chatbot", href: "/promo/build-ai-chatbot" },
+    { label: "Build your startup MVP", href: "/promo/build-startup-mvp" },
+    { label: "Modern business website", href: "/promo/modern-business-website" },
+    { label: "Business automation solutions", href: "/promo/business-automation-solutions" },
+    { label: "AI consulting", href: "/promo/ai-consulting" },
   ];
 
   const companySubLinks = [
@@ -56,34 +60,34 @@ export default function Navbar() {
     { label: "Careers", href: "/company/careers" },
     { label: "Partners", href: "/company/partners" },
     { label: "Testimonials", href: "/company/testimonials" },
-    { label: "why work with me", href: "/company/why-choose-us" },
+    { label: "Why work with me", href: "/company/why-choose-us" },
   ];
 
   const resourcesSubLinks = [
     { label: "Blog", href: "/blog" },
-    { label: "Case Studies", href: "/resources/case-studies" },
-    { label: "Technologies We Use", href: "/resources/technologies-we-use" },
-    { label: "Industries We Serve", href: "/resources/industries-we-serve" },
+    { label: "Case studies", href: "/resources/case-studies" },
+    { label: "Technologies we use", href: "/resources/technologies-we-use" },
+    { label: "Industries we serve", href: "/resources/industries-we-serve" },
     { label: "Downloads", href: "/resources/downloads" },
   ];
 
   const industriesSubLinks = [
-    { label: "AI for Healthcare", href: "/industries/ai-for-healthcare" },
-    { label: "AI for Retail & E-commerce", href: "/industries/ai-for-retail" },
-    { label: "AI for Education", href: "/industries/ai-for-education" },
+    { label: "AI for healthcare", href: "/industries/ai-for-healthcare" },
+    { label: "AI for retail & e-commerce", href: "/industries/ai-for-retail" },
+    { label: "AI for education", href: "/industries/ai-for-education" },
   ];
 
   const technologiesSubLinks = [
-    { label: "Next.js Development", href: "/technologies/nextjs-development" },
-    { label: "React Development", href: "/technologies/react-development" },
-    { label: "FastAPI Development", href: "/technologies/fastapi-development" },
-    { label: "Python Development", href: "/technologies/python-development" },
-    { label: "Flutter Development", href: "/technologies/flutter-development" },
-    { label: "OpenAI Integration", href: "/technologies/openai-integration" },
-    { label: "Google Gemini Development", href: "/technologies/google-gemini-development" },
-    { label: "LangChain Development", href: "/technologies/langchain-development" },
-    { label: "Supabase Development", href: "/technologies/supabase-development" },
-    { label: "PostgreSQL Development", href: "/technologies/postgresql-development" },
+    { label: "Next.js development", href: "/technologies/nextjs-development" },
+    { label: "React development", href: "/technologies/react-development" },
+    { label: "FastAPI development", href: "/technologies/fastapi-development" },
+    { label: "Python development", href: "/technologies/python-development" },
+    { label: "Flutter development", href: "/technologies/flutter-development" },
+    { label: "OpenAI integration", href: "/technologies/openai-integration" },
+    { label: "Google Gemini development", href: "/technologies/google-gemini-development" },
+    { label: "LangChain development", href: "/technologies/langchain-development" },
+    { label: "Supabase development", href: "/technologies/supabase-development" },
+    { label: "PostgreSQL development", href: "/technologies/postgresql-development" },
   ];
 
   return (
@@ -105,7 +109,7 @@ export default function Navbar() {
               </svg>
             </div>
             <div className="flex flex-col">
-              <span className="font-serif text-sm md:text-base font-bold tracking-tight text-white leading-none">
+              <span className="font-sans text-sm md:text-base font-bold tracking-tight text-white leading-none">
                 Jayant Web & AI Systems
               </span>
               <span className="font-sans text-[9px] tracking-[0.08em] uppercase text-white/50 font-medium mt-1">
@@ -251,7 +255,7 @@ export default function Navbar() {
                 onClick={() => setActiveDropdown(activeDropdown === 'cta' ? null : 'cta')}
                 className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-primary hover:bg-primary-hover text-white px-5 py-2.5 text-xs font-semibold transition-all duration-200 shadow-md hover:shadow-lg active:scale-[0.98] cursor-pointer focus:outline-none"
               >
-                <span>Book a Free Consultation</span>
+                <span>Book a free consultation</span>
                 <ChevronDown className={`size-3.5 transition-transform ${activeDropdown === 'cta' ? "rotate-180" : ""}`} />
               </button>
 
@@ -270,7 +274,7 @@ export default function Navbar() {
                       className="flex items-center gap-2.5 px-4 py-2 text-xs font-mono font-bold text-white hover:bg-white/5 transition-colors"
                     >
                       <Calendar className="size-4 text-primary" />
-                      <span>Book a Strategy Call</span>
+                      <span>Book a strategy call</span>
                     </Link>
                     <a
                       href="https://wa.me/919667344125?text=Hi%20Jayant,%20I'm%20interested%20in%20discussing%20a%20project."
@@ -288,7 +292,7 @@ export default function Navbar() {
                       className="flex items-center gap-2.5 px-4 py-2 text-xs font-mono font-bold text-white hover:bg-white/5 transition-colors"
                     >
                       <Mail className="size-4 text-primary" />
-                      <span>Send an Email</span>
+                      <span>Send an email</span>
                     </a>
                   </motion.div>
                 )}
@@ -540,7 +544,7 @@ export default function Navbar() {
                   onClick={() => setIsOpen(false)}
                   className="w-full text-center inline-flex items-center justify-center gap-1.5 rounded-xl bg-primary hover:bg-primary-hover text-white py-2.5 text-xs font-semibold transition-all duration-200"
                 >
-                  📅 Book Free Consultation
+                  📅 Book free consultation
                 </Link>
               </div>
             </motion.div>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 const WhatsAppIcon = ({ className = "size-7" }: { className?: string }) => (
   <svg
@@ -14,7 +15,11 @@ const WhatsAppIcon = ({ className = "size-7" }: { className?: string }) => (
 );
 
 export default function FloatingWhatsApp() {
+  const pathname = usePathname();
   const [visible, setVisible] = useState(false);
+
+  // Hide on proposal pages
+  if (pathname?.startsWith("/proposal/")) return null;
 
   useEffect(() => {
     const toggleVisibility = () => {

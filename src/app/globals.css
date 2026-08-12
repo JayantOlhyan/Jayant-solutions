@@ -152,7 +152,7 @@ small, .caption, .small-text, .text-caption {
 
 /* H1 (Hero Heading): Desktop 48px - 56px, Mobile 32px - 36px, Weight 800 (Extra Bold) */
 h1, .h1, .hero-heading, .text-h1 {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-weight: 800 !important;
   letter-spacing: -0.04em;
   font-size: clamp(32px, 5vw, 36px) !important;
@@ -167,7 +167,7 @@ h1, .h1, .hero-heading, .text-h1 {
 
 /* H2 (Section Heading): Desktop 36px - 40px, Mobile 28px, Weight 700 (Bold) */
 h2, .h2, .section-heading, .text-h2 {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-weight: 700 !important;
   letter-spacing: -0.03em;
   font-size: 28px !important;
@@ -182,7 +182,7 @@ h2, .h2, .section-heading, .text-h2 {
 
 /* H3 (Feature Title): Desktop 24px, Mobile 20px, Weight 600 (Semi-Bold) */
 h3, .h3, .feature-title, .text-h3 {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-weight: 600 !important;
   letter-spacing: -0.02em;
   font-size: 20px !important;
@@ -250,3 +250,55 @@ textarea:focus-visible,
 .animate-slide-in {
   animation: slideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* ==========================================
+   Private Client Proposal Custom Styles
+   ========================================== */
+.proposal-page {
+  --proposal-bg: #070A13;
+  --proposal-card: #0E1326;
+  --proposal-border: #1E2544;
+  --proposal-gold: #C5A880; /* Executive gold-brass accent */
+  --proposal-gold-hover: #D8B992;
+  --proposal-gold-glow: rgba(197, 168, 128, 0.08);
+}
+
+.proposal-page h1, 
+.proposal-page .h1-proposal {
+  font-family: var(--font-serif) !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.1 !important;
+  color: #FFFFFF !important;
+}
+
+.proposal-page h2,
+.proposal-page .h2-proposal {
+  font-family: var(--font-serif) !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.2 !important;
+  color: #F8FAFC !important;
+}
+
+.proposal-page h3,
+.proposal-page .h3-proposal {
+  font-family: var(--font-serif) !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.3 !important;
+  color: var(--proposal-gold) !important;
+}
+
+.proposal-page .gold-text {
+  color: var(--proposal-gold) !important;
+}
+
+.proposal-page .gold-border {
+  border-color: var(--proposal-gold) !important;
+}
+
+.proposal-page .gold-bg {
+  background-color: var(--proposal-gold) !important;
+}
+

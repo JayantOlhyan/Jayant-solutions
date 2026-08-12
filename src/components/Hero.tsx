@@ -28,21 +28,21 @@ export default function Hero() {
               </span>
               <Zap className="size-3 text-primary fill-primary" />
               <span className="font-mono text-[10px] md:text-xs font-bold tracking-wider uppercase text-text-base">
-                AI-Powered Solutions. Real Business Impact.
+                AI-powered systems. Real business outcomes.
               </span>
             </motion.div>
 
             {/* Hero Title (LCP Optimized - rendered instantly without animation) */}
-            <h1 className="font-serif text-4xl md:text-6xl lg:text-7.5xl font-bold tracking-tight text-text-base leading-[1.05] mb-6">
-              Building Intelligent Digital Solutions for{" "}
+            <h1 className="font-sans text-4xl md:text-6xl lg:text-7.5xl font-extrabold tracking-tight text-text-base leading-[1.02] mb-6">
+              Building intelligent digital systems for{" "}
               <span className="text-primary underline decoration-primary/40 decoration-4 underline-offset-8">
-                Startups & Businesses
+                businesses & startups
               </span>
             </h1>
 
             {/* Subtitle (LCP Optimized - rendered instantly without animation) */}
             <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-              I build custom websites, AI solutions, automated workflows, and high-performance software that help businesses innovate, automate, and scale with confidence.
+              We design custom web platforms, artificial intelligence integrations, automated operational routines, and high-performance software applications to help companies run efficiently.
             </p>
 
             {/* Action Buttons */}
@@ -56,7 +56,7 @@ export default function Hero() {
                 href="/contact"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary-hover text-white px-7 py-3 text-sm font-semibold transition-all duration-200 shadow-md hover:shadow-lg active:scale-[0.98]"
               >
-                <span>Get Free Consultation</span>
+                <span>Get free consultation</span>
                 <ArrowRight className="size-4" />
               </Link>
 
@@ -64,7 +64,7 @@ export default function Hero() {
                 href="/portfolio"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-border-custom bg-white hover:bg-neutral-50 dark:bg-card-bg dark:hover:bg-neutral-900 px-7 py-3 text-sm font-semibold text-text-base transition-all duration-200 active:scale-[0.98]"
               >
-                <span>View Our Work</span>
+                <span>View our work</span>
                 <ArrowRight className="size-4" />
               </Link>
             </motion.div>
