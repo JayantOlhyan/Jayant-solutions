@@ -63,6 +63,12 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
 
       setShowBackToTop(scrollPosition > 800);
 
+      // Handle bottom of page edge-case automatically
+      if (scrollPosition + window.innerHeight >= document.documentElement.scrollHeight - 50) {
+        setActiveSection("next-steps");
+        return;
+      }
+
       const sections = [
         { id: "overview", ref: overviewRef },
         { id: "current-position", ref: currentPositionRef },
@@ -75,18 +81,18 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
       ];
 
       const navHeight = 90;
-      const currentScroll = window.scrollY + navHeight + 20;
+      let currentActive = "overview";
 
       for (const section of sections) {
         if (section.ref.current) {
-          const top = section.ref.current.offsetTop;
-          const height = section.ref.current.offsetHeight;
-          if (currentScroll >= top && currentScroll < top + height) {
-            setActiveSection(section.id);
-            break;
+          const rect = section.ref.current.getBoundingClientRect();
+          // Active if top of the section is near the navbar view line and bottom is below it
+          if (rect.top <= navHeight + 120 && rect.bottom > navHeight) {
+            currentActive = section.id;
           }
         }
       }
+      setActiveSection(currentActive);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
