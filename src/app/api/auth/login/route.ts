@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { logAdminAction } from "@/lib/auth/audit";
 import { z } from "zod";
 
 const loginSchema = z.object({
@@ -33,6 +34,17 @@ export async function POST(request: Request) {
         { status: 401 }
       );
     }
+
+    // Log admin authentication audit event
+    await logAdminAction({
+      actorId: data.user.id,
+      action: "ADMIN_LOGIN_SUCCESS",
+      targetEntity: "admin_users",
+      targetId: data.user.id,
+      metadata: { email: data.user.email },
+      ipAddress: request.headers.get("x-forwarded-for") || undefined,
+      userAgent: request.headers.get("user-agent") || undefined,
+    });
 
     return NextResponse.json({
       success: true,
