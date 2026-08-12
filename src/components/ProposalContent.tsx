@@ -27,6 +27,8 @@ import {
   Plus,
   Minus
 } from "lucide-react";
+import ProposalNavbar from "@/components/ProposalNavbar";
+import ProposalFooter from "@/components/ProposalFooter";
 
 interface ProposalContentProps {
   clientSlug: string;
