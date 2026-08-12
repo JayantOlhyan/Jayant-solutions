@@ -79,7 +79,7 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
       <ProposalNavbar clientSlug={clientSlug} clientName={clientName} />
 
       {/* Main Container */}
-      <main className="max-w-7xl mx-auto px-6 pt-32 pb-24 flex flex-col gap-20 md:gap-28">
+      <main className="max-w-7xl mx-auto px-6 pt-32 pb-24 flex flex-col gap-20 md:gap-28 bg-[#080C16]">
 
         {/* 1. Proposal Eyebrow, Main Headline & Short Explanatory Sentence */}
         <section className="pt-6 border-b border-[#1E2638] pb-16 text-left">
@@ -104,7 +104,7 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
           
           {/* Tier 1: FOUNDATION */}
           <div 
-            className={`rounded-2xl p-8 bg-[#0E1424] border flex flex-col justify-between transition-all duration-200 ${
+            className={`rounded-2xl p-8 bg-[#0D1322] border flex flex-col justify-between transition-all duration-200 ${
               selectedPackage === "FOUNDATION"
                 ? "border-[#C5A880]"
                 : "border-[#1E2638] hover:border-[#2A3650]"
@@ -180,7 +180,7 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
             </div>
 
             <div>
-              <div className="p-4 rounded-xl bg-[#090D18] border border-[#1E2638] mb-6 text-center">
+              <div className="p-4 rounded-xl bg-[#070B14] border border-[#1E2638] mb-6 text-center">
                 <p className="text-[11px] text-[#A0A8B8] font-light leading-snug">
                   Establishes presence. Business development execution remains in-house.
                 </p>
@@ -201,7 +201,7 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
 
           {/* Tier 2: GROWTH (Slightly larger & visually dominant) */}
           <div 
-            className="rounded-2xl p-8 sm:p-9 bg-[#0E162A] border-2 border-[#C5A880] flex flex-col justify-between relative transition-all duration-200 lg:-translate-y-2"
+            className="rounded-2xl p-8 sm:p-9 bg-[#101A32] border-2 border-[#C5A880] flex flex-col justify-between relative transition-all duration-200 lg:-translate-y-2 shadow-2xl"
           >
             <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 font-mono text-[10px] tracking-widest uppercase text-[#080C16] bg-[#C5A880] px-4 py-1 rounded-full font-bold">
               MOST RECOMMENDED
@@ -259,7 +259,7 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
             </div>
 
             <div>
-              <div className="p-4 rounded-xl bg-[#141F3B] border border-[#C5A880]/30 mb-6 text-center">
+              <div className="p-4 rounded-xl bg-[#091024] border border-[#C5A880]/40 mb-6 text-center">
                 <p className="text-[11px] text-[#C5A880] font-light leading-snug">
                   Builds presence and turns it into a structured business-development channel.
                 </p>
@@ -276,7 +276,7 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
 
           {/* Tier 3: SCALE */}
           <div 
-            className={`rounded-2xl p-8 bg-[#0E1424] border flex flex-col justify-between transition-all duration-200 ${
+            className={`rounded-2xl p-8 bg-[#0D1322] border flex flex-col justify-between transition-all duration-200 ${
               selectedPackage === "SCALE"
                 ? "border-[#C5A880]"
                 : "border-[#1E2638] hover:border-[#2A3650]"
@@ -336,7 +336,7 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
             </div>
 
             <div>
-              <div className="p-4 rounded-xl bg-[#090D18] border border-[#1E2638] mb-6 text-center">
+              <div className="p-4 rounded-xl bg-[#070B14] border border-[#1E2638] mb-6 text-center">
                 <p className="text-[11px] text-[#A0A8B8] font-light leading-snug">
                   Higher-touch growth partnership with broader execution and higher volume.
                 </p>
@@ -368,7 +368,7 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
             </h2>
           </div>
 
-          <div className="overflow-x-auto rounded-xl border border-[#1E2638] bg-[#0A0F1D]">
+          <div className="overflow-x-auto rounded-xl border border-[#1E2638] bg-[#0D1322]">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
                 <tr className="border-b border-[#1E2638] bg-[#121827] text-[#FAF7EE] font-mono">
@@ -397,7 +397,7 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
                   { feature: "Optimisation", f: "Basic", g: "✓", s: "Advanced" },
                   { feature: "Priority turnaround", f: "—", g: "—", s: "✓" }
                 ].map((row, idx) => (
-                  <tr key={idx} className={idx % 2 === 0 ? "bg-[#080C16]/40" : "bg-transparent"}>
+                  <tr key={idx} className={idx % 2 === 0 ? "bg-[#080C16]/50" : "bg-transparent"}>
                     <td className="p-4 font-medium text-[#FAF7EE]">{row.feature}</td>
                     <td className="p-4 text-center font-mono">{row.f}</td>
                     <td className="p-4 text-center font-mono font-bold text-[#C5A880] bg-[#C5A880]/[0.03]">{row.g}</td>
@@ -410,7 +410,7 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
         </section>
 
         {/* 4. Why Growth Is Recommended Section */}
-        <section className="p-8 sm:p-10 rounded-2xl bg-[#0E162A] border border-[#C5A880]/40 text-left">
+        <section className="p-8 sm:p-10 rounded-2xl bg-[#101A32] border border-[#C5A880]/40 text-left">
           <span className="font-mono text-xs uppercase tracking-widest text-[#C5A880] font-semibold block mb-2">
             STRATEGIC RATIONALE
           </span>
@@ -424,7 +424,7 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
 
         {/* 5. 90-Day Commitment & Scope / Exclusions Grid */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-          <div className="p-8 rounded-2xl bg-[#0E1424] border border-[#1E2638]">
+          <div className="p-8 rounded-2xl bg-[#0D1322] border border-[#1E2638]">
             <span className="font-mono text-xs font-semibold text-[#C5A880] uppercase tracking-wider block mb-3">
               TIMELINE STRUCTURE
             </span>
@@ -434,7 +434,7 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
             </p>
           </div>
 
-          <div className="p-8 rounded-2xl bg-[#0E1424] border border-[#1E2638] flex flex-col justify-between">
+          <div className="p-8 rounded-2xl bg-[#0D1322] border border-[#1E2638] flex flex-col justify-between">
             <div>
               <span className="font-mono text-xs font-semibold text-[#C5A880] uppercase tracking-wider block mb-3">
                 DISBURSEMENTS & TAXES
@@ -453,7 +453,7 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
         </section>
 
         {/* 6. Realistic Expectations Disclaimer */}
-        <section className="p-6 rounded-xl bg-[#0A0F1D] border border-[#1E2638] text-left">
+        <section className="p-6 rounded-xl bg-[#0D1322] border border-[#1E2638] text-left">
           <span className="font-mono text-[10px] font-semibold text-[#7A8499] uppercase tracking-widest block mb-2">
             REALISTIC EXPECTATIONS
           </span>
@@ -464,7 +464,7 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
 
         {/* 7. Final Package Selection CTA / Confirmation Section */}
         <section id="confirm-package" className="scroll-mt-24 text-left relative">
-          <div className="bg-[#0E162A] border-2 border-[#C5A880]/60 rounded-2xl p-8 sm:p-12 space-y-8">
+          <div className="bg-[#101A32] border-2 border-[#C5A880]/60 rounded-2xl p-8 sm:p-12 space-y-8">
             
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-[#1E2638] pb-8">
@@ -526,7 +526,7 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
 
             {/* Submission Form or Success State */}
             {submitted ? (
-              <div className="p-8 rounded-xl bg-[#14203A] border border-[#C5A880] text-center space-y-4">
+              <div className="p-8 rounded-xl bg-[#0D162D] border border-[#C5A880] text-center space-y-4">
                 <div className="size-12 rounded-full bg-[#C5A880] text-[#080C16] flex items-center justify-center mx-auto">
                   <Check className="size-6 stroke-[3]" />
                 </div>
