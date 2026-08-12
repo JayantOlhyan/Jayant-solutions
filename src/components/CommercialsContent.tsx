@@ -26,6 +26,33 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
   const [submitted, setSubmitted] = useState(false);
   const [clientNotes, setClientNotes] = useState("");
   const [kickoffTimeline, setKickoffTimeline] = useState("Immediately (Next 7 Days)");
+  const [proposalId, setProposalId] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  // Fetch proposal data on mount
+  React.useEffect(() => {
+    async function loadProposal() {
+      try {
+        setLoading(true);
+        const res = await fetch(`/api/proposal/${clientSlug}`);
+        const data = await res.json();
+        if (data.success && data.proposal) {
+          setProposalId(data.proposal.id);
+          if (data.existingSelection && data.existingSelection.packages) {
+            setSelectedPackage(data.existingSelection.packages.code as "FOUNDATION" | "GROWTH" | "SCALE");
+            setSubmitted(true);
+          }
+        }
+      } catch (err) {
+        console.error("Failed to load proposal details:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadProposal();
+  }, [clientSlug]);
 
   const packagesData = {
     FOUNDATION: {
@@ -65,9 +92,40 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
     }
   };
 
-  const handleSubmitConfirmation = (e: React.FormEvent) => {
+  const handleSubmitConfirmation = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (!proposalId) {
+      setError("Proposal context not initialized. Please refresh the page.");
+      return;
+    }
+
+    setSubmitting(true);
+    setError(null);
+
+    try {
+      const res = await fetch("/api/proposal/select-package", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          proposal_id: proposalId,
+          package_code: selectedPackage,
+          client_notes: clientNotes,
+          kickoff_timeline: kickoffTimeline,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        throw new Error(typeof data.error === "string" ? data.error : "Failed to record selection.");
+      }
+
+      setSubmitted(true);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "An unexpected error occurred.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const currentPkg = packagesData[selectedPackage];
@@ -556,6 +614,13 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
               </div>
             ) : (
               <form onSubmit={handleSubmitConfirmation} className="space-y-6">
+                {error && (
+                  <div className="p-3.5 bg-red-950/40 border border-red-800/50 rounded-xl text-xs text-red-300 flex items-start gap-2 font-mono">
+                    <span>&bull;</span>
+                    <p>{error}</p>
+                  </div>
+                )}
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-xs font-mono text-[#A0A8B8] mb-2 uppercase tracking-wider">
@@ -606,10 +671,11 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
 
                   <button
                     type="submit"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-xl bg-[#C5A880] hover:bg-[#D4B996] text-[#080C16] px-8 py-4 text-xs font-mono font-bold transition-all duration-200 active:scale-[0.99]"
+                    disabled={submitting}
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-xl bg-[#C5A880] hover:bg-[#D4B996] text-[#080C16] px-8 py-4 text-xs font-mono font-bold transition-all duration-200 active:scale-[0.99] disabled:opacity-50"
                   >
                     <Send className="size-4" />
-                    <span>Confirm {currentPkg.name} ({currentPkg.price}) & Request Kickoff</span>
+                    <span>{submitting ? "Confirming..." : `Confirm ${currentPkg.name} (${currentPkg.price}) & Request Kickoff`}</span>
                   </button>
                 </div>
               </form>
