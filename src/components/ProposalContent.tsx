@@ -360,7 +360,7 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
               onClick={() => scrollToSection("next-steps")}
               className="inline-flex items-center gap-1.5 px-4.5 py-2 text-xs font-bold rounded-lg bg-[#C5A880] hover:bg-[#D8B992] text-slate-950 transition-all duration-200 active:scale-95 shadow-md hover:shadow-[#C5A880]/10"
             >
-              <span className="proposal-nav-text">Book discovery session</span>
+              <span className="proposal-nav-text">Book pricing session</span>
               <ArrowRight className="size-3.5" />
             </button>
           </div>
@@ -399,7 +399,7 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                 onClick={() => scrollToSection("next-steps")}
                 className="w-full inline-flex items-center justify-center gap-1.5 px-5 py-3 text-sm font-bold rounded-lg bg-[#C5A880] text-slate-950 hover:bg-[#D8B992] transition-all"
               >
-                <span>Book discovery session</span>
+                <span>Book pricing session</span>
                 <ArrowRight className="size-4" />
               </button>
             </motion.div>
@@ -1979,15 +1979,15 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
               Ready to Build the Foundation?
             </h2>
             <p className="proposal-body-text text-slate-305 font-light max-w-2xl mx-auto">
-              The first step is a discovery session to align goals, confirm direction and begin the foundation phase.
+              The first step is a pricing session to align goals, confirm direction and begin the foundation phase.
             </p>
 
             <div className="pt-6">
               <a
-                href={`mailto:jayantwebaisystems@gmail.com?subject=Proposal%20Discussion%2520-%2520${clientName}&body=Hi%2520Jayant,%250A%250AI've%2520reviewed%2520the%252090-day%2520proposal%2520portal.%2520Let's%2520schedule%2520our%2520initial%2520Discovery%2520Session%2520to%2520align%2520goals%2520and%2520confirm%2520direction.%250A%250APreferred%2520Days/Times:%250A%250ARegards,%250A${clientName}`}
+                href={`mailto:jayantwebaisystems@gmail.com?subject=Proposal%20Discussion%2520-%2520${clientName}&body=Hi%2520Jayant,%250A%250AI've%2520reviewed%2520the%252090-day%2520proposal%2520portal.%2520Let's%2520schedule%2520our%2520initial%2520Pricing%2520Session%2520to%2520align%2520goals%2520and%2520confirm%2520direction.%250A%250APreferred%2520Days/Times:%250A%250ARegards,%250A${clientName}`}
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#C5A880] hover:bg-[#D8B992] text-slate-950 px-8 py-4.5 text-base font-bold transition-all duration-200 shadow-xl hover:shadow-[#C5A880]/25 hover:scale-[1.02] active:scale-[0.98]"
               >
-                <span>BOOK DISCOVERY SESSION</span>
+                <span>BOOK PRICING SESSION</span>
                 <ArrowRight className="size-5" />
               </a>
               <span className="text-xs text-slate-400 block mt-4 font-mono uppercase tracking-wider">
