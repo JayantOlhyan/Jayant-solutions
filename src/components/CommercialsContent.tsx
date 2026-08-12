@@ -2,17 +2,22 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
   ArrowLeft,
   CheckCircle,
   AlertCircle,
-  HelpCircle,
-  Shield,
-  Clock,
-  ChevronRight
+  ShieldCheck,
+  Calendar,
+  Sparkles,
+  Send,
+  Lock,
+  Check,
+  ChevronDown
 } from "lucide-react";
+import ProposalNavbar from "@/components/ProposalNavbar";
+import ProposalFooter from "@/components/ProposalFooter";
 
 interface CommercialsContentProps {
   clientSlug: string;
@@ -21,102 +26,155 @@ interface CommercialsContentProps {
 
 export default function CommercialsContent({ clientSlug, clientName }: CommercialsContentProps) {
   const [selectedPackage, setSelectedPackage] = useState<"FOUNDATION" | "GROWTH" | "SCALE">("GROWTH");
+  const [submitted, setSubmitted] = useState(false);
+  const [clientNotes, setClientNotes] = useState("");
+  const [kickoffTimeline, setKickoffTimeline] = useState("Immediately (Next 7 Days)");
 
-  const getPackageMailto = (pkg: "FOUNDATION" | "GROWTH" | "SCALE") => {
-    const prices = {
-      FOUNDATION: "₹69,000",
-      GROWTH: "₹1,45,000",
-      SCALE: "₹2,25,000"
-    };
-    const subject = encodeURIComponent(`Commercial Proposal Choice: ${pkg} Package - ${clientName}`);
-    const body = encodeURIComponent(
-      `Hi Jayant,\n\nI have reviewed the commercial proposal and would like to choose the ${pkg} package (${prices[pkg]} / 90 days) for ${clientName}.\n\nLet's schedule our confirmation session to align details and confirm direction.\n\nPreferred Days/Times:\n\nRegards,\n${clientName}`
-    );
-    return `mailto:jayantwebaisystems@gmail.com?subject=${subject}&body=${body}`;
+  const packagesData = {
+    FOUNDATION: {
+      name: "FOUNDATION",
+      price: "₹69,000",
+      period: "/ 90 days",
+      badge: "PRESENCE FOUNDATION",
+      headline: "For establishing a clean digital presence and content foundation.",
+      summary: "Establishes personal brand positioning, Instagram setup, 8 videos/mo, and basic enquiry pathway.",
+      mailtoSubject: `Commercial Selection: FOUNDATION Package - ${clientName}`,
+    },
+    GROWTH: {
+      name: "GROWTH",
+      price: "₹1,45,000",
+      period: "/ 90 days",
+      badge: "MOST RECOMMENDED",
+      headline: "For complete 90-day digital presence and active business-development execution.",
+      summary: "Includes 20 videos/mo, full content system, prospect qualification, appointment setting, and strategy reviews.",
+      mailtoSubject: `Commercial Selection: GROWTH Package (Recommended) - ${clientName}`,
+    },
+    SCALE: {
+      name: "SCALE",
+      price: "₹2,25,000",
+      period: "/ 90 days",
+      badge: "HIGH-TOUCH PARTNERSHIP",
+      headline: "For higher-volume digital growth, broader distribution and intensive execution.",
+      summary: "Includes 30 videos/mo, multi-channel distribution, active outbound prospecting, and weekly strategy reviews.",
+    }
   };
+
+  const handleSelectPackage = (pkg: "FOUNDATION" | "GROWTH" | "SCALE") => {
+    setSelectedPackage(pkg);
+    const targetElement = document.getElementById("confirm-package");
+    if (targetElement) {
+      const navHeight = 90;
+      const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition - navHeight,
+        behavior: "smooth"
+      });
+    }
+  };
+
+  const handleSubmitConfirmation = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
+  const currentPkg = packagesData[selectedPackage];
 
   return (
     <div className="commercials-page relative min-h-screen bg-[#070A13] text-slate-100 selection:bg-[#C5A880]/20 selection:text-[#C5A880] font-sans antialiased overflow-x-hidden">
       
-      {/* Persistent top navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#070A13]/90 backdrop-blur-md border-b border-slate-800 transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Link
-              href={`/proposal/${clientSlug}`}
-              className="inline-flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-[#C5A880] transition-colors py-1 px-3 rounded-lg border border-slate-800 hover:border-[#C5A880]/30"
-            >
-              <ArrowLeft className="size-3.5" />
-              <span>Back to Proposal Strategy</span>
-            </Link>
-            <div className="hidden md:flex flex-col border-l border-slate-800 pl-4">
-              <span className="proposal-eyebrow text-[#C5A880] text-[10px] font-bold font-mono uppercase tracking-widest">
-                Commercial & Payment Proposal
-              </span>
-              <span className="text-xs font-serif font-bold text-slate-200">
-                Client: {clientName}
-              </span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <a
-              href={getPackageMailto("GROWTH")}
-              className="inline-flex items-center gap-1.5 px-4.5 py-2 text-xs font-bold rounded-lg bg-[#C5A880] hover:bg-[#D8B992] text-slate-950 transition-all duration-200 active:scale-95 shadow-md hover:shadow-[#C5A880]/10 font-mono"
-            >
-              <span>Choose Recommended (Growth)</span>
-              <ArrowRight className="size-3.5" />
-            </a>
-          </div>
-        </div>
-      </nav>
+      {/* 1. Shared Proposal Navbar */}
+      <ProposalNavbar clientSlug={clientSlug} clientName={clientName} />
 
       {/* Main content area */}
       <main className="max-w-7xl mx-auto px-6 pt-32 pb-24 flex flex-col gap-16 md:gap-24">
 
         {/* Header section */}
-        <section className="relative pt-6 border-b border-slate-800/40 pb-16">
+        <section className="relative pt-6 border-b border-slate-800/40 pb-16 text-left">
           <div className="absolute top-0 right-0 w-80 h-80 bg-[#C5A880]/5 rounded-full blur-[120px] pointer-events-none" />
           
-          <div className="inline-flex flex-col mb-6">
-            <span className="proposal-eyebrow text-xs font-bold tracking-widest text-[#C5A880] uppercase">
-              Jayant Web & AI Systems &bull; Commercial Options
+          <div className="inline-flex items-center gap-2 mb-6">
+            <span className="proposal-eyebrow text-xs font-bold tracking-widest text-[#C5A880] uppercase font-mono">
+              Jayant Web & AI Systems &bull; Commercial Proposal
             </span>
-            <span className="text-xs font-mono text-slate-400 mt-1">
-              Private Executive Proposal for {clientName}
+            <span className="text-xs font-mono text-slate-400">
+              &bull; Prepared for {clientName}
             </span>
           </div>
 
-          <h1 className="h1-proposal mb-6 max-w-4xl">
+          <h1 className="h1-proposal mb-6 max-w-4xl leading-tight">
             Three Ways to Build the Digital Growth System
           </h1>
 
           <p className="proposal-body-text text-slate-300 max-w-3xl font-light text-base md:text-lg">
             “Choose the level of digital execution that matches how much of the growth process you want us to handle.”
           </p>
+
+          <div className="mt-8 flex flex-wrap items-center gap-4 text-xs font-mono">
+            <Link
+              href={`/proposal/${clientSlug}`}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-[#C5A880]/40 text-slate-300 hover:text-white transition-all"
+            >
+              <ArrowLeft className="size-3.5 text-[#C5A880]" />
+              <span>Review Strategy & 90-Day Roadmap</span>
+            </Link>
+
+            <button
+              onClick={() => handleSelectPackage("GROWTH")}
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-[#C5A880] text-slate-950 font-bold hover:bg-[#D8B992] transition-all shadow-md"
+            >
+              <span>Jump to Recommended (Growth Tier)</span>
+              <ArrowRight className="size-3.5" />
+            </button>
+          </div>
         </section>
 
         {/* Commercial Logic Visual Flow */}
-        <section className="p-8 rounded-2xl bg-[#0C1225]/60 border border-slate-800/80">
+        <section className="p-8 rounded-2xl bg-[#0C1225]/60 border border-slate-800/80 text-left">
           <span className="text-xs font-mono font-bold text-[#C5A880] uppercase tracking-wider block mb-4">
             Commercial Execution Logic
           </span>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
-            <div className="p-5 rounded-xl bg-slate-900/40 border border-[#1E2544] flex flex-col justify-between">
+            <div 
+              onClick={() => handleSelectPackage("FOUNDATION")}
+              className={`p-5 rounded-xl border transition-all cursor-pointer ${
+                selectedPackage === "FOUNDATION"
+                  ? "bg-slate-900/90 border-[#C5A880] shadow-lg"
+                  : "bg-slate-900/40 border-[#1E2544] hover:border-slate-700"
+              }`}
+            >
               <div>
                 <span className="text-xs font-mono font-bold text-slate-400 block mb-1">FOUNDATION</span>
                 <h4 className="font-serif font-bold text-lg text-slate-200 mb-1">Presence</h4>
                 <p className="text-xs text-slate-400 font-light mt-1">Build the digital presence.</p>
               </div>
             </div>
-            <div className="p-5 rounded-xl bg-[#0E152B] border border-[#C5A880]/50 flex flex-col justify-between relative shadow-lg">
+
+            <div 
+              onClick={() => handleSelectPackage("GROWTH")}
+              className={`p-5 rounded-xl border transition-all cursor-pointer relative shadow-lg ${
+                selectedPackage === "GROWTH"
+                  ? "bg-[#0E152B] border-2 border-[#C5A880]"
+                  : "bg-[#0E152B]/80 border border-[#C5A880]/50 hover:border-[#C5A880]"
+              }`}
+            >
+              <span className="absolute -top-3 right-4 font-mono text-[9px] uppercase tracking-wider bg-[#C5A880] text-slate-950 px-2.5 py-0.5 rounded-full font-bold">
+                RECOMMENDED
+              </span>
               <div>
                 <span className="text-xs font-mono font-bold text-[#C5A880] block mb-1">GROWTH &bull; RECOMMENDED</span>
                 <h4 className="font-serif font-bold text-lg text-[#C5A880] mb-1">Presence + Conversations + Meetings</h4>
                 <p className="text-xs text-slate-300 font-light mt-1">Build the presence + create and manage meaningful business conversations.</p>
               </div>
             </div>
-            <div className="p-5 rounded-xl bg-slate-900/40 border border-[#1E2544] flex flex-col justify-between">
+
+            <div 
+              onClick={() => handleSelectPackage("SCALE")}
+              className={`p-5 rounded-xl border transition-all cursor-pointer ${
+                selectedPackage === "SCALE"
+                  ? "bg-slate-900/90 border-[#C5A880] shadow-lg"
+                  : "bg-slate-900/40 border-[#1E2544] hover:border-slate-700"
+              }`}
+            >
               <div>
                 <span className="text-xs font-mono font-bold text-slate-400 block mb-1">SCALE</span>
                 <h4 className="font-serif font-bold text-lg text-slate-200 mb-1">Higher-Volume + Broader Execution</h4>
@@ -126,10 +184,13 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
           </div>
         </section>
 
-        {/* Three-Tier Pricing Cards Grid */}
-        <section className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        {/* Pricing Cards Grid (Good / Better / Best) */}
+        <section className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch text-left">
+          
           {/* Card 1: FOUNDATION */}
-          <div className="rounded-3xl p-8 bg-[#0C1225]/40 border border-slate-800 flex flex-col justify-between relative transition-all duration-300 hover:border-slate-700">
+          <div className={`rounded-3xl p-8 bg-[#0C1225]/40 border flex flex-col justify-between relative transition-all duration-300 ${
+            selectedPackage === "FOUNDATION" ? "border-2 border-[#C5A880] shadow-xl" : "border-slate-800 hover:border-slate-700"
+          }`}>
             <div>
               <div className="border-b border-slate-800/80 pb-6 mb-6">
                 <span className="font-mono text-xs text-slate-400 uppercase tracking-wider block mb-1">
@@ -202,13 +263,16 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
                 </p>
               </div>
 
-              <a
-                href={getPackageMailto("FOUNDATION")}
-                onClick={() => setSelectedPackage("FOUNDATION")}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-xl py-3.5 px-4 text-xs font-mono font-bold text-slate-200 border border-slate-700 bg-slate-900/60 hover:bg-slate-800 hover:border-slate-600 transition-all duration-200"
+              <button
+                onClick={() => handleSelectPackage("FOUNDATION")}
+                className={`w-full inline-flex items-center justify-center gap-2 rounded-xl py-3.5 px-4 text-xs font-mono font-bold transition-all duration-200 ${
+                  selectedPackage === "FOUNDATION"
+                    ? "bg-[#C5A880] text-slate-950"
+                    : "text-slate-200 border border-slate-700 bg-slate-900/60 hover:bg-slate-800"
+                }`}
               >
-                <span>Build the Foundation &rarr;</span>
-              </a>
+                <span>Select Foundation Tier &rarr;</span>
+              </button>
             </div>
           </div>
 
@@ -272,18 +336,19 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
                 </p>
               </div>
 
-              <a
-                href={getPackageMailto("GROWTH")}
-                onClick={() => setSelectedPackage("GROWTH")}
+              <button
+                onClick={() => handleSelectPackage("GROWTH")}
                 className="w-full inline-flex items-center justify-center gap-2 rounded-xl py-4 px-4 text-xs font-mono font-bold text-slate-950 bg-[#C5A880] hover:bg-[#D8B992] transition-all duration-200 shadow-xl hover:shadow-[#C5A880]/20 hover:scale-[1.01] active:scale-[0.99]"
               >
-                <span>Choose Growth &rarr;</span>
-              </a>
+                <span>Choose Growth (Recommended) &rarr;</span>
+              </button>
             </div>
           </div>
 
           {/* Card 3: SCALE */}
-          <div className="rounded-3xl p-8 bg-[#0C1225]/40 border border-slate-800 flex flex-col justify-between relative transition-all duration-300 hover:border-slate-700">
+          <div className={`rounded-3xl p-8 bg-[#0C1225]/40 border flex flex-col justify-between relative transition-all duration-300 ${
+            selectedPackage === "SCALE" ? "border-2 border-[#C5A880] shadow-xl" : "border-slate-800 hover:border-slate-700"
+          }`}>
             <div>
               <div className="border-b border-slate-800/80 pb-6 mb-6">
                 <span className="font-mono text-xs text-slate-400 uppercase tracking-wider block mb-1">
@@ -340,19 +405,22 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
                 </p>
               </div>
 
-              <a
-                href={getPackageMailto("SCALE")}
-                onClick={() => setSelectedPackage("SCALE")}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-xl py-3.5 px-4 text-xs font-mono font-bold text-slate-200 border border-slate-700 bg-slate-900/60 hover:bg-slate-800 hover:border-slate-600 transition-all duration-200"
+              <button
+                onClick={() => handleSelectPackage("SCALE")}
+                className={`w-full inline-flex items-center justify-center gap-2 rounded-xl py-3.5 px-4 text-xs font-mono font-bold transition-all duration-200 ${
+                  selectedPackage === "SCALE"
+                    ? "bg-[#C5A880] text-slate-950"
+                    : "text-slate-200 border border-slate-700 bg-slate-900/60 hover:bg-slate-800"
+                }`}
               >
-                <span>Explore Scale &rarr;</span>
-              </a>
+                <span>Select Scale Tier &rarr;</span>
+              </button>
             </div>
           </div>
         </section>
 
         {/* Feature Comparison Table */}
-        <section className="mb-8">
+        <section className="mb-8 text-left">
           <div className="mb-8 text-left">
             <span className="proposal-eyebrow text-xs tracking-widest text-[#C5A880] font-bold uppercase">
               Detailed Scope Breakdown
@@ -404,7 +472,7 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
         </section>
 
         {/* Why Growth Is Recommended Section */}
-        <section className="p-8 rounded-2xl bg-[#C5A880]/[0.04] border border-[#C5A880]/30 relative overflow-hidden">
+        <section className="p-8 rounded-2xl bg-[#C5A880]/[0.04] border border-[#C5A880]/30 text-left relative overflow-hidden">
           <span className="proposal-eyebrow text-xs tracking-widest text-[#C5A880] font-bold uppercase block mb-2">
             Strategic Rationale
           </span>
@@ -416,29 +484,23 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
           </p>
         </section>
 
-        {/* Commercial Framework & Scope Notes Grid */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Why 90 Days */}
+        {/* Terms & Guidelines Grid */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
           <div className="p-8 rounded-2xl bg-slate-900/20 border border-[#1E2544]">
             <span className="text-xs font-mono font-bold text-[#C5A880] uppercase tracking-wider block mb-3">
               TIMELINE STRUCTURE
             </span>
-            <h3 className="h3-proposal text-xl mb-3">
-              WHY 90 DAYS?
-            </h3>
+            <h3 className="h3-proposal text-xl mb-3">WHY 90 DAYS?</h3>
             <p className="proposal-body-text text-slate-300 font-light text-xs leading-relaxed">
               “The first month establishes the foundation. The second month puts the system into active use. The third month gives us meaningful response data to improve what is working and define the next stage.”
             </p>
           </div>
 
-          {/* All Packages Include */}
           <div className="p-8 rounded-2xl bg-slate-900/20 border border-[#1E2544]">
             <span className="text-xs font-mono font-bold text-[#C5A880] uppercase tracking-wider block mb-3">
               CORE STANDARDS
             </span>
-            <h3 className="h3-proposal text-xl mb-3">
-              ALL PACKAGES INCLUDE:
-            </h3>
+            <h3 className="h3-proposal text-xl mb-3">ALL PACKAGES INCLUDE:</h3>
             <ul className="space-y-2 text-xs text-slate-300 font-light">
               {[
                 "Strategic direction",
@@ -454,132 +516,189 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
                 </li>
               ))}
             </ul>
-            <span className="text-[10px] text-slate-400 font-mono block mt-4">
-              Note: The amount of execution varies by package.
-            </span>
-          </div>
-
-          {/* Client Contribution */}
-          <div className="p-8 rounded-2xl bg-slate-900/20 border border-[#1E2544]">
-            <span className="text-xs font-mono font-bold text-[#C5A880] uppercase tracking-wider block mb-3">
-              PARTNERSHIP REQUIREMENT
-            </span>
-            <h3 className="h3-proposal text-xl mb-3">
-              YOUR CONTRIBUTION
-            </h3>
-            <p className="text-xs text-slate-400 mb-3 font-light">All packages require the client to:</p>
-            <ul className="space-y-2 text-xs text-slate-300 font-light">
-              {[
-                "provide accurate business information",
-                "share experience and stories",
-                "participate in agreed recording sessions",
-                "review important public-facing content",
-                "participate in serious business conversations"
-              ].map((item, idx) => (
-                <li key={idx} className="flex items-start gap-2">
-                  <span className="size-1.5 rounded-full bg-[#C5A880] mt-1.5 shrink-0" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <span className="text-[10px] text-slate-400 font-mono block mt-4">
-              Note: The amount of client involvement may vary by package.
-            </span>
-          </div>
-
-          {/* Scope Notes & Taxes */}
-          <div className="p-8 rounded-2xl bg-slate-900/20 border border-[#1E2544] flex flex-col justify-between">
-            <div>
-              <span className="text-xs font-mono font-bold text-[#C5A880] uppercase tracking-wider block mb-3">
-                TERMS & DISBURSEMENTS
-              </span>
-              <h3 className="h3-proposal text-xl mb-3">
-                THIRD-PARTY COSTS
-              </h3>
-              <p className="proposal-body-text text-slate-300 font-light text-xs leading-relaxed mb-6">
-                “Third-party costs such as advertising spend, paid platforms, travel, external production expenses or other external services are not included unless explicitly agreed in writing.”
-              </p>
-            </div>
-            <div className="pt-4 border-t border-slate-800">
-              <span className="text-[11px] text-slate-400 font-mono">
-                “Applicable taxes, if any, will be handled as required by the final invoice.”
-              </span>
-            </div>
           </div>
         </section>
 
-        {/* Realistic Expectations Disclaimer */}
-        <section className="p-6 rounded-xl bg-slate-900/30 border border-slate-800 text-left">
-          <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest block mb-2">
-            REALISTIC EXPECTATIONS
-          </span>
-          <p className="text-xs text-slate-400 font-light leading-relaxed">
-            “This engagement covers strategy, execution and continuous improvement. It does not guarantee a specific number of leads, meetings, customers, revenue, income or business partners. Results depend on audience response, the underlying offer, sales conversations, follow-up, market conditions and other factors outside the scope of digital execution.”
-          </p>
-        </section>
+        {/* Dynamic Package Confirmation & Kickoff Discovery Section */}
+        <section id="confirm-package" className="scroll-mt-24 relative text-left">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#C5A880]/5 rounded-full blur-[140px] pointer-events-none" />
 
-        {/* Action Plan Bottom Section */}
-        <section className="relative">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#C5A880]/5 rounded-full blur-[120px] pointer-events-none" />
-          
-          <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8 bg-[#0C1225]/40 border border-slate-800 rounded-3xl p-8 md:p-16">
-            <span className="proposal-eyebrow text-xs tracking-widest text-[#C5A880] font-bold uppercase">
-              Action Plan
-            </span>
-            <h2 className="h2-proposal text-slate-100 leading-tight">
-              READY TO CHOOSE YOUR LEVEL OF EXECUTION?
-            </h2>
-            <p className="proposal-body-text text-slate-300 font-light max-w-2xl mx-auto">
-              “Select the approach that best matches your current goals and how much of the digital growth process you want us to handle.”
-            </p>
+          <div className="relative z-10 bg-[#0C1225]/80 border-2 border-[#C5A880]/60 rounded-3xl p-8 md:p-14 shadow-2xl space-y-8">
+            
+            {/* Header */}
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-slate-800 pb-8">
+              <div>
+                <span className="proposal-eyebrow text-xs tracking-widest text-[#C5A880] font-bold uppercase block mb-2">
+                  Package Confirmation & Next Steps
+                </span>
+                <h2 className="h2-proposal text-slate-100 text-3xl">
+                  Confirm Direction for {clientName}
+                </h2>
+                <p className="text-xs text-slate-400 font-mono mt-1">
+                  Selected Tier: <strong className="text-[#C5A880]">{currentPkg.name} ({currentPkg.price} / 90 days)</strong>
+                </p>
+              </div>
 
-            <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href={getPackageMailto("FOUNDATION")}
-                onClick={() => setSelectedPackage("FOUNDATION")}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 px-6 py-4 text-xs font-mono font-bold transition-all duration-200"
+              {/* Package Quick Selector */}
+              <div className="flex items-center gap-1 bg-slate-900 p-1.5 rounded-xl border border-slate-800 font-mono text-xs">
+                {(["FOUNDATION", "GROWTH", "SCALE"] as const).map((pkg) => (
+                  <button
+                    key={pkg}
+                    onClick={() => setSelectedPackage(pkg)}
+                    className={`px-3.5 py-2 rounded-lg transition-all ${
+                      selectedPackage === pkg
+                        ? "bg-[#C5A880] text-slate-950 font-bold"
+                        : "text-slate-400 hover:text-slate-200"
+                    }`}
+                  >
+                    {pkg}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Selected Package Details Box */}
+            <div className="p-6 rounded-2xl bg-[#0E152B] border border-[#C5A880]/40 flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-xs font-bold text-[#C5A880] uppercase tracking-wider">
+                    {currentPkg.badge}
+                  </span>
+                  <span className="size-1 rounded-full bg-slate-700" />
+                  <span className="font-mono text-xs text-slate-400">
+                    90-Day Engagement
+                  </span>
+                </div>
+                <h3 className="font-serif text-2xl font-bold text-slate-100">
+                  {currentPkg.name} Tier &mdash; {currentPkg.price}
+                </h3>
+                <p className="text-xs text-slate-300 font-light max-w-xl">
+                  {currentPkg.headline}
+                </p>
+              </div>
+
+              <div className="shrink-0 flex flex-col items-start md:items-end gap-2 border-t md:border-t-0 md:border-l border-slate-800 pt-4 md:pt-0 md:pl-6">
+                <span className="text-[11px] font-mono text-slate-400">Tax Treatment:</span>
+                <span className="text-xs text-slate-300 font-mono">Applicable taxes on final invoice.</span>
+              </div>
+            </div>
+
+            {/* Confirmation Form or Success State */}
+            {submitted ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="p-8 rounded-2xl bg-[#C5A880]/10 border border-[#C5A880] text-center space-y-4"
               >
-                <span>START WITH FOUNDATION</span>
-              </a>
+                <div className="size-14 rounded-full bg-[#C5A880] text-slate-950 flex items-center justify-center mx-auto">
+                  <Check className="size-8 stroke-[3]" />
+                </div>
+                <h3 className="font-serif text-2xl font-bold text-slate-100">
+                  Direction Confirmed for {currentPkg.name} Package!
+                </h3>
+                <p className="text-xs text-slate-300 font-light max-w-lg mx-auto leading-relaxed">
+                  Thank you, {clientName}. Your selection of the <strong className="text-[#C5A880]">{currentPkg.name} ({currentPkg.price})</strong> package has been recorded. Our team will reach out directly to confirm your 90-day onboarding documentation.
+                </p>
+                <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
+                  <a
+                    href="https://cal.com/jayant-web-and-ai-systems/strategy-call"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#C5A880] text-slate-950 font-bold text-xs font-mono hover:bg-[#D8B992] transition-all"
+                  >
+                    <Calendar className="size-4" />
+                    <span>Book Strategy & Kickoff Call</span>
+                  </a>
+                  <button
+                    onClick={() => setSubmitted(false)}
+                    className="text-xs text-slate-400 hover:text-slate-200 underline font-mono"
+                  >
+                    Modify Selection
+                  </button>
+                </div>
+              </motion.div>
+            ) : (
+              <form onSubmit={handleSubmitConfirmation} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-xs font-mono text-slate-400 mb-2 uppercase tracking-wider">
+                      Client / Company Name
+                    </label>
+                    <input
+                      type="text"
+                      readOnly
+                      value={clientName}
+                      className="w-full rounded-xl bg-slate-900/80 border border-slate-800 px-4 py-3 text-xs text-slate-200 font-mono focus:outline-none"
+                    />
+                  </div>
 
-              <a
-                href={getPackageMailto("GROWTH")}
-                onClick={() => setSelectedPackage("GROWTH")}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-[#C5A880] hover:bg-[#D8B992] text-slate-950 px-8 py-4.5 text-sm font-bold transition-all duration-200 shadow-xl hover:shadow-[#C5A880]/25 hover:scale-[1.02] active:scale-[0.98]"
-              >
-                <span>CHOOSE GROWTH</span>
-                <ArrowRight className="size-4" />
-              </a>
+                  <div>
+                    <label className="block text-xs font-mono text-slate-400 mb-2 uppercase tracking-wider">
+                      Preferred Kickoff Timeline
+                    </label>
+                    <select
+                      value={kickoffTimeline}
+                      onChange={(e) => setKickoffTimeline(e.target.value)}
+                      className="w-full rounded-xl bg-slate-900 border border-slate-800 px-4 py-3 text-xs text-slate-200 font-mono focus:border-[#C5A880] focus:outline-none"
+                    >
+                      <option value="Immediately (Next 7 Days)">Immediately (Next 7 Days)</option>
+                      <option value="Next 14 Days">Next 14 Days</option>
+                      <option value="Beginning of Next Month">Beginning of Next Month</option>
+                    </select>
+                  </div>
+                </div>
 
+                <div>
+                  <label className="block text-xs font-mono text-slate-400 mb-2 uppercase tracking-wider">
+                    Additional Priorities or Notes (Optional)
+                  </label>
+                  <textarea
+                    rows={3}
+                    value={clientNotes}
+                    onChange={(e) => setClientNotes(e.target.value)}
+                    placeholder="Mention any specific focus areas, upcoming events, or preferred meeting times..."
+                    className="w-full rounded-xl bg-slate-900 border border-slate-800 px-4 py-3 text-xs text-slate-200 font-mono focus:border-[#C5A880] focus:outline-none placeholder:text-slate-600"
+                  />
+                </div>
+
+                <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <div className="flex items-center gap-2 text-slate-400 text-xs font-mono">
+                    <ShieldCheck className="size-4 text-[#C5A880]" />
+                    <span>No upfront payment required to confirm direction.</span>
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-xl bg-[#C5A880] hover:bg-[#D8B992] text-slate-950 px-8 py-4 text-xs font-mono font-bold transition-all duration-200 shadow-xl hover:shadow-[#C5A880]/20 hover:scale-[1.01] active:scale-[0.99]"
+                  >
+                    <Send className="size-4" />
+                    <span>Confirm {currentPkg.name} ({currentPkg.price}) & Request Kickoff</span>
+                  </button>
+                </div>
+              </form>
+            )}
+
+            {/* Direct Booking Fallback */}
+            <div className="pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
+              <span>Or schedule a direct strategy discussion with Jayant:</span>
               <a
-                href={getPackageMailto("SCALE")}
-                onClick={() => setSelectedPackage("SCALE")}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 px-6 py-4 text-xs font-mono font-bold transition-all duration-200"
+                href="https://cal.com/jayant-web-and-ai-systems/strategy-call"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-[#C5A880] hover:underline"
               >
-                <span>EXPLORE SCALE</span>
+                <Calendar className="size-3.5" />
+                <span>Book Direct Strategy Call on Cal.com &rarr;</span>
               </a>
             </div>
 
-            <div className="pt-4 border-t border-slate-800/60 flex items-center justify-center gap-3">
-              <Link
-                href={`/proposal/${clientSlug}`}
-                className="text-xs text-slate-400 hover:text-[#C5A880] font-mono flex items-center gap-1 transition-colors"
-              >
-                <ArrowLeft className="size-3.5" />
-                <span>Review Strategy Proposal Again</span>
-              </Link>
-            </div>
           </div>
         </section>
 
       </main>
 
-      {/* Footer copyright */}
-      <footer className="w-full py-12 border-t border-slate-800/40 text-center relative z-10">
-        <p className="text-xs text-slate-500 font-mono uppercase tracking-widest">
-          &copy; {new Date().getFullYear()} Jayant Web & AI Systems. All rights reserved. Confidential commercial proposal.
-        </p>
-      </footer>
+      {/* 2. Shared Proposal Footer */}
+      <ProposalFooter clientSlug={clientSlug} clientName={clientName} />
 
     </div>
   );

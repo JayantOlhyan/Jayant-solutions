@@ -84,7 +84,8 @@ export default function Footer() {
         { name: "Report a bug", href: "/support/report-a-bug" },
         { name: "Maintenance", href: "/services/maintenance" },
         { name: "Service status", href: "/support/service-status" },
-        { name: "Client portal", href: "/support/client-portal" }
+        { name: "Client portal", href: "/support/client-portal" },
+        { name: "Client proposals", href: "/proposal" }
       ]
     }
   ];
