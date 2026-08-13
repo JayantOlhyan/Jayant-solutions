@@ -26,7 +26,7 @@ export async function POST(request: Request) {
 
     const payload = JSON.parse(rawBody);
     const eventType = payload.event;
-    const eventId = payload.account_id ? `${payload.account_id}_${Date.now()}` : `evt_${Date.now()}_${Math.random().toString(36).substring(7)}`;
+    const eventId = payload.event_id || payload.payload?.payment?.entity?.id || payload.payload?.payment_link?.entity?.id || `evt_${Date.now()}`;
 
     const adminDb = createAdminClient();
 

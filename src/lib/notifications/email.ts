@@ -29,7 +29,7 @@ export async function sendTransactionalEmail({
 }: TransactionalEmailParams): Promise<{ success: boolean; status: "SENT" | "SIMULATED" | "FAILED" | "SKIPPED_DUPLICATE" }> {
   const adminDb = createAdminClient();
   const resendApiKey = process.env.RESEND_API_KEY;
-  const emailFrom = process.env.EMAIL_FROM || "Jayant Web & AI Systems <notifications@jayantolhyan.in>";
+  const emailFrom = process.env.EMAIL_FROM || "Jayant Web & AI Systems <notifications@jayant-systems.online>";
 
   // 1. Idempotency Check: Prevent duplicate commercial emails
   if (idempotencyKey) {
