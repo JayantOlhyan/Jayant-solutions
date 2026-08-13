@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { sendTransactionalEmail } from "@/lib/notifications/email";
 import { z } from "zod";
 
 const selectPackageSchema = z.object({
@@ -115,6 +116,19 @@ export async function POST(request: Request) {
       },
       ip_address: request.headers.get("x-forwarded-for") || undefined,
       user_agent: request.headers.get("user-agent") || undefined,
+    });
+
+    // 7. Dispatch transactional notification
+    const adminEmail = process.env.ADMIN_EMAIL || "jayantwebaisystems@gmail.com";
+    await sendTransactionalEmail({
+      recipientEmail: adminEmail,
+      templateKey: "PACKAGE_SELECTED",
+      subject: `[Package Selected] ${dbPackage.name} for Proposal #${proposal.id.substring(0, 8)}`,
+      payload: {
+        packageCode: dbPackage.name,
+        price: `₹${dbPackage.standard_price.toLocaleString('en-IN')}`,
+        notes: fullNotes,
+      },
     });
 
     return NextResponse.json({

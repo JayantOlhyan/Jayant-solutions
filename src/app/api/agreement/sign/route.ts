@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { generateInvoicePDF } from "@/lib/pdf/invoice-generator";
 import { storeInvoicePDF, getSignedInvoiceUrl } from "@/lib/pdf/invoice-storage";
+import { sendTransactionalEmail } from "@/lib/notifications/email";
 import { z } from "zod";
 
 const signAgreementSchema = z.object({
@@ -136,6 +137,19 @@ export async function POST(request: Request) {
       },
       ip_address: clientIp,
       user_agent: userAgent,
+    });
+
+    // 7. Dispatch INVOICE_ISSUED transactional notification to client (Only AFTER PDF is generated and stored)
+    await sendTransactionalEmail({
+      recipientEmail: agreement.proposals.clients.email,
+      templateKey: "INVOICE_ISSUED",
+      subject: `[Invoice Issued] #${invoice.invoice_number} — Jayant Web & AI Systems`,
+      payload: {
+        invoiceNumber: invoice.invoice_number,
+        totalAmount: invoice.total_amount.toLocaleString('en-IN'),
+        downloadUrl: signedDownloadUrl,
+      },
+      idempotencyKey: `notif_invoice_issued_${invoice.id}`,
     });
 
     return NextResponse.json({
