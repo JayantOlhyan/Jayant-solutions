@@ -1,8 +1,8 @@
-import { NextResponse } from "next/server";
-import { requireAdmin } from "@/lib/auth/admin-guard";
+import { requireAdmin, AdminAuthError } from "@/lib/auth/admin-guard";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { createRazorpayRefund, fromPaise } from "@/lib/payments/razorpay";
+import { createRazorpayRefund } from "@/lib/payments/razorpay";
 import { logAdminAction } from "@/lib/auth/audit";
+import { apiSuccess, badRequest, notFound, forbidden, unauthorized, mfaRequired, internalError } from "@/lib/api-response";
 import { checkRateLimit, getClientIp, createRateLimitResponse } from "@/lib/rate-limit";
 import { z } from "zod";
 
@@ -14,7 +14,6 @@ const refundSchema = z.object({
 
 export async function POST(request: Request) {
   try {
-    const admin = await requireAdmin();
     const ip = getClientIp(request);
 
     // 1. IP Rate Limiting (10 refund requests per 15 minutes)
@@ -23,14 +22,23 @@ export async function POST(request: Request) {
       return createRateLimitResponse(rateLimit.resetInSeconds);
     }
 
+    let admin;
+    try {
+      admin = await requireAdmin();
+    } catch (authErr: unknown) {
+      if (authErr instanceof AdminAuthError) {
+        if (authErr.code === "UNAUTHORIZED") return unauthorized(authErr.message);
+        if (authErr.code === "MFA_REQUIRED") return mfaRequired(authErr.message);
+        return forbidden(authErr.message);
+      }
+      return unauthorized();
+    }
+
     const body = await request.json();
     const parsed = refundSchema.safeParse(body);
 
     if (!parsed.success) {
-      return NextResponse.json(
-        { success: false, error: parsed.error.flatten().fieldErrors },
-        { status: 400 }
-      );
+      return badRequest("Invalid refund payload", parsed.error.flatten().fieldErrors);
     }
 
     const { payment_id, amount, reason } = parsed.data;
@@ -44,25 +52,16 @@ export async function POST(request: Request) {
       .single();
 
     if (payErr || !payment) {
-      return NextResponse.json(
-        { success: false, error: "Payment record not found." },
-        { status: 404 }
-      );
+      return notFound("Payment record not found.");
     }
 
     if (payment.status !== "PAID" && payment.status !== "PARTIALLY_REFUNDED") {
-      return NextResponse.json(
-        { success: false, error: `Cannot refund payment with status: ${payment.status}` },
-        { status: 400 }
-      );
+      return badRequest(`Cannot refund payment with status: ${payment.status}`);
     }
 
     const refundAmount = amount || Number(payment.amount);
     if (refundAmount > Number(payment.amount)) {
-      return NextResponse.json(
-        { success: false, error: "Refund amount cannot exceed original payment amount." },
-        { status: 400 }
-      );
+      return badRequest("Refund amount cannot exceed original payment amount.");
     }
 
     let rzpRefundId = `rfnd_mock_${Date.now()}`;
@@ -84,10 +83,7 @@ export async function POST(request: Request) {
         rzpRefundId = rzpResponse.id;
       } catch (rzpErr: unknown) {
         const msg = rzpErr instanceof Error ? rzpErr.message : "Razorpay refund failed";
-        return NextResponse.json(
-          { success: false, error: `Payment Gateway Error: ${msg}` },
-          { status: 502 }
-        );
+        return internalError(`Payment Gateway Error: ${msg}`);
       }
     } else {
       isMock = true;
@@ -135,24 +131,15 @@ export async function POST(request: Request) {
       ipAddress: ip,
     });
 
-    return NextResponse.json({
-      success: true,
-      message: isFullRefund
-        ? "Full payment refund processed successfully."
-        : "Partial refund processed successfully.",
-      refund: {
-        refundId: rzpRefundId,
-        paymentId: payment.id,
-        amountRefunded: refundAmount,
-        status: newPaymentStatus,
-        isMock,
-      },
-    });
+    return apiSuccess({
+      refundId: rzpRefundId,
+      paymentId: payment.id,
+      amountRefunded: refundAmount,
+      status: newPaymentStatus,
+      isMock,
+    }, isFullRefund ? "Full payment refund processed successfully." : "Partial refund processed successfully.");
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : "Internal refund error";
-    return NextResponse.json(
-      { success: false, error: message },
-      { status: 500 }
-    );
+    return internalError(message);
   }
 }

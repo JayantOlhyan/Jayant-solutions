@@ -3,6 +3,7 @@ import { requireAdmin } from "@/lib/auth/admin-guard";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { ShieldCheck, LogOut, FileText, DollarSign, Users, Calendar, CheckCircle2, Clock } from "lucide-react";
 import MfaSettingsModal from "@/components/admin/MfaSettingsModal";
+import InvoiceExplorer from "@/components/admin/InvoiceExplorer";
 
 export default async function AdminDashboardPage() {
   const admin = await requireAdmin();
@@ -183,6 +184,9 @@ export default async function AdminDashboardPage() {
             </div>
           </div>
         </div>
+
+        {/* GST Invoicing & Payment Refund Explorer (6B.6) */}
+        <InvoiceExplorer />
 
         {/* System Technical Health Footer */}
         <div className="border-t border-[#1E2638] pt-6 flex items-center justify-between text-xs text-[#7A8499] font-mono">

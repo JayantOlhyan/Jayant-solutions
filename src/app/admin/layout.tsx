@@ -1,0 +1,25 @@
+import type { Metadata } from "next";
+import React from "react";
+
+export const metadata: Metadata = {
+  title: "Admin Portal | Jayant Web & AI Systems",
+  description: "Internal administrative control and analytics panel.",
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true,
+    },
+  },
+};
+
+export default function AdminLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <>{children}</>;
+}

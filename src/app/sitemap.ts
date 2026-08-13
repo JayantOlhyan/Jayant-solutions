@@ -20,7 +20,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const entries = fs.readdirSync(dir, { withFileTypes: true });
 
     for (const entry of entries) {
-      if (entry.isDirectory() && !entry.name.startsWith(".") && !entry.name.startsWith("[")) {
+      if (
+        entry.isDirectory() &&
+        !entry.name.startsWith(".") &&
+        !entry.name.startsWith("[") &&
+        entry.name !== "admin" &&
+        entry.name !== "api"
+      ) {
         const subDir = path.join(dir, entry.name);
         const currentRelativePath = relativePath ? `${relativePath}/${entry.name}` : entry.name;
         const pagePath = path.join(subDir, "page.tsx");

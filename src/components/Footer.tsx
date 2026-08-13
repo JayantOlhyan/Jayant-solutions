@@ -175,12 +175,16 @@ export default function Footer() {
               Terms & conditions
             </Link>
             <span className="text-border-custom/50">•</span>
-            <Link href="/cookies" className="hover:text-primary hover:underline transition-colors">
-              Cookie policy
+            <Link href="/refund-policy" className="hover:text-primary hover:underline transition-colors">
+              Refund & cancellation
             </Link>
             <span className="text-border-custom/50">•</span>
             <Link href="/pricing-policy" className="hover:text-primary hover:underline transition-colors">
-              Refund policy
+              Pricing policy
+            </Link>
+            <span className="text-border-custom/50">•</span>
+            <Link href="/cookies" className="hover:text-primary hover:underline transition-colors">
+              Cookie policy
             </Link>
             <span className="text-border-custom/50">•</span>
             <Link href="/disclaimer" className="hover:text-primary hover:underline transition-colors">
