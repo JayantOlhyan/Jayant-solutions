@@ -100,6 +100,20 @@ export async function checkRateLimit(
 }
 
 /**
+ * Atomically clears a rate limit or lockout key (e.g., upon successful login).
+ */
+export async function resetRateLimit(key: string): Promise<void> {
+  try {
+    const adminDb = createAdminClient();
+    await adminDb.rpc("reset_rate_limit", { p_key: key });
+  } catch (error) {
+    console.warn(`⚠️ DB reset rate limit fallback triggered for key [${key}]:`, error);
+  } finally {
+    inMemoryBestEffortStore.delete(key);
+  }
+}
+
+/**
  * Helper to generate HTTP 429 Too Many Requests response with safe Retry-After header and Cache-Control: no-store.
  */
 export function createRateLimitResponse(resetInSeconds: number): NextResponse {
@@ -117,3 +131,4 @@ export function createRateLimitResponse(resetInSeconds: number): NextResponse {
     }
   );
 }
+

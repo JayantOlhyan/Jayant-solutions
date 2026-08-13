@@ -1,7 +1,8 @@
 import React from "react";
 import { requireAdmin } from "@/lib/auth/admin-guard";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { ShieldCheck, LogOut, FileText, DollarSign, Users, Calendar, CheckCircle2, Clock, AlertTriangle } from "lucide-react";
+import { ShieldCheck, LogOut, FileText, DollarSign, Users, Calendar, CheckCircle2, Clock } from "lucide-react";
+import MfaSettingsModal from "@/components/admin/MfaSettingsModal";
 
 export default async function AdminDashboardPage() {
   const admin = await requireAdmin();
@@ -77,15 +78,18 @@ export default async function AdminDashboardPage() {
             </div>
           </div>
 
-          <form action="/api/auth/logout" method="POST">
-            <button
-              type="submit"
-              className="text-xs text-[#A0A8B8] hover:text-[#FAF7EE] border border-[#1E2638] hover:border-[#2A3650] bg-[#080C16] px-3.5 py-2 rounded-lg transition-colors flex items-center gap-2"
-            >
-              <LogOut className="w-3.5 h-3.5" />
-              Sign Out
-            </button>
-          </form>
+          <div className="flex items-center gap-3">
+            <MfaSettingsModal />
+            <form action="/api/auth/logout" method="POST">
+              <button
+                type="submit"
+                className="text-xs text-[#A0A8B8] hover:text-[#FAF7EE] border border-[#1E2638] hover:border-[#2A3650] bg-[#080C16] px-3.5 py-2 rounded-lg transition-colors flex items-center gap-2 cursor-pointer"
+              >
+                <LogOut className="w-3.5 h-3.5" />
+                Sign Out
+              </button>
+            </form>
+          </div>
         </div>
       </nav>
 
