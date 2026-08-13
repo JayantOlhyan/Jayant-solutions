@@ -53,6 +53,7 @@ const serverEnvSchema = z.object({
   RAZORPAY_WEBHOOK_SECRET: z.string().optional(),
   CAL_WEBHOOK_SECRET: z.string().optional(),
   RESEND_API_KEY: z.string().optional(),
+  RESEND_WEBHOOK_SECRET: z.string().optional(),
 });
 
 export type ServerEnv = z.infer<typeof serverEnvSchema>;
@@ -73,6 +74,7 @@ export function getServerEnv(): ServerEnv {
     RAZORPAY_WEBHOOK_SECRET: process.env.RAZORPAY_WEBHOOK_SECRET,
     CAL_WEBHOOK_SECRET: process.env.CAL_WEBHOOK_SECRET,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
+    RESEND_WEBHOOK_SECRET: process.env.RESEND_WEBHOOK_SECRET,
   });
 
   if (!parsed.success) {
