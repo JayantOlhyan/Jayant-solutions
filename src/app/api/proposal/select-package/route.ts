@@ -1,17 +1,29 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { sendTransactionalEmail } from "@/lib/notifications/email";
+import { checkRateLimit, getClientIp, createRateLimitResponse } from "@/lib/rate-limit";
 import { z } from "zod";
 
-const selectPackageSchema = z.object({
-  proposal_id: z.string().uuid("Invalid proposal ID"),
-  package_code: z.enum(["FOUNDATION", "GROWTH", "SCALE"]),
-  client_notes: z.string().optional(),
-  kickoff_timeline: z.string().optional(),
-});
+const selectPackageSchema = z
+  .object({
+    proposal_id: z.string().uuid("Invalid proposal ID"),
+    token: z.string().min(10, "Proposal authorization token is required"),
+    package_code: z.enum(["FOUNDATION", "GROWTH", "SCALE"]),
+    client_notes: z.string().optional(),
+    kickoff_timeline: z.string().optional(),
+  })
+  .strict();
 
 export async function POST(request: Request) {
   try {
+    const ip = getClientIp(request);
+
+    // 1. IP Rate limit: 10 attempts per 15 minutes
+    const ipRateLimit = await checkRateLimit(`ip:${ip}:select_package`, 10, 900);
+    if (!ipRateLimit.success) {
+      return createRateLimitResponse(ipRateLimit.resetInSeconds);
+    }
+
     const body = await request.json();
     const parsed = selectPackageSchema.safeParse(body);
 
@@ -22,24 +34,31 @@ export async function POST(request: Request) {
       );
     }
 
-    const { proposal_id, package_code, client_notes, kickoff_timeline } = parsed.data;
+    const { proposal_id, token, package_code, client_notes, kickoff_timeline } = parsed.data;
+
+    // 2. Token-specific abuse rate limit: 10 attempts per 15 minutes per token
+    const tokenRateLimit = await checkRateLimit(`token:${token}:select_package`, 10, 900);
+    if (!tokenRateLimit.success) {
+      return createRateLimitResponse(tokenRateLimit.resetInSeconds);
+    }
+
     const adminDb = createAdminClient();
 
-    // 1. Verify proposal exists and is active
+    // 3. Verify proposal exists and token matches
     const { data: proposal, error: propErr } = await adminDb
       .from("proposals")
-      .select("id, status, client_id")
+      .select("id, status, client_id, token")
       .eq("id", proposal_id)
       .single();
 
-    if (propErr || !proposal) {
+    if (propErr || !proposal || proposal.token !== token) {
       return NextResponse.json(
-        { success: false, error: "Proposal not found" },
-        { status: 404 }
+        { success: false, error: "Unauthorized access to proposal" },
+        { status: 403 }
       );
     }
 
-    // 2. Lock check: If agreement already signed or sent, block selection changes
+    // 4. Lock check: If agreement already signed or sent, block selection changes
     const { data: activeAgreement } = await adminDb
       .from("agreements")
       .select("id, status")
@@ -57,7 +76,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // 3. SERVER-SIDE PRICE LOOKUP: Fetch standard package price directly from DB catalog
+    // 5. SERVER-SIDE PRICE LOOKUP: Fetch standard package price directly from DB catalog
     const { data: dbPackage, error: pkgErr } = await adminDb
       .from("packages")
       .select("id, name, standard_price, period")
@@ -72,7 +91,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // Combine notes and timeline preference
     const fullNotes = [
       client_notes ? `Notes: ${client_notes}` : null,
       kickoff_timeline ? `Preferred Timeline: ${kickoff_timeline}` : null,
@@ -80,13 +98,13 @@ export async function POST(request: Request) {
       .filter(Boolean)
       .join(" | ");
 
-    // 4. Store selection with authoritative server-side price snapshot
+    // 6. Store selection with authoritative server-side price snapshot
     const { data: selection, error: selectErr } = await adminDb
       .from("package_selections")
       .insert({
         proposal_id: proposal.id,
         package_id: dbPackage.id,
-        price_snapshot: dbPackage.standard_price, // Authoritative price snapshot
+        price_snapshot: dbPackage.standard_price,
         client_notes: fullNotes || null,
         selected_at: new Date().toISOString(),
       })
@@ -97,13 +115,13 @@ export async function POST(request: Request) {
       throw selectErr;
     }
 
-    // 5. Update proposal status to ACCEPTED
+    // 7. Update proposal status to ACCEPTED
     await adminDb
       .from("proposals")
       .update({ status: "ACCEPTED", updated_at: new Date().toISOString() })
       .eq("id", proposal.id);
 
-    // 6. Record audit trail event
+    // 8. Record audit trail event
     await adminDb.from("audit_events").insert({
       actor_type: "CLIENT",
       action: "PACKAGE_SELECTED",
@@ -114,11 +132,11 @@ export async function POST(request: Request) {
         package_code: dbPackage.name,
         price_snapshot: dbPackage.standard_price,
       },
-      ip_address: request.headers.get("x-forwarded-for") || undefined,
+      ip_address: ip,
       user_agent: request.headers.get("user-agent") || undefined,
     });
 
-    // 7. Dispatch transactional notification
+    // 9. Dispatch transactional notification
     const adminEmail = process.env.ADMIN_EMAIL || "jayantwebaisystems@gmail.com";
     await sendTransactionalEmail({
       recipientEmail: adminEmail,
@@ -129,6 +147,7 @@ export async function POST(request: Request) {
         price: `₹${dbPackage.standard_price.toLocaleString('en-IN')}`,
         notes: fullNotes,
       },
+      idempotencyKey: `pkg_select_${selection.id}`,
     });
 
     return NextResponse.json({

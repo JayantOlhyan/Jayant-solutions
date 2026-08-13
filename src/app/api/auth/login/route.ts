@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { logAdminAction } from "@/lib/auth/audit";
+import { checkRateLimit, getClientIp, createRateLimitResponse } from "@/lib/rate-limit";
 import { z } from "zod";
 
 const loginSchema = z.object({
@@ -10,6 +11,13 @@ const loginSchema = z.object({
 
 export async function POST(request: Request) {
   try {
+    // 1. Strict Brute Force Protection (5 attempts per 15 minutes per IP)
+    const ip = getClientIp(request);
+    const rateLimit = await checkRateLimit(`ip:${ip}:auth_login`, 5, 900);
+    if (!rateLimit.success) {
+      return createRateLimitResponse(rateLimit.resetInSeconds);
+    }
+
     const body = await request.json();
     const parsed = loginSchema.safeParse(body);
 
@@ -42,7 +50,7 @@ export async function POST(request: Request) {
       targetEntity: "admin_users",
       targetId: data.user.id,
       metadata: { email: data.user.email },
-      ipAddress: request.headers.get("x-forwarded-for") || undefined,
+      ipAddress: ip,
       userAgent: request.headers.get("user-agent") || undefined,
     });
 

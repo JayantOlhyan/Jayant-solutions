@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { sendTransactionalEmail } from "@/lib/notifications/email";
+import { checkRateLimit, getClientIp, createRateLimitResponse } from "@/lib/rate-limit";
 import { z } from "zod";
 
 const onboardingSubmitSchema = z
@@ -43,6 +44,14 @@ const onboardingSubmitSchema = z
 
 export async function POST(request: Request) {
   try {
+    const clientIp = getClientIp(request);
+
+    // 1. IP Rate limit: 20 attempts per 15 minutes
+    const ipRateLimit = await checkRateLimit(`ip:${clientIp}:onboarding_submit`, 20, 900);
+    if (!ipRateLimit.success) {
+      return createRateLimitResponse(ipRateLimit.resetInSeconds);
+    }
+
     const body = await request.json();
     const parsed = onboardingSubmitSchema.safeParse(body);
 
@@ -54,9 +63,16 @@ export async function POST(request: Request) {
     }
 
     const { proposal_id, token, responses, is_draft } = parsed.data;
+
+    // 2. Token Rate limit: 20 attempts per 15 minutes per token
+    const tokenRateLimit = await checkRateLimit(`token:${token}:onboarding_submit`, 20, 900);
+    if (!tokenRateLimit.success) {
+      return createRateLimitResponse(tokenRateLimit.resetInSeconds);
+    }
+
     const adminDb = createAdminClient();
 
-    // 1. CLIENT AUTHORIZATION: Verify proposal exists and token matches
+    // 3. CLIENT AUTHORIZATION: Verify proposal exists and token matches
     const { data: proposal, error: propErr } = await adminDb
       .from("proposals")
       .select("id, client_id, token, title, clients(name, email)")
@@ -70,7 +86,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // 2. LIFECYCLE GATE: Require Signed Contract & Verified Invoice Payment
+    // 4. LIFECYCLE GATE: Require Signed Contract & Verified Invoice Payment
     const { data: agreement } = await adminDb
       .from("agreements")
       .select("status, invoices(status)")
@@ -93,7 +109,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // 3. Determine Onboarding State
+    // 5. Determine Onboarding State
     const { data: existingOnboarding } = await adminDb
       .from("onboarding")
       .select("id, status, submitted_at")
@@ -109,7 +125,7 @@ export async function POST(request: Request) {
 
     const submittedAt = is_draft ? existingOnboarding?.submitted_at || null : new Date().toISOString();
 
-    // 4. Authoritative Database Upsert
+    // 6. Authoritative Database Upsert
     const { data: onboarding, error: onboardErr } = await adminDb
       .from("onboarding")
       .upsert(
@@ -136,7 +152,7 @@ export async function POST(request: Request) {
     const clientEmail = clientObj?.email || "";
     const clientName = clientObj?.name || "";
 
-    // 5. Audit Logging
+    // 7. Audit Logging
     const auditAction = is_draft
       ? "CLIENT_ONBOARDING_DRAFT_SAVED"
       : isResubmission
@@ -150,9 +166,11 @@ export async function POST(request: Request) {
       target_entity: "onboarding",
       target_id: onboarding.id,
       metadata: { proposal_id, client_email: clientEmail, status: newStatus },
+      ip_address: clientIp,
+      user_agent: request.headers.get("user-agent") || undefined,
     });
 
-    // 6. Resilient Notification Handling (Email failure does NOT break DB submission)
+    // 8. Resilient Notification Handling
     if (!is_draft) {
       try {
         const adminEmail = process.env.ADMIN_EMAIL || "jayantwebaisystems@gmail.com";
@@ -166,10 +184,10 @@ export async function POST(request: Request) {
             proposalTitle: proposal.title,
             submittedAt: new Date().toLocaleString("en-IN"),
           },
-          idempotencyKey: `onboard_${proposal_id}_${newStatus}_${Date.now()}`,
+          idempotencyKey: `onboard_${proposal_id}_${newStatus}`,
         });
       } catch (emailErr) {
-        console.warn("⚠️ Onboarding notification dispatch warning (DB submission authoritative):", emailErr);
+        console.warn("⚠️ Onboarding notification dispatch warning:", emailErr);
       }
     }
 

@@ -3,15 +3,27 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { generateInvoicePDF } from "@/lib/pdf/invoice-generator";
 import { storeInvoicePDF, getSignedInvoiceUrl } from "@/lib/pdf/invoice-storage";
 import { sendTransactionalEmail } from "@/lib/notifications/email";
+import { checkRateLimit, getClientIp, createRateLimitResponse } from "@/lib/rate-limit";
 import { z } from "zod";
 
-const signAgreementSchema = z.object({
-  agreement_id: z.string().uuid("Invalid agreement ID"),
-  signature_text: z.string().min(3, "Full legal name signature required"),
-});
+const signAgreementSchema = z
+  .object({
+    agreement_id: z.string().uuid("Invalid agreement ID"),
+    token: z.string().min(10, "Proposal authorization token is required"),
+    signature_text: z.string().min(3, "Full legal name signature required"),
+  })
+  .strict();
 
 export async function POST(request: Request) {
   try {
+    const clientIp = getClientIp(request);
+
+    // 1. IP Rate Limit: 10 attempts per 15 minutes
+    const ipRateLimit = await checkRateLimit(`ip:${clientIp}:sign_agreement`, 10, 900);
+    if (!ipRateLimit.success) {
+      return createRateLimitResponse(ipRateLimit.resetInSeconds);
+    }
+
     const body = await request.json();
     const parsed = signAgreementSchema.safeParse(body);
 
@@ -22,20 +34,27 @@ export async function POST(request: Request) {
       );
     }
 
-    const { agreement_id, signature_text } = parsed.data;
+    const { agreement_id, token, signature_text } = parsed.data;
+
+    // 2. Token Rate Limit: 10 attempts per 15 minutes per token
+    const tokenRateLimit = await checkRateLimit(`token:${token}:sign_agreement`, 10, 900);
+    if (!tokenRateLimit.success) {
+      return createRateLimitResponse(tokenRateLimit.resetInSeconds);
+    }
+
     const adminDb = createAdminClient();
 
-    // 1. Fetch active agreement and proposal details
+    // 3. Fetch active agreement and proposal details with token check
     const { data: agreement, error: agreeErr } = await adminDb
       .from("agreements")
       .select("*, commercial_terms(*), proposals(*, clients(*))")
       .eq("id", agreement_id)
       .single();
 
-    if (agreeErr || !agreement) {
+    if (agreeErr || !agreement || agreement.proposals?.token !== token) {
       return NextResponse.json(
-        { success: false, error: "Agreement not found" },
-        { status: 404 }
+        { success: false, error: "Unauthorized access to sign agreement" },
+        { status: 403 }
       );
     }
 
@@ -46,11 +65,10 @@ export async function POST(request: Request) {
       );
     }
 
-    const clientIp = request.headers.get("x-forwarded-for") || "127.0.0.1";
     const userAgent = request.headers.get("user-agent") || "Browser";
     const signedAt = new Date().toISOString();
 
-    // 2. Mark agreement SIGNED
+    // 4. Mark agreement SIGNED
     const { data: updatedAgreement, error: updateErr } = await adminDb
       .from("agreements")
       .update({
@@ -67,7 +85,7 @@ export async function POST(request: Request) {
 
     if (updateErr) throw updateErr;
 
-    // 3. AUTOMATIC INVOICE GENERATION: Create DB invoice record
+    // 5. AUTOMATIC INVOICE GENERATION: Create DB invoice record
     const finalPrice = agreement.commercial_terms.final_agreed_price;
     const dueDate = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
 
@@ -76,7 +94,7 @@ export async function POST(request: Request) {
       .insert({
         agreement_id: agreement.id,
         subtotal: finalPrice,
-        tax_amount: 0.00, // Tax handling flagged for CA review (Phase 15)
+        tax_amount: 0.00,
         total_amount: finalPrice,
         status: "ISSUED",
         due_date: dueDate,
@@ -86,7 +104,7 @@ export async function POST(request: Request) {
 
     if (invoiceErr) throw invoiceErr;
 
-    // 4. GENERATE & STORE REAL INVOICE PDF DOCUMENT
+    // 6. GENERATE & STORE REAL INVOICE PDF DOCUMENT
     const pdfBuffer = await generateInvoicePDF({
       invoiceNumber: invoice.invoice_number,
       issueDate: invoice.created_at,
@@ -114,13 +132,13 @@ export async function POST(request: Request) {
     // Generate 15-minute signed URL for immediate viewing
     const signedDownloadUrl = await getSignedInvoiceUrl(storagePath, 900);
 
-    // 5. Update proposal status to ACCEPTED
+    // 7. Update proposal status to ACCEPTED
     await adminDb
       .from("proposals")
       .update({ status: "ACCEPTED", updated_at: signedAt })
       .eq("id", agreement.proposal_id);
 
-    // 6. Write legal signature audit event
+    // 8. Write legal signature audit event
     await adminDb.from("audit_events").insert({
       actor_type: "CLIENT",
       action: "AGREEMENT_DIGITALLY_SIGNED",
@@ -139,7 +157,7 @@ export async function POST(request: Request) {
       user_agent: userAgent,
     });
 
-    // 7. Dispatch INVOICE_ISSUED transactional notification to client (Only AFTER PDF is generated and stored)
+    // 9. Dispatch INVOICE_ISSUED transactional notification
     await sendTransactionalEmail({
       recipientEmail: agreement.proposals.clients.email,
       templateKey: "INVOICE_ISSUED",

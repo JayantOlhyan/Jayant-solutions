@@ -51,6 +51,7 @@ const serverEnvSchema = z.object({
   RAZORPAY_KEY_ID: z.string().optional(),
   RAZORPAY_KEY_SECRET: z.string().optional(),
   RAZORPAY_WEBHOOK_SECRET: z.string().optional(),
+  CAL_WEBHOOK_SECRET: z.string().optional(),
   RESEND_API_KEY: z.string().optional(),
 });
 
@@ -70,6 +71,7 @@ export function getServerEnv(): ServerEnv {
     RAZORPAY_KEY_ID: process.env.RAZORPAY_KEY_ID,
     RAZORPAY_KEY_SECRET: process.env.RAZORPAY_KEY_SECRET,
     RAZORPAY_WEBHOOK_SECRET: process.env.RAZORPAY_WEBHOOK_SECRET,
+    CAL_WEBHOOK_SECRET: process.env.CAL_WEBHOOK_SECRET,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
   });
 

@@ -1,8 +1,17 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { checkRateLimit, getClientIp, createRateLimitResponse } from "@/lib/rate-limit";
 
 export async function GET(request: Request) {
   try {
+    const clientIp = getClientIp(request);
+
+    // 1. IP Rate Limit: 30 attempts per 15 minutes
+    const ipRateLimit = await checkRateLimit(`ip:${clientIp}:onboarding_status`, 30, 900);
+    if (!ipRateLimit.success) {
+      return createRateLimitResponse(ipRateLimit.resetInSeconds);
+    }
+
     const { searchParams } = new URL(request.url);
     const proposalId = searchParams.get("proposal_id");
     const token = searchParams.get("token");
@@ -14,9 +23,15 @@ export async function GET(request: Request) {
       );
     }
 
+    // 2. Token Rate Limit: 30 attempts per 15 minutes per token
+    const tokenRateLimit = await checkRateLimit(`token:${token}:onboarding_status`, 30, 900);
+    if (!tokenRateLimit.success) {
+      return createRateLimitResponse(tokenRateLimit.resetInSeconds);
+    }
+
     const adminDb = createAdminClient();
 
-    // 1. Authorization Check: Proposal must exist and token must match
+    // 3. Authorization Check: Proposal must exist and token must match
     const { data: proposal, error: propErr } = await adminDb
       .from("proposals")
       .select("id, token")
@@ -30,7 +45,7 @@ export async function GET(request: Request) {
       );
     }
 
-    // 2. Fetch Onboarding Status & Stored Responses
+    // 4. Fetch Onboarding Status & Stored Responses
     const { data: onboarding, error } = await adminDb
       .from("onboarding")
       .select("*")

@@ -1,14 +1,26 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { getRazorpayClient } from "@/lib/payments/razorpay";
+import { checkRateLimit, getClientIp, createRateLimitResponse } from "@/lib/rate-limit";
 import { z } from "zod";
 
-const createPaymentLinkSchema = z.object({
-  invoice_id: z.string().uuid("Invalid invoice ID"),
-});
+const createPaymentLinkSchema = z
+  .object({
+    invoice_id: z.string().uuid("Invalid invoice ID"),
+    token: z.string().min(10, "Proposal authorization token is required"),
+  })
+  .strict();
 
 export async function POST(request: Request) {
   try {
+    const clientIp = getClientIp(request);
+
+    // 1. IP Rate limit: 15 attempts per 15 minutes
+    const ipRateLimit = await checkRateLimit(`ip:${clientIp}:create_payment_link`, 15, 900);
+    if (!ipRateLimit.success) {
+      return createRateLimitResponse(ipRateLimit.resetInSeconds);
+    }
+
     const body = await request.json();
     const parsed = createPaymentLinkSchema.safeParse(body);
 
@@ -19,20 +31,27 @@ export async function POST(request: Request) {
       );
     }
 
-    const { invoice_id } = parsed.data;
+    const { invoice_id, token } = parsed.data;
+
+    // 2. Token Rate limit: 15 attempts per 15 minutes per token
+    const tokenRateLimit = await checkRateLimit(`token:${token}:create_payment_link`, 15, 900);
+    if (!tokenRateLimit.success) {
+      return createRateLimitResponse(tokenRateLimit.resetInSeconds);
+    }
+
     const adminDb = createAdminClient();
 
-    // 1. SERVER-SIDE AMOUNT LOOKUP: Fetch invoice strictly from database
+    // 3. SERVER-SIDE AMOUNT LOOKUP & TOKEN VERIFICATION
     const { data: invoice, error: invoiceErr } = await adminDb
       .from("invoices")
       .select("*, agreements(*, proposals(*, clients(*)))")
       .eq("id", invoice_id)
       .single();
 
-    if (invoiceErr || !invoice) {
+    if (invoiceErr || !invoice || invoice.agreements?.proposals?.token !== token) {
       return NextResponse.json(
-        { success: false, error: "Invoice not found" },
-        { status: 404 }
+        { success: false, error: "Unauthorized access to payment creation" },
+        { status: 403 }
       );
     }
 
@@ -43,7 +62,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // 2. Check if a valid, unexpired payment link already exists for this invoice
+    // 4. Check if a valid, unexpired payment link already exists for this invoice
     const { data: existingPayment } = await adminDb
       .from("payments")
       .select("*")
@@ -68,9 +87,9 @@ export async function POST(request: Request) {
 
     let razorpayLinkId = `plink_test_${Date.now()}`;
     let paymentUrl = `${callbackUrl}&mock=true`;
-    const expireTimestamp = Math.floor(Date.now() / 1000) + (7 * 24 * 60 * 60); // 7 days expiration
+    const expireTimestamp = Math.floor(Date.now() / 1000) + (7 * 24 * 60 * 60);
 
-    // 3. Call Razorpay Hosted Payment Links API if credentials exist
+    // 5. Call Razorpay Hosted Payment Links API if credentials exist
     try {
       const razorpay = getRazorpayClient();
       const linkResponse = await razorpay.paymentLink.create({
@@ -101,11 +120,10 @@ export async function POST(request: Request) {
       razorpayLinkId = linkResponse.id;
       paymentUrl = linkResponse.short_url;
     } catch (rzpErr: unknown) {
-      console.warn("Razorpay API not configured or test mode fallback:", rzpErr);
-      // Fallback for local development if Razorpay test keys are missing
+      console.warn("Razorpay API fallback:", rzpErr);
     }
 
-    // 4. Record Payment in DB
+    // 6. Record Payment in DB
     const { data: payment, error: payErr } = await adminDb
       .from("payments")
       .insert({
@@ -122,7 +140,7 @@ export async function POST(request: Request) {
 
     if (payErr) throw payErr;
 
-    // 5. Audit Log
+    // 7. Audit Log
     await adminDb.from("audit_events").insert({
       actor_type: "SYSTEM",
       action: "PAYMENT_LINK_CREATED",

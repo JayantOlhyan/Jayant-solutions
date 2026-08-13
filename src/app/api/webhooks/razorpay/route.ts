@@ -1,15 +1,32 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { checkRateLimit, getClientIp, createRateLimitResponse } from "@/lib/rate-limit";
 import crypto from "crypto";
 
 export async function POST(request: Request) {
   try {
+    const clientIp = getClientIp(request);
+
+    // 1. Webhook Rate Limit: 100 requests per 1 minute per IP
+    const rateLimit = await checkRateLimit(`ip:${clientIp}:razorpay_webhook`, 100, 60);
+    if (!rateLimit.success) {
+      return createRateLimitResponse(rateLimit.resetInSeconds);
+    }
+
     const rawBody = await request.text();
     const signature = request.headers.get("x-razorpay-signature");
     const webhookSecret = process.env.RAZORPAY_WEBHOOK_SECRET;
 
-    // 1. Webhook Signature Verification
-    if (webhookSecret && signature) {
+    // 2. Webhook Signature Verification
+    if (webhookSecret) {
+      if (!signature) {
+        console.error("❌ Missing Razorpay Webhook Signature Header");
+        return NextResponse.json(
+          { success: false, error: "Missing webhook signature" },
+          { status: 400 }
+        );
+      }
+
       const expectedSignature = crypto
         .createHmac("sha256", webhookSecret)
         .update(rawBody)
@@ -30,7 +47,7 @@ export async function POST(request: Request) {
 
     const adminDb = createAdminClient();
 
-    // 2. Webhook Idempotency Check: Log raw event; if duplicate event_id exists, exit early
+    // 3. Webhook Idempotency Check: Log raw event; if duplicate event_id exists, exit early
     const { error: eventErr } = await adminDb
       .from("payment_events")
       .insert({
@@ -41,12 +58,10 @@ export async function POST(request: Request) {
       });
 
     if (eventErr && eventErr.code === "23505") {
-      // Duplicate event_id caught by unique constraint
       console.log(`ℹ️ Duplicate webhook event received (${eventId}). Skipping.`);
       return NextResponse.json({ success: true, message: "Duplicate webhook event acknowledged" });
     }
 
-    // Extract payment link / payment details from payload
     const paymentLinkEntity = payload.payload?.payment_link?.entity;
     const paymentEntity = payload.payload?.payment?.entity;
 
@@ -54,9 +69,8 @@ export async function POST(request: Request) {
     const rzpPaymentId = paymentEntity?.id;
     const invoiceId = paymentEntity?.notes?.invoice_id || paymentLinkEntity?.notes?.invoice_id;
 
-    // 3. Process Events
+    // 4. Process Events
     if (eventType === "payment_link.paid" || eventType === "payment.captured") {
-      // Update Payment status to PAID
       if (rzpLinkId) {
         await adminDb
           .from("payments")
@@ -68,7 +82,6 @@ export async function POST(request: Request) {
           .eq("razorpay_link_id", rzpLinkId);
       }
 
-      // Update Invoice status to PAID
       if (invoiceId) {
         await adminDb
           .from("invoices")
@@ -80,13 +93,11 @@ export async function POST(request: Request) {
           .eq("id", invoiceId);
       }
 
-      // Mark payment_event processed
       await adminDb
         .from("payment_events")
         .update({ processed: true, processed_at: new Date().toISOString() })
         .eq("event_id", eventId);
 
-      // Audit Log
       await adminDb.from("audit_events").insert({
         actor_type: "SYSTEM",
         action: "PAYMENT_VERIFIED_VIA_WEBHOOK",

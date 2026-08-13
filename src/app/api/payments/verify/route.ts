@@ -1,15 +1,27 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { getRazorpayClient } from "@/lib/payments/razorpay";
+import { checkRateLimit, getClientIp, createRateLimitResponse } from "@/lib/rate-limit";
 import { z } from "zod";
 
-const verifyPaymentSchema = z.object({
-  invoice_id: z.string().uuid("Invalid invoice ID"),
-  razorpay_payment_id: z.string().optional(),
-});
+const verifyPaymentSchema = z
+  .object({
+    invoice_id: z.string().uuid("Invalid invoice ID"),
+    token: z.string().min(10, "Proposal authorization token is required"),
+    razorpay_payment_id: z.string().optional(),
+  })
+  .strict();
 
 export async function POST(request: Request) {
   try {
+    const clientIp = getClientIp(request);
+
+    // 1. IP Rate limit: 15 attempts per 15 minutes
+    const ipRateLimit = await checkRateLimit(`ip:${clientIp}:verify_payment`, 15, 900);
+    if (!ipRateLimit.success) {
+      return createRateLimitResponse(ipRateLimit.resetInSeconds);
+    }
+
     const body = await request.json();
     const parsed = verifyPaymentSchema.safeParse(body);
 
@@ -20,20 +32,27 @@ export async function POST(request: Request) {
       );
     }
 
-    const { invoice_id, razorpay_payment_id } = parsed.data;
+    const { invoice_id, token, razorpay_payment_id } = parsed.data;
+
+    // 2. Token Rate limit: 15 attempts per 15 minutes per token
+    const tokenRateLimit = await checkRateLimit(`token:${token}:verify_payment`, 15, 900);
+    if (!tokenRateLimit.success) {
+      return createRateLimitResponse(tokenRateLimit.resetInSeconds);
+    }
+
     const adminDb = createAdminClient();
 
-    // 1. Fetch invoice status directly from backend DB
+    // 3. Fetch invoice status directly from backend DB with token authorization
     const { data: invoice, error: invoiceErr } = await adminDb
       .from("invoices")
-      .select("*, payments(*)")
+      .select("*, agreements(*, proposals(*))")
       .eq("id", invoice_id)
       .single();
 
-    if (invoiceErr || !invoice) {
+    if (invoiceErr || !invoice || invoice.agreements?.proposals?.token !== token) {
       return NextResponse.json(
-        { success: false, error: "Invoice not found" },
-        { status: 404 }
+        { success: false, error: "Unauthorized access to payment verification" },
+        { status: 403 }
       );
     }
 
@@ -48,7 +67,7 @@ export async function POST(request: Request) {
       });
     }
 
-    // 2. If razorpay_payment_id is provided, verify directly with Razorpay API
+    // 4. If razorpay_payment_id is provided, verify directly with Razorpay API
     if (razorpay_payment_id) {
       try {
         const razorpay = getRazorpayClient();

@@ -1,14 +1,26 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { checkRateLimit, getClientIp, createRateLimitResponse } from "@/lib/rate-limit";
 import { z } from "zod";
 
-const declineAgreementSchema = z.object({
-  agreement_id: z.string().uuid("Invalid agreement ID"),
-  declined_reason: z.string().min(5, "Please provide a reason for declining"),
-});
+const declineAgreementSchema = z
+  .object({
+    agreement_id: z.string().uuid("Invalid agreement ID"),
+    token: z.string().min(10, "Proposal authorization token is required"),
+    declined_reason: z.string().min(5, "Please provide a reason for declining"),
+  })
+  .strict();
 
 export async function POST(request: Request) {
   try {
+    const clientIp = getClientIp(request);
+
+    // 1. IP Rate limit: 10 attempts per 15 minutes
+    const ipRateLimit = await checkRateLimit(`ip:${clientIp}:decline_agreement`, 10, 900);
+    if (!ipRateLimit.success) {
+      return createRateLimitResponse(ipRateLimit.resetInSeconds);
+    }
+
     const body = await request.json();
     const parsed = declineAgreementSchema.safeParse(body);
 
@@ -19,19 +31,27 @@ export async function POST(request: Request) {
       );
     }
 
-    const { agreement_id, declined_reason } = parsed.data;
+    const { agreement_id, token, declined_reason } = parsed.data;
+
+    // 2. Token Rate Limit: 10 attempts per 15 minutes per token
+    const tokenRateLimit = await checkRateLimit(`token:${token}:decline_agreement`, 10, 900);
+    if (!tokenRateLimit.success) {
+      return createRateLimitResponse(tokenRateLimit.resetInSeconds);
+    }
+
     const adminDb = createAdminClient();
 
+    // 3. Fetch agreement and verify token matching
     const { data: agreement, error: agreeErr } = await adminDb
       .from("agreements")
-      .select("*")
+      .select("*, proposals(*)")
       .eq("id", agreement_id)
       .single();
 
-    if (agreeErr || !agreement) {
+    if (agreeErr || !agreement || agreement.proposals?.token !== token) {
       return NextResponse.json(
-        { success: false, error: "Agreement not found" },
-        { status: 404 }
+        { success: false, error: "Unauthorized access to agreement" },
+        { status: 403 }
       );
     }
 
@@ -54,7 +74,7 @@ export async function POST(request: Request) {
       target_entity: "agreements",
       target_id: agreement.id,
       metadata: { proposal_id: agreement.proposal_id, declined_reason },
-      ip_address: request.headers.get("x-forwarded-for") || undefined,
+      ip_address: clientIp,
       user_agent: request.headers.get("user-agent") || undefined,
     });
 

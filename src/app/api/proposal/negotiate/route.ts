@@ -1,15 +1,27 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { checkRateLimit, getClientIp, createRateLimitResponse } from "@/lib/rate-limit";
 import { z } from "zod";
 
-const negotiationSchema = z.object({
-  proposal_id: z.string().uuid("Invalid proposal ID"),
-  requested_changes: z.string().min(10, "Please describe your requested changes in detail"),
-  client_proposed_price: z.number().positive().optional(),
-});
+const negotiationSchema = z
+  .object({
+    proposal_id: z.string().uuid("Invalid proposal ID"),
+    token: z.string().min(10, "Proposal authorization token is required"),
+    requested_changes: z.string().min(10, "Please describe your requested changes in detail"),
+    client_proposed_price: z.number().positive().optional(),
+  })
+  .strict();
 
 export async function POST(request: Request) {
   try {
+    const ip = getClientIp(request);
+
+    // 1. IP Rate limit: 10 attempts per 15 minutes
+    const ipRateLimit = await checkRateLimit(`ip:${ip}:negotiate`, 10, 900);
+    if (!ipRateLimit.success) {
+      return createRateLimitResponse(ipRateLimit.resetInSeconds);
+    }
+
     const body = await request.json();
     const parsed = negotiationSchema.safeParse(body);
 
@@ -20,24 +32,31 @@ export async function POST(request: Request) {
       );
     }
 
-    const { proposal_id, requested_changes, client_proposed_price } = parsed.data;
+    const { proposal_id, token, requested_changes, client_proposed_price } = parsed.data;
+
+    // 2. Token Rate limit: 10 attempts per 15 minutes per token
+    const tokenRateLimit = await checkRateLimit(`token:${token}:negotiate`, 10, 900);
+    if (!tokenRateLimit.success) {
+      return createRateLimitResponse(tokenRateLimit.resetInSeconds);
+    }
+
     const adminDb = createAdminClient();
 
-    // 1. Verify proposal exists
+    // 3. Verify proposal exists and token matches
     const { data: proposal, error: propErr } = await adminDb
       .from("proposals")
-      .select("id, status")
+      .select("id, status, token")
       .eq("id", proposal_id)
       .single();
 
-    if (propErr || !proposal) {
+    if (propErr || !proposal || proposal.token !== token) {
       return NextResponse.json(
-        { success: false, error: "Proposal not found" },
-        { status: 404 }
+        { success: false, error: "Unauthorized access to proposal" },
+        { status: 403 }
       );
     }
 
-    // 2. Lock check: If agreement already signed or sent, block negotiations
+    // 4. Lock check: If agreement already signed or sent, block negotiations
     const { data: activeAgreement } = await adminDb
       .from("agreements")
       .select("id, status")
@@ -55,7 +74,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // 3. Create negotiation request record (Client cannot finalize price)
+    // 5. Create negotiation request record (Client cannot finalize price)
     const { data: negotiation, error: negErr } = await adminDb
       .from("negotiations")
       .insert({
@@ -69,7 +88,7 @@ export async function POST(request: Request) {
 
     if (negErr) throw negErr;
 
-    // 4. Log audit event
+    // 6. Log audit event
     await adminDb.from("audit_events").insert({
       actor_type: "CLIENT",
       action: "NEGOTIATION_REQUESTED",
@@ -80,7 +99,7 @@ export async function POST(request: Request) {
         requested_changes,
         client_proposed_price,
       },
-      ip_address: request.headers.get("x-forwarded-for") || undefined,
+      ip_address: ip,
       user_agent: request.headers.get("user-agent") || undefined,
     });
 
