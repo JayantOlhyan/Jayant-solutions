@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Ai For Real Estate – Jayant Web & AI Systems",
-  description: "Explore the Ai For Real Estate page of Jayant Web & AI Systems. I build custom websites, AI automation systems, and business software designed for your operational needs.",
+  title: "Real Estate Software & Property Portals | Jayant Systems",
+  description: "Custom real estate platforms: interactive property directories, automated WhatsApp lead qualification funnels, and agent scheduling dashboards.",
   alternates: {
     canonical: "/industries/ai-for-real-estate",
     languages: {
@@ -10,7 +10,21 @@ export const metadata: Metadata = {
       "hi-IN": "/hi/industries/ai-for-real-estate",
     },
   },
+  openGraph: {
+    title: "Real Estate Software & Property Portals | Jayant Systems",
+    description: "Custom real estate platforms: interactive property directories, automated WhatsApp lead qualification funnels, and agent scheduling dashboards.",
+    url: "https://jayant-systems.online/industries/ai-for-real-estate",
+    siteName: "Jayant Web & AI Systems",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Real Estate Software & Property Portals | Jayant Systems",
+    description: "Custom real estate platforms: interactive property directories, automated WhatsApp lead qualification funnels, and agent scheduling dashboards.",
+  },
 };
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

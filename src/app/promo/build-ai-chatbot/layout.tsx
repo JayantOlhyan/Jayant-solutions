@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Build Ai Chatbot – Jayant Web & AI Systems",
-  description: "Explore the Build Ai Chatbot page of Jayant Web & AI Systems. I build custom websites, AI automation systems, and business software designed for your operational needs.",
+  title: "Custom AI Chatbot Solutions for Business | Jayant Web & AI",
+  description: "Deploy intelligent AI chatbots that resolve up to 80% of customer support queries 24/7 with zero hallucinations, trained strictly on your documentation.",
   alternates: {
     canonical: "/promo/build-ai-chatbot",
     languages: {
@@ -10,7 +10,21 @@ export const metadata: Metadata = {
       "hi-IN": "/hi/promo/build-ai-chatbot",
     },
   },
+  openGraph: {
+    title: "Custom AI Chatbot Solutions for Business | Jayant Web & AI",
+    description: "Deploy intelligent AI chatbots that resolve up to 80% of customer support queries 24/7 with zero hallucinations, trained strictly on your documentation.",
+    url: "https://jayant-systems.online/promo/build-ai-chatbot",
+    siteName: "Jayant Web & AI Systems",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Custom AI Chatbot Solutions for Business | Jayant Web & AI",
+    description: "Deploy intelligent AI chatbots that resolve up to 80% of customer support queries 24/7 with zero hallucinations, trained strictly on your documentation.",
+  },
 };
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

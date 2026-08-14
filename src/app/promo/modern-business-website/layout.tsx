@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Modern Business Website – Jayant Web & AI Systems",
-  description: "Explore the Modern Business Website page of Jayant Web & AI Systems. I build custom websites, AI automation systems, and business software designed for your operational needs.",
+  title: "High-Converting Business Website Design | Jayant Systems",
+  description: "Get a custom, lightning-fast business website engineered for search rankings and lead conversion with responsive layouts and sub-second load times.",
   alternates: {
     canonical: "/promo/modern-business-website",
     languages: {
@@ -10,7 +10,21 @@ export const metadata: Metadata = {
       "hi-IN": "/hi/promo/modern-business-website",
     },
   },
+  openGraph: {
+    title: "High-Converting Business Website Design | Jayant Systems",
+    description: "Get a custom, lightning-fast business website engineered for search rankings and lead conversion with responsive layouts and sub-second load times.",
+    url: "https://jayant-systems.online/promo/modern-business-website",
+    siteName: "Jayant Web & AI Systems",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "High-Converting Business Website Design | Jayant Systems",
+    description: "Get a custom, lightning-fast business website engineered for search rankings and lead conversion with responsive layouts and sub-second load times.",
+  },
 };
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

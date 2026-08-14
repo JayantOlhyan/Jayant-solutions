@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Ai For Healthcare – Jayant Web & AI Systems",
-  description: "Explore the Ai For Healthcare page of Jayant Web & AI Systems. I build custom websites, AI automation systems, and business software designed for your operational needs.",
+  title: "AI Healthcare Solutions & Clinic Portals | Jayant Systems",
+  description: "Engineer intelligent medical symptom checkers, automated clinic appointment booking systems, and electronic health records management platforms.",
   alternates: {
     canonical: "/industries/ai-for-healthcare",
     languages: {
@@ -10,7 +10,21 @@ export const metadata: Metadata = {
       "hi-IN": "/hi/industries/ai-for-healthcare",
     },
   },
+  openGraph: {
+    title: "AI Healthcare Solutions & Clinic Portals | Jayant Systems",
+    description: "Engineer intelligent medical symptom checkers, automated clinic appointment booking systems, and electronic health records management platforms.",
+    url: "https://jayant-systems.online/industries/ai-for-healthcare",
+    siteName: "Jayant Web & AI Systems",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Healthcare Solutions & Clinic Portals | Jayant Systems",
+    description: "Engineer intelligent medical symptom checkers, automated clinic appointment booking systems, and electronic health records management platforms.",
+  },
 };
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

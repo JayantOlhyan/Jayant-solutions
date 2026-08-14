@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Ai For Agriculture – Jayant Web & AI Systems",
-  description: "Explore the Ai For Agriculture page of Jayant Web & AI Systems. I build custom websites, AI automation systems, and business software designed for your operational needs.",
+  title: "AI Solutions for Agriculture & AgTech | Jayant Systems",
+  description: "Build custom AgTech solutions: AI crop diagnostics, soil health monitoring tools, automated weather advisory systems, and farm management dashboards.",
   alternates: {
     canonical: "/industries/ai-for-agriculture",
     languages: {
@@ -10,7 +10,21 @@ export const metadata: Metadata = {
       "hi-IN": "/hi/industries/ai-for-agriculture",
     },
   },
+  openGraph: {
+    title: "AI Solutions for Agriculture & AgTech | Jayant Systems",
+    description: "Build custom AgTech solutions: AI crop diagnostics, soil health monitoring tools, automated weather advisory systems, and farm management dashboards.",
+    url: "https://jayant-systems.online/industries/ai-for-agriculture",
+    siteName: "Jayant Web & AI Systems",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Solutions for Agriculture & AgTech | Jayant Systems",
+    description: "Build custom AgTech solutions: AI crop diagnostics, soil health monitoring tools, automated weather advisory systems, and farm management dashboards.",
+  },
 };
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

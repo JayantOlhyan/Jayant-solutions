@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Ai For Government – Jayant Web & AI Systems",
-  description: "Explore the Ai For Government page of Jayant Web & AI Systems. I build custom websites, AI automation systems, and business software designed for your operational needs.",
+  title: "CivicTech & Digital Public Service Portals | Jayant",
+  description: "Modernize public administration with unified civic portals, automated citizen grievance tracking, and transparent digital public service directories.",
   alternates: {
     canonical: "/industries/ai-for-government",
     languages: {
@@ -10,7 +10,21 @@ export const metadata: Metadata = {
       "hi-IN": "/hi/industries/ai-for-government",
     },
   },
+  openGraph: {
+    title: "CivicTech & Digital Public Service Portals | Jayant",
+    description: "Modernize public administration with unified civic portals, automated citizen grievance tracking, and transparent digital public service directories.",
+    url: "https://jayant-systems.online/industries/ai-for-government",
+    siteName: "Jayant Web & AI Systems",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CivicTech & Digital Public Service Portals | Jayant",
+    description: "Modernize public administration with unified civic portals, automated citizen grievance tracking, and transparent digital public service directories.",
+  },
 };
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

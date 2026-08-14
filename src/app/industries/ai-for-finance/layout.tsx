@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Ai For Finance – Jayant Web & AI Systems",
-  description: "Explore the Ai For Finance page of Jayant Web & AI Systems. I build custom websites, AI automation systems, and business software designed for your operational needs.",
+  title: "FinTech Software & AI Financial Systems | Jayant Systems",
+  description: "Develop secure financial dashboards, automated invoice processing pipelines, transaction fraud detection, and compliance-ready fintech platforms.",
   alternates: {
     canonical: "/industries/ai-for-finance",
     languages: {
@@ -10,7 +10,21 @@ export const metadata: Metadata = {
       "hi-IN": "/hi/industries/ai-for-finance",
     },
   },
+  openGraph: {
+    title: "FinTech Software & AI Financial Systems | Jayant Systems",
+    description: "Develop secure financial dashboards, automated invoice processing pipelines, transaction fraud detection, and compliance-ready fintech platforms.",
+    url: "https://jayant-systems.online/industries/ai-for-finance",
+    siteName: "Jayant Web & AI Systems",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FinTech Software & AI Financial Systems | Jayant Systems",
+    description: "Develop secure financial dashboards, automated invoice processing pipelines, transaction fraud detection, and compliance-ready fintech platforms.",
+  },
 };
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

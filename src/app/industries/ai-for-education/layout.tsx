@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Ai For Education – Jayant Web & AI Systems",
-  description: "Explore the Ai For Education page of Jayant Web & AI Systems. I build custom websites, AI automation systems, and business software designed for your operational needs.",
+  title: "AI Portals & EdTech Software Development | Jayant Web & AI",
+  description: "Create intelligent learning management systems, teacher workspaces, automated grading workflows, and interactive parent notification hubs for schools.",
   alternates: {
     canonical: "/industries/ai-for-education",
     languages: {
@@ -10,7 +10,21 @@ export const metadata: Metadata = {
       "hi-IN": "/hi/industries/ai-for-education",
     },
   },
+  openGraph: {
+    title: "AI Portals & EdTech Software Development | Jayant Web & AI",
+    description: "Create intelligent learning management systems, teacher workspaces, automated grading workflows, and interactive parent notification hubs for schools.",
+    url: "https://jayant-systems.online/industries/ai-for-education",
+    siteName: "Jayant Web & AI Systems",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Portals & EdTech Software Development | Jayant Web & AI",
+    description: "Create intelligent learning management systems, teacher workspaces, automated grading workflows, and interactive parent notification hubs for schools.",
+  },
 };
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
