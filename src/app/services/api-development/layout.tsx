@@ -1,4 +1,6 @@
 import { Metadata } from "next";
+import JsonLd from "@/components/seo/JsonLd";
+import { createServiceSchema } from "@/lib/seo/schema";
 
 export const metadata: Metadata = {
   title: "REST & GraphQL API Development Services | Jayant Systems",
@@ -26,5 +28,15 @@ export const metadata: Metadata = {
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <>
+      <JsonLd schema={createServiceSchema({
+        name: "REST & GraphQL API Development Services",
+        description: "Build robust, secure, and documented REST and GraphQL backend APIs with FastAPI and Node.js to power web platforms, mobile apps, and third-party sync.",
+        url: "/services/api-development",
+        serviceType: "API Development"
+      })} />
+      {children}
+    </>
+  );
 }

@@ -1,4 +1,6 @@
 import { Metadata } from "next";
+import JsonLd from "@/components/seo/JsonLd";
+import { createServiceSchema } from "@/lib/seo/schema";
 
 export const metadata: Metadata = {
   title: "SaaS Platform Architecture & Development | Jayant Systems",
@@ -26,5 +28,15 @@ export const metadata: Metadata = {
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <>
+      <JsonLd schema={createServiceSchema({
+        name: "SaaS Platform Architecture & Development Services",
+        description: "Design and build multi-tenant SaaS applications with subscription billing integrations, role-based access control, analytics dashboards, and modular APIs.",
+        url: "/services/saas-development",
+        serviceType: "SaaS Development"
+      })} />
+      {children}
+    </>
+  );
 }

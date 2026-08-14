@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { blogPosts } from "@/data/blog";
+import JsonLd from "@/components/seo/JsonLd";
+import { createBlogPostingSchema } from "@/lib/seo/schema";
 import { Calendar, Clock, ArrowLeft, CheckCircle2 } from "lucide-react";
 
 interface PageProps {
@@ -63,6 +65,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <div className="hog-grid min-h-screen pb-20 pt-10">
+      <JsonLd schema={createBlogPostingSchema(post)} />
       <main className="max-w-4xl mx-auto px-6">
         {/* Back Link */}
         <Link

@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import PageTransition from "@/components/PageTransition";
 import Link from "next/link";
+import JsonLd from "@/components/seo/JsonLd";
+import { createFAQSchema } from "@/lib/seo/schema";
 import { Search, ChevronDown, ChevronUp, Mail, Phone, Clock, MapPin, ArrowRight } from "lucide-react";
 
 export default function FAQPage() {
@@ -80,27 +82,9 @@ export default function FAQPage() {
     return matchesSearch && matchesTab;
   });
 
-  const generateFaqSchema = (items: { q: string; a: string }[]) => {
-    return {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": items.map((item) => ({
-        "@type": "Question",
-        "name": item.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": item.a
-        }
-      }))
-    };
-  };
-
   return (
     <PageTransition>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFaqSchema(faqs)) }}
-      />
+      <JsonLd schema={createFAQSchema(faqs)} />
       <div className="hog-grid min-h-screen pb-20 pt-10 text-left">
         <main className="max-w-none px-6 md:px-12 lg:px-16 flex flex-col gap-20 md:gap-28">
           

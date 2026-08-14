@@ -6,6 +6,8 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import SEOLinks from "@/components/SEOLinks";
 import Footer from "@/components/Footer";
 import PWAHandler from "@/components/PWAHandler";
+import JsonLd from "@/components/seo/JsonLd";
+import { createOrganizationSchema, createWebSiteSchema } from "@/lib/seo/schema";
 import "./globals.css";
 
 const geist = Geist({
@@ -108,31 +110,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Jayant Web & AI Systems",
-    "url": "https://jayant-systems.online",
-    "logo": "https://jayant-systems.online/logo.png",
-    "sameAs": [
-      "https://github.com/JayantOlhyan",
-      "https://linkedin.com/company/jayant-systems",
-      "https://www.instagram.com/jayantolhyan/",
-      "https://www.youtube.com/@JayantWebAISystems",
-      "https://x.com/JayantSystems"
-    ],
-    "email": "jayantwebaisystems@gmail.com"
-  };
-
   return (
     <html lang="en" className="h-full" suppressHydrationWarning>
       <head></head>
       <body className={`${geist.variable} ${inter.variable} ${instrumentSerif.variable} ${ibmMono.variable} ${dmSerifDisplay.variable} ${manrope.variable} min-h-full bg-bg-base text-text-base flex flex-col justify-between selection:bg-primary/10 selection:text-primary transition-colors duration-300 antialiased`}>
         <a className="skip-link" href="#main-content">Skip to main content</a>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <JsonLd schema={[createOrganizationSchema(), createWebSiteSchema()]} />
         <Navbar />
         <div id="main-content" className="flex-1 w-full pt-16">
           <Breadcrumbs />

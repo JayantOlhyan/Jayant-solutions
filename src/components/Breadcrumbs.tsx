@@ -4,6 +4,8 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronRight, Home } from "lucide-react";
+import JsonLd from "@/components/seo/JsonLd";
+import { createBreadcrumbSchema } from "@/lib/seo/schema";
 
 export default function Breadcrumbs() {
   const pathname = usePathname();
@@ -12,19 +14,6 @@ export default function Breadcrumbs() {
   if (pathname === "/" || pathname?.startsWith("/proposal/")) return null;
 
   const paths = pathname.split("/").filter((path) => path);
-
-  const generateSchema = (items: { name: string; url: string }[]) => {
-    return {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": items.map((item, index) => ({
-        "@type": "ListItem",
-        "position": index + 1,
-        "name": item.name,
-        "item": "https://jayant-systems.online" + item.url
-      }))
-    };
-  };
 
   const breadcrumbItems = [
     { name: "Home", url: "/" },
@@ -40,10 +29,7 @@ export default function Breadcrumbs() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateSchema(breadcrumbItems)) }}
-      />
+      <JsonLd schema={createBreadcrumbSchema(breadcrumbItems)} />
       <nav aria-label="Breadcrumb" className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pt-4">
         <ol className="flex items-center space-x-2 text-xs md:text-sm text-text-muted">
           <li>

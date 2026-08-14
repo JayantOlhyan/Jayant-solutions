@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import PageTransition from "@/components/PageTransition";
 import Link from "next/link";
+import JsonLd from "@/components/seo/JsonLd";
+import { createPricingSchema, createFAQSchema } from "@/lib/seo/schema";
 import { Check, ArrowRight, HelpCircle, Shield, Clock, Plus, Minus } from "lucide-react";
 
 export default function PricingPage() {
@@ -82,6 +84,7 @@ export default function PricingPage() {
 
   return (
     <PageTransition>
+      <JsonLd schema={[createPricingSchema(plans), createFAQSchema(faqs)]} />
       <div className="hog-grid min-h-screen pb-20 pt-10 text-left">
         <main className="max-w-none px-6 md:px-12 lg:px-16 flex flex-col gap-20 md:gap-28">
           
@@ -101,9 +104,9 @@ export default function PricingPage() {
                 PRICING
               </span>
               <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
-                Simple. Transparent.{" "}
+                Simple, Transparent{" "}
                 <span className="text-primary underline decoration-primary/40 decoration-4 underline-offset-8">
-                  Built for Value.
+                  Pricing Packages
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl">

@@ -1,4 +1,6 @@
 import { Metadata } from "next";
+import JsonLd from "@/components/seo/JsonLd";
+import { createServiceSchema } from "@/lib/seo/schema";
 
 export const metadata: Metadata = {
   title: "AI Chatbot & Assistant Development | Jayant Web & AI",
@@ -26,5 +28,15 @@ export const metadata: Metadata = {
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <>
+      <JsonLd schema={createServiceSchema({
+        name: "AI Chatbot Development Services",
+        description: "Build custom AI chatbots and conversational agents trained on your company data using Gemini, OpenAI, and Claude to automate support and lead triage.",
+        url: "/services/ai-chatbot-development",
+        serviceType: "AI Chatbot Development"
+      })} />
+      {children}
+    </>
+  );
 }
