@@ -6,6 +6,9 @@ import { ShieldAlert, ArrowLeft, CheckCircle2, HelpCircle } from "lucide-react";
 export const metadata: Metadata = {
   title: "Cancellation & Refund Policy | Jayant Web & AI Systems",
   description: "Official cancellation, refund terms, and milestone payment policies for Jayant Web & AI Systems digital growth and software engineering engagements.",
+  alternates: {
+    canonical: "/refund-policy",
+  },
 };
 
 export default function RefundPolicyPage() {

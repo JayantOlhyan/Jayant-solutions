@@ -24,7 +24,7 @@ export default function BlogPage() {
 
   const popularPosts = [
     { title: "AI Solutions: How Generative AI & LLMs are Transforming Small Business Operations", date: "July 7, 2026", slug: "ai-solutions" },
-    { title: "Building Modern High-Performance Web Applications using Next.js & React", date: "July 5, 2026", slug: "web-development" },
+    { title: "Building Modern High-Performance Web Applications using Next.js & React", date: "July 5, 2026", slug: "modern-web-development" },
     { title: "Why Startups & Businesses Need Custom Software Over Off-the-Shelf Templates", date: "July 6, 2026", slug: "custom-software" },
     { title: "Mobile App Development: Creating Highly Scalable Cross-Platform Apps", date: "July 4, 2026", slug: "mobile-apps" },
     { title: "Business Process Automation: Eliminating Manual Overhead & Spreadsheet Errors", date: "July 3, 2026", slug: "business-automation" },

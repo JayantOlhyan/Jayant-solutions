@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "Client Portal | Jayant Web & AI Systems",
-  description: "Secure private client portal and project management dashboard.",
+  title: "Client Proposal | Jayant Web & AI Systems",
+  description: "Confidential client proposal and commercial agreement terms.",
   robots: {
     index: false,
     follow: false,
@@ -16,6 +16,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function ProposalLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return <>{children}</>;
 }

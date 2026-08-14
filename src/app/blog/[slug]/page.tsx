@@ -1,11 +1,56 @@
 import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { blogPosts } from "@/data/blog";
-import { Calendar, Clock, User, ArrowLeft, Check, CheckCircle2 } from "lucide-react";
+import { Calendar, Clock, ArrowLeft, CheckCircle2 } from "lucide-react";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  return blogPosts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const post = blogPosts.find((p) => p.slug === slug);
+
+  if (!post) {
+    return {
+      title: "Article Not Found | Jayant Web & AI Systems",
+      description: "The requested article could not be found.",
+    };
+  }
+
+  const title = `${post.title} | Jayant Web & AI Systems`;
+  const description = post.excerpt;
+  const url = `https://jayant-systems.online/blog/${post.slug}`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `/blog/${post.slug}`,
+    },
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: "Jayant Web & AI Systems",
+      type: "article",
+      publishedTime: post.date,
+      authors: [post.author],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+  };
 }
 
 export default async function BlogPostPage({ params }: PageProps) {

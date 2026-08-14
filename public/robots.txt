@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://jayant-systems.online/sitemap.xml

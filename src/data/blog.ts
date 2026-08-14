@@ -78,7 +78,7 @@ export const blogPosts: BlogPost[] = [
     `
   },
   {
-    slug: "web-development",
+    slug: "modern-web-development",
     title: "Building Modern High-Performance Web Applications using Next.js & React",
     excerpt: "An engineering look into building fast, responsive, and SEO-optimized web systems that turn random traffic into qualifying sales leads.",
     category: "Web Development",

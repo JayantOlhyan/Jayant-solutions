@@ -1,16 +1,44 @@
 import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://jayant-systems.online";
+  const baseUrl = "https://jayant-systems.online";
+
+  const privateDisallowPaths = [
+    "/admin/",
+    "/api/",
+    "/proposal/",
+    "/support/client-portal/",
+  ];
 
   return {
     rules: [
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/admin/", "/api/", "/proposal/*/agreement", "/proposal/*/commercials"],
+        disallow: privateDisallowPaths,
+      },
+      {
+        userAgent: "GPTBot",
+        allow: "/",
+        disallow: privateDisallowPaths,
+      },
+      {
+        userAgent: "ClaudeBot",
+        allow: "/",
+        disallow: privateDisallowPaths,
+      },
+      {
+        userAgent: "PerplexityBot",
+        allow: "/",
+        disallow: privateDisallowPaths,
+      },
+      {
+        userAgent: "Google-Extended",
+        allow: "/",
+        disallow: privateDisallowPaths,
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
+    host: baseUrl,
   };
 }
