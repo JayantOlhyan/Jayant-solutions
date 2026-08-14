@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Ai Insights – Jayant Web & AI Systems",
-  description: "Explore the Ai Insights page of Jayant Web & AI Systems. I build custom websites, AI automation systems, and business software designed for your operational needs.",
+  title: "Artificial Intelligence Insights & Guides | Jayant Web & AI",
+  description: "Practical analysis and implementation guides on generative AI, Large Language Models, autonomous agents, and enterprise AI transformation strategies.",
   alternates: {
     canonical: "/blog/ai-insights",
     languages: {
@@ -10,7 +10,21 @@ export const metadata: Metadata = {
       "hi-IN": "/hi/blog/ai-insights",
     },
   },
+  openGraph: {
+    title: "Artificial Intelligence Insights & Guides | Jayant Web & AI",
+    description: "Practical analysis and implementation guides on generative AI, Large Language Models, autonomous agents, and enterprise AI transformation strategies.",
+    url: "https://jayant-systems.online/blog/ai-insights",
+    siteName: "Jayant Web & AI Systems",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Artificial Intelligence Insights & Guides | Jayant Web & AI",
+    description: "Practical analysis and implementation guides on generative AI, Large Language Models, autonomous agents, and enterprise AI transformation strategies.",
+  },
 };
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

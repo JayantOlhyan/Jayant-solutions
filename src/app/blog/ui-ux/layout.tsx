@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Ui Ux – Jayant Web & AI Systems",
-  description: "Explore the Ui Ux page of Jayant Web & AI Systems. I build custom websites, AI automation systems, and business software designed for your operational needs.",
+  title: "UI/UX Design Principles & Case Studies | Jayant Systems",
+  description: "Explore modern digital product design: user journey mapping, design systems, interactive prototypes, and UX optimization for higher lead conversion.",
   alternates: {
     canonical: "/blog/ui-ux",
     languages: {
@@ -10,7 +10,21 @@ export const metadata: Metadata = {
       "hi-IN": "/hi/blog/ui-ux",
     },
   },
+  openGraph: {
+    title: "UI/UX Design Principles & Case Studies | Jayant Systems",
+    description: "Explore modern digital product design: user journey mapping, design systems, interactive prototypes, and UX optimization for higher lead conversion.",
+    url: "https://jayant-systems.online/blog/ui-ux",
+    siteName: "Jayant Web & AI Systems",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "UI/UX Design Principles & Case Studies | Jayant Systems",
+    description: "Explore modern digital product design: user journey mapping, design systems, interactive prototypes, and UX optimization for higher lead conversion.",
+  },
 };
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

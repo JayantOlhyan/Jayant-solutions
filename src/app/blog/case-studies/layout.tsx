@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Case Studies – Jayant Web & AI Systems",
-  description: "Explore the Case Studies page of Jayant Web & AI Systems. I build custom websites, AI automation systems, and business software designed for your operational needs.",
+  title: "Engineering Case Studies & Insights | Jayant Systems",
+  description: "In-depth technical case studies and architectural teardowns of AI applications, web systems, and automation platforms built for real-world operations.",
   alternates: {
     canonical: "/blog/case-studies",
     languages: {
@@ -10,7 +10,21 @@ export const metadata: Metadata = {
       "hi-IN": "/hi/blog/case-studies",
     },
   },
+  openGraph: {
+    title: "Engineering Case Studies & Insights | Jayant Systems",
+    description: "In-depth technical case studies and architectural teardowns of AI applications, web systems, and automation platforms built for real-world operations.",
+    url: "https://jayant-systems.online/blog/case-studies",
+    siteName: "Jayant Web & AI Systems",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Engineering Case Studies & Insights | Jayant Systems",
+    description: "In-depth technical case studies and architectural teardowns of AI applications, web systems, and automation platforms built for real-world operations.",
+  },
 };
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

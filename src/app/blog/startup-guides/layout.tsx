@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Startup Guides – Jayant Web & AI Systems",
-  description: "Explore the Startup Guides page of Jayant Web & AI Systems. I build custom websites, AI automation systems, and business software designed for your operational needs.",
+  title: "Startup Technology & MVP Guides | Jayant Web & AI Systems",
+  description: "Actionable technology advice for founders: building Minimum Viable Products, selecting tech stacks, managing technical debt, and scaling engineering teams.",
   alternates: {
     canonical: "/blog/startup-guides",
     languages: {
@@ -10,7 +10,21 @@ export const metadata: Metadata = {
       "hi-IN": "/hi/blog/startup-guides",
     },
   },
+  openGraph: {
+    title: "Startup Technology & MVP Guides | Jayant Web & AI Systems",
+    description: "Actionable technology advice for founders: building Minimum Viable Products, selecting tech stacks, managing technical debt, and scaling engineering teams.",
+    url: "https://jayant-systems.online/blog/startup-guides",
+    siteName: "Jayant Web & AI Systems",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Startup Technology & MVP Guides | Jayant Web & AI Systems",
+    description: "Actionable technology advice for founders: building Minimum Viable Products, selecting tech stacks, managing technical debt, and scaling engineering teams.",
+  },
 };
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

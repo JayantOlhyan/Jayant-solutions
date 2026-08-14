@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Automation – Jayant Web & AI Systems",
-  description: "Explore the Automation page of Jayant Web & AI Systems. I build custom websites, AI automation systems, and business software designed for your operational needs.",
+  title: "Business Process Automation Guides | Jayant Systems",
+  description: "Learn how to automate manual operational bottlenecks, integrate WhatsApp Business APIs, and build continuous webhook synchronization pipelines.",
   alternates: {
     canonical: "/blog/automation",
     languages: {
@@ -10,7 +10,21 @@ export const metadata: Metadata = {
       "hi-IN": "/hi/blog/automation",
     },
   },
+  openGraph: {
+    title: "Business Process Automation Guides | Jayant Systems",
+    description: "Learn how to automate manual operational bottlenecks, integrate WhatsApp Business APIs, and build continuous webhook synchronization pipelines.",
+    url: "https://jayant-systems.online/blog/automation",
+    siteName: "Jayant Web & AI Systems",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Business Process Automation Guides | Jayant Systems",
+    description: "Learn how to automate manual operational bottlenecks, integrate WhatsApp Business APIs, and build continuous webhook synchronization pipelines.",
+  },
 };
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

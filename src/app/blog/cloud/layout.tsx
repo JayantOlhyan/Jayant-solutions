@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cloud – Jayant Web & AI Systems",
-  description: "Explore the Cloud page of Jayant Web & AI Systems. I build custom websites, AI automation systems, and business software designed for your operational needs.",
+  title: "Cloud Engineering & DevOps Articles | Jayant Systems",
+  description: "Guides on cloud architecture, Docker containerization, CI/CD automated deployment pipelines, Supabase configurations, and server performance monitoring.",
   alternates: {
     canonical: "/blog/cloud",
     languages: {
@@ -10,7 +10,21 @@ export const metadata: Metadata = {
       "hi-IN": "/hi/blog/cloud",
     },
   },
+  openGraph: {
+    title: "Cloud Engineering & DevOps Articles | Jayant Systems",
+    description: "Guides on cloud architecture, Docker containerization, CI/CD automated deployment pipelines, Supabase configurations, and server performance monitoring.",
+    url: "https://jayant-systems.online/blog/cloud",
+    siteName: "Jayant Web & AI Systems",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cloud Engineering & DevOps Articles | Jayant Systems",
+    description: "Guides on cloud architecture, Docker containerization, CI/CD automated deployment pipelines, Supabase configurations, and server performance monitoring.",
+  },
 };
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

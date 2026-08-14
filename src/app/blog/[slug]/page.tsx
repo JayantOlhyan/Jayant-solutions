@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  const title = `${post.title} | Jayant Web & AI Systems`;
+  const title = post.seoTitle || `${post.title} | Jayant Web & AI Systems`;
   const description = post.excerpt;
   const url = `https://jayant-systems.online/blog/${post.slug}`;
 

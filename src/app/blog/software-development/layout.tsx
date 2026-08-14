@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Software Development – Jayant Web & AI Systems",
-  description: "Explore the Software Development page of Jayant Web & AI Systems. I build custom websites, AI automation systems, and business software designed for your operational needs.",
+  title: "Custom Software Development Articles | Jayant Systems",
+  description: "Explore best practices in backend architecture, database engineering, API design, and scalable full-stack software development for modern engineering teams.",
   alternates: {
     canonical: "/blog/software-development",
     languages: {
@@ -10,7 +10,21 @@ export const metadata: Metadata = {
       "hi-IN": "/hi/blog/software-development",
     },
   },
+  openGraph: {
+    title: "Custom Software Development Articles | Jayant Systems",
+    description: "Explore best practices in backend architecture, database engineering, API design, and scalable full-stack software development for modern engineering teams.",
+    url: "https://jayant-systems.online/blog/software-development",
+    siteName: "Jayant Web & AI Systems",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Custom Software Development Articles | Jayant Systems",
+    description: "Explore best practices in backend architecture, database engineering, API design, and scalable full-stack software development for modern engineering teams.",
+  },
 };
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
