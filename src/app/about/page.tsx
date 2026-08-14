@@ -10,10 +10,10 @@ import Image from "next/image";
 
 export default function AboutPage() {
   const stats = [
-    { number: "50+", label: "Projects Delivered", desc: "Successful solutions across industries" },
-    { number: "100%", label: "Client Satisfaction", desc: "We prioritize quality and relationships" },
-    { number: "5+", label: "Years Of Experience", desc: "Building innovative digital products" },
-    { number: "10+", label: "Industries Served", desc: "Healthcare, Education, NGO, SaaS & more" },
+    { number: "25+", label: "Completed Projects", desc: "Full-stack apps, prototypes & tools" },
+    { number: "Direct", label: "Developer Access", desc: "Direct engineering collaboration" },
+    { number: "30+", label: "Hackathons & Tracks", desc: "Recognized across university & tech tracks" },
+    { number: "10+", label: "Specialized Domains", desc: "Healthcare, EdTech, SaaS & Automation" },
   ];
 
   const coreAdvantages = [

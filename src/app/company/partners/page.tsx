@@ -10,10 +10,10 @@ export default function PartnersPage() {
   const [testimonialIdx, setTestimonialIdx] = useState(0);
 
   const stats = [
-    { number: "25+", label: "Active Partners" },
-    { number: "10+", label: "Countries" },
-    { number: "5+", label: "Partnership Types" },
-    { number: "100%", label: "Shared Growth" },
+    { number: "Agile", label: "Agency Collaboration" },
+    { number: "White-Label", label: "Engineering Capacity" },
+    { number: "Direct", label: "Technical Advisory" },
+    { number: "Long-Term", label: "Shared Growth" },
   ];
 
   const ecosystem = [

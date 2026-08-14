@@ -7,12 +7,12 @@ import { ArrowRight, Mail, Target, Award, Users, RefreshCw } from "lucide-react"
 
 export default function FounderPage() {
   const stats = [
-    { number: "30+", label: "Projects Delivered" },
-    { number: "25+", label: "Happy Clients" },
-    { number: "5+", label: "Years of Experience" },
-    { number: "10+", label: "Industries Served" },
-    { number: "100%", label: "Client Satisfaction" },
-    { number: "5+", label: "Countries Reached" },
+    { number: "25+", label: "Completed Projects" },
+    { number: "Direct", label: "Developer Access" },
+    { number: "30+", label: "Hackathons & Tracks" },
+    { number: "10+", label: "Specialized Domains" },
+    { number: "Full", label: "Source Code Ownership" },
+    { number: "Fixed", label: "Transparent Milestones" },
   ];
 
   const values = [

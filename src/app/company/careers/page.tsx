@@ -7,10 +7,10 @@ import { ArrowRight, Briefcase, Heart, BookOpen, Clock, Users, Gift, Lock } from
 
 export default function CareersPage() {
   const stats = [
-    { number: "30+", label: "Team Members" },
-    { number: "25+", label: "Projects Delivered" },
-    { number: "5+", label: "Countries Reached" },
-    { number: "100%", label: "Growth Mindset" },
+    { number: "Remote", label: "Collaborative Model" },
+    { number: "Modern", label: "AI & Web Stack" },
+    { number: "Flexible", label: "Project Engagements" },
+    { number: "Direct", label: "Technical Mentorship" },
   ];
 
   const benefits = [

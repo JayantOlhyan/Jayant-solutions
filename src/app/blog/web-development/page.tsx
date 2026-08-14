@@ -23,10 +23,10 @@ export default function WebDevelopmentCategoryPage() {
   ];
 
   const highlights = [
-    { label: "180+ Articles", icon: "📄" },
-    { label: "35K+ Developers", icon: "👥" },
-    { label: "Weekly New Articles", icon: "📅" },
-    { label: "Expert Contributors", icon: "💻" },
+    { label: "Deep-Dive Guides", icon: "📄" },
+    { label: "Full-Stack Focus", icon: "💻" },
+    { label: "Modern Frameworks", icon: "🚀" },
+    { label: "Performance First", icon: "⚡" },
   ];
 
   const posts = [

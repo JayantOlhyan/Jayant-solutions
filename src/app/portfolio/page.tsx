@@ -12,10 +12,10 @@ export default function PortfolioPage() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
   const stats = [
-    { number: "50+", label: "Projects Delivered", desc: "Across industries" },
-    { number: "100%", label: "Client Satisfaction", desc: "I build relationships" },
-    { number: "5+", label: "Years of Experience", desc: "Building digital solutions" },
-    { number: "10+", label: "Industries Served", desc: "Startups to Enterprises" },
+    { number: "25+", label: "Completed Projects", desc: "Full-stack apps, prototypes & tools" },
+    { number: "Direct", label: "Developer Access", desc: "Direct engineering collaboration" },
+    { number: "30+", label: "Hackathons & Tracks", desc: "Recognized across university & tech tracks" },
+    { number: "10+", label: "Specialized Domains", desc: "Healthcare, EdTech, SaaS & Automation" },
   ];
 
   const filterTabs = [
