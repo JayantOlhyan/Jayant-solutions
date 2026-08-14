@@ -114,9 +114,9 @@ export default function WebsiteDevelopmentPage() {
                 WEBSITE DEVELOPMENT
               </span>
               <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
-                Websites That Look Amazing. Perform{" "}
+                Modern Website Development &{" "}
                 <span className="text-primary underline decoration-primary/40 decoration-4 underline-offset-8">
-                  Even Better.
+                  Next.js Design
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">

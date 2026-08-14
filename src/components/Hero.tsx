@@ -34,7 +34,7 @@ export default function Hero() {
 
             {/* Hero Title (LCP Optimized - rendered instantly without animation) */}
             <h1 className="font-sans text-4xl md:text-6xl lg:text-7.5xl font-extrabold tracking-tight text-text-base leading-[1.02] mb-6">
-              Building intelligent digital systems for{" "}
+              Custom AI & Web Development for{" "}
               <span className="text-primary underline decoration-primary/40 decoration-4 underline-offset-8">
                 businesses & startups
               </span>

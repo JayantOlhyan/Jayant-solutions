@@ -125,9 +125,9 @@ export default function BusinessAutomationPage() {
                 BUSINESS AUTOMATION
               </span>
               <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
-                Automate Work. Eliminate Waste.{" "}
+                Business Process & Workflow{" "}
                 <span className="text-primary underline decoration-primary/40 decoration-4 underline-offset-8">
-                  Accelerate Growth.
+                  Automation
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
