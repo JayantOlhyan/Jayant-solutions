@@ -77,8 +77,13 @@ export function createOrganizationSchema() {
       "@type": "Person",
       "@id": `${BASE_URL}/#founder`,
       "name": "Jayant Olhyan",
-      "url": `${BASE_URL}/about`,
-      "jobTitle": "Founder & Lead Software Engineer"
+      "url": `${BASE_URL}/company/founder`,
+      "jobTitle": "Founder & Lead Software Engineer",
+      "sameAs": [
+        "https://github.com/JayantOlhyan",
+        "https://linkedin.com/in/jayantolhyan",
+        "https://x.com/jayantolhyan"
+      ]
     },
     "sameAs": [
       "https://github.com/JayantOlhyan",

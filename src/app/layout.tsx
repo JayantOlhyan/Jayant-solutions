@@ -7,6 +7,7 @@ import SEOLinks from "@/components/SEOLinks";
 import Footer from "@/components/Footer";
 import PWAHandler from "@/components/PWAHandler";
 import JsonLd from "@/components/seo/JsonLd";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import { createOrganizationSchema, createWebSiteSchema } from "@/lib/seo/schema";
 import "./globals.css";
 
@@ -114,6 +115,7 @@ export default function RootLayout({
     <html lang="en" className="h-full" suppressHydrationWarning>
       <head></head>
       <body className={`${geist.variable} ${inter.variable} ${instrumentSerif.variable} ${ibmMono.variable} ${dmSerifDisplay.variable} ${manrope.variable} min-h-full bg-bg-base text-text-base flex flex-col justify-between selection:bg-primary/10 selection:text-primary transition-colors duration-300 antialiased`}>
+        <GoogleAnalytics />
         <a className="skip-link" href="#main-content">Skip to main content</a>
         <JsonLd schema={[createOrganizationSchema(), createWebSiteSchema()]} />
         <Navbar />
