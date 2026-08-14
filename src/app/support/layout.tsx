@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Support – Jayant Web & AI Systems",
-  description: "Explore the Support page of Jayant Web & AI Systems. I build custom websites, AI automation systems, and business software designed for your operational needs.",
+  title: "Customer Support & Help Center | Jayant Web & AI Systems",
+  description: "Access technical documentation, report system bugs, check live service status, or contact our engineering support team for active client projects.",
   alternates: {
     canonical: "/support",
     languages: {
@@ -10,7 +10,21 @@ export const metadata: Metadata = {
       "hi-IN": "/hi/support",
     },
   },
+  openGraph: {
+    title: "Customer Support & Help Center | Jayant Web & AI Systems",
+    description: "Access technical documentation, report system bugs, check live service status, or contact our engineering support team for active client projects.",
+    url: "https://jayant-systems.online/support",
+    siteName: "Jayant Web & AI Systems",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Customer Support & Help Center | Jayant Web & AI Systems",
+    description: "Access technical documentation, report system bugs, check live service status, or contact our engineering support team for active client projects.",
+  },
 };
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy – Jayant Web & AI Systems",
-  description: "Explore the Privacy page of Jayant Web & AI Systems. I build custom websites, AI automation systems, and business software designed for your operational needs.",
+  title: "Privacy Policy & Data Protection | Jayant Web & AI Systems",
+  description: "Our official privacy policy explaining how Jayant Web & AI Systems collects, uses, and safeguards personal information in accordance with privacy laws.",
   alternates: {
     canonical: "/privacy",
     languages: {
@@ -10,7 +10,21 @@ export const metadata: Metadata = {
       "hi-IN": "/hi/privacy",
     },
   },
+  openGraph: {
+    title: "Privacy Policy & Data Protection | Jayant Web & AI Systems",
+    description: "Our official privacy policy explaining how Jayant Web & AI Systems collects, uses, and safeguards personal information in accordance with privacy laws.",
+    url: "https://jayant-systems.online/privacy",
+    siteName: "Jayant Web & AI Systems",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy & Data Protection | Jayant Web & AI Systems",
+    description: "Our official privacy policy explaining how Jayant Web & AI Systems collects, uses, and safeguards personal information in accordance with privacy laws.",
+  },
 };
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

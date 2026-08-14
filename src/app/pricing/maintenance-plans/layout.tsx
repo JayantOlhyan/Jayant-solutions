@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Maintenance Plans – Jayant Web & AI Systems",
-  description: "Explore the Maintenance Plans page of Jayant Web & AI Systems. I build custom websites, AI automation systems, and business software designed for your operational needs.",
+  title: "Website & App Maintenance Retainers | Jayant Systems",
+  description: "Proactive monthly and annual maintenance plans covering 24/7 uptime monitoring, critical security patches, database backups, and monthly feature updates.",
   alternates: {
     canonical: "/pricing/maintenance-plans",
     languages: {
@@ -10,7 +10,21 @@ export const metadata: Metadata = {
       "hi-IN": "/hi/pricing/maintenance-plans",
     },
   },
+  openGraph: {
+    title: "Website & App Maintenance Retainers | Jayant Systems",
+    description: "Proactive monthly and annual maintenance plans covering 24/7 uptime monitoring, critical security patches, database backups, and monthly feature updates.",
+    url: "https://jayant-systems.online/pricing/maintenance-plans",
+    siteName: "Jayant Web & AI Systems",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Website & App Maintenance Retainers | Jayant Systems",
+    description: "Proactive monthly and annual maintenance plans covering 24/7 uptime monitoring, critical security patches, database backups, and monthly feature updates.",
+  },
 };
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Enterprise Plans – Jayant Web & AI Systems",
-  description: "Explore the Enterprise Plans page of Jayant Web & AI Systems. I build custom websites, AI automation systems, and business software designed for your operational needs.",
+  title: "Custom Enterprise Software Plans | Jayant Web & AI Systems",
+  description: "Dedicated engineering capacity, custom multi-tier AI architectures, custom SLA support retainers, and full intellectual property transfer for enterprises.",
   alternates: {
     canonical: "/pricing/enterprise-plans",
     languages: {
@@ -10,7 +10,21 @@ export const metadata: Metadata = {
       "hi-IN": "/hi/pricing/enterprise-plans",
     },
   },
+  openGraph: {
+    title: "Custom Enterprise Software Plans | Jayant Web & AI Systems",
+    description: "Dedicated engineering capacity, custom multi-tier AI architectures, custom SLA support retainers, and full intellectual property transfer for enterprises.",
+    url: "https://jayant-systems.online/pricing/enterprise-plans",
+    siteName: "Jayant Web & AI Systems",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Custom Enterprise Software Plans | Jayant Web & AI Systems",
+    description: "Dedicated engineering capacity, custom multi-tier AI architectures, custom SLA support retainers, and full intellectual property transfer for enterprises.",
+  },
 };
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

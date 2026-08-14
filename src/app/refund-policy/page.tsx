@@ -5,9 +5,22 @@ import { ShieldAlert, ArrowLeft, CheckCircle2, HelpCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Cancellation & Refund Policy | Jayant Web & AI Systems",
-  description: "Official cancellation, refund terms, and milestone payment policies for Jayant Web & AI Systems digital growth and software engineering engagements.",
+  description: "Official cancellation terms, milestone refund policies, and consumer protection guidelines for software engineering engagements with Jayant Systems.",
   alternates: {
     canonical: "/refund-policy",
+  },
+  openGraph: {
+    title: "Cancellation & Refund Policy | Jayant Web & AI Systems",
+    description: "Official cancellation terms, milestone refund policies, and consumer protection guidelines for software engineering engagements with Jayant Systems.",
+    url: "https://jayant-systems.online/refund-policy",
+    siteName: "Jayant Web & AI Systems",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cancellation & Refund Policy | Jayant Web & AI Systems",
+    description: "Official cancellation terms, milestone refund policies, and consumer protection guidelines for software engineering engagements with Jayant Systems.",
   },
 };
 
