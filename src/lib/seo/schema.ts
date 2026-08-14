@@ -60,8 +60,15 @@ export function createOrganizationSchema() {
       "height": 512
     },
     "email": "jayantwebaisystems@gmail.com",
+    "telephone": "+91-9667344125",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "New Delhi",
+      "addressCountry": "IN"
+    },
     "contactPoint": {
       "@type": "ContactPoint",
+      "telephone": "+91-9667344125",
       "email": "jayantwebaisystems@gmail.com",
       "contactType": "customer service",
       "availableLanguage": ["en", "hi"]
