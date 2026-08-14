@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mobile App Development – Jayant Web & AI Systems",
-  description: "Explore the Mobile App Development page of Jayant Web & AI Systems. I build custom websites, AI automation systems, and business software designed for your operational needs.",
+  title: "Cross-Platform Mobile App Development | Jayant Systems",
+  description: "Build native-performance iOS and Android mobile applications using Flutter with real-time database sync, push notifications, and offline capability.",
   alternates: {
     canonical: "/services/mobile-app-development",
     languages: {
@@ -10,7 +10,21 @@ export const metadata: Metadata = {
       "hi-IN": "/hi/services/mobile-app-development",
     },
   },
+  openGraph: {
+    title: "Cross-Platform Mobile App Development | Jayant Systems",
+    description: "Build native-performance iOS and Android mobile applications using Flutter with real-time database sync, push notifications, and offline capability.",
+    url: "https://jayant-systems.online/services/mobile-app-development",
+    siteName: "Jayant Web & AI Systems",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cross-Platform Mobile App Development | Jayant Systems",
+    description: "Build native-performance iOS and Android mobile applications using Flutter with real-time database sync, push notifications, and offline capability.",
+  },
 };
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
