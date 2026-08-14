@@ -104,6 +104,41 @@ export default async function BlogPostPage({ params }: PageProps) {
               className="prose prose-neutral dark:prose-invert max-w-none text-xs md:text-sm text-text-muted space-y-6 leading-relaxed"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
+
+            {/* Author Bio & E-E-A-T Credentials Card */}
+            <div className="border-t border-border-custom/40 pt-8 mt-6">
+              <div className="rounded-2xl border border-border-custom bg-card-bg/60 p-5 md:p-6 flex flex-col sm:flex-row gap-5 items-start">
+                <div className="size-14 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 text-primary font-serif font-bold text-xl">
+                  JO
+                </div>
+                <div className="flex-1 flex flex-col gap-2">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div>
+                      <h4 className="font-serif font-bold text-text-base text-sm md:text-base leading-none">
+                        {post.author}
+                      </h4>
+                      <span className="text-[10px] font-mono text-primary mt-1 block">
+                        Founder & Lead Software Engineer • B.Tech CSE (MSIT Delhi)
+                      </span>
+                    </div>
+                    <Link
+                      href="/company/founder"
+                      className="text-[10px] font-mono font-bold text-primary hover:underline"
+                    >
+                      View Profile →
+                    </Link>
+                  </div>
+                  <p className="text-[11px] md:text-xs text-text-muted leading-relaxed">
+                    Jayant specializes in full-stack architecture with Next.js, Python/FastAPI backend engineering, and custom AI systems integration. He designs and deploys production web applications and autonomous workflow pipelines for businesses.
+                  </p>
+                  <div className="flex items-center gap-3 pt-2 text-[10px] font-mono text-text-muted border-t border-border-custom/20">
+                    <span>🛡️ Technically Reviewed & Verified</span>
+                    <span>•</span>
+                    <span>Published: {post.date}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </article>
 
           {/* Right Sidebar: Commercial Packaging */}
