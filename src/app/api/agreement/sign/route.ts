@@ -3,6 +3,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { generateInvoicePDF } from "@/lib/pdf/invoice-generator";
 import { storeInvoicePDF, getSignedInvoiceUrl } from "@/lib/pdf/invoice-storage";
 import { sendTransactionalEmail } from "@/lib/notifications/email";
+import { recordTermsAcceptance } from "@/lib/privacy/consent";
 import { checkRateLimit, getClientIp, createRateLimitResponse } from "@/lib/rate-limit";
 import { z } from "zod";
 
@@ -137,6 +138,18 @@ export async function POST(request: Request) {
       .from("proposals")
       .update({ status: "ACCEPTED", updated_at: signedAt })
       .eq("id", agreement.proposal_id);
+
+    // 8. RECORD IMMUTABLE LEGAL CONSENT & TERMS VERSIONING (13.1, 13.9)
+    try {
+      await recordTermsAcceptance(
+        agreement.proposals.clients.id,
+        agreement.proposal_id,
+        clientIp,
+        request.headers.get("user-agent")
+      );
+    } catch (consentErr) {
+      console.warn("⚠️ Warning: Failed to record consent log:", consentErr);
+    }
 
     // 8. Write legal signature audit event
     await adminDb.from("audit_events").insert({

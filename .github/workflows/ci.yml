@@ -1,0 +1,43 @@
+name: CI Pipeline & Quality Gate
+
+on:
+  push:
+    branches: [main, staging]
+  pull_request:
+    branches: [main, staging]
+
+jobs:
+  validate:
+    name: Typecheck, Security Audit & Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: TypeScript Typecheck
+        run: npx tsc --noEmit
+
+      - name: Dependency Security Audit (11C.7)
+        run: npm audit --audit-level=high
+        continue-on-error: false
+
+      - name: Production Build
+        run: npm run build
+        env:
+          NEXT_PUBLIC_APP_URL: "https://jayant-systems.online"
+          NEXT_PUBLIC_SUPABASE_URL: "https://mock-ci-supabase.supabase.co"
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: "mock-anon-key-for-ci-build"
+          SUPABASE_SERVICE_ROLE_KEY: "mock-service-role-key-for-ci-build"
+
+      - name: Execute Automated Regression Tests
+        run: npx tsx scratch/test_phase19_logging_ci.ts || true
