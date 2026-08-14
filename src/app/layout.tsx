@@ -48,8 +48,8 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Jayant Web & AI Systems | Custom AI, Web & Software Development",
-  description: "Jayant Web & AI Systems builds AI-powered applications, custom software, websites, SaaS platforms, mobile apps, and automation solutions for startups, businesses, and enterprises. Transform your ideas into scalable digital products.",
+  title: "Jayant Web & AI Systems | Custom AI & Web Development",
+  description: "Jayant Web & AI Systems builds custom AI agents, scalable web platforms, mobile apps, and business automation software for modern startups and enterprises.",
   metadataBase: new URL("https://jayant-systems.online"),
   alternates: {
     canonical: "/",

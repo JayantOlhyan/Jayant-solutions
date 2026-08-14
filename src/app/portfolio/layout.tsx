@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Portfolio – Jayant Web & AI Systems",
-  description: "Explore the Portfolio page of Jayant Web & AI Systems. I build custom websites, AI automation systems, and business software designed for your operational needs.",
+  title: "Software & AI Project Portfolio | Jayant Web & AI Systems",
+  description: "Browse delivered projects and prototypes across healthcare AI, education platforms, emergency response apps, and automated business workflows.",
   alternates: {
     canonical: "/portfolio",
     languages: {
@@ -10,7 +10,21 @@ export const metadata: Metadata = {
       "hi-IN": "/hi/portfolio",
     },
   },
+  openGraph: {
+    title: "Software & AI Project Portfolio | Jayant Web & AI Systems",
+    description: "Browse delivered projects and prototypes across healthcare AI, education platforms, emergency response apps, and automated business workflows.",
+    url: "https://jayant-systems.online/portfolio",
+    siteName: "Jayant Web & AI Systems",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Software & AI Project Portfolio | Jayant Web & AI Systems",
+    description: "Browse delivered projects and prototypes across healthcare AI, education platforms, emergency response apps, and automated business workflows.",
+  },
 };
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
