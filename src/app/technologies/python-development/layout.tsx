@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Python Development – Jayant Web & AI Systems",
-  description: "Explore the Python Development page of Jayant Web & AI Systems. I build custom websites, AI automation systems, and business software designed for your operational needs.",
+  title: "Python Software Development & Automation | Jayant Systems",
+  description: "Custom Python development for backend services, machine learning integrations, data scraping routines, and automated business process scripts.",
   alternates: {
     canonical: "/technologies/python-development",
     languages: {
@@ -10,7 +10,21 @@ export const metadata: Metadata = {
       "hi-IN": "/hi/technologies/python-development",
     },
   },
+  openGraph: {
+    title: "Python Software Development & Automation | Jayant Systems",
+    description: "Custom Python development for backend services, machine learning integrations, data scraping routines, and automated business process scripts.",
+    url: "https://jayant-systems.online/technologies/python-development",
+    siteName: "Jayant Web & AI Systems",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Python Software Development & Automation | Jayant Systems",
+    description: "Custom Python development for backend services, machine learning integrations, data scraping routines, and automated business process scripts.",
+  },
 };
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

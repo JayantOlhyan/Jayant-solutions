@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Google Gemini Development – Jayant Web & AI Systems",
-  description: "Explore the Google Gemini Development page of Jayant Web & AI Systems. I build custom websites, AI automation systems, and business software designed for your operational needs.",
+  title: "Google Gemini AI Development & LLM Systems | Jayant",
+  description: "Harness Google Gemini LLMs for multimodal AI applications, long-context document analysis, retrieval-augmented generation, and automated business agents.",
   alternates: {
     canonical: "/technologies/google-gemini-development",
     languages: {
@@ -10,7 +10,21 @@ export const metadata: Metadata = {
       "hi-IN": "/hi/technologies/google-gemini-development",
     },
   },
+  openGraph: {
+    title: "Google Gemini AI Development & LLM Systems | Jayant",
+    description: "Harness Google Gemini LLMs for multimodal AI applications, long-context document analysis, retrieval-augmented generation, and automated business agents.",
+    url: "https://jayant-systems.online/technologies/google-gemini-development",
+    siteName: "Jayant Web & AI Systems",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Google Gemini AI Development & LLM Systems | Jayant",
+    description: "Harness Google Gemini LLMs for multimodal AI applications, long-context document analysis, retrieval-augmented generation, and automated business agents.",
+  },
 };
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
