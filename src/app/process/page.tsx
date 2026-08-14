@@ -160,9 +160,9 @@ export default function ProcessPage() {
             </div>
 
             {/* Stepper horizontal line */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 relative">
+            <ol className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 relative list-none p-0 m-0">
               {steps.map((step, idx) => (
-                <div key={step.id} className="flex flex-col items-center text-center relative group">
+                <li key={step.id} className="flex flex-col items-center text-center relative group">
                   <div className="relative z-10 size-14 rounded-full border border-border-custom bg-card-bg shadow-sm flex items-center justify-center mb-4 text-primary">
                     {step.icon}
                   </div>
@@ -176,9 +176,9 @@ export default function ProcessPage() {
                     <h5 className="font-serif text-xs md:text-sm font-bold text-text-base leading-none mt-1">{step.name}</h5>
                     <p className="text-[10px] md:text-xs text-text-muted leading-tight mt-2 px-1">{step.desc}</p>
                   </div>
-                </div>
+                </li>
               ))}
-            </div>
+            </ol>
           </section>
 
           {/* Methodology Split Section */}
@@ -197,14 +197,14 @@ export default function ProcessPage() {
                   We follow agile methodologies and modern development practices to deliver solutions that are flexible, efficient, and future-ready.
                 </p>
 
-                <div className="space-y-3">
+                <ul className="space-y-3 list-none p-0 m-0">
                   {methodologyCheckmarks.map((item) => (
-                    <div key={item} className="flex items-center gap-2.5 text-xs text-text-muted">
+                    <li key={item} className="flex items-center gap-2.5 text-xs text-text-muted">
                       <Check className="size-4 text-primary shrink-0" />
                       <span>{item}</span>
-                    </div>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
 
               {/* Right Column: Cards */}

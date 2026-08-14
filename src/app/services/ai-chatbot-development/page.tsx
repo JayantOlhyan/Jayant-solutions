@@ -263,9 +263,9 @@ export default function AIChatbotDevelopmentPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 relative">
+            <ol className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 relative list-none p-0 m-0">
               {steps.map((step, idx) => (
-                <div key={step.id} className="flex flex-col items-center text-center relative group">
+                <li key={step.id} className="flex flex-col items-center text-center relative group">
                   <div className="relative z-10 size-14 rounded-full border border-border-custom bg-card-bg shadow-sm flex items-center justify-center mb-4 text-primary">
                     {step.icon}
                   </div>
@@ -279,8 +279,66 @@ export default function AIChatbotDevelopmentPage() {
                     <h5 className="font-serif text-xs md:text-sm font-bold text-text-base leading-none mt-1">{step.name}</h5>
                     <p className="text-[10px] md:text-xs text-text-muted leading-tight mt-2 px-1">{step.desc}</p>
                   </div>
-                </div>
+                </li>
               ))}
+            </ol>
+          </section>
+
+          {/* Direct Answer AEO Questions Section */}
+          <section className="py-8 relative border-t border-border-custom/30 pt-16">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <span className="font-mono text-[10px] tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-2.5 py-0.5 rounded-full mb-2 inline-block">
+                FREQUENTLY ASKED QUESTIONS
+              </span>
+              <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
+                Common AI Chatbot Questions Answered
+              </h2>
+            </div>
+
+            <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+              <div className="hog-card rounded-3xl p-6 border border-border-custom bg-card-bg/40 flex flex-col justify-between">
+                <div>
+                  <h3 className="font-serif text-base font-bold text-text-base mb-3">
+                    What is custom AI chatbot development?
+                  </h3>
+                  <p className="text-xs md:text-sm text-text-muted leading-relaxed">
+                    Custom AI chatbot development is the engineering of tailored conversational agents trained securely on your company’s internal documents, knowledge bases, and API workflows. Unlike generic templates, custom chatbots integrate directly with your databases and CRMs to automate customer inquiries and qualify sales leads 24/7.
+                  </p>
+                </div>
+              </div>
+
+              <div className="hog-card rounded-3xl p-6 border border-border-custom bg-card-bg/40 flex flex-col justify-between">
+                <div>
+                  <h3 className="font-serif text-base font-bold text-text-base mb-3">
+                    How much does it cost to build a custom AI chatbot?
+                  </h3>
+                  <p className="text-xs md:text-sm text-text-muted leading-relaxed">
+                    Custom AI chatbot development typically ranges from ₹40,000 for foundational website assistants to ₹2,00,000 for complete AI business systems with multi-channel WhatsApp and CRM sync. Costs depend on training data volume, vector database architecture, custom API actions, and security compliance requirements.
+                  </p>
+                </div>
+              </div>
+
+              <div className="hog-card rounded-3xl p-6 border border-border-custom bg-card-bg/40 flex flex-col justify-between">
+                <div>
+                  <h3 className="font-serif text-base font-bold text-text-base mb-3">
+                    How long does it take to deploy an AI chatbot for business?
+                  </h3>
+                  <p className="text-xs md:text-sm text-text-muted leading-relaxed">
+                    A streamlined custom AI chatbot MVP is typically engineered, tested, and deployed to production within 1 to 3 weeks. Complex enterprise deployments with live multi-tier API integrations and custom fine-tuning usually take 3 to 6 weeks, following our structured milestone development process.
+                  </p>
+                </div>
+              </div>
+
+              <div className="hog-card rounded-3xl p-6 border border-border-custom bg-card-bg/40 flex flex-col justify-between">
+                <div>
+                  <h3 className="font-serif text-base font-bold text-text-base mb-3">
+                    Can the chatbot integrate with WhatsApp and internal CRMs?
+                  </h3>
+                  <p className="text-xs md:text-sm text-text-muted leading-relaxed">
+                    Yes. We build omni-channel conversational integrations connecting your AI agent to WhatsApp Business API, Telegram, Slack, and your internal CRM platforms. Conversations trigger live webhook routines, updating customer records and alerting your team in real time when high-intent leads are captured.
+                  </p>
+                </div>
+              </div>
             </div>
           </section>
 

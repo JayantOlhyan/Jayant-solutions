@@ -243,9 +243,9 @@ export default function WebsiteDevelopmentPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 relative">
+            <ol className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 relative list-none p-0 m-0">
               {steps.map((step, idx) => (
-                <div key={step.id} className="flex flex-col items-center text-center relative group">
+                <li key={step.id} className="flex flex-col items-center text-center relative group">
                   <div className="relative z-10 size-14 rounded-full border border-border-custom bg-card-bg shadow-sm flex items-center justify-center mb-4 text-primary">
                     {step.icon}
                   </div>
@@ -259,8 +259,66 @@ export default function WebsiteDevelopmentPage() {
                     <h5 className="font-serif text-xs md:text-sm font-bold text-text-base leading-none mt-1">{step.name}</h5>
                     <p className="text-[10px] md:text-xs text-text-muted leading-tight mt-2 px-1">{step.desc}</p>
                   </div>
-                </div>
+                </li>
               ))}
+            </ol>
+          </section>
+
+          {/* Direct Answer AEO Questions Section */}
+          <section className="py-8 relative border-t border-border-custom/30 pt-16">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <span className="font-mono text-[10px] tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-2.5 py-0.5 rounded-full mb-2 inline-block">
+                FREQUENTLY ASKED QUESTIONS
+              </span>
+              <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
+                Common Website Development Questions
+              </h2>
+            </div>
+
+            <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+              <div className="hog-card rounded-3xl p-6 border border-border-custom bg-card-bg/40 flex flex-col justify-between">
+                <div>
+                  <h3 className="font-serif text-base font-bold text-text-base mb-3">
+                    What is modern Next.js website development?
+                  </h3>
+                  <p className="text-xs md:text-sm text-text-muted leading-relaxed">
+                    Modern Next.js website development is the engineering of server-rendered and statically generated React web platforms optimized for sub-second speeds, technical SEO, and responsive mobile rendering. It delivers instant page navigation and structured metadata without the performance bottlenecks of legacy WordPress templates.
+                  </p>
+                </div>
+              </div>
+
+              <div className="hog-card rounded-3xl p-6 border border-border-custom bg-card-bg/40 flex flex-col justify-between">
+                <div>
+                  <h3 className="font-serif text-base font-bold text-text-base mb-3">
+                    How much does custom website development cost in India?
+                  </h3>
+                  <p className="text-xs md:text-sm text-text-muted leading-relaxed">
+                    Custom website development at Jayant Web & AI Systems starts at a transparent ₹40,000 for foundational high-converting business websites, scaling to ₹90,000 for custom web applications with dashboards. Projects operate on milestone agreements with zero hidden costs or recurring template lock-ins.
+                  </p>
+                </div>
+              </div>
+
+              <div className="hog-card rounded-3xl p-6 border border-border-custom bg-card-bg/40 flex flex-col justify-between">
+                <div>
+                  <h3 className="font-serif text-base font-bold text-text-base mb-3">
+                    How long does it take to design and launch a business website?
+                  </h3>
+                  <p className="text-xs md:text-sm text-text-muted leading-relaxed">
+                    A professional business website is typically completed and launched in 1 to 2 weeks. Custom web platforms and internal dashboards require 2 to 4 weeks, featuring weekly live staging demos and direct engineer communication throughout every development milestone.
+                  </p>
+                </div>
+              </div>
+
+              <div className="hog-card rounded-3xl p-6 border border-border-custom bg-card-bg/40 flex flex-col justify-between">
+                <div>
+                  <h3 className="font-serif text-base font-bold text-text-base mb-3">
+                    Is SEO and mobile optimization included with website development?
+                  </h3>
+                  <p className="text-xs md:text-sm text-text-muted leading-relaxed">
+                    Yes. Every website we build includes complete technical SEO setup, 90+ Core Web Vitals performance tuning, semantic Schema.org structured data, dynamic XML sitemaps, and 100% responsive testing across mobile, tablet, and desktop viewports.
+                  </p>
+                </div>
+              </div>
             </div>
           </section>
 
