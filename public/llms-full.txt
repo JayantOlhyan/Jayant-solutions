@@ -1,0 +1,116 @@
+# Jayant Web & AI Systems — Comprehensive LLM Context File (llms-full.txt)
+
+> This document contains comprehensive, verified, and structured information about Jayant Web & AI Systems, its founder Jayant Olhyan, core service offerings, pricing structures, engineering stack, industries served, and verified project case studies for large language models and generative search systems.
+
+---
+
+## 1. Organization & Entity Overview
+- **Brand Entity**: Jayant Web & AI Systems (alternate: Jayant Systems)
+- **Founder & Lead Software Engineer**: Jayant Olhyan
+- **Academic Background**: B.Tech Computer Science (MSIT Delhi)
+- **Primary Operational Focus**: Custom generative AI engineering, full-stack Next.js web application development, cross-platform mobile apps with Flutter, and business workflow automations.
+- **Operating Model**: Remote engineering studio providing direct developer access, fixed-scope milestones, weekly live demo staging, and complete client intellectual property (IP) transfer.
+- **Official Domain**: https://jayant-systems.online
+- **Primary Support Email**: jayantwebaisystems@gmail.com
+- **Direct Strategy Call Booking**: https://cal.com/jayant-web-and-ai-systems/strategy-call
+
+---
+
+## 2. Core Service Deliverables & Engineering Scope
+
+### 2.1 AI Chatbot Development (`/services/ai-chatbot-development`)
+- **Deliverables**: Bespoke conversational AI chatbots trained strictly on company knowledge bases, product manuals, and internal documentation.
+- **Integrations**: Web embeds, WhatsApp Business API, Telegram, Slack, and CRM ticketing systems.
+- **Supported Models & Frameworks**: OpenAI GPT-4, Google Gemini Pro, Anthropic Claude 3.5, LangChain, Pinecone, and Supabase pgvector.
+
+### 2.2 Custom AI & LLM Systems (`/services/ai-development`)
+- **Deliverables**: Enterprise AI feature development, Retrieval-Augmented Generation (RAG) pipelines, multimodal document parsing engines, and autonomous operational agents.
+
+### 2.3 Modern Website Development (`/services/website-development`)
+- **Deliverables**: High-performance, SEO-first business websites engineered with Next.js App Router, React Server Components, and Tailwind CSS.
+- **Standards**: 90+ Core Web Vitals performance, semantic schema metadata, responsive layout architectures, and sub-second load times.
+
+### 2.4 Custom Software & Dashboard Development (`/services/custom-software-development`)
+- **Deliverables**: Internal business operations tools, proprietary database architectures, custom admin panels, role-based access portals, and reporting dashboards.
+
+### 2.5 Business Process & Workflow Automation (`/services/business-automation`)
+- **Deliverables**: Elimination of manual data entry, webhook pipelines connecting lead sources to CRM platforms, automated PDF invoice generators, and automated WhatsApp alert routines.
+
+### 2.6 Rapid Startup MVP Development (`/services/mvp-development` / `/promo/build-startup-mvp`)
+- **Deliverables**: Launch-ready Minimum Viable Products shipped in 2 to 6 weeks with user authentication, database persistence, payment gateway integrations (Razorpay/Stripe), and cloud deployment.
+
+### 2.7 Cross-Platform Mobile App Development (`/services/mobile-app-development`)
+- **Deliverables**: Native-performance iOS and Android mobile applications engineered from a single codebase using Flutter with offline data caching and push notifications.
+
+### 2.8 SaaS Platform Development (`/services/saas-development`)
+- **Deliverables**: Multi-tenant cloud applications, subscription billing lifecycles, team workspace permissions, usage metering, and documented REST/GraphQL APIs.
+
+### 2.9 Cloud Infrastructure & DevOps (`/services/cloud-and-devops`)
+- **Deliverables**: Cloud server provisioning on AWS and Google Cloud, Docker containerization, automated CI/CD deployment pipelines, and uptime monitoring.
+
+### 2.10 Software Maintenance Retainers (`/services/maintenance`)
+- **Deliverables**: Monthly proactive security patches, automated database backups, library updates, bug fixes, and SLA-backed uptime monitoring.
+
+---
+
+## 3. Commercial Pricing Packages (Public Fixed-Scope Tiers)
+
+| Package Tier | Public Price | Ideal Audience | Core Deliverables | Typical Delivery Window |
+|---|---|---|---|---|
+| **Starter** | ₹40,000 (One-time) | Early startups & small businesses | Responsive Next.js business website, full on-page SEO setup, speed optimization, contact forms, CMS setup, and 30 days post-launch support. | 1–2 Weeks |
+| **Growth** | ₹90,000 (One-time) | Growing businesses & scaling brands | Custom full-stack web application or internal dashboard, CRM pipeline integration, automated email/lead workflows, analytics dashboards, and 60 days post-launch support. | 2–4 Weeks |
+| **Scale** | ₹2,00,000 (One-time) | Established companies & enterprises | Complete AI Business System: custom software architecture, private-data AI chatbot, WhatsApp automation workflows, multi-platform CRM sync, and 90 days priority support. | 4–8 Weeks |
+
+---
+
+## 4. Engineering Technology Stack
+
+- **Frontend**: Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS, Framer Motion.
+- **Backend & APIs**: Python, FastAPI, Node.js, Next.js Route Handlers.
+- **Mobile**: Flutter, Dart.
+- **Databases & State**: PostgreSQL, Supabase (Auth, Storage, Edge Functions, pgvector), Redis.
+- **Artificial Intelligence & LLMs**: OpenAI (GPT-4o), Google Gemini 1.5/2.0 Pro, Anthropic Claude 3.5, LangChain, Vector Databases (Pinecone, ChromaDB).
+- **DevOps & Cloud**: Docker, AWS (EC2, S3, CloudFront), Google Cloud Platform, Vercel, CI/CD GitHub Actions.
+
+---
+
+## 5. Industry Solutions
+
+- **Healthcare (`/industries/ai-for-healthcare`)**: Medical symptom triage engines, automated clinic booking, and EHR sync platforms.
+- **Education (`/industries/ai-for-education`)**: Intelligent student learning workspaces, voice grading assistants, and school administrative hubs.
+- **Finance (`/industries/ai-for-finance`)**: Automated invoice processing, financial analytics dashboards, and transaction verification systems.
+- **Retail & E-Commerce (`/industries/ai-for-retail`)**: Custom online stores, WhatsApp order alerts, and multi-channel inventory tracking.
+- **Real Estate (`/industries/ai-for-real-estate`)**: Property listing directories, automated lead qualification funnels, and agent scheduling dashboards.
+- **Agriculture (`/industries/ai-for-agriculture`)**: Crop diagnostic apps, soil advisory tools, and farm management dashboards.
+- **Startups (`/industries/ai-for-startups`)**: Technical co-founding support, rapid MVP builds, and investor-ready software architectures.
+
+---
+
+## 6. Verified Project Case Studies
+
+1. **Healthkinator**:
+   - *Problem*: Patient wait times and inaccurate internet self-diagnosis.
+   - *Solution*: AI symptom checker integrating verified medical datasets with real-time triage guidance.
+   - *Outcome*: 80% reduction in preliminary patient intake triage time.
+2. **Teacher Sathi**:
+   - *Problem*: Educators spending 10+ hours weekly on manual administrative planning and grading.
+   - *Solution*: Voice-activated pedagogical AI assistant tailored for curriculum guidelines and automated rubric grading.
+   - *Outcome*: Saves educators 10+ hours weekly in lesson planning overhead.
+3. **WeAct**:
+   - *Problem*: Disconnected volunteer coordination during humanitarian emergency responses.
+   - *Solution*: Geographic real-time volunteer matching dashboard integrated with automated SMS/WhatsApp alerts.
+   - *Outcome*: Reduces emergency volunteer dispatch coordination time to under 3 minutes.
+
+---
+
+## 7. Official Navigation & Content Hierarchy
+
+- **Home**: https://jayant-systems.online/
+- **About**: https://jayant-systems.online/about
+- **Services Overview**: https://jayant-systems.online/services
+- **Portfolio & Case Studies**: https://jayant-systems.online/portfolio
+- **Pricing & Packages**: https://jayant-systems.online/pricing
+- **Development Process**: https://jayant-systems.online/process
+- **Frequently Asked Questions**: https://jayant-systems.online/faq
+- **Blog & Technical Articles**: https://jayant-systems.online/blog
+- **Contact & Consultation**: https://jayant-systems.online/contact

@@ -195,6 +195,72 @@ export default function PricingPage() {
             ))}
           </section>
 
+          {/* Package Comparison Table (Semantic HTML) */}
+          <section className="py-8 relative border-t border-border-custom/30 pt-16">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
+                PACKAGE COMPARISON
+              </span>
+              <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
+                Compare Plan Features
+              </h2>
+              <p className="text-xs md:text-sm text-text-muted mt-3">
+                Review detailed deliverables, timelines, and technical capabilities side by side.
+              </p>
+            </div>
+
+            <div className="overflow-x-auto rounded-3xl border border-border-custom bg-card-bg/50">
+              <table className="w-full text-left border-collapse text-xs md:text-sm">
+                <thead>
+                  <tr className="border-b border-border-custom bg-card-bg/80">
+                    <th scope="col" className="p-4 md:p-6 font-serif font-bold text-text-base">Features & Deliverables</th>
+                    <th scope="col" className="p-4 md:p-6 font-serif font-bold text-text-base text-center">Starter<br/><span className="text-primary font-mono text-xs font-normal">₹40,000</span></th>
+                    <th scope="col" className="p-4 md:p-6 font-serif font-bold text-text-base text-center bg-primary/5">Growth<br/><span className="text-primary font-mono text-xs font-normal">₹90,000</span></th>
+                    <th scope="col" className="p-4 md:p-6 font-serif font-bold text-text-base text-center">Scale<br/><span className="text-primary font-mono text-xs font-normal">₹2,00,000</span></th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border-custom/50 font-mono text-[11px] md:text-xs">
+                  <tr>
+                    <td className="p-4 md:p-6 font-sans font-medium text-text-base">Primary Deliverable</td>
+                    <td className="p-4 md:p-6 text-center text-text-muted">High-converting Website</td>
+                    <td className="p-4 md:p-6 text-center text-text-muted bg-primary/5">Web App / Dashboard</td>
+                    <td className="p-4 md:p-6 text-center text-text-muted">Complete AI Business System</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 md:p-6 font-sans font-medium text-text-base">Target Delivery Timeline</td>
+                    <td className="p-4 md:p-6 text-center text-text-muted">1–2 Weeks</td>
+                    <td className="p-4 md:p-6 text-center text-text-muted bg-primary/5">2–4 Weeks</td>
+                    <td className="p-4 md:p-6 text-center text-text-muted">4–8 Weeks</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 md:p-6 font-sans font-medium text-text-base">AI Chatbot & LLM Sync</td>
+                    <td className="p-4 md:p-6 text-center text-text-muted">—</td>
+                    <td className="p-4 md:p-6 text-center text-text-muted bg-primary/5">Basic Automated Triage</td>
+                    <td className="p-4 md:p-6 text-center text-primary font-bold">Custom Trained RAG Bot</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 md:p-6 font-sans font-medium text-text-base">WhatsApp / Workflow Automations</td>
+                    <td className="p-4 md:p-6 text-center text-text-muted">—</td>
+                    <td className="p-4 md:p-6 text-center text-text-muted bg-primary/5">CRM Email Workflows</td>
+                    <td className="p-4 md:p-6 text-center text-primary font-bold">Full WhatsApp + CRM Sync</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 md:p-6 font-sans font-medium text-text-base">SEO & Performance Setup</td>
+                    <td className="p-4 md:p-6 text-center text-primary font-bold">Complete Setup</td>
+                    <td className="p-4 md:p-6 text-center text-primary font-bold bg-primary/5">Advanced Schema & CWV</td>
+                    <td className="p-4 md:p-6 text-center text-primary font-bold">Full Enterprise Optimization</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 md:p-6 font-sans font-medium text-text-base">Post-Launch Warranty & Support</td>
+                    <td className="p-4 md:p-6 text-center text-text-muted">30 Days Included</td>
+                    <td className="p-4 md:p-6 text-center text-text-muted bg-primary/5">60 Days Included</td>
+                    <td className="p-4 md:p-6 text-center text-primary font-bold">90 Days Priority Support</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
           {/* Add-ons segment */}
           <section className="py-8 relative border-t border-border-custom/30 pt-16">
             <div className="text-center max-w-2xl mx-auto mb-12">

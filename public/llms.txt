@@ -1,23 +1,33 @@
 # Jayant Web & AI Systems
 
-Jayant Web & AI Systems builds intelligent software, AI-powered solutions, and high-performance digital products to help businesses automate, innovate, and grow.
+> Full-stack software engineering and AI systems development practice founded by Jayant Olhyan. We design and build custom web platforms, generative AI applications, intelligent chatbots, and automated business workflows for startups and growing enterprises.
+
+## Canonical Entity Information
+- Brand Name: Jayant Web & AI Systems
+- Founder & Lead Engineer: Jayant Olhyan
+- Website: https://jayant-systems.online
+- Contact Email: jayantwebaisystems@gmail.com
+- Strategy Consultation: https://cal.com/jayant-web-and-ai-systems/strategy-call
+- Full Context & Documentation: https://jayant-systems.online/llms-full.txt
 
 ## Core Services
-- [AI Chatbot & LLM Development](/services/ai-chatbot-development)
-- [AI Development](/services/ai-development)
-- [Custom Software Development](/services/custom-software-development)
-- [Website Development](/services/website-development)
-- [Mobile App Development](/services/mobile-app-development)
-- [API Development](/services/api-development)
-- [Cloud & DevOps](/services/cloud-and-devops)
-- [SaaS Development](/services/saas-development)
-- [MVP Development](/services/mvp-development)
+- [AI Chatbot Development](https://jayant-systems.online/services/ai-chatbot-development): Custom conversational agents, RAG pipelines, and multi-channel support bots.
+- [Custom AI Development](https://jayant-systems.online/services/ai-development): Enterprise LLM integrations, document analysis, and autonomous workflow agents.
+- [Website Development](https://jayant-systems.online/services/website-development): High-performance, SEO-optimized business websites built with Next.js and Tailwind CSS.
+- [Custom Software Development](https://jayant-systems.online/services/custom-software-development): Bespoke web applications, proprietary databases, and internal operational dashboards.
+- [Business Automation](https://jayant-systems.online/services/business-automation): End-to-end workflow automations, WhatsApp Business API integrations, and CRM syncing.
+- [Rapid MVP Development](https://jayant-systems.online/services/mvp-development): Turn startup concepts into launch-ready MVPs in 2 to 6 weeks.
+- [Mobile App Development](https://jayant-systems.online/services/mobile-app-development): Cross-platform iOS and Android mobile apps engineered with Flutter.
+- [SaaS Development](https://jayant-systems.online/services/saas-development): Multi-tenant web architectures, subscription billing, and modular APIs.
+- [Cloud & DevOps](https://jayant-systems.online/services/cloud-and-devops): Scalable cloud architectures on AWS and Google Cloud with Docker and CI/CD pipelines.
+- [Software Maintenance](https://jayant-systems.online/services/maintenance): Retainers for 24/7 uptime monitoring, security patching, and bug fixes.
 
-## Primary Site Map
-- [Home Page](https://jayant-systems.online/)
-- [Services Overview](https://jayant-systems.online/services)
-- [Case Studies & Portfolio](https://jayant-systems.online/portfolio)
-- [Development Process](https://jayant-systems.online/process)
-- [Pricing Plans](https://jayant-systems.online/pricing)
-- [Blog](https://jayant-systems.online/blog)
-- [Contact & Booking](https://jayant-systems.online/contact)
+## Pricing Tiers (Public Fixed-Scope Packages)
+- **Starter Package** (₹40,000 one-time): High-converting responsive website, SEO setup, performance optimization, and lead form integrations.
+- **Growth Package** (₹90,000 one-time): Custom web application or dashboard, CRM pipeline integration, and automated lead follow-ups.
+- **Scale Package** (₹2,00,000 one-time): Complete AI Business System including custom software, company-trained AI chatbot, and WhatsApp automations.
+
+## Verified Portfolio Projects
+- **Healthkinator**: AI-driven clinical triage platform providing symptom tracking and medical insights.
+- **Teacher Sathi**: Pedagogical AI voice assistant automating grading rubrics and lesson planning for educators.
+- **WeAct**: Emergency disaster response dispatch portal connecting volunteer networks in real time.
