@@ -19,7 +19,7 @@ export default function ProposalFooter({ clientSlug, clientName }: ProposalFoote
           
           {/* Col 1: Brand & Confidential Notice (6 cols) */}
           <div className="md:col-span-6 flex flex-col items-start gap-4">
-            <Link href="/" className="flex items-center gap-3 group">
+            <Link href={`/proposal/${clientSlug}`} className="flex items-center gap-3 group">
               <div className="size-9 rounded-lg bg-[#0E1424] border border-[#2A344A] flex items-center justify-center text-[#C5A880]">
                 <svg viewBox="0 0 200 200" className="w-5 h-5">
                   <rect x="10" y="10" width="180" height="180" rx="42" fill="none" stroke="currentColor" strokeWidth="16" />
@@ -66,23 +66,31 @@ export default function ProposalFooter({ clientSlug, clientName }: ProposalFoote
             </ul>
           </div>
 
-          {/* Col 3: Agency Reference (3 cols) */}
+          {/* Col 3: Contact & Support (3 cols) */}
           <div className="md:col-span-3 flex flex-col gap-3">
             <span className="text-xs font-mono font-semibold text-[#C5A880] uppercase tracking-wider block mb-1">
-              Agency Reference
+              Contact & Support
             </span>
             <ul className="space-y-2.5 text-xs text-[#FAF7EE]/90">
               <li>
-                <Link href="/" target="_blank" className="hover:text-[#C5A880] transition-colors inline-flex items-center gap-1">
-                  <span>Agency Website</span>
+                <a
+                  href="mailto:jayantwebaisystems@gmail.com"
+                  className="hover:text-[#C5A880] transition-colors inline-flex items-center gap-1"
+                >
+                  <span>Email Support</span>
                   <ExternalLink className="size-3 text-[#C5A880]" />
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/contact" target="_blank" className="hover:text-[#C5A880] transition-colors inline-flex items-center gap-1">
-                  <span>Direct Communication</span>
+                <a
+                  href="https://wa.me/919667344125?text=Hi%20Jayant,%20I'm%20reviewing%20the%20private%20proposal%20and%20had%20some%20questions."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#C5A880] transition-colors inline-flex items-center gap-1"
+                >
+                  <span>WhatsApp Chat</span>
                   <ExternalLink className="size-3 text-[#C5A880]" />
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

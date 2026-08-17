@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowRight, ExternalLink, Menu, X } from "lucide-react";
+import { ExternalLink, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface ProposalNavbarProps {
@@ -32,7 +32,7 @@ export default function ProposalNavbar({
         
         {/* Left: Agency Monogram & Client Metadata */}
         <div className="flex items-center gap-3.5 shrink-0 text-left">
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href={`/proposal/${clientSlug}`} className="flex items-center gap-3 group">
             <div className="size-9 rounded-lg bg-[#121827] border border-[#2A344A] flex items-center justify-center text-[#C5A880] transition-colors group-hover:border-[#C5A880]">
               <svg viewBox="0 0 200 200" className="w-5 h-5">
                 <rect x="10" y="10" width="180" height="180" rx="42" fill="none" stroke="currentColor" strokeWidth="16" />
@@ -78,16 +78,17 @@ export default function ProposalNavbar({
           </Link>
         </div>
 
-        {/* Right: Back to Agency ↗ */}
+        {/* Right: Contact Support */}
         <div className="hidden sm:flex items-center gap-4 text-xs font-sans">
-          <Link
-            href="/"
+          <a
+            href="https://wa.me/919667344125?text=Hi%20Jayant,%20I'm%20reviewing%20the%20private%20proposal%20and%20had%20some%20questions."
             target="_blank"
+            rel="noopener noreferrer"
             className="text-[#A0A8B8] hover:text-[#FAF7EE] transition-colors inline-flex items-center gap-1.5 py-1.5 px-3 rounded-md hover:bg-[#121827]"
           >
-            <span>Back to Agency</span>
+            <span>Contact Support</span>
             <ExternalLink className="size-3.5 text-[#C5A880]" />
-          </Link>
+          </a>
         </div>
 
         {/* Mobile menu toggle button */}
@@ -166,15 +167,16 @@ export default function ProposalNavbar({
             )}
 
             <div className="pt-3 border-t border-[#1E2638]">
-              <Link
-                href="/"
+              <a
+                href="https://wa.me/919667344125?text=Hi%20Jayant,%20I'm%20reviewing%20the%20private%20proposal%20and%20had%20some%20questions."
                 target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-3 rounded-lg bg-[#0E1424] text-[#FAF7EE] border border-[#1E2638] flex items-center justify-between text-xs"
+                className="p-3 rounded-lg bg-[#0E1424] text-[#FAF7EE] border border-[#1E2638] flex items-center justify-between text-xs font-sans"
               >
-                <span>Back to Agency</span>
+                <span>Contact Support</span>
                 <ExternalLink className="size-4 text-[#C5A880]" />
-              </Link>
+              </a>
             </div>
           </motion.div>
         )}
