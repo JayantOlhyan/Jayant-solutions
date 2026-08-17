@@ -193,14 +193,21 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
                   </span>
                   <ul className="space-y-2.5">
                     {[
-                      "Personal-brand positioning",
-                      "Instagram profile setup and optimisation",
-                      "Content strategy",
-                      "8 short-form videos per month",
-                      "Captions and publishing guidance",
-                      "Basic content calendar",
-                      "Basic enquiry pathway",
-                      "Monthly performance review"
+                      "Personal brand positioning",
+                      "Profile/bio optimisation",
+                      "Instagram setup/optimisation",
+                      "Booking link setup",
+                      "Contact/enquiry pathway",
+                      "Initial audience research",
+                      "Content-pillar strategy",
+                      "8 short-form videos/month",
+                      "Script outlines & monthly planning",
+                      "Captions/copy for posts",
+                      "Basic video editing & graphic assets",
+                      "Publishing calendar",
+                      "One monthly recording session",
+                      "Basic DM / call-to-action structure",
+                      "Basic monthly report & reviews"
                     ].map((item, idx) => (
                       <li key={idx} className="text-xs text-[#D0D6E2] flex items-start gap-2.5 font-light leading-snug">
                         <Check className="size-3.5 text-[#C5A880] shrink-0 mt-0.5" />
@@ -216,13 +223,13 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
                   </span>
                   <ul className="space-y-2">
                     {[
-                      "Active outbound prospecting",
-                      "Prospect qualification management",
+                      "Outbound prospecting",
+                      "Advanced lead qualification",
                       "Appointment-setting management",
-                      "Follow-up management",
-                      "Advanced reporting",
-                      "Multi-channel growth",
-                      "Intensive audience development"
+                      "Active follow-up management",
+                      "Multichannel distribution",
+                      "Priority turnaround",
+                      "Weekly strategy calls"
                     ].map((item, idx) => (
                       <li key={idx} className="text-xs text-[#6B758B] flex items-start gap-2.5 font-light leading-snug">
                         <span className="text-[#4A556B] shrink-0 font-mono text-sm leading-none">&mdash;</span>
@@ -258,8 +265,8 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
           <div 
             className="rounded-2xl p-8 sm:p-9 bg-[#101A32] border-2 border-[#C5A880] flex flex-col justify-between relative transition-all duration-200 lg:-translate-y-2 shadow-2xl"
           >
-            <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 font-mono text-[10px] tracking-widest uppercase text-[#080C16] bg-[#C5A880] px-4 py-1 rounded-full font-bold">
-              MOST RECOMMENDED
+            <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 font-mono text-[9px] tracking-widest uppercase text-[#080C16] bg-[#C5A880] px-4 py-1.5 rounded-full font-bold">
+              RECOMMENDED FOR MOST CLIENTS
             </span>
 
             <div>
@@ -294,17 +301,19 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
                   <ul className="space-y-2.5">
                     {[
                       "20 short-form videos per month",
-                      "Professional content production",
-                      "Full personal-brand content system",
-                      "Audience development",
-                      "Enquiry handling support",
-                      "Serious-prospect qualification support",
-                      "Appointment-setting process",
-                      "Follow-up support",
-                      "Performance reporting",
-                      "Monthly strategy review",
-                      "Ongoing optimisation",
-                      "Full 90-day acquisition roadmap"
+                      "1-2 recording sessions per month",
+                      "Up to 2 content revisions per asset",
+                      "2-3 publishing platforms",
+                      "Professional editing & motion graphics treatment",
+                      "Advanced scripting & captions",
+                      "Topic/format testing & audience growth strategy",
+                      "Structured qualification questions & criteria",
+                      "Lead categorization & prospect tracking database",
+                      "Booking workflow & scheduling management",
+                      "Confirmation & reminder flows",
+                      "Follow-up templates & track cadence",
+                      "Full monthly reporting & reviews",
+                      "Bi-weekly performance updates"
                     ].map((item, idx) => (
                       <li key={idx} className="text-xs text-[#FAF7EE] flex items-start gap-2.5 font-light leading-snug">
                         <Check className="size-3.5 text-[#C5A880] shrink-0 mt-0.5" />
@@ -372,19 +381,18 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
                   <ul className="space-y-2.5">
                     {[
                       "30 short-form videos per month",
-                      "Higher-touch creative direction",
-                      "More intensive personal-brand production",
-                      "Multi-channel content distribution",
-                      "Active outbound prospecting",
-                      "Priority enquiry management",
-                      "More intensive meeting-setting support",
-                      "Weekly strategy review",
-                      "Advanced performance analysis",
-                      "Conversion-path optimisation",
-                      "Additional campaign testing",
-                      "Quarterly growth strategy",
-                      "Priority turnaround",
-                      "Dedicated content / strategy days"
+                      "2 recording sessions per month",
+                      "2 revisions + priority revision handling per asset",
+                      "3+ agreed publishing platforms",
+                      "Outbound prospecting (up to 100 qualified prospects/mo)",
+                      "Follow-up (up to 3 touches per qualified prospect)",
+                      "Lead qualification (up to 100 active prospects/mo)",
+                      "Appointment setting (management of meeting requests)",
+                      "High-touch editing & advanced motion graphics",
+                      "Priority content requests & turnaround",
+                      "Multi-platform distribution & audience growth",
+                      "Weekly strategy review & conversion analysis",
+                      "Funnel optimisation & scaling recommendations"
                     ].map((item, idx) => (
                       <li key={idx} className="text-xs text-[#D0D6E2] flex items-start gap-2.5 font-light leading-snug">
                         <Check className="size-3.5 text-[#C5A880] shrink-0 mt-0.5" />
@@ -429,7 +437,7 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
             </h2>
           </div>
 
-          <div className="overflow-x-auto rounded-xl border border-[#1E2638] bg-[#0D1322]">
+          <div className="overflow-x-auto rounded-xl border border-[#1E2638] bg-[#0D1322] mb-8">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
                 <tr className="border-b border-[#1E2638] bg-[#121827] text-[#FAF7EE] font-mono">
@@ -444,19 +452,33 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
                   { feature: "Brand positioning", f: "✓", g: "✓", s: "✓" },
                   { feature: "Instagram setup", f: "✓", g: "✓", s: "✓" },
                   { feature: "Content strategy", f: "✓", g: "✓", s: "✓" },
-                  { feature: "Short-form videos", f: "8/mo", g: "20/mo", s: "30/mo" },
+                  { feature: "Monthly short-form videos", f: "8", g: "20", s: "30" },
                   { feature: "Content production", f: "Basic", g: "Professional", s: "High-touch" },
+                  { feature: "Scriptwriting", f: "Basic", g: "Advanced", s: "Advanced" },
+                  { feature: "Caption / copywriting", f: "✓", g: "✓", s: "✓" },
+                  { feature: "Graphic / thumbnail assets", f: "Basic", g: "Professional", s: "High-touch" },
+                  { feature: "Publishing management", f: "✓", g: "✓", s: "✓" },
+                  { feature: "Content calendar", f: "✓", g: "✓", s: "✓" },
                   { feature: "Audience development", f: "—", g: "✓", s: "✓" },
                   { feature: "Enquiry support", f: "Basic", g: "✓", s: "Priority" },
-                  { feature: "Prospect qualification", f: "—", g: "✓", s: "Advanced" },
-                  { feature: "Appointment setting", f: "—", g: "✓", s: "Priority" },
-                  { feature: "Follow-up", f: "—", g: "✓", s: "Advanced" },
-                  { feature: "Outbound prospecting", f: "—", g: "—", s: "✓" },
-                  { feature: "Multi-channel distribution", f: "—", g: "—", s: "✓" },
+                  { feature: "Prospect qualification", f: "—", g: "✓", s: "Advanced (Up to 100/mo)" },
+                  { feature: "Appointment setting", f: "—", g: "✓", s: "Priority (Inbound/Outbound)" },
+                  { feature: "Follow-up", f: "—", g: "✓", s: "Advanced (Up to 3 touches)" },
+                  { feature: "Lead tracking / pipeline", f: "—", g: "✓", s: "✓" },
+                  { feature: "Outbound prospecting", f: "—", g: "—", s: "✓ (Up to 100/mo)" },
+                  { feature: "Multi-channel distribution", f: "—", g: "—", s: "✓ (3+ platforms)" },
                   { feature: "Reporting", f: "Basic", g: "Full", s: "Advanced" },
                   { feature: "Strategy reviews", f: "Monthly", g: "Monthly", s: "Weekly" },
                   { feature: "Optimisation", f: "Basic", g: "✓", s: "Advanced" },
-                  { feature: "Priority turnaround", f: "—", g: "—", s: "✓" }
+                  { feature: "Priority turnaround", f: "—", g: "—", s: "✓" },
+                  { feature: "Revisions per content asset", f: "1", g: "2", s: "2 + Priority" },
+                  { feature: "Recording sessions/month", f: "1", g: "1-2", s: "2+" },
+                  { feature: "Publishing platforms", f: "1", g: "2-3", s: "3+" },
+                  { feature: "Community management", f: "—", g: "Basic", s: "Advanced" },
+                  { feature: "WhatsApp workflow", f: "—", g: "✓", s: "Advanced" },
+                  { feature: "Email follow-up", f: "—", g: "Basic", s: "Advanced" },
+                  { feature: "CRM / lead sheet", f: "Basic", g: "✓", s: "Advanced" },
+                  { feature: "Performance dashboard", f: "Basic", g: "✓", s: "Advanced" }
                 ].map((row, idx) => (
                   <tr key={idx} className={idx % 2 === 0 ? "bg-[#080C16]/50" : "bg-transparent"}>
                     <td className="p-4 font-medium text-[#FAF7EE]">{row.feature}</td>
@@ -467,6 +489,56 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
                 ))}
               </tbody>
             </table>
+          </div>
+
+          {/* 3.5. Why the Packages Differ & Not Included List */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div className="p-8 rounded-2xl bg-[#0D1322] border border-[#1E2638] flex flex-col justify-between">
+              <div>
+                <span className="font-mono text-xs font-semibold text-[#C5A880] uppercase tracking-wider block mb-3">
+                  Why the packages differ
+                </span>
+                <h3 className="font-serif text-xl font-semibold text-[#FAF7EE] mb-3">Investment Difference</h3>
+                <p className="font-sans text-xs sm:text-sm text-[#B0B8C8] font-light leading-relaxed">
+                  The packages are not priced by content volume alone. Each tier increases the level of strategic execution, lead handling, business-development support and operational responsibility taken on by Jayant Web & AI Systems.
+                </p>
+              </div>
+              <div className="pt-4 border-t border-[#1E2638]/60 mt-4">
+                <p className="text-[11px] font-mono text-[#7A8499] leading-relaxed">
+                  &ldquo;Foundation builds the digital machine. Growth is where we operate the business-development layer around the content. Scale is where we take substantially more responsibility for the acquisition process.&rdquo;
+                </p>
+              </div>
+            </div>
+
+            <div className="p-8 rounded-2xl bg-[#0D1322] border border-[#1E2638]">
+              <span className="font-mono text-xs font-semibold text-red-400/80 uppercase tracking-wider block mb-3">
+                Not Included Unless Specifically Agreed
+              </span>
+              <h3 className="font-serif text-xl font-semibold text-[#FAF7EE] mb-3">Exclusions & Scope Limits</h3>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 text-xs text-[#B0B8C8] font-light mt-3">
+                {[
+                  "Paid advertising spend",
+                  "Influencer fees",
+                  "Travel/on-site filming expenses",
+                  "Third-party software subscriptions",
+                  "Paid prospect databases",
+                  "CRM subscription fees",
+                  "Platform verification fees",
+                  "External media/PR placement costs",
+                  "Website redevelopment beyond agreed scope",
+                  "Photography/travel production expenses",
+                  "Unplanned high-volume revisions",
+                  "Guaranteed lead volume",
+                  "Guaranteed revenue",
+                  "Guaranteed follower growth"
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-1.5 leading-snug">
+                    <span className="text-red-400 font-bold font-mono text-[9px] mt-0.5">&bull;</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </section>
 
@@ -498,16 +570,16 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
           <div className="p-8 rounded-2xl bg-[#0D1322] border border-[#1E2638] flex flex-col justify-between">
             <div>
               <span className="font-mono text-xs font-semibold text-[#C5A880] uppercase tracking-wider block mb-3">
-                DISBURSEMENTS & TAXES
+                TAXES & DISBURSEMENTS
               </span>
-              <h3 className="font-serif text-xl font-semibold text-[#FAF7EE] mb-3">Third-Party Costs</h3>
+              <h3 className="font-serif text-xl font-semibold text-[#FAF7EE] mb-3">Invoicing Treatment</h3>
               <p className="font-sans text-xs sm:text-sm text-[#B0B8C8] font-light leading-relaxed mb-4">
-                Third-party costs such as advertising spend, paid platforms, travel, external production expenses or other external services are not included unless explicitly agreed in writing.
+                All prices quoted are project rates for the 90-day engagement scope. Any applicable local taxes (e.g., GST) will be itemized on the final invoice as required.
               </p>
             </div>
             <div className="pt-4 border-t border-[#1E2638]">
               <span className="text-[11px] font-mono text-[#7A8499]">
-                Applicable taxes, if any, will be handled as required by the final invoice.
+                Terms: Selected package is locked for the 90-day execution period.
               </span>
             </div>
           </div>
