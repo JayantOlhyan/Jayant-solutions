@@ -27,6 +27,29 @@ interface ProposalContentProps {
 
 
 export default function ProposalContent({ clientSlug, clientName }: ProposalContentProps) {
+  // Startup welcome animation state
+  const [isStarting, setIsStarting] = useState(true);
+
+  useEffect(() => {
+    const hasLoadedBefore = sessionStorage.getItem("proposal-loaded");
+    if (hasLoadedBefore) {
+      Promise.resolve().then(() => setIsStarting(false));
+      return;
+    }
+
+    document.body.style.overflow = "hidden";
+    const timer = setTimeout(() => {
+      setIsStarting(false);
+      sessionStorage.setItem("proposal-loaded", "true");
+      document.body.style.overflow = "";
+    }, 2800);
+
+    return () => {
+      clearTimeout(timer);
+      document.body.style.overflow = "";
+    };
+  }, []);
+
   // Navigation states
   const [activeSection, setActiveSection] = useState("overview");
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -423,7 +446,73 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
 
 
   return (
-    <div className="proposal-page relative min-h-screen bg-[#070A13] text-slate-100 selection:bg-[#C5A880]/20 selection:text-[#C5A880] font-sans antialiased overflow-x-hidden">
+    <motion.div
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className="proposal-page relative min-h-screen bg-[#070A13] text-slate-100 selection:bg-[#C5A880]/20 selection:text-[#C5A880] font-sans antialiased overflow-x-hidden"
+    >
+      
+      {/* Startup welcome overlay */}
+      <AnimatePresence>
+        {isStarting && (
+          <motion.div
+            initial={{ opacity: 1 }}
+            exit={{ 
+              opacity: 0,
+              transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } 
+            }}
+            className="fixed inset-0 z-[9999] bg-[#070A13] flex flex-col items-center justify-center text-center px-6 selection:bg-transparent"
+          >
+            {/* Subtle background glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-[#C5A880]/10 rounded-full blur-[80px] pointer-events-none" />
+
+            <div className="relative space-y-6 max-w-lg z-10">
+              <motion.span
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
+                className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#C5A880] font-semibold block"
+              >
+                Confidential Client Space
+              </motion.span>
+
+              <motion.h1
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.6, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium text-slate-100 tracking-tight leading-tight"
+              >
+                Welcome to your<br className="hidden sm:inline" /> Private Proposal
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.6 }}
+                transition={{ delay: 1.1, duration: 0.6 }}
+                className="text-xs sm:text-sm text-slate-300 font-light font-sans tracking-wide"
+              >
+                Specially prepared for <strong className="text-[#C5A880] font-medium">{clientName}</strong>
+              </motion.p>
+
+              {/* Progress bar indicator */}
+              <div className="w-32 h-[1px] bg-slate-800 mx-auto relative overflow-hidden mt-8">
+                <motion.div
+                  initial={{ left: "-100%" }}
+                  animate={{ left: "100%" }}
+                  transition={{ 
+                    duration: 1.8, 
+                    delay: 0.5, 
+                    ease: "easeInOut",
+                    repeat: 0
+                  }}
+                  className="absolute top-0 bottom-0 w-1/2 bg-[#C5A880]"
+                />
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       
       {/* Scroll progress bar */}
       <div className="fixed top-20 left-0 right-0 h-[2px] bg-[#C5A880]/10 z-50">
@@ -1502,6 +1591,6 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
       {/* Footer copyright & site links */}
       <ProposalFooter clientSlug={clientSlug} clientName={clientName} />
 
-    </div>
+    </motion.div>
   );
 }

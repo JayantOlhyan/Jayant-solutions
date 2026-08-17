@@ -7,6 +7,7 @@ import {
   Calendar,
   Send
 } from "lucide-react";
+import { motion } from "framer-motion";
 import ProposalNavbar from "@/components/ProposalNavbar";
 import ProposalFooter from "@/components/ProposalFooter";
 
@@ -125,7 +126,12 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
   const currentPkg = packagesData[selectedPackage];
 
   return (
-    <div className="commercials-page relative min-h-screen bg-[#080C16] text-[#FAF7EE] font-sans antialiased selection:bg-[#C5A880]/20 selection:text-[#C5A880] overflow-x-hidden">
+    <motion.div
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className="commercials-page relative min-h-screen bg-[#080C16] text-[#FAF7EE] font-sans antialiased selection:bg-[#C5A880]/20 selection:text-[#C5A880] overflow-x-hidden"
+    >
       
       {/* Header */}
       <ProposalNavbar clientSlug={clientSlug} clientName={clientName} />
@@ -778,6 +784,6 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
       {/* Footer */}
       <ProposalFooter clientSlug={clientSlug} clientName={clientName} />
 
-    </div>
+    </motion.div>
   );
 }
