@@ -50,6 +50,8 @@ CREATE TABLE IF NOT EXISTS packages (
     name TEXT NOT NULL,
     tagline TEXT NOT NULL,
     standard_price NUMERIC(12, 2) NOT NULL CHECK (standard_price >= 0),
+    display_price NUMERIC(12, 2) NOT NULL CHECK (display_price >= 0),
+    floor_price NUMERIC(12, 2) NOT NULL CHECK (floor_price >= 0),
     period TEXT NOT NULL DEFAULT '90-day engagement',
     summary TEXT NOT NULL,
     features JSONB NOT NULL DEFAULT '[]'::jsonb,
@@ -59,13 +61,15 @@ CREATE TABLE IF NOT EXISTS packages (
 );
 
 -- Seed authoritative packages
-INSERT INTO packages (code, name, tagline, standard_price, period, summary, features)
+INSERT INTO packages (code, name, tagline, standard_price, display_price, floor_price, period, summary, features)
 VALUES 
 (
     'FOUNDATION', 
     'FOUNDATION', 
     'Build the Presence', 
     69000.00, 
+    79000.00,
+    59000.00,
     '90-day engagement', 
     'For businesses that want a professional digital presence and content foundation while keeping day-to-day business development in-house.',
     '["Personal-brand positioning", "Instagram profile setup & optimisation", "Content strategy", "8 short-form videos per month", "Captions and publishing guidance", "Basic content calendar", "Basic enquiry pathway", "Monthly performance review"]'::jsonb
@@ -75,6 +79,8 @@ VALUES
     'GROWTH', 
     'Build the Presence + Business Development', 
     145000.00, 
+    159000.00,
+    125000.00,
     '90-day engagement', 
     'For businesses that want a complete 90-day digital presence and business-development program — from positioning to qualified conversations and meetings.',
     '["Everything in Foundation", "Full outreach workflow architecture", "150+ targeted ICP leads / month", "Personalized LinkedIn & Email sequence copy", "Active outreach execution", "Lead qualification & response handling", "Bi-weekly strategy & performance calls", "CRM setup & lead tracking dashboard"]'::jsonb
@@ -84,12 +90,16 @@ VALUES
     'SCALE', 
     'Full Digital Growth Partnership', 
     225000.00, 
+    249000.00,
+    195000.00,
     '90-day engagement', 
     'For businesses that want a higher-touch digital growth partnership with greater content volume, broader distribution and intensive business-development support.',
     '["Everything in Growth", "16 short-form videos per month", "Multi-channel distribution (LinkedIn, YouTube Shorts, X)", "300+ targeted ICP leads / month", "High-touch personalized account-based outreach", "Dedicated custom landing page for campaign", "Weekly strategy sync & pipeline review", "Priority 1-on-1 support"]'::jsonb
 )
 ON CONFLICT (code) DO UPDATE SET 
     standard_price = EXCLUDED.standard_price,
+    display_price = EXCLUDED.display_price,
+    floor_price = EXCLUDED.floor_price,
     tagline = EXCLUDED.tagline,
     summary = EXCLUDED.summary,
     features = EXCLUDED.features;

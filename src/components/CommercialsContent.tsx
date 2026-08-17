@@ -1,17 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
 import {
   Check,
-  CheckCircle,
-  ArrowRight,
   ShieldCheck,
   Calendar,
-  Send,
-  Lock,
-  ArrowLeft
+  Send
 } from "lucide-react";
 import ProposalNavbar from "@/components/ProposalNavbar";
 import ProposalFooter from "@/components/ProposalFooter";
@@ -27,7 +21,7 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
   const [clientNotes, setClientNotes] = useState("");
   const [kickoffTimeline, setKickoffTimeline] = useState("Immediately (Next 7 Days)");
   const [proposalId, setProposalId] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
+
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -35,7 +29,6 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
   React.useEffect(() => {
     async function loadProposal() {
       try {
-        setLoading(true);
         const res = await fetch(`/api/proposal/${clientSlug}`);
         const data = await res.json();
         if (data.success && data.proposal) {
@@ -47,8 +40,6 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
         }
       } catch (err) {
         console.error("Failed to load proposal details:", err);
-      } finally {
-        setLoading(false);
       }
     }
     loadProposal();
@@ -58,6 +49,7 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
     FOUNDATION: {
       name: "FOUNDATION",
       price: "₹69,000",
+      displayPrice: "₹79,000",
       period: "90-day engagement",
       tagline: "Build the Presence",
       summary: "For businesses that want a professional digital presence and content foundation while keeping day-to-day business development in-house.",
@@ -65,6 +57,7 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
     GROWTH: {
       name: "GROWTH",
       price: "₹1,45,000",
+      displayPrice: "₹1,59,000",
       period: "90-day engagement",
       badge: "MOST RECOMMENDED",
       tagline: "Build the Presence + Business Development",
@@ -73,6 +66,7 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
     SCALE: {
       name: "SCALE",
       price: "₹2,25,000",
+      displayPrice: "₹2,49,000",
       period: "90-day engagement",
       tagline: "Full Digital Growth Partnership",
       summary: "For businesses that want a higher-touch digital growth partnership with greater content volume, broader distribution and intensive business-development support.",
@@ -176,9 +170,12 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
                 <h2 className="font-serif text-3xl font-semibold text-[#FAF7EE] mb-3">
                   FOUNDATION
                 </h2>
-                <div className="flex items-baseline gap-2 my-3">
+                <div className="flex items-baseline gap-2.5 my-3 flex-wrap">
                   <span className="font-serif text-3xl sm:text-4xl font-normal text-[#FAF7EE]">
                     {packagesData.FOUNDATION.price}
+                  </span>
+                  <span className="font-serif text-base text-[#7A8499] line-through">
+                    {packagesData.FOUNDATION.displayPrice}
                   </span>
                   <span className="font-mono text-xs text-[#7A8499]">
                     / {packagesData.FOUNDATION.period}
@@ -273,9 +270,12 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
                 <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-[#FAF7EE] mb-3">
                   GROWTH
                 </h2>
-                <div className="flex items-baseline gap-2 my-3">
+                <div className="flex items-baseline gap-2.5 my-3 flex-wrap">
                   <span className="font-serif text-3xl sm:text-4xl font-normal text-[#C5A880]">
                     {packagesData.GROWTH.price}
+                  </span>
+                  <span className="font-serif text-base text-[#FAF7EE]/50 line-through">
+                    {packagesData.GROWTH.displayPrice}
                   </span>
                   <span className="font-mono text-xs text-[#A0A8B8]">
                     / {packagesData.GROWTH.period}
@@ -348,9 +348,12 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
                 <h2 className="font-serif text-3xl font-semibold text-[#FAF7EE] mb-3">
                   SCALE
                 </h2>
-                <div className="flex items-baseline gap-2 my-3">
+                <div className="flex items-baseline gap-2.5 my-3 flex-wrap">
                   <span className="font-serif text-3xl sm:text-4xl font-normal text-[#FAF7EE]">
                     {packagesData.SCALE.price}
+                  </span>
+                  <span className="font-serif text-base text-[#7A8499] line-through">
+                    {packagesData.SCALE.displayPrice}
                   </span>
                   <span className="font-mono text-xs text-[#7A8499]">
                     / {packagesData.SCALE.period}
