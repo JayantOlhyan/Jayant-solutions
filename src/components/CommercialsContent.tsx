@@ -206,14 +206,16 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
                       "Contact/enquiry pathway",
                       "Initial audience research",
                       "Content-pillar strategy",
-                      "8 short-form videos/month",
+                      "8 short-form videos/month (1 platform)",
+                      "1 content revision per asset",
+                      "1 recording session/month",
                       "Script outlines & monthly planning",
                       "Captions/copy for posts",
                       "Basic video editing & graphic assets",
                       "Publishing calendar",
-                      "One monthly recording session",
                       "Basic DM / call-to-action structure",
-                      "Basic monthly report & reviews"
+                      "Basic monthly report & reviews",
+                      "Response time: within 24 hours"
                     ].map((item, idx) => (
                       <li key={idx} className="text-xs text-[#D0D6E2] flex items-start gap-2.5 font-light leading-snug">
                         <Check className="size-3.5 text-[#C5A880] shrink-0 mt-0.5" />
@@ -319,7 +321,8 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
                       "Confirmation & reminder flows",
                       "Follow-up templates & track cadence",
                       "Full monthly reporting & reviews",
-                      "Bi-weekly performance updates"
+                      "Bi-weekly performance updates",
+                      "Response time: within 4 business hours"
                     ].map((item, idx) => (
                       <li key={idx} className="text-xs text-[#FAF7EE] flex items-start gap-2.5 font-light leading-snug">
                         <Check className="size-3.5 text-[#C5A880] shrink-0 mt-0.5" />
@@ -398,7 +401,8 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
                       "Priority content requests & turnaround",
                       "Multi-platform distribution & audience growth",
                       "Weekly strategy review & conversion analysis",
-                      "Funnel optimisation & scaling recommendations"
+                      "Funnel optimisation & scaling recommendations",
+                      "Response time: within 1-2 hours (priority)"
                     ].map((item, idx) => (
                       <li key={idx} className="text-xs text-[#D0D6E2] flex items-start gap-2.5 font-light leading-snug">
                         <Check className="size-3.5 text-[#C5A880] shrink-0 mt-0.5" />
@@ -469,22 +473,23 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
                   { feature: "Enquiry support", f: "Basic", g: "✓", s: "Priority" },
                   { feature: "Prospect qualification", f: "—", g: "✓", s: "Advanced (Up to 100/mo)" },
                   { feature: "Appointment setting", f: "—", g: "✓", s: "Priority (Inbound/Outbound)" },
-                  { feature: "Follow-up", f: "—", g: "✓", s: "Advanced (Up to 3 touches)" },
+                  { feature: "Follow-up", f: "—", g: "✓ (Up to 3 touches)", s: "Advanced (Up to 3 touches)" },
                   { feature: "Lead tracking / pipeline", f: "—", g: "✓", s: "✓" },
                   { feature: "Outbound prospecting", f: "—", g: "—", s: "✓ (Up to 100/mo)" },
-                  { feature: "Multi-channel distribution", f: "—", g: "—", s: "✓ (3+ platforms)" },
+                  { feature: "Multi-channel distribution", f: "—", g: "—", s: "✓ (3+ agreed)" },
                   { feature: "Reporting", f: "Basic", g: "Full", s: "Advanced" },
                   { feature: "Strategy reviews", f: "Monthly", g: "Monthly", s: "Weekly" },
                   { feature: "Optimisation", f: "Basic", g: "✓", s: "Advanced" },
                   { feature: "Priority turnaround", f: "—", g: "—", s: "✓" },
                   { feature: "Revisions per content asset", f: "1", g: "2", s: "2 + Priority" },
-                  { feature: "Recording sessions/month", f: "1", g: "1-2", s: "2+" },
-                  { feature: "Publishing platforms", f: "1", g: "2-3", s: "3+" },
+                  { feature: "Recording sessions/month", f: "1", g: "1-2", s: "2" },
+                  { feature: "Publishing platforms", f: "1 primary", g: "2-3", s: "3+ agreed" },
                   { feature: "Community management", f: "—", g: "Basic", s: "Advanced" },
                   { feature: "WhatsApp workflow", f: "—", g: "✓", s: "Advanced" },
                   { feature: "Email follow-up", f: "—", g: "Basic", s: "Advanced" },
                   { feature: "CRM / lead sheet", f: "Basic", g: "✓", s: "Advanced" },
-                  { feature: "Performance dashboard", f: "Basic", g: "✓", s: "Advanced" }
+                  { feature: "Performance dashboard", f: "Basic", g: "✓", s: "Advanced" },
+                  { feature: "Response time SLA", f: "Within 24 hours", g: "Within 4 hours", s: "Within 1-2 hours" }
                 ].map((row, idx) => (
                   <tr key={idx} className={idx % 2 === 0 ? "bg-[#080C16]/50" : "bg-transparent"}>
                     <td className="p-4 font-medium text-[#FAF7EE]">{row.feature}</td>
