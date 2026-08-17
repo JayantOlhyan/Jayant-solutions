@@ -14,8 +14,7 @@ import {
   CheckCircle,
   AlertCircle,
   Plus,
-  Minus,
-  ShieldCheck
+  Minus
 } from "lucide-react";
 import ProposalNavbar from "@/components/ProposalNavbar";
 import ProposalFooter from "@/components/ProposalFooter";
@@ -25,19 +24,7 @@ interface ProposalContentProps {
   clientName: string;
 }
 
-interface ProposalDataSchema {
-  success: boolean;
-  proposal: { id: string; status: string; client_id: string; title: string };
-  packages: Array<{ id: string; code: string; name: string; standard_price: number }>;
-  existingSelection?: {
-    price_snapshot: number;
-    packages?: {
-      name: string;
-      standard_price: number;
-      code: string;
-    };
-  };
-}
+
 
 export default function ProposalContent({ clientSlug, clientName }: ProposalContentProps) {
   // Navigation states
@@ -52,9 +39,6 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
   // FAQ state
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
-  // Dynamic proposal selection state
-  const [proposalData, setProposalData] = useState<ProposalDataSchema | null>(null);
-
   // Refs for scroll-spy sections
   const overviewRef = useRef<HTMLElement>(null);
   const problemRef = useRef<HTMLElement>(null);
@@ -65,24 +49,7 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
   const roadmapRef = useRef<HTMLElement>(null);
   const responsibilitiesRef = useRef<HTMLElement>(null);
   const measurementRef = useRef<HTMLElement>(null);
-  const investmentRef = useRef<HTMLElement>(null);
   const nextStepsRef = useRef<HTMLElement>(null);
-
-  // Load proposal data on mount
-  useEffect(() => {
-    async function loadProposal() {
-      try {
-        const res = await fetch(`/api/proposal/${clientSlug}`);
-        const data = await res.json();
-        if (data.success) {
-          setProposalData(data);
-        }
-      } catch (err) {
-        console.error("Failed to load proposal details:", err);
-      }
-    }
-    loadProposal();
-  }, [clientSlug]);
 
   // Scroll spy effect
   useEffect(() => {
@@ -111,7 +78,6 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
         { id: "roadmap", ref: roadmapRef },
         { id: "responsibilities", ref: responsibilitiesRef },
         { id: "measurement", ref: measurementRef },
-        { id: "investment", ref: investmentRef },
         { id: "next-steps", ref: nextStepsRef }
       ];
 
@@ -154,7 +120,6 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
     { label: "90 Days", id: "roadmap" },
     { label: "Responsibilities", id: "responsibilities" },
     { label: "Measurement", id: "measurement" },
-    { label: "Investment", id: "investment" },
     { label: "Next Step", id: "next-steps" }
   ];
 
@@ -455,10 +420,7 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
     }
   ];
 
-  // Helper variables for dynamically loaded selection
-  const selection = proposalData?.existingSelection;
-  const chosenPkg = selection?.packages;
-  const agreedPrice = selection?.price_snapshot || chosenPkg?.standard_price;
+
 
   return (
     <div className="proposal-page relative min-h-screen bg-[#070A13] text-slate-100 selection:bg-[#C5A880]/20 selection:text-[#C5A880] font-sans antialiased overflow-x-hidden">
@@ -1398,121 +1360,6 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
                 <li>&bull; Final sales closes or business income generated</li>
               </ul>
             </div>
-          </div>
-        </section>
-
-
-        {/* ==========================================
-            Section 10: INVESTMENT (Commercial Tiers)
-            ========================================== */}
-        <section ref={investmentRef} id="investment" className="border-b border-slate-800/40 pb-20 scroll-mt-24 text-left">
-          <div className="mb-12">
-            <span className="proposal-eyebrow text-xs tracking-widest text-[#C5A880] font-bold">
-              The investment
-            </span>
-            <h2 className="h2-proposal mt-2">
-              The 90-Day Engagement
-            </h2>
-            <p className="proposal-body-text text-slate-400 mt-4 max-w-3xl font-light">
-              All commercial options and scopes are managed transparently by the commercials system.
-            </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            {selection ? (
-              // Case 1: Client has already selected a package tier
-              <div className="p-8 sm:p-12 rounded-3xl bg-[#0D162D] border-2 border-[#C5A880]/60 space-y-6">
-                <div className="flex items-center gap-2 mb-2">
-                  <ShieldCheck className="size-5 text-[#C5A880]" />
-                  <span className="font-mono text-xs font-bold text-[#C5A880] uppercase tracking-wider">
-                    CONFIRMED SELECTION DATA
-                  </span>
-                </div>
-                
-                <h3 className="h3-proposal text-3xl font-serif text-slate-100">
-                  {chosenPkg?.name} Tier Plan
-                </h3>
-
-                <p className="text-sm text-slate-300 font-light leading-relaxed">
-                  You have confirmed your digital trajectory. We have logged this choice and are preparing the required onboarding details.
-                </p>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-slate-800 text-left">
-                  <div>
-                    <span className="text-[10px] text-slate-500 font-mono block uppercase">Agreed Investment</span>
-                    <span className="font-serif text-2xl text-slate-200 mt-1 block">
-                      ₹{agreedPrice?.toLocaleString('en-IN')}
-                    </span>
-                  </div>
-                  <div>
-                    <span className="text-[10px] text-slate-500 font-mono block uppercase">Engagement Duration</span>
-                    <span className="font-serif text-2xl text-slate-200 mt-1 block">
-                      90 Days
-                    </span>
-                  </div>
-                  <div>
-                    <span className="text-[10px] text-slate-500 font-mono block uppercase">Status</span>
-                    <span className="font-serif text-2xl text-[#C5A880] mt-1 block uppercase">
-                      Selected
-                    </span>
-                  </div>
-                </div>
-
-                <div className="pt-6 flex justify-start">
-                  <Link
-                    href={`/proposal/${clientSlug}/commercials`}
-                    className="inline-flex items-center gap-2 rounded-xl bg-[#C5A880] hover:bg-[#D8B992] text-slate-950 px-8 py-4 text-xs font-mono font-bold transition-all cursor-pointer"
-                  >
-                    <span>Proceed to Agreement & Payment Flow</span>
-                    <ArrowRight className="size-4" />
-                  </Link>
-                </div>
-              </div>
-            ) : (
-              // Case 2: No package has been selected yet
-              <div className="p-8 sm:p-12 rounded-3xl bg-[#0D1322] border border-[#1E2638] text-center space-y-6">
-                <span className="font-mono text-xs uppercase tracking-widest text-[#C5A880] font-bold block">
-                  COMMERCIAL PROPOSAL OVERVIEW
-                </span>
-                
-                <h3 className="h3-proposal text-2xl font-serif text-slate-100">
-                  Tailored Execution Options Available
-                </h3>
-
-                <p className="text-sm text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
-                  We have prepared three execution scopes (Foundation, Growth, and Scale) tailored to how much of the outreach and lead filtering operations you want us to execute on your behalf.
-                </p>
-
-                {/* Quick pricing summary cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 text-left">
-                  <div className="p-5 rounded-xl bg-[#070B14] border border-[#1E2638]">
-                    <span className="text-[10px] text-slate-500 font-mono block uppercase">FOUNDATION</span>
-                    <span className="font-serif text-xl text-slate-200 mt-1 block">₹69,000</span>
-                    <span className="text-[10px] text-[#C5A880] font-mono mt-1 block">90-day engagement</span>
-                  </div>
-                  <div className="p-5 rounded-xl bg-[#070B14] border border-[#C5A880]/30 shadow-md">
-                    <span className="text-[10px] text-[#C5A880] font-mono block uppercase font-bold">GROWTH (REC.)</span>
-                    <span className="font-serif text-xl text-slate-200 mt-1 block">₹1,45,000</span>
-                    <span className="text-[10px] text-[#C5A880] font-mono mt-1 block">90-day engagement</span>
-                  </div>
-                  <div className="p-5 rounded-xl bg-[#070B14] border border-[#1E2638]">
-                    <span className="text-[10px] text-slate-500 font-mono block uppercase">SCALE</span>
-                    <span className="font-serif text-xl text-slate-200 mt-1 block">₹2,25,000</span>
-                    <span className="text-[10px] text-[#C5A880] font-mono mt-1 block">90-day engagement</span>
-                  </div>
-                </div>
-
-                <div className="pt-6 flex justify-center">
-                  <Link
-                    href={`/proposal/${clientSlug}/commercials`}
-                    className="inline-flex items-center gap-2 rounded-xl bg-[#C5A880] hover:bg-[#D8B992] text-slate-950 px-8 py-4 text-xs font-mono font-bold transition-all"
-                  >
-                    <span>View Pricing Details & Choose Option</span>
-                    <ArrowRight className="size-4" />
-                  </Link>
-                </div>
-              </div>
-            )}
           </div>
         </section>
 
