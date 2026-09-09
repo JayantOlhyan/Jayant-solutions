@@ -30,9 +30,9 @@ export default function Breadcrumbs() {
   return (
     <>
       <JsonLd schema={createBreadcrumbSchema(breadcrumbItems)} />
-      <nav aria-label="Breadcrumb" className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pt-4">
-        <ol className="flex items-center space-x-2 text-xs md:text-sm text-text-muted">
-          <li>
+      <nav aria-label="Breadcrumb" className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 pt-4 overflow-hidden">
+        <ol className="flex items-center space-x-2 text-xs md:text-sm text-text-muted overflow-x-auto whitespace-nowrap py-1 scrollbar-none">
+          <li className="shrink-0">
             <Link href="/" className="hover:text-primary transition-colors flex items-center">
               <Home className="size-3.5 mr-1" />
               <span className="sr-only">Home</span>
