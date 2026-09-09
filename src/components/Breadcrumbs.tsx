@@ -7,6 +7,35 @@ import { ChevronRight, Home } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 import { createBreadcrumbSchema } from "@/lib/seo/schema";
 
+const pagesWithInPageBreadcrumbs = new Set([
+  "/blog", "/blog/ai-insights", "/blog/artificial-intelligence", "/blog/automation",
+  "/blog/case-studies", "/blog/cloud", "/blog/company-updates", "/blog/software-development",
+  "/blog/startup-guides", "/blog/ui-ux", "/blog/web-development",
+  "/company/careers", "/company/founder", "/company/partners", "/company/testimonials", "/company/why-choose-us",
+  "/contact", "/contact/book-a-consultation", "/contact/request-a-quote",
+  "/cookies", "/disclaimer", "/faq",
+  "/industries/ai-for-agriculture", "/industries/ai-for-education", "/industries/ai-for-finance",
+  "/industries/ai-for-government", "/industries/ai-for-healthcare", "/industries/ai-for-manufacturing",
+  "/industries/ai-for-real-estate", "/industries/ai-for-retail", "/industries/ai-for-startups",
+  "/pricing", "/pricing-policy", "/pricing/enterprise-plans", "/pricing/maintenance-plans",
+  "/privacy",
+  "/promo/ai-consulting", "/promo/build-ai-chatbot", "/promo/build-startup-mvp",
+  "/promo/business-automation-solutions", "/promo/modern-business-website",
+  "/resources/case-studies", "/resources/downloads", "/resources/industries-we-serve", "/resources/technologies-we-use",
+  "/services/ai-chatbot-development", "/services/ai-development", "/services/api-development",
+  "/services/business-automation", "/services/cloud-and-devops", "/services/custom-software-development",
+  "/services/maintenance", "/services/mobile-app-development", "/services/mvp-development",
+  "/services/saas-development", "/services/technology-consulting", "/services/ui-ux-design",
+  "/services/website-development",
+  "/support", "/support/report-a-bug", "/support/service-status",
+  "/technologies/fastapi-development", "/technologies/flutter-development",
+  "/technologies/google-gemini-development", "/technologies/langchain-development",
+  "/technologies/nextjs-development", "/technologies/openai-integration",
+  "/technologies/postgresql-development", "/technologies/python-development",
+  "/technologies/react-development", "/technologies/supabase-development",
+  "/terms"
+]);
+
 export default function Breadcrumbs() {
   const pathname = usePathname();
 
@@ -26,6 +55,11 @@ export default function Breadcrumbs() {
       return { name, url };
     })
   ];
+
+  // If page already renders its own specialized breadcrumb navigation, only output the SEO JSON-LD schema
+  if (pagesWithInPageBreadcrumbs.has(pathname)) {
+    return <JsonLd schema={createBreadcrumbSchema(breadcrumbItems)} />;
+  }
 
   return (
     <>
