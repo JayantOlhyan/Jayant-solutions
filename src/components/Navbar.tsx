@@ -91,10 +91,10 @@ export default function Navbar() {
   ];
 
   return (
-    <nav ref={navRef} aria-label="Main navigation" className="fixed top-0 left-0 right-0 z-50 w-full px-4 sm:px-6 md:px-8 py-4 transition-all duration-300">
+    <nav ref={navRef} aria-label="Main navigation" className="fixed top-0 left-0 right-0 z-50 w-full px-4 sm:px-6 py-3 md:py-4 transition-all duration-300 flex justify-center pointer-events-none">
       <div 
-        className={`w-full bg-[#111827] border border-white/10 rounded-2xl md:rounded-[20px] shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300 ${
-          scrolled ? "py-2.5 px-5 md:px-6" : "py-3.5 px-6 md:px-8"
+        className={`w-full max-w-7xl pointer-events-auto bg-[#111827]/90 backdrop-blur-xl border border-white/10 rounded-2xl md:rounded-[22px] shadow-[0_8px_32px_rgba(0,0,0,0.4)] hover:border-white/20 transition-all duration-300 ${
+          scrolled ? "py-2 px-5 md:px-6 shadow-[0_12px_40px_rgba(0,0,0,0.6)]" : "py-3 px-6 md:px-8"
         }`}
       >
         <div className="flex items-center justify-between">
