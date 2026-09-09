@@ -105,6 +105,7 @@ export default function CaseStudies() {
     // Initial focus on close button or modal container
     const timer = setTimeout(() => {
       if (modalRef.current) {
+        modalRef.current.scrollTop = 0;
         const firstBtn = modalRef.current.querySelector<HTMLElement>("button");
         if (firstBtn) firstBtn.focus();
         else modalRef.current.focus();
@@ -262,10 +263,10 @@ export default function CaseStudies() {
                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                className="relative z-10 w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-card-bg rounded-[28px] border border-border-custom shadow-2xl flex flex-col text-left outline-none"
+                className="relative z-10 w-full max-w-2xl max-h-[85vh] overflow-y-auto custom-scrollbar bg-card-bg rounded-[28px] border border-border-custom shadow-2xl flex flex-col text-left outline-none"
               >
                 {/* Modal Header Media Preview */}
-                <div className="relative w-full aspect-[21/9] bg-neutral-900 border-b border-border-custom/80 overflow-hidden">
+                <div className="relative w-full h-48 sm:h-60 bg-neutral-900 border-b border-border-custom/80 overflow-hidden shrink-0">
                   <ProjectImage src={activeStudy.image} alt={activeStudy.title} />
                   <button
                     onClick={() => setSelectedId(null)}
@@ -318,22 +319,30 @@ export default function CaseStudies() {
                       </div>
                     )}
 
-                    <div className="border-t border-border-custom/50 pt-4 flex items-center justify-between">
+                    <div className="border-t border-border-custom/50 pt-4 flex flex-wrap items-center justify-between gap-4">
                       <div>
                         <span className="text-[10px] font-mono text-text-muted block uppercase">Measurable result</span>
                         <span className="text-base md:text-lg font-bold text-primary">{activeStudy.result}</span>
                       </div>
-                      {activeStudy.liveWebsite && activeStudy.liveWebsite !== "#" && (
-                        <a
-                          href={activeStudy.liveWebsite}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 rounded-xl bg-primary hover:bg-primary-hover text-white px-5 py-2.5 text-xs font-semibold shadow-sm transition-all"
+                      <div className="flex items-center gap-3">
+                        <button
+                          onClick={() => setSelectedId(null)}
+                          className="px-4 py-2.5 rounded-xl border border-border-custom hover:bg-neutral-100 dark:hover:bg-neutral-800 text-xs font-semibold text-text-muted transition-colors cursor-pointer"
                         >
-                          <span>Visit Live Site</span>
-                          <ExternalLink className="size-3.5" />
-                        </a>
-                      )}
+                          Close
+                        </button>
+                        {activeStudy.liveWebsite && activeStudy.liveWebsite !== "#" && (
+                          <a
+                            href={activeStudy.liveWebsite}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 rounded-xl bg-primary hover:bg-primary-hover text-white px-5 py-2.5 text-xs font-semibold shadow-sm transition-all"
+                          >
+                            <span>Visit Live Site</span>
+                            <ExternalLink className="size-3.5" />
+                          </a>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
