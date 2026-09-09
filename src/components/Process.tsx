@@ -1,10 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { ArrowRight, Eye, ClipboardList, Code, CheckSquare, Rocket, HelpCircle } from "lucide-react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Process() {
+  const [hoveredStep, setHoveredStep] = useState<number | null>(null);
+
   const steps = [
     {
       id: 1,
@@ -62,38 +65,51 @@ export default function Process() {
             </p>
             <Link
               href="/process"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-neutral-900 text-white hover:bg-neutral-800 px-6 py-3 text-xs font-mono font-bold transition-all"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-card-bg text-text-base border border-border-custom hover:border-primary/50 hover:bg-neutral-50 dark:hover:bg-neutral-900 px-6 py-3 text-xs font-mono font-bold transition-all shadow-sm hover:shadow active:scale-[0.98]"
             >
               <span>View my process</span>
-              <ArrowRight className="size-4" />
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
- 
+
           {/* Right Column: Steps Chain */}
-          <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 relative">
-            {steps.map((step, index) => (
-              <div key={step.id} className="flex flex-col items-center text-center relative group">
-                {/* Visual Step Icon inside Circle */}
-                <div className="relative z-10 size-14 rounded-full border border-border-custom bg-card-bg shadow-sm flex items-center justify-center mb-4 transition-transform group-hover:scale-105">
-                  {step.icon}
-                </div>
- 
-                {/* Connecting Line to next item (rendered only on desktop screens) */}
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-7 left-[calc(50%+28px)] right-[calc(-50%+28px)] h-[1px] border-t border-dashed border-border-custom z-0 pointer-events-none" />
-                )}
- 
-                {/* Description */}
-                <div className="flex flex-col gap-1">
-                  <span className="font-sans text-xs md:text-sm font-bold text-text-base leading-none">
-                    {step.id}. {step.name}
-                  </span>
-                  <span className="text-[10px] md:text-xs text-text-muted leading-tight mt-1.5 px-1">
-                    {step.desc}
-                  </span>
-                </div>
-              </div>
-            ))}
+          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative">
+            {steps.map((step) => {
+              const isHovered = hoveredStep === step.id;
+              return (
+                <motion.div
+                  key={step.id}
+                  onMouseEnter={() => setHoveredStep(step.id)}
+                  onMouseLeave={() => setHoveredStep(null)}
+                  whileHover={{ y: -3 }}
+                  className={`p-6 rounded-2xl border transition-all duration-300 text-left flex flex-col justify-between group ${
+                    isHovered
+                      ? "bg-card-bg border-primary/50 shadow-[0_8px_30px_rgba(255,138,0,0.12)]"
+                      : "bg-card-bg/60 border-border-custom hover:border-border-custom/80"
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    {/* Visual Step Icon inside Circle */}
+                    <div className="size-12 rounded-xl border border-border-custom bg-card-bg shadow-sm flex items-center justify-center transition-transform group-hover:scale-110">
+                      {step.icon}
+                    </div>
+                    <span className="font-mono text-xs font-bold text-primary/80 px-2 py-0.5 rounded-full bg-primary/10 border border-primary/20">
+                      0{step.id}
+                    </span>
+                  </div>
+
+                  {/* Step Name & Description */}
+                  <div className="flex flex-col gap-1.5">
+                    <span className="font-sans text-base font-bold text-text-base leading-tight group-hover:text-primary transition-colors">
+                      {step.id}. {step.name}
+                    </span>
+                    <span className="text-xs text-text-muted leading-relaxed">
+                      {step.desc}
+                    </span>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
 
         </div>
