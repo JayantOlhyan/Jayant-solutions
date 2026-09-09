@@ -37,13 +37,13 @@ export default function FloatingWhatsApp() {
       target="_blank"
       rel="noreferrer"
       aria-label="Chat on WhatsApp"
-      className="fixed bottom-6 right-6 z-50 flex items-center justify-center size-14 rounded-full bg-[#25D366] text-white shadow-lg hover:shadow-xl active:scale-95 hover:scale-105 transition-all duration-300 group"
+      className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40 flex items-center justify-center size-12 sm:size-14 rounded-full bg-[#25D366] text-white shadow-lg hover:shadow-xl active:scale-95 hover:scale-105 transition-all duration-300 group"
     >
       {/* Pulse effect */}
       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-30 pointer-events-none" />
       
       {/* WhatsApp Message icon */}
-      <WhatsAppIcon className="size-7 transition-transform group-hover:rotate-6" />
+      <WhatsAppIcon className="size-6 sm:size-7 transition-transform group-hover:rotate-6" />
     </a>
   );
 }
