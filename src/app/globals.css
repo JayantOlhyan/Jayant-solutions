@@ -2,26 +2,34 @@
 
 :root {
   --background: #FFFFFF;
-  --foreground: #111827;
-  --muted: #4B5563;
-  --muted-light: #6B7280;
-  --border: #E5E7EB;
-  --primary: #C25E00; /* High-contrast orange for Light Mode (passes WCAG AA 4.5:1) */
+  --foreground: #0B0F19;
+  --muted: #475569;
+  --muted-light: #64748B;
+  --border: #E2E8F0;
+  --border-subtle: #F1F5F9;
+  --primary: #C25E00; /* WCAG AA 4.8:1 high-contrast burnished amber/orange */
   --primary-hover: #A34F00;
-  --glow: rgba(194, 94, 0, 0.04);
+  --primary-light: rgba(194, 94, 0, 0.08);
+  --glow: rgba(194, 94, 0, 0.06);
   --card-bg: #FFFFFF;
+  --card-bg-subtle: #F8FAFC;
+  --surface-raised: #FFFFFF;
 }
 
 .dark {
-  --background: #0B0F19;
-  --foreground: #F9FAFB;
-  --muted: #9CA3AF;
-  --muted-light: #6B7280;
-  --border: #1F2937;
-  --primary: #FF8A00;
+  --background: #080C16;
+  --foreground: #F8FAFC;
+  --muted: #94A3B8;
+  --muted-light: #64748B;
+  --border: #1E273D;
+  --border-subtle: #141B2D;
+  --primary: #FF8A00; /* Electric high-contrast amber */
   --primary-hover: #FFA333;
-  --glow: rgba(255, 138, 0, 0.08);
-  --card-bg: #111827;
+  --primary-light: rgba(255, 138, 0, 0.12);
+  --glow: rgba(255, 138, 0, 0.10);
+  --card-bg: #0E1424;
+  --card-bg-subtle: #12192D;
+  --surface-raised: #12192D;
 }
 
 @theme {
@@ -33,77 +41,174 @@
   --color-text-base: var(--foreground);
   --color-text-muted: var(--muted);
   --color-border-custom: var(--border);
+  --color-border-subtle: var(--border-subtle);
   --color-primary: var(--primary);
   --color-primary-hover: var(--primary-hover);
+  --color-primary-light: var(--primary-light);
   --color-glow-accent: var(--glow);
   --color-card-bg: var(--card-bg);
+  --color-card-subtle: var(--card-bg-subtle);
 
   /* Typographic Scale (The "Golden Ratio" Approach) */
-  --text-h1-mobile: clamp(32px, 5vw, 36px);
-  --text-h1-desktop: clamp(48px, 4vw, 56px);
-  --text-h2-mobile: 28px;
-  --text-h2-desktop: clamp(36px, 3.5vw, 40px);
+  --text-h1-mobile: clamp(32px, 5.5vw, 38px);
+  --text-h1-desktop: clamp(48px, 4.5vw, 64px);
+  --text-h2-mobile: clamp(26px, 4vw, 30px);
+  --text-h2-desktop: clamp(34px, 3.2vw, 42px);
   --text-h3-mobile: 20px;
   --text-h3-desktop: 24px;
-  --text-body-mobile: 16px;
-  --text-body-desktop: clamp(16px, 1.2vw, 18px);
-  --text-caption-mobile: 13px;
-  --text-caption-desktop: 14px;
+  --text-body-mobile: 15px;
+  --text-body-desktop: clamp(16px, 1.1vw, 18px);
+  --text-caption-mobile: 12px;
+  --text-caption-desktop: 13px;
 }
 
-/* Grid Pattern Background adjusted for brand colors */
+/* Subtle Architectural Grid Pattern Background */
 .hog-grid {
   background-color: var(--background);
   background-image: 
-    linear-gradient(to right, rgba(17, 24, 39, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(17, 24, 39, 0.02) 1px, transparent 1px);
-  background-size: 48px 48px;
+    linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+  background-size: 56px 56px;
 }
 
 .dark .hog-grid {
   background-image: 
-    linear-gradient(to right, rgba(249, 250, 251, 0.015) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(249, 250, 251, 0.015) 1px, transparent 1px);
+    linear-gradient(to right, rgba(248, 250, 252, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(248, 250, 252, 0.02) 1px, transparent 1px);
 }
 
-/* Brand Button (Stripe / Vercel style) */
+/* Brand Tactile Button (Linear / Vercel style) */
 .hog-btn {
   background: var(--primary);
   color: #FFFFFF !important;
   font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 15px;
-  border-radius: 14px;
+  font-size: 14px;
+  border-radius: 12px;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 12px rgba(255, 138, 0, 0.15);
+  box-shadow: 0 2px 10px rgba(194, 94, 0, 0.18);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 48px;
+  min-height: 44px;
+  letter-spacing: -0.01em;
+}
+
+.dark .hog-btn {
+  box-shadow: 0 2px 14px rgba(255, 138, 0, 0.22);
 }
 
 .hog-btn:hover {
   transform: translateY(-1px);
   background: var(--primary-hover);
-  box-shadow: 0 6px 16px rgba(255, 138, 0, 0.2);
+  box-shadow: 0 6px 20px rgba(194, 94, 0, 0.28);
+}
+
+.dark .hog-btn:hover {
+  box-shadow: 0 6px 22px rgba(255, 138, 0, 0.32);
 }
 
 .hog-btn:active {
-  transform: translateY(1px);
+  transform: translateY(0.5px);
 }
 
 /* Clean UI Card (OpenAI / Linear Style) */
 .hog-card {
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: 24px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 8px 24px -4px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
 }
 
 .hog-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.06);
+  border-color: rgba(194, 94, 0, 0.35);
+  box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.08);
+}
+
+.dark .hog-card:hover {
+  border-color: rgba(255, 138, 0, 0.35);
+  box-shadow: 0 14px 36px -4px rgba(0, 0, 0, 0.4);
+}
+
+/* Frosted Glass Card */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(194, 94, 0, 0.3);
+}
+
+.dark .glass-card:hover {
+  border-color: rgba(255, 138, 0, 0.35);
+}
+
+/* Infinite Marquee Ticker Track */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-rail {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 28s linear infinite;
+}
+
+.marquee-rail:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-rail {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
+  }
+}
+
+/* Image Shimmer Loading Placeholder */
+@keyframes shimmerAnim {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(229, 231, 235, 0.4) 0%,
+    rgba(243, 244, 246, 0.8) 50%,
+    rgba(229, 231, 235, 0.4) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerAnim 1.6s infinite ease-in-out;
+}
+
+.dark .skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(26, 35, 54, 0.5) 0%,
+    rgba(38, 50, 75, 0.8) 50%,
+    rgba(26, 35, 54, 0.5) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerAnim 1.6s infinite ease-in-out;
 }
 
 /* Global resets & Typographic Scale (The "Golden Ratio" Approach) */
