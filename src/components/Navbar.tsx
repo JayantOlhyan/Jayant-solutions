@@ -319,7 +319,7 @@ export default function Navbar() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="mt-4 pt-4 border-t border-white/10 md:hidden flex flex-col gap-4 overflow-y-auto max-h-[calc(100vh-8rem)]"
+              className="mt-4 pt-4 border-t border-white/10 md:hidden flex flex-col gap-4 overflow-y-auto max-h-[calc(100vh-8rem)] custom-scrollbar pb-6 pr-1"
             >
               {/* Mobile Solutions Dropdown */}
               <div className="flex flex-col border-b border-white/5">
