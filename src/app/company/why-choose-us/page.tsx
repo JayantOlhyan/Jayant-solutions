@@ -3,7 +3,7 @@
 import React from "react";
 import PageTransition from "@/components/PageTransition";
 import Link from "next/link";
-import { ArrowRight, Compass, ClipboardList, Layout, Code, CheckSquare, Rocket, Heart, Settings, Lock, MessageSquare, ShieldCheck, Target } from "lucide-react";
+import { ArrowRight, Compass, ClipboardList, Code, CheckSquare, Rocket, Heart, Target, ShieldCheck, MessageSquare } from "lucide-react";
 
 export default function WhyChooseUsPage() {
   const reasons = [
@@ -36,23 +36,25 @@ export default function WhyChooseUsPage() {
 
   return (
     <PageTransition>
-      <div className="hog-grid min-h-screen pb-20 pt-10 text-left">
-        <main className="max-w-none px-6 md:px-12 lg:px-16 flex flex-col gap-20 md:gap-28">
+      <div className="hog-grid min-h-screen pb-20 pt-8 text-left">
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 flex flex-col gap-16 md:gap-24">
           
           {/* Breadcrumbs */}
-          <nav className="text-xs font-mono text-text-muted flex items-center gap-2 pt-8">
+          <nav aria-label="Breadcrumbs" className="text-xs font-mono text-text-muted flex items-center gap-2 pt-6">
             <Link href="/" className="hover:text-primary transition-colors">Home</Link>
             <span>&gt;</span>
-            <span className="text-text-base">why work with me</span>
+            <span className="text-text-muted">Company</span>
+            <span>&gt;</span>
+            <span className="text-text-base font-semibold">Why Work With Me</span>
           </nav>
 
           {/* Hero split */}
-          <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
             {/* Left */}
             <div className="lg:col-span-7 flex flex-col items-start">
               <span className="font-mono text-[9px] uppercase tracking-widest text-primary border border-primary/20 bg-primary/5 px-2.5 py-0.5 rounded-full mb-4">
-                why work with me
+                WHY WORK WITH ME
               </span>
               <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
                 Built on Trust.{" "}
@@ -66,7 +68,7 @@ export default function WhyChooseUsPage() {
               </p>
 
               {/* Action buttons */}
-              <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto">
+              <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-4">
                 <Link
                   href="/contact"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary-hover text-white px-7 py-3 text-xs font-mono font-bold transition-all shadow-md active:scale-[0.98]"
@@ -76,19 +78,20 @@ export default function WhyChooseUsPage() {
                 </Link>
                 <Link
                   href="/portfolio"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-border-custom bg-white hover:bg-neutral-50 dark:bg-card-bg dark:hover:bg-neutral-900 px-7 py-3 text-xs font-mono font-bold text-text-base transition-all"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-border-custom bg-card-bg hover:border-primary/40 px-7 py-3 text-xs font-mono font-bold text-text-base transition-all"
                 >
                   <span>View Our Work</span>
                   <ArrowRight className="size-4" />
                 </Link>
               </div>
+
             </div>
 
-            {/* Right: Picture/Illustration mockup */}
+            {/* Right: Mission Card */}
             <div className="lg:col-span-5 w-full flex justify-center">
               <div className="relative w-full max-w-[420px] aspect-[4/3] rounded-[32px] overflow-hidden border border-border-custom bg-neutral-900 shadow-2xl flex items-center justify-center">
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent z-10" />
-                <div className="absolute bottom-6 left-6 right-6 z-20 bg-white dark:bg-[#111827] text-text-base p-4 border border-border-custom shadow-2xl rounded-2xl flex gap-3 items-start max-w-xs">
+                <div className="absolute bottom-6 left-6 right-6 z-20 bg-card-bg/90 backdrop-blur-md text-text-base p-5 border border-border-custom shadow-2xl rounded-2xl flex gap-3 items-start">
                   <div className="size-8 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0 font-serif text-sm">
                     “
                   </div>
@@ -103,17 +106,17 @@ export default function WhyChooseUsPage() {
           </section>
 
           {/* Why Businesses Choose Us */}
-          <section className="py-8 relative border-t border-border-custom/30 pt-16">
-            <div className="text-center max-w-2xl mx-auto mb-16">
+          <section className="py-4 relative border-t border-border-custom/40 pt-12">
+            <div className="text-center max-w-2xl mx-auto mb-12">
               <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
                 Why Businesses Choose Us
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {reasons.map((item, idx) => (
-                <div key={idx} className="hog-card rounded-2xl p-5 border border-border-custom bg-card-bg/40 flex flex-col gap-3 text-left">
-                  <div className="size-9 rounded-full border border-border-custom bg-card-bg flex items-center justify-center">
+                <div key={idx} className="glass-card rounded-2xl p-5 border border-border-custom bg-card-bg/60 flex flex-col gap-3 text-left hover:border-primary/40 transition-all shadow-sm">
+                  <div className="size-9 rounded-full border border-border-custom bg-card-bg flex items-center justify-center text-primary">
                     {item.icon}
                   </div>
                   <h5 className="font-serif text-xs md:text-sm font-bold text-text-base leading-snug">{item.title}</h5>
@@ -124,7 +127,7 @@ export default function WhyChooseUsPage() {
           </section>
 
           {/* Stats Bar */}
-          <section className="grid grid-cols-2 md:grid-cols-5 gap-6 py-8 border-t border-b border-border-custom/20">
+          <section className="grid grid-cols-2 md:grid-cols-5 gap-6 py-8 border-t border-b border-border-custom/40">
             {stats.map((stat, idx) => (
               <div key={idx} className="flex flex-col items-center text-center">
                 <span className="text-3xl md:text-4xl font-serif font-black text-primary mb-1">{stat.number}</span>
@@ -134,8 +137,8 @@ export default function WhyChooseUsPage() {
           </section>
 
           {/* my approach */}
-          <section className="py-8 relative border-t border-border-custom/30 pt-16">
-            <div className="text-center max-w-2xl mx-auto mb-16">
+          <section className="py-4 relative border-t border-border-custom/40 pt-12">
+            <div className="text-center max-w-2xl mx-auto mb-12">
               <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
                 my approach
               </span>
@@ -146,19 +149,15 @@ export default function WhyChooseUsPage() {
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 relative">
               {approach.map((step, idx) => (
-                <div key={step.id} className="flex flex-col items-center text-center relative group">
-                  <div className="relative z-10 size-14 rounded-full border border-border-custom bg-card-bg shadow-sm flex items-center justify-center mb-4 text-primary">
+                <div key={step.id} className="glass-card rounded-2xl p-4 border border-border-custom bg-card-bg/60 flex flex-col items-center text-center relative group hover:border-primary/40 transition-all">
+                  <div className="relative z-10 size-12 rounded-xl border border-border-custom bg-card-bg shadow-sm flex items-center justify-center mb-3 text-primary">
                     {step.icon}
                   </div>
                   
-                  {idx < approach.length - 1 && (
-                    <div className="hidden lg:block absolute top-7 left-[calc(50%+28px)] right-[calc(-50%+28px)] h-[1px] border-t border-dashed border-border-custom/80 z-0 pointer-events-none" />
-                  )}
-
                   <div className="flex flex-col gap-1">
                     <span className="font-mono text-xs text-primary font-bold">{step.id}</span>
                     <h5 className="font-serif text-xs md:text-sm font-bold text-text-base leading-none mt-1">{step.name}</h5>
-                    <p className="text-[10px] md:text-xs text-text-muted leading-tight mt-2 px-1">{step.desc}</p>
+                    <p className="text-[10px] md:text-xs text-text-muted leading-tight mt-2">{step.desc}</p>
                   </div>
                 </div>
               ))}
