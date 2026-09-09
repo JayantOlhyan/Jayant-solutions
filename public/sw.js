@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v1';
+const CACHE_VERSION = 'v2';
 const APP_CACHE_NAME = `app-cache-${CACHE_VERSION}`;
 const STATIC_CACHE_NAME = `static-cache-${CACHE_VERSION}`;
 const IMAGE_CACHE_NAME = `image-cache-${CACHE_VERSION}`;
@@ -115,12 +115,17 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 2. Ignore non-http/https schemes (like chrome-extension://, mailto:, data:, or WhatsApp APIs)
+  // 2. Ignore localhost / development requests to prevent stale asset issues in local testing
+  if (url.includes('localhost') || url.includes('127.0.0.1')) {
+    return;
+  }
+
+  // 3. Ignore non-http/https schemes (like chrome-extension://, mailto:, data:, or WhatsApp APIs)
   if (!url.startsWith('http://') && !url.startsWith('https://')) {
     return;
   }
 
-  // 3. Ignore webpack hot reload / local development web socket requests
+  // 4. Ignore webpack hot reload / local development web socket requests
   if (url.includes('webpack-hmr') || url.includes('next/webpack-hmr') || url.includes('/_next/data/')) {
     return;
   }
