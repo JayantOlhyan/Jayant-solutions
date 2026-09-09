@@ -199,7 +199,7 @@ export default function ServicesPage() {
             <div className="flex justify-center mt-12">
               <Link
                 href="/portfolio"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border-custom bg-white hover:bg-neutral-50 dark:bg-card-bg dark:hover:bg-neutral-900 text-xs font-mono font-bold text-text-base transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border-custom bg-card-bg hover:border-primary/40 text-xs font-mono font-bold text-text-base transition-colors"
               >
                 <span>Explore All Services</span>
                 <ArrowRight className="size-4" />
