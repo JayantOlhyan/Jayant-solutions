@@ -10,7 +10,11 @@ import NetworkDiagram from "./NetworkDiagram";
 export default function Hero() {
   return (
     <section id="top" className="relative min-h-[85vh] flex flex-col justify-center py-12 md:py-24 overflow-hidden">
-      <div className="w-full">
+      {/* Subtle Background Radial Glow */}
+      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Hero Text & CTAs & Metrics */}
@@ -20,7 +24,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 border border-border-custom/80 px-4 py-1.5 rounded-full bg-card-bg shadow-[0_2px_8px_rgba(0,0,0,0.02)] mb-6"
+              className="inline-flex items-center gap-2 border border-border-custom/90 px-4 py-1.5 rounded-full bg-card-bg/80 backdrop-blur-md shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:border-primary/40 transition-colors mb-6"
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
@@ -33,7 +37,7 @@ export default function Hero() {
             </motion.div>
 
             {/* Hero Title (LCP Optimized - rendered instantly without animation) */}
-            <h1 className="font-sans text-4xl md:text-6xl lg:text-7.5xl font-extrabold tracking-tight text-text-base leading-[1.02] mb-6">
+            <h1 className="font-sans text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-extrabold tracking-tight text-text-base leading-[1.02] mb-6">
               Custom AI & Web Development for{" "}
               <span className="text-primary underline decoration-primary/40 decoration-4 underline-offset-8">
                 businesses & startups
@@ -49,12 +53,12 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
               className="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-12"
             >
               <Link
                 href="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary-hover text-white px-7 py-3 text-sm font-semibold transition-all duration-200 shadow-md hover:shadow-lg active:scale-[0.98]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary-hover text-white px-7 py-3.5 text-sm font-semibold transition-all duration-200 shadow-[0_4px_14px_rgba(194,94,0,0.25)] hover:shadow-[0_6px_20px_rgba(194,94,0,0.35)] hover:-translate-y-0.5 active:scale-[0.98]"
               >
                 <span>Get free consultation</span>
                 <ArrowRight className="size-4" />
@@ -62,7 +66,7 @@ export default function Hero() {
 
               <Link
                 href="/portfolio"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-border-custom bg-white hover:bg-neutral-50 dark:bg-card-bg dark:hover:bg-neutral-900 px-7 py-3 text-sm font-semibold text-text-base transition-all duration-200 active:scale-[0.98]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-border-custom bg-card-bg hover:bg-neutral-50 dark:hover:bg-neutral-900 px-7 py-3.5 text-sm font-semibold text-text-base transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] shadow-sm hover:shadow"
               >
                 <span>View our work</span>
                 <ArrowRight className="size-4" />
@@ -73,7 +77,7 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
               className="flex items-center gap-6"
             >
               <div className="flex items-center">
