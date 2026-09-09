@@ -3,8 +3,7 @@
 import React, { useState } from "react";
 import PageTransition from "@/components/PageTransition";
 import Link from "next/link";
-import { ArrowRight, Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
-import CallToAction from "@/components/CallToAction";
+import { ArrowRight, Star, Quote } from "lucide-react";
 
 export default function TestimonialsPage() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -89,20 +88,20 @@ export default function TestimonialsPage() {
 
   return (
     <PageTransition>
-      <div className="hog-grid min-h-screen pb-20 pt-10 text-left">
-        <main className="max-w-none px-6 md:px-12 lg:px-16 flex flex-col gap-20 md:gap-28">
+      <div className="hog-grid min-h-screen pb-20 pt-8 text-left">
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 flex flex-col gap-16 md:gap-24">
           
           {/* Breadcrumbs */}
-          <nav className="text-xs font-mono text-text-muted flex items-center gap-2 pt-8">
+          <nav aria-label="Breadcrumbs" className="text-xs font-mono text-text-muted flex items-center gap-2 pt-6">
             <Link href="/" className="hover:text-primary transition-colors">Home</Link>
             <span>&gt;</span>
             <span className="text-text-muted">Company</span>
             <span>&gt;</span>
-            <span className="text-text-base">Testimonials</span>
+            <span className="text-text-base font-semibold">Testimonials</span>
           </nav>
 
           {/* Hero split */}
-          <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
             {/* Left */}
             <div className="lg:col-span-7 flex flex-col items-start">
@@ -110,18 +109,18 @@ export default function TestimonialsPage() {
                 TESTIMONIALS
               </span>
               <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
-                Trusted by Clients.{" "}
+                Client Trust.{" "}
                 <span className="text-primary underline decoration-primary/40 decoration-4 underline-offset-8">
-                  Driven
+                  Proven
                 </span>{" "}
-                by Results.
+                Results.
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                I take pride in the trust my clients place in us and the impact we create together. Here&apos;s what they have to say about their experience with Jayant Web & AI Systems.
+                Don&apos;t just take our word for it. Here&apos;s what founders, leaders, and teams have to say about working with Jayant Web & AI Systems.
               </p>
 
               {/* Action buttons */}
-              <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-10">
+              <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-4">
                 <Link
                   href="/contact"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary-hover text-white px-7 py-3 text-xs font-mono font-bold transition-all shadow-md active:scale-[0.98]"
@@ -131,7 +130,7 @@ export default function TestimonialsPage() {
                 </Link>
                 <Link
                   href="/portfolio"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-border-custom bg-white hover:bg-neutral-50 dark:bg-card-bg dark:hover:bg-neutral-900 px-7 py-3 text-xs font-mono font-bold text-text-base transition-all"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-border-custom bg-card-bg hover:border-primary/40 px-7 py-3 text-xs font-mono font-bold text-text-base transition-all"
                 >
                   <span>View All Case Studies</span>
                   <ArrowRight className="size-4" />
@@ -140,7 +139,7 @@ export default function TestimonialsPage() {
 
             </div>
 
-            {/* Right: Testimonial Portrait Card */}
+            {/* Right: Testimonial Highlight Card */}
             <div className="lg:col-span-5 w-full flex justify-center">
               <div className="relative w-full max-w-[420px] aspect-[4/3] rounded-[32px] overflow-hidden border border-border-custom bg-neutral-900 shadow-2xl p-6 flex flex-col justify-end text-white">
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent z-10" />
@@ -160,7 +159,7 @@ export default function TestimonialsPage() {
           </section>
 
           {/* Stats Bar */}
-          <section className="grid grid-cols-2 md:grid-cols-5 gap-6 py-8 border-t border-b border-border-custom/20">
+          <section className="grid grid-cols-2 md:grid-cols-5 gap-6 py-8 border-t border-b border-border-custom/40">
             {stats.map((stat, idx) => (
               <div key={idx} className="flex flex-col items-center text-center">
                 <span className="text-3xl md:text-4xl font-serif font-black text-primary mb-1">{stat.number}</span>
@@ -170,7 +169,7 @@ export default function TestimonialsPage() {
           </section>
 
           {/* Reviews Grid & Filter */}
-          <section className="py-8 relative">
+          <section className="py-4 relative">
             <div className="text-center max-w-2xl mx-auto mb-12">
               <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
                 REVIEWS
@@ -181,15 +180,15 @@ export default function TestimonialsPage() {
             </div>
 
             {/* Tabs */}
-            <div className="flex flex-wrap gap-2 justify-center mb-12">
+            <div className="flex flex-wrap gap-2 justify-center mb-10">
               {filterTabs.map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveFilter(tab)}
                   className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all border ${
                     activeFilter === tab
-                      ? "bg-neutral-900 border-neutral-900 text-white dark:bg-white dark:border-white dark:text-neutral-950 shadow-sm"
-                      : "bg-white border-border-custom text-text-muted hover:text-text-base dark:bg-card-bg/40"
+                      ? "bg-primary border-primary text-white shadow-sm"
+                      : "bg-card-bg/70 border-border-custom text-text-muted hover:border-primary/40 hover:text-text-base"
                   }`}
                 >
                   {tab}
@@ -198,21 +197,26 @@ export default function TestimonialsPage() {
             </div>
 
             {/* Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredReviews.map((r, idx) => (
-                <div key={idx} className="hog-card rounded-2xl p-6 border border-border-custom bg-card-bg/40 flex flex-col justify-between text-left gap-6">
+                <div key={idx} className="glass-card rounded-2xl p-6 border border-border-custom bg-card-bg/60 flex flex-col justify-between text-left gap-6 hover:border-primary/40 transition-all shadow-sm">
                   <div className="flex flex-col gap-4">
-                    <div className="flex items-center gap-1">
-                      {[...Array(r.rating)].map((_, i) => (
-                        <Star key={i} className="size-4 fill-primary text-primary" />
-                      ))}
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-1">
+                        {[...Array(r.rating)].map((_, i) => (
+                          <Star key={i} className="size-4 fill-primary text-primary" />
+                        ))}
+                      </div>
+                      <span className="text-[9px] font-mono font-bold text-primary bg-primary/10 px-2 py-0.5 rounded">
+                        {r.category}
+                      </span>
                     </div>
                     <h4 className="font-serif text-sm font-bold text-text-base">{r.company}</h4>
                     <p className="text-xs text-text-muted leading-relaxed italic">&ldquo;{r.text}&rdquo;</p>
                   </div>
 
                   <div className="flex items-center gap-3 border-t border-border-custom/50 pt-4">
-                    <div className="size-8 rounded-full bg-neutral-100 dark:bg-neutral-850 flex items-center justify-center text-sm shrink-0">
+                    <div className="size-8 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-sm shrink-0">
                       {r.avatar}
                     </div>
                     <div className="flex flex-col">
@@ -224,12 +228,13 @@ export default function TestimonialsPage() {
               ))}
             </div>
 
+            {/* Clutch Outbound Link Restored */}
             <div className="flex justify-center mt-12">
               <a
                 href="https://clutch.co"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border-custom bg-white hover:bg-neutral-50 dark:bg-card-bg dark:hover:bg-neutral-900 text-xs font-mono font-bold text-text-base transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border-custom bg-card-bg hover:border-primary/40 text-xs font-mono font-bold text-text-base transition-all shadow-sm"
               >
                 <span>View More Reviews on Clutch</span>
                 <ArrowRight className="size-4" />
@@ -238,8 +243,8 @@ export default function TestimonialsPage() {
           </section>
 
           {/* Bottom CTA */}
-          <section className="relative overflow-hidden rounded-[32px] border border-white/10 bg-[#0B0F19] px-8 py-16 md:py-20 text-center shadow-lg">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,138,0,0.04),transparent)] pointer-events-none" />
+          <section className="relative overflow-hidden rounded-[32px] border border-white/10 bg-[#0B0F19] px-8 py-14 md:py-18 text-center shadow-lg">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,138,0,0.06),transparent)] pointer-events-none" />
             
             <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
               <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-white mb-4 leading-tight">
@@ -254,13 +259,13 @@ export default function TestimonialsPage() {
                   href="https://cal.com/jayant-web-and-ai-systems/strategy-call"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary-hover px-7 py-3 text-xs font-mono font-bold text-white shadow-md transition-all duration-200"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary-hover px-7 py-3.5 text-xs font-mono font-bold text-white shadow-md transition-all duration-200"
                 >
                   Book a Free Consultation <ArrowRight className="size-3.5" />
                 </a>
                 <Link
                   href="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 hover:bg-white/5 px-7 py-3 text-xs font-mono font-bold text-white transition-all duration-200"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 hover:bg-white/5 px-7 py-3.5 text-xs font-mono font-bold text-white transition-all duration-200"
                 >
                   Discuss Your Project <ArrowRight className="size-3.5" />
                 </Link>
