@@ -128,7 +128,7 @@ export default function PricingPage() {
                 </div>
                 <Link
                   href="/contact"
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-white hover:bg-neutral-50 dark:bg-card-bg dark:hover:bg-neutral-900 border border-border-custom py-2.5 text-xs font-mono font-bold text-text-base transition-colors"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-card-bg hover:border-primary/40 border border-border-custom py-2.5 text-xs font-mono font-bold text-text-base transition-colors"
                 >
                   <span>Discuss Your Project</span>
                   <ArrowRight className="size-3.5" />
