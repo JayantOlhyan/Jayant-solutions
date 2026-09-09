@@ -208,6 +208,7 @@ export default function PortfolioPage() {
 
     const timer = setTimeout(() => {
       if (modalRef.current) {
+        modalRef.current.scrollTop = 0;
         const closeBtn = modalRef.current.querySelector<HTMLElement>("button");
         if (closeBtn) closeBtn.focus();
         else modalRef.current.focus();
@@ -471,10 +472,10 @@ export default function PortfolioPage() {
                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                className="relative z-10 w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-card-bg rounded-[28px] border border-border-custom shadow-2xl flex flex-col text-left outline-none"
+                className="relative z-10 w-full max-w-2xl max-h-[85vh] overflow-y-auto custom-scrollbar bg-card-bg rounded-[28px] border border-border-custom shadow-2xl flex flex-col text-left outline-none"
               >
                 {/* Modal Header Media Preview */}
-                <div className="relative w-full aspect-[21/9] bg-neutral-900 border-b border-border-custom/80 overflow-hidden">
+                <div className="relative w-full h-48 sm:h-60 bg-neutral-900 border-b border-border-custom/80 overflow-hidden shrink-0">
                   <Image
                     src={activeProject.image}
                     alt={activeProject.title}
@@ -541,6 +542,12 @@ export default function PortfolioPage() {
                       </div>
                       
                       <div className="flex items-center gap-3">
+                        <button
+                          onClick={() => setSelectedId(null)}
+                          className="px-4 py-2 rounded-xl border border-border-custom hover:bg-neutral-100 dark:hover:bg-neutral-800 text-xs font-mono font-bold text-text-muted transition-colors cursor-pointer"
+                        >
+                          Close
+                        </button>
                         {activeProject.githubLink && (
                           <a
                             href={activeProject.githubLink}
