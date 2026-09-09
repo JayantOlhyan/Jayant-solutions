@@ -11,6 +11,19 @@ export default function PWAHandler() {
   useEffect(() => {
     // 1. Service Worker Registration
     if (typeof window !== "undefined" && "serviceWorker" in navigator) {
+      if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+        // On localhost development, unregister service workers to avoid stale cached bundles
+        navigator.serviceWorker.getRegistrations().then((registrations) => {
+          for (const registration of registrations) {
+            registration.unregister();
+          }
+        });
+        caches.keys().then((keys) => {
+          keys.forEach((key) => caches.delete(key));
+        });
+        return;
+      }
+
       const handleLoad = () => {
         // Register the service worker pointing to public/sw.js
         navigator.serviceWorker
