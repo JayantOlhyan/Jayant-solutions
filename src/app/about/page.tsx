@@ -97,14 +97,14 @@ export default function AboutPage() {
               <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto">
                 <Link
                   href="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-neutral-900 text-white hover:bg-neutral-800 px-7 py-3 text-xs font-mono font-bold transition-all"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-primary text-white hover:bg-primary-hover px-7 py-3 text-xs font-mono font-bold transition-all shadow-md"
                 >
                   <span>Let&apos;s Build Together</span>
                   <ArrowRight className="size-4" />
                 </Link>
                 <Link
                   href="/process"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-border-custom bg-white hover:bg-neutral-50 dark:bg-card-bg dark:hover:bg-neutral-900 px-7 py-3 text-xs font-mono font-bold text-text-base transition-all"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-border-custom bg-card-bg hover:border-primary/40 px-7 py-3 text-xs font-mono font-bold text-text-base transition-all"
                 >
                   <span>my process</span>
                   <ArrowRight className="size-4" />
