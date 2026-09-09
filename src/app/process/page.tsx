@@ -76,7 +76,7 @@ export default function ProcessPage() {
       <div className="hog-grid min-h-screen pb-20 pt-10 text-left">
         <main className="max-w-none px-6 md:px-12 lg:px-16 flex flex-col gap-20 md:gap-28">
           
-          {/* Process Hero split */}
+          {/* Process Hero Section */}
           <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center pt-8">
             <div className="lg:col-span-7 flex flex-col items-start">
               <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
