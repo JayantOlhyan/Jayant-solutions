@@ -75,14 +75,13 @@ export function createOrganizationSchema() {
     },
     "founder": {
       "@type": "Person",
-      "@id": `${BASE_URL}/#founder`,
+      "@id": `${BASE_URL}/company/founder#person`,
       "name": "Jayant Olhyan",
       "url": `${BASE_URL}/company/founder`,
       "jobTitle": "Founder & Lead Software Engineer",
       "sameAs": [
         "https://github.com/JayantOlhyan",
-        "https://linkedin.com/in/jayantolhyan",
-        "https://x.com/jayantolhyan"
+        "https://www.linkedin.com/in/jayant-olhyan/"
       ]
     },
     "sameAs": [
@@ -271,6 +270,41 @@ export function createPricingSchema(packages: PricingPackageData[]) {
           "url": `${BASE_URL}/pricing`
         };
       })
+    }
+  };
+}
+
+/**
+ * ProfilePage Schema for the Founder
+ */
+export function createProfilePageSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "@id": `${BASE_URL}/company/founder#person`,
+      "name": "Jayant Olhyan",
+      "url": `${BASE_URL}/company/founder`,
+      "mainEntityOfPage": `${BASE_URL}/company/founder`,
+      "jobTitle": "Founder & Lead Software Engineer",
+      "image": `${BASE_URL}/images/jayant-olhyan.jpg`,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "New Delhi",
+        "addressCountry": "IN"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Maharaja Surajmal Institute of Technology"
+      },
+      "worksFor": {
+        "@id": `${BASE_URL}/#organization`
+      },
+      "sameAs": [
+        "https://github.com/JayantOlhyan",
+        "https://www.linkedin.com/in/jayant-olhyan/"
+      ]
     }
   };
 }

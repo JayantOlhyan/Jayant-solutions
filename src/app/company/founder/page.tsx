@@ -1,6 +1,9 @@
 "use client";
 
 import React from "react";
+import JsonLd from "@/components/seo/JsonLd";
+import { createProfilePageSchema } from "@/lib/seo/schema";
+
 import PageTransition from "@/components/PageTransition";
 import Link from "next/link";
 import Image from "next/image";
@@ -32,7 +35,10 @@ export default function FounderPage() {
   ];
 
   return (
-    <PageTransition>
+    
+    <>
+      <JsonLd schema={createProfilePageSchema()} />
+      <PageTransition>
       <div className="hog-grid min-h-screen pb-20 pt-10 text-left">
         <main className="max-w-none px-6 md:px-12 lg:px-16 flex flex-col gap-16 md:gap-24">
           
@@ -83,15 +89,13 @@ export default function FounderPage() {
 
               {/* Social Links */}
               <div className="flex items-center gap-4 text-text-muted">
-                <a href="https://linkedin.com/in/jayantolhyan" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="Jayant's LinkedIn Profile">
+                <a href="https://www.linkedin.com/in/jayant-olhyan/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="Jayant's LinkedIn Profile">
                   <svg className="size-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 </a>
                 <a href="https://github.com/JayantOlhyan" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="Jayant's GitHub Profile">
                   <svg className="size-5 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 </a>
-                <a href="https://x.com/jayantolhyan" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="Jayant's X Profile">
-                  <svg className="size-5 fill-current" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
-                </a>
+                
               </div>
 
             </div>
@@ -138,13 +142,31 @@ export default function FounderPage() {
 
             <div className="lg:col-span-7 flex flex-col gap-6 text-sm text-text-muted leading-relaxed">
               <p>
-                My journey into tech started with curiosity and a passion for solving problems. What began as building small projects in college turned into a mission — to help startups, enterprises, and brands leverage the power of web technologies and AI.
+                I am Jayant Olhyan, a software engineer and the founder of Jayant Web & AI Systems. I am based out of New Delhi / Dwarka, and my work focuses on bridging the gap between complex architectural challenges and tangible business value. My journey into technology was driven by an early fascination with how systems are built from the ground up, which eventually led me to specialize in full-stack web development, system architecture, and artificial intelligence integration. Over the years, I have grown from building isolated hobby scripts to designing robust, highly available cloud-native systems that serve real users on a daily basis.
               </p>
               <p>
-                With a strong foundation in software development, product thinking, and entrepreneurship, I founded Jayant Web & AI Systems to deliver end-to-end digital solutions that are scalable, efficient, and future-ready.
+                My formal engineering foundation was laid at Maharaja Surajmal Institute of Technology (MSIT), Janakpuri, New Delhi. During my time there, I immersed myself in the technical community, eventually taking on a leadership role within the MSIT Web Development Society. Leading the society wasn't just about writing code; it involved mentoring peers, architecting collaborative platforms, and organizing hands-on workshops that taught students how to deploy modern web applications from scratch. We focused heavily on transitioning from theoretical computer science into applied engineering, running sessions on version control, state management, and CI/CD pipelines. This experience taught me the critical importance of clear technical communication, developer ergonomics, and rigorous architectural planning before writing the first line of code.
               </p>
               <p>
-                When I&apos;m not coding or building products, you&apos;ll find me exploring new technologies, mentoring developers, or brainstorming ideas that can create real-world impact.
+                To deepen my understanding of machine learning and large-scale data systems, I pursued the IIT Guwahati — Online BSc (Hons) in Data Science and Artificial Intelligence. This rigorous academic program equipped me with the mathematical intuition—spanning linear algebra, probability, and optimization—and programmatic skills required to build predictive models, design robust data pipelines, and deploy AI services into production environments. Balancing this intensive coursework with practical software development allowed me to immediately apply academic concepts to real-world engineering problems, turning abstract algorithms into deployed inference endpoints that solve actual business challenges.
+              </p>
+              <p>
+                I have architected and developed a diverse portfolio of named projects that solve specific industry problems. For instance, I built <strong>TeacherSathi</strong>, an educational platform designed to streamline classroom management, assignment tracking, and content delivery for educators. The core of this platform was built using React and Next.js for a highly interactive, SEO-optimized, and accessible frontend, backed by a resilient backend architecture capable of handling concurrent classroom data streams reliably. 
+              </p>
+              <p>
+                I also engineered <strong>KhelClan</strong>, a dedicated platform tailored for the gaming and esports community, where real-time state management, WebSocket integrations, and low-latency data fetching were absolute critical constraints. For the healthcare sector, I developed <strong>Healthkinator</strong>, an application that demanded strict attention to data structuring, schema validation, and secure API design to ensure patient privacy. Working with such sensitive domains reinforced my commitment to writing defensively secure, highly maintainable code.
+              </p>
+              <p>
+                My work extends deeply into artificial intelligence. I developed <strong>TruthLens AI</strong>, a sophisticated analytical tool aimed at analyzing and verifying complex information patterns. This project heavily utilized Python and FastAPI to expose machine learning inference endpoints efficiently, handling high-throughput text processing without bottlenecks. Similarly, I built <strong>FarmIQ</strong>, an agricultural technology solution that processes complex environmental and crop datasets to provide actionable insights. Building these distributed systems required seamlessly bridging Python-based analytical microservices with modern TypeScript frontends.
+              </p>
+              <p>
+                My actual production stack is built around technologies that prioritize developer velocity, type safety, and runtime performance. On the frontend, I rely on Next.js, React, and TypeScript to create declarative, scalable user interfaces that degrade gracefully. For backend infrastructure, I utilize Python and FastAPI for compute-heavy or AI-driven microservices, while leveraging Node.js ecosystems for rapid, I/O-heavy real-time capabilities. I primarily use MongoDB for flexible, document-based data storage, alongside PostgreSQL when strict relational integrity and complex transactional queries are paramount.
+              </p>
+              <p>
+                Beyond my individual project work, I strongly believe in the value of open-source contributions and continuous community engagement. Being part of the wider tech ecosystem in New Delhi has exposed me to a diverse array of engineering methodologies, which I continually synthesize and integrate into my own practices.
+              </p>
+              <p>
+                At Jayant Web & AI Systems, I apply this accumulated experience to every client project. I do not just write code; I architect systems that are designed to scale smoothly, perform reliably under heavy load, and adapt swiftly to evolving business requirements. Whether I am deploying a monolithic application for an agile early-stage startup or orchestrating a complex, distributed AI service for a growing enterprise, my goal remains constant: delivering uncompromising engineering excellence that drives measurable business growth.
               </p>
 
               <a
@@ -240,5 +262,6 @@ export default function FounderPage() {
         </main>
       </div>
     </PageTransition>
+    </>
   );
 }
