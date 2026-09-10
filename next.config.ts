@@ -45,6 +45,57 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: '/technologies/openai-integration',
+        destination: '/services/ai-development',
+        permanent: true,
+      },
+      {
+        source: '/technologies/nextjs-development',
+        destination: '/services/website-development',
+        permanent: true,
+      },
+      {
+        source: '/technologies/langchain-development',
+        destination: '/services/ai-development',
+        permanent: true,
+      },
+      {
+        source: '/technologies/google-gemini-development',
+        destination: '/services/ai-development',
+        permanent: true,
+      },
+      {
+        source: '/technologies/postgresql-development',
+        destination: '/services/api-development',
+        permanent: true,
+      },
+      {
+        source: '/technologies/supabase-development',
+        destination: '/services/cloud-and-devops',
+        permanent: true,
+      },
+      {
+        source: '/technologies/fastapi-development',
+        destination: '/services/api-development',
+        permanent: true,
+      },
+      {
+        source: '/technologies/flutter-development',
+        destination: '/services/mobile-app-development',
+        permanent: true,
+      },
+      {
+        source: '/technologies/react-development',
+        destination: '/services/website-development',
+        permanent: true,
+      },
+      {
+        source: '/technologies/python-development',
+        destination: '/services/custom-software-development',
+        permanent: true,
+      },
+
+      {
         source: '/industries/ai-for-real-estate',
         destination: '/services/ai-development',
         permanent: true,

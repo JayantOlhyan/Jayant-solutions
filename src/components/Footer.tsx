@@ -29,19 +29,6 @@ export default function Footer() {
     { name: "Contact & Booking", href: "/contact" },
   ];
 
-  const techLinks = [
-    { name: "Next.js Development", href: "/technologies/nextjs-development" },
-    { name: "React Development", href: "/technologies/react-development" },
-    { name: "FastAPI Development", href: "/technologies/fastapi-development" },
-    { name: "Python Development", href: "/technologies/python-development" },
-    { name: "Flutter Development", href: "/technologies/flutter-development" },
-    { name: "OpenAI Integration", href: "/technologies/openai-integration" },
-    { name: "Google Gemini AI", href: "/technologies/google-gemini-development" },
-    { name: "LangChain Agents", href: "/technologies/langchain-development" },
-    { name: "Supabase & Postgres", href: "/technologies/supabase-development" },
-    { name: "PostgreSQL Engineering", href: "/technologies/postgresql-development" },
-  ];
-
   const companyLinks = [
     { name: "About Me", href: "/about" },
     { name: "Founder Profile", href: "/company/founder" },

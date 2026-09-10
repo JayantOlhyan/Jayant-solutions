@@ -102,27 +102,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  // 5. Technology Pages
-  const techRoutes = [
-    "fastapi-development",
-    "flutter-development",
-    "google-gemini-development",
-    "langchain-development",
-    "nextjs-development",
-    "openai-integration",
-    "postgresql-development",
-    "python-development",
-    "react-development",
-    "supabase-development",
-  ];
-
-  const techPages: MetadataRoute.Sitemap = techRoutes.map((slug) => ({
-    url: `${baseUrl}/technologies/${slug}`,
-    lastModified,
-    changeFrequency: "monthly",
-    priority: 0.7,
-  }));
-
   // 6. Blog Categories
   const blogCategoryRoutes = [
     "ai-insights",
@@ -254,7 +233,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...corePages,
     ...servicePages,
     ...promoPages,
-    ...techPages,
     ...blogCategoryPages,
     ...dynamicBlogPages,
     ...companyPages,

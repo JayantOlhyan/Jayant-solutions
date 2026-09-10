@@ -25,11 +25,6 @@ const pagesWithInPageBreadcrumbs = new Set([
   "/services/saas-development", "/services/technology-consulting", "/services/ui-ux-design",
   "/services/website-development",
   "/support", "/support/report-a-bug", "/support/service-status",
-  "/technologies/fastapi-development", "/technologies/flutter-development",
-  "/technologies/google-gemini-development", "/technologies/langchain-development",
-  "/technologies/nextjs-development", "/technologies/openai-integration",
-  "/technologies/postgresql-development", "/technologies/python-development",
-  "/technologies/react-development", "/technologies/supabase-development",
   "/terms"
 ]);
 
