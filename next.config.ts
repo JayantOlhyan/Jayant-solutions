@@ -45,6 +45,32 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: '/promo/ai-consulting',
+        destination: '/services/technology-consulting',
+        permanent: true,
+      },
+      {
+        source: '/promo/business-automation-solutions',
+        destination: '/services/business-automation',
+        permanent: true,
+      },
+      {
+        source: '/promo/build-startup-mvp',
+        destination: '/services/mvp-development',
+        permanent: true,
+      },
+      {
+        source: '/promo/build-ai-chatbot',
+        destination: '/services/ai-chatbot-development',
+        permanent: true,
+      },
+      {
+        source: '/promo/modern-business-website',
+        destination: '/services/website-development',
+        permanent: true,
+      },
+
+      {
         source: '/technologies/openai-integration',
         destination: '/services/ai-development',
         permanent: true,

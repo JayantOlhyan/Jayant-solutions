@@ -86,22 +86,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // 3. Promotional Landing Pages
-  const promoRoutes = [
-    "ai-consulting",
-    "build-ai-chatbot",
-    "build-startup-mvp",
-    "business-automation-solutions",
-    "modern-business-website",
-  ];
-
-  const promoPages: MetadataRoute.Sitemap = promoRoutes.map((slug) => ({
-    url: `${baseUrl}/promo/${slug}`,
-    lastModified,
-    changeFrequency: "monthly",
-    priority: 0.7,
-  }));
-
   // 6. Blog Categories
   const blogCategoryRoutes = [
     "ai-insights",
@@ -232,7 +216,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...corePages,
     ...servicePages,
-    ...promoPages,
     ...blogCategoryPages,
     ...dynamicBlogPages,
     ...companyPages,

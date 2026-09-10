@@ -79,7 +79,7 @@ export const contentCalendar: PageContentPlan[] = [
     primaryKeyword: "startup mvp development services",
     searchIntent: "Transactional",
     targetAudience: "Early-stage founders validating ideas in 2 to 6 weeks",
-    supportingContent: ["/promo/build-startup-mvp", "/blog/custom-software", "/pricing"],
+    supportingContent: ["/services/mvp-development", "/blog/custom-software", "/pricing"],
     status: "Published",
     updateCadence: "Quarterly review of startup tech stacks",
   },

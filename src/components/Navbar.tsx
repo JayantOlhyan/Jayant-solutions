@@ -47,14 +47,6 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const solutionsSubLinks = [
-    { label: "Build an AI chatbot", href: "/promo/build-ai-chatbot" },
-    { label: "Build your startup MVP", href: "/promo/build-startup-mvp" },
-    { label: "Modern business website", href: "/promo/modern-business-website" },
-    { label: "Business automation solutions", href: "/promo/business-automation-solutions" },
-    { label: "AI consulting", href: "/promo/ai-consulting" },
-  ];
-
   const companySubLinks = [
     { label: "Founder", href: "/company/founder" },
     { label: "Careers", href: "/company/careers" },
@@ -103,24 +95,6 @@ export default function Navbar() {
           <div className="hidden xl:flex items-center">
             <NavigationMenu>
               <NavigationMenuList className="gap-0.5 lg:gap-1">
-                {/* Solutions */}
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className={`bg-transparent px-2 lg:px-3 py-2 text-[14px] font-sans font-medium border-none shadow-none focus:ring-0 focus:outline-none transition-colors ${pathname.startsWith("/promo") ? "text-primary" : "text-white/70 hover:text-white hover:bg-white/5 data-[popup-open]:bg-white/10 data-[popup-open]:text-white"}`}>
-                    Solutions
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[240px] gap-1 p-2">
-                      {solutionsSubLinks.map((subLink) => (
-                        <li key={subLink.label}>
-                          <NavigationMenuLink render={<Link href={subLink.href} className="block px-3 py-2 text-[13px] font-sans font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-md transition-colors outline-none" />}>
-                            {subLink.label}
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-
                 {/* Services */}
                 <NavigationMenuItem>
                   <NavigationMenuLink render={<Link href="/services" className={`block bg-transparent px-2 lg:px-3 py-2 text-[14px] font-sans font-medium border-none shadow-none focus:ring-0 focus:outline-none rounded-md transition-colors ${pathname.startsWith("/services") ? "text-primary" : "text-white/70 hover:text-white hover:bg-white/5 focus:bg-white/10 focus:text-white"}`} />}>
@@ -267,37 +241,6 @@ export default function Navbar() {
               className="mt-4 pt-4 border-t border-white/10 md:hidden flex flex-col gap-4 overflow-y-auto max-h-[calc(100vh-8rem)] custom-scrollbar pb-6 pr-1"
             >
               {/* Mobile Solutions Dropdown */}
-              <div className="flex flex-col border-b border-white/5">
-                <button
-                  onClick={() => setMobileDropdown(mobileDropdown === 'solutions' ? null : 'solutions')}
-                  className="flex items-center justify-between text-sm font-sans font-bold px-2 py-2 text-white/70 hover:text-white focus:outline-none w-full"
-                >
-                  <span>Solutions</span>
-                  <ChevronDown className={`size-3.5 transition-transform ${mobileDropdown === 'solutions' ? "rotate-180" : ""}`} />
-                </button>
-                <AnimatePresence>
-                  {mobileDropdown === 'solutions' && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="pl-4 flex flex-col gap-2 py-1 bg-white/5 rounded-lg mb-2"
-                    >
-                      {solutionsSubLinks.map((subLink) => (
-                        <Link
-                          key={subLink.label}
-                          href={subLink.href}
-                          onClick={() => { setIsOpen(false); setMobileDropdown(null); }}
-                          className="block py-1.5 text-xs font-mono font-bold text-white/70 hover:text-white"
-                        >
-                          {subLink.label}
-                        </Link>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
               <Link
                 href="/services"
                 onClick={() => setIsOpen(false)}

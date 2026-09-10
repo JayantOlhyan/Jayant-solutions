@@ -11,14 +11,6 @@ export default function Footer() {
 
   const currentYear = new Date().getFullYear();
 
-  const solutionsLinks = [
-    { name: "Build an AI chatbot", href: "/promo/build-ai-chatbot" },
-    { name: "Build your startup MVP", href: "/promo/build-startup-mvp" },
-    { name: "Modern business website", href: "/promo/modern-business-website" },
-    { name: "Business automation", href: "/promo/business-automation-solutions" },
-    { name: "AI consulting", href: "/promo/ai-consulting" },
-  ];
-
   const coreLinks = [
     { name: "Home", href: "/" },
     { name: "All Services", href: "/services" },
@@ -145,21 +137,6 @@ export default function Footer() {
 
           {/* Column 2: Solutions & Core Services (Col span 3) */}
           <div className="lg:col-span-3 flex flex-col gap-6 text-left">
-            <div>
-              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-primary block mb-3">
-                Solutions & Offers
-              </span>
-              <ul className="space-y-2 text-xs text-text-muted">
-                {solutionsLinks.map((item) => (
-                  <li key={item.name}>
-                    <Link href={item.href} className="hover:text-text-base hover:underline transition-colors block py-0.5">
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
             <div>
               <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-primary block mb-3">
                 Core Navigation

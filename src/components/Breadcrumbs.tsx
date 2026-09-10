@@ -16,8 +16,6 @@ const pagesWithInPageBreadcrumbs = new Set([
   "/cookies", "/disclaimer", "/faq",
   "/pricing", "/pricing-policy", "/pricing/enterprise-plans", "/pricing/maintenance-plans",
   "/privacy",
-  "/promo/ai-consulting", "/promo/build-ai-chatbot", "/promo/build-startup-mvp",
-  "/promo/business-automation-solutions", "/promo/modern-business-website",
   "/resources/case-studies", "/resources/downloads", "/resources/industries-we-serve", "/resources/technologies-we-use",
   "/services/ai-chatbot-development", "/services/ai-development", "/services/api-development",
   "/services/business-automation", "/services/cloud-and-devops", "/services/custom-software-development",
