@@ -71,7 +71,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "business-automation",
     "cloud-and-devops",
     "custom-software-development",
-    "maintenance",
     "mobile-app-development",
     "mvp-development",
     "saas-development",

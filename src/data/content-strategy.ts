@@ -204,7 +204,7 @@ export const topicClusters: TopicCluster[] = [
     searchIntent: "Commercial",
     supportingServices: [
       { name: "API Development & Integration", url: "/services/api-development" },
-      { name: "Software Maintenance", url: "/services/maintenance" },
+      { name: "Software Maintenance", url: "/services" },
     ],
     blogArticles: [
       { title: "Automating Manual Operations with Webhooks & WhatsApp", slug: "automation" },

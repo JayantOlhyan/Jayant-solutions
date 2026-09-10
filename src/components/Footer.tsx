@@ -69,7 +69,7 @@ export default function Footer() {
     { name: "Support Center", href: "/support" },
     { name: "Client Proposal Access", href: "/proposal" },
     { name: "Client Portal", href: "/support/client-portal" },
-    { name: "Maintenance Plans", href: "/services/maintenance" },
+    { name: "Maintenance Plans", href: "/services" },
     { name: "System Service Status", href: "/support/service-status" },
     { name: "Report an Issue", href: "/support/report-a-bug" },
   ];

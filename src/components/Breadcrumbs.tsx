@@ -24,7 +24,7 @@ const pagesWithInPageBreadcrumbs = new Set([
   "/resources/case-studies", "/resources/downloads", "/resources/industries-we-serve", "/resources/technologies-we-use",
   "/services/ai-chatbot-development", "/services/ai-development", "/services/api-development",
   "/services/business-automation", "/services/cloud-and-devops", "/services/custom-software-development",
-  "/services/maintenance", "/services/mobile-app-development", "/services/mvp-development",
+  "/services/mobile-app-development", "/services/mvp-development",
   "/services/saas-development", "/services/technology-consulting", "/services/ui-ux-design",
   "/services/website-development",
   "/support", "/support/report-a-bug", "/support/service-status",
