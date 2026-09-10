@@ -31,12 +31,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly",
       priority: 0.9,
     },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
+
     {
       url: `${baseUrl}/process`,
       lastModified,
@@ -88,6 +83,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // 7. Dynamic Individual Blog Posts
   const posts = getBlogPosts();
+  
+  if (posts.length >= 3) {
+    corePages.push({
+      url: `${baseUrl}/blog`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    });
+  }
+
   const dynamicBlogPages: MetadataRoute.Sitemap = posts.map((post) => ({
     url: post.frontmatter.canonical || `${baseUrl}/blog/${post.slug}`,
     lastModified: post.frontmatter.updatedAt ? new Date(post.frontmatter.updatedAt) : new Date(post.frontmatter.publishedAt),
