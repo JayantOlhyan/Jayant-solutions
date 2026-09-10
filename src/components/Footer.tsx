@@ -151,40 +151,10 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
-
-            <div>
-              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-primary block mb-3">
-                Target Industries
-              </span>
-              <ul className="space-y-2 text-xs text-text-muted">
-                {industryLinks.map((item) => (
-                  <li key={item.name}>
-                    <Link href={item.href} className="hover:text-text-base hover:underline transition-colors block py-0.5">
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
 
           {/* Column 3: Technologies & Engineering (Col span 3) */}
           <div className="lg:col-span-3 flex flex-col gap-6 text-left">
-            <div>
-              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-primary block mb-3">
-                Technology Stacks
-              </span>
-              <ul className="space-y-2 text-xs text-text-muted">
-                {techLinks.map((item) => (
-                  <li key={item.name}>
-                    <Link href={item.href} className="hover:text-text-base hover:underline transition-colors block py-0.5">
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
             <div>
               <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-primary block mb-3">
                 Resources & Case Studies

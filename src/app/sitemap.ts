@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
-import { blogPosts } from "@/data/blog";
+import { getBlogPosts } from "@/lib/blog";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://jayant-systems.online";
   const lastModified = new Date();
 
@@ -86,31 +86,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // 6. Blog Categories
-  const blogCategoryRoutes = [
-    "ai-insights",
-    "artificial-intelligence",
-    "automation",
-    "case-studies",
-    "cloud",
-    "company-updates",
-    "software-development",
-    "startup-guides",
-    "ui-ux",
-    "web-development",
-  ];
-
-  const blogCategoryPages: MetadataRoute.Sitemap = blogCategoryRoutes.map((slug) => ({
-    url: `${baseUrl}/blog/${slug}`,
-    lastModified,
-    changeFrequency: "weekly",
-    priority: 0.6,
-  }));
-
   // 7. Dynamic Individual Blog Posts
-  const dynamicBlogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified,
+  const posts = getBlogPosts();
+  const dynamicBlogPages: MetadataRoute.Sitemap = posts.map((post) => ({
+    url: post.frontmatter.canonical || `${baseUrl}/blog/${post.slug}`,
+    lastModified: post.frontmatter.updatedAt ? new Date(post.frontmatter.updatedAt) : new Date(post.frontmatter.publishedAt),
     changeFrequency: "monthly",
     priority: 0.7,
   }));
@@ -216,7 +196,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...corePages,
     ...servicePages,
-    ...blogCategoryPages,
     ...dynamicBlogPages,
     ...companyPages,
     ...resourcePages,
