@@ -29,12 +29,6 @@ export default function Footer() {
     { name: "Contact & Booking", href: "/contact" },
   ];
 
-  const industryLinks = [
-    { name: "AI for Healthcare", href: "/industries/ai-for-healthcare" },
-    { name: "AI for Retail & E-commerce", href: "/industries/ai-for-retail" },
-    { name: "AI for Education", href: "/industries/ai-for-education" },
-  ];
-
   const techLinks = [
     { name: "Next.js Development", href: "/technologies/nextjs-development" },
     { name: "React Development", href: "/technologies/react-development" },

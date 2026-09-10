@@ -71,12 +71,6 @@ export default function Navbar() {
     { label: "Downloads", href: "/resources/downloads" },
   ];
 
-  const industriesSubLinks = [
-    { label: "AI for healthcare", href: "/industries/ai-for-healthcare" },
-    { label: "AI for retail & e-commerce", href: "/industries/ai-for-retail" },
-    { label: "AI for education", href: "/industries/ai-for-education" },
-  ];
-
   const technologiesSubLinks = [
     { label: "Next.js development", href: "/technologies/nextjs-development" },
     { label: "React development", href: "/technologies/react-development" },
@@ -145,24 +139,6 @@ export default function Navbar() {
                   <NavigationMenuLink render={<Link href="/services" className={`block bg-transparent px-2 lg:px-3 py-2 text-[14px] font-sans font-medium border-none shadow-none focus:ring-0 focus:outline-none rounded-md transition-colors ${pathname.startsWith("/services") ? "text-primary" : "text-white/70 hover:text-white hover:bg-white/5 focus:bg-white/10 focus:text-white"}`} />}>
                     Services
                   </NavigationMenuLink>
-                </NavigationMenuItem>
-
-                {/* Industries */}
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className={`bg-transparent px-2 lg:px-3 py-2 text-[14px] font-sans font-medium border-none shadow-none focus:ring-0 focus:outline-none transition-colors ${pathname.startsWith("/industries") ? "text-primary" : "text-white/70 hover:text-white hover:bg-white/5 data-[popup-open]:bg-white/10 data-[popup-open]:text-white"}`}>
-                    Industries
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[240px] gap-1 p-2">
-                      {industriesSubLinks.map((subLink) => (
-                        <li key={subLink.label}>
-                          <NavigationMenuLink render={<Link href={subLink.href} className="block px-3 py-2 text-[13px] font-sans font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-md transition-colors outline-none" />}>
-                            {subLink.label}
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </NavigationMenuContent>
                 </NavigationMenuItem>
 
                 {/* Technologies */}
@@ -362,38 +338,6 @@ export default function Navbar() {
               >
                 Services
               </Link>
-
-              {/* Mobile Industries Dropdown */}
-              <div className="flex flex-col border-b border-white/5">
-                <button
-                  onClick={() => setMobileDropdown(mobileDropdown === 'industries' ? null : 'industries')}
-                  className="flex items-center justify-between text-sm font-sans font-bold px-2 py-2 text-white/70 hover:text-white focus:outline-none w-full"
-                >
-                  <span>Industries</span>
-                  <ChevronDown className={`size-3.5 transition-transform ${mobileDropdown === 'industries' ? "rotate-180" : ""}`} />
-                </button>
-                <AnimatePresence>
-                  {mobileDropdown === 'industries' && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="pl-4 flex flex-col gap-2 py-1 bg-white/5 rounded-lg mb-2"
-                    >
-                      {industriesSubLinks.map((subLink) => (
-                        <Link
-                          key={subLink.label}
-                          href={subLink.href}
-                          onClick={() => { setIsOpen(false); setMobileDropdown(null); }}
-                          className="block py-1.5 text-xs font-mono font-bold text-white/70 hover:text-white"
-                        >
-                          {subLink.label}
-                        </Link>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
 
               {/* Mobile Technologies Dropdown */}
               <div className="flex flex-col border-b border-white/5">

@@ -102,26 +102,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  // 4. Industry Pages
-  const industryRoutes = [
-    "ai-for-agriculture",
-    "ai-for-education",
-    "ai-for-finance",
-    "ai-for-government",
-    "ai-for-healthcare",
-    "ai-for-manufacturing",
-    "ai-for-real-estate",
-    "ai-for-retail",
-    "ai-for-startups",
-  ];
-
-  const industryPages: MetadataRoute.Sitemap = industryRoutes.map((slug) => ({
-    url: `${baseUrl}/industries/${slug}`,
-    lastModified,
-    changeFrequency: "monthly",
-    priority: 0.7,
-  }));
-
   // 5. Technology Pages
   const techRoutes = [
     "fastapi-development",
@@ -274,7 +254,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...corePages,
     ...servicePages,
     ...promoPages,
-    ...industryPages,
     ...techPages,
     ...blogCategoryPages,
     ...dynamicBlogPages,

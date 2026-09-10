@@ -45,6 +45,52 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: '/industries/ai-for-real-estate',
+        destination: '/services/ai-development',
+        permanent: true,
+      },
+      {
+        source: '/industries/ai-for-government',
+        destination: '/services/ai-development',
+        permanent: true,
+      },
+      {
+        source: '/industries/ai-for-manufacturing',
+        destination: '/services/ai-development',
+        permanent: true,
+      },
+      {
+        source: '/industries/ai-for-agriculture',
+        destination: '/services/ai-development',
+        permanent: true,
+      },
+      {
+        source: '/industries/ai-for-retail',
+        destination: '/services/ai-development',
+        permanent: true,
+      },
+      {
+        source: '/industries/ai-for-finance',
+        destination: '/services/ai-development',
+        permanent: true,
+      },
+      {
+        source: '/industries/ai-for-healthcare',
+        destination: '/services/ai-development',
+        permanent: true,
+      },
+      {
+        source: '/industries/ai-for-education',
+        destination: '/services/ai-development',
+        permanent: true,
+      },
+      {
+        source: '/industries/ai-for-startups',
+        destination: '/services/ai-development',
+        permanent: true,
+      },
+
+      {
         source: '/services/maintenance',
         destination: '/services',
         permanent: true,
