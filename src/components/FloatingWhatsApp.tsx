@@ -18,9 +18,6 @@ export default function FloatingWhatsApp() {
   const pathname = usePathname();
   const [visible, setVisible] = useState(false);
 
-  // Hide on proposal pages
-  if (pathname?.startsWith("/proposal/")) return null;
-
   useEffect(() => {
     const toggleVisibility = () => {
       setVisible(window.scrollY > 300);
@@ -28,6 +25,9 @@ export default function FloatingWhatsApp() {
     window.addEventListener("scroll", toggleVisibility);
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
+
+  // Keep public contact controls outside private workspaces.
+  if (pathname?.startsWith("/proposal/") || pathname?.startsWith("/admin/sales")) return null;
 
   if (!visible) return null;
 

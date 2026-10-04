@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { requireAdmin } from "@/lib/auth/admin-guard";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { ShieldCheck, LogOut, FileText, DollarSign, Users, Calendar, CheckCircle2, Clock } from "lucide-react";
@@ -80,6 +81,7 @@ export default async function AdminDashboardPage() {
           </div>
 
           <div className="flex items-center gap-3">
+            <Link href="/admin/sales" className="text-sm text-[#C5A880] border border-[#C5A880]/30 rounded-lg px-3 py-2">India sales cockpit</Link>
             <MfaSettingsModal />
             <form action="/api/auth/logout" method="POST">
               <button

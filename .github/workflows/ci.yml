@@ -27,6 +27,9 @@ jobs:
       - name: TypeScript Typecheck
         run: npx tsc --noEmit
 
+      - name: Sales cockpit regression tests
+        run: npm run test:sales
+
       - name: Dependency Security Audit (11C.7)
         run: npm audit --audit-level=high
         continue-on-error: false

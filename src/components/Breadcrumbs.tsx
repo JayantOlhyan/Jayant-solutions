@@ -30,7 +30,7 @@ export default function Breadcrumbs() {
   const pathname = usePathname();
 
   // Don't show breadcrumbs on home page or proposal pages
-  if (pathname === "/" || pathname?.startsWith("/proposal/")) return null;
+  if (pathname === "/" || (pathname?.startsWith("/proposal/") || pathname?.startsWith("/admin/sales"))) return null;
 
   const paths = pathname.split("/").filter((path) => path);
 

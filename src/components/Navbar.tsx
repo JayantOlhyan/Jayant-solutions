@@ -25,10 +25,6 @@ export default function Navbar() {
   const pathname = usePathname();
   const navRef = useRef<HTMLElement>(null);
 
-  if (pathname?.startsWith("/proposal/")) {
-    return null;
-  }
-
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -46,6 +42,10 @@ export default function Navbar() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  if (pathname?.startsWith("/proposal/") || pathname?.startsWith("/admin/sales")) {
+    return null;
+  }
 
   const companySubLinks = [
     { label: "Founder", href: "/company/founder" },

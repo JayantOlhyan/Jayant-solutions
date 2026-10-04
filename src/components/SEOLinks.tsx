@@ -7,7 +7,7 @@ import { Compass } from "lucide-react";
 
 export default function SEOLinks() {
   const pathname = usePathname();
-  if (pathname?.startsWith("/proposal/")) return null;
+  if (pathname?.startsWith("/proposal/") || pathname?.startsWith("/admin/sales")) return null;
 
   return (
     <section aria-label="Related Services" className="bg-card-bg/40 py-10 border-t border-border-custom/80 mt-auto text-left">
