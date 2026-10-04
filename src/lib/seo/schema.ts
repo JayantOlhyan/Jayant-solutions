@@ -203,7 +203,7 @@ export function createBlogPostingSchema(post: BlogPostingData) {
  * Generates schema for specialized software and AI service landing pages.
  */
 export function createServiceSchema(service: ServiceSchemaData) {
-  const schema: Record<string, any> = {
+  const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": service.name,

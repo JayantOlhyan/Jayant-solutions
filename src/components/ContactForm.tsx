@@ -1,7 +1,24 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useSyncExternalStore } from "react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+
+function subscribeOnline(callback: () => void) {
+  window.addEventListener("online", callback);
+  window.addEventListener("offline", callback);
+  return () => {
+    window.removeEventListener("online", callback);
+    window.removeEventListener("offline", callback);
+  };
+}
+
+function getOfflineSnapshot() {
+  return typeof navigator !== "undefined" ? !navigator.onLine : false;
+}
+
+function getOfflineServerSnapshot() {
+  return false;
+}
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -17,20 +34,7 @@ export default function ContactForm() {
     agreement: false
   });
 
-  const [isOffline, setIsOffline] = useState(false);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    setIsOffline(!navigator.onLine);
-    const handleOnline = () => setIsOffline(false);
-    const handleOffline = () => setIsOffline(true);
-    window.addEventListener("online", handleOnline);
-    window.addEventListener("offline", handleOffline);
-    return () => {
-      window.removeEventListener("online", handleOnline);
-      window.removeEventListener("offline", handleOffline);
-    };
-  }, []);
+  const isOffline = useSyncExternalStore(subscribeOnline, getOfflineSnapshot, getOfflineServerSnapshot);
 
   const projectTypes = [
     "AI Development",

@@ -96,7 +96,15 @@ export default function InvoiceExplorer() {
   }, [search, statusFilter, page]);
 
   useEffect(() => {
-    fetchInvoices();
+    let active = true;
+    queueMicrotask(() => {
+      if (active) {
+        void fetchInvoices();
+      }
+    });
+    return () => {
+      active = false;
+    };
   }, [fetchInvoices]);
 
   const handleOpenRefund = (inv: InvoiceRecord) => {

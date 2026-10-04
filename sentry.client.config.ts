@@ -17,11 +17,11 @@ const SENSITIVE_KEYS = [
   "x-cal-signature-256",
 ];
 
-function scrubObject(obj: any): any {
+function scrubObject<T>(obj: T): T {
   if (!obj || typeof obj !== "object") return obj;
-  if (Array.isArray(obj)) return obj.map(scrubObject);
+  if (Array.isArray(obj)) return obj.map((item) => scrubObject(item)) as unknown as T;
 
-  const scrubbed: Record<string, any> = {};
+  const scrubbed: Record<string, unknown> = {};
   for (const [key, value] of Object.entries(obj)) {
     const lowerKey = key.toLowerCase();
     if (SENSITIVE_KEYS.some((k) => lowerKey.includes(k))) {
@@ -32,7 +32,7 @@ function scrubObject(obj: any): any {
       scrubbed[key] = value;
     }
   }
-  return scrubbed;
+  return scrubbed as unknown as T;
 }
 
 Sentry.init({

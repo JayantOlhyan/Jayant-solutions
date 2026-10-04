@@ -47,7 +47,15 @@ export default function MfaSettingsModal() {
   };
 
   useEffect(() => {
-    fetchStatus();
+    let active = true;
+    queueMicrotask(() => {
+      if (active) {
+        void fetchStatus();
+      }
+    });
+    return () => {
+      active = false;
+    };
   }, []);
 
   const handleStartEnroll = async () => {

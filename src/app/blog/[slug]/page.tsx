@@ -80,7 +80,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <div className="hog-grid min-h-screen pb-20 pt-10">
-      <JsonLd schema={jsonLd as any} />
+      <JsonLd schema={jsonLd} />
       <main className="max-w-4xl mx-auto px-6">
         {/* Back Link */}
         <Link
