@@ -7,7 +7,7 @@ import { ArrowUpRight, Mail, Phone, MapPin, Sparkles } from "lucide-react";
 
 export default function Footer() {
   const pathname = usePathname();
-  if (pathname?.startsWith("/proposal/")) return null;
+  if (pathname?.startsWith("/proposal/") || pathname?.startsWith("/admin/sales")) return null;
 
   const currentYear = new Date().getFullYear();
 

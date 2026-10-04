@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v2';
+const CACHE_VERSION = 'v3';
 const APP_CACHE_NAME = `app-cache-${CACHE_VERSION}`;
 const STATIC_CACHE_NAME = `static-cache-${CACHE_VERSION}`;
 const IMAGE_CACHE_NAME = `image-cache-${CACHE_VERSION}`;
@@ -109,6 +109,10 @@ function cacheFirst(request, cacheName) {
 self.addEventListener('fetch', (event) => {
   const request = event.request;
   const url = request.url;
+
+  // Private sales and admin responses must never be available from an offline cache.
+  const pathname = new URL(url).pathname;
+  if (pathname.startsWith("/admin") || pathname.startsWith("/api/")) return;
 
   // 1. Only handle GET requests
   if (request.method !== 'GET') {
