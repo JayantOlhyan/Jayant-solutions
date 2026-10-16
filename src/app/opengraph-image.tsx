@@ -1,166 +1,131 @@
-import { ImageResponse } from 'next/og'
+import { ImageResponse } from 'next/og';
 
-export const alt = 'Jayant Web & AI Systems — Building AI Solutions That Automate, Scale & Transform Businesses'
+export const runtime = 'edge';
+
+export const alt = 'JAYANT SYSTEMS — Building Digital Systems for Real-World Businesses';
 export const size = {
   width: 1200,
   height: 630,
-}
-export const contentType = 'image/png'
+};
 
-export default function OGImage() {
+export const contentType = 'image/png';
+
+export default async function Image() {
   return new ImageResponse(
     (
       <div
         style={{
+          background: '#0A0F1D',
           width: '100%',
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          background: 'linear-gradient(135deg, #0a0f1e 0%, #111827 50%, #0a0f1e 100%)',
-          fontFamily: 'Arial, Helvetica, sans-serif',
-          position: 'relative',
-          overflow: 'hidden',
+          alignItems: 'flex-start',
+          justifyContent: 'space-between',
+          fontFamily: 'sans-serif',
+          padding: '72px 84px',
+          border: '2px solid #1E293B',
         }}
       >
-        {/* Subtle grid pattern overlay */}
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            opacity: 0.05,
-            display: 'flex',
-            background:
-              'repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,0.1) 60px), repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.1) 60px)',
-          }}
-        />
-
-        {/* Orange accent line at top */}
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            height: '6px',
-            background: 'linear-gradient(90deg, #F37021, #ff9a56, #F37021)',
-            display: 'flex',
-          }}
-        />
-
-        {/* Logo */}
+        {/* Top Row: JS Monogram + Brand Wordmark */}
         <div
           style={{
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
-            background: '#111111',
-            borderRadius: '24px',
-            width: '120px',
-            height: '120px',
-            marginBottom: '32px',
-            position: 'relative',
-            border: '2px solid rgba(255,255,255,0.1)',
+            gap: '20px',
           }}
         >
-          <span
-            style={{
-              fontSize: '80px',
-              fontWeight: 'bold',
-              color: 'white',
-              lineHeight: 1,
-            }}
-          >
-            J
-          </span>
           <div
             style={{
-              position: 'absolute',
-              top: '14px',
-              right: '18px',
-              width: '22px',
-              height: '22px',
-              background: '#F37021',
-              borderRadius: '4px',
+              width: '56px',
+              height: '56px',
+              borderRadius: '12px',
+              background: '#111827',
+              border: '2px solid #2563EB',
               display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#F8FAFC',
+              fontSize: '26px',
+              fontWeight: 800,
+              letterSpacing: '-0.03em',
             }}
-          />
+          >
+            JS
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div
+              style={{
+                fontSize: '24px',
+                fontWeight: 800,
+                color: '#F8FAFC',
+                letterSpacing: '0.06em',
+              }}
+            >
+              JAYANT SYSTEMS
+            </div>
+            <div
+              style={{
+                fontSize: '13px',
+                color: '#94A3B8',
+                letterSpacing: '0.16em',
+                marginTop: '4px',
+              }}
+            >
+              WEB · SOFTWARE · AI ENGINEERING
+            </div>
+          </div>
         </div>
 
-        {/* Title */}
-        <span
-          style={{
-            fontSize: '48px',
-            fontWeight: 'bold',
-            color: 'white',
-            textAlign: 'center',
-            lineHeight: 1.2,
-            letterSpacing: '-1px',
-          }}
-        >
-          Jayant Web & AI Systems
-        </span>
+        {/* Center Headline & Positioning */}
+        <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '960px' }}>
+          <div
+            style={{
+              fontSize: '64px',
+              fontWeight: 800,
+              color: '#F8FAFC',
+              lineHeight: 1.08,
+              letterSpacing: '-0.03em',
+              marginBottom: '24px',
+            }}
+          >
+            Building Digital Systems for Real-World Businesses.
+          </div>
+          <div
+            style={{
+              fontSize: '26px',
+              color: '#94A3B8',
+              lineHeight: 1.45,
+              maxWidth: '860px',
+            }}
+          >
+            Founder-led technology studio designing and building websites, custom software products, and practical AI-powered workflows.
+          </div>
+        </div>
 
-        {/* Subtitle */}
-        <span
-          style={{
-            fontSize: '24px',
-            color: '#94a3b8',
-            textAlign: 'center',
-            marginTop: '16px',
-            maxWidth: '800px',
-            lineHeight: 1.4,
-          }}
-        >
-          Custom AI, Software & Web Development Agency
-        </span>
-
-        {/* Tags row */}
+        {/* Bottom Metadata Bar */}
         <div
           style={{
+            width: '100%',
             display: 'flex',
-            gap: '12px',
-            marginTop: '32px',
-          }}
-        >
-          {['AI Development', 'SaaS', 'Web Apps', 'Automation', 'Cloud'].map(
-            (tag) => (
-              <div
-                key={tag}
-                style={{
-                  padding: '8px 20px',
-                  borderRadius: '999px',
-                  border: '1px solid rgba(243, 112, 33, 0.3)',
-                  color: '#F37021',
-                  fontSize: '16px',
-                  display: 'flex',
-                }}
-              >
-                {tag}
-              </div>
-            )
-          )}
-        </div>
-
-        {/* Bottom URL */}
-        <span
-          style={{
-            position: 'absolute',
-            bottom: '24px',
-            color: '#64748b',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            paddingTop: '28px',
+            borderTop: '1px solid #1E293B',
             fontSize: '18px',
+            color: '#60A5FA',
+            letterSpacing: '0.04em',
           }}
         >
-          jayantwebai.com
-        </span>
+          <div>jayant-systems.online</div>
+          <div style={{ color: '#94A3B8' }}>
+            Technology built with clarity, purpose, and accountability.
+          </div>
+        </div>
       </div>
     ),
     {
       ...size,
     }
-  )
+  );
 }

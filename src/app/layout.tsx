@@ -51,8 +51,8 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Jayant Web & AI Systems | Custom AI & Web Development",
-  description: "Jayant Web & AI Systems builds custom AI agents, scalable web platforms, mobile apps, and business automation software for modern startups and enterprises.",
+  title: "JAYANT SYSTEMS | Websites, Custom Software & AI Systems",
+  description: "JAYANT SYSTEMS designs and builds high-performance websites, custom software products, and practical AI-powered workflows for real-world businesses.",
   metadataBase: new URL("https://jayant-systems.online"),
   alternates: {
     canonical: "/",
@@ -70,36 +70,36 @@ export const metadata: Metadata = {
       {
         rel: "mask-icon",
         url: "/safari-pinned-tab.svg",
-        color: "#F37021",
+        color: "#2563EB",
       },
     ],
   },
-  authors: [{ name: "Jayant Web & AI Systems" }],
-  applicationName: "Jayant Web & AI Systems",
+  authors: [{ name: "Jayant Olhyan — JAYANT SYSTEMS" }],
+  applicationName: "JAYANT SYSTEMS",
   appleWebApp: {
-    title: "Jayant Web & AI Systems",
+    title: "JAYANT SYSTEMS",
     statusBarStyle: "black-translucent",
   },
   formatDetection: {
     telephone: false,
   },
   other: {
-    "msapplication-TileColor": "#111111",
+    "msapplication-TileColor": "#0A0F1D",
     "msapplication-config": "/browserconfig.xml",
   },
   robots: "index,follow",
   openGraph: {
-    title: "Jayant Web & AI Systems | AI Solutions & Software Development",
-    description: "I build intelligent AI applications, scalable software, business automation systems, modern websites, and cloud solutions that help businesses innovate and grow.",
+    title: "JAYANT SYSTEMS | Building Digital Systems for Real-World Businesses",
+    description: "Founder-led technology studio designing and building websites, custom software products, and practical AI-powered workflows.",
     url: "https://jayant-systems.online",
-    siteName: "Jayant Web & AI Systems",
+    siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jayant Web & AI Systems",
-    description: "Custom AI, Software Development, Websites, SaaS Platforms & Business Automation.",
+    title: "JAYANT SYSTEMS",
+    description: "Building Digital Systems for Real-World Businesses — Websites, Custom Software, and AI Workflows.",
   },
   verification: {
     google: "-a0wyjaTybF3gldEtwwHLwq_ChLau7TLls8Q1KFF7lE",
