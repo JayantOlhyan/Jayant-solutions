@@ -24,12 +24,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!post) {
     return {
-      title: "Article Not Found | Jayant Web & AI Systems",
+      title: "Article Not Found | JAYANT SYSTEMS",
       description: "The requested article could not be found.",
     };
   }
 
-  const title = post.frontmatter.title || `${post.frontmatter.title} | Jayant Web & AI Systems`;
+  const title = post.frontmatter.title || `${post.frontmatter.title} | JAYANT SYSTEMS`;
   const description = post.frontmatter.description;
   const url = post.frontmatter.canonical || `https://jayant-systems.online/blog/${post.slug}`;
 
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title,
       description,
       url,
-      siteName: "Jayant Web & AI Systems",
+      siteName: "JAYANT SYSTEMS",
       type: "article",
       publishedTime: post.frontmatter.publishedAt,
       authors: [post.frontmatter.author],

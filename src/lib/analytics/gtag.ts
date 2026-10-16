@@ -1,6 +1,6 @@
 /**
  * Safe GA4 & Conversion Measurement Utility
- * Jayant Web & AI Systems — Privacy-Preserving Event Tracking
+ * JAYANT SYSTEMS — Privacy-Preserving Event Tracking
  */
 
 export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;

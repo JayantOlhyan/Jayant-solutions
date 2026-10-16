@@ -19,7 +19,7 @@ export interface InvoicePDFParams {
 }
 
 /**
- * Generates a GST-compliant, luxury-styled PDF invoice Buffer for Jayant Web & AI Systems (6B.2).
+ * Generates a GST-compliant, luxury-styled PDF invoice Buffer for JAYANT SYSTEMS (6B.2).
  */
 export async function generateInvoicePDF(params: InvoicePDFParams): Promise<Buffer> {
   return new Promise((resolve, reject) => {

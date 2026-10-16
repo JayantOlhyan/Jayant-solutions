@@ -30,7 +30,7 @@ export interface TopicCluster {
 export const contentCalendar: PageContentPlan[] = [
   {
     pageUrl: "/",
-    pageTitle: "Custom AI & Web Development | Jayant Web & AI Systems",
+    pageTitle: "Custom AI & Web Development | JAYANT SYSTEMS",
     topic: "Full-Stack AI & Software Engineering Studio",
     primaryKeyword: "custom ai & web development",
     searchIntent: "Commercial",
@@ -41,7 +41,7 @@ export const contentCalendar: PageContentPlan[] = [
   },
   {
     pageUrl: "/services/ai-chatbot-development",
-    pageTitle: "AI Chatbot & Assistant Development | Jayant Web & AI",
+    pageTitle: "AI Chatbot & Assistant Development | JAYANT SYSTEMS",
     topic: "Custom Enterprise AI Chatbots & RAG Agents",
     primaryKeyword: "ai chatbot development services",
     searchIntent: "Commercial",
@@ -52,7 +52,7 @@ export const contentCalendar: PageContentPlan[] = [
   },
   {
     pageUrl: "/services/ai-development",
-    pageTitle: "Custom AI Development & LLM Solutions | Jayant Systems",
+    pageTitle: "Custom AI Development & LLM Solutions | JAYANT SYSTEMS",
     topic: "Enterprise AI & Autonomous Agents",
     primaryKeyword: "custom ai and llm development",
     searchIntent: "Commercial",
@@ -63,7 +63,7 @@ export const contentCalendar: PageContentPlan[] = [
   },
   {
     pageUrl: "/services/website-development",
-    pageTitle: "Modern Website Development & Next.js Design | Jayant",
+    pageTitle: "Modern Website Development & Next.js Design | JAYANT SYSTEMS",
     topic: "Next.js High-Performance Web Development",
     primaryKeyword: "next.js website development",
     searchIntent: "Commercial",
@@ -74,7 +74,7 @@ export const contentCalendar: PageContentPlan[] = [
   },
   {
     pageUrl: "/services/mvp-development",
-    pageTitle: "Rapid Startup MVP Development Services | Jayant Systems",
+    pageTitle: "Rapid Startup MVP Development Services | JAYANT SYSTEMS",
     topic: "Startup Minimum Viable Product Engineering",
     primaryKeyword: "startup mvp development services",
     searchIntent: "Transactional",
@@ -85,7 +85,7 @@ export const contentCalendar: PageContentPlan[] = [
   },
   {
     pageUrl: "/services/business-automation",
-    pageTitle: "Business Process & Workflow Automation | Jayant Systems",
+    pageTitle: "Business Process & Workflow Automation | JAYANT SYSTEMS",
     topic: "Workflow Automations & WhatsApp Integrations",
     primaryKeyword: "business process and workflow automation",
     searchIntent: "Commercial",
@@ -96,7 +96,7 @@ export const contentCalendar: PageContentPlan[] = [
   },
   {
     pageUrl: "/pricing",
-    pageTitle: "Transparent Fixed-Price Packages | Jayant Web & AI",
+    pageTitle: "Transparent Fixed-Price Packages | JAYANT SYSTEMS",
     topic: "Commercial Packages & Deliverables Comparison",
     primaryKeyword: "transparent pricing packages",
     searchIntent: "Commercial",
@@ -107,7 +107,7 @@ export const contentCalendar: PageContentPlan[] = [
   },
   {
     pageUrl: "/process",
-    pageTitle: "Our 6-Step Development Process | Jayant Web & AI",
+    pageTitle: "Our 6-Step Development Process | JAYANT SYSTEMS",
     topic: "Agile Project Delivery Lifecycle",
     primaryKeyword: "software development process",
     searchIntent: "Informational",
@@ -118,7 +118,7 @@ export const contentCalendar: PageContentPlan[] = [
   },
   {
     pageUrl: "/about",
-    pageTitle: "About Jayant Olhyan & Engineering Studio | Jayant",
+    pageTitle: "About Jayant Olhyan & Engineering Studio | JAYANT SYSTEMS",
     topic: "Founder Background & Studio Philosophy",
     primaryKeyword: "jayant web & ai systems",
     searchIntent: "Navigational",
@@ -129,7 +129,7 @@ export const contentCalendar: PageContentPlan[] = [
   },
   {
     pageUrl: "/contact",
-    pageTitle: "Contact & Consultation Booking | Jayant Web & AI",
+    pageTitle: "Contact & Consultation Booking | JAYANT SYSTEMS",
     topic: "Project Inquiries & Consultation Scheduling",
     primaryKeyword: "hire software developer",
     searchIntent: "Transactional",

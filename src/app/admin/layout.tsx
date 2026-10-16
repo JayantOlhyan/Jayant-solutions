@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "Admin Portal | Jayant Web & AI Systems",
+  title: "Admin Portal | JAYANT SYSTEMS",
   description: "Internal administrative control and analytics panel.",
   robots: {
     index: false,

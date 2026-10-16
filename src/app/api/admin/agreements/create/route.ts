@@ -87,7 +87,7 @@ export async function POST(request: Request) {
       <div class="contract-document">
         <h2>SERVICE AGREEMENT & COMMERCIAL STATEMENT OF WORK</h2>
         <p><strong>Client:</strong> ${proposal.clients.name} (${proposal.clients.company_name || 'N/A'})</p>
-        <p><strong>Provider:</strong> Jayant Web & AI Systems</p>
+        <p><strong>Provider:</strong> JAYANT SYSTEMS</p>
         <p><strong>Scope Version:</strong> v${commercialTerms.scope_version}</p>
         <p><strong>Agreed Price:</strong> ₹${commercialTerms.final_agreed_price.toLocaleString('en-IN')}</p>
         <p><strong>Period:</strong> 90-day engagement</p>

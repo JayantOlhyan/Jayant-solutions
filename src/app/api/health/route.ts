@@ -33,7 +33,7 @@ export async function GET() {
   const payload = {
     status,
     timestamp,
-    service: "Jayant Web & AI Systems API",
+    service: "JAYANT SYSTEMS API",
     environment: process.env.NODE_ENV || "development",
     latency_ms: totalDurationMs,
     checks: {

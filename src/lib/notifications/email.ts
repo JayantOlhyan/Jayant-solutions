@@ -37,7 +37,7 @@ export async function sendTransactionalEmail({
 }: TransactionalEmailParams): Promise<SendEmailResult> {
   const adminDb = createAdminClient();
   const resendApiKey = process.env.RESEND_API_KEY;
-  const emailFrom = process.env.EMAIL_FROM || "Jayant Web & AI Systems <notifications@jayant-systems.online>";
+  const emailFrom = process.env.EMAIL_FROM || "JAYANT SYSTEMS <notifications@jayant-systems.online>";
   const normalizedRecipient = recipientEmail.trim().toLowerCase();
 
   // 1. Suppression Check (Checklist 4A.5 & 4A.6)
@@ -183,7 +183,7 @@ export function renderPlainTextTemplate(
   payload: Record<string, unknown>
 ): string {
   const header = "==================================================\nJAYANT WEB & AI SYSTEMS\nDigital Growth & Business Automation\n==================================================\n\n";
-  const footer = "\n\n--------------------------------------------------\nJayant Web & AI Systems\nhttps://jayant-systems.online\nThis is an essential transactional notification.\n--------------------------------------------------";
+  const footer = "\n\n--------------------------------------------------\nJAYANT SYSTEMS\nhttps://jayant-systems.online\nThis is an essential transactional notification.\n--------------------------------------------------";
 
   let body = "";
 
@@ -429,7 +429,7 @@ export function renderHtmlTemplate(
           <tr>
             <td style="padding:28px 24px 20px 24px; text-align:center; border-bottom:1px solid #1E2638; background-color:#0D1322;">
               <span style="font-family:monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:2px; color:#C5A880; display:block; margin-bottom:4px;">
-                Jayant Web & AI Systems
+                JAYANT SYSTEMS
               </span>
               <span style="font-size:12px; color:#7A8499; display:block;">
                 Digital Growth & Business Automation Systems
@@ -451,10 +451,10 @@ export function renderHtmlTemplate(
           <tr>
             <td style="padding:20px 24px; background-color:#05070D; border-top:1px solid #1E2638; text-align:center;">
               <p style="margin:0 0 6px 0; font-size:11px; color:#7A8499; line-height:16px;">
-                This is an essential transactional notification regarding your account or commercial agreement with Jayant Web & AI Systems.
+                This is an essential transactional notification regarding your account or commercial agreement with JAYANT SYSTEMS.
               </p>
               <p style="margin:0; font-size:11px; color:#505A70; font-family:monospace;">
-                &copy; 2026 Jayant Web & AI Systems &bull; <a href="https://jayant-systems.online" style="color:#7A8499; text-decoration:none;">jayant-systems.online</a>
+                &copy; 2026 JAYANT SYSTEMS &bull; <a href="https://jayant-systems.online" style="color:#7A8499; text-decoration:none;">jayant-systems.online</a>
               </p>
             </td>
           </tr>

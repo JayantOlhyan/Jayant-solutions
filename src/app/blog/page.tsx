@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const posts = getBlogPosts();
   if (posts.length < 3) {
     return {
-      title: "Blog | Jayant Web & AI Systems",
+      title: "Blog | JAYANT SYSTEMS",
       description: "Technical deep dives, systems architecture, and engineering philosophy.",
       robots: {
         index: false,
@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
     };
   }
   return {
-    title: "Blog | Jayant Web & AI Systems",
+    title: "Blog | JAYANT SYSTEMS",
     description: "Technical deep dives, systems architecture, and engineering philosophy.",
     robots: {
       index: true,

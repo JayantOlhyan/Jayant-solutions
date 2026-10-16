@@ -8,7 +8,7 @@ const publicEnvSchema = z.object({
   NEXT_PUBLIC_SUPABASE_URL: z.string().url().optional(),
   NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().optional(),
   NEXT_PUBLIC_APP_URL: z.string().url().default("https://jayant-systems.online"),
-  EMAIL_FROM: z.string().default("Jayant Web & AI Systems <notifications@jayant-systems.online>"),
+  EMAIL_FROM: z.string().default("JAYANT SYSTEMS <notifications@jayant-systems.online>"),
   ADMIN_EMAIL: z.string().email().default("jayantwebaisystems@gmail.com"),
 });
 
@@ -23,7 +23,7 @@ export function getPublicEnv(): PublicEnv {
     NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
     NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL || "https://jayant-systems.online",
-    EMAIL_FROM: process.env.EMAIL_FROM || "Jayant Web & AI Systems <notifications@jayant-systems.online>",
+    EMAIL_FROM: process.env.EMAIL_FROM || "JAYANT SYSTEMS <notifications@jayant-systems.online>",
     ADMIN_EMAIL: process.env.ADMIN_EMAIL || "jayantwebaisystems@gmail.com",
   });
 
@@ -33,7 +33,7 @@ export function getPublicEnv(): PublicEnv {
       NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
       NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
       NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL || "https://jayant-systems.online",
-      EMAIL_FROM: process.env.EMAIL_FROM || "Jayant Web & AI Systems <notifications@jayant-systems.online>",
+      EMAIL_FROM: process.env.EMAIL_FROM || "JAYANT SYSTEMS <notifications@jayant-systems.online>",
       ADMIN_EMAIL: process.env.ADMIN_EMAIL || "jayantwebaisystems@gmail.com",
     };
   }

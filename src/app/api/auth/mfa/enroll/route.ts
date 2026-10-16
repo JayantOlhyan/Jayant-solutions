@@ -27,7 +27,7 @@ export async function POST(request: Request) {
     const { data, error } = await supabase.auth.mfa.enroll({
       factorType: "totp",
       friendlyName: "Jayant Systems Admin Authenticator",
-      issuer: "Jayant Web & AI Systems",
+      issuer: "JAYANT SYSTEMS",
     });
 
     if (error) {

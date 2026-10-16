@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI, Software & Web Engineering Insights | Jayant Systems",
-  description: "In-depth engineering articles, AI adoption strategies, full-stack web development guides, and business automation tutorials by Jayant Web & AI Systems.",
+  title: "AI, Software & Web Engineering Insights | JAYANT SYSTEMS",
+  description: "In-depth engineering articles, AI adoption strategies, full-stack web development guides, and business automation tutorials by JAYANT SYSTEMS.",
   alternates: {
     canonical: "/blog",
     languages: {
@@ -11,17 +11,17 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "AI, Software & Web Engineering Insights | Jayant Systems",
-    description: "In-depth engineering articles, AI adoption strategies, full-stack web development guides, and business automation tutorials by Jayant Web & AI Systems.",
+    title: "AI, Software & Web Engineering Insights | JAYANT SYSTEMS",
+    description: "In-depth engineering articles, AI adoption strategies, full-stack web development guides, and business automation tutorials by JAYANT SYSTEMS.",
     url: "https://jayant-systems.online/blog",
-    siteName: "Jayant Web & AI Systems",
+    siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI, Software & Web Engineering Insights | Jayant Systems",
-    description: "In-depth engineering articles, AI adoption strategies, full-stack web development guides, and business automation tutorials by Jayant Web & AI Systems.",
+    title: "AI, Software & Web Engineering Insights | JAYANT SYSTEMS",
+    description: "In-depth engineering articles, AI adoption strategies, full-stack web development guides, and business automation tutorials by JAYANT SYSTEMS.",
   },
 };
 

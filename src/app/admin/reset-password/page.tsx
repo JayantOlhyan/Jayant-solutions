@@ -81,7 +81,7 @@ export default function ResetPasswordPage() {
             <ShieldCheck className="w-6 h-6" />
           </div>
           <span className="font-mono text-xs text-[#C5A880] uppercase tracking-widest font-semibold mb-1">
-            Jayant Web & AI Systems
+            JAYANT SYSTEMS
           </span>
           <h1 className="font-serif text-2xl text-[#FAF7EE] font-medium">
             Set New Password

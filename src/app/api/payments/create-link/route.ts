@@ -96,7 +96,7 @@ export async function POST(request: Request) {
         amount: amountInPaise,
         currency: "INR",
         accept_partial: false,
-        description: `Payment for Invoice #${invoice.invoice_number} — Jayant Web & AI Systems`,
+        description: `Payment for Invoice #${invoice.invoice_number} — JAYANT SYSTEMS`,
         customer: {
           name: client.name,
           email: client.email,

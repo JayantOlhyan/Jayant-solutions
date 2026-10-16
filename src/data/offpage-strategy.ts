@@ -1,6 +1,6 @@
 /**
  * Off-Page SEO, Authority & AI Entity Architecture
- * Jayant Web & AI Systems — Digital PR, Citations & Entity Strategy
+ * JAYANT SYSTEMS — Digital PR, Citations & Entity Strategy
  */
 
 export interface ExternalEntityProfile {
@@ -44,7 +44,7 @@ export const socialEntityProfiles: ExternalEntityProfile[] = [
     platform: "LinkedIn (Company)",
     category: "Social",
     canonicalUrl: "https://linkedin.com/company/jayant-systems",
-    entityName: "Jayant Web & AI Systems",
+    entityName: "JAYANT SYSTEMS",
     associatedOwner: "Jayant Olhyan",
     verificationStatus: "Active",
     citationRelevance: "Official company organization page for B2B industry authority and hiring.",
@@ -71,7 +71,7 @@ export const socialEntityProfiles: ExternalEntityProfile[] = [
     platform: "YouTube",
     category: "Video / Media",
     canonicalUrl: "https://www.youtube.com/@JayantWebAISystems",
-    entityName: "Jayant Web & AI Systems",
+    entityName: "JAYANT SYSTEMS",
     associatedOwner: "Jayant Olhyan",
     verificationStatus: "Active",
     citationRelevance: "Video demonstrations of custom AI applications and development breakdowns.",
@@ -80,7 +80,7 @@ export const socialEntityProfiles: ExternalEntityProfile[] = [
     platform: "Google Business Profile",
     category: "B2B Directory",
     canonicalUrl: "https://business.google.com/",
-    entityName: "Jayant Web & AI Systems",
+    entityName: "JAYANT SYSTEMS",
     associatedOwner: "Jayant Olhyan",
     verificationStatus: "Claimed / Pending",
     citationRelevance: "Service-Area Business entity verification for regional and national search.",
@@ -89,7 +89,7 @@ export const socialEntityProfiles: ExternalEntityProfile[] = [
     platform: "Clutch.co",
     category: "B2B Directory",
     canonicalUrl: "https://clutch.co/",
-    entityName: "Jayant Web & AI Systems",
+    entityName: "JAYANT SYSTEMS",
     associatedOwner: "Jayant Olhyan",
     verificationStatus: "Target",
     citationRelevance: "Verified B2B client reviews and agency rating validation.",
@@ -98,7 +98,7 @@ export const socialEntityProfiles: ExternalEntityProfile[] = [
     platform: "Crunchbase",
     category: "B2B Directory",
     canonicalUrl: "https://crunchbase.com/",
-    entityName: "Jayant Web & AI Systems",
+    entityName: "JAYANT SYSTEMS",
     associatedOwner: "Jayant Olhyan",
     verificationStatus: "Target",
     citationRelevance: "Global tech startup and software studio entity knowledge graph node.",

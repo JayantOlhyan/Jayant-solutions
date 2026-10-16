@@ -16,7 +16,7 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     slug: "ai-solutions",
-    seoTitle: "Generative AI & LLM Systems for Business | Jayant Systems",
+    seoTitle: "Generative AI & LLM Systems for Business | JAYANT SYSTEMS",
     title: "AI Solutions: How Generative AI & LLMs are Transforming Small Business Operations",
     excerpt: "Explore how modern Large Language Models, RAG database pipelines, and generative AI agents automate daily operations and accelerate business revenue.",
     category: "AI Solutions",
@@ -49,7 +49,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "custom-software",
-    seoTitle: "Custom Software vs Templates for Startups | Jayant Systems",
+    seoTitle: "Custom Software vs Templates for Startups | JAYANT SYSTEMS",
     title: "Why Startups & Businesses Need Custom Software Over Off-the-Shelf Templates",
     excerpt: "Discover the commercial advantages of tailored dashboards, proprietary databases, and specialized software engineered for your specific business rules.",
     category: "Custom Software",
@@ -82,7 +82,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "modern-web-development",
-    seoTitle: "High-Performance Next.js & React Web Apps | Jayant Systems",
+    seoTitle: "High-Performance Next.js & React Web Apps | JAYANT SYSTEMS",
     title: "Building Modern High-Performance Web Applications using Next.js & React",
     excerpt: "An engineering guide to building fast, responsive, and SEO-optimized web systems with Next.js and React that turn web traffic into qualified sales leads.",
     category: "Web Development",
@@ -115,7 +115,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "mobile-apps",
-    seoTitle: "Cross-Platform Flutter Mobile Apps | Jayant Web & AI Systems",
+    seoTitle: "Cross-Platform Flutter Mobile Apps | JAYANT SYSTEMS",
     title: "Mobile App Development: Creating Highly Scalable Cross-Platform Apps",
     excerpt: "Learn how Flutter and native mobile builds help companies connect directly with customers, automate push alerts, and deliver scalable digital services.",
     category: "Mobile Apps",
@@ -148,7 +148,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "business-automation",
-    seoTitle: "Business Process Automation & Workflows | Jayant Systems",
+    seoTitle: "Business Process Automation & Workflows | JAYANT SYSTEMS",
     title: "Business Process Automation: Eliminating Manual Overhead & Spreadsheet Errors",
     excerpt: "Learn how business workflow automations using API integrations, WhatsApp Business, and database sync hooks save modern teams 20+ hours every single week.",
     category: "Business Automation",
@@ -181,7 +181,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "cloud-solutions",
-    seoTitle: "Cloud Engineering & DevOps Infrastructure | Jayant Systems",
+    seoTitle: "Cloud Engineering & DevOps Infrastructure | JAYANT SYSTEMS",
     title: "Modern Cloud Engineering & DevOps: Building Secure, Scalable Infrastructure",
     excerpt: "Explore how cloud engineering on AWS and Supabase with Docker containerization and CI/CD pipelines secures enterprise data assets and ensures high reliability.",
     category: "Cloud Solutions",

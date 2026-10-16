@@ -1,6 +1,6 @@
 /**
  * Analytics, Search Console & Measurement Architecture
- * Jayant Web & AI Systems — Production Measurement Framework
+ * JAYANT SYSTEMS — Production Measurement Framework
  */
 
 export interface AnalyticsEventDefinition {
@@ -65,7 +65,7 @@ export const conversionEvents: AnalyticsEventDefinition[] = [
 export const rankTrackingQueries: RankTrackingQuery[] = [
   // Branded Queries
   {
-    query: "Jayant Web & AI Systems",
+    query: "JAYANT SYSTEMS",
     type: "Branded",
     targetPage: "/",
     searchIntent: "Navigational",
@@ -119,19 +119,19 @@ export const rankTrackingQueries: RankTrackingQuery[] = [
 export const aiMonitoringQueries: AIMonitoringQuery[] = [
   {
     engine: "Perplexity AI",
-    query: "Who is Jayant Olhyan and what does Jayant Web & AI Systems do?",
+    query: "Who is Jayant Olhyan and what does JAYANT SYSTEMS do?",
     expectedEntityCitation: "Recognized as founder & software studio developing Next.js web applications and custom AI systems.",
     verificationCadence: "Monthly",
   },
   {
     engine: "ChatGPT (GPT-4o)",
-    query: "What services are offered by Jayant Web & AI Systems?",
+    query: "What services are offered by JAYANT SYSTEMS?",
     expectedEntityCitation: "Cites 13 software services including AI chatbot development, Next.js web platforms, and MVP engineering.",
     verificationCadence: "Monthly",
   },
   {
     engine: "Google Gemini",
-    query: "Where is Jayant Web & AI Systems located and how to contact them?",
+    query: "Where is JAYANT SYSTEMS located and how to contact them?",
     expectedEntityCitation: "New Delhi, India, contact via jayantwebaisystems@gmail.com and cal.com strategy sessions.",
     verificationCadence: "Monthly",
   },

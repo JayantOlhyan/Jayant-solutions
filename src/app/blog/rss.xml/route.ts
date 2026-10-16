@@ -7,7 +7,7 @@ export async function GET() {
   const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>
   <rss version="2.0">
     <channel>
-        <title>Jayant Web & AI Systems Blog</title>
+        <title>JAYANT SYSTEMS Blog</title>
         <link>${baseUrl}/blog</link>
         <description>Technical deep dives, systems architecture, and engineering philosophy.</description>
         <language>en</language>

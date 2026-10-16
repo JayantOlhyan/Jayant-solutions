@@ -174,7 +174,7 @@ export async function POST(request: Request) {
     await sendTransactionalEmail({
       recipientEmail: agreement.proposals.clients.email,
       templateKey: "INVOICE_ISSUED",
-      subject: `[Invoice Issued] #${invoice.invoice_number} — Jayant Web & AI Systems`,
+      subject: `[Invoice Issued] #${invoice.invoice_number} — JAYANT SYSTEMS`,
       payload: {
         invoiceNumber: invoice.invoice_number,
         totalAmount: invoice.total_amount.toLocaleString('en-IN'),
