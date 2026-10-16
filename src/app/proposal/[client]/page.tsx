@@ -16,10 +16,10 @@ function formatClientName(slug: string): string {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { client } = await params;
-  if (!client) return { title: "Private Proposal | Jayant Web & AI Systems" };
+  if (!client) return { title: "Private Proposal | JAYANT SYSTEMS" };
   const clientName = formatClientName(client);
   return {
-    title: `Private Client Proposal for ${clientName} | Jayant Web & AI Systems`,
+    title: `Private Client Proposal for ${clientName} | JAYANT SYSTEMS`,
     description: `A custom digital growth and business development plan for ${clientName}.`,
     robots: {
       index: false,

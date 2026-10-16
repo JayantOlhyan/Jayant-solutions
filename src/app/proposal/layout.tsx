@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "Client Proposal | Jayant Web & AI Systems",
+  title: "Client Proposal | JAYANT SYSTEMS",
   description: "Confidential client proposal and commercial agreement terms.",
   robots: {
     index: false,

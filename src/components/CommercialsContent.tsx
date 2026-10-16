@@ -511,7 +511,7 @@ export default function CommercialsContent({ clientSlug, clientName }: Commercia
                 </span>
                 <h3 className="font-serif text-xl font-semibold text-[#FAF7EE] mb-3">Investment Difference</h3>
                 <p className="font-sans text-xs sm:text-sm text-[#B0B8C8] font-light leading-relaxed">
-                  The packages are not priced by content volume alone. Each tier increases the level of strategic execution, lead handling, business-development support and operational responsibility taken on by Jayant Web & AI Systems.
+                  The packages are not priced by content volume alone. Each tier increases the level of strategic execution, lead handling, business-development support and operational responsibility taken on by JAYANT SYSTEMS.
                 </p>
               </div>
               <div className="pt-4 border-t border-[#1E2638]/60 mt-4">

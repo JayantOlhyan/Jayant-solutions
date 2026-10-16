@@ -37,6 +37,7 @@ export default function ProposalNavbar({
             <BrandLogo
               theme="dark"
               variant="horizontal"
+              accentColor="#C5A880"
               subtitle={`Private Proposal • ${clientName}`}
             />
           </Link>

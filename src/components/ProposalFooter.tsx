@@ -24,6 +24,7 @@ export default function ProposalFooter({ clientSlug, clientName }: ProposalFoote
               <BrandLogo
                 theme="dark"
                 variant="horizontal"
+                accentColor="#C5A880"
                 subtitle="Digital Systems & AI Engineering"
               />
             </Link>

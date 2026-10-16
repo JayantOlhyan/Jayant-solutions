@@ -550,7 +550,7 @@ export default function ProposalContent({ clientSlug, clientName }: ProposalCont
               Prepared by
             </span>
             <span className="text-sm font-semibold text-slate-400 mt-1 font-mono">
-              Jayant Web & AI Systems
+              JAYANT SYSTEMS
             </span>
           </div>
 
