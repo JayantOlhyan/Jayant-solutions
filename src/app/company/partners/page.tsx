@@ -207,7 +207,7 @@ export default function PartnersPage() {
         <section className="pt-16">
           <div className="rounded-2xl bg-[#0A0F1D] border border-slate-800 p-8 sm:p-12 text-white flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
             <div className="max-w-2xl">
-              <div className="flex items-center gap-2 text-blue-400 font-mono text-xs uppercase tracking-wider mb-2">
+              <div className="flex items-center gap-2 text-[#FF8A00] font-mono text-xs uppercase tracking-wider mb-2">
                 <ShieldCheck className="size-4" />
                 <span>Direct Engineering Partnership</span>
               </div>
@@ -220,7 +220,7 @@ export default function PartnersPage() {
             </div>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#2563EB] hover:bg-[#1D4ED8] text-white px-6 py-3.5 text-sm font-display font-bold transition-colors shrink-0"
+              className="inline-flex items-center gap-2 rounded-lg bg-primary hover:bg-primary-hover text-white px-6 py-3.5 text-sm font-display font-bold transition-colors shrink-0"
             >
               <span>Start a Conversation</span>
               <ArrowRight className="size-4" />

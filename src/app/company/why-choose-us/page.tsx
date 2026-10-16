@@ -215,7 +215,7 @@ export default function WhyChooseUsPage() {
         <section className="pt-16">
           <div className="rounded-2xl bg-[#0A0F1D] border border-slate-800 p-8 sm:p-12 text-white flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
             <div className="max-w-2xl">
-              <span className="font-mono text-[11px] uppercase tracking-wider text-blue-400 font-semibold block mb-2">
+              <span className="font-mono text-[11px] uppercase tracking-wider text-[#FF8A00] font-semibold block mb-2">
                 Ready to Discuss Your Requirements?
               </span>
               <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-white mb-3">
@@ -227,7 +227,7 @@ export default function WhyChooseUsPage() {
             </div>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#2563EB] hover:bg-[#1D4ED8] text-white px-6 py-3.5 text-sm font-display font-bold transition-colors shrink-0"
+              className="inline-flex items-center gap-2 rounded-lg bg-primary hover:bg-primary-hover text-white px-6 py-3.5 text-sm font-display font-bold transition-colors shrink-0"
             >
               <span>Start a Conversation</span>
               <ArrowRight className="size-4" />
