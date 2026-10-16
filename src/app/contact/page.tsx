@@ -1,308 +1,210 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import PageTransition from "@/components/PageTransition";
 import Link from "next/link";
-import { ArrowRight, Mail, Phone, MapPin, Calendar, Clock, CheckCircle2, ShieldCheck, Heart, Laptop, Globe } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Mail,
+  Phone,
+  MapPin,
+  Calendar,
+  Clock,
+  ShieldCheck,
+  MessageCircle,
+} from "lucide-react";
+import ContactForm from "@/components/ContactForm";
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "Select a subject",
-    message: "",
-    agree: false,
-  });
-
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
-  const bottomIndicators = [
-    { label: "Quick Response", desc: "We reply within 24 hours", icon: <Clock className="size-5 text-primary" /> },
-    { label: "Secure & Confidential", desc: "Your information is safe with me", icon: <ShieldCheck className="size-5 text-primary" /> },
-    { label: "Expert Support", desc: "Get help from our experts", icon: <Heart className="size-5 text-primary" /> },
-    { label: "Global Reach", desc: "We serve clients worldwide", icon: <Globe className="size-5 text-primary" /> },
-  ];
-
   const socials = [
     { name: "GitHub", href: "https://github.com/JayantOlhyan" },
     { name: "LinkedIn", href: "https://linkedin.com/company/jayant-systems" },
-    { name: "Twitter / X", href: "https://x.com/JayantSystems" },
+    { name: "X / Twitter", href: "https://x.com/JayantSystems" },
     { name: "Instagram", href: "https://www.instagram.com/jayantolhyan/" },
-    { name: "YouTube", href: "https://www.youtube.com/@JayantWebAISystems" }
+    { name: "YouTube", href: "https://www.youtube.com/@JayantWebAISystems" },
+  ];
+
+  const commitments = [
+    {
+      index: "01",
+      label: "Direct Founder Review",
+      desc: "Every inquiry is reviewed personally by Jayant Olhyan within 12–24 business hours.",
+    },
+    {
+      index: "02",
+      label: "Confidential & Secure",
+      desc: "Your project brief, architecture requirements, and business context remain strictly confidential.",
+    },
+    {
+      index: "03",
+      label: "Written Scope First",
+      desc: "We provide a clear written scope, timeline, and milestone plan before you commit budget.",
+    },
+    {
+      index: "04",
+      label: "Remote & Global Delivery",
+      desc: "Based in New Delhi, collaborating with businesses and founders across time zones.",
+    },
   ];
 
   return (
     <PageTransition>
-      <div className="hog-grid min-h-screen pb-20 pt-10 text-left">
-        <main className="max-w-none px-6 md:px-12 lg:px-16 flex flex-col gap-20 md:gap-28">
-          
-          {/* Breadcrumbs */}
-          <nav className="text-xs font-mono text-text-muted flex items-center gap-2 pt-8">
-            <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-            <span>&gt;</span>
-            <span className="text-text-base">Contact</span>
-          </nav>
-
-          {/* Hero */}
-          <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
-            {/* Left */}
-            <div className="lg:col-span-7 flex flex-col items-start text-left">
-              <span className="font-mono text-[9px] uppercase tracking-widest text-primary border border-primary/20 bg-primary/5 px-2.5 py-0.5 rounded-full mb-4">
-                GET IN TOUCH
-              </span>
-              <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
-                Contact JAYANT SYSTEMS:{" "}
-                <span className="text-primary underline decoration-primary/40 decoration-4 underline-offset-8">
-                  Book a Strategy Call
+      <div className="hog-grid min-h-screen pb-24 pt-10 text-left">
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 flex flex-col gap-16 md:gap-24">
+          {/* Editorial Contact Hero */}
+          <section className="pt-8 border-b border-border-custom pb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+              <div className="lg:col-span-8">
+                <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-primary font-bold block mb-4">
+                  JAYANT SYSTEMS &bull; START A CONVERSATION
                 </span>
-              </h1>
-              <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl">
-                Have a project in mind or want to learn more about my services? We&apos;d love to hear from you. Drop us a message and our team will get back to you as soon as possible.
-              </p>
-            </div>
+                <h1 className="metalab-headline text-4xl sm:text-6xl lg:text-[68px] font-extrabold text-text-base">
+                  Tell us what you&apos;re{" "}
+                  <span className="text-primary">building.</span>
+                </h1>
+              </div>
 
-            {/* Right: Graphic mockup */}
-            <div className="lg:col-span-5 w-full flex justify-center">
-              <div className="relative w-full max-w-[420px] aspect-[4/3] rounded-[24px] overflow-hidden border border-border-custom bg-neutral-900 shadow-2xl p-6 flex justify-between items-center text-white">
-                <div className="flex items-center gap-3">
-                  <div className="size-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary text-xl">
-                    💬
-                  </div>
-                  <div className="flex flex-col text-left">
-                    <span className="text-xs font-bold text-white leading-none">Let&apos;s Build</span>
-                    <span className="text-[9px] text-white/50 mt-1 uppercase tracking-widest leading-none">something great together</span>
-                  </div>
-                </div>
+              <div className="lg:col-span-4 flex flex-col items-start gap-6">
+                <p className="text-sm sm:text-base text-text-muted leading-relaxed">
+                  Share your project requirements, workflow bottleneck, or existing website URL. We will review your context and outline the appropriate next step together.
+                </p>
+                <Link
+                  href="/contact/book-a-consultation"
+                  className="inline-flex items-center gap-2 rounded-full bg-primary hover:bg-primary-hover text-white px-6 py-3 text-xs font-display font-bold transition-all"
+                >
+                  <Calendar className="size-3.5" />
+                  <span>Or Book a 15-Min Discovery Call</span>
+                  <ArrowUpRight className="size-3.5" />
+                </Link>
               </div>
             </div>
-
           </section>
 
-          {/* Form and sidebar split */}
-          <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start py-8 border-t border-border-custom/20 pt-16">
-            
-            {/* Left Form */}
-            <div className="lg:col-span-7 flex flex-col gap-6 text-left w-full">
-              {submitted ? (
-                <div className="border border-border-custom bg-card-bg/60 p-8 rounded-3xl text-center flex flex-col items-center gap-4 max-w-lg mx-auto w-full">
-                  <CheckCircle2 className="size-16 text-primary" />
-                  <h3 className="font-serif text-2xl font-bold text-text-base">Message Sent!</h3>
-                  <p className="text-xs text-text-muted leading-relaxed">
-                    Thank you for reaching out. We have received your message and will get back to you within 24 hours.
-                  </p>
-                  <button
-                    onClick={() => setSubmitted(false)}
-                    className="inline-flex items-center gap-2 rounded-xl bg-primary hover:bg-primary-hover text-white px-6 py-2.5 text-xs font-mono font-bold transition-all shadow-md mt-4"
-                  >
-                    <span>Send Another Message</span>
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="border border-border-custom bg-card-bg/60 p-6 md:p-8 rounded-3xl space-y-6">
-                  <div className="border-b border-border-custom/50 pb-3 mb-6">
-                    <h3 className="font-serif text-lg font-bold text-text-base">send me a Message</h3>
-                    <p className="text-[10px] text-text-muted">Fill out the form below and we&apos;ll get back to you.</p>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="flex flex-col gap-1.5">
-                      <label className="text-[10px] font-mono font-bold text-text-base">Your Name *</label>
-                      <input
-                        required
-                        type="text"
-                        placeholder="Enter your full name"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="px-4 py-2.5 rounded-xl border border-border-custom bg-white dark:bg-card-bg text-xs text-text-base focus:outline-none focus:border-primary shadow-sm"
-                      />
-                    </div>
-
-                    <div className="flex flex-col gap-1.5">
-                      <label className="text-[10px] font-mono font-bold text-text-base">Your Email *</label>
-                      <input
-                        required
-                        type="email"
-                        placeholder="Enter your email address"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="px-4 py-2.5 rounded-xl border border-border-custom bg-white dark:bg-card-bg text-xs text-text-base focus:outline-none focus:border-primary shadow-sm"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="flex flex-col gap-1.5">
-                      <label className="text-[10px] font-mono font-bold text-text-base">Phone Number</label>
-                      <input
-                        type="text"
-                        placeholder="Enter your phone number"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="px-4 py-2.5 rounded-xl border border-border-custom bg-white dark:bg-card-bg text-xs text-text-base focus:outline-none focus:border-primary shadow-sm"
-                      />
-                    </div>
-
-                    <div className="flex flex-col gap-1.5">
-                      <label className="text-[10px] font-mono font-bold text-text-base">Subject *</label>
-                      <select
-                        value={formData.subject}
-                        onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                        className="px-4 py-2.5 rounded-xl border border-border-custom bg-white dark:bg-card-bg text-xs text-text-base focus:outline-none focus:border-primary shadow-sm"
-                      >
-                        <option>Select a subject</option>
-                        <option>General Inquiry</option>
-                        <option>Project Request</option>
-                        <option>Support Request</option>
-                        <option>Partnership</option>
-                        <option>Other</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col gap-1.5">
-                    <label className="text-[10px] font-mono font-bold text-text-base">Your Message *</label>
-                    <textarea
-                      required
-                      rows={5}
-                      placeholder="Tell us about your project or requirements..."
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="px-4 py-2.5 rounded-xl border border-border-custom bg-white dark:bg-card-bg text-xs text-text-base focus:outline-none focus:border-primary shadow-sm"
-                    />
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <input
-                      required
-                      type="checkbox"
-                      id="agree"
-                      checked={formData.agree}
-                      onChange={(e) => setFormData({ ...formData, agree: e.target.checked })}
-                      className="rounded border-border-custom text-primary focus:ring-primary size-4"
-                    />
-                    <label htmlFor="agree" className="text-[10px] font-mono text-text-muted">
-                      I agree to the <Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link> and <Link href="/terms" className="text-primary hover:underline">Terms & Conditions</Link>.
-                    </label>
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
-                    <button
-                      type="submit"
-                      className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary-hover text-white px-7 py-3 text-xs font-mono font-bold transition-all shadow-md active:scale-[0.98] w-full sm:w-auto shrink-0"
-                    >
-                      <span>Send Message</span>
-                      <ArrowRight className="size-4" />
-                    </button>
-                    <span className="text-[8px] font-mono text-text-muted leading-tight">🛡️ I respect your privacy. Your information is safe with me.</span>
-                  </div>
-                </form>
-              )}
+          {/* Main Split: Real ContactForm Component + Dark Direct Access Ledger */}
+          <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-7 w-full">
+              <ContactForm />
             </div>
 
-            {/* Right sidebar */}
-            <div className="lg:col-span-5 flex flex-col gap-6 text-left w-full">
-              
-              {/* Contact info */}
-              <div className="hog-card rounded-3xl p-6 md:p-8 bg-card-bg/60 border border-border-custom flex flex-col gap-6">
-                <div className="border-b border-border-custom/50 pb-2">
-                  <h3 className="font-serif text-sm font-bold text-text-base">Contact Information</h3>
-                  <p className="text-[9px] text-text-muted">Reach out to me through any of the following.</p>
+            <div className="lg:col-span-5 flex flex-col gap-6 w-full">
+              <div className="rounded-2xl bg-[#0A0E17] border border-slate-800 p-8 sm:p-10 text-white flex flex-col gap-8">
+                <div>
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-[#FF8A00] font-bold block mb-2">
+                    Direct Channels
+                  </span>
+                  <h2 className="font-display text-2xl font-extrabold text-white">
+                    Reach Jayant Directly
+                  </h2>
+                  <p className="text-xs sm:text-sm text-slate-300 mt-1.5 leading-relaxed">
+                    No sales intermediaries or account relays. Reach out through whichever channel fits your workflow best.
+                  </p>
                 </div>
 
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <Phone className="size-4.5 text-primary shrink-0 mt-0.5" />
-                    <div className="flex flex-col">
-                      <span className="text-[10px] font-mono font-bold text-text-base leading-none">Call Us</span>
-                      <a href="tel:+919667344125" className="text-[11px] font-bold text-text-base mt-1 hover:underline">
-                        +91 96673 44125
-                      </a>
-                      <span className="text-[9px] text-text-muted mt-0.5">Mon - Sat: 10:00 AM - 7:00 PM (IST)</span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <Mail className="size-4.5 text-primary shrink-0 mt-0.5" />
-                    <div className="flex flex-col">
-                      <span className="text-[10px] font-mono font-bold text-text-base leading-none">Email Us</span>
-                      <a href="mailto:jayantwebaisystems@gmail.com" className="text-[11px] font-bold text-text-base mt-1 hover:underline">
+                <div className="divide-y divide-white/10 border-t border-b border-white/10 text-xs font-mono">
+                  <div className="py-4 flex items-start gap-3.5">
+                    <Mail className="size-4 text-[#FF8A00] shrink-0 mt-0.5" />
+                    <div>
+                      <span className="text-slate-400 block mb-0.5">
+                        Direct Email
+                      </span>
+                      <a
+                        href="mailto:jayantwebaisystems@gmail.com"
+                        className="text-sm text-white hover:text-[#FF8A00] transition-colors break-all"
+                      >
                         jayantwebaisystems@gmail.com
                       </a>
-                      <span className="text-[9px] text-text-muted mt-0.5">We usually reply within a few hours.</span>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3">
-                    <MapPin className="size-4.5 text-primary shrink-0 mt-0.5" />
-                    <div className="flex flex-col">
-                      <span className="text-[10px] font-mono font-bold text-text-base leading-none">Our Location</span>
-                      <span className="text-[11px] font-bold text-text-base mt-1">New Delhi, India</span>
-                      <span className="text-[9px] text-text-muted mt-0.5">Serving clients globally.</span>
+                  <div className="py-4 flex items-start gap-3.5">
+                    <MessageCircle className="size-4 text-[#FF8A00] shrink-0 mt-0.5" />
+                    <div>
+                      <span className="text-slate-400 block mb-0.5">
+                        WhatsApp &amp; Phone
+                      </span>
+                      <a
+                        href="https://wa.me/919667344125?text=Hi%20Jayant,%20I%20would%20like%20to%20discuss%20a%20project"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-white hover:text-[#FF8A00] transition-colors"
+                      >
+                        +91 96673 44125
+                      </a>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3">
-                    <Calendar className="size-4.5 text-primary shrink-0 mt-0.5" />
-                    <div className="flex flex-col">
-                      <span className="text-[10px] font-mono font-bold text-text-base leading-none">Book a Meeting</span>
-                      <span className="text-[9px] text-text-muted mt-1">Schedule a free consultation call</span>
-                      <Link href="/contact/book-a-consultation" className="text-[10px] font-mono font-bold text-primary hover:underline mt-1.5 inline-flex items-center gap-1">
-                        <span>Book Now</span>
-                        <ArrowRight className="size-3" />
+                  <div className="py-4 flex items-start gap-3.5">
+                    <MapPin className="size-4 text-[#FF8A00] shrink-0 mt-0.5" />
+                    <div>
+                      <span className="text-slate-400 block mb-0.5">
+                        Studio Base &amp; Hours
+                      </span>
+                      <span className="text-sm text-white block">
+                        Dwarka, New Delhi, India &bull; Remote Globally
+                      </span>
+                      <span className="text-slate-400 block mt-0.5">
+                        Mon – Sat: 9:00 AM – 8:00 PM (IST)
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="py-4 flex items-start gap-3.5">
+                    <Calendar className="size-4 text-[#FF8A00] shrink-0 mt-0.5" />
+                    <div>
+                      <span className="text-slate-400 block mb-0.5">
+                        Discovery Call Scheduler
+                      </span>
+                      <Link
+                        href="/contact/book-a-consultation"
+                        className="inline-flex items-center gap-1.5 text-sm text-[#FF8A00] hover:underline mt-0.5"
+                      >
+                        <span>Schedule via Cal.com</span>
+                        <ArrowRight className="size-3.5" />
                       </Link>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Connect with me socials */}
-              <div className="hog-card rounded-3xl p-6 md:p-8 bg-card-bg/60 border border-border-custom flex flex-col gap-4">
-                <h3 className="font-serif text-sm font-bold text-text-base border-b border-border-custom pb-2">Connect with me</h3>
-                <p className="text-[10px] text-text-muted">Follow us on social media to stay updated.</p>
-                
-                <div className="flex flex-wrap gap-4 text-xs font-mono mt-2">
-                  {socials.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-text-muted hover:text-primary transition-colors border border-border-custom px-3 py-1.5 rounded-lg bg-white dark:bg-card-bg"
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
-              </div>
-
-            </div>
-
-          </section>
-
-          {/* Bottom Indicators strip */}
-          <section className="border-t border-border-custom/25 pt-12 pb-6 w-full">
-            <div className="grid grid-cols-1 sm:grid-cols-4 gap-8">
-              {bottomIndicators.map((ind, i) => (
-                <div key={i} className="flex gap-4 text-left">
-                  <div className="size-10 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-center shrink-0">
-                    {ind.icon}
-                  </div>
-                  <div>
-                    <h5 className="font-serif text-xs font-bold text-text-base leading-none mb-1">{ind.label}</h5>
-                    <p className="text-[10px] text-text-muted mt-1 leading-tight">{ind.desc}</p>
+                {/* Social Channels */}
+                <div>
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-slate-400 block mb-3">
+                    Verified Profiles
+                  </span>
+                  <div className="flex flex-wrap gap-2">
+                    {socials.map((item) => (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 py-1.5 rounded-full border border-white/15 bg-white/5 hover:border-[#FF8A00] text-xs font-mono text-slate-200 hover:text-white transition-colors"
+                      >
+                        {item.name}
+                      </a>
+                    ))}
                   </div>
                 </div>
-              ))}
+              </div>
             </div>
           </section>
 
+          {/* Bottom 4-Column Hairline Commitments */}
+          <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pt-10 border-t border-border-custom">
+            {commitments.map((item) => (
+              <div key={item.index} className="flex flex-col gap-1.5">
+                <span className="font-mono text-xs font-bold text-primary">
+                  /{item.index}
+                </span>
+                <h3 className="font-display text-base font-extrabold text-text-base">
+                  {item.label}
+                </h3>
+                <p className="text-xs sm:text-sm text-text-muted leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </section>
         </main>
       </div>
     </PageTransition>
