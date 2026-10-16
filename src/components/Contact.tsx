@@ -1,220 +1,271 @@
 "use client";
 
 import React, { useState } from "react";
-import { Mail, Phone, MapPin, Clock, Calendar, CheckCircle2, MessageCircle, ExternalLink } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Calendar,
+  MessageCircle,
+  ExternalLink,
+  ArrowRight,
+  FileText,
+} from "lucide-react";
+import ContactForm from "./ContactForm";
 
 export default function Contact() {
+  const [activeMode, setActiveMode] = useState<"brief" | "calendar">("brief");
   const [iframeLoaded, setIframeLoaded] = useState(false);
 
   return (
-    <section id="contact" className="py-20 md:py-28 relative">
-      {/* Background ambient glow */}
-      <div className="absolute top-1/3 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+    <section
+      id="contact"
+      aria-labelledby="contact-heading"
+      className="py-16 md:py-24 relative"
+    >
+      <div className="w-full">
+        {/* Final Conversion Banner */}
+        <div className="rounded-2xl bg-[#0A0F1D] border border-slate-800 p-8 sm:p-10 md:p-12 mb-12 text-left shadow-xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-8 flex flex-col items-start">
+              <span className="font-mono text-[11px] tracking-wider uppercase text-blue-400 font-semibold block mb-2.5">
+                Section 08 &bull; Project Inquiry
+              </span>
+              <h2
+                id="contact-heading"
+                className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4 leading-[1.08]"
+              >
+                Let&apos;s Build Something That Works.
+              </h2>
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+                Tell us about your business, your requirements, and the problem you want to solve. We&apos;ll determine the appropriate next step together.
+              </p>
+            </div>
 
-      <div className="w-full relative z-10">
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-            Direct Founder Access
-          </span>
-          <h2 className="font-sans text-3xl md:text-5xl font-extrabold tracking-tight text-text-base mb-4 mt-2">
-            Let&apos;s discuss your project
-          </h2>
-          <p className="text-sm md:text-base text-text-muted">
-            Schedule a 15-minute strategy call directly. We&apos;ll audit your operational bottlenecks, discuss your goals, and outline a straightforward solution.
-          </p>
+            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end justify-end">
+              <a
+                href="#project-inquiry-workspace"
+                onClick={() => setActiveMode("brief")}
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#2563EB] hover:bg-[#1D4ED8] text-white px-6 py-3.5 text-sm font-display font-bold transition-all duration-200 shadow-sm w-full sm:w-auto"
+              >
+                <span>Start a Conversation</span>
+                <ArrowRight className="size-4" />
+              </a>
+              <button
+                type="button"
+                onClick={() => {
+                  setActiveMode("calendar");
+                  const el = document.getElementById("project-inquiry-workspace");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-700 bg-slate-900/90 hover:bg-slate-800 text-slate-200 px-6 py-3 text-xs font-mono font-semibold transition-colors cursor-pointer w-full sm:w-auto"
+              >
+                <Calendar className="size-3.5 text-blue-400" />
+                <span>Or Schedule a 15-Min Discovery Call</span>
+              </button>
+            </div>
+          </div>
         </div>
 
-        {/* Pre-Qualification Banner / Fit Check */}
-        <div className="glass-card rounded-[28px] border border-border-custom p-6 md:p-8 mb-12 flex flex-col md:flex-row gap-8 items-stretch select-none shadow-sm hover:border-primary/30 transition-all">
-          <div className="w-full md:w-1/2 flex flex-col gap-3">
-            <h4 className="font-sans text-base md:text-lg font-bold text-text-base flex items-center gap-2">
-              <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" /> Best fit if you are:
-            </h4>
-            <ul className="text-xs md:text-sm text-text-muted space-y-2.5 list-disc pl-5">
-              <li>Running or launching a serious business, portal, or startup in India or globally.</li>
-              <li>Focused on measurable customer growth, conversion, and business outcomes.</li>
-              <li>Ready to invest in high-performance web and automation infrastructure.</li>
-            </ul>
-          </div>
-          
-          <div className="hidden md:block w-px bg-border-custom/80" />
-
-          <div className="w-full md:w-1/2 flex flex-col gap-3">
-            <h4 className="font-sans text-base md:text-lg font-bold text-text-base flex items-center gap-2">
-              <span className="h-2.5 w-2.5 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.5)]" /> Not ideal if you are:
-            </h4>
-            <ul className="text-xs md:text-sm text-text-muted space-y-2.5 list-disc pl-5">
-              <li>Looking for cheap cookie-cutter templates or low-code sites.</li>
-              <li>Unclear about your product vision and unwilling to communicate directly.</li>
-              <li>Looking for agency middle-men or bureaucratic management layers.</li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Main Grid: Info on left, Calendar on right */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          
-          {/* Left Column: Direct Contact Info Channels */}
+        {/* Main Workspace Grid: Left Direct Channels, Right Interactive Brief / Scheduler */}
+        <div
+          id="project-inquiry-workspace"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start scroll-mt-24"
+        >
+          {/* Left Column: Direct Founder Contact Channels */}
           <div className="lg:col-span-4 flex flex-col gap-4 text-left">
-            {/* WhatsApp Quick Connect (High Priority) */}
-            <a
-              href="https://wa.me/919667344125?text=Hi%20Jayant,%20I%20would%20like%20to%20discuss%20a%20project"
-              target="_blank"
-              rel="noreferrer"
-              className="glass-card rounded-2xl p-4 md:p-5 border border-emerald-500/30 bg-emerald-500/5 hover:bg-emerald-500/10 hover:border-emerald-500/50 hover:-translate-y-0.5 transition-all flex items-start gap-4 group"
-            >
-              <div className="size-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center shrink-0 group-hover:bg-emerald-500 group-hover:text-white transition-all text-emerald-500">
-                <MessageCircle className="size-5" />
-              </div>
+            <div className="hog-card p-6 bg-card-bg border border-border-custom flex flex-col gap-5">
               <div>
-                <div className="flex items-center gap-1.5 mb-0.5">
-                  <h4 className="font-bold text-sm text-text-base">WhatsApp (Instant)</h4>
-                  <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-semibold">Fastest</span>
-                </div>
-                <span className="text-xs md:text-sm text-text-muted hover:text-emerald-500 transition-colors font-mono">
-                  +91 9667344125
+                <span className="font-mono text-[10px] uppercase tracking-wider text-primary font-semibold block mb-1">
+                  Direct Channels
                 </span>
+                <h3 className="font-display text-lg font-extrabold text-text-base">
+                  Reach Jayant Directly
+                </h3>
+                <p className="text-xs text-text-muted mt-1 leading-relaxed">
+                  No sales intermediaries. Every inquiry is reviewed directly by the founder within 12–24 business hours.
+                </p>
               </div>
-            </a>
 
-            {/* Email Directly */}
-            <div className="glass-card rounded-2xl p-4 md:p-5 border border-border-custom/90 flex items-start gap-4 hover:border-primary/40 hover:-translate-y-0.5 transition-all">
-              <div className="size-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-                <Mail className="size-4 text-primary" />
-              </div>
-              <div>
-                <h4 className="font-bold text-sm text-text-base mb-1">Email directly</h4>
+              <div className="flex flex-col gap-3 pt-2 border-t border-border-custom">
+                {/* Email */}
                 <a
                   href="mailto:jayantwebaisystems@gmail.com"
-                  className="text-xs md:text-sm text-text-muted hover:text-primary transition-colors font-mono break-all"
+                  className="p-3.5 rounded-xl border border-border-custom bg-card-subtle/60 hover:border-primary/40 transition-colors flex items-start gap-3.5 group"
                 >
-                  jayantwebaisystems@gmail.com
+                  <div className="size-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 text-primary">
+                    <Mail className="size-4" />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="font-display text-xs font-bold text-text-base block">
+                      Email Directly
+                    </span>
+                    <span className="font-mono text-xs text-text-muted group-hover:text-primary transition-colors break-all">
+                      jayantwebaisystems@gmail.com
+                    </span>
+                  </div>
                 </a>
-              </div>
-            </div>
 
-            {/* Phone Directly */}
-            <div className="glass-card rounded-2xl p-4 md:p-5 border border-border-custom/90 flex items-start gap-4 hover:border-primary/40 hover:-translate-y-0.5 transition-all">
-              <div className="size-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-                <Phone className="size-4 text-primary" />
-              </div>
-              <div>
-                <h4 className="font-bold text-sm text-text-base mb-1">Call directly</h4>
+                {/* WhatsApp */}
+                <a
+                  href="https://wa.me/919667344125?text=Hi%20Jayant,%20I%20would%20like%20to%20discuss%20a%20project"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3.5 rounded-xl border border-border-custom bg-card-subtle/60 hover:border-primary/40 transition-colors flex items-start gap-3.5 group"
+                >
+                  <div className="size-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 text-primary">
+                    <MessageCircle className="size-4" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="font-display text-xs font-bold text-text-base">
+                        WhatsApp Message
+                      </span>
+                      <span className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-semibold">
+                        Direct
+                      </span>
+                    </div>
+                    <span className="font-mono text-xs text-text-muted group-hover:text-primary transition-colors">
+                      +91 96673 44125
+                    </span>
+                  </div>
+                </a>
+
+                {/* Phone */}
                 <a
                   href="tel:+919667344125"
-                  className="text-xs md:text-sm text-text-muted hover:text-primary transition-colors font-mono"
+                  className="p-3.5 rounded-xl border border-border-custom bg-card-subtle/60 hover:border-primary/40 transition-colors flex items-start gap-3.5 group"
                 >
-                  +91 9667344125
+                  <div className="size-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 text-primary">
+                    <Phone className="size-4" />
+                  </div>
+                  <div>
+                    <span className="font-display text-xs font-bold text-text-base block">
+                      Phone
+                    </span>
+                    <span className="font-mono text-xs text-text-muted group-hover:text-primary transition-colors">
+                      +91 96673 44125
+                    </span>
+                  </div>
                 </a>
-              </div>
-            </div>
 
-            {/* Location */}
-            <div className="glass-card rounded-2xl p-4 md:p-5 border border-border-custom/90 flex items-start gap-4 hover:border-primary/40 hover:-translate-y-0.5 transition-all">
-              <div className="size-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-                <MapPin className="size-4 text-primary" />
-              </div>
-              <div>
-                <h4 className="font-bold text-sm text-text-base mb-1">Office location</h4>
-                <span className="text-xs md:text-sm text-text-muted">
-                  Remote (Dwarka, New Delhi)
-                </span>
-              </div>
-            </div>
-
-            {/* LinkedIn */}
-            <div className="glass-card rounded-2xl p-4 md:p-5 border border-border-custom/90 flex items-start gap-4 hover:border-primary/40 hover:-translate-y-0.5 transition-all">
-              <div className="size-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="size-4 text-primary"
-                >
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                  <rect width="4" height="12" x="2" y="9" />
-                  <circle cx="4" cy="4" r="2" />
-                </svg>
-              </div>
-              <div>
-                <h4 className="font-bold text-sm text-text-base mb-1">LinkedIn</h4>
-                <a
-                  href="https://linkedin.com/company/jayant-systems"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-xs md:text-sm text-text-muted hover:text-primary transition-colors"
-                >
-                  linkedin.com/company/jayant-systems
-                </a>
-              </div>
-            </div>
-
-            {/* Response & Consultation Expectations */}
-            <div className="glass-card rounded-2xl p-5 border border-border-custom text-xs text-text-muted leading-relaxed space-y-3 shadow-sm">
-              <div>
-                <p className="font-semibold text-text-base mb-1">⏱️ Response time:</p>
-                <p>Usually within 12 hours (Monday–Saturday).</p>
-              </div>
-              <div className="border-t border-border-custom/40 pt-2.5">
-                <p className="font-semibold text-text-base mb-1">📅 Business hours:</p>
-                <p>Monday – Saturday<br />7:00 AM – 9:00 PM IST</p>
-              </div>
-              <div className="border-t border-border-custom/40 pt-2.5">
-                <p className="font-semibold text-text-base mb-1">What to expect:</p>
-                <ul className="list-disc pl-4 space-y-1 mt-1">
-                  <li>15 minutes total over Google Meet.</li>
-                  <li>We analyze your current landing page or manual business flows.</li>
-                  <li>You walk away with an actionable execution proposal.</li>
-                </ul>
-              </div>
-            </div>         
-          </div>
-
-          {/* Right Column: Embedded Cal.com Scheduler */}
-          <div className="lg:col-span-8 glass-card rounded-[28px] p-4 md:p-6 border border-border-custom shadow-xl h-[680px] md:h-[760px] flex flex-col bg-card-bg/90 backdrop-blur-xl">
-            <div className="flex items-center justify-between mb-3 px-1">
-              <div className="flex items-center gap-2">
-                <span className="font-mono text-[10px] tracking-wider uppercase text-text-muted font-bold">
-                  Direct Scheduler
-                </span>
-                <span className="flex items-center gap-1.5 text-[10px] font-mono text-emerald-500">
-                  <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" /> Live Availability
-                </span>
-              </div>
-              <a
-                href="https://cal.com/jayant-web-and-ai-systems/strategy-call"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-1 text-[11px] text-text-muted hover:text-primary transition-colors font-mono"
-              >
-                Open in new tab <ExternalLink className="size-3" />
-              </a>
-            </div>
-
-            {/* Scheduler Container */}
-            <div className="w-full flex-1 rounded-2xl overflow-hidden border border-border-custom/80 bg-white/5 relative">
-              {!iframeLoaded && (
-                <div className="absolute inset-0 flex items-center justify-center bg-card-bg/60 backdrop-blur-sm z-10">
-                  <div className="flex flex-col items-center gap-2">
-                    <div className="size-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
-                    <span className="text-xs text-text-muted font-mono">Loading calendar slots...</span>
+                {/* Base Location */}
+                <div className="p-3.5 rounded-xl border border-border-custom bg-card-subtle/40 flex items-start gap-3.5">
+                  <div className="size-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 text-primary">
+                    <MapPin className="size-4" />
+                  </div>
+                  <div>
+                    <span className="font-display text-xs font-bold text-text-base block">
+                      Location &amp; Hours
+                    </span>
+                    <span className="text-xs text-text-muted block">
+                      Dwarka, New Delhi &bull; Working Remotely
+                    </span>
+                    <span className="font-mono text-[11px] text-text-muted block mt-0.5">
+                      Mon – Sat, 9:00 AM – 8:00 PM IST
+                    </span>
                   </div>
                 </div>
-              )}
-              <iframe
-                src="https://cal.com/jayant-web-and-ai-systems/strategy-call"
-                className="w-full h-full border-0"
-                allowFullScreen
-                loading="lazy"
-                title="Book a Strategy Call with Jayant"
-                onLoad={() => setIframeLoaded(true)}
-              />
+              </div>
             </div>
+
+            {/* What Happens Next Box */}
+            <div className="hog-card p-5 bg-card-bg border border-border-custom text-xs text-text-muted space-y-2.5">
+              <span className="font-mono text-[10px] uppercase tracking-wider text-primary font-bold block">
+                What Happens After You Reach Out
+              </span>
+              <ol className="list-decimal pl-4 space-y-1.5 leading-relaxed">
+                <li>We review your project context or existing system bottleneck.</li>
+                <li>We hold a focused 15–20 minute discovery call to clarify requirements.</li>
+                <li>If we are a strong technical fit, you receive a written scope, architecture plan, and milestone proposal.</li>
+              </ol>
+            </div>
+          </div>
+
+          {/* Right Column: Mode Switcher between Written Project Brief Form & Cal.com Scheduler */}
+          <div className="lg:col-span-8 flex flex-col gap-4">
+            {/* Switcher Tabs */}
+            <div
+              className="flex items-center gap-2 p-1.5 rounded-xl bg-card-subtle border border-border-custom self-start"
+              role="tablist"
+              aria-label="Contact method"
+            >
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activeMode === "brief"}
+                onClick={() => setActiveMode("brief")}
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-mono font-semibold transition-colors cursor-pointer ${
+                  activeMode === "brief"
+                    ? "bg-[#0A0F1D] text-white shadow-2xs"
+                    : "text-text-muted hover:text-text-base"
+                }`}
+              >
+                <FileText className="size-3.5" />
+                <span>Send Written Project Brief</span>
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activeMode === "calendar"}
+                onClick={() => setActiveMode("calendar")}
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-mono font-semibold transition-colors cursor-pointer ${
+                  activeMode === "calendar"
+                    ? "bg-[#0A0F1D] text-white shadow-2xs"
+                    : "text-text-muted hover:text-text-base"
+                }`}
+              >
+                <Calendar className="size-3.5" />
+                <span>Book Discovery Call (Cal.com)</span>
+              </button>
+            </div>
+
+            {activeMode === "brief" ? (
+              <ContactForm />
+            ) : (
+              <div className="hog-card p-4 sm:p-6 bg-card-bg border border-border-custom h-[660px] flex flex-col">
+                <div className="flex items-center justify-between mb-3 px-1">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-xs uppercase text-text-base font-bold">
+                      Discovery Call Scheduler
+                    </span>
+                    <span className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-600 dark:text-emerald-400">
+                      <span className="size-1.5 rounded-full bg-emerald-500" /> Live Calendar
+                    </span>
+                  </div>
+                  <a
+                    href="https://cal.com/jayant-web-and-ai-systems/strategy-call"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-xs text-primary hover:underline font-mono"
+                  >
+                    <span>Open in new tab</span>
+                    <ExternalLink className="size-3" />
+                  </a>
+                </div>
+
+                <div className="w-full flex-1 rounded-xl overflow-hidden border border-border-custom bg-card-subtle relative">
+                  {!iframeLoaded && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-card-bg/80 z-10">
+                      <div className="flex flex-col items-center gap-2">
+                        <div className="size-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+                        <span className="text-xs text-text-muted font-mono">
+                          Loading calendar availability...
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                  <iframe
+                    src="https://cal.com/jayant-web-and-ai-systems/strategy-call"
+                    className="w-full h-full border-0"
+                    allowFullScreen
+                    loading="lazy"
+                    title="Book a Discovery Call with Jayant Olhyan"
+                    onLoad={() => setIframeLoaded(true)}
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -49,11 +49,11 @@ export default function ContactForm() {
   ];
 
   const budgets = [
-    "Under ₹25,000",
-    "₹25,000 – ₹50,000",
+    "Need help scoping / Not sure yet",
+    "Under ₹50,000",
     "₹50,000 – ₹1,00,000",
-    "₹1,00,000 – ₹5,00,000",
-    "₹5,00,000+"
+    "₹1,00,000 – ₹3,00,000",
+    "₹3,00,000+"
   ];
 
   const timelines = [
@@ -87,17 +87,18 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div aria-live="polite" className="hog-card rounded-[32px] p-8 md:p-12 text-center flex flex-col items-center justify-center min-h-[480px]">
+      <div aria-live="polite" className="hog-card p-8 md:p-12 text-center flex flex-col items-center justify-center min-h-[480px]">
         <div className="size-16 rounded-full bg-emerald-100 dark:bg-emerald-950/50 flex items-center justify-center mb-6">
           <CheckCircle2 className="size-10 text-emerald-500" />
         </div>
-        <h3 className="font-serif text-2xl md:text-3xl font-bold text-text-base mb-3">
-          Inquiry Sent Successfully!
+        <h3 className="font-display text-2xl md:text-3xl font-extrabold text-text-base mb-3">
+          Project Inquiry Received
         </h3>
         <p className="text-xs md:text-sm text-text-muted max-w-sm mb-6 leading-relaxed">
-          Thank you for reaching out. We have received your project details and will review them shortly. You will receive a response within 24 hours.
+          Thank you for sharing your project context. Jayant will review your requirements and respond directly within 12–24 business hours.
         </p>
         <button
+          type="button"
           onClick={() => {
             setFormData({
               name: "",
@@ -112,7 +113,7 @@ export default function ContactForm() {
             });
             setSubmitted(false);
           }}
-          className="hog-btn px-6 py-2.5 text-xs rounded-xl"
+          className="hog-btn px-6 py-2.5 text-xs rounded-lg cursor-pointer"
         >
           Send Another Inquiry
         </button>
@@ -121,10 +122,15 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="hog-card rounded-[32px] p-6 md:p-8 text-left">
-      <h3 className="font-serif text-xl md:text-2xl font-bold text-text-base mb-6 pb-3 border-b border-border-custom/30">
-        Start Your Project
-      </h3>
+    <div className="hog-card p-6 md:p-8 text-left bg-card-bg border border-border-custom">
+      <div className="mb-6 pb-4 border-b border-border-custom">
+        <span className="font-mono text-[10px] uppercase tracking-wider text-primary font-semibold block mb-1">
+          Project Requirements Brief
+        </span>
+        <h3 className="font-display text-xl md:text-2xl font-extrabold text-text-base">
+          Discuss Your Project
+        </h3>
+      </div>
 
       <form onSubmit={handleSubmit} className="space-y-5">
         {/* Personal Details */}
