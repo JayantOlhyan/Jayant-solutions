@@ -3,7 +3,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { createServiceSchema } from "@/lib/seo/schema";
 
 export const metadata: Metadata = {
-  title: "Custom Software & Dashboard Development | Jayant Systems",
+  title: "Custom Software & Dashboard Development | JAYANT SYSTEMS",
   description: "Engineer scalable custom software, proprietary databases, and internal dashboards tailored to your operational workflows with zero subscription bloat.",
   alternates: {
     canonical: "/services/custom-software-development",
@@ -13,16 +13,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Custom Software & Dashboard Development | Jayant Systems",
+    title: "Custom Software & Dashboard Development | JAYANT SYSTEMS",
     description: "Engineer scalable custom software, proprietary databases, and internal dashboards tailored to your operational workflows with zero subscription bloat.",
     url: "https://jayant-systems.online/services/custom-software-development",
-    siteName: "Jayant Web & AI Systems",
+    siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom Software & Dashboard Development | Jayant Systems",
+    title: "Custom Software & Dashboard Development | JAYANT SYSTEMS",
     description: "Engineer scalable custom software, proprietary databases, and internal dashboards tailored to your operational workflows with zero subscription bloat.",
   },
 };

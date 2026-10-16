@@ -3,7 +3,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { createServiceSchema } from "@/lib/seo/schema";
 
 export const metadata: Metadata = {
-  title: "Technology Consulting & Software Architecture | Jayant",
+  title: "Technology Consulting & Software Architecture | JAYANT SYSTEMS",
   description: "Expert technical advisory for startups and businesses. We audit architectures, recommend modern tech stacks, and structure scalable engineering roadmaps.",
   alternates: {
     canonical: "/services/technology-consulting",
@@ -13,16 +13,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Technology Consulting & Software Architecture | Jayant",
+    title: "Technology Consulting & Software Architecture | JAYANT SYSTEMS",
     description: "Expert technical advisory for startups and businesses. We audit architectures, recommend modern tech stacks, and structure scalable engineering roadmaps.",
     url: "https://jayant-systems.online/services/technology-consulting",
-    siteName: "Jayant Web & AI Systems",
+    siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Technology Consulting & Software Architecture | Jayant",
+    title: "Technology Consulting & Software Architecture | JAYANT SYSTEMS",
     description: "Expert technical advisory for startups and businesses. We audit architectures, recommend modern tech stacks, and structure scalable engineering roadmaps.",
   },
 };

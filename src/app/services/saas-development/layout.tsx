@@ -3,7 +3,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { createServiceSchema } from "@/lib/seo/schema";
 
 export const metadata: Metadata = {
-  title: "SaaS Platform Architecture & Development | Jayant Systems",
+  title: "SaaS Platform Architecture & Development | JAYANT SYSTEMS",
   description: "Design and build multi-tenant SaaS applications with subscription billing integrations, role-based access control, analytics dashboards, and modular APIs.",
   alternates: {
     canonical: "/services/saas-development",
@@ -13,16 +13,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "SaaS Platform Architecture & Development | Jayant Systems",
+    title: "SaaS Platform Architecture & Development | JAYANT SYSTEMS",
     description: "Design and build multi-tenant SaaS applications with subscription billing integrations, role-based access control, analytics dashboards, and modular APIs.",
     url: "https://jayant-systems.online/services/saas-development",
-    siteName: "Jayant Web & AI Systems",
+    siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SaaS Platform Architecture & Development | Jayant Systems",
+    title: "SaaS Platform Architecture & Development | JAYANT SYSTEMS",
     description: "Design and build multi-tenant SaaS applications with subscription billing integrations, role-based access control, analytics dashboards, and modular APIs.",
   },
 };

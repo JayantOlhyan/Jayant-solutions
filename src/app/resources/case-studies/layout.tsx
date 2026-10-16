@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Client Case Studies & Project Results | Jayant Systems",
+  title: "Client Case Studies & Project Results | JAYANT SYSTEMS",
   description: "Explore verified software engineering case studies, AI system architectures, and client project results across healthcare, edtech, SaaS, and automation.",
   alternates: {
     canonical: "/resources/case-studies",
@@ -11,16 +11,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Client Case Studies & Project Results | Jayant Systems",
+    title: "Client Case Studies & Project Results | JAYANT SYSTEMS",
     description: "Explore verified software engineering case studies, AI system architectures, and client project results across healthcare, edtech, SaaS, and automation.",
     url: "https://jayant-systems.online/resources/case-studies",
-    siteName: "Jayant Web & AI Systems",
+    siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Client Case Studies & Project Results | Jayant Systems",
+    title: "Client Case Studies & Project Results | JAYANT SYSTEMS",
     description: "Explore verified software engineering case studies, AI system architectures, and client project results across healthcare, edtech, SaaS, and automation.",
   },
 };

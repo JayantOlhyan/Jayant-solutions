@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Custom AI, Web & Software Development Services | Jayant",
+  title: "Custom AI, Web & Software Development Services | JAYANT SYSTEMS",
   description: "Full-stack engineering services: custom AI chatbot development, SaaS platforms, business workflow automation, web apps, and secure cloud infrastructure.",
   alternates: {
     canonical: "/services",
@@ -11,16 +11,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Custom AI, Web & Software Development Services | Jayant",
+    title: "Custom AI, Web & Software Development Services | JAYANT SYSTEMS",
     description: "Full-stack engineering services: custom AI chatbot development, SaaS platforms, business workflow automation, web apps, and secure cloud infrastructure.",
     url: "https://jayant-systems.online/services",
-    siteName: "Jayant Web & AI Systems",
+    siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom AI, Web & Software Development Services | Jayant",
+    title: "Custom AI, Web & Software Development Services | JAYANT SYSTEMS",
     description: "Full-stack engineering services: custom AI chatbot development, SaaS platforms, business workflow automation, web apps, and secure cloud infrastructure.",
   },
 };

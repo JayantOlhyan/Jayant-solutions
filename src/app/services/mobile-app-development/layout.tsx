@@ -3,7 +3,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { createServiceSchema } from "@/lib/seo/schema";
 
 export const metadata: Metadata = {
-  title: "Cross-Platform Mobile App Development | Jayant Systems",
+  title: "Cross-Platform Mobile App Development | JAYANT SYSTEMS",
   description: "Build native-performance iOS and Android mobile applications using Flutter with real-time database sync, push notifications, and offline capability.",
   alternates: {
     canonical: "/services/mobile-app-development",
@@ -13,16 +13,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Cross-Platform Mobile App Development | Jayant Systems",
+    title: "Cross-Platform Mobile App Development | JAYANT SYSTEMS",
     description: "Build native-performance iOS and Android mobile applications using Flutter with real-time database sync, push notifications, and offline capability.",
     url: "https://jayant-systems.online/services/mobile-app-development",
-    siteName: "Jayant Web & AI Systems",
+    siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cross-Platform Mobile App Development | Jayant Systems",
+    title: "Cross-Platform Mobile App Development | JAYANT SYSTEMS",
     description: "Build native-performance iOS and Android mobile applications using Flutter with real-time database sync, push notifications, and offline capability.",
   },
 };

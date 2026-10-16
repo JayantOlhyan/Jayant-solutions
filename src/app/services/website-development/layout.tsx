@@ -3,7 +3,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { createServiceSchema } from "@/lib/seo/schema";
 
 export const metadata: Metadata = {
-  title: "Modern Website Development & Next.js Design | Jayant",
+  title: "Modern Website Development & Next.js Design | JAYANT SYSTEMS",
   description: "Fast, responsive, and SEO-optimized business websites built with Next.js and Tailwind CSS to convert visitors into qualified sales opportunities.",
   alternates: {
     canonical: "/services/website-development",
@@ -13,16 +13,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Modern Website Development & Next.js Design | Jayant",
+    title: "Modern Website Development & Next.js Design | JAYANT SYSTEMS",
     description: "Fast, responsive, and SEO-optimized business websites built with Next.js and Tailwind CSS to convert visitors into qualified sales opportunities.",
     url: "https://jayant-systems.online/services/website-development",
-    siteName: "Jayant Web & AI Systems",
+    siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Modern Website Development & Next.js Design | Jayant",
+    title: "Modern Website Development & Next.js Design | JAYANT SYSTEMS",
     description: "Fast, responsive, and SEO-optimized business websites built with Next.js and Tailwind CSS to convert visitors into qualified sales opportunities.",
   },
 };

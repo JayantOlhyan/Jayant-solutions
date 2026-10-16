@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Customer Support & Help Center | Jayant Web & AI Systems",
+  title: "Customer Support & Help Center | JAYANT SYSTEMS",
   description: "Access technical documentation, report system bugs, check live service status, or contact our engineering support team for active client projects.",
   alternates: {
     canonical: "/support",
@@ -11,16 +11,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Customer Support & Help Center | Jayant Web & AI Systems",
+    title: "Customer Support & Help Center | JAYANT SYSTEMS",
     description: "Access technical documentation, report system bugs, check live service status, or contact our engineering support team for active client projects.",
     url: "https://jayant-systems.online/support",
-    siteName: "Jayant Web & AI Systems",
+    siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Customer Support & Help Center | Jayant Web & AI Systems",
+    title: "Customer Support & Help Center | JAYANT SYSTEMS",
     description: "Access technical documentation, report system bugs, check live service status, or contact our engineering support team for active client projects.",
   },
 };

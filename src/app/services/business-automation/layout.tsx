@@ -3,7 +3,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { createServiceSchema } from "@/lib/seo/schema";
 
 export const metadata: Metadata = {
-  title: "Business Process & Workflow Automation | Jayant Systems",
+  title: "Business Process & Workflow Automation | JAYANT SYSTEMS",
   description: "Automate manual business processes, spreadsheet entries, and customer communications using WhatsApp API, custom webhook pipelines, and CRM integrations.",
   alternates: {
     canonical: "/services/business-automation",
@@ -13,16 +13,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Business Process & Workflow Automation | Jayant Systems",
+    title: "Business Process & Workflow Automation | JAYANT SYSTEMS",
     description: "Automate manual business processes, spreadsheet entries, and customer communications using WhatsApp API, custom webhook pipelines, and CRM integrations.",
     url: "https://jayant-systems.online/services/business-automation",
-    siteName: "Jayant Web & AI Systems",
+    siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Business Process & Workflow Automation | Jayant Systems",
+    title: "Business Process & Workflow Automation | JAYANT SYSTEMS",
     description: "Automate manual business processes, spreadsheet entries, and customer communications using WhatsApp API, custom webhook pipelines, and CRM integrations.",
   },
 };

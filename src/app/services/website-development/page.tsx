@@ -293,7 +293,7 @@ export default function WebsiteDevelopmentPage() {
                     How much does custom website development cost in India?
                   </h3>
                   <p className="text-xs md:text-sm text-text-muted leading-relaxed">
-                    Custom website development at Jayant Web & AI Systems starts at a transparent ₹40,000 for foundational high-converting business websites, scaling to ₹90,000 for custom web applications with dashboards. Projects operate on milestone agreements with zero hidden costs or recurring template lock-ins.
+                    Custom website development at JAYANT SYSTEMS starts at a transparent ₹40,000 for foundational high-converting business websites, scaling to ₹90,000 for custom web applications with dashboards. Projects operate on milestone agreements with zero hidden costs or recurring template lock-ins.
                   </p>
                 </div>
               </div>

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Technologies We Use & Modern Stack | Jayant Systems",
+  title: "Technologies We Use & Modern Stack | JAYANT SYSTEMS",
   description: "Explore our modern engineering tech stack: Next.js, React, Python, FastAPI, Flutter, PostgreSQL, Supabase, OpenAI, Google Gemini, and Docker.",
   alternates: {
     canonical: "/resources/technologies-we-use",
@@ -11,16 +11,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Technologies We Use & Modern Stack | Jayant Systems",
+    title: "Technologies We Use & Modern Stack | JAYANT SYSTEMS",
     description: "Explore our modern engineering tech stack: Next.js, React, Python, FastAPI, Flutter, PostgreSQL, Supabase, OpenAI, Google Gemini, and Docker.",
     url: "https://jayant-systems.online/resources/technologies-we-use",
-    siteName: "Jayant Web & AI Systems",
+    siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Technologies We Use & Modern Stack | Jayant Systems",
+    title: "Technologies We Use & Modern Stack | JAYANT SYSTEMS",
     description: "Explore our modern engineering tech stack: Next.js, React, Python, FastAPI, Flutter, PostgreSQL, Supabase, OpenAI, Google Gemini, and Docker.",
   },
 };

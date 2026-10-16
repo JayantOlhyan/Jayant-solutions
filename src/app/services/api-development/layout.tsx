@@ -3,7 +3,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { createServiceSchema } from "@/lib/seo/schema";
 
 export const metadata: Metadata = {
-  title: "REST & GraphQL API Development Services | Jayant Systems",
+  title: "REST & GraphQL API Development Services | JAYANT SYSTEMS",
   description: "Build robust, secure, and documented REST and GraphQL backend APIs with FastAPI and Node.js to power web platforms, mobile apps, and third-party sync.",
   alternates: {
     canonical: "/services/api-development",
@@ -13,16 +13,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "REST & GraphQL API Development Services | Jayant Systems",
+    title: "REST & GraphQL API Development Services | JAYANT SYSTEMS",
     description: "Build robust, secure, and documented REST and GraphQL backend APIs with FastAPI and Node.js to power web platforms, mobile apps, and third-party sync.",
     url: "https://jayant-systems.online/services/api-development",
-    siteName: "Jayant Web & AI Systems",
+    siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "REST & GraphQL API Development Services | Jayant Systems",
+    title: "REST & GraphQL API Development Services | JAYANT SYSTEMS",
     description: "Build robust, secure, and documented REST and GraphQL backend APIs with FastAPI and Node.js to power web platforms, mobile apps, and third-party sync.",
   },
 };

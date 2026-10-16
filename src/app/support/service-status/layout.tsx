@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Live System & Service Uptime Status | Jayant Systems",
+  title: "Live System & Service Uptime Status | JAYANT SYSTEMS",
   description: "Monitor real-time system performance, cloud hosting uptime metrics, database latency, and API operational status across all deployed services.",
   alternates: {
     canonical: "/support/service-status",
@@ -11,16 +11,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Live System & Service Uptime Status | Jayant Systems",
+    title: "Live System & Service Uptime Status | JAYANT SYSTEMS",
     description: "Monitor real-time system performance, cloud hosting uptime metrics, database latency, and API operational status across all deployed services.",
     url: "https://jayant-systems.online/support/service-status",
-    siteName: "Jayant Web & AI Systems",
+    siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Live System & Service Uptime Status | Jayant Systems",
+    title: "Live System & Service Uptime Status | JAYANT SYSTEMS",
     description: "Monitor real-time system performance, cloud hosting uptime metrics, database latency, and API operational status across all deployed services.",
   },
 };

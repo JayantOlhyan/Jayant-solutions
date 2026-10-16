@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Report an Issue or Software Bug | Jayant Web & AI Systems",
+  title: "Report an Issue or Software Bug | JAYANT SYSTEMS",
   description: "Submit a technical bug report or software issue directly to our engineering team for rapid ticket triage, root-cause debugging, and resolution.",
   alternates: {
     canonical: "/support/report-a-bug",
@@ -11,16 +11,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Report an Issue or Software Bug | Jayant Web & AI Systems",
+    title: "Report an Issue or Software Bug | JAYANT SYSTEMS",
     description: "Submit a technical bug report or software issue directly to our engineering team for rapid ticket triage, root-cause debugging, and resolution.",
     url: "https://jayant-systems.online/support/report-a-bug",
-    siteName: "Jayant Web & AI Systems",
+    siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Report an Issue or Software Bug | Jayant Web & AI Systems",
+    title: "Report an Issue or Software Bug | JAYANT SYSTEMS",
     description: "Submit a technical bug report or software issue directly to our engineering team for rapid ticket triage, root-cause debugging, and resolution.",
   },
 };
