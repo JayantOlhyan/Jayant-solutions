@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: 'Founder-led technology studio building high-performance websites, custom software products, and practical AI-powered systems.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#0A0F1D',
-    theme_color: '#2563EB',
+    background_color: '#0a0f1e',
+    theme_color: '#F37021',
     icons: [
       {
         src: '/icon-192.png',
