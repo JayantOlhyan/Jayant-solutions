@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Plus, ArrowRight, MessageSquare } from "lucide-react";
+import { Plus, ArrowRight, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
@@ -67,89 +67,93 @@ export default function FAQ() {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="py-16 md:py-24 border-b border-border-custom relative"
+      className="py-20 md:py-32 border-b border-border-custom relative"
     >
       <div className="w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Left Column: FAQ Context & Direct Question Prompt */}
-          <div className="lg:col-span-4 lg:sticky lg:top-28 flex flex-col items-start text-left">
-            <span className="font-mono text-[11px] tracking-wider uppercase text-primary font-semibold block mb-2">
-              Section 07 &bull; Process and FAQs
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* Left Column: Sticky FAQ Context */}
+          <div className="lg:col-span-5 lg:sticky lg:top-28 flex flex-col items-start text-left">
+            <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-primary font-bold block mb-3">
+              07 / Engagement Questions
             </span>
             <h2
               id="faq-heading"
-              className="font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-text-base mb-4"
+              className="metalab-subheadline text-3xl sm:text-5xl font-extrabold text-text-base mb-5"
             >
-              Engagement Process &amp; FAQs
+              Clear answers before we begin.
             </h2>
-            <p className="text-sm sm:text-base text-text-muted leading-relaxed mb-6">
-              Clear, direct answers to common questions about project fit, scoping, pricing, requirement changes, testing, and post-launch support at JAYANT SYSTEMS.
+            <p className="text-sm sm:text-base text-text-muted leading-relaxed mb-8">
+              Direct answers to common questions about project fit, scoping, pricing, requirement changes, testing, and post-launch support at JAYANT SYSTEMS.
             </p>
 
-            <div className="hog-card p-5 bg-card-bg border border-border-custom w-full flex flex-col gap-3">
-              <div className="flex items-center gap-2 text-xs font-display font-bold text-text-base">
-                <MessageSquare className="size-4 text-primary" />
-                <span>Have a specific technical question?</span>
-              </div>
-              <p className="text-xs text-text-muted leading-relaxed">
-                Reach out directly with your architecture or scope question. You will receive a direct response from Jayant.
+            <div className="border-t border-b border-border-custom py-6 w-full flex flex-col gap-3">
+              <span className="font-display text-base font-bold text-text-base">
+                Have a specific technical or architecture question?
+              </span>
+              <p className="text-xs sm:text-sm text-text-muted leading-relaxed">
+                Reach out directly with your brief. You will receive a direct response from Jayant within 12–24 business hours.
               </p>
-              <div className="flex items-center gap-3 pt-1">
+              <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Link
                   href="#contact"
-                  className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-primary hover:underline"
+                  className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-primary hover:underline"
                 >
                   <span>Ask via Contact Section</span>
                   <ArrowRight className="size-3.5" />
                 </Link>
-                <span className="text-border-custom">&bull;</span>
                 <Link
                   href="/faq"
-                  className="text-xs font-mono font-semibold text-text-muted hover:text-text-base hover:underline"
+                  className="inline-flex items-center gap-1 font-mono text-xs text-text-muted hover:text-text-base"
                 >
-                  All FAQs
+                  <span>Complete FAQ Directory</span>
+                  <ArrowUpRight className="size-3.5" />
                 </Link>
               </div>
             </div>
           </div>
 
-          {/* Right Column: 7 Core Purchasing Questions Accordion */}
-          <div className="lg:col-span-8 flex flex-col gap-3">
+          {/* Right Column: Hairline Editorial Accordion */}
+          <div className="lg:col-span-7 divide-y divide-border-custom border-t border-b border-border-custom">
             {PURCHASING_FAQS.map((item, idx) => {
               const isOpen = openIndex === idx;
+              const num = String(idx + 1).padStart(2, "0");
               return (
-                <div
-                  key={item.question}
-                  className={`hog-card overflow-hidden transition-colors ${
-                    isOpen
-                      ? "border-primary/50 bg-card-bg"
-                      : "border-border-custom bg-card-bg/80 hover:border-primary/30"
-                  }`}
-                >
+                <div key={item.question} className="group">
                   <button
                     type="button"
                     onClick={() => toggleFAQ(idx)}
                     aria-expanded={isOpen}
                     aria-controls={`faq-panel-${idx}`}
                     id={`faq-trigger-${idx}`}
-                    className="w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left cursor-pointer focus:outline-none group"
+                    className="w-full flex items-start justify-between gap-6 py-6 sm:py-7 text-left cursor-pointer focus:outline-none"
                   >
-                    <div className="flex flex-col gap-1 pr-2">
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-primary font-semibold">
-                        {item.category}
+                    <div className="flex items-baseline gap-4 pr-2">
+                      <span className="font-mono text-xs font-bold text-primary shrink-0">
+                        /{num}
                       </span>
-                      <span className="font-display text-base sm:text-lg font-bold text-text-base group-hover:text-primary transition-colors leading-snug">
-                        {item.question}
-                      </span>
+                      <div>
+                        <span className="font-mono text-[10px] uppercase tracking-widest text-text-muted block mb-1">
+                          {item.category}
+                        </span>
+                        <span
+                          className={`font-display text-lg sm:text-xl font-extrabold transition-colors leading-snug block ${
+                            isOpen
+                              ? "text-primary"
+                              : "text-text-base group-hover:text-primary"
+                          }`}
+                        >
+                          {item.question}
+                        </span>
+                      </div>
                     </div>
 
                     <motion.span
                       animate={{ rotate: isOpen ? 45 : 0 }}
                       transition={{ duration: 0.2 }}
-                      className={`size-8 rounded-lg border flex items-center justify-center shrink-0 transition-colors ${
+                      className={`size-9 rounded-full border flex items-center justify-center shrink-0 transition-colors mt-1 ${
                         isOpen
                           ? "bg-primary text-white border-primary"
-                          : "bg-card-subtle text-text-muted border-border-custom group-hover:border-primary/40 group-hover:text-primary"
+                          : "border-border-custom text-text-muted group-hover:border-primary group-hover:text-primary"
                       }`}
                     >
                       <Plus className="size-4" />
@@ -165,9 +169,13 @@ export default function FAQ() {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{
+                          duration: 0.22,
+                          ease: [0.16, 1, 0.3, 1],
+                        }}
+                        className="overflow-hidden"
                       >
-                        <div className="px-5 pb-5 sm:px-6 sm:pb-6 pt-2 text-sm text-text-muted border-t border-border-custom/60 leading-relaxed text-left">
+                        <div className="pb-7 pl-0 sm:pl-9 pr-4 text-sm sm:text-base text-text-muted leading-relaxed text-left">
                           {item.answer}
                         </div>
                       </motion.div>
