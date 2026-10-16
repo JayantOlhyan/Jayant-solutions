@@ -1,3 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
-  <path d="M20 0H100C111.046 0 120 8.9543 120 20V100C120 111.046 111.046 120 100 120H20C8.9543 120 0 111.046 0 100V20C0 8.9543 8.9543 0 20 0ZM40 32V45H41V73C41 76.866 38.866 79 35 79H26V92H36C45.9411 92 54 83.9411 54 74V32H40ZM26 32V40H34V32H26ZM64 32C62.8954 32 62 36.4772 62 42V57C62 62.5228 66.4772 67 72 67H83V79H62V92H86C91.5228 92 96 87.5228 96 82V64C96 58.4772 91.5228 54 86 54H75V45H94V32H64Z" fill="#0A0F1D"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" ry="96" fill="black"/>
+  <text x="256" y="380" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="360" fill="white" text-anchor="middle">J</text>
 </svg>
