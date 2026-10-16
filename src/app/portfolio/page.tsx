@@ -13,107 +13,8 @@ export interface PortfolioProject extends CaseStudy {
   category: "AI / ML" | "Web Applications" | "Mobile Apps" | "Platforms" | "Automation" | "Business Solutions";
 }
 
-const additionalProjects: PortfolioProject[] = [
-  {
-    id: "ai-mock-interviewer",
-    title: "AI Mock Interviewer",
-    client: "EdTech Platform",
-    category: "AI / ML",
-    industry: "AI / Education",
-    problem: "Candidates lack real-time feedback when practicing behavioral and technical interview questions.",
-    beforeState: "Manual practice sessions with peers yielded inconsistent critique and zero metrics.",
-    solution: "Real-time AI voice interviewer with instant transcription, pacing analysis, and rubric evaluation.",
-    afterState: "Candidates receive comprehensive rubric scoring and answer revisions in under 10 seconds.",
-    result: "92% interview readiness improvement",
-    tech: ["Next.js", "OpenAI Whisper", "GPT-4o", "Tailwind CSS", "TypeScript"],
-    image: "/projects/teachersathi.webp",
-    duration: "3 Weeks",
-    features: ["Real-time audio transcription", "Pacing & filler-word telemetry", "Structured rubric reports"],
-  },
-  {
-    id: "ai-voice-agent",
-    title: "AI Voice Agent",
-    client: "Customer Support Portal",
-    category: "Mobile Apps",
-    industry: "AI / Voice Telephony",
-    problem: "Call centers experience high drop-off rates during peak call volume hours.",
-    beforeState: "Customers waited on hold for an average of 14 minutes to resolve basic billing questions.",
-    solution: "Low-latency streaming voice agent running on WebSockets with custom tool calling.",
-    afterState: "Zero queue wait time with 75% first-call resolution of routine requests.",
-    result: "75% automated resolution rate",
-    tech: ["React Native", "WebSockets", "FastAPI", "Python", "ElevenLabs"],
-    image: "/projects/sentinelai.webp",
-    duration: "4 Weeks",
-    features: ["Sub-500ms voice response latency", "CRM record lookups", "Live operator handoff"],
-  },
-  {
-    id: "saas-dashboard",
-    title: "SaaS Analytics Dashboard",
-    client: "CloudOps Enterprise",
-    category: "Web Applications",
-    industry: "SaaS / Cloud Analytics",
-    problem: "Engineering teams lacked unified visibility into distributed microservice telemetry and costs.",
-    beforeState: "Engineers logged into 4 separate cloud consoles to correlate performance anomalies.",
-    solution: "Centralized real-time observability dashboard built with Next.js App Router and PostgreSQL.",
-    afterState: "Aggregated metric graphs and anomaly alerts render in a single unified view.",
-    result: "60% faster incident response",
-    tech: ["Next.js 15", "PostgreSQL", "Tailwind CSS", "Recharts", "Prisma"],
-    image: "/projects/flowforge.webp",
-    duration: "4 Weeks",
-    features: ["Real-time metric telemetry", "Role-based access control", "Automated cost anomaly alerts"],
-  },
-  {
-    id: "ecommerce-platform",
-    title: "Modern E-Commerce Engine",
-    client: "Direct-to-Consumer Retail",
-    category: "Platforms",
-    industry: "Retail / E-Commerce",
-    problem: "Legacy e-commerce store suffered from 4.8s page loads and high checkout cart abandonment.",
-    beforeState: "Monolithic storefront had 4.8s TTFB and 72% mobile abandonment rate.",
-    solution: "Headless e-commerce storefront with server-rendered product catalog and 1-click checkout.",
-    afterState: "Sub-second product loads and a streamlined checkout flow.",
-    result: "42% increase in mobile conversion",
-    tech: ["Next.js", "Shopify Storefront API", "Tailwind CSS", "Stripe", "TypeScript"],
-    image: "/projects/khelclan.webp",
-    duration: "5 Weeks",
-    features: ["Instant client-side cart", "Automated inventory sync", "1-click checkout"],
-  },
-  {
-    id: "workflow-automation",
-    title: "Enterprise Workflow Automation",
-    client: "Logistics Enterprise",
-    category: "Automation",
-    industry: "Enterprise / Automation",
-    problem: "Dispatch operators manually re-entered delivery orders between spreadsheets and warehouse ERPs.",
-    beforeState: "Operators spent 3 hours each morning copy-pasting order manifests with frequent typos.",
-    solution: "Autonomous event-driven pipeline orchestrating webhook triggers between inventory and dispatch.",
-    afterState: "Orders process in 200ms with zero manual data entry.",
-    result: "3 hours saved daily per operator",
-    tech: ["Node.js", "FastAPI", "PostgreSQL", "Docker", "Redis"],
-    image: "/projects/flowforge.webp",
-    duration: "3 Weeks",
-    features: ["Bi-directional webhook sync", "Automated retry queue", "Discord/Slack error alerting"],
-  },
-  {
-    id: "janganana",
-    title: "JanGanana Digital",
-    client: "National Census Bureau",
-    category: "Business Solutions",
-    industry: "GovTech / Data Platform",
-    problem: "Data collectors filled paper logs in rural areas, taking months to digitalize and tabulate.",
-    beforeState: "Data collectors filled paper logs in rural areas, taking months to digitalize and tabulate.",
-    solution: "Offline-first tablet app syncs local encrypted census records to cloud instantly.",
-    afterState: "Offline-first tablet app syncs local encrypted census records to cloud instantly.",
-    result: "90% faster census tabulation",
-    tech: ["React Native", "SQLite", "Node.js", "PostgreSQL"],
-    image: "/projects/civicsetu.webp",
-    duration: "6 Weeks",
-    features: ["Offline SQLite data storage", "E2E data synchronization rules", "Real-time demography analytics dashboard"],
-  },
-];
-
-// Map shared case studies to categories
-const mappedSharedStudies: PortfolioProject[] = sharedCaseStudies.map((cs) => {
+// Map verified shared case studies to categories
+const allPortfolioProjects: PortfolioProject[] = sharedCaseStudies.map((cs) => {
   let cat: PortfolioProject["category"] = "Web Applications";
   const ind = cs.industry.toLowerCase();
   const id = cs.id.toLowerCase();
@@ -132,27 +33,19 @@ const mappedSharedStudies: PortfolioProject[] = sharedCaseStudies.map((cs) => {
   };
 });
 
-// Complete deduplicated unified project list preserving all original items
-const allPortfolioProjects: PortfolioProject[] = [
-  ...mappedSharedStudies,
-  ...additionalProjects.filter((p) => !mappedSharedStudies.some((s) => s.id === p.id)),
-];
-
 export default function PortfolioPage() {
   const [activeFilter, setActiveFilter] = useState("All");
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const modalRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLElement | null>(null);
 
-  // Original statistics preserved
   const stats = [
-    { number: "25+", label: "Completed Projects", desc: "Full-stack apps, prototypes & tools" },
-    { number: "Direct", label: "Developer Access", desc: "Direct engineering collaboration" },
+    { number: `${allPortfolioProjects.length}`, label: "Documented Systems", desc: "Client work, live apps & prototypes" },
+    { number: "Direct", label: "Founder Execution", desc: "No middle-layer handoffs" },
     { number: "30+", label: "Hackathons & Tracks", desc: "Recognized across university & tech tracks" },
-    { number: "10+", label: "Specialized Domains", desc: "Healthcare, EdTech, SaaS & Automation" },
+    { number: "100%", label: "Code Ownership", desc: "Full repository & IP transfer" },
   ];
 
-  // Original complete filter categories restored
   const filterTabs = [
     "All",
     "AI / ML",
@@ -160,7 +53,6 @@ export default function PortfolioPage() {
     "Mobile Apps",
     "Platforms",
     "Automation",
-    "Business Solutions",
   ];
 
   // Accessible Modal Focus Trap & Keyboard Dismiss
@@ -235,28 +127,28 @@ export default function PortfolioPage() {
           {/* Portfolio Hero split */}
           <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center pt-6">
             <div className="lg:col-span-6 flex flex-col items-start">
-              <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-                OUR PORTFOLIO
+              <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-md mb-4 inline-block font-semibold">
+                JAYANT SYSTEMS &bull; SELECTED WORK
               </span>
-              <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
-                Solutions We&apos;ve Built.{" "}
-                <span className="text-primary block sm:inline">Impact I deliver.</span>
+              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-text-base leading-[1.08] mb-6">
+                Systems Engineered for{" "}
+                <span className="text-primary block sm:inline">Real-World Problems.</span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                From AI-powered platforms to full-stack web applications, I build digital products that solve real problems and create measurable impact.
+                Inspect client engagements, institutional portals, deployed AI applications, and functional prototypes built by JAYANT SYSTEMS. Every entry clearly distinguishes its engagement type, architecture, and problem addressed.
               </p>
               
               <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto">
                 <a
                   href="#projects-grid"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary-hover text-white px-7 py-3 text-xs font-mono font-bold transition-all shadow-md active:scale-[0.98]"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-primary hover:bg-primary-hover text-white px-6 py-3 text-xs font-display font-bold transition-all shadow-sm"
                 >
-                  <span>View Case Studies</span>
+                  <span>Inspect Projects</span>
                   <ArrowRight className="size-4" />
                 </a>
                 <Link
                   href="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-border-custom bg-card-bg hover:border-primary/40 px-7 py-3 text-xs font-mono font-bold text-text-base transition-all"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg border border-border-custom bg-card-bg hover:border-primary/40 px-6 py-3 text-xs font-display font-bold text-text-base transition-all"
                 >
                   <span>Discuss Your Project</span>
                   <ArrowRight className="size-4" />
@@ -267,10 +159,10 @@ export default function PortfolioPage() {
             {/* Right stats counter grid */}
             <div className="lg:col-span-6 grid grid-cols-2 gap-4">
               {stats.map((stat, idx) => (
-                <div key={idx} className="glass-card rounded-2xl p-5 md:p-6 border border-border-custom bg-card-bg/60 flex flex-col gap-1 shadow-sm hover:border-primary/30 transition-all">
-                  <span className="text-2xl md:text-3xl font-serif font-black text-primary">{stat.number}</span>
-                  <h4 className="font-serif text-xs md:text-sm font-bold text-text-base">{stat.label}</h4>
-                  <p className="text-[10px] md:text-xs text-text-muted">{stat.desc}</p>
+                <div key={idx} className="hog-card rounded-xl p-5 md:p-6 border border-border-custom bg-card-bg flex flex-col gap-1">
+                  <span className="text-2xl md:text-3xl font-display font-extrabold text-primary">{stat.number}</span>
+                  <h4 className="font-display text-xs md:text-sm font-bold text-text-base">{stat.label}</h4>
+                  <p className="text-[11px] md:text-xs text-text-muted">{stat.desc}</p>
                 </div>
               ))}
             </div>

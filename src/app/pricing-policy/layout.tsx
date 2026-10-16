@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Pricing & Billing Policy | Jayant Web & AI Systems",
+  title: "Pricing & Billing Policy | JAYANT SYSTEMS",
   description: "Transparent pricing and milestone payment terms: initial deposit structures, deliverable review windows, and invoice handling for software projects.",
   alternates: {
     canonical: "/pricing-policy",
@@ -11,16 +11,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Pricing & Billing Policy | Jayant Web & AI Systems",
+    title: "Pricing & Billing Policy | JAYANT SYSTEMS",
     description: "Transparent pricing and milestone payment terms: initial deposit structures, deliverable review windows, and invoice handling for software projects.",
     url: "https://jayant-systems.online/pricing-policy",
-    siteName: "Jayant Web & AI Systems",
+    siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pricing & Billing Policy | Jayant Web & AI Systems",
+    title: "Pricing & Billing Policy | JAYANT SYSTEMS",
     description: "Transparent pricing and milestone payment terms: initial deposit structures, deliverable review windows, and invoice handling for software projects.",
   },
 };

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Custom Enterprise Software Plans | Jayant Web & AI Systems",
+  title: "Custom Enterprise Software Plans | JAYANT SYSTEMS",
   description: "Dedicated engineering capacity, custom multi-tier AI architectures, custom SLA support retainers, and full intellectual property transfer for enterprises.",
   alternates: {
     canonical: "/pricing/enterprise-plans",
@@ -11,16 +11,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Custom Enterprise Software Plans | Jayant Web & AI Systems",
+    title: "Custom Enterprise Software Plans | JAYANT SYSTEMS",
     description: "Dedicated engineering capacity, custom multi-tier AI architectures, custom SLA support retainers, and full intellectual property transfer for enterprises.",
     url: "https://jayant-systems.online/pricing/enterprise-plans",
-    siteName: "Jayant Web & AI Systems",
+    siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom Enterprise Software Plans | Jayant Web & AI Systems",
+    title: "Custom Enterprise Software Plans | JAYANT SYSTEMS",
     description: "Dedicated engineering capacity, custom multi-tier AI architectures, custom SLA support retainers, and full intellectual property transfer for enterprises.",
   },
 };

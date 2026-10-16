@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Website & App Maintenance Retainers | Jayant Systems",
+  title: "Website & App Maintenance Retainers | JAYANT SYSTEMS",
   description: "Proactive monthly and annual maintenance plans covering 24/7 uptime monitoring, critical security patches, database backups, and monthly feature updates.",
   alternates: {
     canonical: "/pricing/maintenance-plans",
@@ -11,16 +11,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Website & App Maintenance Retainers | Jayant Systems",
+    title: "Website & App Maintenance Retainers | JAYANT SYSTEMS",
     description: "Proactive monthly and annual maintenance plans covering 24/7 uptime monitoring, critical security patches, database backups, and monthly feature updates.",
     url: "https://jayant-systems.online/pricing/maintenance-plans",
-    siteName: "Jayant Web & AI Systems",
+    siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Website & App Maintenance Retainers | Jayant Systems",
+    title: "Website & App Maintenance Retainers | JAYANT SYSTEMS",
     description: "Proactive monthly and annual maintenance plans covering 24/7 uptime monitoring, critical security patches, database backups, and monthly feature updates.",
   },
 };
