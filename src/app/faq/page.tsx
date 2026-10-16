@@ -24,7 +24,7 @@ export default function FAQPage() {
 
   const faqs = [
     {
-      q: "What services does Jayant Web & AI Systems offer?",
+      q: "What services does JAYANT SYSTEMS offer?",
       a: "We offer a wide range of services including custom web development, mobile app development, AI/ML solutions, SaaS development, automation, UI/UX design, API development, and ongoing maintenance & support.",
       category: "Services",
     },

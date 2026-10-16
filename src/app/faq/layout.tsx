@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Frequently Asked Questions | Jayant Web & AI Systems",
+  title: "Frequently Asked Questions | JAYANT SYSTEMS",
   description: "Find answers to common questions about custom AI integrations, software development timelines, project pricing, source code ownership, and ongoing support.",
   alternates: {
     canonical: "/faq",
@@ -11,16 +11,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Frequently Asked Questions | Jayant Web & AI Systems",
+    title: "Frequently Asked Questions | JAYANT SYSTEMS",
     description: "Find answers to common questions about custom AI integrations, software development timelines, project pricing, source code ownership, and ongoing support.",
     url: "https://jayant-systems.online/faq",
-    siteName: "Jayant Web & AI Systems",
+    siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Frequently Asked Questions | Jayant Web & AI Systems",
+    title: "Frequently Asked Questions | JAYANT SYSTEMS",
     description: "Find answers to common questions about custom AI integrations, software development timelines, project pricing, source code ownership, and ongoing support.",
   },
 };

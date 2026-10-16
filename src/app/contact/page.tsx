@@ -58,7 +58,7 @@ export default function ContactPage() {
                 GET IN TOUCH
               </span>
               <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
-                Contact Jayant Web & AI Systems:{" "}
+                Contact JAYANT SYSTEMS:{" "}
                 <span className="text-primary underline decoration-primary/40 decoration-4 underline-offset-8">
                   Book a Strategy Call
                 </span>

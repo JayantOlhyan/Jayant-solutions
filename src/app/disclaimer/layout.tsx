@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Disclaimer & Liability Terms | Jayant Web & AI Systems",
+  title: "Disclaimer & Liability Terms | JAYANT SYSTEMS",
   description: "Legal disclaimer and limitation of liability regarding technical consulting, educational articles, and third-party software tools on our platform.",
   alternates: {
     canonical: "/disclaimer",
@@ -11,16 +11,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Disclaimer & Liability Terms | Jayant Web & AI Systems",
+    title: "Disclaimer & Liability Terms | JAYANT SYSTEMS",
     description: "Legal disclaimer and limitation of liability regarding technical consulting, educational articles, and third-party software tools on our platform.",
     url: "https://jayant-systems.online/disclaimer",
-    siteName: "Jayant Web & AI Systems",
+    siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Disclaimer & Liability Terms | Jayant Web & AI Systems",
+    title: "Disclaimer & Liability Terms | JAYANT SYSTEMS",
     description: "Legal disclaimer and limitation of liability regarding technical consulting, educational articles, and third-party software tools on our platform.",
   },
 };

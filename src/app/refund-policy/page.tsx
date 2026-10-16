@@ -4,22 +4,22 @@ import Link from "next/link";
 import { ShieldAlert, ArrowLeft, CheckCircle2, HelpCircle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Cancellation & Refund Policy | Jayant Web & AI Systems",
+  title: "Cancellation & Refund Policy | JAYANT SYSTEMS",
   description: "Official cancellation terms, milestone refund policies, and consumer protection guidelines for software engineering engagements with Jayant Systems.",
   alternates: {
     canonical: "/refund-policy",
   },
   openGraph: {
-    title: "Cancellation & Refund Policy | Jayant Web & AI Systems",
+    title: "Cancellation & Refund Policy | JAYANT SYSTEMS",
     description: "Official cancellation terms, milestone refund policies, and consumer protection guidelines for software engineering engagements with Jayant Systems.",
     url: "https://jayant-systems.online/refund-policy",
-    siteName: "Jayant Web & AI Systems",
+    siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cancellation & Refund Policy | Jayant Web & AI Systems",
+    title: "Cancellation & Refund Policy | JAYANT SYSTEMS",
     description: "Official cancellation terms, milestone refund policies, and consumer protection guidelines for software engineering engagements with Jayant Systems.",
   },
 };
@@ -49,7 +49,7 @@ export default function RefundPolicyPage() {
             Cancellation & Refund Policy
           </h1>
           <p className="text-sm text-[#A0A8B8] font-light max-w-2xl">
-            Effective Date: January 1, 2026 &bull; Last Updated: August 2026. This policy governs commercial engagements, milestones, and payment handling for Jayant Web & AI Systems.
+            Effective Date: January 1, 2026 &bull; Last Updated: August 2026. This policy governs commercial engagements, milestones, and payment handling for JAYANT SYSTEMS.
           </p>
         </div>
       </div>
@@ -61,7 +61,7 @@ export default function RefundPolicyPage() {
             1. Nature of Professional Services
           </h2>
           <p className="text-sm text-[#B0B8C8] leading-relaxed font-light">
-            Jayant Web & AI Systems operates as a specialized digital systems, software development, and growth architecture consulting practice. Our commercial programs (including <strong>Foundation</strong>, <strong>Growth</strong>, and <strong>Scale</strong> packages) involve reserved senior technical capacity, customized engineering, proprietary content creation, and dedicated infrastructure deployment.
+            JAYANT SYSTEMS operates as a specialized digital systems, software development, and growth architecture consulting practice. Our commercial programs (including <strong>Foundation</strong>, <strong>Growth</strong>, and <strong>Scale</strong> packages) involve reserved senior technical capacity, customized engineering, proprietary content creation, and dedicated infrastructure deployment.
           </p>
         </section>
 
@@ -145,7 +145,7 @@ export default function RefundPolicyPage() {
               <strong className="text-[#C5A880]">Designated Support Email:</strong> hello@jayantolhyan.in
             </p>
             <p className="text-[#FAF7EE]">
-              <strong className="text-[#C5A880]">Merchant Legal Name:</strong> Jayant Web & AI Systems
+              <strong className="text-[#C5A880]">Merchant Legal Name:</strong> JAYANT SYSTEMS
             </p>
             <p className="text-[#FAF7EE]">
               <strong className="text-[#C5A880]">Registered Office:</strong> New Delhi, India

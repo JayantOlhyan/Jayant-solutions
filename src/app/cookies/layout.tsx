@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cookie Policy & Tracking Technologies | Jayant Systems",
-  description: "Learn about the cookies and local storage technologies used on Jayant Web & AI Systems to ensure platform security and optimal browsing performance.",
+  title: "Cookie Policy & Tracking Technologies | JAYANT SYSTEMS",
+  description: "Learn about the cookies and local storage technologies used on JAYANT SYSTEMS to ensure platform security and optimal browsing performance.",
   alternates: {
     canonical: "/cookies",
     languages: {
@@ -11,17 +11,17 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Cookie Policy & Tracking Technologies | Jayant Systems",
-    description: "Learn about the cookies and local storage technologies used on Jayant Web & AI Systems to ensure platform security and optimal browsing performance.",
+    title: "Cookie Policy & Tracking Technologies | JAYANT SYSTEMS",
+    description: "Learn about the cookies and local storage technologies used on JAYANT SYSTEMS to ensure platform security and optimal browsing performance.",
     url: "https://jayant-systems.online/cookies",
-    siteName: "Jayant Web & AI Systems",
+    siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cookie Policy & Tracking Technologies | Jayant Systems",
-    description: "Learn about the cookies and local storage technologies used on Jayant Web & AI Systems to ensure platform security and optimal browsing performance.",
+    title: "Cookie Policy & Tracking Technologies | JAYANT SYSTEMS",
+    description: "Learn about the cookies and local storage technologies used on JAYANT SYSTEMS to ensure platform security and optimal browsing performance.",
   },
 };
 
