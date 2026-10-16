@@ -3,7 +3,15 @@
 import React, { useState } from "react";
 import { caseStudies } from "../data/content";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, ArrowRight, X, CheckCircle2, Code2, Sparkles } from "lucide-react";
+import {
+  ExternalLink,
+  ArrowRight,
+  ArrowUpRight,
+  X,
+  CheckCircle2,
+  Code2,
+  Sparkles,
+} from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -12,7 +20,7 @@ function ProjectImage({ src, alt }: { src: string; alt: string }) {
   const [error, setError] = useState(false);
 
   return (
-    <div className="relative w-full h-full overflow-hidden bg-[#0A0F1D] flex items-center justify-center">
+    <div className="relative w-full h-full overflow-hidden bg-[#0A0E17] flex items-center justify-center">
       {!loaded && !error && (
         <div className="absolute inset-0 skeleton-shimmer z-10" />
       )}
@@ -21,8 +29,8 @@ function ProjectImage({ src, alt }: { src: string; alt: string }) {
           src={src}
           alt={alt}
           fill
-          sizes="(max-width: 1024px) 100vw, 55vw"
-          className={`object-cover object-top transition-all duration-500 group-hover:scale-[1.02] ${
+          sizes="(max-width: 1024px) 100vw, 66vw"
+          className={`object-cover object-top transition-all duration-700 group-hover:scale-[1.02] ${
             loaded ? "opacity-100 scale-100" : "opacity-0 scale-102"
           }`}
           onLoad={() => setLoaded(true)}
@@ -62,7 +70,12 @@ export default function CaseStudies() {
 
   const activeStudy = caseStudies.find((s) => s.id === selectedId);
 
-  const filters = ["All", "Client & Institutional", "AI & Automation", "Civic & Product"];
+  const filters = [
+    "All",
+    "Client & Institutional",
+    "AI & Automation",
+    "Civic & Product",
+  ];
 
   const filteredStudies = featuredStudies.filter((study) => {
     if (activeFilter === "All") return true;
@@ -101,9 +114,10 @@ export default function CaseStudies() {
       }
 
       if (e.key === "Tab" && modalRef.current) {
-        const focusableElements = modalRef.current.querySelectorAll<HTMLElement>(
-          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        );
+        const focusableElements =
+          modalRef.current.querySelectorAll<HTMLElement>(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+          );
         if (focusableElements.length === 0) return;
 
         const firstElement = focusableElements[0];
@@ -144,213 +158,276 @@ export default function CaseStudies() {
     <section
       id="work"
       aria-labelledby="selected-work-heading"
-      className="py-16 md:py-24 border-b border-border-custom relative"
+      className="py-20 md:py-32 border-b border-border-custom relative"
     >
       <div className="w-full">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
-          <div className="text-left max-w-2xl">
-            <span className="font-mono text-[11px] tracking-wider uppercase text-primary font-semibold block mb-2">
-              Section 02 &bull; Selected Work &amp; Case Studies
+        {/* Editorial Section Header */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-12 border-b border-border-custom">
+          <div className="lg:col-span-8 text-left">
+            <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-primary font-bold block mb-3">
+              02 / Selected Work &amp; Case Studies
             </span>
             <h2
               id="selected-work-heading"
-              className="font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-text-base mb-3"
+              className="metalab-subheadline text-3xl sm:text-5xl lg:text-[56px] font-extrabold text-text-base"
             >
-              Real Evidence of Engineering Execution
+              Systems built for real users, operations, and workflows.
             </h2>
-            <p className="text-sm sm:text-base text-text-muted leading-relaxed">
-              Every project below documents the actual problem addressed, what JAYANT SYSTEMS built, key technical decisions, and transparent classification of whether it was a client engagement, institutional portal, or independent prototype.
-            </p>
           </div>
-          <div className="shrink-0">
+
+          <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-between gap-4 text-left lg:text-right">
+            <p className="text-sm text-text-muted leading-relaxed">
+              Every project below documents the problem addressed, the architecture delivered, and a clear distinction between paid client work, institutional portals, and independent prototypes.
+            </p>
             <Link
               href="/portfolio"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-border-custom bg-card-bg hover:border-primary/40 text-xs font-mono font-semibold text-text-base transition-colors shadow-2xs"
+              className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-text-base hover:text-primary transition-colors group"
             >
-              <span>View complete archive ({caseStudies.length} projects)</span>
-              <ArrowRight className="size-3.5" />
+              <span>Complete Archive ({caseStudies.length} Systems)</span>
+              <ArrowUpRight className="size-4 text-primary transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </div>
         </div>
 
-        {/* Filter Bar */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 scrollbar-none">
-          {filters.map((filter) => (
-            <button
-              key={filter}
-              type="button"
-              onClick={() => setActiveFilter(filter)}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-mono transition-colors cursor-pointer whitespace-nowrap ${
-                activeFilter === filter
-                  ? "bg-[#0A0F1D] text-white font-semibold border border-slate-800"
-                  : "bg-card-bg border border-border-custom text-text-muted hover:text-text-base hover:border-primary/30"
-              }`}
-            >
-              {filter}
-            </button>
-          ))}
+        {/* Minimalist Editorial Filter Bar */}
+        <div className="flex flex-wrap items-center justify-between gap-4 py-6 border-b border-border-custom mb-16">
+          <div className="flex items-center gap-2 overflow-x-auto scrollbar-none">
+            {filters.map((filter) => {
+              const isSelected = activeFilter === filter;
+              return (
+                <button
+                  key={filter}
+                  type="button"
+                  onClick={() => setActiveFilter(filter)}
+                  className={`px-4 py-2 rounded-full text-xs font-mono transition-all cursor-pointer whitespace-nowrap ${
+                    isSelected
+                      ? "bg-text-base text-bg-base font-bold"
+                      : "bg-transparent text-text-muted hover:text-text-base border border-border-custom"
+                  }`}
+                >
+                  {filter}
+                </button>
+              );
+            })}
+          </div>
+
+          <span className="font-mono text-[11px] text-text-muted hidden sm:block">
+            Showing {filteredStudies.length} of {featuredStudies.length} featured systems
+          </span>
         </div>
 
-        {/* Editorial Alternating Case Studies List */}
-        <div className="flex flex-col gap-12 md:gap-16">
+        {/* Metalab-Inspired Editorial Exhibition Stream (Varied Scale & Sticky Context) */}
+        <div className="flex flex-col gap-20 md:gap-28">
           {filteredStudies.map((study, index) => {
-            const isEven = index % 2 === 0;
+            const indexLabel = String(index + 1).padStart(2, "0");
+            const isHeroFeature = index === 0;
+
             return (
               <motion.article
                 key={study.id}
-                initial={{ opacity: 0, y: 18 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.35 }}
-                className="hog-card overflow-hidden bg-card-bg border border-border-custom group"
+                transition={{ duration: 0.4 }}
+                className="group border-b border-border-custom pb-16 md:pb-24 last:border-b-0 last:pb-0 text-left"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
-                  {/* Visual Column (Alternating Order on Desktop) */}
-                  <div
-                    className={`lg:col-span-7 bg-[#0A0F1D] border-b lg:border-b-0 ${
-                      isEven
-                        ? "lg:order-1 lg:border-r border-slate-800"
-                        : "lg:order-2 lg:border-l border-slate-800"
-                    } flex flex-col`}
-                  >
-                    {/* Browser Frame Header */}
-                    <div className="px-4 py-2.5 bg-[#111827] border-b border-slate-800 flex items-center justify-between gap-2">
-                      <div className="flex items-center gap-1.5" aria-hidden="true">
-                        <span className="size-2.5 rounded-full bg-slate-700" />
-                        <span className="size-2.5 rounded-full bg-slate-700" />
-                        <span className="size-2.5 rounded-full bg-slate-700" />
-                      </div>
-                      <span className="font-mono text-[10px] text-slate-300 px-2.5 py-0.5 rounded bg-slate-900 border border-slate-800">
-                        {study.client} &bull; {study.industry}
-                      </span>
-                      <div className="font-mono text-[10px] text-slate-400">
-                        {study.duration || "Scoped Delivery"}
-                      </div>
-                    </div>
-
-                    {/* Screenshot Container */}
-                    <div
-                      onClick={() => setSelectedId(study.id)}
-                      className="relative aspect-[16/10] w-full cursor-pointer overflow-hidden flex-1"
-                    >
-                      <ProjectImage src={study.image} alt={study.title} />
-                    </div>
+                {/* Top Project Index & Classification Bar */}
+                <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-xs font-bold text-primary">
+                      /{indexLabel}
+                    </span>
+                    <span className="font-mono text-[11px] uppercase tracking-[0.14em] font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
+                      {study.client}
+                    </span>
+                    <span className="font-mono text-xs text-text-muted">
+                      {study.industry}
+                    </span>
                   </div>
 
-                  {/* Editorial Narrative Column */}
-                  <div
-                    className={`lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between text-left ${
-                      isEven ? "lg:order-2" : "lg:order-1"
-                    }`}
-                  >
-                    <div className="flex flex-col gap-4">
-                      {/* Classification & Domain Badges */}
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className="font-mono text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">
-                          {study.client}
-                        </span>
-                        <span className="font-mono text-[10px] text-text-muted px-2 py-0.5 rounded bg-card-subtle border border-border-custom">
-                          {study.industry}
-                        </span>
-                      </div>
-
-                      {/* Project Title */}
-                      <h3 className="font-display text-xl sm:text-2xl font-extrabold text-text-base leading-snug">
-                        {study.title}
-                      </h3>
-
-                      {/* 1. Problem / Objective */}
-                      <div className="space-y-1">
-                        <span className="font-mono text-[10px] uppercase tracking-wider text-text-muted font-bold block">
-                          Problem &amp; Objective
-                        </span>
-                        <p className="text-xs sm:text-[13px] text-text-muted leading-relaxed">
-                          {study.problem}
-                        </p>
-                      </div>
-
-                      {/* 2. Agency Contribution */}
-                      <div className="space-y-1">
-                        <span className="font-mono text-[10px] uppercase tracking-wider text-primary font-bold block">
-                          Engineering Contribution
-                        </span>
-                        <p className="text-xs sm:text-[13px] text-text-base leading-relaxed">
-                          {study.solution}
-                        </p>
-                      </div>
-
-                      {/* 3. Key Features & Technical Stack */}
-                      {study.features && (
-                        <div className="pt-2">
-                          <span className="font-mono text-[10px] uppercase tracking-wider text-text-muted font-bold block mb-2">
-                            Key Capabilities Built
-                          </span>
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-                            {study.features.slice(0, 4).map((feat) => (
-                              <div
-                                key={feat}
-                                className="flex items-center gap-1.5 text-xs text-text-muted"
-                              >
-                                <CheckCircle2 className="size-3.5 text-primary shrink-0" />
-                                <span className="truncate">{feat}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Footer Tech Stack + Action Links */}
-                    <div className="pt-5 mt-6 border-t border-border-custom flex flex-col gap-4">
-                      <div className="flex flex-wrap gap-1.5">
-                        {study.tech.map((t) => (
-                          <span
-                            key={t}
-                            className="px-2 py-0.5 rounded bg-card-subtle border border-border-custom font-mono text-[10px] text-text-muted"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-
-                      <div className="flex flex-wrap items-center gap-3">
-                        <button
-                          type="button"
-                          onClick={() => setSelectedId(study.id)}
-                          className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-card-subtle hover:bg-primary hover:text-white border border-border-custom text-xs font-mono font-semibold text-text-base transition-colors cursor-pointer"
-                        >
-                          <span>Inspect Full Case Study</span>
-                          <ArrowRight className="size-3.5" />
-                        </button>
-
-                        {study.liveWebsite && study.liveWebsite !== "#" && (
-                          <a
-                            href={study.liveWebsite}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-primary hover:bg-primary-hover text-white text-xs font-mono font-semibold transition-colors"
-                          >
-                            <span>Live Product</span>
-                            <ExternalLink className="size-3.5" />
-                          </a>
-                        )}
-
-                        {study.githubLink && (
-                          <a
-                            href={study.githubLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-xs font-mono font-semibold text-text-muted hover:text-text-base underline underline-offset-4"
-                          >
-                            <Code2 className="size-3.5" />
-                            <span>Source</span>
-                          </a>
-                        )}
-                      </div>
-                    </div>
+                  <div className="flex items-center gap-4">
+                    {study.liveWebsite && study.liveWebsite !== "#" && (
+                      <a
+                        href={study.liveWebsite}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-primary hover:underline"
+                      >
+                        <span>Live Deployment</span>
+                        <ExternalLink className="size-3.5" />
+                      </a>
+                    )}
+                    {study.githubLink && (
+                      <a
+                        href={study.githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 font-mono text-xs text-text-muted hover:text-text-base"
+                      >
+                        <Code2 className="size-3.5" />
+                        <span>Repository</span>
+                      </a>
+                    )}
                   </div>
                 </div>
+
+                {/* Varied Composition: Lead Project Gets Monumental Full-Bleed Stage, Subsequent Projects Get Sticky 5/7 Editorial Split */}
+                {isHeroFeature ? (
+                  <div className="flex flex-col gap-8">
+                    {/* Monumental Visual Stage */}
+                    <div
+                      onClick={() => setSelectedId(study.id)}
+                      className="metalab-stage relative aspect-[16/9] w-full cursor-pointer"
+                    >
+                      <ProjectImage src={study.image} alt={study.title} />
+                      <div className="absolute bottom-4 right-4 z-20 px-4 py-2 rounded-full bg-[#0A0E17]/90 backdrop-blur-md border border-white/15 text-white font-mono text-xs inline-flex items-center gap-2">
+                        <span>Inspect Architecture &amp; Case Study</span>
+                        <ArrowUpRight className="size-3.5 text-[#FF8A00]" />
+                      </div>
+                    </div>
+
+                    {/* Below-Stage 12-Column Editorial Specification */}
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-2 items-start">
+                      <div className="lg:col-span-5">
+                        <h3 className="font-display text-2xl sm:text-4xl font-extrabold text-text-base tracking-tight leading-[1.1] mb-4">
+                          {study.title}
+                        </h3>
+                        <div className="flex flex-wrap gap-1.5">
+                          {study.tech.map((t) => (
+                            <span
+                              key={t}
+                              className="px-2.5 py-1 rounded-full bg-card-subtle border border-border-custom font-mono text-[11px] text-text-muted"
+                            >
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div className="border-t border-border-custom pt-4">
+                          <span className="font-mono text-[10px] uppercase tracking-widest text-text-muted font-bold block mb-2">
+                            Context &amp; Objective
+                          </span>
+                          <p className="text-sm text-text-muted leading-relaxed">
+                            {study.problem}
+                          </p>
+                        </div>
+
+                        <div className="border-t border-border-custom pt-4">
+                          <span className="font-mono text-[10px] uppercase tracking-widest text-primary font-bold block mb-2">
+                            What We Engineered
+                          </span>
+                          <p className="text-sm text-text-base leading-relaxed mb-4">
+                            {study.solution}
+                          </p>
+                          <button
+                            type="button"
+                            onClick={() => setSelectedId(study.id)}
+                            className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-primary hover:underline cursor-pointer"
+                          >
+                            <span>Read Full Case Study</span>
+                            <ArrowRight className="size-3.5" />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                    {/* Left Sticky Narrative Column (5 cols) */}
+                    <div className="lg:col-span-5 lg:sticky lg:top-28 flex flex-col justify-between gap-6">
+                      <div className="space-y-5">
+                        <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-text-base tracking-tight leading-[1.12]">
+                          {study.title}
+                        </h3>
+
+                        <div className="border-t border-border-custom pt-4">
+                          <span className="font-mono text-[10px] uppercase tracking-widest text-text-muted font-bold block mb-1.5">
+                            Problem &amp; Context
+                          </span>
+                          <p className="text-sm text-text-muted leading-relaxed">
+                            {study.problem}
+                          </p>
+                        </div>
+
+                        <div className="border-t border-border-custom pt-4">
+                          <span className="font-mono text-[10px] uppercase tracking-widest text-primary font-bold block mb-1.5">
+                            Engineering Deliverable
+                          </span>
+                          <p className="text-sm text-text-base leading-relaxed">
+                            {study.solution}
+                          </p>
+                        </div>
+
+                        {study.features && (
+                          <div className="border-t border-border-custom pt-4">
+                            <span className="font-mono text-[10px] uppercase tracking-widest text-text-muted font-bold block mb-2.5">
+                              Capabilities Delivered
+                            </span>
+                            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                              {study.features.slice(0, 4).map((feat) => (
+                                <li
+                                  key={feat}
+                                  className="flex items-start gap-2 text-xs text-text-muted"
+                                >
+                                  <CheckCircle2 className="size-3.5 text-primary shrink-0 mt-0.5" />
+                                  <span>{feat}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="pt-4 border-t border-border-custom flex flex-col gap-4">
+                        <div className="flex flex-wrap gap-1.5">
+                          {study.tech.map((t) => (
+                            <span
+                              key={t}
+                              className="px-2.5 py-0.5 rounded-full bg-card-subtle border border-border-custom font-mono text-[10px] text-text-muted"
+                            >
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+
+                        <div className="flex flex-wrap items-center gap-3">
+                          <button
+                            type="button"
+                            onClick={() => setSelectedId(study.id)}
+                            className="inline-flex items-center gap-2 rounded-full bg-text-base text-bg-base hover:bg-primary hover:text-white px-5 py-2.5 text-xs font-mono font-bold transition-colors cursor-pointer"
+                          >
+                            <span>Inspect Case Study</span>
+                            <ArrowRight className="size-3.5" />
+                          </button>
+
+                          {study.liveWebsite && study.liveWebsite !== "#" && (
+                            <a
+                              href={study.liveWebsite}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 rounded-full border border-border-custom hover:border-primary px-4 py-2.5 text-xs font-mono font-semibold text-text-base transition-colors"
+                            >
+                              <span>Live App</span>
+                              <ExternalLink className="size-3.5" />
+                            </a>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Right Product Stage Column (7 cols) */}
+                    <div className="lg:col-span-7">
+                      <div
+                        onClick={() => setSelectedId(study.id)}
+                        className="metalab-stage relative aspect-[16/10] w-full cursor-pointer"
+                      >
+                        <ProjectImage src={study.image} alt={study.title} />
+                      </div>
+                    </div>
+                  </div>
+                )}
               </motion.article>
             );
           })}
@@ -379,13 +456,13 @@ export default function CaseStudies() {
                 exit={{ opacity: 0, scale: 0.96, y: 16 }}
                 className="relative z-10 w-full max-w-2xl max-h-[85vh] overflow-y-auto custom-scrollbar bg-card-bg rounded-2xl border border-border-custom shadow-2xl flex flex-col text-left outline-none"
               >
-                <div className="relative w-full h-52 sm:h-64 bg-[#0A0F1D] border-b border-border-custom overflow-hidden shrink-0">
+                <div className="relative w-full h-56 sm:h-72 bg-[#0A0E17] border-b border-border-custom overflow-hidden shrink-0">
                   <ProjectImage src={activeStudy.image} alt={activeStudy.title} />
                   <button
                     type="button"
                     onClick={() => setSelectedId(null)}
                     aria-label="Close case study details"
-                    className="absolute top-4 right-4 z-20 p-2 rounded-lg bg-slate-950/80 text-white border border-slate-700 hover:bg-slate-900 transition-colors cursor-pointer"
+                    className="absolute top-4 right-4 z-20 p-2 rounded-full bg-slate-950/80 text-white border border-slate-700 hover:bg-slate-900 transition-colors cursor-pointer"
                   >
                     <X className="size-4" />
                   </button>
@@ -394,7 +471,7 @@ export default function CaseStudies() {
                 <div className="p-6 md:p-8 flex flex-col gap-6">
                   <div className="border-b border-border-custom pb-4">
                     <div className="flex flex-wrap items-center gap-2 mb-2">
-                      <span className="font-mono text-[10px] tracking-wider uppercase text-primary bg-primary/10 border border-primary/20 px-2.5 py-0.5 rounded font-semibold">
+                      <span className="font-mono text-[10px] tracking-wider uppercase text-primary bg-primary/10 border border-primary/20 px-2.5 py-0.5 rounded-full font-semibold">
                         {activeStudy.client}
                       </span>
                       <span className="font-mono text-[10px] text-text-muted">
@@ -461,21 +538,22 @@ export default function CaseStudies() {
                         <button
                           type="button"
                           onClick={() => setSelectedId(null)}
-                          className="px-4 py-2 rounded-lg border border-border-custom hover:bg-card-subtle text-xs font-mono font-semibold text-text-muted transition-colors cursor-pointer"
+                          className="px-4 py-2 rounded-full border border-border-custom hover:bg-card-subtle text-xs font-mono font-semibold text-text-muted transition-colors cursor-pointer"
                         >
                           Close
                         </button>
-                        {activeStudy.liveWebsite && activeStudy.liveWebsite !== "#" && (
-                          <a
-                            href={activeStudy.liveWebsite}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 rounded-lg bg-primary hover:bg-primary-hover text-white px-4 py-2 text-xs font-mono font-semibold transition-colors"
-                          >
-                            <span>Visit Live Site</span>
-                            <ExternalLink className="size-3.5" />
-                          </a>
-                        )}
+                        {activeStudy.liveWebsite &&
+                          activeStudy.liveWebsite !== "#" && (
+                            <a
+                              href={activeStudy.liveWebsite}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 rounded-full bg-primary hover:bg-primary-hover text-white px-5 py-2 text-xs font-mono font-semibold transition-colors"
+                            >
+                              <span>Visit Live Site</span>
+                              <ExternalLink className="size-3.5" />
+                            </a>
+                          )}
                       </div>
                     </div>
                   </div>
