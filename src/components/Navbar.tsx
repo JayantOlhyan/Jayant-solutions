@@ -87,23 +87,23 @@ export default function Navbar() {
   const primaryCtaHref = pathname === "/" ? "#contact" : "/contact";
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full px-4 sm:px-6 py-3 transition-all duration-300 pointer-events-none">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full px-4 sm:px-6 py-3.5 transition-all duration-300 pointer-events-none">
       <nav
         aria-label="Main navigation"
-        className={`max-w-7xl mx-auto pointer-events-auto bg-[#0A0F1D]/95 backdrop-blur-md border border-slate-800/90 rounded-xl transition-all duration-300 ${
+        className={`max-w-7xl mx-auto pointer-events-auto bg-[#0A0E17]/95 backdrop-blur-md border border-slate-800/90 rounded-full transition-all duration-300 ${
           scrolled
-            ? "py-2.5 px-4 sm:px-6 shadow-[0_12px_32px_rgba(2,6,23,0.45)]"
-            : "py-3 px-5 sm:px-7 shadow-[0_4px_20px_rgba(2,6,23,0.25)]"
+            ? "py-2.5 px-5 sm:px-7 shadow-[0_16px_40px_rgba(2,6,23,0.48)]"
+            : "py-3 px-6 sm:px-8 shadow-[0_6px_24px_rgba(2,6,23,0.28)]"
         }`}
       >
         <div className="flex items-center justify-between gap-4">
-          {/* Wordmark & Technical Monogram */}
+          {/* Wordmark & Original Monogram */}
           <Link href="/" className="text-left focus:outline-none">
             <BrandLogo theme="dark" variant="horizontal" />
           </Link>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden md:flex items-center gap-1 lg:gap-2">
+          <div className="hidden md:flex items-center gap-1 lg:gap-1.5">
             {navItems.map((item) => {
               const isActive =
                 pathname === "/"
@@ -113,10 +113,10 @@ export default function Navbar() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className={`px-3.5 py-2 rounded-lg text-[13px] font-medium transition-colors ${
+                  className={`px-4 py-2 rounded-full text-[13px] font-medium transition-colors ${
                     isActive
-                      ? "text-white bg-slate-800/90"
-                      : "text-slate-300 hover:text-white hover:bg-slate-800/50"
+                      ? "text-white bg-white/10"
+                      : "text-slate-300 hover:text-white hover:bg-white/5"
                   }`}
                 >
                   {item.label}
@@ -125,11 +125,15 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Primary CTA */}
+          {/* Primary CTA & Studio Status */}
           <div className="hidden md:flex items-center gap-3">
+            <div className="hidden xl:flex items-center gap-1.5 font-mono text-[11px] text-slate-400 pr-2">
+              <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span>DEL &bull; Available</span>
+            </div>
             <Link
               href={primaryCtaHref}
-              className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-primary hover:bg-primary-hover text-white px-4 py-2 text-xs font-display font-bold tracking-tight transition-all duration-200 shadow-sm hover:shadow"
+              className="inline-flex items-center justify-center gap-1.5 rounded-full bg-primary hover:bg-primary-hover text-white px-5 py-2.5 text-xs font-display font-bold tracking-tight transition-all duration-200 shadow-xs"
             >
               <span>Discuss Your Project</span>
               <ArrowUpRight className="size-3.5" />
@@ -140,7 +144,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 md:hidden text-slate-200 hover:text-white focus:outline-none border border-slate-800 rounded-lg bg-slate-900/90"
+            className="p-2 md:hidden text-slate-200 hover:text-white focus:outline-none border border-slate-800 rounded-full bg-slate-900/90"
             aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isOpen}
           >
@@ -156,7 +160,7 @@ export default function Navbar() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="mt-3 pt-3 border-t border-slate-800 md:hidden flex flex-col gap-1 overflow-hidden"
+              className="mt-3 pt-3 border-t border-slate-800 md:hidden flex flex-col gap-1 overflow-hidden pb-2"
             >
               {navItems.map((item) => {
                 const isActive =
@@ -168,10 +172,10 @@ export default function Navbar() {
                     key={item.label}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className={`px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                    className={`px-4 py-2.5 rounded-full text-sm font-medium transition-colors ${
                       isActive
-                        ? "text-white bg-slate-800"
-                        : "text-slate-300 hover:text-white hover:bg-slate-800/60"
+                        ? "text-white bg-white/10"
+                        : "text-slate-300 hover:text-white hover:bg-white/5"
                     }`}
                   >
                     {item.label}
@@ -179,11 +183,11 @@ export default function Navbar() {
                 );
               })}
 
-              <div className="pt-2 mt-1 border-t border-slate-800/80 flex flex-col gap-2">
+              <div className="pt-2.5 mt-1.5 border-t border-slate-800/80 flex flex-col gap-2">
                 <Link
                   href={primaryCtaHref}
                   onClick={() => setIsOpen(false)}
-                  className="w-full inline-flex items-center justify-center gap-1.5 rounded-lg bg-primary hover:bg-primary-hover text-white py-2.5 text-xs font-display font-bold transition-colors"
+                  className="w-full inline-flex items-center justify-center gap-1.5 rounded-full bg-primary hover:bg-primary-hover text-white py-3 text-xs font-display font-bold transition-colors"
                 >
                   <span>Discuss Your Project</span>
                   <ArrowUpRight className="size-3.5" />
