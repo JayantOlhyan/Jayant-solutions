@@ -3,7 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight, Mail, Phone, MapPin, Sparkles } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
+import BrandLogo from "@/components/BrandLogo";
 
 export default function Footer() {
   const pathname = usePathname();
@@ -13,21 +14,21 @@ export default function Footer() {
 
   const coreLinks = [
     { name: "Home", href: "/" },
-    { name: "All Services", href: "/services" },
-    { name: "Featured Work", href: "/portfolio" },
-    { name: "Engineering Process", href: "/process" },
-    { name: "Pricing Packages", href: "/pricing" },
+    { name: "Selected Work", href: "/portfolio" },
+    { name: "Capabilities & Services", href: "/services" },
+    { name: "Engineering Approach", href: "/process" },
+    { name: "Pricing & Engagement", href: "/pricing" },
     { name: "Client FAQs", href: "/faq" },
-    { name: "Contact & Booking", href: "/contact" },
+    { name: "Start a Conversation", href: "/contact" },
   ];
 
   const companyLinks = [
-    { name: "About Me", href: "/about" },
+    { name: "About JAYANT SYSTEMS", href: "/about" },
     { name: "Founder Profile", href: "/company/founder" },
-    { name: "Why Work With Me", href: "/company/why-choose-us" },
-    { name: "Collaborator Careers", href: "/company/careers" },
-    { name: "Technology Partners", href: "/company/partners" },
-    { name: "Client Testimonials", href: "/company/testimonials" },
+    { name: "Why JAYANT SYSTEMS", href: "/company/why-choose-us" },
+    { name: "Collaborator Network", href: "/company/careers" },
+    { name: "Technology Ecosystem", href: "/company/partners" },
+    { name: "Verified Delivery Proof", href: "/company/testimonials" },
   ];
 
   const resourceLinks = [
@@ -35,14 +36,14 @@ export default function Footer() {
     { name: "Case Studies Library", href: "/resources/case-studies" },
     { name: "Technologies We Use", href: "/resources/technologies-we-use" },
     { name: "Industries We Serve", href: "/resources/industries-we-serve" },
-    { name: "Whitepapers & Downloads", href: "/resources/downloads" },
+    { name: "Architecture Guides", href: "/resources/downloads" },
   ];
 
   const supportLinks = [
     { name: "Support Center", href: "/support" },
     { name: "Client Proposal Access", href: "/proposal" },
     { name: "Client Portal", href: "/support/client-portal" },
-    { name: "Maintenance Plans", href: "/services" },
+    { name: "Maintenance & Retainers", href: "/services" },
     { name: "System Service Status", href: "/support/service-status" },
     { name: "Report an Issue", href: "/support/report-a-bug" },
   ];
@@ -65,56 +66,46 @@ export default function Footer() {
   ];
 
   return (
-    <footer aria-label="Footer navigation" className="w-full border-t border-border-custom bg-card-bg/60 backdrop-blur-md pt-16 md:pt-20 pb-12 text-left">
+    <footer aria-label="Footer navigation" className="w-full border-t border-slate-800 bg-[#0A0F1D] text-slate-300 pt-16 md:pt-20 pb-12 text-left">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
         
         {/* Main 4-Column Editorial Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-14 border-b border-border-custom/80">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-14 border-b border-slate-800/80">
           
           {/* Column 1: Brand & Direct Connect (Col span 4) */}
           <div className="lg:col-span-4 flex flex-col items-start text-left">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group mb-4">
-              <div className="size-10 rounded-xl bg-[#0B0F19] text-white border border-white/10 p-1 flex items-center justify-center transition-transform group-hover:scale-105 shadow-sm">
-                <svg viewBox="0 0 200 200" className="w-full h-full">
-                  <rect x="10" y="10" width="180" height="180" rx="42" fill="none" stroke="currentColor" strokeWidth="16" />
-                  <path d="M 100 50 L 132 50 L 132 115 C 132 135, 115 152, 95 152 C 78 152, 65 140, 65 125 L 89 125 C 89 130, 91 132, 95 132 C 99 132, 108 128, 108 115 L 108 72 L 100 72 Z" fill="currentColor" />
-                  <path d="M 52 108 L 82 108 L 82 128 L 67 141 L 65 128 L 52 128 Z" fill="#FF8A00" />
-                </svg>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-sans text-base font-bold text-text-base tracking-tight leading-tight">
-                  Jayant Web & AI Systems
-                </span>
-                <span className="font-mono text-[9px] tracking-widest uppercase text-text-muted">
-                  SOLO ENGINEERING PRACTICE
-                </span>
-              </div>
+            <Link href="/" className="mb-4 focus:outline-none">
+              <BrandLogo
+                theme="dark"
+                variant="horizontal"
+                subtitle="FOUNDER-LED TECHNOLOGY STUDIO"
+              />
             </Link>
 
             {/* Positioning Statement */}
-            <p className="text-xs sm:text-sm text-text-muted leading-relaxed mb-5 max-w-sm">
-              I build high-converting websites and AI automation systems that help Indian SMBs and startup founders generate leads and operate without complexity.
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-5 max-w-sm">
+              JAYANT SYSTEMS designs and builds high-performance websites, custom software products, and practical AI-powered workflows for real-world businesses.
             </p>
 
             {/* Availability Status Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-semibold mb-6">
-              <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Available for new projects (2–4 wk delivery)</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-semibold mb-6">
+              <span className="size-2 rounded-full bg-emerald-500" />
+              <span>Accepting new project inquiries</span>
             </div>
 
             {/* Direct Contact info */}
-            <div className="space-y-2 text-xs font-mono text-text-muted mb-6">
-              <a href="mailto:jayantwebaisystems@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
-                <Mail className="size-3.5 text-primary" />
+            <div className="space-y-2 text-xs font-mono text-slate-400 mb-6">
+              <a href="mailto:jayantwebaisystems@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors">
+                <Mail className="size-3.5 text-blue-400" />
                 <span>jayantwebaisystems@gmail.com</span>
               </a>
-              <a href="tel:+919667344125" className="flex items-center gap-2 hover:text-primary transition-colors">
-                <Phone className="size-3.5 text-primary" />
+              <a href="tel:+919667344125" className="flex items-center gap-2 hover:text-white transition-colors">
+                <Phone className="size-3.5 text-blue-400" />
                 <span>+91 96673 44125</span>
               </a>
               <div className="flex items-center gap-2">
-                <MapPin className="size-3.5 text-primary" />
+                <MapPin className="size-3.5 text-blue-400" />
                 <span>Dwarka, New Delhi &bull; Remote Globally</span>
               </div>
             </div>
@@ -127,7 +118,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-2.5 py-1 rounded-lg border border-border-custom bg-card-bg text-[11px] font-mono font-medium text-text-muted hover:text-primary hover:border-primary/40 transition-colors"
+                  className="px-2.5 py-1 rounded-lg border border-slate-800 bg-slate-900/80 text-[11px] font-mono font-medium text-slate-300 hover:text-white hover:border-blue-500/50 transition-colors"
                 >
                   {social.name}
                 </a>
@@ -138,13 +129,13 @@ export default function Footer() {
           {/* Column 2: Solutions & Core Services (Col span 3) */}
           <div className="lg:col-span-3 flex flex-col gap-6 text-left">
             <div>
-              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-primary block mb-3">
+              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400 block mb-3">
                 Core Navigation
               </span>
-              <ul className="space-y-2 text-xs text-text-muted">
+              <ul className="space-y-2 text-xs text-slate-400">
                 {coreLinks.map((item) => (
                   <li key={item.name}>
-                    <Link href={item.href} className="hover:text-text-base hover:underline transition-colors block py-0.5">
+                    <Link href={item.href} className="hover:text-white hover:underline transition-colors block py-0.5">
                       {item.name}
                     </Link>
                   </li>
@@ -156,13 +147,13 @@ export default function Footer() {
           {/* Column 3: Technologies & Engineering (Col span 3) */}
           <div className="lg:col-span-3 flex flex-col gap-6 text-left">
             <div>
-              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-primary block mb-3">
+              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400 block mb-3">
                 Resources & Case Studies
               </span>
-              <ul className="space-y-2 text-xs text-text-muted">
+              <ul className="space-y-2 text-xs text-slate-400">
                 {resourceLinks.map((item) => (
                   <li key={item.name}>
-                    <Link href={item.href} className="hover:text-text-base hover:underline transition-colors block py-0.5">
+                    <Link href={item.href} className="hover:text-white hover:underline transition-colors block py-0.5">
                       {item.name}
                     </Link>
                   </li>
@@ -174,13 +165,13 @@ export default function Footer() {
           {/* Column 4: Company & Client Support (Col span 2) */}
           <div className="lg:col-span-2 flex flex-col gap-6 text-left">
             <div>
-              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-primary block mb-3">
-                Company & Trust
+              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400 block mb-3">
+                Studio & Trust
               </span>
-              <ul className="space-y-2 text-xs text-text-muted">
+              <ul className="space-y-2 text-xs text-slate-400">
                 {companyLinks.map((item) => (
                   <li key={item.name}>
-                    <Link href={item.href} className="hover:text-text-base hover:underline transition-colors block py-0.5">
+                    <Link href={item.href} className="hover:text-white hover:underline transition-colors block py-0.5">
                       {item.name}
                     </Link>
                   </li>
@@ -189,13 +180,13 @@ export default function Footer() {
             </div>
 
             <div>
-              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-primary block mb-3">
+              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400 block mb-3">
                 Client Support
               </span>
-              <ul className="space-y-2 text-xs text-text-muted">
+              <ul className="space-y-2 text-xs text-slate-400">
                 {supportLinks.map((item) => (
                   <li key={item.name}>
-                    <Link href={item.href} className="hover:text-text-base hover:underline transition-colors block py-0.5">
+                    <Link href={item.href} className="hover:text-white hover:underline transition-colors block py-0.5">
                       {item.name}
                     </Link>
                   </li>
@@ -207,17 +198,17 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar: Legal Links & Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-text-muted">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-2">
             {legalLinks.map((item) => (
-              <Link key={item.name} href={item.href} className="hover:text-primary transition-colors">
+              <Link key={item.name} href={item.href} className="hover:text-white transition-colors">
                 {item.name}
               </Link>
             ))}
           </div>
 
           <div className="text-center sm:text-right shrink-0">
-            <span>&copy; {currentYear} Jayant Web & AI Systems. All rights reserved.</span>
+            <span>&copy; {currentYear} JAYANT SYSTEMS. All rights reserved.</span>
           </div>
         </div>
 
