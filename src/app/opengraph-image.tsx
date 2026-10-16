@@ -39,19 +39,28 @@ export default async function Image() {
             style={{
               width: '56px',
               height: '56px',
-              borderRadius: '12px',
-              background: '#111827',
-              border: '2px solid #2563EB',
+              borderRadius: '14px',
+              border: '4px solid white',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: '#F8FAFC',
-              fontSize: '26px',
-              fontWeight: 800,
-              letterSpacing: '-0.03em',
+              color: 'white',
+              fontSize: '32px',
+              fontWeight: 900,
+              position: 'relative',
             }}
           >
-            JS
+            J
+            <div
+              style={{
+                position: 'absolute',
+                bottom: '8px',
+                left: '8px',
+                width: '12px',
+                height: '12px',
+                background: '#F37021',
+              }}
+            />
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <div
@@ -113,7 +122,7 @@ export default async function Image() {
             paddingTop: '28px',
             borderTop: '1px solid #1E293B',
             fontSize: '18px',
-            color: '#60A5FA',
+            color: '#FF8A00',
             letterSpacing: '0.04em',
           }}
         >

@@ -31,13 +31,13 @@ export default async function Image({ params }: Props) {
           alignItems: "flex-start",
           display: "flex",
           flexDirection: "column",
-          border: "4px solid #2563EB",
+          border: "4px solid #FF8A00",
         }}
       >
         <div
           style={{
             fontSize: 24,
-            color: "#3B82F6",
+            color: "#FF8A00",
             fontWeight: 700,
             letterSpacing: "0.08em",
             textTransform: "uppercase",
