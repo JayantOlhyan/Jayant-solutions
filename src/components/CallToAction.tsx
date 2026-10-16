@@ -1,37 +1,41 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 export default function CallToAction() {
   return (
-    <section className="relative overflow-hidden rounded-[32px] border border-white/10 bg-[#0B0F19] px-8 py-16 md:py-20 text-center shadow-lg">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,138,0,0.04),transparent)] pointer-events-none" />
-      
-      <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
-        <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-white mb-4 leading-tight">
-          Ready to Build Something Great?
-        </h2>
-
-        <p className="text-xs md:text-sm text-white/70 max-w-lg mb-8 leading-relaxed">
-          Let&apos;s turn your ideas into a powerful digital solution. Book a free consultation and let&apos;s talk about your project.
-        </p>
+    <section className="relative overflow-hidden rounded-2xl border border-slate-800 bg-[#0A0E17] p-8 sm:p-12 md:p-16 text-left shadow-2xl">
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+        <div className="lg:col-span-8">
+          <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#FF8A00] font-semibold block mb-3">
+            Start a Conversation &bull; JAYANT SYSTEMS
+          </span>
+          <h2 className="metalab-subheadline text-3xl sm:text-5xl font-extrabold text-white mb-4">
+            Have a system to build or a workflow to modernize?
+          </h2>
+          <p className="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
+            Tell us about your business, your technical requirements, and the problem you want to solve. You will speak directly with founder Jayant Olhyan to scope the right engineering approach.
+          </p>
+        </div>
 
         {/* Buttons Action Group */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+        <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col items-stretch sm:items-center lg:items-end justify-end gap-3.5">
           <Link
             href="https://cal.com/jayant-web-and-ai-systems/strategy-call"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary-hover px-7 py-3 text-xs font-mono font-bold text-white shadow-md transition-all duration-200"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-primary hover:bg-primary-hover px-7 py-3.5 text-xs font-display font-bold text-white shadow-md transition-all duration-200"
           >
-            Book a Free Consultation <ArrowRight className="size-3.5" />
+            <span>Book a 15-Min Discovery Call</span>
+            <ArrowUpRight className="size-4" />
           </Link>
-          
+
           <Link
             href="/contact"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 hover:bg-white/5 px-7 py-3 text-xs font-mono font-bold text-white transition-all duration-200"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-white/15 hover:bg-white/5 px-7 py-3.5 text-xs font-mono font-semibold text-white transition-all duration-200"
           >
-            contact me <ArrowRight className="size-3.5" />
+            <span>Send a Written Project Brief</span>
+            <ArrowRight className="size-3.5" />
           </Link>
         </div>
       </div>
