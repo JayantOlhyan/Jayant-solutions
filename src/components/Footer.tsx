@@ -97,15 +97,15 @@ export default function Footer() {
             {/* Direct Contact info */}
             <div className="space-y-2 text-xs font-mono text-slate-400 mb-6">
               <a href="mailto:jayantwebaisystems@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors">
-                <Mail className="size-3.5 text-blue-400" />
+                <Mail className="size-3.5 text-[#FF8A00]" />
                 <span>jayantwebaisystems@gmail.com</span>
               </a>
               <a href="tel:+919667344125" className="flex items-center gap-2 hover:text-white transition-colors">
-                <Phone className="size-3.5 text-blue-400" />
+                <Phone className="size-3.5 text-[#FF8A00]" />
                 <span>+91 96673 44125</span>
               </a>
               <div className="flex items-center gap-2">
-                <MapPin className="size-3.5 text-blue-400" />
+                <MapPin className="size-3.5 text-[#FF8A00]" />
                 <span>Dwarka, New Delhi &bull; Remote Globally</span>
               </div>
             </div>
@@ -118,7 +118,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-2.5 py-1 rounded-lg border border-slate-800 bg-slate-900/80 text-[11px] font-mono font-medium text-slate-300 hover:text-white hover:border-blue-500/50 transition-colors"
+                  className="px-2.5 py-1 rounded-lg border border-slate-800 bg-slate-900/80 text-[11px] font-mono font-medium text-slate-300 hover:text-white hover:border-[#FF8A00]/50 transition-colors"
                 >
                   {social.name}
                 </a>
@@ -129,7 +129,7 @@ export default function Footer() {
           {/* Column 2: Solutions & Core Services (Col span 3) */}
           <div className="lg:col-span-3 flex flex-col gap-6 text-left">
             <div>
-              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400 block mb-3">
+              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#FF8A00] block mb-3">
                 Core Navigation
               </span>
               <ul className="space-y-2 text-xs text-slate-400">
@@ -147,7 +147,7 @@ export default function Footer() {
           {/* Column 3: Technologies & Engineering (Col span 3) */}
           <div className="lg:col-span-3 flex flex-col gap-6 text-left">
             <div>
-              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400 block mb-3">
+              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#FF8A00] block mb-3">
                 Resources & Case Studies
               </span>
               <ul className="space-y-2 text-xs text-slate-400">
@@ -165,7 +165,7 @@ export default function Footer() {
           {/* Column 4: Company & Client Support (Col span 2) */}
           <div className="lg:col-span-2 flex flex-col gap-6 text-left">
             <div>
-              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400 block mb-3">
+              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#FF8A00] block mb-3">
                 Studio & Trust
               </span>
               <ul className="space-y-2 text-xs text-slate-400">
@@ -180,7 +180,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-blue-400 block mb-3">
+              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#FF8A00] block mb-3">
                 Client Support
               </span>
               <ul className="space-y-2 text-xs text-slate-400">

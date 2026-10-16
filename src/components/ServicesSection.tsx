@@ -213,7 +213,7 @@ export default function ServicesSection() {
                     <span
                       className={`font-mono text-xs font-bold px-2 py-1 rounded ${
                         isSelected
-                          ? "bg-blue-600 text-white"
+                          ? "bg-primary text-white"
                           : "bg-card-subtle text-text-muted border border-border-custom"
                       }`}
                     >
@@ -239,7 +239,7 @@ export default function ServicesSection() {
 
                   <ArrowRight
                     className={`size-4 shrink-0 transition-transform ${
-                      isSelected ? "text-blue-400 translate-x-0.5" : "text-text-muted"
+                      isSelected ? "text-[#FF8A00] translate-x-0.5" : "text-text-muted"
                     }`}
                   />
                 </button>

@@ -28,7 +28,7 @@ export default function Contact() {
         <div className="rounded-2xl bg-[#0A0F1D] border border-slate-800 p-8 sm:p-10 md:p-12 mb-12 text-left shadow-xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 flex flex-col items-start">
-              <span className="font-mono text-[11px] tracking-wider uppercase text-blue-400 font-semibold block mb-2.5">
+              <span className="font-mono text-[11px] tracking-wider uppercase text-[#FF8A00] font-semibold block mb-2.5">
                 Section 08 &bull; Project Inquiry
               </span>
               <h2
@@ -46,7 +46,7 @@ export default function Contact() {
               <a
                 href="#project-inquiry-workspace"
                 onClick={() => setActiveMode("brief")}
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#2563EB] hover:bg-[#1D4ED8] text-white px-6 py-3.5 text-sm font-display font-bold transition-all duration-200 shadow-sm w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary hover:bg-primary-hover text-white px-6 py-3.5 text-sm font-display font-bold transition-all duration-200 shadow-sm w-full sm:w-auto"
               >
                 <span>Start a Conversation</span>
                 <ArrowRight className="size-4" />
@@ -60,7 +60,7 @@ export default function Contact() {
                 }}
                 className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-700 bg-slate-900/90 hover:bg-slate-800 text-slate-200 px-6 py-3 text-xs font-mono font-semibold transition-colors cursor-pointer w-full sm:w-auto"
               >
-                <Calendar className="size-3.5 text-blue-400" />
+                <Calendar className="size-3.5 text-[#FF8A00]" />
                 <span>Or Schedule a 15-Min Discovery Call</span>
               </button>
             </div>

@@ -199,7 +199,7 @@ export default function Hero() {
 
                 {/* Floating Foreground Plane: Engagement Classification Pill */}
                 <div className="absolute top-3 left-3 flex items-center gap-2 px-3 py-1 rounded-md bg-[#0A0F1D]/90 backdrop-blur-md border border-slate-700/80">
-                  <CheckCircle2 className="size-3.5 text-blue-400" />
+                  <CheckCircle2 className="size-3.5 text-[#FF8A00]" />
                   <span className="font-mono text-[10px] font-semibold text-slate-200 uppercase tracking-wider">
                     {activeSystem.engagementType} &bull; {activeSystem.category}
                   </span>
@@ -210,7 +210,7 @@ export default function Hero() {
                     href={activeSystem.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="absolute top-3 right-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-blue-600/95 hover:bg-blue-500 text-white font-mono text-[10px] font-semibold transition-colors shadow-sm"
+                    className="absolute top-3 right-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-primary hover:bg-primary-hover text-white font-mono text-[10px] font-semibold transition-colors shadow-sm"
                   >
                     <span>Live Deployment</span>
                     <ExternalLink className="size-3" />
@@ -228,7 +228,7 @@ export default function Hero() {
               >
                 <div className="flex flex-col gap-3">
                   <div>
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-blue-400 block mb-1">
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-[#FF8A00] block mb-1">
                       Problem Addressed &amp; Deliverable
                     </span>
                     <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
@@ -256,7 +256,7 @@ export default function Hero() {
                         href={activeSystem.repoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-mono text-[11px] text-blue-400 hover:text-blue-300 underline underline-offset-4 inline-flex items-center gap-1"
+                        className="font-mono text-[11px] text-[#FF8A00] hover:text-[#FFA333] underline underline-offset-4 inline-flex items-center gap-1"
                       >
                         <span>Source Repo</span>
                         <ExternalLink className="size-3" />

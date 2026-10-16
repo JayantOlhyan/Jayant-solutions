@@ -91,7 +91,7 @@ export default function About() {
             {/* 6th Principle: Maintainable Implementations & Full Code Ownership */}
             <div className="hog-card p-6 bg-[#0A0F1D] text-white border border-slate-800 text-left flex flex-col justify-between gap-4">
               <div>
-                <span className="font-mono text-[10px] uppercase tracking-wider text-blue-400 font-semibold block mb-2">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-[#FF8A00] font-semibold block mb-2">
                   Code Ownership &amp; Handover
                 </span>
                 <h3 className="font-display text-base sm:text-lg font-bold text-white leading-snug mb-2">
@@ -103,7 +103,7 @@ export default function About() {
               </div>
               <Link
                 href="/company/why-choose-us"
-                className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-blue-400 hover:text-blue-300 underline underline-offset-4"
+                className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-[#FF8A00] hover:text-[#FFA333] underline underline-offset-4"
               >
                 <span>Read full working standards</span>
                 <ArrowUpRight className="size-3.5" />
@@ -129,7 +129,7 @@ export default function About() {
                   <span className="font-display text-base font-extrabold text-white block">
                     Jayant Olhyan
                   </span>
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-blue-400">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#FF8A00]">
                     Founder &amp; Lead Systems Engineer
                   </span>
                 </div>
