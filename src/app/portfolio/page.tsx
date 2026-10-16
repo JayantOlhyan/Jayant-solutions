@@ -5,12 +5,25 @@ import PageTransition from "@/components/PageTransition";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, CheckCircle2, X, ExternalLink, Code2, Sparkles, Filter } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  CheckCircle2,
+  X,
+  ExternalLink,
+  Code2,
+} from "lucide-react";
 import CallToAction from "@/components/CallToAction";
 import { caseStudies as sharedCaseStudies, type CaseStudy } from "@/data/content";
 
 export interface PortfolioProject extends CaseStudy {
-  category: "AI / ML" | "Web Applications" | "Mobile Apps" | "Platforms" | "Automation" | "Business Solutions";
+  category:
+    | "AI / ML"
+    | "Web Applications"
+    | "Mobile Apps"
+    | "Platforms"
+    | "Automation"
+    | "Business Solutions";
 }
 
 // Map verified shared case studies to categories
@@ -18,13 +31,28 @@ const allPortfolioProjects: PortfolioProject[] = sharedCaseStudies.map((cs) => {
   let cat: PortfolioProject["category"] = "Web Applications";
   const ind = cs.industry.toLowerCase();
   const id = cs.id.toLowerCase();
-  if (id === "healthkinator" || id === "teachersathi" || id === "sentinelai" || ind.includes("ai")) {
+  if (
+    id === "healthkinator" ||
+    id === "teachersathi" ||
+    id === "sentinelai" ||
+    ind.includes("ai")
+  ) {
     cat = "AI / ML";
   } else if (id === "rakshatap" || ind.includes("mobile")) {
     cat = "Mobile Apps";
-  } else if (id === "weact" || id === "khelclan" || id === "yaperz" || ind.includes("platform")) {
+  } else if (
+    id === "weact" ||
+    id === "khelclan" ||
+    id === "yaperz" ||
+    ind.includes("platform")
+  ) {
     cat = "Platforms";
-  } else if (id === "flowforge" || id === "farmiq" || ind.includes("automation") || ind.includes("agritech")) {
+  } else if (
+    id === "flowforge" ||
+    id === "farmiq" ||
+    ind.includes("automation") ||
+    ind.includes("agritech")
+  ) {
     cat = "Automation";
   }
   return {
@@ -40,10 +68,30 @@ export default function PortfolioPage() {
   const triggerRef = useRef<HTMLElement | null>(null);
 
   const stats = [
-    { number: `${allPortfolioProjects.length}`, label: "Documented Systems", desc: "Client work, live apps & prototypes" },
-    { number: "Direct", label: "Founder Execution", desc: "No middle-layer handoffs" },
-    { number: "30+", label: "Hackathons & Tracks", desc: "Recognized across university & tech tracks" },
-    { number: "100%", label: "Code Ownership", desc: "Full repository & IP transfer" },
+    {
+      index: "01",
+      number: `${allPortfolioProjects.length}`,
+      label: "Documented Systems",
+      desc: "Client work, live apps & prototypes",
+    },
+    {
+      index: "02",
+      number: "Direct",
+      label: "Founder Execution",
+      desc: "No middle-layer handoffs",
+    },
+    {
+      index: "03",
+      number: "30+",
+      label: "Hackathons & Tracks",
+      desc: "Recognized across university & tech tracks",
+    },
+    {
+      index: "04",
+      number: "100%",
+      label: "Code Ownership",
+      desc: "Full repository & IP transfer",
+    },
   ];
 
   const filterTabs = [
@@ -113,234 +161,233 @@ export default function PortfolioPage() {
     };
   }, [selectedId]);
 
-  const filteredProjects = activeFilter === "All"
-    ? allPortfolioProjects
-    : allPortfolioProjects.filter((p) => p.category === activeFilter || p.industry.toLowerCase().includes(activeFilter.toLowerCase()));
+  const filteredProjects =
+    activeFilter === "All"
+      ? allPortfolioProjects
+      : allPortfolioProjects.filter(
+          (p) =>
+            p.category === activeFilter ||
+            p.industry.toLowerCase().includes(activeFilter.toLowerCase())
+        );
 
   const activeProject = allPortfolioProjects.find((p) => p.id === selectedId);
 
   return (
     <PageTransition>
-      <div className="hog-grid min-h-screen pb-20 pt-8 text-left">
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 flex flex-col gap-16 md:gap-24">
-          
-          {/* Portfolio Hero split */}
-          <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center pt-6">
-            <div className="lg:col-span-6 flex flex-col items-start">
-              <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-md mb-4 inline-block font-semibold">
-                JAYANT SYSTEMS &bull; SELECTED WORK
-              </span>
-              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-text-base leading-[1.08] mb-6">
-                Systems Engineered for{" "}
-                <span className="text-primary block sm:inline">Real-World Problems.</span>
-              </h1>
-              <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                Inspect client engagements, institutional portals, deployed AI applications, and functional prototypes built by JAYANT SYSTEMS. Every entry clearly distinguishes its engagement type, architecture, and problem addressed.
-              </p>
-              
-              <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto">
-                <a
-                  href="#projects-grid"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-primary hover:bg-primary-hover text-white px-6 py-3 text-xs font-display font-bold transition-all shadow-sm"
-                >
-                  <span>Inspect Projects</span>
-                  <ArrowRight className="size-4" />
-                </a>
-                <Link
-                  href="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg border border-border-custom bg-card-bg hover:border-primary/40 px-6 py-3 text-xs font-display font-bold text-text-base transition-all"
-                >
-                  <span>Discuss Your Project</span>
-                  <ArrowRight className="size-4" />
-                </Link>
+      <div className="hog-grid min-h-screen pb-24 pt-10 text-left">
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 flex flex-col gap-20 md:gap-28">
+          {/* Editorial Portfolio Hero */}
+          <section className="pt-8 border-b border-border-custom pb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end mb-14">
+              <div className="lg:col-span-8">
+                <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-primary font-bold block mb-4">
+                  JAYANT SYSTEMS &bull; SELECTED WORK ARCHIVE
+                </span>
+                <h1 className="metalab-headline text-4xl sm:text-6xl lg:text-[68px] font-extrabold text-text-base">
+                  Systems engineered for{" "}
+                  <span className="text-primary">real-world problems.</span>
+                </h1>
+              </div>
+
+              <div className="lg:col-span-4 flex flex-col items-start gap-6">
+                <p className="text-sm sm:text-base text-text-muted leading-relaxed">
+                  Inspect client engagements, institutional portals, deployed AI applications, and functional prototypes built by JAYANT SYSTEMS. Every entry clearly distinguishes its engagement type, architecture, and problem addressed.
+                </p>
+
+                <div className="flex flex-wrap items-center gap-3.5">
+                  <a
+                    href="#projects-grid"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-primary hover:bg-primary-hover text-white px-6 py-3 text-xs font-display font-bold transition-all"
+                  >
+                    <span>Inspect Archive</span>
+                    <ArrowRight className="size-3.5" />
+                  </a>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-border-custom bg-card-bg hover:border-primary px-6 py-3 text-xs font-display font-bold text-text-base transition-all"
+                  >
+                    <span>Discuss Your Project</span>
+                    <ArrowUpRight className="size-3.5" />
+                  </Link>
+                </div>
               </div>
             </div>
 
-            {/* Right stats counter grid */}
-            <div className="lg:col-span-6 grid grid-cols-2 gap-4">
-              {stats.map((stat, idx) => (
-                <div key={idx} className="hog-card rounded-xl p-5 md:p-6 border border-border-custom bg-card-bg flex flex-col gap-1">
-                  <span className="text-2xl md:text-3xl font-display font-extrabold text-primary">{stat.number}</span>
-                  <h4 className="font-display text-xs md:text-sm font-bold text-text-base">{stat.label}</h4>
-                  <p className="text-[11px] md:text-xs text-text-muted">{stat.desc}</p>
+            {/* 4-Column Hairline Ledger Strip */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 border-t border-border-custom pt-8 gap-8">
+              {stats.map((stat) => (
+                <div key={stat.index} className="flex flex-col gap-1">
+                  <span className="font-mono text-[11px] font-bold text-primary">
+                    /{stat.index}
+                  </span>
+                  <span className="text-3xl sm:text-4xl font-display font-extrabold text-text-base tracking-tight">
+                    {stat.number}
+                  </span>
+                  <h2 className="font-display text-sm font-bold text-text-base">
+                    {stat.label}
+                  </h2>
+                  <p className="text-xs text-text-muted">{stat.desc}</p>
                 </div>
               ))}
             </div>
           </section>
 
-          {/* Project Filters and Grid */}
-          <section id="projects-grid" className="py-4 relative">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10">
-              <div className="flex items-center gap-2">
-                <Filter className="size-4 text-primary" />
-                <span className="font-mono text-xs uppercase tracking-wider text-text-muted font-bold">Filter By Domain:</span>
-              </div>
-              
-              {/* Filter Tabs */}
+          {/* Project Filters and Metalab-Style Varied Grid */}
+          <section id="projects-grid" className="scroll-mt-24">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-border-custom mb-14">
               <div className="flex flex-wrap gap-2">
                 {filterTabs.map((tab) => (
                   <button
                     key={tab}
                     onClick={() => setActiveFilter(tab)}
-                    className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-semibold transition-all border ${
+                    className={`px-4 py-2 rounded-full text-xs font-mono transition-all cursor-pointer ${
                       activeFilter === tab
-                        ? "bg-primary border-primary text-white shadow-sm"
-                        : "bg-card-bg/70 border-border-custom text-text-muted hover:border-primary/40 hover:text-text-base"
+                        ? "bg-text-base text-bg-base font-bold"
+                        : "bg-transparent border border-border-custom text-text-muted hover:text-text-base"
                     }`}
                   >
                     {tab}
                   </button>
                 ))}
               </div>
+
+              <span className="font-mono text-xs text-text-muted">
+                Showing {filteredProjects.length} documented systems
+              </span>
             </div>
 
-            {/* Projects Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {filteredProjects.map((project) => (
-                <motion.div
-                  key={project.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.96 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.96 }}
-                  transition={{ duration: 0.25 }}
-                  className="glass-card rounded-3xl overflow-hidden border border-border-custom hover:border-primary/50 bg-card-bg/70 flex flex-col h-full group hover:shadow-[0_12px_32px_rgba(255,138,0,0.08)] transition-all duration-300"
-                >
-                  {/* Real WebP Project Image */}
-                  <div 
-                    onClick={() => setSelectedId(project.id)}
-                    className="w-full aspect-[16/10] bg-neutral-900/90 relative overflow-hidden cursor-pointer"
+            {/* Editorial Exhibition Grid (Alternating Full-Width Feature & 2-Column Asymmetric Pairs) */}
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-x-8 gap-y-16 md:gap-y-24">
+              {filteredProjects.map((project, index) => {
+                const isWideFeature = index % 3 === 0;
+                const indexNum = String(index + 1).padStart(2, "0");
+
+                return (
+                  <motion.article
+                    key={project.id}
+                    layout
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className={`${
+                      isWideFeature ? "md:col-span-12" : "md:col-span-6"
+                    } group flex flex-col gap-5 pb-12 border-b border-border-custom`}
                   >
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
-                    
-                    {/* Badge over image */}
-                    <div className="absolute top-3 left-3 flex items-center gap-1.5">
-                      <span className="text-[10px] font-mono font-bold text-white bg-black/60 backdrop-blur-md border border-white/20 px-2.5 py-0.5 rounded-full">
-                        {project.client}
-                      </span>
-                    </div>
-
-                    {project.liveWebsite && (
-                      <div className="absolute top-3 right-3">
-                        <span className="text-[10px] font-mono flex items-center gap-1 text-emerald-400 bg-black/60 backdrop-blur-md border border-emerald-500/30 px-2 py-0.5 rounded-full">
-                          <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" /> Live
+                    {/* Top Metadata Line */}
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <div className="flex items-center gap-2.5">
+                        <span className="font-mono text-xs font-bold text-primary">
+                          /{indexNum}
                         </span>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Info block */}
-                  <div className="p-5 md:p-6 flex-1 flex flex-col justify-between text-left">
-                    <div>
-                      <div className="flex items-center justify-between gap-2 mb-2">
-                        <span className="text-[10px] font-mono font-bold text-primary bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">
+                        <span className="font-mono text-[10px] uppercase tracking-widest font-bold px-2.5 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">
+                          {project.client}
+                        </span>
+                        <span className="font-mono text-xs text-text-muted">
                           {project.industry}
                         </span>
-                        {project.duration && (
-                          <span className="text-[10px] font-mono text-text-muted">
-                            {project.duration}
-                          </span>
-                        )}
                       </div>
-                      <h3 className="font-sans text-lg md:text-xl font-bold text-text-base leading-snug mb-2 group-hover:text-primary transition-colors">
-                        {project.title}
-                      </h3>
-                      <p className="text-xs text-text-muted leading-relaxed mb-4 line-clamp-2">
-                        {project.problem}
-                      </p>
 
-                      {/* Tech stack pills */}
-                      <div className="flex flex-wrap gap-1.5 mb-4">
-                        {project.tech.slice(0, 4).map((t, idx) => (
-                          <span
-                            key={idx}
-                            className="text-[9px] font-mono px-2 py-0.5 rounded bg-card-bg border border-border-custom text-text-muted"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                        {project.tech.length > 4 && (
-                          <span className="text-[9px] font-mono px-1.5 py-0.5 rounded text-text-muted">
-                            +{project.tech.length - 4}
-                          </span>
-                        )}
-                      </div>
+                      {project.liveWebsite && project.liveWebsite !== "#" && (
+                        <a
+                          href={project.liveWebsite}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 font-mono text-xs font-semibold text-primary hover:underline"
+                        >
+                          <span>Live Build</span>
+                          <ExternalLink className="size-3" />
+                        </a>
+                      )}
                     </div>
 
-                    <div className="pt-4 border-t border-border-custom/50 flex items-center justify-between">
-                      <button
-                        onClick={() => setSelectedId(project.id)}
-                        className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-primary hover:underline cursor-pointer"
+                    {/* Dark Exhibition Image Stage */}
+                    <div
+                      onClick={() => setSelectedId(project.id)}
+                      className={`metalab-stage w-full ${
+                        isWideFeature ? "aspect-[16/9]" : "aspect-[16/10]"
+                      } relative cursor-pointer`}
+                    >
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        sizes={
+                          isWideFeature
+                            ? "100vw"
+                            : "(max-width: 768px) 100vw, 50vw"
+                        }
+                        className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+                      />
+                    </div>
+
+                    {/* Bottom Editorial Caption & Action Row */}
+                    <div
+                      className={`grid grid-cols-1 ${
+                        isWideFeature ? "lg:grid-cols-12 gap-6" : "gap-4"
+                      } items-start pt-1`}
+                    >
+                      <div className={isWideFeature ? "lg:col-span-5" : ""}>
+                        <h3
+                          onClick={() => setSelectedId(project.id)}
+                          className="font-display text-xl sm:text-2xl font-extrabold text-text-base group-hover:text-primary transition-colors cursor-pointer leading-tight mb-2"
+                        >
+                          {project.title}
+                        </h3>
+                        <div className="flex flex-wrap gap-1.5">
+                          {project.tech.slice(0, 5).map((t) => (
+                            <span
+                              key={t}
+                              className="px-2.5 py-0.5 rounded-full bg-card-subtle border border-border-custom font-mono text-[10px] text-text-muted"
+                            >
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div
+                        className={`${
+                          isWideFeature ? "lg:col-span-7" : ""
+                        } flex flex-col justify-between gap-4`}
                       >
-                        <span>Deep-dive Breakdown</span>
-                        <ArrowRight className="size-3.5" />
-                      </button>
+                        <p className="text-sm text-text-muted leading-relaxed">
+                          {project.problem}
+                        </p>
 
-                      <div className="flex items-center gap-2">
-                        {project.githubLink && (
-                          <a
-                            href={project.githubLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label={`View ${project.title} GitHub repository`}
-                            className="p-1.5 rounded-lg border border-border-custom hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+                        <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
+                          <button
+                            onClick={() => setSelectedId(project.id)}
+                            className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-primary hover:underline cursor-pointer"
                           >
-                            <Code2 className="size-3.5 text-text-muted" />
-                          </a>
-                        )}
-                        {project.liveWebsite && (
-                          <a
-                            href={project.liveWebsite}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label={`Visit ${project.title} live website`}
-                            className="p-1.5 rounded-lg border border-border-custom hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
-                          >
-                            <ExternalLink className="size-3.5 text-text-muted" />
-                          </a>
-                        )}
+                            <span>Inspect Architecture &amp; Case Study</span>
+                            <ArrowRight className="size-3.5" />
+                          </button>
+
+                          <div className="flex items-center gap-3">
+                            {project.githubLink && (
+                              <a
+                                href={project.githubLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`View ${project.title} GitHub repository`}
+                                className="inline-flex items-center gap-1 font-mono text-xs text-text-muted hover:text-text-base"
+                              >
+                                <Code2 className="size-3.5" />
+                                <span>Source</span>
+                              </a>
+                            )}
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.article>
+                );
+              })}
             </div>
           </section>
 
-          {/* Bottom CTA Banner */}
-          <section className="mt-8">
-            <div className="rounded-[32px] p-8 md:p-12 border border-border-custom bg-gradient-to-br from-card-bg via-card-bg to-primary/5 shadow-xl relative overflow-hidden text-center md:text-left">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-                <div className="md:col-span-8 flex flex-col items-center md:items-start gap-3">
-                  <span className="font-mono text-xs uppercase tracking-widest text-primary font-bold">Have a similar project?</span>
-                  <h3 className="font-serif text-2xl md:text-4xl font-bold text-text-base leading-tight">
-                    Let&apos;s build software that actually delivers results.
-                  </h3>
-                  <p className="text-xs md:text-sm text-text-muted max-w-lg">
-                    Schedule a free 15-minute consultation directly with me. We&apos;ll discuss your product goals, technical stack, and project roadmap.
-                  </p>
-                </div>
-                <div className="md:col-span-4 flex justify-center md:justify-end">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-mono font-bold shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 active:scale-[0.98]"
-                  >
-                    <span>Schedule Free Strategy Call</span>
-                    <ArrowRight className="size-4" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </section>
-
+          {/* Bottom CTA */}
+          <CallToAction />
         </main>
 
         {/* Modal Overlay for Deep Dive with Accessible Focus Trap */}
@@ -364,10 +411,10 @@ export default function PortfolioPage() {
                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                className="relative z-10 w-full max-w-2xl max-h-[85vh] overflow-y-auto custom-scrollbar bg-card-bg rounded-[28px] border border-border-custom shadow-2xl flex flex-col text-left outline-none"
+                className="relative z-10 w-full max-w-2xl max-h-[85vh] overflow-y-auto custom-scrollbar bg-card-bg rounded-2xl border border-border-custom shadow-2xl flex flex-col text-left outline-none"
               >
                 {/* Modal Header Media Preview */}
-                <div className="relative w-full h-48 sm:h-60 bg-neutral-900 border-b border-border-custom/80 overflow-hidden shrink-0">
+                <div className="relative w-full h-52 sm:h-64 bg-[#0A0E17] border-b border-border-custom/80 overflow-hidden shrink-0">
                   <Image
                     src={activeProject.image}
                     alt={activeProject.title}
@@ -391,31 +438,50 @@ export default function PortfolioPage() {
                     <span className="font-mono text-[10px] tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-2.5 py-0.5 rounded-full mb-2 inline-block">
                       {activeProject.industry}
                     </span>
-                    <h3 id="portfolio-modal-title" className="font-sans text-xl md:text-2xl font-bold text-text-base">{activeProject.title}</h3>
-                    <p className="text-xs text-text-muted mt-1">Client: {activeProject.client}</p>
+                    <h3
+                      id="portfolio-modal-title"
+                      className="font-display text-xl md:text-2xl font-extrabold text-text-base"
+                    >
+                      {activeProject.title}
+                    </h3>
+                    <p className="text-xs font-mono text-text-muted mt-1">
+                      Classification: {activeProject.client}
+                    </p>
                   </div>
 
                   {/* Problem & Solution State Comparison */}
                   <div className="space-y-6 text-xs md:text-sm text-text-muted leading-relaxed">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="border border-border-custom/60 rounded-2xl p-4 bg-red-500/5">
-                        <span className="font-bold text-[10px] text-red-600 block mb-1 uppercase tracking-wider">Before (Operational Bottleneck)</span>
-                        <p className="text-text-base">{activeProject.beforeState}</p>
+                      <div className="border border-border-custom rounded-xl p-4 bg-card-subtle">
+                        <span className="font-mono font-bold text-[10px] text-text-muted block mb-1 uppercase tracking-wider">
+                          Before (Operational Bottleneck)
+                        </span>
+                        <p className="text-text-base">
+                          {activeProject.beforeState}
+                        </p>
                       </div>
-                      <div className="border border-border-custom/60 rounded-2xl p-4 bg-emerald-500/5">
-                        <span className="font-bold text-[10px] text-emerald-600 block mb-1 uppercase tracking-wider">After (System Outcome)</span>
-                        <p className="text-text-base">{activeProject.afterState}</p>
+                      <div className="border border-primary/20 rounded-xl p-4 bg-primary/5">
+                        <span className="font-mono font-bold text-[10px] text-primary block mb-1 uppercase tracking-wider">
+                          After (System Outcome)
+                        </span>
+                        <p className="text-text-base">
+                          {activeProject.afterState}
+                        </p>
                       </div>
                     </div>
 
                     <div>
-                      <span className="font-sans font-bold text-text-base block mb-1">Architecture & Solution</span>
+                      <span className="font-display font-bold text-text-base block mb-1">
+                        Architecture &amp; Solution
+                      </span>
                       <p>{activeProject.solution}</p>
                     </div>
 
                     {activeProject.features && (
                       <div>
-                        <span className="font-sans font-bold text-text-base block mb-2">Key System Features</span>
+                        <span className="font-display font-bold text-text-base block mb-2">
+                          Key System Features
+                        </span>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                           {activeProject.features.map((feature, idx) => (
                             <div key={idx} className="flex items-start gap-2">
@@ -429,14 +495,18 @@ export default function PortfolioPage() {
 
                     <div className="border-t border-border-custom/50 pt-4 flex flex-wrap items-center justify-between gap-4">
                       <div>
-                        <span className="text-[10px] font-mono text-text-muted block uppercase">Measurable Result</span>
-                        <span className="text-base font-bold text-primary">{activeProject.result}</span>
+                        <span className="text-[10px] font-mono text-text-muted block uppercase">
+                          Outcome Summary
+                        </span>
+                        <span className="text-sm font-display font-bold text-text-base">
+                          {activeProject.result}
+                        </span>
                       </div>
-                      
+
                       <div className="flex items-center gap-3">
                         <button
                           onClick={() => setSelectedId(null)}
-                          className="px-4 py-2 rounded-xl border border-border-custom hover:bg-neutral-100 dark:hover:bg-neutral-800 text-xs font-mono font-bold text-text-muted transition-colors cursor-pointer"
+                          className="px-4 py-2 rounded-full border border-border-custom hover:bg-card-subtle text-xs font-mono font-bold text-text-muted transition-colors cursor-pointer"
                         >
                           Close
                         </button>
@@ -445,23 +515,24 @@ export default function PortfolioPage() {
                             href={activeProject.githubLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 rounded-xl border border-border-custom bg-card-bg px-4 py-2 text-xs font-mono font-bold text-text-base hover:border-primary/40 transition-all"
+                            className="inline-flex items-center gap-1.5 rounded-full border border-border-custom bg-card-bg px-4 py-2 text-xs font-mono font-bold text-text-base hover:border-primary/40 transition-all"
                           >
                             <Code2 className="size-3.5" />
                             <span>Source Code</span>
                           </a>
                         )}
-                        {activeProject.liveWebsite && activeProject.liveWebsite !== "#" && (
-                          <a
-                            href={activeProject.liveWebsite}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 rounded-xl bg-primary hover:bg-primary-hover text-white px-5 py-2 text-xs font-mono font-bold shadow-sm transition-all"
-                          >
-                            <span>Visit Live Site</span>
-                            <ExternalLink className="size-3.5" />
-                          </a>
-                        )}
+                        {activeProject.liveWebsite &&
+                          activeProject.liveWebsite !== "#" && (
+                            <a
+                              href={activeProject.liveWebsite}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 rounded-full bg-primary hover:bg-primary-hover text-white px-5 py-2 text-xs font-mono font-bold shadow-sm transition-all"
+                            >
+                              <span>Visit Live Site</span>
+                              <ExternalLink className="size-3.5" />
+                            </a>
+                          )}
                       </div>
                     </div>
                   </div>
