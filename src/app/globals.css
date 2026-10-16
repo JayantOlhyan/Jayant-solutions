@@ -149,6 +149,37 @@
   border-color: rgba(255, 138, 0, 0.35);
 }
 
+/* Metalab-Inspired Editorial Primitives */
+.metalab-headline {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+}
+
+.metalab-subheadline {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+.metalab-divider {
+  border-color: var(--border);
+}
+
+.metalab-stage {
+  background: #0A0E17;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.metalab-stage:hover {
+  box-shadow: 0 28px 64px -16px rgba(10, 14, 23, 0.24);
+}
+
 /* Infinite Marquee Ticker Track */
 @keyframes marqueeScroll {
   0% {
