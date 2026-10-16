@@ -67,7 +67,7 @@ export default function CareersPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                At Jayant Web & AI Systems, we&apos;re more than just a team – we&apos;re builders, thinkers, and problem solvers. join me in creating intelligent digital solutions that make a real impact.
+                At JAYANT SYSTEMS, we&apos;re more than just a team – we&apos;re builders, thinkers, and problem solvers. join me in creating intelligent digital solutions that make a real impact.
               </p>
 
               {/* Action buttons */}

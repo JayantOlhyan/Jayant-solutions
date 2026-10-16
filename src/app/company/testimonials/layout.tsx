@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Client Testimonials & Reviews | Jayant Web & AI Systems",
-  description: "Read authentic client reviews and feedback on our custom software engineering, AI chatbot deployments, web development, and support engagements.",
+  title: "Verified Delivery Evidence & Proof of Work | JAYANT SYSTEMS",
+  description: "Inspect verified project deliveries, live deployments, public source repositories, and engineering evaluation standards at JAYANT SYSTEMS.",
   alternates: {
     canonical: "/company/testimonials",
     languages: {
@@ -11,17 +11,17 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Client Testimonials & Reviews | Jayant Web & AI Systems",
-    description: "Read authentic client reviews and feedback on our custom software engineering, AI chatbot deployments, web development, and support engagements.",
+    title: "Verified Delivery Evidence & Proof of Work | JAYANT SYSTEMS",
+    description: "Inspect verified project deliveries, live deployments, public source repositories, and engineering evaluation standards at JAYANT SYSTEMS.",
     url: "https://jayant-systems.online/company/testimonials",
-    siteName: "Jayant Web & AI Systems",
+    siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Client Testimonials & Reviews | Jayant Web & AI Systems",
-    description: "Read authentic client reviews and feedback on our custom software engineering, AI chatbot deployments, web development, and support engagements.",
+    title: "Verified Delivery Evidence & Proof of Work | JAYANT SYSTEMS",
+    description: "Inspect verified project deliveries, live deployments, public source repositories, and engineering evaluation standards at JAYANT SYSTEMS.",
   },
 };
 

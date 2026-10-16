@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Why Choose Jayant Web & AI Systems | Engineering Advantage",
-  description: "Discover why businesses choose Jayant Web & AI Systems: direct developer communication, fixed upfront pricing, weekly live demos, and full code ownership.",
+  title: "Why Choose JAYANT SYSTEMS | Engineering Advantage",
+  description: "Discover why businesses choose JAYANT SYSTEMS: direct developer communication, fixed upfront pricing, weekly live demos, and full code ownership.",
   alternates: {
     canonical: "/company/why-choose-us",
     languages: {
@@ -11,17 +11,17 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Why Choose Jayant Web & AI Systems | Engineering Advantage",
-    description: "Discover why businesses choose Jayant Web & AI Systems: direct developer communication, fixed upfront pricing, weekly live demos, and full code ownership.",
+    title: "Why Choose JAYANT SYSTEMS | Engineering Advantage",
+    description: "Discover why businesses choose JAYANT SYSTEMS: direct developer communication, fixed upfront pricing, weekly live demos, and full code ownership.",
     url: "https://jayant-systems.online/company/why-choose-us",
-    siteName: "Jayant Web & AI Systems",
+    siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Why Choose Jayant Web & AI Systems | Engineering Advantage",
-    description: "Discover why businesses choose Jayant Web & AI Systems: direct developer communication, fixed upfront pricing, weekly live demos, and full code ownership.",
+    title: "Why Choose JAYANT SYSTEMS | Engineering Advantage",
+    description: "Discover why businesses choose JAYANT SYSTEMS: direct developer communication, fixed upfront pricing, weekly live demos, and full code ownership.",
   },
 };
 

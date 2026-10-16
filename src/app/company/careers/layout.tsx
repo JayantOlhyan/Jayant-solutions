@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Careers & Engineering Roles | Jayant Web & AI Systems",
-  description: "Explore opportunities to collaborate on modern software engineering, AI systems, and high-impact digital products with Jayant Web & AI Systems.",
+  title: "Careers & Engineering Roles | JAYANT SYSTEMS",
+  description: "Explore opportunities to collaborate on modern software engineering, AI systems, and high-impact digital products with JAYANT SYSTEMS.",
   alternates: {
     canonical: "/company/careers",
     languages: {
@@ -11,17 +11,17 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Careers & Engineering Roles | Jayant Web & AI Systems",
-    description: "Explore opportunities to collaborate on modern software engineering, AI systems, and high-impact digital products with Jayant Web & AI Systems.",
+    title: "Careers & Engineering Roles | JAYANT SYSTEMS",
+    description: "Explore opportunities to collaborate on modern software engineering, AI systems, and high-impact digital products with JAYANT SYSTEMS.",
     url: "https://jayant-systems.online/company/careers",
-    siteName: "Jayant Web & AI Systems",
+    siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Careers & Engineering Roles | Jayant Web & AI Systems",
-    description: "Explore opportunities to collaborate on modern software engineering, AI systems, and high-impact digital products with Jayant Web & AI Systems.",
+    title: "Careers & Engineering Roles | JAYANT SYSTEMS",
+    description: "Explore opportunities to collaborate on modern software engineering, AI systems, and high-impact digital products with JAYANT SYSTEMS.",
   },
 };
 

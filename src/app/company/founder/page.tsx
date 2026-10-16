@@ -30,7 +30,7 @@ export default function FounderPage() {
     { year: "2020", title: "Started my development journey & built my first full-stack project." },
     { year: "2021", title: "Worked with startups and delivered multiple web solutions." },
     { year: "2022", title: "Deepened my expertise in AI/ML and automation technologies." },
-    { year: "2023", title: "Founded Jayant Web & AI Systems to help businesses scale." },
+    { year: "2023", title: "Founded JAYANT SYSTEMS to help businesses scale." },
     { year: "2024", title: "Expanded global reach and delivered 30+ successful projects." },
   ];
 
@@ -66,7 +66,7 @@ export default function FounderPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                I&apos;m Jayant Olhyan, the founder of Jayant Web & AI Systems. I believe technology should solve real problems, create meaningful experiences, and empower businesses to grow beyond limits.
+                I&apos;m Jayant Olhyan, the founder of JAYANT SYSTEMS. I believe technology should solve real problems, create meaningful experiences, and empower businesses to grow beyond limits.
               </p>
 
               {/* Action buttons */}
@@ -105,7 +105,7 @@ export default function FounderPage() {
               <div className="relative w-full max-w-[380px] aspect-[4/5] rounded-[32px] overflow-hidden border border-border-custom bg-neutral-900 shadow-2xl group">
                 <Image
                   src="/jayant.webp"
-                  alt="Jayant Olhyan - Founder and Lead Developer at Jayant Web & AI Systems"
+                  alt="Jayant Olhyan - Founder and Lead Developer at JAYANT SYSTEMS"
                   fill
                   sizes="(max-width: 768px) 100vw, 380px"
                   priority
@@ -142,7 +142,7 @@ export default function FounderPage() {
 
             <div className="lg:col-span-7 flex flex-col gap-6 text-sm text-text-muted leading-relaxed">
               <p>
-                I am Jayant Olhyan, a software engineer and the founder of Jayant Web & AI Systems. I am based out of New Delhi / Dwarka, and my work focuses on bridging the gap between complex architectural challenges and tangible business value. My journey into technology was driven by an early fascination with how systems are built from the ground up, which eventually led me to specialize in full-stack web development, system architecture, and artificial intelligence integration. Over the years, I have grown from building isolated hobby scripts to designing robust, highly available cloud-native systems that serve real users on a daily basis.
+                I am Jayant Olhyan, a software engineer and the founder of JAYANT SYSTEMS. I am based out of New Delhi / Dwarka, and my work focuses on bridging the gap between complex architectural challenges and tangible business value. My journey into technology was driven by an early fascination with how systems are built from the ground up, which eventually led me to specialize in full-stack web development, system architecture, and artificial intelligence integration. Over the years, I have grown from building isolated hobby scripts to designing robust, highly available cloud-native systems that serve real users on a daily basis.
               </p>
               <p>
                 My formal engineering foundation was laid at Maharaja Surajmal Institute of Technology (MSIT), Janakpuri, New Delhi. During my time there, I immersed myself in the technical community, eventually taking on a leadership role within the MSIT Web Development Society. Leading the society wasn&apos;t just about writing code; it involved mentoring peers, architecting collaborative platforms, and organizing hands-on workshops that taught students how to deploy modern web applications from scratch. We focused heavily on transitioning from theoretical computer science into applied engineering, running sessions on version control, state management, and CI/CD pipelines. This experience taught me the critical importance of clear technical communication, developer ergonomics, and rigorous architectural planning before writing the first line of code.
@@ -166,7 +166,7 @@ export default function FounderPage() {
                 Beyond my individual project work, I strongly believe in the value of open-source contributions and continuous community engagement. Being part of the wider tech ecosystem in New Delhi has exposed me to a diverse array of engineering methodologies, which I continually synthesize and integrate into my own practices.
               </p>
               <p>
-                At Jayant Web & AI Systems, I apply this accumulated experience to every client project. I do not just write code; I architect systems that are designed to scale smoothly, perform reliably under heavy load, and adapt swiftly to evolving business requirements. Whether I am deploying a monolithic application for an agile early-stage startup or orchestrating a complex, distributed AI service for a growing enterprise, my goal remains constant: delivering uncompromising engineering excellence that drives measurable business growth.
+                At JAYANT SYSTEMS, I apply this accumulated experience to every client project. I do not just write code; I architect systems that are designed to scale smoothly, perform reliably under heavy load, and adapt swiftly to evolving business requirements. Whether I am deploying a monolithic application for an agile early-stage startup or orchestrating a complex, distributed AI service for a growing enterprise, my goal remains constant: delivering uncompromising engineering excellence that drives measurable business growth.
               </p>
 
               <a
