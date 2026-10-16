@@ -1,5 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="96" ry="96" fill="#111111"/>
-  <text x="256" y="380" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="360" fill="white" text-anchor="middle">J</text>
-  <path d="M 280 100 L 340 100 L 340 160 L 310 190 L 280 160 Z" fill="#F37021"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <rect width="120" height="120" rx="20" fill="#0A0F1D"/>
+  <rect x="3" y="3" width="114" height="114" rx="17" stroke="#1E293B" stroke-width="2"/>
+  <!-- Architectural JS Monogram -->
+  <!-- J: Precision vertical stem + bottom hook -->
+  <path d="M40 32H54V74C54 83.9411 45.9411 92 36 92H26V79H35C38.866 79 41 76.866 41 73V45H40V32Z" fill="#F8FAFC"/>
+  <!-- S: Geometric stepped system waveform -->
+  <path d="M64 32H94V45H75V54H86C91.5228 54 96 58.4772 96 64V82C96 87.5228 91.5228 92 86 92H62V79H83V67H72C66.4772 67 62 62.5228 62 57V42C62 36.4772 66.4772 32 72 32H64Z" fill="#2563EB"/>
+  <!-- Corner registration node -->
+  <rect x="26" y="32" width="8" height="8" rx="1.5" fill="#3B82F6"/>
 </svg>

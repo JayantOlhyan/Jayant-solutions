@@ -3,31 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Offline — Jayant Web & AI Systems</title>
+  <title>Offline — JAYANT SYSTEMS</title>
   <style>
     :root {
-      --background: #FFFFFF;
-      --foreground: #111827;
-      --muted: #4B5563;
-      --border: #E5E7EB;
-      --primary: #C25E00; /* High-contrast orange for Light Mode */
-      --primary-hover: #A34F00;
+      --background: #F8FAFC;
+      --foreground: #0F172A;
+      --muted: #475569;
+      --border: #E2E8F0;
+      --primary: #2563EB;
+      --primary-hover: #1D4ED8;
       --card-bg: #FFFFFF;
-      --grid-color: rgba(17, 24, 39, 0.02);
-      --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+      --grid-color: rgba(15, 23, 42, 0.03);
+      --font-display: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --background: #0B0F19;
-        --foreground: #F9FAFB;
-        --muted: #9CA3AF;
-        --border: #1F2937;
-        --primary: #FF8A00; /* Vibrant orange for Dark Mode */
-        --primary-hover: #FFA333;
+        --background: #0A0F1D;
+        --foreground: #F8FAFC;
+        --muted: #94A3B8;
+        --border: #1E293B;
+        --primary: #3B82F6;
+        --primary-hover: #2563EB;
         --card-bg: #111827;
-        --grid-color: rgba(249, 250, 251, 0.015);
+        --grid-color: rgba(248, 250, 252, 0.02);
       }
     }
 
@@ -57,12 +57,12 @@
     .offline-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 24px;
+      border-radius: 16px;
       padding: 48px 32px;
       max-width: 480px;
       width: 100%;
       text-align: center;
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 12px 40px rgba(10, 15, 29, 0.08);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -76,12 +76,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #0B0F19;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 14px;
+      background: #0A0F1D;
+      border: 1px solid #1E293B;
+      border-radius: 12px;
       margin-bottom: 28px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(10, 15, 29, 0.15);
+      color: #F8FAFC;
     }
 
     .logo-svg {
@@ -90,9 +90,9 @@
     }
 
     h1 {
-      font-family: var(--font-serif);
+      font-family: var(--font-display);
       font-size: 28px;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: -0.02em;
       margin-bottom: 12px;
       line-height: 1.2;
@@ -111,13 +111,13 @@
       background: var(--primary);
       color: #FFFFFF;
       font-family: var(--font-sans);
-      font-weight: 600;
+      font-weight: 700;
       font-size: 14px;
       border: none;
-      border-radius: 14px;
+      border-radius: 10px;
       padding: 12px 36px;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(255, 138, 0, 0.15);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       min-height: 48px;
       display: inline-flex;
@@ -129,7 +129,7 @@
     .try-again-btn:hover {
       transform: translateY(-1px);
       background: var(--primary-hover);
-      box-shadow: 0 6px 16px rgba(255, 138, 0, 0.2);
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
     }
 
     .try-again-btn:active {
@@ -186,10 +186,10 @@
 <body>
   <div class="offline-card">
     <div class="logo-container">
-      <svg viewBox="0 0 200 200" class="logo-svg" aria-hidden="true">
-        <rect x="10" y="10" width="180" height="180" rx="42" fill="none" stroke="currentColor" stroke-width="16" />
-        <path d="M 100 50 L 132 50 L 132 115 C 132 135, 115 152, 95 152 C 78 152, 65 140, 65 125 L 89 125 C 89 130, 91 132, 95 132 C 99 132, 108 128, 108 115 L 108 72 L 100 72 Z" fill="currentColor" />
-        <path d="M 52 108 L 82 108 L 82 128 L 67 141 L 65 128 L 52 128 Z" fill="#FF8A00" />
+      <svg viewBox="0 0 120 120" class="logo-svg" aria-hidden="true" fill="none">
+        <rect x="22" y="26" width="10" height="10" rx="2" fill="#3B82F6" />
+        <path d="M38 26H53V74C53 85.0457 44.0457 94 33 94H22V80H32C35.866 80 38 77.866 38 74V26Z" fill="#F8FAFC" />
+        <path d="M64 26H98V40H76V52H88C94.6274 52 100 57.3726 100 64V82C100 88.6274 94.6274 94 88 94H62V80H85V66H73C66.3726 66 61 60.6274 61 54V38C61 31.3726 66.3726 26 73 26H64Z" fill="#3B82F6" />
       </svg>
     </div>
     

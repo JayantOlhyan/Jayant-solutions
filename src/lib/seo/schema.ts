@@ -43,14 +43,14 @@ export interface PricingPackageData {
 
 /**
  * 3A.1 - Organization Schema
- * Represents Jayant Web & AI Systems entity, founder, and official contact/social properties.
+ * Represents JAYANT SYSTEMS entity, founder, and official contact/social properties.
  */
 export function createOrganizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": `${BASE_URL}/#organization`,
-    "name": "Jayant Web & AI Systems",
+    "name": "JAYANT SYSTEMS",
     "alternateName": "Jayant Systems",
     "url": BASE_URL,
     "logo": {
@@ -113,9 +113,9 @@ export function createWebSiteSchema() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${BASE_URL}/#website`,
-    "name": "Jayant Web & AI Systems",
+    "name": "JAYANT SYSTEMS",
     "url": BASE_URL,
-    "description": "Jayant Web & AI Systems builds custom AI agents, scalable web platforms, mobile apps, and business automation software for modern startups and enterprises.",
+    "description": "JAYANT SYSTEMS builds custom AI agents, scalable web platforms, mobile apps, and business automation software for modern startups and enterprises.",
     "publisher": {
       "@id": `${BASE_URL}/#organization`
     },
@@ -186,7 +186,7 @@ export function createBlogPostingSchema(post: BlogPostingData) {
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Jayant Web & AI Systems",
+      "name": "JAYANT SYSTEMS",
       "url": BASE_URL,
       "logo": {
         "@type": "ImageObject",
@@ -212,7 +212,7 @@ export function createServiceSchema(service: ServiceSchemaData) {
     "provider": {
       "@type": "Organization",
       "@id": `${BASE_URL}/#organization`,
-      "name": "Jayant Web & AI Systems",
+      "name": "JAYANT SYSTEMS",
       "url": BASE_URL
     },
     "serviceType": service.serviceType || service.name,
@@ -252,7 +252,7 @@ export function createPricingSchema(packages: PricingPackageData[]) {
     "provider": {
       "@type": "Organization",
       "@id": `${BASE_URL}/#organization`,
-      "name": "Jayant Web & AI Systems",
+      "name": "JAYANT SYSTEMS",
       "url": BASE_URL
     },
     "hasOfferCatalog": {

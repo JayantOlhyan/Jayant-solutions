@@ -1,9 +1,9 @@
-# Jayant Web & AI Systems
+# JAYANT SYSTEMS
 
 > Full-stack software engineering and AI systems development practice founded by Jayant Olhyan. We design and build custom web platforms, generative AI applications, intelligent chatbots, and automated business workflows for startups and growing enterprises.
 
 ## Canonical Entity Information
-- Brand Name: Jayant Web & AI Systems
+- Brand Name: JAYANT SYSTEMS
 - Founder & Lead Engineer: Jayant Olhyan
 - Website: https://jayant-systems.online
 - Contact Email: jayantwebaisystems@gmail.com

@@ -1,30 +1,16 @@
-import type { MetadataRoute } from 'next'
+import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Jayant Web & AI Systems',
-    short_name: 'Jayant Systems',
-    description:
-      'Custom AI, Web & Software Development Agency — AI-powered applications, SaaS platforms, mobile apps, and automation solutions.',
+    name: 'JAYANT SYSTEMS',
+    short_name: 'JAYANT SYSTEMS',
+    description: 'Founder-led technology studio building high-performance websites, custom software products, and practical AI-powered systems.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#0a0f1e',
-    theme_color: '#F37021',
-    orientation: 'portrait-primary',
-    categories: ['business', 'technology', 'productivity'],
+    background_color: '#0A0F1D',
+    theme_color: '#2563EB',
     icons: [
       {
-        src: '/favicon.ico',
-        sizes: 'any',
-        type: 'image/x-icon',
-      },
-      {
-        src: '/icon-192.png',
-        sizes: '192x192',
-        type: 'image/png',
-        purpose: 'any',
-      },
-      {
         src: '/icon-192.png',
         sizes: '192x192',
         type: 'image/png',
@@ -35,13 +21,7 @@ export default function manifest(): MetadataRoute.Manifest {
         sizes: '512x512',
         type: 'image/png',
         purpose: 'any',
-      },
-      {
-        src: '/icon-512.png',
-        sizes: '512x512',
-        type: 'image/png',
-        purpose: 'maskable',
       },
     ],
-  }
+  };
 }
