@@ -3,229 +3,203 @@
 import React from "react";
 import PageTransition from "@/components/PageTransition";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight, Eye, ClipboardList, Code, CheckSquare, Rocket, HelpCircle, Compass, Layout, Users, Target, ShieldAlert, Award, ShieldCheck, Check } from "lucide-react";
+import { ArrowRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import CallToAction from "@/components/CallToAction";
 
 export default function ProcessPage() {
   const steps = [
     {
       id: "01",
-      name: "Discovery",
-      desc: "We understand your business, goals, challenges, and requirements in detail.",
-      icon: <Compass className="size-5 text-primary" />,
+      name: "Discovery & Context Audit",
+      deliverable: "Requirements Brief & Fit Assessment",
+      desc: "We examine your business model, operational bottlenecks, target user flows, and existing technical constraints before writing code.",
     },
     {
       id: "02",
-      name: "Planning",
-      desc: "We create a strategic roadmap, timeline, and define the right approach.",
-      icon: <ClipboardList className="size-5 text-primary" />,
+      name: "Scope & Architecture Blueprint",
+      deliverable: "Written Scope, Schema & Milestone Plan",
+      desc: "We define exact deliverables, system boundaries, database schemas, API contracts, and fixed milestone checkpoints in writing.",
     },
     {
       id: "03",
-      name: "Design & Prototype",
-      desc: "I design intuitive interfaces and prototypes to visualize the solution.",
-      icon: <Layout className="size-5 text-primary" />,
+      name: "Interface Design & Prototyping",
+      deliverable: "Interactive Wireframes & UI System",
+      desc: "We structure page hierarchy, user journeys, and clean component states so you can review the experience early.",
     },
     {
       id: "04",
-      name: "Development",
-      desc: "I build scalable, secure, and high-performance solutions using best practices.",
-      icon: <Code className="size-5 text-primary" />,
+      name: "Full-Stack Implementation",
+      deliverable: "Staging Previews & Typed Codebase",
+      desc: "We build the frontend, backend APIs, database tables, and AI/automation workflows with regular staging links for your inspection.",
     },
     {
       id: "05",
-      name: "Testing & QA",
-      desc: "We thoroughly test for quality, performance, and security to ensure excellence.",
-      icon: <CheckSquare className="size-5 text-primary" />,
+      name: "Quality Assurance & Verification",
+      deliverable: "Verified Release Candidate",
+      desc: "We test mobile responsiveness, keyboard accessibility, form validation, security rules, and edge cases against the agreed scope.",
     },
     {
       id: "06",
-      name: "Deployment & Support",
-      desc: "We deploy seamlessly and provide ongoing support to ensure long-term success.",
-      icon: <Rocket className="size-5 text-primary" />,
+      name: "Deployment, Handover & Support",
+      deliverable: "Production Launch & Full Code Transfer",
+      desc: "We deploy to production, configure domains and SSL, transfer 100% repository ownership, and provide agreed post-launch support.",
     },
   ];
 
-  const methodologyCheckmarks = [
-    "Agile & Iterative Development",
-    "Continuous Communication",
-    "Rapid Adaptation",
-    "Focus on Quality & Security",
-    "Customer-Centric Approach",
-  ];
-
-  const valueProps = [
-    { title: "Regular Updates", desc: "Stay informed with consistent progress updates." },
-    { title: "Collaborative", desc: "Work closely with me throughout the project." },
-    { title: "Clear Documentation", desc: "Well-documented processes and deliverables." },
-    { title: "Measurable Results", desc: "Solutions designed to deliver real business outcomes." },
-    { title: "Ongoing Support", desc: "I am with you even after deployment for continuous growth." },
-  ];
-
-  // Specific Process Schema nodes
-  const schemaNodes = [
-    { title: "Goal-Oriented", icon: <Target className="size-5 text-primary" />, x: -120, y: -90 },
-    { title: "Collaborative", icon: <Users className="size-5 text-primary" />, x: 120, y: -90 },
-    { title: "Transparent", icon: <Eye className="size-5 text-primary" />, x: -120, y: 90 },
-    { title: "Results-Driven", icon: <Award className="size-5 text-primary" />, x: 120, y: 90 },
+  const methodologyPrinciples = [
+    {
+      index: "01",
+      title: "Direct Founder Communication",
+      desc: "You communicate directly with the engineer building your system—no account managers or diluted context.",
+    },
+    {
+      index: "02",
+      title: "Inspectable Staging Builds",
+      desc: "Instead of waiting weeks for a reveal, you receive live staging URLs to test real progress throughout the build.",
+    },
+    {
+      index: "03",
+      title: "Clear Written Documentation",
+      desc: "Scope, architecture decisions, environment setup, and handover instructions are documented clearly.",
+    },
+    {
+      index: "04",
+      title: "Honest Technical Trade-offs",
+      desc: "We explain infrastructure costs, third-party API limits, and maintainability considerations upfront.",
+    },
+    {
+      index: "05",
+      title: "Post-Launch Continuity",
+      desc: "Every project includes agreed post-deployment support and optional maintenance retainers as your needs grow.",
+    },
   ];
 
   return (
     <PageTransition>
-      <div className="hog-grid min-h-screen pb-20 pt-10 text-left">
-        <main className="max-w-none px-6 md:px-12 lg:px-16 flex flex-col gap-20 md:gap-28">
-          
-          {/* Process Hero Section */}
-          <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center pt-8">
-            <div className="lg:col-span-7 flex flex-col items-start">
-              <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-                my process
-              </span>
-              <h1 className="font-serif text-4xl md:text-6xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
-                A Clear Process.{" "}
-                <span className="text-primary block sm:inline">Predictable Results.</span>
-              </h1>
-              <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                We follow a transparent, collaborative, and proven process to deliver high-quality digital solutions that drive real impact for your business.
-              </p>
+      <div className="hog-grid min-h-screen pb-24 pt-10 text-left">
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 flex flex-col gap-20 md:gap-28">
+          {/* Editorial Process Hero */}
+          <section className="pt-8 border-b border-border-custom pb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+              <div className="lg:col-span-8">
+                <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-primary font-bold block mb-4">
+                  JAYANT SYSTEMS &bull; ENGINEERING METHODOLOGY
+                </span>
+                <h1 className="metalab-headline text-4xl sm:text-6xl lg:text-[68px] font-extrabold text-text-base">
+                  A structured process.{" "}
+                  <span className="text-primary">Accountable delivery.</span>
+                </h1>
+              </div>
 
-              <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto">
-                <Link
-                  href="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary-hover text-white px-7 py-3 text-xs font-mono font-bold transition-all shadow-md"
-                >
-                  <span>Start Your Project</span>
-                  <ArrowRight className="size-4" />
-                </Link>
-                <Link
-                  href="/portfolio"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-border-custom bg-white hover:bg-neutral-50 dark:bg-card-bg dark:hover:bg-neutral-900 px-7 py-3 text-xs font-mono font-bold text-text-base transition-all"
-                >
-                  <span>View Our Work</span>
-                  <ArrowRight className="size-4" />
-                </Link>
+              <div className="lg:col-span-4 flex flex-col items-start gap-6">
+                <p className="text-sm sm:text-base text-text-muted leading-relaxed">
+                  We follow a transparent, milestone-governed engineering sequence that eliminates scope ambiguity and keeps every technical decision visible.
+                </p>
+
+                <div className="flex flex-wrap items-center gap-3.5">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-primary hover:bg-primary-hover text-white px-6 py-3 text-xs font-display font-bold transition-all"
+                  >
+                    <span>Start Your Project</span>
+                    <ArrowRight className="size-3.5" />
+                  </Link>
+                  <Link
+                    href="/portfolio"
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-border-custom bg-card-bg hover:border-primary px-6 py-3 text-xs font-display font-bold text-text-base transition-all"
+                  >
+                    <span>View Shipped Work</span>
+                    <ArrowUpRight className="size-3.5" />
+                  </Link>
+                </div>
               </div>
             </div>
+          </section>
 
-            {/* Right Process Schema */}
-            <div className="lg:col-span-5 w-full flex justify-center">
-              <div className="relative w-full max-w-[420px] aspect-square flex items-center justify-center p-8 select-none">
-                
-                {/* SVG Connectors */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 400">
-                  <path d="M 200 200 L 100 110" stroke="var(--color-primary)" strokeOpacity="0.4" strokeWidth="1.5" strokeDasharray="4,4" />
-                  <path d="M 200 200 L 300 110" stroke="var(--color-primary)" strokeOpacity="0.4" strokeWidth="1.5" strokeDasharray="4,4" />
-                  <path d="M 200 200 L 100 290" stroke="var(--color-primary)" strokeOpacity="0.4" strokeWidth="1.5" strokeDasharray="4,4" />
-                  <path d="M 200 200 L 300 290" stroke="var(--color-primary)" strokeOpacity="0.4" strokeWidth="1.5" strokeDasharray="4,4" />
-                </svg>
+          {/* 6-Stage Hairline Execution Ledger */}
+          <section aria-labelledby="six-step-heading">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+              <div className="lg:col-span-4 lg:sticky lg:top-28">
+                <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-primary font-bold block mb-3">
+                  01 &mdash; 06 / Execution Sequence
+                </span>
+                <h2
+                  id="six-step-heading"
+                  className="metalab-subheadline text-3xl sm:text-4xl font-extrabold text-text-base mb-4"
+                >
+                  From initial brief to production handover.
+                </h2>
+                <p className="text-sm text-text-muted leading-relaxed">
+                  Each stage produces a concrete engineering artifact so you never have to guess where your project stands.
+                </p>
+              </div>
 
-                {/* Central Monogram Cube */}
-                <div className="relative z-10 size-24 rounded-2xl bg-neutral-900 border border-white/10 flex items-center justify-center shadow-lg">
-                  <span className="font-sans text-xl font-black text-primary">J</span>
-                </div>
-
-                {/* Outer nodes */}
-                {schemaNodes.map((node, i) => (
+              <div className="lg:col-span-8 divide-y divide-border-custom border-t border-b border-border-custom">
+                {steps.map((step) => (
                   <div
-                    key={i}
-                    className="absolute z-20"
-                    style={{ transform: `translate(${node.x}px, ${node.y}px)` }}
+                    key={step.id}
+                    className="py-8 sm:py-10 flex flex-col gap-3"
                   >
-                    <div className="flex flex-col items-center gap-1.5 p-3 rounded-xl bg-white dark:bg-[#111827] border border-border-custom shadow-sm min-w-[110px] text-center">
-                      <div className="size-9 rounded-full border border-border-custom bg-card-bg flex items-center justify-center">
-                        {node.icon}
+                    <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+                      <div className="flex items-baseline gap-4">
+                        <span className="font-mono text-sm font-bold text-primary">
+                          /{step.id}
+                        </span>
+                        <h3 className="font-display text-xl sm:text-2xl font-extrabold text-text-base tracking-tight">
+                          {step.name}
+                        </h3>
                       </div>
-                      <span className="text-[10px] font-serif font-bold text-text-base">{node.title}</span>
+                      <span className="font-mono text-xs text-primary font-semibold">
+                        Artifact: {step.deliverable}
+                      </span>
+                    </div>
+                    <p className="text-sm sm:text-base text-text-muted leading-relaxed pl-0 sm:pl-9">
+                      {step.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Operating Standards Dark Editorial Block */}
+          <section className="rounded-2xl bg-[#0A0E17] border border-slate-800 p-8 sm:p-12 md:p-16 text-white">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+              <div className="lg:col-span-5">
+                <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#FF8A00] font-semibold block mb-3">
+                  Operating Standards
+                </span>
+                <h2 className="metalab-subheadline text-3xl sm:text-4xl font-extrabold text-white mb-4">
+                  What you can expect at every milestone.
+                </h2>
+                <p className="text-sm text-slate-300 leading-relaxed">
+                  Our methodology is designed for founders and operations teams who value direct technical answers and predictable delivery.
+                </p>
+              </div>
+
+              <div className="lg:col-span-7 divide-y divide-white/10 border-t border-b border-white/10">
+                {methodologyPrinciples.map((prop) => (
+                  <div
+                    key={prop.index}
+                    className="py-5 flex items-start gap-4"
+                  >
+                    <CheckCircle2 className="size-4 text-[#FF8A00] shrink-0 mt-1" />
+                    <div>
+                      <h3 className="font-display text-base sm:text-lg font-bold text-white">
+                        {prop.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mt-1">
+                        {prop.desc}
+                      </p>
                     </div>
                   </div>
                 ))}
-
               </div>
-            </div>
-          </section>
-
-          {/* From Idea to Impact */}
-          <section className="py-8 relative">
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-                OUR 6-STEP PROCESS
-              </span>
-              <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mb-4 mt-2">
-                From Idea to Impact
-              </h2>
-              <p className="text-sm md:text-base text-text-muted">
-                We turn your ideas into scalable digital solutions through a structured and efficient process.
-              </p>
-            </div>
-
-            {/* Stepper horizontal line */}
-            <ol className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 relative list-none p-0 m-0">
-              {steps.map((step, idx) => (
-                <li key={step.id} className="flex flex-col items-center text-center relative group">
-                  <div className="relative z-10 size-14 rounded-full border border-border-custom bg-card-bg shadow-sm flex items-center justify-center mb-4 text-primary">
-                    {step.icon}
-                  </div>
-                  
-                  {idx < steps.length - 1 && (
-                    <div className="hidden lg:block absolute top-7 left-[calc(50%+28px)] right-[calc(-50%+28px)] h-[1px] border-t border-dashed border-border-custom/80 z-0 pointer-events-none" />
-                  )}
-
-                  <div className="flex flex-col gap-1">
-                    <span className="font-mono text-xs text-primary font-bold">{step.id}</span>
-                    <h5 className="font-serif text-xs md:text-sm font-bold text-text-base leading-none mt-1">{step.name}</h5>
-                    <p className="text-[10px] md:text-xs text-text-muted leading-tight mt-2 px-1">{step.desc}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </section>
-
-          {/* Methodology Split Section */}
-          <section className="py-8 relative border-t border-border-custom/50 pt-16">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-              
-              {/* Left Column: Methodology */}
-              <div className="lg:col-span-5 flex flex-col items-start text-left">
-                <span className="font-mono text-[9px] uppercase tracking-wider text-primary border border-primary/20 bg-primary/10 px-2.5 py-0.5 rounded-full mb-3">
-                  OUR METHODOLOGY
-                </span>
-                <h3 className="font-serif text-2xl md:text-4xl font-bold text-text-base mb-4 leading-tight">
-                  Agile. Adaptable. <br className="hidden md:block" /> Always Ahead.
-                </h3>
-                <p className="text-xs md:text-sm text-text-muted leading-relaxed mb-6">
-                  We follow agile methodologies and modern development practices to deliver solutions that are flexible, efficient, and future-ready.
-                </p>
-
-                <ul className="space-y-3 list-none p-0 m-0">
-                  {methodologyCheckmarks.map((item) => (
-                    <li key={item} className="flex items-center gap-2.5 text-xs text-text-muted">
-                      <Check className="size-4 text-primary shrink-0" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Right Column: Cards */}
-              <div className="lg:col-span-7 flex flex-col gap-4 w-full">
-                <h4 className="font-serif text-base font-bold text-text-base text-center md:text-left mb-2">What You Get At Every Step</h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {valueProps.map((prop) => (
-                    <div key={prop.title} className="hog-card rounded-2xl p-5 border border-border-custom bg-card-bg/40 flex flex-col justify-between min-h-[110px]">
-                      <h5 className="font-serif text-xs md:text-sm font-bold text-text-base mb-1">{prop.title}</h5>
-                      <p className="text-[10px] md:text-xs text-text-muted leading-relaxed mt-2">{prop.desc}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
             </div>
           </section>
 
           {/* Bottom CTA */}
           <CallToAction />
-
         </main>
       </div>
     </PageTransition>
