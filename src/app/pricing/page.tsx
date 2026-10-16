@@ -5,13 +5,15 @@ import PageTransition from "@/components/PageTransition";
 import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import { createPricingSchema, createFAQSchema } from "@/lib/seo/schema";
-import { Check, ArrowRight, HelpCircle, Shield, Clock, Plus, Minus } from "lucide-react";
+import { Check, ArrowRight, ArrowUpRight, Plus } from "lucide-react";
+import CallToAction from "@/components/CallToAction";
 
 export default function PricingPage() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const plans = [
     {
+      index: "01",
       name: "Starter",
       desc: "High-converting responsive design, SEO setup, performance optimization.",
       price: "₹40,000",
@@ -21,12 +23,13 @@ export default function PricingPage() {
         "SEO setup & search visibility",
         "Speed & performance optimization",
         "Contact / lead form integration",
-        "CMS setup for content management"
+        "CMS setup for content management",
       ],
       cta: "Get Started",
       popular: false,
     },
     {
+      index: "02",
       name: "Growth",
       desc: "Custom web application/dashboard, CRM integration, lead qualification workflows.",
       price: "₹90,000",
@@ -36,12 +39,13 @@ export default function PricingPage() {
         "CRM pipeline integration",
         "Lead qualification workflows",
         "Automated email follow-ups",
-        "Analytics setup & dashboard"
+        "Analytics setup & dashboard",
       ],
       cta: "Get Started",
       popular: true,
     },
     {
+      index: "03",
       name: "Scale",
       desc: "Complete AI Business System: custom software, chatbot, and WhatsApp automation.",
       price: "₹2,00,000",
@@ -52,7 +56,7 @@ export default function PricingPage() {
         "WhatsApp automation workflows",
         "Multi-platform CRM syncing",
         "Custom dashboards",
-        "Priority ongoing support"
+        "Priority ongoing support",
       ],
       cta: "Get Started",
       popular: false,
@@ -60,120 +64,173 @@ export default function PricingPage() {
   ];
 
   const addons = [
-    { title: "Content Writing", price: "₹4,999 /project" },
-    { title: "Logo & Branding", price: "₹6,999 /project" },
-    { title: "E-commerce Setup", price: "₹14,999 /project" },
-    { title: "Website Maintenance", price: "₹4,999 /month" },
-    { title: "UI/UX Design", price: "₹9,999 /project" },
+    { index: "01", title: "Content Writing", price: "₹4,999 /project" },
+    { index: "02", title: "Logo & Branding", price: "₹6,999 /project" },
+    { index: "03", title: "E-commerce Setup", price: "₹14,999 /project" },
+    { index: "04", title: "Website Maintenance", price: "₹4,999 /month" },
+    { index: "05", title: "UI/UX Design", price: "₹9,999 /project" },
   ];
 
   const pricingSteps = [
-    { id: "1", name: "Discuss", desc: "Tell me your requirements and goals." },
-    { id: "2", name: "Get Estimate", desc: "I provide a transparent proposal & timeline." },
-    { id: "3", name: "Plan & Agreement", desc: "I finalize the plan that works for you." },
-    { id: "4", name: "Build & Deliver", desc: "I build, test, and deliver high-quality solutions." },
-    { id: "5", name: "Support & Grow", desc: "I provide ongoing support to help you grow." },
+    {
+      id: "01",
+      name: "Discuss Requirements",
+      desc: "Share your business goals, workflows, and technical constraints.",
+    },
+    {
+      id: "02",
+      name: "Written Estimate",
+      desc: "Receive a transparent architecture blueprint, scope, and timeline.",
+    },
+    {
+      id: "03",
+      name: "Milestone Agreement",
+      desc: "Lock in fixed deliverables and milestone payment checkpoints.",
+    },
+    {
+      id: "04",
+      name: "Build & Verify",
+      desc: "Iterative engineering with live staging links for your inspection.",
+    },
+    {
+      id: "05",
+      name: "Handover & Support",
+      desc: "Production launch, 100% code transfer, and post-launch warranty.",
+    },
   ];
 
   const faqs = [
-    { q: "Can I upgrade or customize my package?", a: "Yes! You can customize any package or add specific features based on your project requirements." },
-    { q: "Are these prices one-time or recurring?", a: "All website and software development prices shown above are one-time costs. Only our ongoing website maintenance plans (optional) are billed monthly or yearly." },
-    { q: "Will my website be mobile-friendly?", a: "Absolutely. All our websites are 100% responsive and optimized for mobile, tablet, and desktop screens." },
-    { q: "Do you provide support after delivery?", a: "Yes, we provide ongoing support and maintenance plans to keep your website secure and updated." },
+    {
+      q: "Can I upgrade or customize my package?",
+      a: "Yes. Every engagement can be tailored to your exact workflow, integrations, and operational requirements after our initial discovery call.",
+    },
+    {
+      q: "Are these prices one-time or recurring?",
+      a: "All website and software development prices shown above are one-time project investments governed by milestone completion. Optional ongoing maintenance retainers are billed monthly.",
+    },
+    {
+      q: "Will my website or system be mobile-friendly?",
+      a: "Yes. Every interface we engineer is responsive and tested across mobile, tablet, and desktop viewports prior to deployment.",
+    },
+    {
+      q: "Do you provide support after delivery?",
+      a: "Yes. Every package includes post-launch warranty and technical support (30 to 90 days depending on scope), plus optional ongoing maintenance retainers.",
+    },
   ];
 
   return (
     <PageTransition>
       <JsonLd schema={[createPricingSchema(plans), createFAQSchema(faqs)]} />
-      <div className="hog-grid min-h-screen pb-20 pt-10 text-left">
-        <main className="max-w-none px-6 md:px-12 lg:px-16 flex flex-col gap-20 md:gap-28">
-          
-          {/* Breadcrumbs */}
-          <nav className="text-xs font-mono text-text-muted flex items-center gap-2 pt-8">
-            <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-            <span>&gt;</span>
-            <span className="text-text-base">Pricing</span>
-          </nav>
-
-          {/* Pricing Split Hero */}
-          <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
-            {/* Left */}
-            <div className="lg:col-span-7 flex flex-col items-start text-left">
-              <span className="font-mono text-[9px] uppercase tracking-widest text-primary border border-primary/20 bg-primary/5 px-2.5 py-0.5 rounded-full mb-4">
-                PRICING
-              </span>
-              <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-base leading-[1.08] mb-6">
-                Simple, Transparent{" "}
-                <span className="text-primary underline decoration-primary/40 decoration-4 underline-offset-8">
-                  Pricing Packages
+      <div className="hog-grid min-h-screen pb-24 pt-10 text-left">
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 flex flex-col gap-20 md:gap-28">
+          {/* Editorial Pricing Hero */}
+          <section className="pt-8 border-b border-border-custom pb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+              <div className="lg:col-span-8">
+                <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-primary font-bold block mb-4">
+                  JAYANT SYSTEMS &bull; TRANSPARENT INVESTMENT
                 </span>
-              </h1>
-              <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl">
-                Choose a plan that fits your business needs. Whether you&apos;re a startup, growing business, or enterprise — we have the right solution for you.
-              </p>
-            </div>
+                <h1 className="metalab-headline text-4xl sm:text-6xl lg:text-[68px] font-extrabold text-text-base">
+                  Clear scope.{" "}
+                  <span className="text-primary">Predictable pricing.</span>
+                </h1>
+              </div>
 
-            {/* Right: Custom Request card */}
-            <div className="lg:col-span-5 w-full flex justify-center">
-              <div className="w-full max-w-[420px] rounded-3xl border border-border-custom bg-card-bg/60 p-6 flex flex-col gap-4 text-left shadow-lg">
-                <div className="flex items-center gap-3">
-                  <div className="size-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-serif text-lg">
-                    🏷️
-                  </div>
-                  <div>
-                    <h4 className="text-xs md:text-sm font-serif font-bold text-text-base leading-none">Need something custom?</h4>
-                    <p className="text-[10px] text-text-muted mt-1 leading-normal">We understand that every business is unique. Let&apos;s build a solution tailored to your goals.</p>
-                  </div>
-                </div>
+              <div className="lg:col-span-4 flex flex-col items-start gap-6">
+                <p className="text-sm sm:text-base text-text-muted leading-relaxed">
+                  Reference packages for standard website, web application, and AI system engagements. Need a custom architecture? We scope fixed milestone proposals after a 15-minute discovery call.
+                </p>
                 <Link
                   href="/contact"
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-card-bg hover:border-primary/40 border border-border-custom py-2.5 text-xs font-mono font-bold text-text-base transition-colors"
+                  className="inline-flex items-center gap-2 rounded-full bg-primary hover:bg-primary-hover text-white px-6 py-3 text-xs font-display font-bold transition-all"
                 >
-                  <span>Discuss Your Project</span>
+                  <span>Request Custom Scope</span>
                   <ArrowRight className="size-3.5" />
                 </Link>
               </div>
             </div>
-
           </section>
 
-          {/* Pricing Grid */}
-          <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {plans.map((plan, idx) => (
+          {/* 3-Tier Editorial Architectural Ledger */}
+          <section className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
+            {plans.map((plan) => (
               <div
-                key={idx}
-                className={`hog-card rounded-3xl p-6 bg-card-bg/60 border flex flex-col justify-between transition-all duration-300 ${
-                  plan.popular 
-                    ? "border-primary shadow-lg ring-1 ring-primary/20 scale-[1.02]" 
-                    : "border-border-custom"
+                key={plan.name}
+                className={`rounded-2xl p-8 sm:p-10 flex flex-col justify-between transition-all ${
+                  plan.popular
+                    ? "bg-[#0A0E17] text-white border border-slate-800 shadow-2xl"
+                    : "bg-card-bg text-text-base border border-border-custom"
                 }`}
               >
-                <div className="flex flex-col gap-5 text-left">
-                  {plan.popular && (
-                    <span className="font-mono text-[9px] font-bold text-white bg-primary px-2.5 py-0.5 rounded-full uppercase tracking-wider self-start">
-                      Most Popular
+                <div className="flex flex-col gap-6">
+                  <div className="flex items-center justify-between">
+                    <span
+                      className={`font-mono text-xs font-bold ${
+                        plan.popular ? "text-[#FF8A00]" : "text-primary"
+                      }`}
+                    >
+                      /{plan.index}
                     </span>
-                  )}
+                    {plan.popular && (
+                      <span className="font-mono text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-primary text-white">
+                        Most Selected
+                      </span>
+                    )}
+                  </div>
+
                   <div>
-                    <h3 className="font-serif text-base font-bold text-text-base leading-none mb-1">{plan.name}</h3>
-                    <p className="text-[10px] text-text-muted leading-tight">{plan.desc}</p>
+                    <h2
+                      className={`font-display text-2xl sm:text-3xl font-extrabold tracking-tight mb-2 ${
+                        plan.popular ? "text-white" : "text-text-base"
+                      }`}
+                    >
+                      {plan.name}
+                    </h2>
+                    <p
+                      className={`text-xs sm:text-sm leading-relaxed ${
+                        plan.popular ? "text-slate-300" : "text-text-muted"
+                      }`}
+                    >
+                      {plan.desc}
+                    </p>
                   </div>
 
-                  <div className="flex flex-col">
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-2xl md:text-3xl font-serif font-black text-text-base">{plan.price}</span>
-                      {plan.price !== "Custom" && <span className="text-xs text-text-muted font-sans">one-time</span>}
+                  <div
+                    className={`py-5 border-t border-b ${
+                      plan.popular ? "border-white/10" : "border-border-custom"
+                    }`}
+                  >
+                    <div className="flex items-baseline gap-2">
+                      <span
+                        className={`font-display text-3xl sm:text-4xl font-extrabold tracking-tight ${
+                          plan.popular ? "text-white" : "text-text-base"
+                        }`}
+                      >
+                        {plan.price}
+                      </span>
+                      <span
+                        className={`font-mono text-xs ${
+                          plan.popular ? "text-slate-400" : "text-text-muted"
+                        }`}
+                      >
+                        / {plan.billing}
+                      </span>
                     </div>
-                    <span className="text-[9px] font-mono text-text-muted mt-0.5">{plan.billing}</span>
                   </div>
 
-                  <div className="h-[1px] bg-border-custom/50 w-full" />
-
-                  <ul className="space-y-2 text-xs">
+                  <ul className="space-y-3 text-xs sm:text-sm">
                     {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-text-muted leading-snug">
-                        <Check className="size-4 text-primary shrink-0 mt-0.5" />
+                      <li
+                        key={i}
+                        className={`flex items-start gap-2.5 leading-snug ${
+                          plan.popular ? "text-slate-200" : "text-text-base"
+                        }`}
+                      >
+                        <Check
+                          className={`size-4 shrink-0 mt-0.5 ${
+                            plan.popular ? "text-[#FF8A00]" : "text-primary"
+                          }`}
+                        />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -182,10 +239,10 @@ export default function PricingPage() {
 
                 <Link
                   href="/contact"
-                  className={`w-full inline-flex items-center justify-center gap-1.5 rounded-xl py-3 text-xs font-mono font-bold transition-all mt-8 active:scale-[0.98] ${
+                  className={`w-full inline-flex items-center justify-center gap-2 rounded-full py-3.5 text-xs font-display font-bold transition-all mt-10 ${
                     plan.popular
-                      ? "bg-primary hover:bg-primary-hover text-white shadow-md"
-                      : "border border-border-custom bg-white hover:bg-neutral-50 dark:bg-card-bg dark:hover:bg-neutral-900 text-text-base"
+                      ? "bg-primary hover:bg-primary-hover text-white"
+                      : "bg-text-base text-bg-base hover:bg-primary hover:text-white"
                   }`}
                 >
                   <span>{plan.cta}</span>
@@ -195,196 +252,238 @@ export default function PricingPage() {
             ))}
           </section>
 
-          {/* Package Comparison Table (Semantic HTML) */}
-          <section className="py-8 relative border-t border-border-custom/30 pt-16">
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-                PACKAGE COMPARISON
+          {/* Semantic Specification Comparison Table */}
+          <section className="pt-8 border-t border-border-custom">
+            <div className="mb-10">
+              <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-primary font-bold block mb-2">
+                Deliverables Matrix
               </span>
-              <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
-                Compare Plan Features
+              <h2 className="metalab-subheadline text-3xl sm:text-4xl font-extrabold text-text-base">
+                Side-by-side capability breakdown.
               </h2>
-              <p className="text-xs md:text-sm text-text-muted mt-3">
-                Review detailed deliverables, timelines, and technical capabilities side by side.
-              </p>
             </div>
 
-            <div className="overflow-x-auto rounded-3xl border border-border-custom bg-card-bg/50">
-              <table className="w-full text-left border-collapse text-xs md:text-sm">
+            <div className="overflow-x-auto rounded-2xl border border-border-custom bg-card-bg">
+              <table className="w-full text-left border-collapse text-xs sm:text-sm">
                 <thead>
-                  <tr className="border-b border-border-custom bg-card-bg/80">
-                    <th scope="col" className="p-4 md:p-6 font-serif font-bold text-text-base">Features & Deliverables</th>
-                    <th scope="col" className="p-4 md:p-6 font-serif font-bold text-text-base text-center">Starter<br/><span className="text-primary font-mono text-xs font-normal">₹40,000</span></th>
-                    <th scope="col" className="p-4 md:p-6 font-serif font-bold text-text-base text-center bg-primary/5">Growth<br/><span className="text-primary font-mono text-xs font-normal">₹90,000</span></th>
-                    <th scope="col" className="p-4 md:p-6 font-serif font-bold text-text-base text-center">Scale<br/><span className="text-primary font-mono text-xs font-normal">₹2,00,000</span></th>
+                  <tr className="border-b border-border-custom bg-card-subtle">
+                    <th
+                      scope="col"
+                      className="p-4 sm:p-6 font-display font-bold text-text-base"
+                    >
+                      Deliverable &amp; Scope
+                    </th>
+                    <th
+                      scope="col"
+                      className="p-4 sm:p-6 font-display font-bold text-text-base text-center"
+                    >
+                      Starter
+                      <span className="block text-primary font-mono text-xs mt-0.5">
+                        ₹40,000
+                      </span>
+                    </th>
+                    <th
+                      scope="col"
+                      className="p-4 sm:p-6 font-display font-bold text-text-base text-center bg-primary/5"
+                    >
+                      Growth
+                      <span className="block text-primary font-mono text-xs mt-0.5">
+                        ₹90,000
+                      </span>
+                    </th>
+                    <th
+                      scope="col"
+                      className="p-4 sm:p-6 font-display font-bold text-text-base text-center"
+                    >
+                      Scale
+                      <span className="block text-primary font-mono text-xs mt-0.5">
+                        ₹2,00,000
+                      </span>
+                    </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-border-custom/50 font-mono text-[11px] md:text-xs">
+                <tbody className="divide-y divide-border-custom font-mono text-xs">
                   <tr>
-                    <td className="p-4 md:p-6 font-sans font-medium text-text-base">Primary Deliverable</td>
-                    <td className="p-4 md:p-6 text-center text-text-muted">High-converting Website</td>
-                    <td className="p-4 md:p-6 text-center text-text-muted bg-primary/5">Web App / Dashboard</td>
-                    <td className="p-4 md:p-6 text-center text-text-muted">Complete AI Business System</td>
+                    <td className="p-4 sm:p-6 font-sans font-semibold text-text-base">
+                      Primary System Deliverable
+                    </td>
+                    <td className="p-4 sm:p-6 text-center text-text-muted">
+                      High-Converting Website
+                    </td>
+                    <td className="p-4 sm:p-6 text-center text-text-base bg-primary/5">
+                      Custom Web App / Portal
+                    </td>
+                    <td className="p-4 sm:p-6 text-center text-text-base">
+                      Complete AI Business System
+                    </td>
                   </tr>
                   <tr>
-                    <td className="p-4 md:p-6 font-sans font-medium text-text-base">Target Delivery Timeline</td>
-                    <td className="p-4 md:p-6 text-center text-text-muted">1–2 Weeks</td>
-                    <td className="p-4 md:p-6 text-center text-text-muted bg-primary/5">2–4 Weeks</td>
-                    <td className="p-4 md:p-6 text-center text-text-muted">4–8 Weeks</td>
+                    <td className="p-4 sm:p-6 font-sans font-semibold text-text-base">
+                      Target Delivery Window
+                    </td>
+                    <td className="p-4 sm:p-6 text-center text-text-muted">
+                      1–2 Weeks
+                    </td>
+                    <td className="p-4 sm:p-6 text-center text-text-base bg-primary/5">
+                      2–4 Weeks
+                    </td>
+                    <td className="p-4 sm:p-6 text-center text-text-base">
+                      4–8 Weeks
+                    </td>
                   </tr>
                   <tr>
-                    <td className="p-4 md:p-6 font-sans font-medium text-text-base">AI Chatbot & LLM Sync</td>
-                    <td className="p-4 md:p-6 text-center text-text-muted">—</td>
-                    <td className="p-4 md:p-6 text-center text-text-muted bg-primary/5">Basic Automated Triage</td>
-                    <td className="p-4 md:p-6 text-center text-primary font-bold">Custom Trained RAG Bot</td>
+                    <td className="p-4 sm:p-6 font-sans font-semibold text-text-base">
+                      AI &amp; LLM Integration
+                    </td>
+                    <td className="p-4 sm:p-6 text-center text-text-muted">
+                      &mdash;
+                    </td>
+                    <td className="p-4 sm:p-6 text-center text-text-base bg-primary/5">
+                      Automated Lead Triage
+                    </td>
+                    <td className="p-4 sm:p-6 text-center text-primary font-bold">
+                      Custom RAG &amp; Agentic Workflows
+                    </td>
                   </tr>
                   <tr>
-                    <td className="p-4 md:p-6 font-sans font-medium text-text-base">WhatsApp / Workflow Automations</td>
-                    <td className="p-4 md:p-6 text-center text-text-muted">—</td>
-                    <td className="p-4 md:p-6 text-center text-text-muted bg-primary/5">CRM Email Workflows</td>
-                    <td className="p-4 md:p-6 text-center text-primary font-bold">Full WhatsApp + CRM Sync</td>
+                    <td className="p-4 sm:p-6 font-sans font-semibold text-text-base">
+                      WhatsApp &amp; CRM Automation
+                    </td>
+                    <td className="p-4 sm:p-6 text-center text-text-muted">
+                      &mdash;
+                    </td>
+                    <td className="p-4 sm:p-6 text-center text-text-base bg-primary/5">
+                      CRM &amp; Email Pipelines
+                    </td>
+                    <td className="p-4 sm:p-6 text-center text-primary font-bold">
+                      Full WhatsApp + Multi-CRM Sync
+                    </td>
                   </tr>
                   <tr>
-                    <td className="p-4 md:p-6 font-sans font-medium text-text-base">SEO & Performance Setup</td>
-                    <td className="p-4 md:p-6 text-center text-primary font-bold">Complete Setup</td>
-                    <td className="p-4 md:p-6 text-center text-primary font-bold bg-primary/5">Advanced Schema & CWV</td>
-                    <td className="p-4 md:p-6 text-center text-primary font-bold">Full Enterprise Optimization</td>
-                  </tr>
-                  <tr>
-                    <td className="p-4 md:p-6 font-sans font-medium text-text-base">Post-Launch Warranty & Support</td>
-                    <td className="p-4 md:p-6 text-center text-text-muted">30 Days Included</td>
-                    <td className="p-4 md:p-6 text-center text-text-muted bg-primary/5">60 Days Included</td>
-                    <td className="p-4 md:p-6 text-center text-primary font-bold">90 Days Priority Support</td>
+                    <td className="p-4 sm:p-6 font-sans font-semibold text-text-base">
+                      Post-Launch Support Included
+                    </td>
+                    <td className="p-4 sm:p-6 text-center text-text-muted">
+                      30 Days
+                    </td>
+                    <td className="p-4 sm:p-6 text-center text-text-base bg-primary/5">
+                      60 Days
+                    </td>
+                    <td className="p-4 sm:p-6 text-center text-primary font-bold">
+                      90 Days Priority
+                    </td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </section>
 
-          {/* Add-ons segment */}
-          <section className="py-8 relative border-t border-border-custom/30 pt-16">
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-                ADD-ONS (OPTIONAL)
+          {/* Optional Add-ons Hairline Row + 5-Step Pricing Sequence */}
+          <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-8 border-t border-border-custom items-start">
+            <div className="lg:col-span-5">
+              <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-primary font-bold block mb-2">
+                Modular Extensions
               </span>
-              <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
-                Custom Add-ons
+              <h2 className="metalab-subheadline text-2xl sm:text-3xl font-extrabold text-text-base mb-4">
+                Optional Add-Ons
               </h2>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-5 gap-6">
-              {addons.map((addon, idx) => (
-                <div key={idx} className="hog-card rounded-2xl p-5 border border-border-custom bg-card-bg/40 flex flex-col justify-between min-h-[110px]">
-                  <div className="flex flex-col gap-3 text-left">
-                    <h5 className="font-serif text-xs md:text-sm font-bold text-text-base leading-snug">{addon.title}</h5>
-                    <p className="text-xs font-serif font-black text-primary leading-none mt-1">{addon.price}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Our Simple Pricing Process */}
-          <section className="py-8 relative border-t border-border-custom/30 pt-16">
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-primary border border-primary/20 bg-primary/5 px-3.5 py-1 rounded-full mb-4 inline-block">
-                PRICING PROCESS
-              </span>
-              <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-text-base mt-2">
-                Our Simple Pricing Process
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 relative">
-              {pricingSteps.map((step, idx) => (
-                <div key={step.id} className="flex flex-col items-center text-center relative group">
-                  <div className="relative z-10 size-12 rounded-full border border-border-custom bg-card-bg shadow-sm flex items-center justify-center mb-4 text-xs font-mono font-bold text-primary">
-                    {step.id}
-                  </div>
-                  
-                  {idx < pricingSteps.length - 1 && (
-                    <div className="hidden md:block absolute top-6 left-[calc(50%+24px)] right-[calc(-50%+24px)] h-[1px] border-t border-dashed border-border-custom/80 z-0 pointer-events-none" />
-                  )}
-
-                  <div className="flex flex-col gap-1">
-                    <h5 className="font-serif text-xs md:text-sm font-bold text-text-base leading-none mt-1">{step.name}</h5>
-                    <p className="text-[10px] text-text-muted leading-tight mt-2 px-1">{step.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* FAQ Segment & CTA banner split */}
-          <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start py-8 border-t border-border-custom/30 pt-16">
-            
-            {/* Left FAQ Accordion */}
-            <div className="lg:col-span-7 flex flex-col gap-6 text-left w-full">
-              <div>
-                <span className="font-mono text-[9px] uppercase tracking-wider text-primary border border-primary/20 bg-primary/10 px-2.5 py-0.5 rounded-full mb-3 inline-block">
-                  FAQ
-                </span>
-                <h3 className="font-serif text-2xl md:text-4xl font-bold text-text-base leading-tight">
-                  Frequently Asked Questions
-                </h3>
-              </div>
-
-              <div className="space-y-3">
-                {faqs.map((faq, idx) => (
+              <div className="divide-y divide-border-custom border-t border-b border-border-custom">
+                {addons.map((addon) => (
                   <div
-                    key={idx}
-                    className="border border-border-custom bg-card-bg/40 rounded-2xl overflow-hidden"
+                    key={addon.index}
+                    className="py-4 flex items-center justify-between gap-4"
                   >
-                    <button
-                      onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                      className="w-full px-5 py-4 flex items-center justify-between text-left focus:outline-none"
-                    >
-                      <span className="font-serif text-xs md:text-sm font-bold text-text-base">{faq.q}</span>
-                      <span className="text-text-muted text-lg leading-none">{openFaq === idx ? "−" : "+"}</span>
-                    </button>
-                    {openFaq === idx && (
-                      <div className="px-5 pb-4 text-xs text-text-muted leading-relaxed border-t border-border-custom/30 pt-3">
-                        {faq.a}
-                      </div>
-                    )}
+                    <div className="flex items-baseline gap-3">
+                      <span className="font-mono text-xs text-primary font-bold">
+                        /{addon.index}
+                      </span>
+                      <span className="font-display text-sm sm:text-base font-bold text-text-base">
+                        {addon.title}
+                      </span>
+                    </div>
+                    <span className="font-mono text-xs font-bold text-primary">
+                      {addon.price}
+                    </span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Right CTA Box: Ready to get started? */}
-            <div className="lg:col-span-5 flex flex-col gap-6 text-left w-full">
-              <div className="hog-card rounded-3xl p-6 md:p-8 bg-card-bg/60 border border-border-custom relative overflow-hidden flex flex-col justify-between min-h-[300px]">
-                <div className="flex flex-col gap-4">
-                  <h3 className="font-serif text-xl font-bold text-text-base">
-                    Ready to get started?
-                  </h3>
-                  <p className="text-xs text-text-muted leading-relaxed">
-                    Let&apos;s build something amazing together. Reach out to schedule your free consultation call.
-                  </p>
-
-                  <div className="flex flex-col gap-2 mt-4 text-xs font-mono">
-                    <div className="flex items-center gap-2">
-                      <span className="text-primary font-bold">Call / WhatsApp:</span>
-                      <span className="text-text-base font-bold">+91 96673 44125</span>
+            <div className="lg:col-span-7">
+              <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-primary font-bold block mb-2">
+                Engagement Sequence
+              </span>
+              <h2 className="metalab-subheadline text-2xl sm:text-3xl font-extrabold text-text-base mb-4">
+                How We Scope &amp; Price Projects
+              </h2>
+              <div className="divide-y divide-border-custom border-t border-b border-border-custom">
+                {pricingSteps.map((step) => (
+                  <div
+                    key={step.id}
+                    className="py-4 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2"
+                  >
+                    <div className="flex items-baseline gap-3">
+                      <span className="font-mono text-xs font-bold text-primary">
+                        /{step.id}
+                      </span>
+                      <span className="font-display text-sm sm:text-base font-bold text-text-base">
+                        {step.name}
+                      </span>
                     </div>
+                    <span className="text-xs sm:text-sm text-text-muted">
+                      {step.desc}
+                    </span>
                   </div>
-                </div>
-
-                <a
-                  href="https://cal.com/jayant-web-and-ai-systems/strategy-call"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-1.5 rounded-xl bg-primary hover:bg-primary-hover text-white py-3 text-xs font-mono font-bold transition-all shadow-md mt-8"
-                >
-                  <span>Book a Free Consultation</span>
-                  <ArrowRight className="size-3.5" />
-                </a>
+                ))}
               </div>
             </div>
-
           </section>
 
+          {/* Pricing FAQs */}
+          <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-8 border-t border-border-custom items-start">
+            <div className="lg:col-span-5">
+              <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-primary font-bold block mb-2">
+                Commercial Clarity
+              </span>
+              <h2 className="metalab-subheadline text-3xl sm:text-4xl font-extrabold text-text-base mb-4">
+                Pricing Questions
+              </h2>
+              <p className="text-sm text-text-muted leading-relaxed">
+                Every project is backed by a written scope and milestone schedule so you have complete cost visibility before development begins.
+              </p>
+            </div>
+
+            <div className="lg:col-span-7 divide-y divide-border-custom border-t border-b border-border-custom">
+              {faqs.map((faq, idx) => {
+                const isOpen = openFaq === idx;
+                return (
+                  <div key={idx}>
+                    <button
+                      onClick={() => setOpenFaq(isOpen ? null : idx)}
+                      className="w-full py-5 flex items-center justify-between gap-4 text-left cursor-pointer focus:outline-none"
+                    >
+                      <span className="font-display text-base sm:text-lg font-bold text-text-base">
+                        {faq.q}
+                      </span>
+                      <Plus
+                        className={`size-4 text-primary shrink-0 transition-transform ${
+                          isOpen ? "rotate-45" : ""
+                        }`}
+                      />
+                    </button>
+                    {isOpen && (
+                      <div className="pb-5 text-sm text-text-muted leading-relaxed">
+                        {faq.a}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+
+          {/* Bottom CTA */}
+          <CallToAction />
         </main>
       </div>
     </PageTransition>
