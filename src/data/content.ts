@@ -87,7 +87,7 @@ export const whyWorkWithMe = [
     desc: "I build systems that are lightweight, easy to maintain, and can grow alongside your business operational scale."
   },
   {
-    title: "Long-term support support",
+    title: "Long-term support",
     desc: "I do not disappear after launching your system. Maintenance and support retainers are always available."
   }
 ];
@@ -298,18 +298,19 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: "teachersathi",
-    title: "Teacher Sathi — Digital Workspace for Teachers",
-    client: "Client Project",
+    title: "Teacher Sathi — AI Lesson Plans for Teachers",
+    client: "Own Startup",
     industry: "Education Technology",
     problem: "Teachers require a centralized platform to manage educational workflows, lesson plans, and resources instead of managing scattered physical or text files.",
     beforeState: "Teachers manually tracked classroom updates, lesson calendars, and student assignments using physical binders and split messaging groups.",
-    solution: "Developed a web platform for lesson planning, resource management, and classroom organization.",
+    solution: "Built an AI platform that turns NCERT chapters (Class 6–10) into bilingual lesson plans, slide decks and worksheets for teachers.",
     afterState: "Teachers organize schedules, structure digital lesson resources, and track student portal details from a unified dashboard.",
     result: "Provides teachers with a streamlined digital workspace and reduces daily prep overhead.",
     tech: ["Next.js", "React", "Tailwind CSS", "Node.js", "PostgreSQL"],
     image: "/projects/teachersathi.webp",
     features: ["Lesson Planning", "Resource Library", "Dashboard", "User Management", "Responsive UI"],
     duration: "5 Weeks",
+    liveWebsite: "https://teacher-sathi.online",
   },
   {
     id: "weact",
@@ -343,8 +344,8 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: "khelclan",
-    title: "KhelClan — Sports Management Platform",
-    client: "Startup Project",
+    title: "KhelClan — Sports Community Platform",
+    client: "Own Project",
     industry: "Sports Technology",
     problem: "Sports communities lack structured, unified tools to coordinate matches, organize teams, and track local competitions.",
     beforeState: "Tournament brackets were designed on random templates, match timings were coordinated manually via text, and team scores were tracked on physical boards.",
@@ -355,6 +356,7 @@ export const caseStudies: CaseStudy[] = [
     image: "/projects/khelclan.webp",
     features: ["Tournament Management", "Match Scheduling", "Team Registration", "Player Profiles"],
     duration: "6 Weeks",
+    liveWebsite: "https://khelclan.online",
   },
   {
     id: "civicsetu",
@@ -375,7 +377,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: "farmiq",
     title: "FarmIQ — AI Crop Insights Platform",
-    client: "Internal Product",
+    client: "Hackathon Winner · Elite Hack 1.0",
     industry: "Agriculture Technology",
     problem: "Farmers need data-driven, precise insights regarding soil and environments to maximize crop productivity.",
     beforeState: "Farmers relied on manual weather guesses and static templates, leading to crop loss during unexpected dry spells.",
@@ -386,6 +388,7 @@ export const caseStudies: CaseStudy[] = [
     image: "/projects/farmiq.webp",
     features: ["Crop Monitoring", "AI Recommendations", "Weather Integration", "Farm Analytics"],
     duration: "6 Weeks",
+    liveWebsite: "https://farm-iq.netlify.app",
   },
   {
     id: "gravitas",
@@ -563,7 +566,7 @@ export const devProcessSteps: DevProcessStep[] = [
   {
     step: "01",
     name: "Discovery & Strategy",
-    desc: "We begin by understanding your business, goals, target audience, technical requirements, and project scope. Through collaborative discussions, we define a clear roadmap and success metrics.",
+    desc: "I start by understanding your business, goals, target audience, technical requirements, and project scope. Together we define a clear roadmap and success metrics.",
     timeline: "1–3 Days",
     deliverables: ["Requirements Document", "Project Scope", "Timeline Estimate", "Technical Consultation", "Proposal"],
     icon: "🔍"
@@ -571,7 +574,7 @@ export const devProcessSteps: DevProcessStep[] = [
   {
     step: "02",
     name: "Planning & UI/UX Design",
-    desc: "We translate ideas into user-friendly experiences by creating wireframes, user flows, and high-fidelity designs that align with your brand and business objectives.",
+    desc: "I translate ideas into user-friendly experiences by creating wireframes, user flows, and high-fidelity designs that align with your brand and business objectives.",
     timeline: "3–7 Days",
     deliverables: ["Wireframes", "User Flow", "UI/UX Design", "Interactive Prototype", "Design Approval"],
     icon: "🎨"
@@ -579,7 +582,7 @@ export const devProcessSteps: DevProcessStep[] = [
   {
     step: "03",
     name: "Development & Integration",
-    desc: "Our team develops the frontend, backend, databases, APIs, AI features, and third-party integrations using modern technologies and best engineering practices.",
+    desc: "I develop the frontend, backend, databases, APIs, AI features, and third-party integrations using modern technologies and best engineering practices.",
     timeline: "2–8 Weeks",
     deliverables: ["Responsive Application", "Backend APIs", "Database", "AI Integrations", "Authentication", "Admin Dashboard"],
     icon: "💻"
@@ -595,7 +598,7 @@ export const devProcessSteps: DevProcessStep[] = [
   {
     step: "05",
     name: "Deployment & Launch",
-    desc: "After final approval, we deploy your application to a secure production environment, configure domains, SSL, analytics, and monitoring for a successful launch.",
+    desc: "After final approval, I deploy your application to a secure production environment, configure domains, SSL, analytics, and monitoring for a successful launch.",
     timeline: "1–2 Days",
     deliverables: ["Live Website/Application", "Cloud Deployment", "SSL Configuration", "Analytics Setup", "Production Environment"],
     icon: "🚀"
@@ -603,7 +606,7 @@ export const devProcessSteps: DevProcessStep[] = [
   {
     step: "06",
     name: "Support & Growth",
-    desc: "We continue supporting your product after launch with maintenance, updates, monitoring, performance improvements, feature enhancements, and technical guidance.",
+    desc: "I continue supporting your product after launch with maintenance, updates, monitoring, performance improvements, feature enhancements, and technical guidance.",
     timeline: "Ongoing",
     deliverables: ["Technical Support", "Maintenance", "Performance Monitoring", "Feature Updates", "Monthly Reports"],
     icon: "🤝"
@@ -676,7 +679,7 @@ export const faqItems: FAQItem[] = [
   },
   {
     question: "Do you sign NDAs and keep project information confidential?",
-    answer: "Yes. I respect client confidentiality and are happy to sign Non-Disclosure Agreements (NDAs) before discussing or starting your project. All project information is handled securely and shared only with authorized collaborators."
+    answer: "Yes. I respect client confidentiality and am happy to sign Non-Disclosure Agreements (NDAs) before discussing or starting your project. All project information is handled securely and shared only with authorized collaborators."
   },
   {
     question: "Can you integrate third-party APIs and business tools?",

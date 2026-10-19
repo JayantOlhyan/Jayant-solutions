@@ -33,10 +33,10 @@
 }
 
 @theme {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-manrope), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-ibm-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   --color-bg-base: var(--background);
   --color-text-base: var(--foreground);
@@ -50,7 +50,70 @@
   --color-card-bg: var(--card-bg);
   --color-card-subtle: var(--card-bg-subtle);
 
-  /* Typographic Scale */
+  /* Redesign Phase 1 Tokens */
+  --color-ink: #0B0B0C;
+  --color-paper: #FFFFFF;
+  --color-stone: #F4F3F0;
+  --color-hairline: #E6E4E0;
+  --color-graphite: #6B6862;
+  --color-body-muted: #3D3B37;
+  --color-signal: #E8590C;
+
+  /* Project Tints (media frames only) */
+  --color-tint-sathi: #DDE9DF;
+  --color-tint-health: #DCE5F2;
+  --color-tint-khel: #E4EBC9;
+  --color-tint-farm: #F1E7CF;
+  --color-tint-sentinel: #E6E0F5;
+  --color-tint-civic: #EEDFD7;
+  --color-tint-msit: #E1E5EC;
+  --color-tint-showcase-green: #1E3A2B;
+
+  /* Typographic Scale (clamp 390px to 1440px) */
+  --text-d1: clamp(46px, 24.457px + 5.524vw, 104px);
+  --text-d1--line-height: 0.98;
+  --text-d1--letter-spacing: -0.035em;
+
+  --text-d2: clamp(48px, 36.114px + 3.048vw, 80px);
+  --text-d2--line-height: 1.0;
+  --text-d2--letter-spacing: -0.035em;
+
+  --text-v2-h1: clamp(40px, 34.057px + 1.524vw, 56px);
+  --text-v2-h1--line-height: 1.05;
+  --text-v2-h1--letter-spacing: -0.03em;
+
+  --text-v2-h2: clamp(30px, 26.286px + 0.952vw, 40px);
+  --text-v2-h2--line-height: 1.1;
+  --text-v2-h2--letter-spacing: -0.025em;
+
+  --text-v2-h3: clamp(20px, 19.257px + 0.19vw, 22px);
+  --text-v2-h3--line-height: 1.25;
+  --text-v2-h3--letter-spacing: -0.02em;
+
+  --text-body-l: clamp(17px, 16.257px + 0.19vw, 19px);
+  --text-body-l--line-height: 1.55;
+
+  --text-v2-body: clamp(15px, 14.628px + 0.095vw, 16px);
+  --text-v2-body--line-height: 1.6;
+
+  --text-v2-small: 14px;
+  --text-v2-small--line-height: 1.5;
+
+  --text-v2-label: clamp(12px, 11.628px + 0.095vw, 13px);
+  --text-v2-label--line-height: 1.4;
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --transition-hover: 250ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  --transition-reveal: 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  --scale-image-hover: 1.035;
+
+  /* Layout */
+  --spacing-section: clamp(96px, 72.23px + 6.095vw, 160px);
+  --radius-media: 14px;
+  --radius-pill: 9999px;
+
+  /* Legacy Typographic Scale (kept for existing pages) */
   --text-h1-mobile: clamp(32px, 5.5vw, 38px);
   --text-h1-desktop: clamp(44px, 4.2vw, 60px);
   --text-h2-mobile: clamp(26px, 4vw, 30px);
@@ -202,10 +265,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .marquee-rail {
-    animation: none;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: auto;
+    animation: none !important;
   }
 }
 
@@ -273,6 +333,8 @@ html, body {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
+  scroll-padding-top: 88px;
+  scrollbar-gutter: stable;
 }
 
 @media (min-width: 768px) {
@@ -341,14 +403,15 @@ kbd {
   font-weight: bold;
 }
 
-/* Focus styles */
+/* Focus styles (WCAG AA visible signal-orange focus ring) */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible,
+summary:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--color-signal, #E8590C);
   outline-offset: 2px;
 }
 
@@ -358,7 +421,7 @@ textarea:focus-visible,
   top: -100%;
   left: 1rem;
   padding: 0.75rem 1.5rem;
-  background: var(--primary);
+  background: var(--color-ink, #0B0B0C);
   color: #FFFFFF;
   font-weight: 600;
   border-radius: 0 0 8px 8px;
@@ -367,6 +430,192 @@ textarea:focus-visible,
 }
 .skip-link:focus {
   top: 0;
+}
+
+/* ==========================================
+   Redesign Phase 1: v2 Editorial Utilities
+   ========================================== */
+
+/* Display Font & Typographic Classes */
+.font-display {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 32;
+  letter-spacing: -0.035em;
+  font-weight: 500;
+}
+
+.type-d1 {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 32;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  font-size: var(--text-d1);
+  line-height: 0.98;
+}
+
+.type-d2 {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 32;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  font-size: var(--text-d2);
+  line-height: 1.0;
+}
+
+.type-h1 {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 32;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  font-size: var(--text-v2-h1);
+  line-height: 1.05;
+}
+
+.type-h2 {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 32;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  font-size: var(--text-v2-h2);
+  line-height: 1.1;
+}
+
+.type-h3 {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 32;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  font-size: var(--text-v2-h3);
+  line-height: 1.25;
+}
+
+.type-body-l {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--text-body-l);
+  line-height: 1.55;
+}
+
+.type-body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--text-v2-body);
+  line-height: 1.6;
+}
+
+.type-small {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.type-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-label-v2);
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-graphite, #6B6862);
+}
+
+/* TextLink: Underline sweeps in left -> right (background-size 0 -> 100%) on hover AND focus-visible */
+.v2-text-link {
+  display: inline;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 250ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  text-decoration: none;
+}
+.v2-text-link:hover,
+.v2-text-link:focus-visible {
+  background-size: 100% 1px;
+}
+
+/* Accordion native details/summary: works with JS disabled, icon rotates 45deg when open */
+details.v2-accordion summary::-webkit-details-marker {
+  display: none;
+}
+details.v2-accordion summary {
+  list-style: none;
+  cursor: pointer;
+}
+details.v2-accordion[open] .v2-accordion-icon {
+  transform: rotate(45deg);
+}
+.v2-accordion-icon {
+  transition: transform 250ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Reveal: CSS-First Scroll Reveal
+   Content MUST be fully visible if JS is off or fails (never ship opacity:0 in server HTML).
+   Only when JS hydrates and adds data-reveal-ready to <html> does scroll-reveal activate. */
+.v2-reveal {
+  opacity: 1;
+  transform: none;
+}
+
+html[data-reveal-ready] .v2-reveal:not([data-revealed="true"]) {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 700ms cubic-bezier(0.2, 0.7, 0.2, 1), transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+html[data-reveal-ready] .v2-reveal[data-revealed="true"] {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 700ms cubic-bezier(0.2, 0.7, 0.2, 1), transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* prefers-reduced-motion: disable animations, motion transitions, and hover transforms; preserve layout transforms and colour transitions */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-delay: 0s !important;
+    transition-duration: 0s !important;
+  }
+
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  /* Reveal motion suppression */
+  html[data-reveal-ready] .v2-reveal,
+  html[data-reveal-ready] .v2-reveal:not([data-revealed="true"]),
+  html[data-reveal-ready] .v2-reveal[data-revealed="true"] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Disable motion transforms only: hover-scale, tilts, and arrow translations */
+  .v2-tilted-screen,
+  .v2-tilted-screen > div,
+  [class*="group-hover:scale-"],
+  [class*="hover:scale-"],
+  [class*="group-focus-visible:scale-"],
+  [class*="group-hover:translate-"],
+  [class*="group-focus-visible:translate-"],
+  .v2-accordion-icon {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Header hide transition & mobile-menu entrance */
+  header[aria-label="Site header"],
+  #mobile-navigation-menu {
+    transition: none !important;
+  }
+
+  /* Retain colour transitions only */
+  a, button, [role="button"], input, select, textarea, summary {
+    transition: color 250ms ease, background-color 250ms ease, border-color 250ms ease !important;
+  }
 }
 
 /* PWA Animations */

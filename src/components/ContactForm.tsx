@@ -22,6 +22,8 @@ function getOfflineServerSnapshot() {
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -74,16 +76,50 @@ export default function ContactForm() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Submissions are delivered through Netlify Forms. The form is registered at
+  // build time by the static file public/__forms.html (required for Next.js on Netlify).
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.agreement) {
       alert("Please fill in all required fields and accept the agreement.");
       return;
     }
 
-    console.log("Routing Project Inquiry to jayantwebaisystems@gmail.com:", formData);
-    setSubmitted(true);
+    const honeypot = (e.currentTarget.elements.namedItem("bot-field") as HTMLInputElement | null)?.value ?? "";
+    const body = new URLSearchParams({
+      "form-name": "project-inquiry",
+      "bot-field": honeypot,
+      name: formData.name,
+      company: formData.company,
+      email: formData.email,
+      phone: formData.phone,
+      projectType: formData.projectType,
+      budget: formData.budget,
+      timeline: formData.timeline,
+      description: formData.description,
+      agreement: formData.agreement ? "yes" : "no",
+    });
+
+    setSending(true);
+    setSendError(false);
+    try {
+      const res = await fetch("/__forms.html", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString(),
+      });
+      if (!res.ok) throw new Error(`Form submission failed: ${res.status}`);
+      setSubmitted(true);
+    } catch {
+      setSendError(true);
+    } finally {
+      setSending(false);
+    }
   };
+
+  const fallbackText = encodeURIComponent(
+    `Hi Jayant, I'd like to discuss a project.\nName: ${formData.name}\nType: ${formData.projectType}\nBudget: ${formData.budget}\n\n${formData.description}`
+  );
 
   if (submitted) {
     return (
@@ -113,7 +149,7 @@ export default function ContactForm() {
             });
             setSubmitted(false);
           }}
-          className="hog-btn px-6 py-2.5 text-xs rounded-lg cursor-pointer"
+          className="inline-flex min-h-11 items-center rounded-full bg-neutral-950 hover:bg-neutral-800 text-white px-6 text-sm font-medium cursor-pointer"
         >
           Send Another Inquiry
         </button>
@@ -122,21 +158,24 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="hog-card p-6 md:p-8 text-left bg-card-bg border border-border-custom">
+    <div className="rounded-[10px] p-6 md:p-8 text-left bg-white border border-neutral-200">
       <div className="mb-6 pb-4 border-b border-border-custom">
-        <span className="font-mono text-[10px] uppercase tracking-wider text-primary font-semibold block mb-1">
-          Project Requirements Brief
-        </span>
-        <h3 className="font-display text-xl md:text-2xl font-extrabold text-text-base">
-          Discuss Your Project
+                <h3 className="text-xl md:text-2xl font-medium tracking-[-0.02em] text-neutral-950">
+          Tell me about your project
         </h3>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-5">
+      <form name="project-inquiry" onSubmit={handleSubmit} className="space-y-5">
+        <p className="hidden" aria-hidden="true">
+          <label>
+            Leave this field empty
+            <input name="bot-field" tabIndex={-1} autoComplete="off" />
+          </label>
+        </p>
         {/* Personal Details */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="name" className="font-mono text-[10px] uppercase tracking-wider text-text-muted block mb-1.5">
+            <label htmlFor="name" className="text-sm font-medium text-neutral-950 block mb-1.5">
               Full Name *
             </label>
             <input
@@ -146,13 +185,13 @@ export default function ContactForm() {
               required
               value={formData.name}
               onChange={handleInputChange}
-              placeholder="Jayant Olhyan"
-              className="w-full bg-background-base border border-border-custom hover:border-primary/50 focus:border-primary rounded-xl px-4 py-2.5 text-xs outline-none transition-colors"
+              placeholder="Your name"
+              className="w-full bg-background-base border border-border-custom hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-4 py-3 text-base sm:text-sm outline-none transition-colors"
             />
           </div>
 
           <div>
-            <label htmlFor="company" className="font-mono text-[10px] uppercase tracking-wider text-text-muted block mb-1.5">
+            <label htmlFor="company" className="text-sm font-medium text-neutral-950 block mb-1.5">
               Company Name
             </label>
             <input
@@ -161,15 +200,15 @@ export default function ContactForm() {
               name="company"
               value={formData.company}
               onChange={handleInputChange}
-              placeholder="JAYANT SYSTEMS"
-              className="w-full bg-background-base border border-border-custom hover:border-primary/50 focus:border-primary rounded-xl px-4 py-2.5 text-xs outline-none transition-colors"
+              placeholder="Company (optional)"
+              className="w-full bg-background-base border border-border-custom hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-4 py-3 text-base sm:text-sm outline-none transition-colors"
             />
           </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="email" className="font-mono text-[10px] uppercase tracking-wider text-text-muted block mb-1.5">
+            <label htmlFor="email" className="text-sm font-medium text-neutral-950 block mb-1.5">
               Email Address *
             </label>
             <input
@@ -180,12 +219,12 @@ export default function ContactForm() {
               value={formData.email}
               onChange={handleInputChange}
               placeholder="hello@example.com"
-              className="w-full bg-background-base border border-border-custom hover:border-primary/50 focus:border-primary rounded-xl px-4 py-2.5 text-xs outline-none transition-colors"
+              className="w-full bg-background-base border border-border-custom hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-4 py-3 text-base sm:text-sm outline-none transition-colors"
             />
           </div>
 
           <div>
-            <label htmlFor="phone" className="font-mono text-[10px] uppercase tracking-wider text-text-muted block mb-1.5">
+            <label htmlFor="phone" className="text-sm font-medium text-neutral-950 block mb-1.5">
               Phone Number
             </label>
             <input
@@ -194,8 +233,8 @@ export default function ContactForm() {
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
-              placeholder="+91 96673 44125"
-              className="w-full bg-background-base border border-border-custom hover:border-primary/50 focus:border-primary rounded-xl px-4 py-2.5 text-xs outline-none transition-colors"
+              placeholder="+91 98765 43210"
+              className="w-full bg-background-base border border-border-custom hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-4 py-3 text-base sm:text-sm outline-none transition-colors"
             />
           </div>
         </div>
@@ -203,7 +242,7 @@ export default function ContactForm() {
         {/* Project Selectors */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
-            <label htmlFor="projectType" className="font-mono text-[10px] uppercase tracking-wider text-text-muted block mb-1.5">
+            <label htmlFor="projectType" className="text-sm font-medium text-neutral-950 block mb-1.5">
               Project Type *
             </label>
             <select
@@ -212,7 +251,7 @@ export default function ContactForm() {
               required
               value={formData.projectType}
               onChange={handleInputChange}
-              className="w-full bg-background-base border border-border-custom hover:border-primary/50 focus:border-primary rounded-xl px-3 py-2.5 text-xs outline-none transition-colors appearance-none cursor-pointer"
+              className="w-full bg-background-base border border-border-custom hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-3 py-3 text-base sm:text-sm outline-none transition-colors appearance-none cursor-pointer"
             >
               <option value="">Select Option</option>
               {projectTypes.map((type) => (
@@ -222,7 +261,7 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label htmlFor="budget" className="font-mono text-[10px] uppercase tracking-wider text-text-muted block mb-1.5">
+            <label htmlFor="budget" className="text-sm font-medium text-neutral-950 block mb-1.5">
               Budget Range *
             </label>
             <select
@@ -231,7 +270,7 @@ export default function ContactForm() {
               required
               value={formData.budget}
               onChange={handleInputChange}
-              className="w-full bg-background-base border border-border-custom hover:border-primary/50 focus:border-primary rounded-xl px-3 py-2.5 text-xs outline-none transition-colors appearance-none cursor-pointer"
+              className="w-full bg-background-base border border-border-custom hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-3 py-3 text-base sm:text-sm outline-none transition-colors appearance-none cursor-pointer"
             >
               <option value="">Select Budget</option>
               {budgets.map((b) => (
@@ -241,7 +280,7 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label htmlFor="timeline" className="font-mono text-[10px] uppercase tracking-wider text-text-muted block mb-1.5">
+            <label htmlFor="timeline" className="text-sm font-medium text-neutral-950 block mb-1.5">
               Timeline *
             </label>
             <select
@@ -250,7 +289,7 @@ export default function ContactForm() {
               required
               value={formData.timeline}
               onChange={handleInputChange}
-              className="w-full bg-background-base border border-border-custom hover:border-primary/50 focus:border-primary rounded-xl px-3 py-2.5 text-xs outline-none transition-colors appearance-none cursor-pointer"
+              className="w-full bg-background-base border border-border-custom hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-3 py-3 text-base sm:text-sm outline-none transition-colors appearance-none cursor-pointer"
             >
               <option value="">Select Timeline</option>
               {timelines.map((t) => (
@@ -262,7 +301,7 @@ export default function ContactForm() {
 
         {/* Project Description Textarea */}
         <div>
-          <label htmlFor="description" className="font-mono text-[10px] uppercase tracking-wider text-text-muted block mb-1.5">
+          <label htmlFor="description" className="text-sm font-medium text-neutral-950 block mb-1.5">
             Project Description *
           </label>
           <textarea
@@ -272,8 +311,8 @@ export default function ContactForm() {
             rows={5}
             value={formData.description}
             onChange={handleInputChange}
-            placeholder="Tell us about your project, goals, features, and any specific requirements..."
-            className="w-full bg-background-base border border-border-custom hover:border-primary/50 focus:border-primary rounded-xl px-4 py-2.5 text-xs outline-none transition-colors resize-none"
+            placeholder="What does your business do, and what problem should this solve?"
+            className="w-full bg-background-base border border-border-custom hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-4 py-3 text-base sm:text-sm outline-none transition-colors resize-none"
           />
         </div>
 
@@ -286,28 +325,36 @@ export default function ContactForm() {
             required
             checked={formData.agreement}
             onChange={handleInputChange}
-            className="mt-0.5 rounded border-border-custom text-primary focus:ring-primary size-4 cursor-pointer"
+            className="mt-0.5 rounded border-border-custom text-neutral-950 focus:ring-neutral-950 size-4 cursor-pointer"
           />
           <label htmlFor="agreement" className="text-[11px] text-text-muted leading-tight cursor-pointer select-none">
-            I agree to the <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a> and <a href="/terms" className="text-primary hover:underline">Terms & Conditions</a>.
+            I agree to the <a href="/privacy" className="underline underline-offset-2 text-neutral-950">Privacy Policy</a> and <a href="/terms" className="underline underline-offset-2 text-neutral-950">Terms & Conditions</a>.
           </label>
         </div>
 
         {/* Action Button */}
         <button
           type="submit"
-          disabled={isOffline}
-          className={`w-full inline-flex items-center justify-center gap-2 rounded-xl text-white font-mono text-xs font-bold py-3.5 transition-all duration-200 ${
-            isOffline
+          disabled={sending}
+          className={`w-full inline-flex items-center justify-center gap-2 rounded-full text-white text-[15px] font-medium min-h-12 transition-all duration-200 ${
+            sending
               ? "bg-neutral-400 dark:bg-neutral-800 cursor-not-allowed shadow-none"
-              : "bg-primary hover:bg-primary-hover shadow-md"
+              : "bg-neutral-950 hover:bg-neutral-800"
           }`}
         >
-          {isOffline ? "Offline Mode Enabled" : "Send Project Inquiry"} <ArrowRight className="size-3.5" />
+          {sending ? "Sending…" : "Send message"} <ArrowRight className="size-3.5" />
         </button>
+        {sendError && (
+          <p role="alert" className="text-sm text-red-600 text-center mt-2.5 leading-relaxed">
+            Your message couldn&apos;t be sent. Please{" "}
+            <a className="underline font-medium" href={`https://wa.me/919667344125?text=${fallbackText}`}>send it on WhatsApp</a>{" "}
+            or{" "}
+            <a className="underline font-medium" href={`mailto:jayantwebaisystems@gmail.com?subject=Project%20inquiry&body=${fallbackText}`}>email it</a>.
+          </p>
+        )}
         {isOffline && (
-          <p className="text-red-500 font-mono text-[10px] text-center mt-2.5">
-            ⚠️ Inquiry submission is temporarily disabled while offline.
+          <p className="text-neutral-500 text-sm text-center mt-2.5">
+            You seem to be offline. If sending fails, you can reach me on WhatsApp instead.
           </p>
         )}
       </form>

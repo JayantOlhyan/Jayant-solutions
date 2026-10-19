@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Inter, Instrument_Serif, IBM_Plex_Mono, DM_Serif_Display, Manrope } from "next/font/google";
-import Navbar from "@/components/Navbar";
+import { Geist, Geist_Mono, Inter, Manrope } from "next/font/google";
+import SiteHeader from "@/components/v2/SiteHeader";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import SEOLinks from "@/components/SEOLinks";
-import Footer from "@/components/Footer";
+import SiteFooter from "@/components/v2/SiteFooter";
+import SmoothScroll from "@/components/v2/motion/SmoothScroll";
 import PWAHandler from "@/components/PWAHandler";
 import JsonLd from "@/components/seo/JsonLd";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
@@ -17,33 +18,20 @@ const geist = Geist({
   display: "swap",
 });
 
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+  display: "swap",
+});
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
+  axes: ["opsz"],
 });
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-});
-
-const ibmMono = IBM_Plex_Mono({
-  variable: "--font-ibm-mono",
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-});
-
-const dmSerifDisplay = DM_Serif_Display({
-  variable: "--font-dm-serif",
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-});
-
+// Manrope is kept only for the proposal/admin surfaces that reference --font-manrope.
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
@@ -112,21 +100,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full" suppressHydrationWarning>
+    <html lang="en" className={`${geist.variable} ${geistMono.variable} ${inter.variable} ${manrope.variable} h-full`} suppressHydrationWarning>
       <head></head>
-      <body className={`${geist.variable} ${inter.variable} ${instrumentSerif.variable} ${ibmMono.variable} ${dmSerifDisplay.variable} ${manrope.variable} min-h-full bg-bg-base text-text-base flex flex-col justify-between selection:bg-primary/10 selection:text-primary transition-colors duration-300 antialiased`}>
-        <GoogleAnalytics />
-        <a className="skip-link" href="#main-content">Skip to main content</a>
-        <JsonLd schema={[createOrganizationSchema(), createWebSiteSchema()]} />
-        <Navbar />
-        <div id="main-content" className="flex-1 w-full pt-16">
-          <Breadcrumbs />
-          {children}
-        </div>
-        <SEOLinks />
-        <FloatingWhatsApp />
-        <PWAHandler />
-        <Footer />
+      <body className={`min-h-full bg-bg-base text-text-base flex flex-col justify-between selection:bg-primary/10 selection:text-primary transition-colors duration-300 antialiased`}>
+        <SmoothScroll>
+          <GoogleAnalytics />
+          <a className="skip-link" href="#main-content">Skip to main content</a>
+          <JsonLd schema={[createOrganizationSchema(), createWebSiteSchema()]} />
+          <SiteHeader />
+          <div id="main-content" className="flex-1 w-full pt-[72px]">
+            <Breadcrumbs />
+            {children}
+          </div>
+          <SEOLinks />
+          <FloatingWhatsApp />
+          <PWAHandler />
+          <SiteFooter />
+        </SmoothScroll>
       </body>
     </html>
   );
