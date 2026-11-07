@@ -8,6 +8,7 @@ import BrandLogo from "@/components/BrandLogo";
 import { Button } from "./Button";
 import { useScrollDirection } from "./motion/useScrollDirection";
 import { useLenis } from "./motion/SmoothScroll";
+import { CONTACT_INFO } from "@/data/contact";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -125,12 +126,13 @@ export function SiteHeader() {
     !isFocusInside;
 
   const isScrolled = scrollY > 20;
+  const isHomePage = pathname === "/";
 
   const navLinks = [
-    { label: "Work", href: "/portfolio" },
-    { label: "Services", href: "/services" },
-    { label: "Pricing", href: "/pricing" },
-    { label: "About", href: "/about" },
+    { label: "Work", href: isHomePage ? "#work" : "/#work" },
+    { label: "Services", href: isHomePage ? "#services" : "/#services" },
+    { label: "About", href: isHomePage ? "#about" : "/#about" },
+    { label: "Contact", href: isHomePage ? "#contact" : "/#contact" },
   ];
 
   return (
@@ -164,28 +166,21 @@ export function SiteHeader() {
             aria-label="Primary navigation"
             className="hidden md:flex items-center gap-1 lg:gap-2 flex-wrap"
           >
-            {navLinks.map((item) => {
-              const isActive = pathname === item.href || pathname?.startsWith(`${item.href}/`);
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`px-3.5 py-2 text-sm font-medium transition-colors duration-200 rounded-full focus-visible:outline-2 focus-visible:outline-[#E8590C] focus-visible:outline-offset-2 ${
-                    isActive
-                      ? "text-[#0B0B0C] font-semibold"
-                      : "text-[#6B6862] hover:text-[#0B0B0C]"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
+            {navLinks.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="px-3.5 py-2 text-sm font-medium text-[#6B6862] hover:text-[#0B0B0C] transition-colors duration-200 rounded-full focus-visible:outline-2 focus-visible:outline-[#E8590C] focus-visible:outline-offset-2"
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
 
           {/* Primary CTA (Desktop) */}
           <div className="hidden md:flex items-center shrink-0">
-            <Button variant="primary" size="md" href="/contact" arrow>
-              Start a project
+            <Button variant="primary" size="md" href={CONTACT_INFO.bookingPath} arrow>
+              Book a call
             </Button>
           </div>
 
@@ -215,7 +210,7 @@ export function SiteHeader() {
           role="dialog"
           aria-modal="true"
           aria-label="Navigation menu"
-          className="fixed inset-0 z-50 md:hidden bg-white flex flex-col justify-between p-6 sm:p-8 overflow-y-auto"
+          className="fixed inset-0 z-50 md:hidden bg-white flex flex-col justify-between p-6 sm:p-8 overflow-y-auto max-w-full overflow-x-hidden"
         >
           {/* Top Bar inside Overlay */}
           <div className="flex items-center justify-between gap-4 h-[56px] border-b border-[#E6E4E0] pb-4">
@@ -241,22 +236,17 @@ export function SiteHeader() {
           </div>
 
           {/* Large Display-Size Navigation Links */}
-          <nav aria-label="Mobile menu links" className="flex flex-col gap-2 my-auto py-8">
-            {navLinks.map((item) => {
-              const isActive = pathname === item.href || pathname?.startsWith(`${item.href}/`);
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`min-h-[44px] py-2 font-display text-3xl sm:text-4xl font-medium tracking-tight transition-colors focus-visible:outline-2 focus-visible:outline-[#E8590C] focus-visible:outline-offset-2 ${
-                    isActive ? "text-[#0B0B0C]" : "text-[#6B6862] hover:text-[#0B0B0C]"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
+          <nav aria-label="Mobile navigation links" className="flex flex-col gap-2 my-auto py-8">
+            {navLinks.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="min-h-[44px] flex items-center py-2 font-display text-3xl sm:text-4xl font-medium tracking-tight text-[#0B0B0C] hover:text-[#6B6862] transition-colors focus-visible:outline-2 focus-visible:outline-[#E8590C] focus-visible:outline-offset-2"
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
 
           {/* Bottom Action Block */}
@@ -264,16 +254,32 @@ export function SiteHeader() {
             <Button
               variant="primary"
               size="lg"
-              href="/contact"
+              href={CONTACT_INFO.bookingPath}
               arrow
               className="w-full justify-between"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Start a project
+              Book a call
             </Button>
-            <p className="text-xs font-mono text-[#6B6862] text-center pt-2">
-              Dwarka, New Delhi &bull; working worldwide
-            </p>
+            <Button
+              variant="secondary"
+              size="lg"
+              href={isHomePage ? "#contact" : "/#contact"}
+              className="w-full justify-between"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Send an inquiry
+            </Button>
+            <div className="flex flex-wrap items-center justify-between text-xs font-mono text-[#6B6862] pt-2">
+              <a
+                href={`mailto:${CONTACT_INFO.email}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="hover:underline focus-visible:outline-2 focus-visible:outline-[#E8590C]"
+              >
+                {CONTACT_INFO.email}
+              </a>
+              <span>{CONTACT_INFO.phone}</span>
+            </div>
           </div>
         </div>
       )}

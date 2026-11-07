@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Container from "./Container";
+import { CONTACT_INFO } from "@/data/contact";
 
 const serviceAnchors = [
   "Websites & web apps",
@@ -74,16 +75,16 @@ export default function HomeHero() {
             </p>
             <div className="flex flex-wrap items-center gap-3">
               <Link
-                href="/contact/book-a-consultation"
+                href={CONTACT_INFO.bookingPath}
                 className="inline-flex min-h-12 items-center gap-2 rounded-full bg-neutral-950 px-6 text-[15px] font-medium text-white transition-colors hover:bg-neutral-800"
               >
-                Book a 15-min call <ArrowUpRight className="size-4" aria-hidden="true" />
+                Book a call <ArrowUpRight className="size-4" aria-hidden="true" />
               </Link>
               <Link
                 href="#contact"
                 className="inline-flex min-h-12 items-center rounded-full border border-neutral-300 px-6 text-[15px] font-medium text-neutral-950 transition-colors hover:border-neutral-950"
               >
-                Discuss project
+                Send an inquiry
               </Link>
               <Link
                 href="#work"

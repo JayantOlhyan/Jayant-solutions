@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { whyWorkWithMe } from "@/data/content";
 import Container from "./Container";
+import { CONTACT_INFO } from "@/data/contact";
 
 export default function Founder() {
   return (
@@ -70,10 +71,10 @@ export default function Founder() {
 
             <div className="pt-2">
               <Link
-                href="/contact/book-a-consultation"
+                href={CONTACT_INFO.bookingPath}
                 className="inline-flex min-h-12 items-center gap-2 rounded-full bg-neutral-950 px-6 text-[15px] font-medium text-white transition-colors hover:bg-neutral-800"
               >
-                Schedule a 15-min call with Jayant <ArrowUpRight className="size-4" aria-hidden="true" />
+                Book a call with Jayant <ArrowUpRight className="size-4" aria-hidden="true" />
               </Link>
             </div>
           </div>

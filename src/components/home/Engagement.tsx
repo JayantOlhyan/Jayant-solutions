@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Check, ArrowUpRight } from "lucide-react";
 import { packages, projectInclusions } from "@/data/content";
 import Container from "./Container";
+import { CONTACT_INFO } from "@/data/contact";
 
 export default function Engagement() {
   return (
@@ -12,7 +13,7 @@ export default function Engagement() {
             Pricing
           </h2>
           <p className="max-w-md text-[15px] leading-relaxed text-neutral-600">
-            Starting prices. The final fixed price is in your written scope after a 15-minute call — no hourly billing.
+            Starting prices. The final fixed price is in your written scope after a discovery call — no hourly billing.
           </p>
         </div>
 
@@ -49,14 +50,14 @@ export default function Engagement() {
                   <span className={p.isPopular ? "text-white font-medium" : "text-neutral-950 font-medium"}>{p.timeline}</span>
                 </div>
                 <Link
-                  href="/contact/book-a-consultation"
+                  href={CONTACT_INFO.bookingPath}
                   className={`inline-flex min-h-11 items-center justify-center gap-1.5 rounded-full text-[14px] font-medium transition-colors ${
                     p.isPopular
                       ? "bg-white text-neutral-950 hover:bg-neutral-100"
                       : "bg-neutral-950 text-white hover:bg-neutral-800"
                   }`}
                 >
-                  <span>Book {p.name} Discovery Call</span>
+                  <span>Book a call</span>
                   <ArrowUpRight className="size-4" aria-hidden="true" />
                 </Link>
               </div>

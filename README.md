@@ -96,7 +96,9 @@ project/
 
 ### Implemented
 
-- **Public Marketing Website & Landing Page:** High-performance, statically optimized editorial architecture detailing Services, Work Matrix, Pricing Packages, Delivery Lifecycle, and FAQ.
+- **Phase 2 Navigation & Contact Paths:** Simplified primary navigation to 4 essential destinations (*Work, Services, About, Contact*) with automatic homepage in-page anchor resolution (`#section` vs `/#section`) and `scroll-mt-24` fixed-header offset. Standardized primary header and mobile action to **"Book a call"** routing to `/contact/book-a-consultation`, paired with a secondary **"Send an inquiry"** path. Streamlined the footer to prioritize core destinations, verified direct contact channels (Email, WhatsApp, Phone), and legal policies while removing the oversized 6-column public directory.
+- **Centralized Contact Configuration:** Single shared configuration module (`src/data/contact.ts`) driving active header, footer, homepage, and contact surfaces without fabricated details.
+- **Duration Claim Harmonization:** Removed conflicting 15-min and 15–20 min duration claims across public pages to avoid calendar event discrepancies while preserving scheduling functionality.
 - **Authenticated Founder & Engineering Credentials:** Grounded, verifiable proof strip linking to live deployments (Teacher Sathi, Healthkinator, FarmIQ, KhelClan, Sentinel AI, CivicSetu), public GitHub repositories (`github.com/JayantOlhyan`), national hackathon awards (Winner, Elite Hack 1.0), conference speaker pedigree (MRIIRS International AI Conference), and dual engineering background (B.Tech CS at MSIT New Delhi, BSc Data Science & AI at IIT Guwahati).
 - **Direct Discovery & Call Booking System:** Live interactive Cal.com scheduling embed (`/contact/book-a-consultation`), dual-channel WhatsApp quick-booking (+91 96673 44125), direct founder communication guarantee (12–24h response), and Netlify-backed written project brief form (`ContactForm`).
 - **Dynamic Pricing & Packages:** 3 core tiers (Starter, Growth, Scale) with transparent deliverables, timelines, risk reversals, and direct scoping call action triggers.
@@ -219,7 +221,8 @@ This project is configured for deployment on **Netlify**.
 
 ### Completed
 - Next.js 16.3 + React 19 Frontend UI
-- Founder-Led Landing Page Redesign (Editorial Authority & Verified Proof)
+- Phase 1: Founder-Led Landing Page Redesign (Editorial Authority & Verified Proof)
+- Phase 2: Navigation & Contact-Path Consolidation (Work, Services, About, Contact, Cal.com "Book a call" focus, simplified footer, mobile menu a11y)
 - Live Cal.com Discovery Call Scheduler & WhatsApp Quick Booking (`/contact/book-a-consultation`)
 - Complete Supabase Database Schema & Migrations
 - Marketing Content & Case Studies with Live Shipped Links & GitHub Repos

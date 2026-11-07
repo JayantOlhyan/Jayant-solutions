@@ -71,7 +71,7 @@ export default function FAQPage() {
     },
     {
       q: "How do I get started with my project?",
-      a: "Book a 15-minute discovery call or send a written project brief through our contact page. You will speak directly with founder Jayant Olhyan within 12–24 business hours.",
+      a: "Book a discovery call or send a written project brief through our contact page. You will speak directly with founder Jayant Olhyan within 12–24 business hours.",
       category: "General",
     },
   ];

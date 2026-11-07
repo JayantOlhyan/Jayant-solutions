@@ -7,24 +7,14 @@ import {
   ArrowRight,
   ArrowUpRight,
   Mail,
-  Phone,
   MapPin,
   Calendar,
-  Clock,
-  ShieldCheck,
   MessageCircle,
 } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
+import { CONTACT_INFO } from "@/data/contact";
 
 export default function ContactPage() {
-  const socials = [
-    { name: "GitHub", href: "https://github.com/JayantOlhyan" },
-    { name: "LinkedIn", href: "https://linkedin.com/company/jayant-systems" },
-    { name: "X / Twitter", href: "https://x.com/JayantSystems" },
-    { name: "Instagram", href: "https://www.instagram.com/jayantolhyan/" },
-    { name: "YouTube", href: "https://www.youtube.com/@JayantWebAISystems" },
-  ];
-
   const commitments = [
     {
       index: "01",
@@ -70,11 +60,11 @@ export default function ContactPage() {
                   Share your project requirements, workflow bottleneck, or existing website URL. We will review your context and outline the appropriate next step together.
                 </p>
                 <Link
-                  href="/contact/book-a-consultation"
+                  href={CONTACT_INFO.bookingPath}
                   className="inline-flex items-center gap-2 rounded-full bg-primary hover:bg-primary-hover text-white px-6 py-3 text-xs font-display font-bold transition-all"
                 >
                   <Calendar className="size-3.5" />
-                  <span>Or Book a 15-Min Discovery Call</span>
+                  <span>Or Book a Call</span>
                   <ArrowUpRight className="size-3.5" />
                 </Link>
               </div>
@@ -109,10 +99,10 @@ export default function ContactPage() {
                         Direct Email
                       </span>
                       <a
-                        href="mailto:jayantwebaisystems@gmail.com"
+                        href={`mailto:${CONTACT_INFO.email}`}
                         className="text-sm text-white hover:text-[#FF8A00] transition-colors break-all"
                       >
-                        jayantwebaisystems@gmail.com
+                        {CONTACT_INFO.email}
                       </a>
                     </div>
                   </div>
@@ -124,12 +114,12 @@ export default function ContactPage() {
                         WhatsApp &amp; Phone
                       </span>
                       <a
-                        href="https://wa.me/919667344125?text=Hi%20Jayant,%20I%20would%20like%20to%20discuss%20a%20project"
+                        href={CONTACT_INFO.whatsappUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-sm text-white hover:text-[#FF8A00] transition-colors"
                       >
-                        +91 96673 44125
+                        {CONTACT_INFO.phone}
                       </a>
                     </div>
                   </div>
@@ -141,10 +131,10 @@ export default function ContactPage() {
                         Studio Base &amp; Hours
                       </span>
                       <span className="text-sm text-white block">
-                        Dwarka, New Delhi, India &bull; Remote Globally
+                        {CONTACT_INFO.location}
                       </span>
                       <span className="text-slate-400 block mt-0.5">
-                        Mon – Sat: 9:00 AM – 8:00 PM (IST)
+                        {CONTACT_INFO.hours}
                       </span>
                     </div>
                   </div>
@@ -156,10 +146,10 @@ export default function ContactPage() {
                         Discovery Call Scheduler
                       </span>
                       <Link
-                        href="/contact/book-a-consultation"
+                        href={CONTACT_INFO.bookingPath}
                         className="inline-flex items-center gap-1.5 text-sm text-[#FF8A00] hover:underline mt-0.5"
                       >
-                        <span>Schedule via Cal.com</span>
+                        <span>Book a call on Cal.com</span>
                         <ArrowRight className="size-3.5" />
                       </Link>
                     </div>
@@ -172,7 +162,7 @@ export default function ContactPage() {
                     Verified Profiles
                   </span>
                   <div className="flex flex-wrap gap-2">
-                    {socials.map((item) => (
+                    {CONTACT_INFO.socials.map((item) => (
                       <a
                         key={item.name}
                         href={item.href}

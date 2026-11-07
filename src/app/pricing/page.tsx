@@ -138,7 +138,7 @@ export default function PricingPage() {
 
               <div className="lg:col-span-4 flex flex-col items-start gap-6">
                 <p className="text-sm sm:text-base text-text-muted leading-relaxed">
-                  Reference packages for standard website, web application, and AI system engagements. Need a custom architecture? We scope fixed milestone proposals after a 15-minute discovery call.
+                  Reference packages for standard website, web application, and AI system engagements. Need a custom architecture? We scope fixed milestone proposals after a discovery call.
                 </p>
                 <Link
                   href="/contact"

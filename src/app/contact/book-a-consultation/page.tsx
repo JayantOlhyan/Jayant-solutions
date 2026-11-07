@@ -4,19 +4,15 @@ import React, { useState } from "react";
 import PageTransition from "@/components/PageTransition";
 import Link from "next/link";
 import {
-  Calendar,
-  Clock,
   ShieldCheck,
-  CheckCircle2,
   ExternalLink,
   MessageCircle,
-  Mail,
   ArrowRight,
-  Sparkles,
   Award,
   GraduationCap,
   Code2,
 } from "lucide-react";
+import { CONTACT_INFO } from "@/data/contact";
 
 export default function BookConsultationPage() {
   const [iframeLoaded, setIframeLoaded] = useState(false);
@@ -68,7 +64,7 @@ export default function BookConsultationPage() {
             <span>/</span>
             <Link href="/contact" className="hover:text-neutral-950 transition-colors">Contact</Link>
             <span>/</span>
-            <span className="text-neutral-950 font-medium">Book a Consultation</span>
+            <span className="text-neutral-950 font-medium">Book a Call</span>
           </nav>
 
           {/* Hero Header */}
@@ -77,7 +73,7 @@ export default function BookConsultationPage() {
               <div className="lg:col-span-8">
                 <div className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-50 px-3.5 py-1 text-xs font-mono text-neutral-700 mb-4">
                   <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>15–20 Min Technical Discovery · 100% Free &amp; Zero Obligation</span>
+                  <span>Technical Discovery Call · 100% Free &amp; Zero Obligation</span>
                 </div>
                 <h1 className="text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-neutral-950 leading-[1.08]">
                   Schedule a strategy call with <span className="underline decoration-neutral-300 decoration-2 underline-offset-8">Jayant Olhyan.</span>
@@ -111,7 +107,7 @@ export default function BookConsultationPage() {
                   </span>
                 </div>
                 <a
-                  href="https://cal.com/jayant-web-and-ai-systems/strategy-call"
+                  href={CONTACT_INFO.calComUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-xs font-mono font-medium text-neutral-900 underline underline-offset-4 hover:text-neutral-600"
@@ -132,7 +128,7 @@ export default function BookConsultationPage() {
                   </div>
                 )}
                 <iframe
-                  src="https://cal.com/jayant-web-and-ai-systems/strategy-call"
+                  src={CONTACT_INFO.calComUrl}
                   className="w-full h-full min-h-[640px] md:min-h-[720px] border-0"
                   allowFullScreen
                   loading="lazy"
@@ -166,20 +162,20 @@ export default function BookConsultationPage() {
                 </div>
                 <div className="pt-2">
                   <a
-                    href="https://wa.me/919667344125?text=Hi%20Jayant,%20I%20would%20like%20to%20schedule%20a%20strategy%20call%20for%20a%20project"
+                    href={CONTACT_INFO.whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-emerald-500 px-5 text-sm font-medium text-white transition-colors hover:bg-emerald-600"
                   >
                     <MessageCircle className="size-4" aria-hidden="true" />
-                    <span>Chat on WhatsApp (+91 96673 44125)</span>
+                    <span>Chat on WhatsApp ({CONTACT_INFO.whatsappNumber})</span>
                   </a>
                 </div>
               </div>
 
               {/* What Happens On The Call */}
               <div className="rounded-xl border border-neutral-200 bg-neutral-50/50 p-6 flex flex-col gap-4">
-                <h3 className="text-base font-medium text-neutral-950">What we cover in 15 minutes</h3>
+                <h3 className="text-base font-medium text-neutral-950">What we cover on the call</h3>
                 <ul className="flex flex-col gap-3 text-sm text-neutral-700">
                   {sessionPoints.map((p) => (
                     <li key={p.title} className="flex flex-col gap-0.5">
@@ -208,22 +204,17 @@ export default function BookConsultationPage() {
                   })}
                 </div>
                 <div className="pt-2 border-t border-neutral-100 flex items-center justify-between text-xs font-mono">
-                  <a
-                    href="https://github.com/JayantOlhyan"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-neutral-900 underline underline-offset-4 hover:text-neutral-500"
-                  >
-                    GitHub Profile ↗
-                  </a>
-                  <a
-                    href="https://linkedin.com/in/jayant-olhyan/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-neutral-900 underline underline-offset-4 hover:text-neutral-500"
-                  >
-                    LinkedIn ↗
-                  </a>
+                  {CONTACT_INFO.socials.slice(0, 2).map((s) => (
+                    <a
+                      key={s.name}
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-900 underline underline-offset-4 hover:text-neutral-500"
+                    >
+                      {s.name} Profile ↗
+                    </a>
+                  ))}
                 </div>
               </div>
 
@@ -234,7 +225,7 @@ export default function BookConsultationPage() {
                   <p className="text-xs text-neutral-500 mt-0.5">Submit our full project brief form instead.</p>
                 </div>
                 <Link
-                  href="/contact"
+                  href={CONTACT_INFO.inquiryPath}
                   className="inline-flex items-center gap-1 text-xs font-medium text-neutral-950 underline underline-offset-4 hover:text-neutral-600 shrink-0"
                 >
                   <span>Project Form</span>
