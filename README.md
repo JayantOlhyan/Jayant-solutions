@@ -96,6 +96,12 @@ project/
 
 ### Implemented
 
+- **Phase 4 Inquiry Simplification & Reliable Submission:**
+  - **Friction-Free Contact Form:** Required fields reduced strictly to Name, Email, Project Description, and Policy Agreement. Qualification inputs (Company, Phone, Project Type, Budget, Timeline) are organized in an accessible `<details>` disclosure (*"Additional project details (optional)"*), eliminating required-field friction.
+  - **Accessible Validation & DOM Uniqueness:** Replaced `alert()` validation with inline errors and `role="alert"` announcements, auto-focusing the first invalid field upon validation failure. All element and error IDs dynamically use React 19 `useId()` prefixes to avoid ID collisions. Whitespace-only name and description submissions are strictly rejected.
+  - **Reliable Submissions with Timeout:** Netlify Forms registration preserved (`public/__forms.html`). Added a 10-second `AbortController` timeout and rapid double-click submission prevention.
+  - **Preserved User State & Direct Recovery:** User-entered details are strictly preserved during timeouts, network interruptions, and server errors. Surfaces direct manual fallback buttons to send the inquiry on WhatsApp or Email with pre-filled, properly encoded briefs based on `CONTACT_INFO`.
+  - **Harmonized Contact Page:** Aligned `/contact` layout and typography with the redesign's neutral design system, maintaining clear alternatives to book a call via Cal.com or reach out directly.
 - **Phase 3 Landing Page Clarity, Credibility & Responsive Presentation:**
   - **Factual Opening Hero:** Clear statement of services (custom websites, software, practical AI systems) and target clients (founders, teams, and growing businesses). The primary booking CTA ("Book a call" -> `/contact/book-a-consultation`) and secondary action ("Send an inquiry" -> `#contact`) are positioned directly below the headline and concise supporting copy, ensuring visibility within the initial 390 × 844 mobile viewport above the Teacher Sathi live production preview.
   - **Evidence-Led Capabilities Strip:** Audited proof row replacing unverified award/speaking claims with 4 verifiable technical capabilities: Live Shipped Production Systems (`#work`), Inspectable Open Source Repositories (`github.com/JayantOlhyan`), 100% Founder Direct Delivery (`#about`), and Ongoing Academic Pursuits in CS & AI (MSIT New Delhi and IIT Guwahati).

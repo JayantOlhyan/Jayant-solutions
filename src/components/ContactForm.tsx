@@ -1,7 +1,9 @@
 "use client";
 
-import React, { useState, useSyncExternalStore } from "react";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import React, { useState, useId, useRef, useEffect, useSyncExternalStore } from "react";
+import Link from "next/link";
+import { ArrowRight, CheckCircle2, MessageCircle, Mail, Loader2, AlertCircle } from "lucide-react";
+import { CONTACT_INFO } from "@/data/contact";
 
 function subscribeOnline(callback: () => void) {
   window.addEventListener("online", callback);
@@ -20,346 +22,623 @@ function getOfflineServerSnapshot() {
   return false;
 }
 
-export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
-  const [sending, setSending] = useState(false);
-  const [sendError, setSendError] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    company: "",
-    email: "",
-    phone: "",
-    projectType: "",
-    budget: "",
-    timeline: "",
-    description: "",
-    agreement: false
-  });
+interface InquiryFormData {
+  name: string;
+  email: string;
+  description: string;
+  agreement: boolean;
+  company: string;
+  phone: string;
+  projectType: string;
+  budget: string;
+  timeline: string;
+}
 
+const initialFormData: InquiryFormData = {
+  name: "",
+  email: "",
+  description: "",
+  agreement: false,
+  company: "",
+  phone: "",
+  projectType: "",
+  budget: "",
+  timeline: "",
+};
+
+const projectTypes = [
+  "Websites & Web Apps",
+  "AI Solutions & Integrations",
+  "Business Workflow Automation",
+  "Mobile Application",
+  "Technical Consultation",
+  "Other",
+];
+
+const budgets = [
+  "Need help scoping / Not sure yet",
+  "Under ₹50,000",
+  "₹50,000 – ₹1,00,000",
+  "₹1,00,000 – ₹3,00,000",
+  "₹3,00,000+",
+];
+
+const timelines = [
+  "ASAP (Within 2 weeks)",
+  "1 Month",
+  "2–3 Months",
+  "Flexible",
+];
+
+function buildFallbackMessage(data: InquiryFormData): string {
+  const parts: string[] = [
+    "Hi Jayant, I would like to discuss a project inquiry.",
+    "",
+    `Name: ${data.name.trim() || "Not specified"}`,
+    `Email: ${data.email.trim() || "Not specified"}`,
+  ];
+
+  if (data.company.trim()) parts.push(`Company: ${data.company.trim()}`);
+  if (data.phone.trim()) parts.push(`Phone: ${data.phone.trim()}`);
+  if (data.projectType) parts.push(`Project Type: ${data.projectType}`);
+  if (data.budget) parts.push(`Budget: ${data.budget}`);
+  if (data.timeline) parts.push(`Timeline: ${data.timeline}`);
+
+  parts.push("");
+  parts.push("Project Details:");
+  parts.push(data.description.trim() || "None provided");
+
+  return parts.join("\n");
+}
+
+function getWhatsAppFallbackUrl(data: InquiryFormData): string {
+  const msg = buildFallbackMessage(data);
+  try {
+    const url = new URL(CONTACT_INFO.whatsappUrl);
+    url.searchParams.set("text", msg);
+    return url.toString();
+  } catch {
+    return `https://wa.me/919667344125?text=${encodeURIComponent(msg)}`;
+  }
+}
+
+function getEmailFallbackUrl(data: InquiryFormData): string {
+  const msg = buildFallbackMessage(data);
+  const subject = data.name.trim()
+    ? `Project Inquiry from ${data.name.trim()}`
+    : "Project Inquiry";
+  return `mailto:${CONTACT_INFO.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(msg)}`;
+}
+
+export default function ContactForm() {
+  const idPrefix = useId();
+  const nameId = `${idPrefix}-name`;
+  const emailId = `${idPrefix}-email`;
+  const descriptionId = `${idPrefix}-description`;
+  const agreementId = `${idPrefix}-agreement`;
+  const companyId = `${idPrefix}-company`;
+  const phoneId = `${idPrefix}-phone`;
+  const projectTypeId = `${idPrefix}-projectType`;
+  const budgetId = `${idPrefix}-budget`;
+  const timelineId = `${idPrefix}-timeline`;
+
+  const [formData, setFormData] = useState<InquiryFormData>(initialFormData);
+  const [errors, setErrors] = useState<Partial<Record<keyof InquiryFormData, string>>>({});
+  const [sending, setSending] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [sendError, setSendError] = useState<{ type: "timeout" | "network"; message: string } | null>(null);
+
+  const successHeadingRef = useRef<HTMLHeadingElement>(null);
   const isOffline = useSyncExternalStore(subscribeOnline, getOfflineSnapshot, getOfflineServerSnapshot);
 
-  const projectTypes = [
-    "AI Development",
-    "Website Development",
-    "Mobile App Development",
-    "Custom Software",
-    "Business Automation",
-    "UI/UX Design",
-    "Cloud Solutions",
-    "Consultation",
-    "Other"
-  ];
+  useEffect(() => {
+    if (submitted && successHeadingRef.current) {
+      successHeadingRef.current.focus();
+    }
+  }, [submitted]);
 
-  const budgets = [
-    "Need help scoping / Not sure yet",
-    "Under ₹50,000",
-    "₹50,000 – ₹1,00,000",
-    "₹1,00,000 – ₹3,00,000",
-    "₹3,00,000+"
-  ];
-
-  const timelines = [
-    "ASAP",
-    "1 Month",
-    "2–3 Months",
-    "3–6 Months",
-    "Flexible"
-  ];
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value, type } = e.target;
-    if (type === "checkbox") {
-      const checked = (e.target as HTMLInputElement).checked;
-      setFormData((prev) => ({ ...prev, [name]: checked }));
-    } else {
-      setFormData((prev) => ({ ...prev, [name]: value }));
+    const isCheckbox = type === "checkbox";
+    const checked = isCheckbox ? (e.target as HTMLInputElement).checked : false;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: isCheckbox ? checked : value,
+    }));
+
+    if (errors[name as keyof InquiryFormData]) {
+      setErrors((prev) => {
+        const next = { ...prev };
+        delete next[name as keyof InquiryFormData];
+        return next;
+      });
     }
   };
 
-  // Submissions are delivered through Netlify Forms. The form is registered at
-  // build time by the static file public/__forms.html (required for Next.js on Netlify).
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.agreement) {
-      alert("Please fill in all required fields and accept the agreement.");
+
+    if (sending) return;
+
+    // Validate required fields
+    const newErrors: Partial<Record<keyof InquiryFormData, string>> = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Please enter your name.";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Please enter your email address.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+      newErrors.email = "Please enter a valid email address (e.g. name@example.com).";
+    }
+
+    if (!formData.description.trim()) {
+      newErrors.description = "Please share a brief description of your project.";
+    }
+
+    if (!formData.agreement) {
+      newErrors.agreement = "Please confirm your agreement to continue.";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      // Focus first invalid element
+      const fieldOrder: (keyof InquiryFormData)[] = ["name", "email", "description", "agreement"];
+      const idMap: Record<string, string> = {
+        name: nameId,
+        email: emailId,
+        description: descriptionId,
+        agreement: agreementId,
+      };
+
+      for (const field of fieldOrder) {
+        if (newErrors[field]) {
+          const el = document.getElementById(idMap[field]);
+          if (el) {
+            el.focus();
+          }
+          break;
+        }
+      }
       return;
     }
 
+    setErrors({});
+
     const honeypot = (e.currentTarget.elements.namedItem("bot-field") as HTMLInputElement | null)?.value ?? "";
+    if (honeypot) {
+      // Spam honeypot triggered: simulate completion without sending
+      setSubmitted(true);
+      return;
+    }
+
     const body = new URLSearchParams({
       "form-name": "project-inquiry",
       "bot-field": honeypot,
-      name: formData.name,
-      company: formData.company,
-      email: formData.email,
-      phone: formData.phone,
+      name: formData.name.trim(),
+      company: formData.company.trim(),
+      email: formData.email.trim(),
+      phone: formData.phone.trim(),
       projectType: formData.projectType,
       budget: formData.budget,
       timeline: formData.timeline,
-      description: formData.description,
+      description: formData.description.trim(),
       agreement: formData.agreement ? "yes" : "no",
     });
 
     setSending(true);
-    setSendError(false);
+    setSendError(null);
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => {
+      controller.abort();
+    }, 10000); // 10s bounded timeout
+
     try {
       const res = await fetch("/__forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: body.toString(),
+        signal: controller.signal,
       });
-      if (!res.ok) throw new Error(`Form submission failed: ${res.status}`);
+      clearTimeout(timeoutId);
+
+      if (!res.ok) {
+        throw new Error(`Submission failed with status ${res.status}`);
+      }
+
       setSubmitted(true);
-    } catch {
-      setSendError(true);
+    } catch (err: unknown) {
+      clearTimeout(timeoutId);
+      if (err instanceof Error && err.name === "AbortError") {
+        setSendError({
+          type: "timeout",
+          message:
+            "The submission request timed out after 10 seconds. Your entered information is preserved below. You can try submitting again, or message Jayant directly via WhatsApp or email.",
+        });
+      } else {
+        setSendError({
+          type: "network",
+          message:
+            "Your message couldn't be submitted due to a connection or server error. Your entered information is preserved below. You can retry, or send your brief directly via WhatsApp or email.",
+        });
+      }
     } finally {
       setSending(false);
     }
   };
 
-  const fallbackText = encodeURIComponent(
-    `Hi Jayant, I'd like to discuss a project.\nName: ${formData.name}\nType: ${formData.projectType}\nBudget: ${formData.budget}\n\n${formData.description}`
-  );
-
   if (submitted) {
     return (
-      <div aria-live="polite" className="hog-card p-8 md:p-12 text-center flex flex-col items-center justify-center min-h-[480px]">
-        <div className="size-16 rounded-full bg-emerald-100 dark:bg-emerald-950/50 flex items-center justify-center mb-6">
-          <CheckCircle2 className="size-10 text-emerald-500" />
+      <div
+        aria-live="polite"
+        className="rounded-[10px] p-6 sm:p-10 text-center flex flex-col items-center justify-center min-h-[440px] bg-white border border-neutral-200 shadow-sm"
+      >
+        <div className="size-14 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center mb-5 text-emerald-600">
+          <CheckCircle2 className="size-8" aria-hidden="true" />
         </div>
-        <h3 className="font-display text-2xl md:text-3xl font-extrabold text-text-base mb-3">
-          Project Inquiry Received
-        </h3>
-        <p className="text-xs md:text-sm text-text-muted max-w-sm mb-6 leading-relaxed">
-          Thank you for sharing your project context. Jayant will review your requirements and respond directly within 12–24 business hours.
-        </p>
-        <button
-          type="button"
-          onClick={() => {
-            setFormData({
-              name: "",
-              company: "",
-              email: "",
-              phone: "",
-              projectType: "",
-              budget: "",
-              timeline: "",
-              description: "",
-              agreement: false
-            });
-            setSubmitted(false);
-          }}
-          className="inline-flex min-h-11 items-center rounded-full bg-neutral-950 hover:bg-neutral-800 text-white px-6 text-sm font-medium cursor-pointer"
+        <h3
+          ref={successHeadingRef}
+          tabIndex={-1}
+          className="text-2xl font-medium tracking-tight text-neutral-950 mb-2 focus:outline-none"
         >
-          Send Another Inquiry
-        </button>
+          Project inquiry submitted
+        </h3>
+        <p className="text-sm text-neutral-600 max-w-md mb-6 leading-relaxed">
+          Thank you for sharing your project details. Jayant typically reviews inquiries and replies within 12–24 business hours.
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <button
+            type="button"
+            onClick={() => {
+              setFormData(initialFormData);
+              setErrors({});
+              setSendError(null);
+              setSubmitted(false);
+            }}
+            className="inline-flex min-h-11 items-center rounded-full bg-neutral-950 hover:bg-neutral-800 text-white px-6 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950"
+          >
+            Send another inquiry
+          </button>
+          <a
+            href={CONTACT_INFO.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-11 items-center gap-1.5 rounded-full border border-neutral-300 px-5 text-sm font-medium text-neutral-950 hover:border-neutral-950 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950"
+          >
+            <MessageCircle className="size-4 text-emerald-600" aria-hidden="true" />
+            <span>Chat on WhatsApp</span>
+          </a>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="rounded-[10px] p-6 md:p-8 text-left bg-white border border-neutral-200">
+    <div className="rounded-[10px] p-6 md:p-8 text-left bg-white border border-neutral-200 shadow-sm">
       <div className="mb-6 pb-4 border-b border-neutral-200">
         <h3 className="text-xl md:text-2xl font-medium tracking-[-0.02em] text-neutral-950">
           Send a written project brief
         </h3>
-        <p className="mt-1 text-sm text-neutral-600">
+        <p className="mt-1 text-sm text-neutral-600 leading-relaxed">
           Provide your project context or requirements. I review inquiries personally and typically reply within 12–24 business hours.
         </p>
       </div>
 
-      <form name="project-inquiry" onSubmit={handleSubmit} className="space-y-5">
+      <form
+        name="project-inquiry"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        onSubmit={handleSubmit}
+        noValidate
+        className="space-y-4"
+      >
+        <input type="hidden" name="form-name" value="project-inquiry" />
         <p className="hidden" aria-hidden="true">
           <label>
             Leave this field empty
             <input name="bot-field" tabIndex={-1} autoComplete="off" />
           </label>
         </p>
-        {/* Personal Details */}
+
+        {/* Offline indicator */}
+        {isOffline && (
+          <div
+            role="status"
+            className="rounded-lg border border-amber-200 bg-amber-50/80 p-3 text-xs text-amber-900 leading-relaxed"
+          >
+            You appear to be offline. Your entered details are preserved below. When back online, you can submit or message Jayant directly on WhatsApp.
+          </div>
+        )}
+
+        {/* Submission Error Banner with direct recovery fallbacks */}
+        {sendError && (
+          <div
+            role="alert"
+            aria-live="assertive"
+            className="rounded-lg border border-red-200 bg-red-50/90 p-4 text-sm text-red-950 flex flex-col gap-3"
+          >
+            <div className="flex items-start gap-2.5">
+              <AlertCircle className="size-5 text-red-600 shrink-0 mt-0.5" aria-hidden="true" />
+              <div>
+                <p className="font-medium text-red-900">
+                  {sendError.type === "timeout" ? "Request timed out" : "Submission could not complete"}
+                </p>
+                <p className="mt-1 text-red-800 leading-relaxed text-[13px]">
+                  {sendError.message}
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-wrap items-center gap-2 pt-1 border-t border-red-200/60">
+              <span className="text-xs text-red-900 font-medium mr-1">Direct fallback:</span>
+              <a
+                href={getWhatsAppFallbackUrl(formData)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-9 items-center gap-1.5 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white px-3.5 text-xs font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
+              >
+                <MessageCircle className="size-3.5" aria-hidden="true" />
+                <span>Send on WhatsApp</span>
+              </a>
+              <a
+                href={getEmailFallbackUrl(formData)}
+                className="inline-flex min-h-9 items-center gap-1.5 rounded-full border border-red-300 bg-white hover:bg-red-50 text-red-950 px-3.5 text-xs font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-900"
+              >
+                <Mail className="size-3.5" aria-hidden="true" />
+                <span>Send by Email</span>
+              </a>
+            </div>
+          </div>
+        )}
+
+        {/* Core Required Fields: Name & Email */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="name" className="text-sm font-medium text-neutral-950 block mb-1.5">
-              Full Name *
+            <label htmlFor={nameId} className="text-sm font-medium text-neutral-950 block mb-1.5">
+              Full Name <span className="text-neutral-500 font-normal">*</span>
             </label>
             <input
-              id="name"
+              id={nameId}
               type="text"
               name="name"
               required
+              maxLength={100}
+              autoComplete="name"
               value={formData.name}
               onChange={handleInputChange}
-              placeholder="Your name"
-              className="w-full bg-background-base border border-border-custom hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-4 py-3 text-base sm:text-sm outline-none transition-colors"
+              aria-required="true"
+              aria-invalid={!!errors.name}
+              aria-describedby={errors.name ? `${nameId}-error` : undefined}
+              placeholder="e.g. Rahul Sharma"
+              className={`w-full bg-white border ${
+                errors.name ? "border-red-500 focus:border-red-600" : "border-neutral-200 hover:border-neutral-400 focus:border-neutral-950"
+              } rounded-lg px-3.5 py-2.5 text-sm outline-none transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950`}
             />
+            {errors.name && (
+              <p id={`${nameId}-error`} role="alert" className="mt-1 text-xs text-red-600">
+                {errors.name}
+              </p>
+            )}
           </div>
 
           <div>
-            <label htmlFor="company" className="text-sm font-medium text-neutral-950 block mb-1.5">
-              Company Name
+            <label htmlFor={emailId} className="text-sm font-medium text-neutral-950 block mb-1.5">
+              Email Address <span className="text-neutral-500 font-normal">*</span>
             </label>
             <input
-              id="company"
-              type="text"
-              name="company"
-              value={formData.company}
-              onChange={handleInputChange}
-              placeholder="Company (optional)"
-              className="w-full bg-background-base border border-border-custom hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-4 py-3 text-base sm:text-sm outline-none transition-colors"
-            />
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label htmlFor="email" className="text-sm font-medium text-neutral-950 block mb-1.5">
-              Email Address *
-            </label>
-            <input
-              id="email"
+              id={emailId}
               type="email"
               name="email"
               required
+              maxLength={254}
+              autoComplete="email"
               value={formData.email}
               onChange={handleInputChange}
-              placeholder="hello@example.com"
-              className="w-full bg-background-base border border-border-custom hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-4 py-3 text-base sm:text-sm outline-none transition-colors"
+              aria-required="true"
+              aria-invalid={!!errors.email}
+              aria-describedby={errors.email ? `${emailId}-error` : undefined}
+              placeholder="rahul@company.com"
+              className={`w-full bg-white border ${
+                errors.email ? "border-red-500 focus:border-red-600" : "border-neutral-200 hover:border-neutral-400 focus:border-neutral-950"
+              } rounded-lg px-3.5 py-2.5 text-sm outline-none transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950`}
             />
-          </div>
-
-          <div>
-            <label htmlFor="phone" className="text-sm font-medium text-neutral-950 block mb-1.5">
-              Phone Number
-            </label>
-            <input
-              id="phone"
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleInputChange}
-              placeholder="+91 98765 43210"
-              className="w-full bg-background-base border border-border-custom hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-4 py-3 text-base sm:text-sm outline-none transition-colors"
-            />
+            {errors.email && (
+              <p id={`${emailId}-error`} role="alert" className="mt-1 text-xs text-red-600">
+                {errors.email}
+              </p>
+            )}
           </div>
         </div>
 
-        {/* Project Selectors */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div>
-            <label htmlFor="projectType" className="text-sm font-medium text-neutral-950 block mb-1.5">
-              Project Type *
-            </label>
-            <select
-              id="projectType"
-              name="projectType"
-              required
-              value={formData.projectType}
-              onChange={handleInputChange}
-              className="w-full bg-background-base border border-border-custom hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-3 py-3 text-base sm:text-sm outline-none transition-colors appearance-none cursor-pointer"
-            >
-              <option value="">Select Option</option>
-              {projectTypes.map((type) => (
-                <option key={type} value={type}>{type}</option>
-              ))}
-            </select>
-          </div>
-
-          <div>
-            <label htmlFor="budget" className="text-sm font-medium text-neutral-950 block mb-1.5">
-              Budget Range *
-            </label>
-            <select
-              id="budget"
-              name="budget"
-              required
-              value={formData.budget}
-              onChange={handleInputChange}
-              className="w-full bg-background-base border border-border-custom hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-3 py-3 text-base sm:text-sm outline-none transition-colors appearance-none cursor-pointer"
-            >
-              <option value="">Select Budget</option>
-              {budgets.map((b) => (
-                <option key={b} value={b}>{b}</option>
-              ))}
-            </select>
-          </div>
-
-          <div>
-            <label htmlFor="timeline" className="text-sm font-medium text-neutral-950 block mb-1.5">
-              Timeline *
-            </label>
-            <select
-              id="timeline"
-              name="timeline"
-              required
-              value={formData.timeline}
-              onChange={handleInputChange}
-              className="w-full bg-background-base border border-border-custom hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-3 py-3 text-base sm:text-sm outline-none transition-colors appearance-none cursor-pointer"
-            >
-              <option value="">Select Timeline</option>
-              {timelines.map((t) => (
-                <option key={t} value={t}>{t}</option>
-              ))}
-            </select>
-          </div>
-        </div>
-
-        {/* Project Description Textarea */}
+        {/* Core Required Field: Project Description */}
         <div>
-          <label htmlFor="description" className="text-sm font-medium text-neutral-950 block mb-1.5">
-            Project Description *
+          <label htmlFor={descriptionId} className="text-sm font-medium text-neutral-950 block mb-1.5">
+            Project Description <span className="text-neutral-500 font-normal">*</span>
           </label>
           <textarea
-            id="description"
+            id={descriptionId}
             name="description"
             required
-            rows={5}
+            rows={4}
+            maxLength={3000}
             value={formData.description}
             onChange={handleInputChange}
-            placeholder="What does your business do, and what problem should this solve?"
-            className="w-full bg-background-base border border-border-custom hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-4 py-3 text-base sm:text-sm outline-none transition-colors resize-none"
+            aria-required="true"
+            aria-invalid={!!errors.description}
+            aria-describedby={errors.description ? `${descriptionId}-error` : undefined}
+            placeholder="What does your business do, and what problem should this project solve?"
+            className={`w-full bg-white border ${
+              errors.description ? "border-red-500 focus:border-red-600" : "border-neutral-200 hover:border-neutral-400 focus:border-neutral-950"
+            } rounded-lg px-3.5 py-2.5 text-sm outline-none transition-colors resize-y min-h-[100px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950`}
           />
+          {errors.description && (
+            <p id={`${descriptionId}-error`} role="alert" className="mt-1 text-xs text-red-600">
+              {errors.description}
+            </p>
+          )}
         </div>
+
+        {/* Optional Qualification Details in Accessible Disclosure */}
+        <details className="group rounded-lg border border-neutral-200 bg-neutral-50/60 p-4 transition-colors open:bg-neutral-50">
+          <summary className="flex cursor-pointer items-center justify-between text-sm font-medium text-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950 list-none [&::-webkit-details-marker]:hidden">
+            <span>Additional project details (optional)</span>
+            <span className="font-mono text-xs text-neutral-500 group-open:hidden">+ Add details</span>
+            <span className="font-mono text-xs text-neutral-500 hidden group-open:inline">– Hide details</span>
+          </summary>
+          <div className="mt-4 space-y-4 pt-3 border-t border-neutral-200/60">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor={companyId} className="text-sm font-medium text-neutral-800 block mb-1">
+                  Company Name <span className="text-neutral-500 font-normal">(optional)</span>
+                </label>
+                <input
+                  id={companyId}
+                  type="text"
+                  name="company"
+                  maxLength={120}
+                  autoComplete="organization"
+                  value={formData.company}
+                  onChange={handleInputChange}
+                  placeholder="e.g. Acme Studio"
+                  className="w-full bg-white border border-neutral-200 hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-3.5 py-2 text-sm outline-none transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950"
+                />
+              </div>
+
+              <div>
+                <label htmlFor={phoneId} className="text-sm font-medium text-neutral-800 block mb-1">
+                  Phone Number <span className="text-neutral-500 font-normal">(optional)</span>
+                </label>
+                <input
+                  id={phoneId}
+                  type="tel"
+                  name="phone"
+                  maxLength={30}
+                  autoComplete="tel"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  placeholder="+91 98765 43210"
+                  className="w-full bg-white border border-neutral-200 hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-3.5 py-2 text-sm outline-none transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div>
+                <label htmlFor={projectTypeId} className="text-sm font-medium text-neutral-800 block mb-1">
+                  Project Type <span className="text-neutral-500 font-normal">(optional)</span>
+                </label>
+                <select
+                  id={projectTypeId}
+                  name="projectType"
+                  value={formData.projectType}
+                  onChange={handleInputChange}
+                  className="w-full bg-white border border-neutral-200 hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-3 py-2 text-sm outline-none transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950"
+                >
+                  <option value="">Select type</option>
+                  {projectTypes.map((t) => (
+                    <option key={t} value={t}>{t}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor={budgetId} className="text-sm font-medium text-neutral-800 block mb-1">
+                  Budget Range <span className="text-neutral-500 font-normal">(optional)</span>
+                </label>
+                <select
+                  id={budgetId}
+                  name="budget"
+                  value={formData.budget}
+                  onChange={handleInputChange}
+                  className="w-full bg-white border border-neutral-200 hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-3 py-2 text-sm outline-none transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950"
+                >
+                  <option value="">Select budget</option>
+                  {budgets.map((b) => (
+                    <option key={b} value={b}>{b}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor={timelineId} className="text-sm font-medium text-neutral-800 block mb-1">
+                  Timeline <span className="text-neutral-500 font-normal">(optional)</span>
+                </label>
+                <select
+                  id={timelineId}
+                  name="timeline"
+                  value={formData.timeline}
+                  onChange={handleInputChange}
+                  className="w-full bg-white border border-neutral-200 hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-3 py-2 text-sm outline-none transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950"
+                >
+                  <option value="">Select timeline</option>
+                  {timelines.map((t) => (
+                    <option key={t} value={t}>{t}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          </div>
+        </details>
 
         {/* Privacy Agreement Checkbox */}
-        <div className="flex items-start gap-2.5">
-          <input
-            type="checkbox"
-            name="agreement"
-            id="agreement"
-            required
-            checked={formData.agreement}
-            onChange={handleInputChange}
-            className="mt-0.5 rounded border-border-custom text-neutral-950 focus:ring-neutral-950 size-4 cursor-pointer"
-          />
-          <label htmlFor="agreement" className="text-[11px] text-text-muted leading-tight cursor-pointer select-none">
-            I agree to the <a href="/privacy" className="underline underline-offset-2 text-neutral-950">Privacy Policy</a> and <a href="/terms" className="underline underline-offset-2 text-neutral-950">Terms & Conditions</a>.
-          </label>
+        <div className="pt-1">
+          <div className="flex items-start gap-2.5">
+            <input
+              type="checkbox"
+              name="agreement"
+              id={agreementId}
+              required
+              checked={formData.agreement}
+              onChange={handleInputChange}
+              aria-required="true"
+              aria-invalid={!!errors.agreement}
+              aria-describedby={errors.agreement ? `${agreementId}-error` : undefined}
+              className="mt-0.5 rounded border-neutral-300 text-neutral-950 focus:ring-neutral-950 size-4 cursor-pointer"
+            />
+            <label htmlFor={agreementId} className="text-xs text-neutral-600 leading-snug cursor-pointer select-none">
+              I agree to the{" "}
+              <Link href="/privacy" className="underline underline-offset-2 text-neutral-950 hover:text-neutral-700">
+                Privacy Policy
+              </Link>{" "}
+              and{" "}
+              <Link href="/terms" className="underline underline-offset-2 text-neutral-950 hover:text-neutral-700">
+                Terms & Conditions
+              </Link>
+              .
+            </label>
+          </div>
+          {errors.agreement && (
+            <p id={`${agreementId}-error`} role="alert" className="mt-1 text-xs text-red-600">
+              {errors.agreement}
+            </p>
+          )}
         </div>
 
-        {/* Action Button */}
-        <button
-          type="submit"
-          disabled={sending}
-          className={`w-full inline-flex items-center justify-center gap-2 rounded-full text-white text-[15px] font-medium min-h-12 transition-all duration-200 ${
-            sending
-              ? "bg-neutral-400 dark:bg-neutral-800 cursor-not-allowed shadow-none"
-              : "bg-neutral-950 hover:bg-neutral-800"
-          }`}
-        >
-          {sending ? "Sending…" : "Send message"} <ArrowRight className="size-3.5" />
-        </button>
-        {sendError && (
-          <p role="alert" className="text-sm text-red-600 text-center mt-2.5 leading-relaxed">
-            Your message couldn&apos;t be sent. Please{" "}
-            <a className="underline font-medium" href={`https://wa.me/919667344125?text=${fallbackText}`}>send it on WhatsApp</a>{" "}
-            or{" "}
-            <a className="underline font-medium" href={`mailto:jayantwebaisystems@gmail.com?subject=Project%20inquiry&body=${fallbackText}`}>email it</a>.
-          </p>
-        )}
-        {isOffline && (
-          <p className="text-neutral-500 text-sm text-center mt-2.5">
-            You seem to be offline. If sending fails, you can reach me on WhatsApp instead.
-          </p>
-        )}
+        {/* Submit Action */}
+        <div className="pt-2">
+          <button
+            type="submit"
+            disabled={sending}
+            className="w-full inline-flex items-center justify-center gap-2 rounded-full text-white text-[15px] font-medium min-h-12 transition-all duration-200 bg-neutral-950 hover:bg-neutral-800 disabled:bg-neutral-400 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950"
+          >
+            {sending ? (
+              <>
+                <Loader2 className="size-4 animate-spin" aria-hidden="true" />
+                <span>Submitting inquiry…</span>
+              </>
+            ) : (
+              <>
+                <span>Send project brief</span>
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </>
+            )}
+          </button>
+        </div>
       </form>
     </div>
   );
