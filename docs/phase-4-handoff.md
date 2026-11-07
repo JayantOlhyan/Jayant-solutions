@@ -38,7 +38,7 @@ Scope: Contact form inquiry friction reduction, accessible error validation, rel
 | **Production Build** | `npm run build` | **PASS** (All 93 static pages compiled successfully in 1.7s) |
 
 > [!NOTE]
-> **Mock vs. Live Verification:** Passing local build checks and receiving an HTTP 200 from `/__forms.html` on a local static server validates the client-side component lifecycle and payload format, **not** live Netlify Forms database persistence or email forwarding.
+> **Mock vs. Live Verification:** Passing local build checks and receiving an HTTP 200 from a local server GET/POST to `/__forms.html` is merely serving a static file; it does **not** verify component lifecycle in a real browser, nor does it verify Netlify Forms database ingestion, persistence, or email forwarding. Live Netlify persistence and inbox receipt remain explicitly **unverified** until tested in a live deployed environment.
 
 ---
 
@@ -53,7 +53,7 @@ To verify live inquiry delivery after releasing this branch:
    - Open the live production contact page in an incognito window.
    - Fill in:
      - Name: `Launch Verification Test`
-     - Email: `verified-lead@example.com`
+     - Email: `<your-controlled-email@yourdomain.com>` (must be an active email address controlled by the tester to verify delivery and reply-to routing)
      - Description: `End-to-end form verification test inquiry.`
      - Leave all optional disclosure fields empty.
      - Check the agreement box.
@@ -62,6 +62,7 @@ To verify live inquiry delivery after releasing this branch:
    - In the Netlify Dashboard under **Forms > project-inquiry**, verify that the submission appears with all fields parsed properly.
 4. **Verify Notification Receipt:**
    - Confirm that the email notification was delivered to `jayantwebaisystems@gmail.com` with the submitter's email set as `Reply-To`.
+   - Send a test reply to confirm routing works back to the tester's inbox.
 5. **Clean Up Test Entry:**
    - Delete the test entry in Netlify Forms to maintain clean prospect data.
 
@@ -72,3 +73,4 @@ To verify live inquiry delivery after releasing this branch:
 1. **Live/Local Deployment Divergence:** Production on Netlify is running commit `3543e49`. Branch `redesign/phase-1-foundations` must be merged to `main` or deployed via Netlify CLI before live visitors can experience Phases 1–4.
 2. **Live Netlify Forms Detection & Notification:** Live inbox delivery and form persistence remain unverified until the post-deployment steps above are completed on the live domain.
 3. **Cal.com Production Booking Confirmation:** End-to-end calendar booking completion and automated notification delivery remain an open release gate.
+

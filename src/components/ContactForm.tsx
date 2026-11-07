@@ -4,6 +4,14 @@ import React, { useState, useId, useRef, useEffect, useSyncExternalStore } from 
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, MessageCircle, Mail, Loader2, AlertCircle } from "lucide-react";
 import { CONTACT_INFO } from "@/data/contact";
+import {
+  InquiryFormData,
+  initialInquiryData,
+  validateInquiry,
+  getWhatsAppFallbackUrl,
+  getEmailFallbackUrl,
+  submitInquiry,
+} from "@/lib/inquiry";
 
 function subscribeOnline(callback: () => void) {
   window.addEventListener("online", callback);
@@ -21,30 +29,6 @@ function getOfflineSnapshot() {
 function getOfflineServerSnapshot() {
   return false;
 }
-
-interface InquiryFormData {
-  name: string;
-  email: string;
-  description: string;
-  agreement: boolean;
-  company: string;
-  phone: string;
-  projectType: string;
-  budget: string;
-  timeline: string;
-}
-
-const initialFormData: InquiryFormData = {
-  name: "",
-  email: "",
-  description: "",
-  agreement: false,
-  company: "",
-  phone: "",
-  projectType: "",
-  budget: "",
-  timeline: "",
-};
 
 const projectTypes = [
   "Websites & Web Apps",
@@ -70,46 +54,6 @@ const timelines = [
   "Flexible",
 ];
 
-function buildFallbackMessage(data: InquiryFormData): string {
-  const parts: string[] = [
-    "Hi Jayant, I would like to discuss a project inquiry.",
-    "",
-    `Name: ${data.name.trim() || "Not specified"}`,
-    `Email: ${data.email.trim() || "Not specified"}`,
-  ];
-
-  if (data.company.trim()) parts.push(`Company: ${data.company.trim()}`);
-  if (data.phone.trim()) parts.push(`Phone: ${data.phone.trim()}`);
-  if (data.projectType) parts.push(`Project Type: ${data.projectType}`);
-  if (data.budget) parts.push(`Budget: ${data.budget}`);
-  if (data.timeline) parts.push(`Timeline: ${data.timeline}`);
-
-  parts.push("");
-  parts.push("Project Details:");
-  parts.push(data.description.trim() || "None provided");
-
-  return parts.join("\n");
-}
-
-function getWhatsAppFallbackUrl(data: InquiryFormData): string {
-  const msg = buildFallbackMessage(data);
-  try {
-    const url = new URL(CONTACT_INFO.whatsappUrl);
-    url.searchParams.set("text", msg);
-    return url.toString();
-  } catch {
-    return `https://wa.me/919667344125?text=${encodeURIComponent(msg)}`;
-  }
-}
-
-function getEmailFallbackUrl(data: InquiryFormData): string {
-  const msg = buildFallbackMessage(data);
-  const subject = data.name.trim()
-    ? `Project Inquiry from ${data.name.trim()}`
-    : "Project Inquiry";
-  return `mailto:${CONTACT_INFO.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(msg)}`;
-}
-
 export default function ContactForm() {
   const idPrefix = useId();
   const nameId = `${idPrefix}-name`;
@@ -122,11 +66,11 @@ export default function ContactForm() {
   const budgetId = `${idPrefix}-budget`;
   const timelineId = `${idPrefix}-timeline`;
 
-  const [formData, setFormData] = useState<InquiryFormData>(initialFormData);
+  const [formData, setFormData] = useState<InquiryFormData>(initialInquiryData);
   const [errors, setErrors] = useState<Partial<Record<keyof InquiryFormData, string>>>({});
   const [sending, setSending] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [sendError, setSendError] = useState<{ type: "timeout" | "network"; message: string } | null>(null);
+  const [sendError, setSendError] = useState<{ type: "timeout" | "network" | "http"; message: string } | null>(null);
 
   const successHeadingRef = useRef<HTMLHeadingElement>(null);
   const isOffline = useSyncExternalStore(subscribeOnline, getOfflineSnapshot, getOfflineServerSnapshot);
@@ -164,28 +108,10 @@ export default function ContactForm() {
     if (sending) return;
 
     // Validate required fields
-    const newErrors: Partial<Record<keyof InquiryFormData, string>> = {};
+    const validationErrors = validateInquiry(formData);
 
-    if (!formData.name.trim()) {
-      newErrors.name = "Please enter your name.";
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = "Please enter your email address.";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
-      newErrors.email = "Please enter a valid email address (e.g. name@example.com).";
-    }
-
-    if (!formData.description.trim()) {
-      newErrors.description = "Please share a brief description of your project.";
-    }
-
-    if (!formData.agreement) {
-      newErrors.agreement = "Please confirm your agreement to continue.";
-    }
-
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
       // Focus first invalid element
       const fieldOrder: (keyof InquiryFormData)[] = ["name", "email", "description", "agreement"];
       const idMap: Record<string, string> = {
@@ -196,7 +122,7 @@ export default function ContactForm() {
       };
 
       for (const field of fieldOrder) {
-        if (newErrors[field]) {
+        if (validationErrors[field]) {
           const el = document.getElementById(idMap[field]);
           if (el) {
             el.focus();
@@ -208,68 +134,25 @@ export default function ContactForm() {
     }
 
     setErrors({});
-
     const honeypot = (e.currentTarget.elements.namedItem("bot-field") as HTMLInputElement | null)?.value ?? "";
-    if (honeypot) {
-      // Spam honeypot triggered: simulate completion without sending
-      setSubmitted(true);
-      return;
-    }
-
-    const body = new URLSearchParams({
-      "form-name": "project-inquiry",
-      "bot-field": honeypot,
-      name: formData.name.trim(),
-      company: formData.company.trim(),
-      email: formData.email.trim(),
-      phone: formData.phone.trim(),
-      projectType: formData.projectType,
-      budget: formData.budget,
-      timeline: formData.timeline,
-      description: formData.description.trim(),
-      agreement: formData.agreement ? "yes" : "no",
-    });
 
     setSending(true);
     setSendError(null);
 
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => {
-      controller.abort();
-    }, 10000); // 10s bounded timeout
+    const result = await submitInquiry(formData, { honeypot });
 
-    try {
-      const res = await fetch("/__forms.html", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: body.toString(),
-        signal: controller.signal,
-      });
-      clearTimeout(timeoutId);
-
-      if (!res.ok) {
-        throw new Error(`Submission failed with status ${res.status}`);
-      }
-
+    if (result.ok) {
       setSubmitted(true);
-    } catch (err: unknown) {
-      clearTimeout(timeoutId);
-      if (err instanceof Error && err.name === "AbortError") {
-        setSendError({
-          type: "timeout",
-          message:
-            "The submission request timed out after 10 seconds. Your entered information is preserved below. You can try submitting again, or message Jayant directly via WhatsApp or email.",
-        });
-      } else {
-        setSendError({
-          type: "network",
-          message:
-            "Your message couldn't be submitted due to a connection or server error. Your entered information is preserved below. You can retry, or send your brief directly via WhatsApp or email.",
-        });
-      }
-    } finally {
-      setSending(false);
+    } else {
+      setSendError({
+        type: result.errorType ?? "network",
+        message:
+          result.message ??
+          "Your message couldn't be submitted. Your entered information is preserved below.",
+      });
     }
+
+    setSending(false);
   };
 
   if (submitted) {
@@ -295,7 +178,7 @@ export default function ContactForm() {
           <button
             type="button"
             onClick={() => {
-              setFormData(initialFormData);
+              setFormData(initialInquiryData);
               setErrors({});
               setSendError(null);
               setSubmitted(false);
