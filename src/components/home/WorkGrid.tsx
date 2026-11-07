@@ -56,20 +56,44 @@ export default function WorkGrid() {
                       />
                     </div>
                   </div>
-                  <div className="flex flex-col gap-2">
-                    <h3 className="text-xl font-medium tracking-[-0.015em] text-neutral-950">{name}</h3>
+                  <div className="flex flex-col gap-2.5">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <h3 className="text-xl font-medium tracking-[-0.015em] text-neutral-950">{name}</h3>
+                      <span className="font-mono text-xs text-neutral-500">
+                        {kind}
+                      </span>
+                    </div>
                     <p className="text-[15px] leading-relaxed text-neutral-700">{summary}</p>
-                    <p className="text-sm text-neutral-500">
-                      {kind} · {cs.industry}
-                    </p>
-                    <div className="mt-1 flex flex-wrap gap-x-6 gap-y-1 text-[15px] font-medium">
+                    {cs.tech && cs.tech.length > 0 && (
+                      <div className="flex flex-wrap gap-1.5 pt-0.5">
+                        {cs.tech.slice(0, 4).map((tech) => (
+                          <span
+                            key={tech}
+                            className="rounded border border-neutral-200 bg-neutral-50 px-2 py-0.5 font-mono text-[11px] text-neutral-600"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                    <div className="mt-1 flex flex-wrap gap-x-6 gap-y-1 text-[15px] font-medium pt-1">
                       {cs.liveWebsite && (
-                        <a href={cs.liveWebsite} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-1 text-neutral-950 hover:text-neutral-500">
+                        <a
+                          href={cs.liveWebsite}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex min-h-11 items-center gap-1 text-neutral-950 underline underline-offset-4 hover:text-neutral-500"
+                        >
                           Live site <ArrowUpRight className="size-4" aria-hidden="true" />
                         </a>
                       )}
                       {cs.githubLink && (
-                        <a href={cs.githubLink} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-1 text-neutral-950 hover:text-neutral-500">
+                        <a
+                          href={cs.githubLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex min-h-11 items-center gap-1 text-neutral-950 underline underline-offset-4 hover:text-neutral-500"
+                        >
                           Source code <ArrowUpRight className="size-4" aria-hidden="true" />
                         </a>
                       )}

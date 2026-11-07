@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Check } from "lucide-react";
+import { Check, ArrowUpRight } from "lucide-react";
 import { packages, projectInclusions } from "@/data/content";
 import Container from "./Container";
 
@@ -43,9 +43,23 @@ export default function Engagement() {
                   </li>
                 ))}
               </ul>
-              <p className={`mt-auto pt-5 border-t text-sm ${p.isPopular ? "border-white/15 text-neutral-300" : "border-neutral-200 text-neutral-500"}`}>
-                Timeline: {p.timeline}
-              </p>
+              <div className={`mt-auto pt-5 border-t flex flex-col gap-3.5 ${p.isPopular ? "border-white/15" : "border-neutral-200"}`}>
+                <div className="flex items-center justify-between text-xs font-mono">
+                  <span className={p.isPopular ? "text-neutral-400" : "text-neutral-500"}>Delivery Timeline</span>
+                  <span className={p.isPopular ? "text-white font-medium" : "text-neutral-950 font-medium"}>{p.timeline}</span>
+                </div>
+                <Link
+                  href="/contact/book-a-consultation"
+                  className={`inline-flex min-h-11 items-center justify-center gap-1.5 rounded-full text-[14px] font-medium transition-colors ${
+                    p.isPopular
+                      ? "bg-white text-neutral-950 hover:bg-neutral-100"
+                      : "bg-neutral-950 text-white hover:bg-neutral-800"
+                  }`}
+                >
+                  <span>Book {p.name} Discovery Call</span>
+                  <ArrowUpRight className="size-4" aria-hidden="true" />
+                </Link>
+              </div>
             </li>
           ))}
         </ul>

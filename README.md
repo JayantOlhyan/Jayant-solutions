@@ -96,8 +96,10 @@ project/
 
 ### Implemented
 
-- **Public Marketing Website:** High-performance, statically optimized pages detailing Services, Case Studies (Healthkinator, Teacher Sathi, Sentinel AI), Packages, and Process.
-- **Dynamic Pricing & Packages:** 3 core tiers (Foundation, Growth, Scale) configured in the database with floor/display pricing.
+- **Public Marketing Website & Landing Page:** High-performance, statically optimized editorial architecture detailing Services, Work Matrix, Pricing Packages, Delivery Lifecycle, and FAQ.
+- **Authenticated Founder & Engineering Credentials:** Grounded, verifiable proof strip linking to live deployments (Teacher Sathi, Healthkinator, FarmIQ, KhelClan, Sentinel AI, CivicSetu), public GitHub repositories (`github.com/JayantOlhyan`), national hackathon awards (Winner, Elite Hack 1.0), conference speaker pedigree (MRIIRS International AI Conference), and dual engineering background (B.Tech CS at MSIT New Delhi, BSc Data Science & AI at IIT Guwahati).
+- **Direct Discovery & Call Booking System:** Live interactive Cal.com scheduling embed (`/contact/book-a-consultation`), dual-channel WhatsApp quick-booking (+91 96673 44125), direct founder communication guarantee (12–24h response), and Netlify-backed written project brief form (`ContactForm`).
+- **Dynamic Pricing & Packages:** 3 core tiers (Starter, Growth, Scale) with transparent deliverables, timelines, risk reversals, and direct scoping call action triggers.
 - **Client Management System:** Granular database schema mapping clients to proposals, package selections, and agreements.
 - **Proposals & Negotiations Workflow:** Token-based proposal sharing, allowing clients to request changes and propose custom prices (`negotiations` table).
 - **Invoicing System:** Automated invoice sequence generation (INV-YYYY-XXXX) based on agreed commercial terms.
@@ -217,13 +219,15 @@ This project is configured for deployment on **Netlify**.
 
 ### Completed
 - Next.js 16.3 + React 19 Frontend UI
+- Founder-Led Landing Page Redesign (Editorial Authority & Verified Proof)
+- Live Cal.com Discovery Call Scheduler & WhatsApp Quick Booking (`/contact/book-a-consultation`)
 - Complete Supabase Database Schema & Migrations
-- Marketing Content & Case Studies
+- Marketing Content & Case Studies with Live Shipped Links & GitHub Repos
 - Razorpay Server Integration (`src/lib/payments/razorpay.ts`)
 
 ### Planned
 - **Phase 8:** Email notifications via Resend.
-- **Phase 9:** Automated Kickoff scheduling via Cal.com.
+- **Phase 9:** Automated Kickoff scheduling via Cal.com webhooks.
 - **Phase 10:** Automated PDF generation for Invoices & Agreements.
 
 ---
