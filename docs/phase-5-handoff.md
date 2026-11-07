@@ -93,3 +93,4 @@ Complete these three concrete launch gates prior to public announcement:
 - [ ] Confirm email confirmation receipt for both the attendee and Jayant Olhyan.
 - [ ] Cancel the test booking in Cal.com to release the calendar slot.
 - *(Note: Basic discovery-call booking confirmation is independent of the complex post-sale kickoff/onboarding webhooks).*
+

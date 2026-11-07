@@ -42,9 +42,6 @@ export const metadata: Metadata = {
   title: "JAYANT SYSTEMS | Websites, Custom Software & AI Systems",
   description: "JAYANT SYSTEMS designs and builds high-performance websites, custom software products, and practical AI-powered workflows for real-world businesses.",
   metadataBase: new URL("https://jayant-systems.online"),
-  alternates: {
-    canonical: "/",
-  },
 
   icons: {
     icon: [

@@ -20,38 +20,52 @@ export default function BookConsultationPage() {
   const [retryCount, setRetryCount] = useState(0);
 
   const timerRef = useRef<NodeJS.Timeout | null>(null);
-  const retryIdRef = useRef(0);
-
-  const startTimer = () => {
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
-    }
-    const currentRetryId = ++retryIdRef.current;
-    timerRef.current = setTimeout(() => {
-      // Ensure an old timer cannot overwrite the state of a newer retry
-      if (retryIdRef.current === currentRetryId) {
-        setLoadState((current) => (current === "loaded" ? "loaded" : "timeout"));
-      }
-    }, 12000); // 12-second bounded timeout
-  };
+  const activeAttemptRef = useRef(0);
 
   useEffect(() => {
-    startTimer();
+    const attemptId = retryCount;
+    activeAttemptRef.current = attemptId;
+
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+
+    // Bounded 12-second loading timeout
+    timerRef.current = setTimeout(() => {
+      // Ensure only the active attempt can transition state to timeout
+      if (activeAttemptRef.current === attemptId) {
+        setLoadState("timeout");
+      }
+    }, 12000);
+
     return () => {
       if (timerRef.current) {
         clearTimeout(timerRef.current);
+        timerRef.current = null;
       }
     };
   }, [retryCount]);
 
-  const handleIframeLoad = () => {
+  const handleIframeLoad = (attemptId: number) => {
+    // Ignore load events from outdated attempts
+    if (activeAttemptRef.current !== attemptId) {
+      return;
+    }
+    // Clean up timer
     if (timerRef.current) {
       clearTimeout(timerRef.current);
+      timerRef.current = null;
     }
-    setLoadState("loaded");
+    // Only transition if still waiting; keep fallback overlay active if timeout already fired
+    setLoadState((current) => (current === "loading" ? "loaded" : current));
   };
 
   const handleRetry = () => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
     setLoadState("loading");
     setRetryCount((prev) => prev + 1);
   };
@@ -217,9 +231,9 @@ export default function BookConsultationPage() {
                   src={CONTACT_INFO.calComUrl}
                   className="w-full h-full min-h-[580px] sm:min-h-[640px] md:min-h-[700px] border-0"
                   allowFullScreen
-                  loading="lazy"
+                  loading="eager"
                   title="Cal.com scheduling calendar for technical consultation with Jayant Olhyan"
-                  onLoad={handleIframeLoad}
+                  onLoad={() => handleIframeLoad(retryCount)}
                 />
               </div>
 
