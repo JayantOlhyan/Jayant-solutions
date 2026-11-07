@@ -4,48 +4,48 @@ import Container from "./Container";
 
 const facts = [
   {
-    value: "Winner",
-    badge: "National Hackathon",
-    title: "Elite Hack 1.0 — FarmIQ",
-    desc: "AI crop intelligence for Indian farmers",
-    href: "https://farm-iq.netlify.app",
+    value: "Live",
+    badge: "Production Systems",
+    title: "Shipped Applications",
+    desc: "Active deployments across EdTech, healthcare & civic workflows",
+    href: "#work",
+    isExternal: false,
+  },
+  {
+    value: "GitHub",
+    badge: "Inspectable Source",
+    title: "Public Repositories",
+    desc: "Production code in Next.js, TypeScript, Python, and modern AI APIs",
+    href: "https://github.com/JayantOlhyan",
     isExternal: true,
   },
   {
-    value: "Speaker",
-    badge: "AI Conference 2026",
-    title: "MRIIRS International Conf",
-    desc: "Healthkinator AI clinical triage systems",
-    href: "https://healthkinator-1.netlify.app",
-    isExternal: true,
-  },
-  {
-    value: "MSIT & IIT",
-    badge: "CS & Data Science",
-    title: "Dual Engineering Pedigree",
-    desc: "B.Tech CS (MSIT) · BSc DS & AI (IIT Guwahati)",
+    value: "100%",
+    badge: "Direct Delivery",
+    title: "Founder Accountability",
+    desc: "Direct communication with the engineer writing your code",
     href: "#about",
     isExternal: false,
   },
   {
-    value: "30+",
-    badge: "Public Repositories",
-    title: "National Selections",
-    desc: "Former Lead, MSIT Web Dev Society",
-    href: "https://github.com/JayantOlhyan",
-    isExternal: true,
+    value: "CS & AI",
+    badge: "Academic Foundation",
+    title: "Ongoing Technical Studies",
+    desc: "MSIT New Delhi (CS) · IIT Guwahati (Data Science & AI)",
+    href: "#about",
+    isExternal: false,
   },
 ];
 
 export default function ProofRow() {
   return (
-    <section aria-label="Authenticated Track Record & Credentials" className="border-y border-neutral-200 bg-neutral-50/50">
+    <section aria-label="Core Capabilities and Engineering Evidence" className="border-y border-neutral-200 bg-neutral-50/50">
       <Container>
         <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {facts.map((f, i) => {
             const Content = (
               <div
-                className={`group flex flex-col justify-between py-7 px-4 sm:px-6 transition-colors hover:bg-white ${
+                className={`group flex flex-col justify-between py-6 sm:py-7 px-4 sm:px-6 transition-colors hover:bg-white h-full ${
                   i > 0 ? "border-t border-neutral-200 sm:border-t-0 sm:border-l" : ""
                 }`}
               >
@@ -80,7 +80,7 @@ export default function ProofRow() {
                 href={f.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block focus-visible:outline-2 focus-visible:outline-[#E8590C]"
+                className="block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950"
                 aria-label={`${f.title} (${f.desc}) - opens in new window`}
               >
                 {Content}
@@ -89,7 +89,7 @@ export default function ProofRow() {
               <Link
                 key={f.title}
                 href={f.href}
-                className="block focus-visible:outline-2 focus-visible:outline-[#E8590C]"
+                className="block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950"
                 aria-label={`${f.title} (${f.desc})`}
               >
                 {Content}

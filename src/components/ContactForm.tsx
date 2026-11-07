@@ -159,10 +159,13 @@ export default function ContactForm() {
 
   return (
     <div className="rounded-[10px] p-6 md:p-8 text-left bg-white border border-neutral-200">
-      <div className="mb-6 pb-4 border-b border-border-custom">
-                <h3 className="text-xl md:text-2xl font-medium tracking-[-0.02em] text-neutral-950">
-          Tell me about your project
+      <div className="mb-6 pb-4 border-b border-neutral-200">
+        <h3 className="text-xl md:text-2xl font-medium tracking-[-0.02em] text-neutral-950">
+          Send a written project brief
         </h3>
+        <p className="mt-1 text-sm text-neutral-600">
+          Provide your project context or requirements. I review inquiries personally and typically reply within 12–24 business hours.
+        </p>
       </div>
 
       <form name="project-inquiry" onSubmit={handleSubmit} className="space-y-5">

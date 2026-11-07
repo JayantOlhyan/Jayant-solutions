@@ -10,7 +10,7 @@ import HomeContact from "@/components/home/HomeContact";
 
 export default function Home() {
   return (
-    <main className="flex w-full flex-col overflow-x-clip bg-white text-neutral-950">
+    <main className="flex w-full flex-col bg-white text-neutral-950">
       <HomeHero />
       <ProofRow />
       <WorkGrid />
