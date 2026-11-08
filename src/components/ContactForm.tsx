@@ -72,6 +72,7 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [sendError, setSendError] = useState<{ type: "timeout" | "network" | "http"; message: string } | null>(null);
 
+  const isSubmittingRef = useRef(false);
   const successHeadingRef = useRef<HTMLHeadingElement>(null);
   const isOffline = useSyncExternalStore(subscribeOnline, getOfflineSnapshot, getOfflineServerSnapshot);
 
@@ -105,7 +106,7 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (sending) return;
+    if (isSubmittingRef.current || sending) return;
 
     // Validate required fields
     const validationErrors = validateInquiry(formData);
@@ -136,23 +137,27 @@ export default function ContactForm() {
     setErrors({});
     const honeypot = (e.currentTarget.elements.namedItem("bot-field") as HTMLInputElement | null)?.value ?? "";
 
+    isSubmittingRef.current = true;
     setSending(true);
     setSendError(null);
 
-    const result = await submitInquiry(formData, { honeypot });
+    try {
+      const result = await submitInquiry(formData, { honeypot });
 
-    if (result.ok) {
-      setSubmitted(true);
-    } else {
-      setSendError({
-        type: result.errorType ?? "network",
-        message:
-          result.message ??
-          "Your message couldn't be submitted. Your entered information is preserved below.",
-      });
+      if (result.ok) {
+        setSubmitted(true);
+      } else {
+        setSendError({
+          type: result.errorType ?? "network",
+          message:
+            result.message ??
+            "Your message couldn't be submitted. Your entered information is preserved below.",
+        });
+      }
+    } finally {
+      isSubmittingRef.current = false;
+      setSending(false);
     }
-
-    setSending(false);
   };
 
   if (submitted) {

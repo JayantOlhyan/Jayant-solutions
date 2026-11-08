@@ -96,6 +96,17 @@ project/
 
 ### Implemented
 
+- **Phase 7 Final Release Verification & Controlled Launch:**
+  - **Synchronous Submission Lock:** Hardened `ContactForm.tsx` with an immediate synchronous `isSubmittingRef` lock inside a `try ... finally` block, preventing rapid double/triple clicks from queuing duplicate `fetch` requests before React re-renders `disabled={sending}`.
+  - **Automated End-to-End CDP Matrix:** Executed 10 comprehensive browser checks via Chrome DevTools Protocol against the local Next.js production server across Mobile (390 × 844), Tablet (768 × 1024), and Desktop (1440 × 900) viewports:
+    - Zero horizontal layout overflow across all viewports (`scrollWidth === innerWidth`).
+    - Mobile navigation keyboard trap, Escape dismissal, and focus restoration to the hamburger toggle.
+    - Inline accessible form validation (`role="alert"`, first invalid input focus) for invalid email addresses and missing consent.
+    - Duplicate submission prevention (`fetchCount === 1` under rapid multi-click stress).
+    - Post-submission accessible focus transition directly to the `Project inquiry submitted` heading (`tabIndex={-1}`).
+    - Calendar scheduling embed isolation (`loading="eager"`, verified attempt IDs, permanent external link to `cal.com/jayant-web-and-ai-systems/strategy-call`).
+    - Verified complete loading of all 5 portfolio WebP images with valid natural dimensions, and functional FAQ accordion toggle mechanics.
+  - **Controlled Launch Gates & Rollback Safety:** Documented production environment parameters (`jayant-solution`, Site ID `53c8858a-caf3-4435-93f8-7eca3854846f`, live domain `jayant-systems.online`, production branch `main`), established live rollback reference (Deploy ID `6ad17a4c5b36f8a8cf45ff45`), and defined explicit pre-launch verification gates for live Netlify form detection and tester-controlled appointment booking in `docs/phase-7-release.md`.
 - **Phase 6 Browser Verification, Regression Fixes & Release Preparation:**
   - **Multi-Viewport Browser Verification:** Automated Chrome DevTools Protocol (CDP) test suite verifying Homepage, Contact, and Booking pages across 390 × 844, 768 × 1024, and 1440 × 900 viewports. Verified zero horizontal overflow, visible early hero booking CTA (top: 477px, before preview at 657px on mobile), mobile menu Escape/close handling, and fixed-header anchor clearance (`#work`, `#services`, `#about`, `#contact`).
   - **Calendar Load & Timeout Hardening:** Changed iframe to `loading="eager"` on `/contact/book-a-consultation`, resolving mount-started timeout mismatch. Tied both 12-second loading timeouts and `onLoad` handlers to generation attempt IDs (`activeAttemptRef`), preventing stale load signals from clobbering retry timers or dismissing fallback recovery overlays.
@@ -239,7 +250,7 @@ This project is configured for deployment on **Netlify**.
 - **Solo Administrator Assumption:** The architecture assumes a single administrator/agency owner. Multi-tenant or multi-agent capabilities are not supported.
 - **Client Portal Authentication:** Clients do not have "accounts" with passwords. They authenticate into their portals via secure, unguessable magic tokens associated with their `proposals`. If a token is lost, the admin must generate a new link.
 - **In-Progress Integrations:** Cal.com and Resend webhook endpoints exist as directories but require full business-logic implementation (Phase 8 & 9).
-- **Testing:** Automated test coverage (Jest / Cypress / Playwright) is currently missing from the repository.
+- **Testing:** Core inquiry submission logic, payload formatting, fallback URL builders, timeout handling, and sales cockpit logic are covered by automated unit and integration tests (`npm run test:inquiry` and `npm run test:sales`). Full end-to-end browser layout, focus containment, and double-submission tests run via Chrome DevTools Protocol against production builds.
 
 ## Roadmap
 
@@ -247,6 +258,11 @@ This project is configured for deployment on **Netlify**.
 - Next.js 16.3 + React 19 Frontend UI
 - Phase 1: Founder-Led Landing Page Redesign (Editorial Authority & Verified Proof)
 - Phase 2: Navigation & Contact-Path Consolidation (Work, Services, About, Contact, Cal.com "Book a call" focus, simplified footer, mobile menu a11y)
+- Phase 3: Landing Page Clarity, Credibility & Responsive Presentation
+- Phase 4: Inquiry Simplification & Reliable Submission
+- Phase 5: Reliable Call Booking & Security Diagnosis
+- Phase 6: Browser Verification, Regression Fixes & Release Preparation
+- Phase 7: Final Release Verification & Controlled Launch Protocol
 - Live Cal.com Discovery Call Scheduler & WhatsApp Quick Booking (`/contact/book-a-consultation`)
 - Complete Supabase Database Schema & Migrations
 - Marketing Content & Case Studies with Live Shipped Links & GitHub Repos
