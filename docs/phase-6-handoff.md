@@ -107,3 +107,4 @@ Execute these steps in order when releasing to production:
   - Cancel the test booking in Cal.com to release the time slot.
 - [ ] **Step 6: Mark Release Complete**
   - Keep inquiry delivery, completed booking confirmation, and live/local release alignment open until confirmed in production.
+
