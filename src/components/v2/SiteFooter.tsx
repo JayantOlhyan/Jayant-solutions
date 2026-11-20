@@ -67,10 +67,10 @@ export function SiteFooter({ services = [], industries = [] }: { services?: Foot
 
   const label = "font-mono text-[12px] font-medium uppercase tracking-[0.06em] text-[#161310]/80";
   const link =
-    "draw text-[16px] font-medium leading-snug text-[#161310] transition-opacity hover:opacity-100";
+    "squiggle text-[16px] font-medium leading-snug text-[#161310]";
 
   return (
-    <footer aria-label="Site footer" className="relative isolate overflow-hidden bg-[#F37021] text-[#161310]">
+    <footer aria-label="Site footer" className="relative isolate min-h-[100svh] overflow-hidden bg-[#F37021] text-[#161310]">
       {/* Decorative loops, drawn in ink at low opacity */}
       <svg
         aria-hidden="true"
@@ -96,8 +96,8 @@ export function SiteFooter({ services = [], industries = [] }: { services?: Foot
       </svg>
 
       {/* `studio` provides the shared button / link primitives; background stays flame */}
-      <div className="studio !bg-transparent [&_:focus-visible]:!outline-[#161310]">
-        <div className="container-x pt-20 md:pt-28">
+      <div className="studio flex min-h-[100svh] flex-col !bg-transparent [&_:focus-visible]:!outline-[#161310]">
+        <div className="container-x flex flex-1 flex-col justify-center pt-20 md:pt-24">
           <div className="grid gap-14 lg:grid-cols-12">
             {/* Closing line + primary actions */}
             <div className="flex flex-col gap-8 lg:col-span-5">
@@ -200,7 +200,7 @@ export function SiteFooter({ services = [], industries = [] }: { services?: Foot
             <ul className="flex flex-wrap gap-x-5 gap-y-2">
               {legalLinks.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="draw">
+                  <Link href={item.href} className="squiggle">
                     {item.name}
                   </Link>
                 </li>
