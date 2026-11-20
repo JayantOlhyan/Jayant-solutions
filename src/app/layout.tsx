@@ -37,6 +37,7 @@ const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
   subsets: ["latin"],
   display: "swap",
+  axes: ["wdth"], // condensed cuts for the journey titles (font-stretch 75–100%)
 });
 
 // Manrope is kept only for the proposal/admin surfaces that reference --font-manrope.

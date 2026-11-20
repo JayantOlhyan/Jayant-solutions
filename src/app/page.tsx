@@ -10,6 +10,7 @@ import HowWeHelp from "@/components/studio/HowWeHelp";
 import IndustriesRow from "@/components/studio/IndustriesRow";
 import Receipts from "@/components/studio/Receipts";
 import ProcessStack from "@/components/studio/ProcessStack";
+import Journey from "@/components/studio/Journey";
 import StudioFAQ from "@/components/studio/StudioFAQ";
 import ClosingCTA from "@/components/studio/ClosingCTA";
 import StudioMotion from "@/components/studio/StudioMotion";
@@ -48,6 +49,7 @@ export default function Home() {
         <WorkList />
         <IndustriesRow />
         <ProcessStack />
+        <Journey />
         <Receipts />
         <StudioFAQ />
         <ClosingCTA />

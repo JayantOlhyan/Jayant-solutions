@@ -808,3 +808,21 @@ html.no-intro .studio .fade-in { animation-delay: calc(.35s + var(--i, 0) * 80ms
 }
 @media (hover: hover) { .studio .svc-row:hover, .studio .svc-row:hover * { color: var(--ink); } }
 @media (hover: hover) and (pointer: fine) { .studio .work-inline { display: none; } }
+
+/* Journey stops (homepage).
+   Mobile: stops are unlit until reached (data-lit, set by StudioMotion).
+   Desktop: a single scrubbed GSAP timeline animates the icon + pill instead.
+   With no JS / reduced motion there is no data-lit attribute, so everything shows. */
+@media (max-width: 1023px) {
+  .studio .journey-stop .j-title { transition: color .5s var(--ease-expo); }
+  .studio .journey-stop .j-icon { transition: scale .6s cubic-bezier(.34,1.56,.64,1), opacity .4s; }
+  .studio .journey-stop .j-pill { transition: opacity .5s var(--ease-expo), translate .6s var(--ease-expo); }
+  .studio .journey-stop[data-lit="false"] .j-title { color: var(--ember); }
+  .studio .journey-stop[data-lit="false"] .j-icon { scale: .55; opacity: .35; }
+  .studio .journey-stop[data-lit="false"] .j-pill { opacity: 0; translate: 0 14px; }
+}
+@media (min-width: 1024px) {
+  .studio .journey-stop .j-title { font-stretch: 78%; color: #D9520B; } /* #D9520B: display ≥48px only (DESIGN.md §4) */
+  .studio .journey-stop .j-pill[data-side="right"] { rotate: -4deg; }
+  .studio .journey-stop .j-pill[data-side="left"] { rotate: 4deg; }
+}

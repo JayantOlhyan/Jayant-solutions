@@ -143,6 +143,112 @@ export default function StudioMotion() {
       return () => { ro.disconnect(); window.clearTimeout(t); };
     });
 
+    // 7. Journey (desktop): the flame line draws along the winding path; as it
+    //    reaches each stop the icon opens between number and name and the
+    //    caption pops in (technique after two26.studio's services path).
+    mm.add("(prefers-reduced-motion: no-preference) and (min-width: 1024px)", () => {
+      const cleanups: (() => void)[] = [];
+      document.querySelectorAll<HTMLElement>("[data-journey]").forEach((sec) => {
+        const path = sec.querySelector<SVGPathElement>("[data-journey-path]");
+        const list = sec.querySelector<HTMLElement>("ol");
+        const stops = Array.from(sec.querySelectorAll<HTMLElement>("[data-journey-stop]"));
+        if (!path || !list) return;
+
+        const len = path.getTotalLength();
+        // Where along the line each stop sits (nearest sampled point).
+        const N = 800;
+        const samples = Array.from({ length: N + 1 }, (_, k) => path.getPointAtLength((len * k) / N));
+        const at = stops.map((s) => {
+          const x = Number(s.dataset.x), y = Number(s.dataset.y);
+          let best = 0, bd = Infinity;
+          samples.forEach((p, k) => {
+            const d = (p.x - x) ** 2 + (p.y - y) ** 2;
+            if (d < bd) { bd = d; best = k; }
+          });
+          return best / N;
+        });
+
+        // One master timeline, scrubbed with a soft 1.2s catch-up so the line
+        // glides after the scroll instead of snapping to it. Every stop's
+        // animation lives on the same timeline, so scrolling back reverses it.
+        path.style.strokeDasharray = `${len}`;
+        path.style.strokeDashoffset = `${len}`;
+        const tl = gsap.timeline({
+          defaults: { ease: "none" },
+          scrollTrigger: { trigger: list, start: "top 74%", end: "bottom 70%", scrub: 1.5, invalidateOnRefresh: true },
+        });
+        tl.to(path, { strokeDashoffset: 0, duration: 1 }, 0);
+
+        stops.forEach((s, i) => {
+          const wrap = s.querySelector<HTMLElement>("[data-journey-icon]");
+          const tile = wrap?.firstElementChild as HTMLElement | null;
+          const pill = s.querySelector<HTMLElement>("[data-journey-pill]");
+          const t = Math.max(0, at[i] - 0.035); // just before the line arrives
+
+          if (wrap && tile) {
+            const w = wrap.getBoundingClientRect().width || 60;
+            // The icon opens a gap between number and name, then pops in.
+            gsap.set(wrap, { width: 0 });
+            gsap.set(tile, { scale: 0, opacity: 0 });
+            tl.to(wrap, { width: w, duration: 0.09, ease: "power3.out" }, t);
+            tl.to(tile, { scale: 1, opacity: 1, duration: 0.11, ease: "back.out(3)" }, t + 0.012);
+          }
+          if (pill) {
+            // GSAP owns the tilt here (it replaces the CSS `rotate` fallback): 0° → ±4° with the pop.
+            const tilt = pill.dataset.side === "right" ? -4 : 4;
+            gsap.set(pill, { scale: 0, opacity: 0, rotation: 0, transformOrigin: pill.dataset.side === "right" ? "0% 0%" : "100% 0%" });
+            tl.to(pill, { scale: 1, opacity: 1, rotation: tilt, duration: 0.12, ease: "back.out(2.6)" }, t + 0.03);
+          }
+        });
+
+        cleanups.push(() => {
+          tl.scrollTrigger?.kill();
+          tl.kill();
+          path.style.strokeDasharray = "";
+          path.style.strokeDashoffset = "";
+          stops.forEach((s) => {
+            const wrap = s.querySelector<HTMLElement>("[data-journey-icon]");
+            const els = [wrap, wrap?.firstElementChild, s.querySelector("[data-journey-pill]")].filter(Boolean) as HTMLElement[];
+            gsap.set(els, { clearProps: "width,transform,opacity,scale,rotation" });
+          });
+        });
+      });
+      return () => cleanups.forEach((c) => c());
+    });
+
+    // 7b. Journey (mobile): a straight rail fills as you scroll; stops light in order.
+    mm.add("(prefers-reduced-motion: no-preference) and (max-width: 1023px)", () => {
+      const cleanups: (() => void)[] = [];
+      document.querySelectorAll<HTMLElement>("[data-journey]").forEach((sec) => {
+        const rail = sec.querySelector<HTMLElement>("[data-journey-rail]");
+        const list = sec.querySelector<HTMLElement>("ol");
+        const stops = Array.from(sec.querySelectorAll<HTMLElement>("[data-journey-stop]"));
+        if (!rail || !list) return;
+        const tween = gsap.fromTo(rail, { scaleY: 0 }, {
+          scaleY: 1,
+          ease: "none",
+          scrollTrigger: { trigger: list, start: "top 70%", end: "bottom 70%", scrub: 0.6 },
+        });
+        const triggers = stops.map((s) => {
+          s.dataset.lit = "false";
+          return ScrollTrigger.create({
+            trigger: s,
+            start: "top 72%",
+            onEnter: () => { s.dataset.lit = "true"; },
+            onLeaveBack: () => { s.dataset.lit = "false"; },
+          });
+        });
+        cleanups.push(() => {
+          tween.scrollTrigger?.kill();
+          tween.kill();
+          triggers.forEach((t) => t.kill());
+          gsap.set(rail, { clearProps: "transform" });
+          stops.forEach((s) => delete s.dataset.lit);
+        });
+      });
+      return () => cleanups.forEach((c) => c());
+    });
+
     return () => mm.revert();
   });
 
