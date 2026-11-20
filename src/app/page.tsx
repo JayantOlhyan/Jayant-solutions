@@ -3,6 +3,7 @@ import Preloader from "@/components/studio/Preloader";
 import StudioHeader from "@/components/studio/StudioHeader";
 import Hero from "@/components/studio/Hero";
 import Ribbon from "@/components/studio/Ribbon";
+import Statement from "@/components/studio/Statement";
 import WorkList from "@/components/studio/WorkList";
 import Services from "@/components/studio/Services";
 import HowWeHelp from "@/components/studio/HowWeHelp";
@@ -41,6 +42,7 @@ export default function Home() {
       <main>
         <Hero />
         <Ribbon />
+        <Statement />
         <Services />
         <HowWeHelp />
         <WorkList />

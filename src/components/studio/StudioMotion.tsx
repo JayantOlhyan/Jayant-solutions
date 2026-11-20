@@ -29,19 +29,43 @@ export default function StudioMotion() {
     const mm = gsap.matchMedia();
 
     mm.add("(prefers-reduced-motion: no-preference)", () => {
-      // 1. Scroll-scrubbed statement: words go ember → ink as you read
+      // 1. Scroll-read statement: a flame "reading wave" moves through the letters.
+      //    Unread = ember, the front of the wave = flame, read = ink (with a warm
+      //    brown fade between flame and ink).
       document.querySelectorAll<HTMLElement>("[data-scrub]").forEach((el) => {
-        const split = SplitText.create(el, { type: "words" });
-        gsap.fromTo(
-          split.words,
-          { color: "#F4B48F" },
-          {
-            color: "#161310",
-            stagger: 0.1,
-            ease: "none",
-            scrollTrigger: { trigger: el, start: "top 80%", end: "bottom 45%", scrub: true },
+        const split = SplitText.create(el, { type: "words,chars" });
+        const chars = split.chars as HTMLElement[];
+        const n = chars.length;
+        const EMBER = [244, 180, 143], FLAME = [243, 112, 33], INK = [22, 19, 16];
+        const RISE = 4; // chars to go ember → flame
+        const FADE = 22; // chars to go flame → ink
+        const mix = (a: number[], b: number[], t: number) =>
+          `rgb(${a.map((v, k) => Math.round(v + (b[k] - v) * t)).join(",")})`;
+        const last: string[] = new Array(n).fill("");
+        const paint = (progress: number) => {
+          const front = progress * (n + RISE + FADE);
+          for (let i = 0; i < n; i++) {
+            const d = front - i; // how far the wave has passed this char
+            const c =
+              d <= 0 ? mix(EMBER, EMBER, 0)
+              : d < RISE ? mix(EMBER, FLAME, d / RISE)
+              : d < RISE + FADE ? mix(FLAME, INK, (d - RISE) / FADE)
+              : mix(INK, INK, 0);
+            if (c !== last[i]) {
+              chars[i].style.color = c;
+              last[i] = c;
+            }
           }
-        );
+        };
+        paint(0);
+        ScrollTrigger.create({
+          trigger: el,
+          start: "top 78%",
+          end: "bottom 42%",
+          scrub: true,
+          onUpdate: (self) => paint(self.progress),
+          onRefresh: (self) => paint(self.progress),
+        });
       });
 
       // 2. Stickers drop onto the statement with a bounce
