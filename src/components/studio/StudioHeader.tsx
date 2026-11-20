@@ -89,7 +89,7 @@ export default function StudioHeader() {
         data-hidden={hidden && !open ? "true" : "false"}
       >
         <div className="mx-auto grid h-[72px] max-w-[1360px] grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 md:px-10">
-          <nav aria-label="Primary" className="hidden items-center gap-2 md:flex">
+          <nav aria-label="Primary" className="hidden items-center gap-2 lg:flex">
             <Link href="/services" className="pill">Services</Link>
             <Link href="/industries" className="pill">Industries</Link>
             <a href="#work" className="pill">Work</a>
@@ -98,17 +98,17 @@ export default function StudioHeader() {
           <Link
             href="/"
             aria-label="Jayant Systems — home"
-            className="display col-start-1 justify-self-start whitespace-nowrap text-[19px] leading-none tracking-[-0.03em] text-[var(--flame-ink)] md:col-start-2 md:justify-self-center md:text-[26px]"
+            className="display col-start-1 justify-self-start whitespace-nowrap text-[19px] leading-none tracking-[-0.03em] text-[var(--flame-ink)] md:text-[24px] lg:col-start-2 lg:justify-self-center lg:text-[22px] xl:text-[26px]"
           >
             JAYANT SYSTEMS
           </Link>
           <div className="col-start-3 flex items-center justify-end gap-5">
-            <span className="hidden text-right text-[13px] leading-tight text-[var(--muted)] lg:block">
+            <span className="hidden text-right text-[13px] leading-tight text-[var(--muted)] xl:block">
               Mon – Sat
               <br />
               9:00 – 20:00 IST
             </span>
-            <button type="button" onClick={(e) => openOverlay(e.currentTarget)} className="btn-ink !min-h-11 !text-[15px] !py-1 !pl-4 !pr-1" aria-haspopup="dialog">
+            <button type="button" onClick={(e) => openOverlay(e.currentTarget)} className="btn-ink whitespace-nowrap !min-h-11 !text-[15px] !py-1 !pl-4 !pr-1" aria-haspopup="dialog">
               Let&apos;s talk
               <span className="dot !h-9 !w-9" aria-hidden="true"><ArrowUpRight className="size-4" /></span>
             </button>

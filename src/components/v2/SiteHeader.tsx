@@ -50,10 +50,10 @@ export function SiteHeader() {
     }
   }, [isMobileMenuOpen, startLenis, stopLenis]);
 
-  // Handle window resize: close mobile menu if resized to desktop (>= 768px)
+  // Handle window resize: close mobile menu if resized to desktop (>= 1024px, where the full nav shows)
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768 && isMobileMenuOpen) {
+      if (window.innerWidth >= 1024 && isMobileMenuOpen) {
         setIsMobileMenuOpen(false);
       }
     };
@@ -154,8 +154,8 @@ export function SiteHeader() {
         }`}
       >
         {/* Same grammar as the homepage StudioHeader: pills · wordmark · hours + CTA */}
-        <div className="mx-auto grid h-full max-w-[1360px] grid-cols-[1fr_auto] md:grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 md:px-10">
-          <nav aria-label="Primary navigation" className="hidden items-center gap-2 md:flex">
+        <div className="mx-auto grid h-full max-w-[1360px] grid-cols-[1fr_auto] lg:grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 md:px-10">
+          <nav aria-label="Primary navigation" className="hidden items-center gap-2 lg:flex">
             {navLinks.slice(0, 4).map((item) => {
               const active = pathname === item.href || pathname?.startsWith(item.href + "/");
               return (
@@ -174,19 +174,19 @@ export function SiteHeader() {
           <Link
             href="/"
             aria-label="JAYANT SYSTEMS Home"
-            className="display justify-self-start whitespace-nowrap text-[19px] leading-none tracking-[-0.03em] text-[#B8430A] md:justify-self-center md:text-[26px]"
+            className="display justify-self-start whitespace-nowrap text-[19px] leading-none tracking-[-0.03em] text-[#B8430A] md:text-[24px] lg:justify-self-center lg:text-[22px] xl:text-[26px]"
           >
             JAYANT SYSTEMS
           </Link>
 
           {/* Hours + primary CTA (desktop) */}
-          <div className="hidden items-center justify-end gap-5 md:flex">
-            <span className="hidden text-right text-[13px] leading-tight text-[#6B625A] lg:block">
+          <div className="hidden items-center justify-end gap-5 lg:flex">
+            <span className="hidden text-right text-[13px] leading-tight text-[#6B625A] xl:block">
               Mon – Sat
               <br />
               9:00 – 20:00 IST
             </span>
-            <Link href="/contact" className="btn-ink !min-h-11 !text-[15px] !py-1 !pl-4 !pr-1">
+            <Link href="/contact" className="btn-ink whitespace-nowrap !min-h-11 !text-[15px] !py-1 !pl-4 !pr-1">
               Let&apos;s talk
               <span className="dot !h-9 !w-9" aria-hidden="true">
                 <ArrowUpRight className="size-4" />
@@ -195,7 +195,7 @@ export function SiteHeader() {
           </div>
 
           {/* Mobile Menu Toggle Button (44px target) */}
-          <div className="flex md:hidden items-center justify-self-end">
+          <div className="flex lg:hidden items-center justify-self-end">
             <button
               ref={toggleButtonRef}
               type="button"
@@ -220,7 +220,7 @@ export function SiteHeader() {
           role="dialog"
           aria-modal="true"
           aria-label="Navigation menu"
-          className="fixed inset-0 z-50 md:hidden bg-[#F7F1EA] flex flex-col justify-between p-6 sm:p-8 overflow-y-auto max-w-full overflow-x-hidden"
+          className="fixed inset-0 z-50 lg:hidden bg-[#F7F1EA] flex flex-col justify-between p-6 sm:p-8 overflow-y-auto max-w-full overflow-x-hidden"
         >
           {/* Top Bar inside Overlay */}
           <div className="flex items-center justify-between gap-4 h-[56px] border-b border-[#E6E4E0] pb-4">
