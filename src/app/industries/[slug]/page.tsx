@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const i = getIndustry(slug);
   if (!i) return {};
-  return pageMeta({ title: `${i.name} — Digital Solutions`, description: i.metaDescription, path: industryHref(i.slug) });
+  return pageMeta({ title: i.name.length > 24 ? i.name : `${i.name} — Digital Solutions`, description: i.metaDescription, path: industryHref(i.slug) });
 }
 
 export default async function IndustryPage({ params }: { params: Promise<{ slug: string }> }) {

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/portfolio",
   },
-  openGraph: {
+  openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Jayant Systems — You run the business. We handle the digital." }], 
     title: "Software & AI Project Portfolio | JAYANT SYSTEMS",
     description: "Browse delivered projects and prototypes across healthcare AI, education platforms, emergency response apps, and automated business workflows.",
     url: "https://jayant-systems.online/portfolio",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     type: "website",
   },
-  twitter: {
+  twitter: { images: ["/twitter-image"], 
     card: "summary_large_image",
     title: "Software & AI Project Portfolio | JAYANT SYSTEMS",
     description: "Browse delivered projects and prototypes across healthcare AI, education platforms, emergency response apps, and automated business workflows.",

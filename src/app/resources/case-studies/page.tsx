@@ -6,7 +6,7 @@ import { CtaBand, PageHero, PrimaryCta, Section, SecondaryCta, StudioPage, TagLi
 export const metadata = pageMeta({
   title: "Case Studies — Problem, Solution, Live Product",
   description:
-    "How Jayant Systems approached real products in education, healthcare, agriculture, civic tech and security: the problem, what was built and a link to the live product.",
+    "Real products in education, healthcare, agriculture, civic tech and security: the problem, what Jayant Systems built, and a link to each live product.",
   path: "/resources/case-studies",
 });
 

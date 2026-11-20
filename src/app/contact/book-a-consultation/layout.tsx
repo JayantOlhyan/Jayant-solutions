@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/contact/book-a-consultation",
   },
-  openGraph: {
+  openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Jayant Systems — You run the business. We handle the digital." }], 
     title: "Book a Strategy & Tech Consultation | JAYANT SYSTEMS",
     description: "Schedule a 1-on-1 strategy call with lead engineer Jayant Olhyan to map technical requirements, project timelines, and custom software architecture.",
     url: "https://jayant-systems.online/contact/book-a-consultation",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     type: "website",
   },
-  twitter: {
+  twitter: { images: ["/twitter-image"], 
     card: "summary_large_image",
     title: "Book a Strategy & Tech Consultation | JAYANT SYSTEMS",
     description: "Schedule a 1-on-1 strategy call with lead engineer Jayant Olhyan to map technical requirements, project timelines, and custom software architecture.",

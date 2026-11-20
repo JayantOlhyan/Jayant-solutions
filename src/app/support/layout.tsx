@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/support",
   },
-  openGraph: {
+  openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Jayant Systems — You run the business. We handle the digital." }], 
     title: "Customer Support & Help Center | JAYANT SYSTEMS",
     description: "Access technical documentation, report system bugs, check live service status, or contact our engineering support team for active client projects.",
     url: "https://jayant-systems.online/support",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     type: "website",
   },
-  twitter: {
+  twitter: { images: ["/twitter-image"], 
     card: "summary_large_image",
     title: "Customer Support & Help Center | JAYANT SYSTEMS",
     description: "Access technical documentation, report system bugs, check live service status, or contact our engineering support team for active client projects.",

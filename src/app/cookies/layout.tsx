@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/cookies",
   },
-  openGraph: {
+  openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Jayant Systems — You run the business. We handle the digital." }], 
     title: "Cookie Policy & Tracking Technologies | JAYANT SYSTEMS",
     description: "Learn about the cookies and local storage technologies used on JAYANT SYSTEMS to ensure platform security and optimal browsing performance.",
     url: "https://jayant-systems.online/cookies",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     type: "website",
   },
-  twitter: {
+  twitter: { images: ["/twitter-image"], 
     card: "summary_large_image",
     title: "Cookie Policy & Tracking Technologies | JAYANT SYSTEMS",
     description: "Learn about the cookies and local storage technologies used on JAYANT SYSTEMS to ensure platform security and optimal browsing performance.",

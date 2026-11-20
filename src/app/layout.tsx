@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     "msapplication-config": "/browserconfig.xml",
   },
   robots: "index,follow",
-  openGraph: {
+  openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Jayant Systems — You run the business. We handle the digital." }], 
     title: "JAYANT SYSTEMS — Your Business. Our Digital Execution.",
     description: "Jayant Systems builds websites, custom software, AI automations, brands and digital content. One digital partner for your business.",
     url: "https://jayant-systems.online",
@@ -89,7 +89,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     type: "website",
   },
-  twitter: {
+  twitter: { images: ["/twitter-image"], 
     card: "summary_large_image",
     title: "JAYANT SYSTEMS",
     description: "You run the business. We handle the digital.",

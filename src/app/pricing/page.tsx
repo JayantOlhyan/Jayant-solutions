@@ -9,7 +9,7 @@ import { ArrowUpRight } from "lucide-react";
 export const metadata = pageMeta({
   title: "Pricing — Ways to Work With Us",
   description:
-    "Project-based development, monthly digital partnerships, startup MVP partnerships, technology consulting and end-to-end engagements. Defined quotations before work begins.",
+    "Project-based builds, monthly digital partnerships, startup MVPs, consulting and end-to-end engagements — with a defined quotation before work begins.",
   path: "/pricing",
 });
 

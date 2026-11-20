@@ -21,7 +21,7 @@ export function pageMeta({
     title: full,
     description,
     alternates: { canonical: path },
-    openGraph: {
+    openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Jayant Systems — You run the business. We handle the digital." }], 
       title: ogTitle ?? full,
       description,
       url: path,
@@ -29,7 +29,7 @@ export function pageMeta({
       locale: "en_IN",
       type: "website",
     },
-    twitter: { card: "summary_large_image", title: ogTitle ?? full, description },
+    twitter: { images: ["/twitter-image"],  card: "summary_large_image", title: ogTitle ?? full, description },
     ...(noindex ? { robots: { index: false, follow: true } } : {}),
   };
 }

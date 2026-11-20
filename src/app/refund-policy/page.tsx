@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/refund-policy",
   },
-  openGraph: {
+  openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Jayant Systems — You run the business. We handle the digital." }], 
     title: "Cancellation & Refund Policy | JAYANT SYSTEMS",
     description: "Official cancellation terms, milestone refund policies, and consumer protection guidelines for software engineering engagements with Jayant Systems.",
     url: "https://jayant-systems.online/refund-policy",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     type: "website",
   },
-  twitter: {
+  twitter: { images: ["/twitter-image"], 
     card: "summary_large_image",
     title: "Cancellation & Refund Policy | JAYANT SYSTEMS",
     description: "Official cancellation terms, milestone refund policies, and consumer protection guidelines for software engineering engagements with Jayant Systems.",

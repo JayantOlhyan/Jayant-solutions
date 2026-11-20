@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/contact",
   },
-  openGraph: {
+  openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Jayant Systems — You run the business. We handle the digital." }], 
     title: "Contact JAYANT SYSTEMS | Book a Strategy Call",
     description: "Get in touch with lead engineer Jayant Olhyan. Discuss your software project requirements, schedule a technical consultation, or request a custom proposal.",
     url: "https://jayant-systems.online/contact",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     type: "website",
   },
-  twitter: {
+  twitter: { images: ["/twitter-image"], 
     card: "summary_large_image",
     title: "Contact JAYANT SYSTEMS | Book a Strategy Call",
     description: "Get in touch with lead engineer Jayant Olhyan. Discuss your software project requirements, schedule a technical consultation, or request a custom proposal.",
