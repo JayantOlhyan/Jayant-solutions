@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque, Geist, Geist_Mono, Inter, Manrope } from "next/font/google";
 import SiteHeader from "@/components/v2/SiteHeader";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import SEOLinks from "@/components/SEOLinks";
 import SiteFooter from "@/components/v2/SiteFooter";
 import SmoothScroll from "@/components/v2/motion/SmoothScroll";
@@ -119,7 +118,6 @@ export default function RootLayout({
             {children}
           </div>
           <SEOLinks />
-          <FloatingWhatsApp />
           <PWAHandler />
           <SiteFooter
             services={liveDivisions().map((d) => ({ name: d.short, href: `/services/${d.slug}` }))}
