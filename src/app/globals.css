@@ -826,3 +826,14 @@ html.no-intro .studio .fade-in { animation-delay: calc(.35s + var(--i, 0) * 80ms
   .studio .journey-stop .j-pill[data-side="right"] { rotate: -4deg; }
   .studio .journey-stop .j-pill[data-side="left"] { rotate: 4deg; }
 }
+
+/* Hand-drawn squiggle underline (site footer links): draws in left → right on hover/focus. */
+.squiggle { position: relative; display: inline-block; }
+.squiggle::after {
+  content: ""; position: absolute; left: -1px; bottom: -5px; height: 7px; width: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='7' viewBox='0 0 24 7'%3E%3Cpath d='M0 4.5 C4 1 8 1 12 4.5 S20 8 24 4.5' fill='none' stroke='%23F7F1EA' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x left center / 24px 7px;
+  transition: width .35s cubic-bezier(.4, 0, .2, 1);
+  pointer-events: none;
+}
+.squiggle:hover::after, .squiggle:focus-visible::after { width: calc(100% + 2px); }
+@media (prefers-reduced-motion: reduce) { .squiggle::after { transition: none; } }
