@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Wifi, WifiOff, X, Download } from "lucide-react";
 
 interface BeforeInstallPromptEvent extends Event {
@@ -9,10 +9,15 @@ interface BeforeInstallPromptEvent extends Event {
   prompt(): Promise<void>;
 }
 
+/** How long the browser must stay offline before we tell the visitor (filters brief false "offline" blips). */
+const OFFLINE_CONFIRM_MS = 2000;
+/** How long the "You're back online" confirmation stays up. */
+const BACK_ONLINE_MS = 4000;
+
 export default function PWAHandler() {
-  const [status, setStatus] = useState<"online" | "offline" | null>(() =>
-    typeof navigator !== "undefined" && !navigator.onLine ? "offline" : null
-  );
+  // Starts hidden on server and client alike (no hydration mismatch); the effect below decides.
+  const [status, setStatus] = useState<"online" | "offline" | null>(null);
+  const shownOffline = useRef(false); // true while the "You're offline" toast is (or was last) showing
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [showInstallBtn, setShowInstallBtn] = useState(false);
 
@@ -72,21 +77,42 @@ export default function PWAHandler() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    // 2. Online/Offline events listeners
-    const handleOnline = () => {
-      setStatus("online");
-      const timer = setTimeout(() => {
-        setStatus(null);
-      }, 4000);
-      return () => clearTimeout(timer);
+    // 2. Online/Offline: only warn after the browser has STAYED offline for a moment,
+    //    re-checking navigator.onLine, and clear the warning as soon as we're back.
+    let confirmTimer: number | undefined;
+    let backTimer: number | undefined;
+
+    const confirmOffline = () => {
+      window.clearTimeout(confirmTimer);
+      confirmTimer = window.setTimeout(() => {
+        if (!navigator.onLine) {
+          window.clearTimeout(backTimer);
+          shownOffline.current = true;
+          setStatus("offline");
+        }
+      }, OFFLINE_CONFIRM_MS);
     };
 
-    const handleOffline = () => {
-      setStatus("offline");
+    const handleOnline = () => {
+      window.clearTimeout(confirmTimer); // a blip that recovered never shows anything
+      if (!shownOffline.current) return;
+      shownOffline.current = false;
+      setStatus("online");
+      window.clearTimeout(backTimer);
+      backTimer = window.setTimeout(() => setStatus(null), BACK_ONLINE_MS);
+    };
+
+    // Safety net: if a warning is up but the browser says we're online (missed "online" event), clear it.
+    const recheck = () => {
+      if (navigator.onLine) handleOnline();
+      else confirmOffline();
     };
 
     window.addEventListener("online", handleOnline);
-    window.addEventListener("offline", handleOffline);
+    window.addEventListener("offline", confirmOffline);
+    window.addEventListener("focus", recheck);
+    document.addEventListener("visibilitychange", recheck);
+    if (!navigator.onLine) confirmOffline(); // genuinely opened while offline
 
     // 3. PWA Installability event listener
     const handleBeforeInstallPrompt = (e: Event) => {
@@ -99,8 +125,12 @@ export default function PWAHandler() {
     window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
 
     return () => {
+      window.clearTimeout(confirmTimer);
+      window.clearTimeout(backTimer);
       window.removeEventListener("online", handleOnline);
-      window.removeEventListener("offline", handleOffline);
+      window.removeEventListener("offline", confirmOffline);
+      window.removeEventListener("focus", recheck);
+      document.removeEventListener("visibilitychange", recheck);
       window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
     };
   }, []);
