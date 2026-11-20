@@ -54,7 +54,7 @@ export default function NotFound() {
             <span className="font-mono text-xs md:text-sm tracking-widest uppercase text-primary font-bold inline-block mb-4 relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-px after:bg-primary/30">
               SOMETHING WENT WRONG!
             </span>
-            <h1 className="text-8xl md:text-[150px] font-extrabold text-primary leading-none tracking-tighter mb-2">
+            <h1 className="text-8xl md:text-[150px] font-extrabold text-primary leading-none tracking-tighter mb-5 md:mb-8">
               404
             </h1>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-text-base mb-4">
