@@ -5,10 +5,6 @@ export const metadata: Metadata = {
   description: "Our official privacy policy explaining how JAYANT SYSTEMS collects, uses, and safeguards personal information in accordance with privacy laws.",
   alternates: {
     canonical: "/privacy",
-    languages: {
-      "en-IN": "/privacy",
-      "hi-IN": "/hi/privacy",
-    },
   },
   openGraph: {
     title: "Privacy Policy & Data Protection | JAYANT SYSTEMS",

@@ -5,10 +5,6 @@ export const metadata: Metadata = {
   description: "Browse delivered projects and prototypes across healthcare AI, education platforms, emergency response apps, and automated business workflows.",
   alternates: {
     canonical: "/portfolio",
-    languages: {
-      "en-IN": "/portfolio",
-      "hi-IN": "/hi/portfolio",
-    },
   },
   openGraph: {
     title: "Software & AI Project Portfolio | JAYANT SYSTEMS",

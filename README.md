@@ -96,8 +96,47 @@ project/
 
 ### Implemented
 
-- **Public Marketing Website:** High-performance, statically optimized pages detailing Services, Case Studies (Healthkinator, Teacher Sathi, Sentinel AI), Packages, and Process.
-- **Dynamic Pricing & Packages:** 3 core tiers (Foundation, Growth, Scale) configured in the database with floor/display pricing.
+- **Phase 7 Final Release Verification & Controlled Launch:**
+  - **Synchronous Submission Lock:** Hardened `ContactForm.tsx` with an immediate synchronous `isSubmittingRef` lock inside a `try ... finally` block, preventing rapid double/triple clicks from queuing duplicate `fetch` requests before React re-renders `disabled={sending}`.
+  - **Automated End-to-End CDP Matrix:** Executed 10 comprehensive browser checks via Chrome DevTools Protocol against the local Next.js production server across Mobile (390 × 844), Tablet (768 × 1024), and Desktop (1440 × 900) viewports:
+    - Zero horizontal layout overflow across all viewports (`scrollWidth === innerWidth`).
+    - Mobile navigation keyboard trap, Escape dismissal, and focus restoration to the hamburger toggle.
+    - Inline accessible form validation (`role="alert"`, first invalid input focus) for invalid email addresses and missing consent.
+    - Duplicate submission prevention (`fetchCount === 1` under rapid multi-click stress).
+    - Post-submission accessible focus transition directly to the `Project inquiry submitted` heading (`tabIndex={-1}`).
+    - Calendar scheduling embed isolation (`loading="eager"`, verified attempt IDs, permanent external link to `cal.com/jayant-web-and-ai-systems/strategy-call`).
+    - Verified complete loading of all 5 portfolio WebP images with valid natural dimensions, and functional FAQ accordion toggle mechanics.
+  - **Controlled Launch Gates & Rollback Safety:** Documented production environment parameters (`jayant-solution`, Site ID `53c8858a-caf3-4435-93f8-7eca3854846f`, live domain `jayant-systems.online`, production branch `main`), established live rollback reference (Deploy ID `6ad17a4c5b36f8a8cf45ff45`), and defined explicit pre-launch verification gates for live Netlify form detection and tester-controlled appointment booking in `docs/phase-7-release.md`.
+- **Phase 6 Browser Verification, Regression Fixes & Release Preparation:**
+  - **Multi-Viewport Browser Verification:** Automated Chrome DevTools Protocol (CDP) test suite verifying Homepage, Contact, and Booking pages across 390 × 844, 768 × 1024, and 1440 × 900 viewports. Verified zero horizontal overflow, visible early hero booking CTA (top: 477px, before preview at 657px on mobile), mobile menu Escape/close handling, and fixed-header anchor clearance (`#work`, `#services`, `#about`, `#contact`).
+  - **Calendar Load & Timeout Hardening:** Changed iframe to `loading="eager"` on `/contact/book-a-consultation`, resolving mount-started timeout mismatch. Tied both 12-second loading timeouts and `onLoad` handlers to generation attempt IDs (`activeAttemptRef`), preventing stale load signals from clobbering retry timers or dismissing fallback recovery overlays.
+  - **Inquiry Form Interactive Testing:** Verified whitespace input rejection, input preservation during mocked 500 failures, dynamic WhatsApp and mailto fallback URL generation with encoded project briefs, and mocked 200 success confirmation rendering with accessible heading focus.
+  - **Metadata & Canonical Repair:** Removed `alternates: { canonical: "/" }` from `src/app/layout.tsx` and declared explicit canonicals on `src/app/page.tsx`, eliminating soft-404 canonical inheritance on `_not-found.html` and admin routes. Removed phantom `hi-IN` hreflang links.
+  - **Security Policy Alignment:** Synchronized `netlify.toml` CSP headers with `next.config.ts` (`frame-src 'self' https://api.razorpay.com https://cal.com;`), guaranteeing that browser intersection checks on Netlify deployments permit embedded schedulers and authorized APIs without conflict. Documented Phase 7 launch checklist in `docs/phase-6-handoff.md`.
+- **Phase 5 Reliable Call Booking & Security Diagnosis:**
+  - **Resilient Cal.com Scheduling:** Embedded calendar (`/contact/book-a-consultation`) with an authoritative link to `CONTACT_INFO.calComUrl`, bounded 12-second loading timeout, accessible retry action guarded against async race conditions via retry-ID tracking, persistent direct external calendar link above the embed, and clear fallback channels to WhatsApp (+91 96673 44125) and written inquiry.
+  - **Concise Scoping Intro & Grounded Claims:** Streamlined founder introduction with Jayant Olhyan explaining scoping call deliverables (goals, technical fit, budget/timeline expectations). Removed all unverified claims (24h proposal guarantees, elite awards, conference talks, completed dual degrees, and automated Google Meet promises). Noted automatic local timezone adjustment as observed in the live calendar.
+  - **Inquiry Logic Extraction & True Implementation Testing:** Extracted validation, payload construction, fallback URL encoding, and 10s timeout handling into `src/lib/inquiry.ts`. Rewrote `tests/inquiry.test.ts` to exercise actual application logic rather than duplicate mock helpers. Corrected documentation to distinguish local HTTP 200 responses from live Netlify form storage and delivery.
+  - **CSP Diagnosis & 3-Gate Release Protocol:** Analyzed CSP discrepancy between `next.config.ts` (`frame-src 'self' https://api.razorpay.com https://cal.com`) and `netlify.toml` (headers omitting `frame-src`). Documented required staging header synchronization and 3-gate release verification checklist in `docs/phase-5-handoff.md`.
+- **Phase 4 Inquiry Simplification & Reliable Submission:**
+  - **Friction-Free Contact Form:** Required fields reduced strictly to Name, Email, Project Description, and Policy Agreement. Qualification inputs (Company, Phone, Project Type, Budget, Timeline) are organized in an accessible `<details>` disclosure (*"Additional project details (optional)"*), eliminating required-field friction.
+  - **Accessible Validation & DOM Uniqueness:** Replaced `alert()` validation with inline errors and `role="alert"` announcements, auto-focusing the first invalid field upon validation failure. All element and error IDs dynamically use React 19 `useId()` prefixes to avoid ID collisions. Whitespace-only name and description submissions are strictly rejected.
+  - **Reliable Submissions with Timeout:** Netlify Forms registration preserved (`public/__forms.html`). Added a 10-second `AbortController` timeout and rapid double-click submission prevention.
+  - **Preserved User State & Direct Recovery:** User-entered details are strictly preserved during timeouts, network interruptions, and server errors. Surfaces direct manual fallback buttons to send the inquiry on WhatsApp or Email with pre-filled, properly encoded briefs based on `CONTACT_INFO`.
+  - **Harmonized Contact Page:** Aligned `/contact` layout and typography with the redesign's neutral design system, maintaining clear alternatives to book a call via Cal.com or reach out directly.
+- **Phase 3 Landing Page Clarity, Credibility & Responsive Presentation:**
+  - **Factual Opening Hero:** Clear statement of services (custom websites, software, practical AI systems) and target clients (founders, teams, and growing businesses). The primary booking CTA ("Book a call" -> `/contact/book-a-consultation`) and secondary action ("Send an inquiry" -> `#contact`) are positioned directly below the headline and concise supporting copy, ensuring visibility within the initial 390 × 844 mobile viewport above the Teacher Sathi live production preview.
+  - **Evidence-Led Capabilities Strip:** Audited proof row replacing unverified award/speaking claims with 4 verifiable technical capabilities: Live Shipped Production Systems (`#work`), Inspectable Open Source Repositories (`github.com/JayantOlhyan`), 100% Founder Direct Delivery (`#about`), and Ongoing Academic Pursuits in CS & AI (MSIT New Delhi and IIT Guwahati).
+  - **Focused Selected Work:** Trimmed from 6 to 3 distinct, high-relevance projects with real `.webp` screenshots: Healthkinator (Personal Product · AI Prototype), CivicSetu (Civic Tech · Workflow Prototype), and MSIT College Portal (Academic Project · Institutional Redesign), displaying verified problems addressed, architectural contributions, technologies, and live demo / source code links.
+  - **Simplified 3-Group Offerings & 4-Stage Process:** Condensed homepage services into Websites & Web Applications, Practical AI Integrations, and Business Workflow Automation with clear deliverables, linked to `/services`. Reorganized the delivery process into 4 sequential phases: 01 Discovery & Alignment, 02 Written Scope & Milestones, 03 Direct Build & Staging Demos, and 04 Production Launch & Handover.
+  - **Tightened Founder, FAQ, and Contact Flow:** Grounded founder presentation stating ongoing CS and Data Science studies; focused 5-question commercial FAQ addressing scope, cost estimation, timelines, source code ownership, and 30-day post-launch support; removed redundant double card borders and duplicate headings around `ContactForm` in `HomeContact`.
+  - **Layout & Responsiveness Hardening:** Removed `overflow-x-clip` on `<main>` to prevent masking layout defects; verified accessible focus indicators, touch targets, and clean responsive stacking across 390px, 768px, and 1440px viewports.
+- **Phase 2 Navigation & Contact Paths:** Simplified primary navigation to 4 essential destinations (*Work, Services, About, Contact*) with automatic homepage in-page anchor resolution (`#section` vs `/#section`) and `scroll-mt-24` fixed-header offset. Standardized primary header and mobile action to **"Book a call"** routing to `/contact/book-a-consultation`, paired with a secondary **"Send an inquiry"** path. Streamlined the footer to prioritize core destinations, verified direct contact channels (Email, WhatsApp, Phone), and legal policies while removing the oversized 6-column public directory.
+- **Centralized Contact Configuration:** Single shared configuration module (`src/data/contact.ts`) driving active header, footer, homepage, and contact surfaces without fabricated details.
+- **Duration Claim Harmonization:** Removed conflicting 15-min and 15–20 min duration claims across public pages to avoid calendar event discrepancies while preserving scheduling functionality.
+- **Evidence-Led Founder & Engineering Capabilities:** Grounded proof strip linking to live deployments (Teacher Sathi, Healthkinator, CivicSetu, MSIT College Portal), public GitHub repositories (`github.com/JayantOlhyan`), direct founder engineering accountability, and ongoing CS & Data Science studies (MSIT New Delhi and IIT Guwahati).
+- **Direct Discovery & Call Booking System:** Live interactive Cal.com scheduling embed (`/contact/book-a-consultation`), dual-channel WhatsApp quick-booking (+91 96673 44125), direct founder communication guarantee (12–24h response), and Netlify-backed written project brief form (`ContactForm`).
+- **Dynamic Pricing & Packages:** 3 core tiers (Starter, Growth, Scale) with transparent deliverables, timelines, risk reversals, and direct scoping call action triggers.
 - **Client Management System:** Granular database schema mapping clients to proposals, package selections, and agreements.
 - **Proposals & Negotiations Workflow:** Token-based proposal sharing, allowing clients to request changes and propose custom prices (`negotiations` table).
 - **Invoicing System:** Automated invoice sequence generation (INV-YYYY-XXXX) based on agreed commercial terms.
@@ -211,19 +250,27 @@ This project is configured for deployment on **Netlify**.
 - **Solo Administrator Assumption:** The architecture assumes a single administrator/agency owner. Multi-tenant or multi-agent capabilities are not supported.
 - **Client Portal Authentication:** Clients do not have "accounts" with passwords. They authenticate into their portals via secure, unguessable magic tokens associated with their `proposals`. If a token is lost, the admin must generate a new link.
 - **In-Progress Integrations:** Cal.com and Resend webhook endpoints exist as directories but require full business-logic implementation (Phase 8 & 9).
-- **Testing:** Automated test coverage (Jest / Cypress / Playwright) is currently missing from the repository.
+- **Testing:** Core inquiry submission logic, payload formatting, fallback URL builders, timeout handling, and sales cockpit logic are covered by automated unit and integration tests (`npm run test:inquiry` and `npm run test:sales`). Full end-to-end browser layout, focus containment, and double-submission tests run via Chrome DevTools Protocol against production builds.
 
 ## Roadmap
 
 ### Completed
 - Next.js 16.3 + React 19 Frontend UI
+- Phase 1: Founder-Led Landing Page Redesign (Editorial Authority & Verified Proof)
+- Phase 2: Navigation & Contact-Path Consolidation (Work, Services, About, Contact, Cal.com "Book a call" focus, simplified footer, mobile menu a11y)
+- Phase 3: Landing Page Clarity, Credibility & Responsive Presentation
+- Phase 4: Inquiry Simplification & Reliable Submission
+- Phase 5: Reliable Call Booking & Security Diagnosis
+- Phase 6: Browser Verification, Regression Fixes & Release Preparation
+- Phase 7: Final Release Verification & Controlled Launch Protocol
+- Live Cal.com Discovery Call Scheduler & WhatsApp Quick Booking (`/contact/book-a-consultation`)
 - Complete Supabase Database Schema & Migrations
-- Marketing Content & Case Studies
+- Marketing Content & Case Studies with Live Shipped Links & GitHub Repos
 - Razorpay Server Integration (`src/lib/payments/razorpay.ts`)
 
 ### Planned
 - **Phase 8:** Email notifications via Resend.
-- **Phase 9:** Automated Kickoff scheduling via Cal.com.
+- **Phase 9:** Automated Kickoff scheduling via Cal.com webhooks.
 - **Phase 10:** Automated PDF generation for Invoices & Agreements.
 
 ---

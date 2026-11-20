@@ -12,6 +12,8 @@ export interface BlogPostFrontmatter {
   author: string;
   tags?: string[];
   canonical?: string;
+  /** Drafts are excluded from the site, sitemap and static params. */
+  draft?: boolean;
 }
 
 export interface BlogPost {
@@ -34,6 +36,7 @@ export function getBlogPosts(): BlogPost[] {
       const fileContents = fs.readFileSync(fullPath, "utf8");
 
       const { data, content } = matter(fileContents);
+      if (data.draft === true) return null;
 
       // Hard Constraint: Build must FAIL if < 800 words
       const wordCount = content.split(/\s+/).filter(Boolean).length;
@@ -49,6 +52,7 @@ export function getBlogPosts(): BlogPost[] {
         content,
       };
     })
+    .filter((p): p is BlogPost => p !== null)
     .sort((a, b) => {
       if (a.frontmatter.publishedAt < b.frontmatter.publishedAt) {
         return 1;

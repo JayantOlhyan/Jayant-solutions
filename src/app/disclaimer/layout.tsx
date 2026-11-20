@@ -5,10 +5,6 @@ export const metadata: Metadata = {
   description: "Legal disclaimer and limitation of liability regarding technical consulting, educational articles, and third-party software tools on our platform.",
   alternates: {
     canonical: "/disclaimer",
-    languages: {
-      "en-IN": "/disclaimer",
-      "hi-IN": "/hi/disclaimer",
-    },
   },
   openGraph: {
     title: "Disclaimer & Liability Terms | JAYANT SYSTEMS",

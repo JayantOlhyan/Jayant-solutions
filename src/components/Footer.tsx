@@ -91,12 +91,13 @@ export default function Footer() {
     <footer aria-label="Footer navigation" className="w-full border-t border-slate-800 bg-[#0A0E17] text-slate-300 pt-16 md:pt-24 pb-12 text-left">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
         
-        {/* Metalab-Inspired Oversized Conversational Invitation Stage */}
+        {/* Closing CTA — hidden on the homepage, which already ends with "Let's talk." */}
+        {pathname !== "/" && (
         <div className="pb-16 md:pb-24 border-b border-slate-800/90">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
             <div className="lg:col-span-8">
               <div className="flex items-center gap-3 mb-4">
-                <span className="font-mono text-xs uppercase tracking-[0.18em] text-[#FF8A00] font-semibold">
+                <span className="font-mono text-xs uppercase tracking-[0.18em] text-slate-400 font-semibold">
                   / Next Step &bull; JAYANT SYSTEMS
                 </span>
                 <span className="text-slate-700">&mdash;</span>
@@ -106,14 +107,14 @@ export default function Footer() {
                 </span>
               </div>
               <h2 className="font-display metalab-headline text-4xl sm:text-6xl lg:text-[76px] font-extrabold text-white leading-[0.96]">
-                Let&apos;s build something <span className="text-[#FF8A00]">worth talking about.</span>
+                Let&apos;s build something <span className="text-slate-400">worth talking about.</span>
               </h2>
             </div>
 
             <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3.5 lg:items-end justify-end">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary hover:bg-primary-hover text-white px-7 py-4 text-sm font-display font-bold transition-all duration-200 shadow-sm w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-white hover:bg-slate-200 text-neutral-950 px-7 py-4 text-sm font-medium transition-all duration-200 shadow-sm w-full sm:w-auto"
               >
                 <span>Discuss Your Project</span>
                 <ArrowRight className="size-4" />
@@ -122,12 +123,13 @@ export default function Footer() {
                 href="mailto:jayantwebaisystems@gmail.com"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-700 bg-slate-900/90 hover:bg-slate-800 text-slate-200 px-6 py-3.5 text-xs font-mono font-semibold transition-colors w-full sm:w-auto"
               >
-                <Mail className="size-3.5 text-[#FF8A00]" />
+                <Mail className="size-3.5 text-slate-400" />
                 <span>jayantwebaisystems@gmail.com</span>
               </a>
             </div>
           </div>
         </div>
+        )}
 
         {/* Main 4-Column Editorial Grid with Hairline Dividers */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 py-14 border-b border-slate-800/80">
@@ -149,15 +151,15 @@ export default function Footer() {
             {/* Direct Contact info */}
             <div className="space-y-2 text-xs font-mono text-slate-400 mb-6">
               <a href="mailto:jayantwebaisystems@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors">
-                <Mail className="size-3.5 text-[#FF8A00]" />
+                <Mail className="size-3.5 text-slate-400" />
                 <span>jayantwebaisystems@gmail.com</span>
               </a>
               <a href="tel:+919667344125" className="flex items-center gap-2 hover:text-white transition-colors">
-                <Phone className="size-3.5 text-[#FF8A00]" />
+                <Phone className="size-3.5 text-slate-400" />
                 <span>+91 96673 44125</span>
               </a>
               <div className="flex items-center gap-2">
-                <MapPin className="size-3.5 text-[#FF8A00]" />
+                <MapPin className="size-3.5 text-slate-400" />
                 <span>Dwarka, New Delhi &bull; Working Remotely Worldwide</span>
               </div>
             </div>
@@ -170,10 +172,10 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-1 rounded-full border border-slate-800 bg-slate-900/80 text-[11px] font-mono font-medium text-slate-300 hover:text-white hover:border-[#FF8A00]/50 transition-colors inline-flex items-center gap-1 group"
+                  className="px-3 py-1 rounded-full border border-slate-800 bg-slate-900/80 text-[11px] font-mono font-medium text-slate-300 hover:text-white hover:border-slate-500 transition-colors inline-flex items-center gap-1 group"
                 >
                   <span>{social.name}</span>
-                  <ArrowUpRight className="size-3 text-slate-500 group-hover:text-[#FF8A00]" />
+                  <ArrowUpRight className="size-3 text-slate-500 group-hover:text-white" />
                 </a>
               ))}
             </div>
@@ -182,7 +184,7 @@ export default function Footer() {
           {/* Column 2: Core Navigation (Col span 3) */}
           <div className="lg:col-span-3 flex flex-col gap-6 text-left">
             <div>
-              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[#FF8A00] block mb-4">
+              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400 block mb-4">
                 / Navigation
               </span>
               <ul className="space-y-2.5 text-xs text-slate-400">
@@ -200,7 +202,7 @@ export default function Footer() {
           {/* Column 3: Resources & Case Studies (Col span 3) */}
           <div className="lg:col-span-3 flex flex-col gap-6 text-left">
             <div>
-              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[#FF8A00] block mb-4">
+              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400 block mb-4">
                 / Work &amp; Resources
               </span>
               <ul className="space-y-2.5 text-xs text-slate-400">
@@ -218,7 +220,7 @@ export default function Footer() {
           {/* Column 4: Studio & Client Support (Col span 2) */}
           <div className="lg:col-span-2 flex flex-col gap-6 text-left">
             <div>
-              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[#FF8A00] block mb-4">
+              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400 block mb-4">
                 / Studio &amp; Trust
               </span>
               <ul className="space-y-2.5 text-xs text-slate-400">
@@ -233,7 +235,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[#FF8A00] block mb-4">
+              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400 block mb-4">
                 / Client Support
               </span>
               <ul className="space-y-2.5 text-xs text-slate-400">

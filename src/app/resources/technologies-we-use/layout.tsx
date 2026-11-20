@@ -5,10 +5,6 @@ export const metadata: Metadata = {
   description: "Explore our modern engineering tech stack: Next.js, React, Python, FastAPI, Flutter, PostgreSQL, Supabase, OpenAI, Google Gemini, and Docker.",
   alternates: {
     canonical: "/resources/technologies-we-use",
-    languages: {
-      "en-IN": "/resources/technologies-we-use",
-      "hi-IN": "/hi/resources/technologies-we-use",
-    },
   },
   openGraph: {
     title: "Technologies We Use & Modern Stack | JAYANT SYSTEMS",

@@ -5,10 +5,6 @@ export const metadata: Metadata = {
   description: "Get in touch with lead engineer Jayant Olhyan. Discuss your software project requirements, schedule a technical consultation, or request a custom proposal.",
   alternates: {
     canonical: "/contact",
-    languages: {
-      "en-IN": "/contact",
-      "hi-IN": "/hi/contact",
-    },
   },
   openGraph: {
     title: "Contact JAYANT SYSTEMS | Book a Strategy Call",

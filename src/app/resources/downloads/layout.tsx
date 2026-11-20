@@ -5,10 +5,6 @@ export const metadata: Metadata = {
   description: "Download software engineering checklists, AI adoption frameworks, and technical architecture guides to streamline your digital product development.",
   alternates: {
     canonical: "/resources/downloads",
-    languages: {
-      "en-IN": "/resources/downloads",
-      "hi-IN": "/hi/resources/downloads",
-    },
   },
   openGraph: {
     title: "Resources & Software Guides | JAYANT SYSTEMS",

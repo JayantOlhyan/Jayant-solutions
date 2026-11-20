@@ -5,10 +5,6 @@ export const metadata: Metadata = {
   description: "Submit a technical bug report or software issue directly to our engineering team for rapid ticket triage, root-cause debugging, and resolution.",
   alternates: {
     canonical: "/support/report-a-bug",
-    languages: {
-      "en-IN": "/support/report-a-bug",
-      "hi-IN": "/hi/support/report-a-bug",
-    },
   },
   openGraph: {
     title: "Report an Issue or Software Bug | JAYANT SYSTEMS",

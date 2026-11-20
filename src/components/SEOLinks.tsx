@@ -7,7 +7,18 @@ import { Compass } from "lucide-react";
 
 export default function SEOLinks() {
   const pathname = usePathname();
-  if (pathname?.startsWith("/proposal/") || pathname?.startsWith("/admin/sales")) return null;
+  if (
+    pathname?.startsWith("/proposal/") ||
+    pathname?.startsWith("/admin/sales") ||
+    pathname === "/" ||
+    pathname === "/contact" ||
+    pathname === "/contact/book-a-consultation" ||
+    // Framework pages render their own related-links section.
+    ["/about", "/process", "/faq", "/support/service-status", "/support/client-portal", "/resources/case-studies"].includes(pathname ?? "") ||
+    /^\/(services|industries|company|pricing)(\/|$)/.test(pathname ?? "")
+  ) {
+    return null;
+  }
 
   return (
     <section aria-label="Related Services" className="bg-card-bg/40 py-10 border-t border-border-custom/80 mt-auto text-left">

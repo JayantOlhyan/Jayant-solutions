@@ -5,10 +5,6 @@ export const metadata: Metadata = {
   description: "Submit your project details to receive a fixed-scope technical proposal, deliverable breakdown, and transparent milestone quote within 24 business hours.",
   alternates: {
     canonical: "/contact/request-a-quote",
-    languages: {
-      "en-IN": "/contact/request-a-quote",
-      "hi-IN": "/hi/contact/request-a-quote",
-    },
   },
   openGraph: {
     title: "Request a Custom Project Scope & Quote | JAYANT SYSTEMS",

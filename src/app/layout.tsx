@@ -1,10 +1,12 @@
+import { industries, liveDivisions } from "@/data/framework";
 import type { Metadata } from "next";
-import { Geist, Inter, Instrument_Serif, IBM_Plex_Mono, DM_Serif_Display, Manrope } from "next/font/google";
-import Navbar from "@/components/Navbar";
+import { Bricolage_Grotesque, Geist, Geist_Mono, Inter, Manrope } from "next/font/google";
+import SiteHeader from "@/components/v2/SiteHeader";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import SEOLinks from "@/components/SEOLinks";
-import Footer from "@/components/Footer";
+import SiteFooter from "@/components/v2/SiteFooter";
+import SmoothScroll from "@/components/v2/motion/SmoothScroll";
 import PWAHandler from "@/components/PWAHandler";
 import JsonLd from "@/components/seo/JsonLd";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
@@ -17,33 +19,28 @@ const geist = Geist({
   display: "swap",
 });
 
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+  display: "swap",
+});
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
+  axes: ["opsz"],
 });
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
+// Display face for the v2 "studio" direction — see DESIGN.md §3
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
-  weight: "400",
   display: "swap",
+  axes: ["wdth"], // condensed cuts for the journey titles (font-stretch 75–100%)
 });
 
-const ibmMono = IBM_Plex_Mono({
-  variable: "--font-ibm-mono",
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-});
-
-const dmSerifDisplay = DM_Serif_Display({
-  variable: "--font-dm-serif",
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-});
-
+// Manrope is kept only for the proposal/admin surfaces that reference --font-manrope.
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
@@ -51,12 +48,9 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "JAYANT SYSTEMS | Websites, Custom Software & AI Systems",
-  description: "JAYANT SYSTEMS designs and builds high-performance websites, custom software products, and practical AI-powered workflows for real-world businesses.",
+  title: "Jayant Systems — Web, Software, AI & Digital Agency",
+  description: "Jayant Systems builds websites, custom software, AI automations, brands and digital content. One digital partner for your business.",
   metadataBase: new URL("https://jayant-systems.online"),
-  alternates: {
-    canonical: "/",
-  },
 
   icons: {
     icon: [
@@ -89,8 +83,8 @@ export const metadata: Metadata = {
   },
   robots: "index,follow",
   openGraph: {
-    title: "JAYANT SYSTEMS | Building Digital Systems for Real-World Businesses",
-    description: "Founder-led technology studio designing and building websites, custom software products, and practical AI-powered workflows.",
+    title: "JAYANT SYSTEMS — Your Business. Our Digital Execution.",
+    description: "Jayant Systems builds websites, custom software, AI automations, brands and digital content. One digital partner for your business.",
     url: "https://jayant-systems.online",
     siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
@@ -99,7 +93,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "JAYANT SYSTEMS",
-    description: "Building Digital Systems for Real-World Businesses — Websites, Custom Software, and AI Workflows.",
+    description: "You run the business. We handle the digital.",
   },
   verification: {
     google: "-a0wyjaTybF3gldEtwwHLwq_ChLau7TLls8Q1KFF7lE",
@@ -112,21 +106,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full" suppressHydrationWarning>
+    <html lang="en" className={`${geist.variable} ${geistMono.variable} ${inter.variable} ${bricolage.variable} ${manrope.variable} h-full`} suppressHydrationWarning>
       <head></head>
-      <body className={`${geist.variable} ${inter.variable} ${instrumentSerif.variable} ${ibmMono.variable} ${dmSerifDisplay.variable} ${manrope.variable} min-h-full bg-bg-base text-text-base flex flex-col justify-between selection:bg-primary/10 selection:text-primary transition-colors duration-300 antialiased`}>
-        <GoogleAnalytics />
-        <a className="skip-link" href="#main-content">Skip to main content</a>
-        <JsonLd schema={[createOrganizationSchema(), createWebSiteSchema()]} />
-        <Navbar />
-        <div id="main-content" className="flex-1 w-full pt-16">
-          <Breadcrumbs />
-          {children}
-        </div>
-        <SEOLinks />
-        <FloatingWhatsApp />
-        <PWAHandler />
-        <Footer />
+      <body className={`min-h-full bg-bg-base text-text-base flex flex-col justify-between transition-colors duration-300 antialiased`}>
+        <SmoothScroll>
+          <GoogleAnalytics />
+          <a className="skip-link" href="#main-content">Skip to main content</a>
+          <JsonLd schema={[createOrganizationSchema(), createWebSiteSchema()]} />
+          <SiteHeader />
+          <div id="main-content" className="flex-1 w-full pt-[72px]">
+            <Breadcrumbs />
+            {children}
+          </div>
+          <SEOLinks />
+          <FloatingWhatsApp />
+          <PWAHandler />
+          <SiteFooter
+            services={liveDivisions().map((d) => ({ name: d.short, href: `/services/${d.slug}` }))}
+            industries={industries.map((i) => ({ name: i.name, href: `/industries/${i.slug}` }))}
+          />
+        </SmoothScroll>
       </body>
     </html>
   );
