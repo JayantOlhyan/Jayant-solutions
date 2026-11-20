@@ -1,13 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { Wifi, WifiOff, X, Download } from "lucide-react";
-
-interface BeforeInstallPromptEvent extends Event {
-  readonly platforms: string[];
-  readonly userChoice: Promise<{ outcome: "accepted" | "dismissed"; platform: string }>;
-  prompt(): Promise<void>;
-}
+import { Wifi, WifiOff, X } from "lucide-react";
 
 /** How long the browser must stay offline before we tell the visitor (filters brief false "offline" blips). */
 const OFFLINE_CONFIRM_MS = 2000;
@@ -18,8 +12,6 @@ export default function PWAHandler() {
   // Starts hidden on server and client alike (no hydration mismatch); the effect below decides.
   const [status, setStatus] = useState<"online" | "offline" | null>(null);
   const shownOffline = useRef(false); // true while the "You're offline" toast is (or was last) showing
-  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
-  const [showInstallBtn, setShowInstallBtn] = useState(false);
 
   useEffect(() => {
     // 1. Service Worker Registration
@@ -114,15 +106,10 @@ export default function PWAHandler() {
     document.addEventListener("visibilitychange", recheck);
     if (!navigator.onLine) confirmOffline(); // genuinely opened while offline
 
-    // 3. PWA Installability event listener
-    const handleBeforeInstallPrompt = (e: Event) => {
-      e.preventDefault();
-      // Store the event so it can be triggered later
-      setDeferredPrompt(e as BeforeInstallPromptEvent);
-      setShowInstallBtn(true);
-    };
-
-    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+    // 3. No install prompt: the site doesn't offer "Install Web App". Calling
+    //    preventDefault also stops Chrome's own mini-infobar from appearing.
+    const suppressInstallPrompt = (e: Event) => e.preventDefault();
+    window.addEventListener("beforeinstallprompt", suppressInstallPrompt);
 
     return () => {
       window.clearTimeout(confirmTimer);
@@ -131,27 +118,15 @@ export default function PWAHandler() {
       window.removeEventListener("offline", confirmOffline);
       window.removeEventListener("focus", recheck);
       document.removeEventListener("visibilitychange", recheck);
-      window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+      window.removeEventListener("beforeinstallprompt", suppressInstallPrompt);
     };
   }, []);
-
-  const handleInstallClick = async () => {
-    if (!deferredPrompt) return;
-    // Show the installation prompt
-    deferredPrompt.prompt();
-    // Wait for the user to respond to the prompt
-    const { outcome } = await deferredPrompt.userChoice;
-    console.log(`[PWA] User response to the install prompt: ${outcome}`);
-    // Clear deferred prompt and hide button
-    setDeferredPrompt(null);
-    setShowInstallBtn(false);
-  };
 
   const handleCloseToast = () => {
     setStatus(null);
   };
 
-  if (!status && !showInstallBtn) return null;
+  if (!status) return null;
 
   return (
     <div
@@ -159,38 +134,6 @@ export default function PWAHandler() {
       role="alert"
       aria-live="assertive"
     >
-      {/* PWA Install Toast */}
-      {showInstallBtn && deferredPrompt && (
-        <div className="flex items-center justify-between gap-4 p-4 bg-card-bg border border-border-custom text-text-base rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] animate-slide-in">
-          <div className="flex items-center gap-3">
-            <div className="size-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
-              <Download className="size-5" />
-            </div>
-            <div className="flex flex-col gap-0.5 text-left">
-              <span className="text-xs font-bold">Install Web App</span>
-              <span className="text-[10px] text-text-muted leading-tight">
-                Add to your home screen for quick, offline access.
-              </span>
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <button
-              onClick={handleInstallClick}
-              className="bg-primary hover:bg-primary-hover text-white text-[11px] font-semibold px-3 py-1.5 rounded-xl transition-all duration-250 cursor-pointer shadow-sm hover:shadow"
-            >
-              Install
-            </button>
-            <button
-              onClick={() => setShowInstallBtn(false)}
-              aria-label="Dismiss install offer"
-              className="p-1 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg text-text-muted transition-colors cursor-pointer"
-            >
-              <X className="size-3.5" />
-            </button>
-          </div>
-        </div>
-      )}
-
       {/* Network Status Toast */}
       {status && (
         <div
