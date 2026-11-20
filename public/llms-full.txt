@@ -28,6 +28,48 @@
 - [Enterprises & organisations](https://jayant-systems.online/industries/enterprises): Internal software, automation, dashboards and integrations.
 - [Creators & professionals](https://jayant-systems.online/industries/creators): Personal websites, portfolios and personal branding.
 
+## Specialist services
+- [Website development](https://jayant-systems.online/services/website-development): Business websites, redesigns, landing pages and e-commerce stores, built responsive, fast and easy to update. Jayant Systems.
+- [Custom software development](https://jayant-systems.online/services/custom-software-development): Custom web applications, admin dashboards, customer portals and integrations built around how your business works. Jayant Systems.
+- [SaaS development](https://jayant-systems.online/services/saas-development): SaaS product development: accounts, subscription billing, admin panels, AI features and deployment. Jayant Systems.
+- [MVP development](https://jayant-systems.online/services/mvp-development): MVP development for founders: scoping, UI/UX design, development and launch of a working first product. Jayant Systems.
+- [API development & integration](https://jayant-systems.online/services/api-development): REST APIs, payment gateway, CRM, email and WhatsApp integrations that connect your existing tools. Jayant Systems.
+- [Mobile app development](https://jayant-systems.online/services/mobile-app-development): Mobile-first web apps and cross-platform applications for customers and teams. Jayant Systems.
+- [AI development](https://jayant-systems.online/services/ai-development): Custom AI agents, knowledge assistants and AI features connected to your data and tools. Jayant Systems.
+- [AI chatbot development](https://jayant-systems.online/services/ai-chatbot-development): Website and WhatsApp AI assistants trained on your approved content, with human hand-off. Jayant Systems.
+- [Business automation](https://jayant-systems.online/services/business-automation): Workflow, lead, email, WhatsApp and CRM automation that removes repetitive manual work. Jayant Systems.
+- [Technology consulting](https://jayant-systems.online/services/technology-consulting): Technical audits, AI strategy, workflow analysis and technical planning before you invest. Jayant Systems.
+- [UI/UX design](https://jayant-systems.online/services/ui-ux-design): UX journeys, UI design, prototypes and design systems for websites and apps. Jayant Systems.
+- [Cloud & DevOps](https://jayant-systems.online/services/cloud-and-devops): Hosting setup, deployment pipelines, monitoring, performance tuning and documented handover. Jayant Systems.
+
+## Key pages
+- [About](https://jayant-systems.online/about): Who Jayant Systems is: a founder-led digital studio in New Delhi and how it works with clients.
+- [Founder — Jayant Olhyan](https://jayant-systems.online/company/founder): The founder's background, skills and the products he has shipped.
+- [Why choose us](https://jayant-systems.online/company/why-choose-us): Commitments: written scope, transparent pricing, direct founder communication.
+- [Verified delivery](https://jayant-systems.online/company/testimonials): Verifiable proof of delivery: live products and public repositories, no invented reviews.
+- [Tools & platforms](https://jayant-systems.online/company/partners): The platforms and tools the studio builds with.
+- [Careers](https://jayant-systems.online/company/careers): Working with Jayant Systems.
+- [Process](https://jayant-systems.online/process): The 7-step project process: Discover, Define, Design, Build, Verify, Launch, Support.
+- [Portfolio](https://jayant-systems.online/portfolio): Shipped projects with live links and source where public.
+- [Case studies](https://jayant-systems.online/resources/case-studies): Problem, what was built and the live product for each project.
+- [Technologies](https://jayant-systems.online/resources/technologies-we-use): The technology stack used for websites, software and AI work.
+- [Downloads](https://jayant-systems.online/resources/downloads): Company profile and portfolio PDFs.
+- [Pricing](https://jayant-systems.online/pricing): Engagement models and how quotations work: a defined quote before work begins.
+- [Maintenance plans](https://jayant-systems.online/pricing/maintenance-plans): Ongoing updates, backups, monitoring and fixes.
+- [Enterprise plans](https://jayant-systems.online/pricing/enterprise-plans): Larger, multi-workstream engagements.
+- [FAQ](https://jayant-systems.online/faq): Straight answers on cost, timelines, ownership, support, NDAs, hosting and security.
+- [Contact](https://jayant-systems.online/contact): Send a project brief, book a 15-minute call or reach the founder on WhatsApp or email.
+- [Request a quote](https://jayant-systems.online/contact/request-a-quote): Ask for a written quotation for a defined scope.
+- [Support](https://jayant-systems.online/support): Help for existing clients: report a bug, request a change, service status.
+- [Report a bug](https://jayant-systems.online/support/report-a-bug): Report something that isn't working on a site or app we built.
+- [Service status](https://jayant-systems.online/support/service-status): What happens when something is down and how incidents are communicated.
+- [Privacy policy](https://jayant-systems.online/privacy): How personal data is collected, used and protected.
+- [Terms & conditions](https://jayant-systems.online/terms): Terms governing projects and use of the website.
+- [Refund & cancellation](https://jayant-systems.online/refund-policy): Refund and cancellation terms.
+- [Pricing policy](https://jayant-systems.online/pricing-policy): How prices, quotations and payments work.
+- [Cookie policy](https://jayant-systems.online/cookies): Cookies and analytics used on the website.
+- [Disclaimer](https://jayant-systems.online/disclaimer): Legal disclaimer for website content.
+
 ## Live work (verifiable)
 - [Teacher Sathi](https://teacher-sathi.online): AI lesson plans, slides and worksheets from any NCERT chapter. (Own startup · SaaS)
 - [Healthkinator](https://healthkinator-1.netlify.app): AI symptom checker in English and Hindi. (Own product · Conference talk)

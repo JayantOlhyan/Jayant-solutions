@@ -4,7 +4,7 @@ import { workItems } from "@/data/framework";
 import { CtaBand, PageHero, PrimaryCta, Section, SecondaryCta, StudioPage, TagList, WorkGrid } from "@/components/framework/blocks";
 
 export const metadata = pageMeta({
-  title: "Case Studies — Problem, Solution, Live Product",
+  title: "Case Studies — Problem, Build, Live Product",
   description:
     "Real products in education, healthcare, agriculture, civic tech and security: the problem, what Jayant Systems built, and a link to each live product.",
   path: "/resources/case-studies",

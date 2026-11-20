@@ -3,7 +3,7 @@ import { workItems } from "@/data/framework";
 import { CtaBand, PageHero, PrimaryCta, Section, SecondaryCta, StudioPage, WorkGrid } from "@/components/framework/blocks";
 
 export const metadata = pageMeta({
-  title: "Verified Delivery — Live Work, Not Testimonials",
+  title: "Verified Delivery — Live Work, Not Reviews",
   description:
     "Instead of testimonials, every product Jayant Systems lists is live and clickable. Client quotes are published only with written permission.",
   path: "/company/testimonials",

@@ -115,8 +115,8 @@ export default function TechnologiesPage() {
             <div className="lg:col-span-5 w-full flex justify-center">
               <div className="relative w-full max-w-[420px] aspect-square flex items-center justify-center p-8 select-none">
                 <div className="w-full h-[85%] rounded-2xl bg-[#0B0F19] border-2 border-white/10 shadow-2xl p-6 flex flex-col justify-center text-left text-white/90">
-                  <h4 className="font-serif text-lg font-bold mb-2">The right technology makes</h4>
-                  <h3 className="font-serif text-2xl font-black text-primary leading-tight mb-2">all the difference.</h3>
+                  <p className="font-serif text-lg font-bold mb-2">The right technology makes</p>
+                  <h2 className="font-serif text-2xl font-black text-primary leading-tight mb-2">all the difference.</h2>
                   <p className="text-xs text-white/70">Let&apos;s build something amazing together.</p>
                 </div>
               </div>
@@ -208,7 +208,7 @@ export default function TechnologiesPage() {
                       {idx + 1}
                     </div>
                     <div>
-                      <h5 className="font-serif text-xs font-bold text-text-base leading-none mb-1">{step.id}</h5>
+                      <h4 className="font-serif text-xs font-bold text-text-base leading-none mb-1">{step.id}</h4>
                       <p className="text-[10px] text-text-muted leading-tight mt-1.5">{step.desc}</p>
                     </div>
                   </div>

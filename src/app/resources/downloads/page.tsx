@@ -61,7 +61,7 @@ export default function DownloadsPage() {
                 <div className="absolute inset-0 bg-gradient-to-tr from-black via-black/45 to-transparent z-10" />
                 <div className="relative z-20 text-center text-white flex flex-col items-center gap-2">
                   <span className="text-4xl">📖</span>
-                  <h4 className="font-serif text-sm font-bold mt-2">Company Profile Presentation</h4>
+                  <p className="font-serif text-sm font-bold mt-2">Company Profile Presentation</p>
                   <p className="text-[9px] font-mono text-white/50 uppercase tracking-widest">Interactive Corporate Deck</p>
                 </div>
               </div>
@@ -77,7 +77,7 @@ export default function DownloadsPage() {
                   <FileText className="size-8" />
                 </div>
                 <div className="flex flex-col text-left gap-1">
-                  <h3 className="font-serif text-base font-bold text-text-base">Company Profile PDF</h3>
+                  <h2 className="font-serif text-base font-bold text-text-base">Company Profile PDF</h2>
                   <p className="text-xs text-text-muted max-w-md leading-relaxed">
                     Get a comprehensive overview of who we are, what we do, and how we help businesses grow.
                   </p>
