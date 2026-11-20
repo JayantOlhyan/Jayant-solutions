@@ -1,5 +1,6 @@
+import { industries, liveDivisions } from "@/data/framework";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter, Manrope } from "next/font/google";
+import { Bricolage_Grotesque, Geist, Geist_Mono, Inter, Manrope } from "next/font/google";
 import SiteHeader from "@/components/v2/SiteHeader";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
@@ -31,6 +32,13 @@ const inter = Inter({
   axes: ["opsz"],
 });
 
+// Display face for the v2 "studio" direction — see DESIGN.md §3
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
+  subsets: ["latin"],
+  display: "swap",
+});
+
 // Manrope is kept only for the proposal/admin surfaces that reference --font-manrope.
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -39,8 +47,8 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "JAYANT SYSTEMS | Websites, Custom Software & AI Systems",
-  description: "JAYANT SYSTEMS designs and builds high-performance websites, custom software products, and practical AI-powered workflows for real-world businesses.",
+  title: "Jayant Systems — Web, Software, AI & Digital Agency",
+  description: "Jayant Systems builds websites, custom software, AI automations, brands and digital content. One digital partner for your business.",
   metadataBase: new URL("https://jayant-systems.online"),
 
   icons: {
@@ -74,8 +82,8 @@ export const metadata: Metadata = {
   },
   robots: "index,follow",
   openGraph: {
-    title: "JAYANT SYSTEMS | Building Digital Systems for Real-World Businesses",
-    description: "Founder-led technology studio designing and building websites, custom software products, and practical AI-powered workflows.",
+    title: "JAYANT SYSTEMS — Your Business. Our Digital Execution.",
+    description: "Jayant Systems builds websites, custom software, AI automations, brands and digital content. One digital partner for your business.",
     url: "https://jayant-systems.online",
     siteName: "JAYANT SYSTEMS",
     locale: "en_IN",
@@ -84,7 +92,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "JAYANT SYSTEMS",
-    description: "Building Digital Systems for Real-World Businesses — Websites, Custom Software, and AI Workflows.",
+    description: "You run the business. We handle the digital.",
   },
   verification: {
     google: "-a0wyjaTybF3gldEtwwHLwq_ChLau7TLls8Q1KFF7lE",
@@ -97,7 +105,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geist.variable} ${geistMono.variable} ${inter.variable} ${manrope.variable} h-full`} suppressHydrationWarning>
+    <html lang="en" className={`${geist.variable} ${geistMono.variable} ${inter.variable} ${bricolage.variable} ${manrope.variable} h-full`} suppressHydrationWarning>
       <head></head>
       <body className={`min-h-full bg-bg-base text-text-base flex flex-col justify-between selection:bg-primary/10 selection:text-primary transition-colors duration-300 antialiased`}>
         <SmoothScroll>
@@ -112,7 +120,10 @@ export default function RootLayout({
           <SEOLinks />
           <FloatingWhatsApp />
           <PWAHandler />
-          <SiteFooter />
+          <SiteFooter
+            services={liveDivisions().map((d) => ({ name: d.short, href: `/services/${d.slug}` }))}
+            industries={industries.map((i) => ({ name: i.name, href: `/industries/${i.slug}` }))}
+          />
         </SmoothScroll>
       </body>
     </html>

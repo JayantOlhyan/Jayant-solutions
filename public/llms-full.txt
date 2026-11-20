@@ -1,113 +1,195 @@
-# JAYANT SYSTEMS — Comprehensive LLM Context File (llms-full.txt)
+# JAYANT SYSTEMS
 
-> This document contains comprehensive, verified, and structured information about JAYANT SYSTEMS, its founder Jayant Olhyan, core service offerings, pricing structures, engineering stack, industries served, and verified project case studies for large language models and generative search systems.
+> You run the business. We handle the digital. Founder-led digital agency in New Delhi, India: Websites. Software. AI. Automation. Design. Content. Growth. One partner for your entire digital ecosystem.
 
----
+## Entity
+- Name: JAYANT SYSTEMS (Jayant Systems)
+- Founder: Jayant Olhyan
+- Website: https://jayant-systems.online
+- Email: jayantwebaisystems@gmail.com
+- Phone / WhatsApp: +91 96673 44125
+- Hours: Mon – Sat, 9:00 AM – 8:00 PM IST
+- Book a call: https://jayant-systems.online/contact/book-a-consultation
 
-## 1. Organization & Entity Overview
-- **Brand Entity**: JAYANT SYSTEMS
-- **Founder & Lead Software Engineer**: Jayant Olhyan
-- **Academic Background**: B.Tech Computer Science (MSIT Delhi) & Online BSc (Hons) in Data Science and AI (IIT Guwahati)
-- **Primary Operational Focus**: Custom generative AI engineering, full-stack Next.js web application development, cross-platform mobile apps with Flutter, and business workflow automations.
-- **Operating Model**: Founder-led technology studio providing direct developer access, fixed-scope milestones, weekly live demo staging, and complete client intellectual property (IP) transfer.
-- **Official Domain**: https://jayant-systems.online
-- **Primary Support Email**: jayantwebaisystems@gmail.com
-- **Direct Strategy Call Booking**: https://cal.com/jayant-web-and-ai-systems/strategy-call
+## Service divisions
+- [Website development & e-commerce](https://jayant-systems.online/services/websites-ecommerce): We design and develop modern, responsive websites that help businesses establish credibility, attract customers and generate enquiries.
+- [Custom software & business systems](https://jayant-systems.online/services/custom-software): We build applications and internal systems around how your business actually operates, helping you replace fragmented tools and manual processes.
+- [AI integrations & workflow automation](https://jayant-systems.online/services/ai-automation): We integrate artificial intelligence and automation into everyday business operations, helping teams reduce manual tasks and simplify existing workflows.
+- [UI/UX, design & branding](https://jayant-systems.online/services/design-branding): We create consistent, purposeful visual experiences that communicate your brand clearly and make your digital products easier to use.
+- [SEO, digital growth & ongoing support](https://jayant-systems.online/services/seo-growth-support): We help businesses maintain, improve and optimise their digital presence through search optimisation, analytics and ongoing technical support.
 
----
+## Industries
+- [Schools & colleges](https://jayant-systems.online/industries/education): Institutional websites, admission enquiries and management systems.
+- [Healthcare & clinics](https://jayant-systems.online/industries/healthcare): Professional websites, appointment booking and patient enquiry workflows.
+- [Restaurants & hospitality](https://jayant-systems.online/industries/restaurants-hospitality): Websites, digital menus, reservations and enquiry handling.
+- [Retail & e-commerce brands](https://jayant-systems.online/industries/retail-ecommerce): Online stores, product management, branding and marketing assets.
+- [Startups & founders](https://jayant-systems.online/industries/startups): MVP development, product design, software and technical execution.
+- [Local businesses](https://jayant-systems.online/industries/local-businesses): Websites, search visibility, enquiry handling and automation.
+- [Enterprises & organisations](https://jayant-systems.online/industries/enterprises): Internal software, automation, dashboards and integrations.
+- [Creators & professionals](https://jayant-systems.online/industries/creators): Personal websites, portfolios and personal branding.
 
-## 2. Core Service Deliverables & Engineering Scope
+## Live work (verifiable)
+- [Teacher Sathi](https://teacher-sathi.online): AI lesson plans, slides and worksheets from any NCERT chapter. (Own startup · SaaS)
+- [Healthkinator](https://healthkinator-1.netlify.app): AI symptom checker in English and Hindi. (Own product · Conference talk)
+- [MSIT Website Enhancement](https://msit-website.netlify.app): A modern, responsive portal for an engineering college. (College website rebuild)
+- [FarmIQ](https://farm-iq.netlify.app): Crop and weather guidance for farmers in 11 languages. (Hackathon winner)
+- [Sentinel AI](https://sentinel-ai-1.netlify.app): Real-time scam detection for SMS, email and links. (Hackathon build)
+- [KhelClan](https://khelclan.online): Home of an offline sports community in Delhi NCR. (Own project)
+- [CivicSetu](https://civicsetu-1.netlify.app/): Grievance platform for citizens, authorities and NGOs. (Hackathon build)
+- [Jayant Portfolio v2](https://jayant-olhyan-portfolio-2.netlify.app/): A responsive portfolio with a modern interface. (Personal brand site)
 
-### 2.1 AI Chatbot Development (`/services/ai-chatbot-development`)
-- **Deliverables**: Bespoke conversational AI chatbots trained strictly on company knowledge bases, product manuals, and internal documentation.
-- **Integrations**: Web embeds, WhatsApp Business API, Telegram, Slack, and CRM ticketing systems.
-- **Supported Models & Frameworks**: OpenAI GPT-4, Google Gemini Pro, Anthropic Claude 3.5, LangChain, Pinecone, and Supabase pgvector.
+## Commercial terms
+- Every project starts with a defined quotation and agreed deliverables.
+- Ownership, source-code access and licences are defined in the project agreement.
+- Hosting, subscriptions and third-party costs are disclosed separately.
+- No guaranteed revenue, rankings, unlimited revisions, lifetime support or 100% uptime.
+- Project-based development: From ₹40,000
+- Monthly digital partnership: From ₹2,999 / month
+- Startup & MVP partnership: Quoted after a scoping call
+- Technology consulting: Quoted after a scoping call
+- End-to-end digital partnership: Quoted after a scoping call
 
-### 2.2 Custom AI & LLM Systems (`/services/ai-development`)
-- **Deliverables**: Enterprise AI feature development, Retrieval-Augmented Generation (RAG) pipelines, multimodal document parsing engines, and autonomous operational agents.
 
-### 2.3 Modern Website Development (`/services/website-development`)
-- **Deliverables**: High-performance, SEO-first business websites engineered with Next.js App Router, React Server Components, and Tailwind CSS.
-- **Standards**: Strong Core Web Vitals performance, semantic schema metadata, responsive layout architectures, and fast load times.
+## Offerings by division (confirmed only)
 
-### 2.4 Custom Software & Dashboard Development (`/services/custom-software-development`)
-- **Deliverables**: Internal business operations tools, proprietary database architectures, custom admin panels, role-based access portals, and reporting dashboards.
+### 01. Website development & e-commerce
+We don't just build websites. We build your digital presence.
+- Business websites: Professional company websites
+- Website redesign: Modernisation of outdated websites
+- Landing pages: Campaign and lead-generation pages
+- E-commerce development: Online stores and product catalogues
+- Educational websites: School, college and institutional websites
+- Portfolio websites: Personal and professional portfolios
+- CMS development: Easily manageable website content
+- Website integrations: Forms, payment gateways, booking systems and APIs
+- Responsive development: Mobile, tablet and desktop compatibility
+- Website optimisation: Speed, usability and performance improvements
+- Detail page: [Website development](https://jayant-systems.online/services/website-development)
 
-### 2.5 Business Process & Workflow Automation (`/services/business-automation`)
-- **Deliverables**: Elimination of manual data entry, webhook pipelines connecting lead sources to CRM platforms, automated PDF invoice generators, and automated WhatsApp alert routines.
+### 02. Custom software & business systems
+Software built around your business. Not the other way around.
+- Custom web applications: Business-specific applications
+- Admin dashboards: Centralised business administration
+- Customer portals: Secure customer-facing platforms
+- SaaS development: Subscription-based software products
+- MVP development: Functional early-stage product development
+- Reporting dashboards: Centralised business data and visualisation
+- API development: Connections between software platforms
+- Authentication systems: Login, permissions and access management
+- Detail page: [Custom software development](https://jayant-systems.online/services/custom-software-development)
+- Detail page: [SaaS development](https://jayant-systems.online/services/saas-development)
+- Detail page: [MVP development](https://jayant-systems.online/services/mvp-development)
+- Detail page: [API development & integration](https://jayant-systems.online/services/api-development)
+- Detail page: [Mobile app development](https://jayant-systems.online/services/mobile-app-development)
 
-### 2.6 Rapid Startup MVP Development (`/services/mvp-development` / `/promo/build-startup-mvp`)
-- **Deliverables**: Launch-ready Minimum Viable Products shipped with user authentication, database persistence, payment gateway integrations (Razorpay/Stripe), and cloud deployment.
+### 03. AI integrations & workflow automation
+Automate the repetitive. Focus on the meaningful.
+- AI chatbots: Website and customer-support assistants
+- Custom AI agents: Task-specific AI systems
+- Workflow automation: Automated repetitive business processes
+- WhatsApp automation: Enquiries, notifications and approved messaging workflows
+- Email automation: Follow-ups and notifications
+- Lead automation: Lead collection, routing and tracking
+- CRM automation: Connected customer-management workflows
+- AI knowledge assistants: Assistants using approved company resources
+- AI content workflows: Assisted content creation and repurposing
+- Third-party integrations: Connecting existing software and tools
+- Business process analysis: Identifying opportunities for automation
+- AI consulting: Selecting suitable AI tools and systems
+- Detail page: [AI development](https://jayant-systems.online/services/ai-development)
+- Detail page: [AI chatbot development](https://jayant-systems.online/services/ai-chatbot-development)
+- Detail page: [Business automation](https://jayant-systems.online/services/business-automation)
+- Detail page: [Technology consulting](https://jayant-systems.online/services/technology-consulting)
 
-### 2.7 Cross-Platform Mobile App Development (`/services/mobile-app-development`)
-- **Deliverables**: Native-performance iOS and Android mobile applications engineered from a single codebase using Flutter with offline data caching and push notifications.
+### 04. UI/UX, design & branding
+Design that communicates. Experiences that connect.
+- Logo design: Brand marks and visual symbols
+- Brand identity: Colours, typography and visual language
+- UI design: Website and application interfaces
+- UX design: User journeys and usability improvements
+- Prototyping: Interactive product design concepts
+- Design systems: Reusable visual components
+- Detail page: [UI/UX design](https://jayant-systems.online/services/ui-ux-design)
 
-### 2.8 SaaS Platform Development (`/services/saas-development`)
-- **Deliverables**: Multi-tenant cloud applications, subscription billing lifecycles, team workspace permissions, usage metering, and documented REST/GraphQL APIs.
+### 06. SEO, digital growth & ongoing support
+Launch better. Stay optimised. Keep improving.
+- Technical SEO: Crawlability, indexing and website structure
+- On-page SEO: Page titles, metadata and content structure
+- Website analytics: Traffic and interaction tracking
+- Performance optimisation: Faster and more efficient websites
+- Website maintenance: Updates, fixes and improvements
+- Hosting and deployment support: Technical infrastructure management
+- Monthly support retainers: Ongoing digital and technical assistance
+- Detail page: [Cloud & DevOps](https://jayant-systems.online/services/cloud-and-devops)
 
-### 2.9 Cloud Infrastructure & DevOps (`/services/cloud-and-devops`)
-- **Deliverables**: Cloud server provisioning on AWS and Google Cloud, Docker containerization, automated CI/CD deployment pipelines, and uptime monitoring.
+## How we work
+01. Discover — Understand your business, customers, current systems, challenges and goals.
+02. Define — Agree on the requirements, deliverables, budget, timeline and responsibilities.
+03. Design — Plan the experience, technical architecture and visual direction.
+04. Build — Develop the agreed solution and share progress throughout the project.
+05. Verify — Test functionality, usability, responsiveness and agreed acceptance criteria.
+06. Launch — Deploy the solution, provide documentation and complete the handover.
+07. Support & improve — Maintain and improve the solution through an agreed support arrangement.
 
-### 2.10 Software Maintenance Retainers (`/services/maintenance`)
-- **Deliverables**: Monthly proactive security patches, automated database backups, library updates, bug fixes, and uptime monitoring.
+## Commitments
+- Transparent pricing: Know what you're paying for before development begins.
+- Defined scope: Every project starts with clearly agreed deliverables.
+- Direct communication: Work directly with the people responsible for your project.
+- Regular progress updates: Stay informed throughout the development process.
+- Quality checks: Agreed deliverables are tested before handover.
+- Client ownership: Ownership and access rights are clearly defined before work begins.
+- Documented handover: Receive the agreed files, credentials and documentation.
+- Practical solutions: We recommend what your business needs, not unnecessary features.
+- Confidentiality: Your business information is handled according to agreed confidentiality terms.
+- Ongoing support: Continued assistance is available under agreed support plans.
+- Cost transparency: Hosting, subscriptions and third-party expenses are disclosed separately.
+- Founder-led execution: Direct founder involvement and accountability.
 
----
+## FAQ
+### Do you only build websites?
+No. Jayant Systems works across website development, custom software, AI automation, design and branding, digital optimisation and technical support.
 
-## 3. Commercial Pricing Packages (Public Fixed-Scope Tiers)
+### Can you improve my existing website instead of building a new one?
+Yes. We can review your existing website and recommend targeted improvements or a complete redesign, depending on your requirements.
 
-| Package Tier | Public Price | Ideal Audience | Core Deliverables | Typical Delivery Window |
-|---|---|---|---|---|
-| **Starter** | ₹40,000 (One-time) | Early startups & small businesses | Responsive Next.js business website, full on-page SEO setup, speed optimization, contact forms, CMS setup, and 30 days post-launch support. | 1–2 Weeks |
-| **Growth** | ₹90,000 (One-time) | Growing businesses & scaling brands | Custom full-stack web application or internal dashboard, CRM pipeline integration, automated email/lead workflows, analytics dashboards, and 60 days post-launch support. | 2–4 Weeks |
-| **Scale** | ₹2,00,000 (One-time) | Established companies & enterprises | Complete AI Business System: custom software architecture, private-data AI chatbot, WhatsApp automation workflows, multi-platform CRM sync, and 90 days priority support. | 4–8 Weeks |
+### Can you automate my existing business processes?
+Yes. We assess your current workflows and identify suitable opportunities for automation and software integration.
 
----
+### Do you work with small businesses?
+Yes. Our services can be scoped around the needs and budgets of small businesses, startups, institutions and larger organisations.
 
-## 4. Engineering Technology Stack
+### How much does a project cost?
+Pricing depends on project complexity, requirements, integrations and timelines. We provide a defined quotation after understanding your requirements.
 
-- **Frontend**: Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS, Framer Motion.
-- **Backend & APIs**: Python, FastAPI, Node.js, Next.js Route Handlers.
-- **Mobile**: Flutter, Dart.
-- **Databases & State**: PostgreSQL, Supabase (Auth, Storage, Edge Functions, pgvector), Redis.
-- **Artificial Intelligence & LLMs**: OpenAI (GPT-4o), Google Gemini 1.5/2.0 Pro, Anthropic Claude 3.5, LangChain, Vector Databases (Pinecone, ChromaDB).
-- **DevOps & Cloud**: Docker, AWS (EC2, S3, CloudFront), Google Cloud Platform, Vercel, CI/CD GitHub Actions.
+### How long does a project take?
+The timeline is determined by the project's scope and complexity. An agreed delivery schedule is established before work begins.
 
----
+### Will I own my website or software?
+Ownership, source-code access, licences and third-party dependencies are defined in the project agreement before work begins.
 
-## 5. Industry Solutions
+### Do you provide support after launch?
+Yes. Ongoing maintenance and support can be arranged according to your requirements and the agreed service plan.
 
-- **Healthcare (`/industries/ai-for-healthcare`)**: Medical symptom triage engines, automated clinic booking, and EHR sync platforms.
-- **Education (`/industries/ai-for-education`)**: Intelligent student learning workspaces, voice grading assistants, and school administrative hubs.
-- **Finance (`/industries/ai-for-finance`)**: Automated invoice processing, financial analytics dashboards, and transaction verification systems.
-- **Retail & E-Commerce (`/industries/ai-for-retail`)**: Custom online stores, WhatsApp order alerts, and multi-channel inventory tracking.
-- **Real Estate (`/industries/ai-for-real-estate`)**: Property listing directories, automated lead qualification funnels, and agent scheduling dashboards.
-- **Agriculture (`/industries/ai-for-agriculture`)**: Crop diagnostic apps, soil advisory tools, and farm management dashboards.
-- **Startups (`/industries/ai-for-startups`)**: Technical co-founding support, rapid MVP builds, and investor-ready software architectures.
+### Can you manage multiple aspects of my digital presence?
+Yes. Our engagement models can combine development, automation, design and ongoing support through a single coordinated partnership.
 
----
+### How do payments work?
+Payments are milestone-based and set out in the project agreement. We accept bank transfer, UPI and other agreed methods.
 
-## 6. Verified Project Case Studies
+### Do you sign NDAs?
+Yes. We're happy to sign a non-disclosure agreement before you share project details.
 
-1. **Teacher Sathi (Client Engagement)**:
-   - *Problem*: Scattered classroom binders and fragmented chat groups slowing down educator lesson planning and resource organization.
-   - *Solution*: Centralized web workspace built with Next.js, React, Node.js, and PostgreSQL for curriculum scheduling and student tracking.
-2. **Healthkinator (Deployed AI Application)**:
-   - *Problem*: Unstructured internet symptom searches leading to confusing self-diagnosis.
-   - *Solution*: Bilingual (English/Hindi) interactive AI symptom triage platform built with Next.js, Python FastAPI, Google Gemini API, and PostgreSQL.
-3. **MSIT Portal Enhancement (Academic Portal)**:
-   - *Problem*: Outdated institutional portal navigation and fragmented student feedback workflows.
-   - *Solution*: Modernized responsive student and department portal with structured directories and digital feedback routing.
+### Can you handle hosting and deployment?
+Yes. We deploy to platforms such as Vercel, Netlify, AWS or Google Cloud, and help with domains, SSL and email setup. Hosting costs are billed separately and disclosed upfront.
 
----
+### Will my website work on phones?
+Yes. Every website and application is designed and tested for mobile, tablet and desktop before handover.
 
-## 7. Official Navigation & Content Hierarchy
+### Which technologies do you use?
+Mostly Next.js, React, TypeScript, Node.js, Python and FastAPI, with PostgreSQL, MongoDB or Supabase, and AI models from providers such as OpenAI, Google and Anthropic. We choose what suits the project rather than forcing one stack.
 
-- **Home**: https://jayant-systems.online/
-- **About**: https://jayant-systems.online/about
-- **Services Overview**: https://jayant-systems.online/services
-- **Portfolio & Case Studies**: https://jayant-systems.online/portfolio
-- **Pricing & Packages**: https://jayant-systems.online/pricing
-- **Development Process**: https://jayant-systems.online/process
-- **Frequently Asked Questions**: https://jayant-systems.online/faq
-- **Blog & Technical Articles**: https://jayant-systems.online/blog
-- **Contact & Consultation**: https://jayant-systems.online/contact
+### How do you handle security?
+We follow standard practice: HTTPS, secure authentication, role-based access, input validation and regular dependency updates. Any ongoing security work is agreed in a support plan.
+
+### How do we get started?
+Book a 15-minute call or send a project brief. We'll understand your goals, recommend an approach and send a written proposal with scope, timeline and cost before any work begins.

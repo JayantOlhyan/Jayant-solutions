@@ -5,10 +5,6 @@ export const metadata: Metadata = {
   description: "Learn about the cookies and local storage technologies used on JAYANT SYSTEMS to ensure platform security and optimal browsing performance.",
   alternates: {
     canonical: "/cookies",
-    languages: {
-      "en-IN": "/cookies",
-      "hi-IN": "/hi/cookies",
-    },
   },
   openGraph: {
     title: "Cookie Policy & Tracking Technologies | JAYANT SYSTEMS",

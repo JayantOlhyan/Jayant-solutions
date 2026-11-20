@@ -5,10 +5,6 @@ export const metadata: Metadata = {
   description: "Commercial terms of service, engagement agreements, source code ownership clauses, and client responsibilities for JAYANT SYSTEMS projects.",
   alternates: {
     canonical: "/terms",
-    languages: {
-      "en-IN": "/terms",
-      "hi-IN": "/hi/terms",
-    },
   },
   openGraph: {
     title: "Terms of Service & Engagement | JAYANT SYSTEMS",

@@ -709,3 +709,101 @@ html[data-reveal-ready] .v2-reveal[data-revealed="true"] {
   background-color: var(--proposal-gold) !important;
 }
 
+
+/* ==========================================================================
+   v2 "Studio" direction — homepage (see DESIGN.md). Scoped under .studio.
+   ========================================================================== */
+@theme {
+  --color-paper: #F7F1EA;
+  --color-flame: #F37021;
+  --color-flame-ink: #B8430A;
+  --color-sand: #EFE5DA;
+  --color-hairline-warm: #E2D7CA;
+  --color-muted-warm: #6B625A;
+  --color-ember: #F4B48F;
+  --color-ink-warm: #161310;
+  --font-bricolage: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+}
+
+.studio {
+  --paper: #F7F1EA; --ink: #161310; --flame: #F37021; --flame-ink: #B8430A;
+  --sand: #EFE5DA; --hair: #E2D7CA; --muted: #6B625A; --ember: #F4B48F;
+  --ease-expo: cubic-bezier(.16, 1, .3, 1);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+}
+.studio ::selection { background: var(--flame); color: var(--ink); }
+.studio .display { font-family: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif; font-weight: 800; letter-spacing: -0.04em; line-height: .9; }
+.studio .display-soft { font-family: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif; font-weight: 600; letter-spacing: -0.025em; }
+.studio .eyebrow { font-family: var(--font-geist-mono), ui-monospace, monospace; font-size: 12px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; }
+.studio :where(a, button, summary, [tabindex]):focus-visible { outline: 2px solid var(--flame); outline-offset: 3px; border-radius: 999px; }
+.studio .container-x { width: 100%; max-width: 1360px; margin: 0 auto; padding-inline: 16px; }
+@media (min-width: 768px) { .studio .container-x { padding-inline: 40px; } }
+
+/* Buttons: ink pill + flame circle */
+.studio .btn-ink { display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 6px 6px 6px 24px; border-radius: 999px; background: var(--ink); color: var(--paper); font-weight: 500; font-size: 16px; transition: transform .25s var(--ease-expo); }
+.studio .btn-ink .dot { width: 40px; height: 40px; border-radius: 999px; background: var(--flame); color: var(--ink); display: grid; place-items: center; transition: transform .35s var(--ease-expo); }
+.studio .btn-ink:hover { transform: translateY(-2px); }
+.studio .btn-ink:hover .dot { transform: rotate(45deg); }
+.studio .btn-line { display: inline-flex; align-items: center; min-height: 52px; padding: 0 24px; border-radius: 999px; border: 1px solid var(--ink); color: var(--ink); font-weight: 500; transition: background-color .25s, color .25s; }
+.studio .btn-line:hover { background: var(--ink); color: var(--paper); }
+.studio .pill { display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border-radius: 999px; background: var(--sand); font-size: 14px; font-weight: 500; transition: background-color .25s, color .25s; }
+.studio .pill:hover { background: var(--ink); color: var(--paper); }
+.studio .draw { background-image: linear-gradient(currentColor, currentColor); background-size: 0% 1.5px; background-repeat: no-repeat; background-position: 0 100%; transition: background-size .45s var(--ease-expo); }
+.studio .draw:hover, .studio .draw:focus-visible, .studio a:hover .draw { background-size: 100% 1.5px; }
+
+/* Header hide on scroll */
+.studio-header { transition: transform .45s var(--ease-expo); }
+.studio-header[data-hidden="true"] { transform: translateY(-110%); }
+
+/* Preloader (pure CSS so it can never trap content if JS fails) */
+.studio-pre { position: fixed; inset: 0; z-index: 100; background: var(--flame, #F37021); display: grid; place-items: center; animation: pre-out .7s cubic-bezier(.76,0,.24,1) 1.15s forwards; pointer-events: none; }
+.studio-pre .pre-word { overflow: hidden; }
+.studio-pre .pre-word span { display: block; animation: pre-word .8s cubic-bezier(.16,1,.3,1) .1s both; }
+@keyframes pre-word { from { transform: translateY(105%); } to { transform: none; } }
+@keyframes pre-out { to { transform: translateY(-100%); visibility: hidden; } }
+html.no-intro .studio-pre { display: none; }
+
+/* Hero line reveal (CSS-driven: visible even without JS) */
+.studio .line-mask { display: block; overflow: hidden; padding-bottom: .06em; margin-bottom: -.06em; }
+.studio .line-mask > span { display: block; animation: line-in 1s cubic-bezier(.16,1,.3,1) both; animation-delay: calc(1.45s + var(--i, 0) * 90ms); }
+html.no-intro .studio .line-mask > span { animation-delay: calc(.05s + var(--i, 0) * 90ms); }
+@keyframes line-in { from { transform: translateY(108%); } to { transform: none; } }
+.studio .fade-in { animation: fade-in .9s ease both; animation-delay: calc(1.8s + var(--i, 0) * 80ms); }
+html.no-intro .studio .fade-in { animation-delay: calc(.35s + var(--i, 0) * 80ms); }
+@keyframes fade-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+/* Rotating badge */
+.studio .spin { animation: spin 14s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Stickers */
+.studio .sticker { align-items: center; padding: 8px 16px; border-radius: 999px; background: var(--flame); color: var(--ink); font-size: 15px; font-weight: 500; white-space: nowrap; box-shadow: 0 10px 24px -12px rgba(22,19,16,.45); }
+
+/* Work list */
+.studio .work-row { transition: color .3s; }
+.studio .work-row .work-arrow { transition: transform .35s var(--ease-expo), background-color .3s; }
+.studio .work-row:hover .work-arrow { transform: rotate(45deg); background: var(--flame); }
+.studio .work-list:hover .work-row:not(:hover) { color: color-mix(in srgb, var(--ink) 35%, transparent); }
+
+/* Service rows: flame wipe on hover (desktop) */
+.studio .svc-row { position: relative; isolation: isolate; }
+.studio .svc-row::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--flame); transform: scaleY(0); transform-origin: bottom; transition: transform .5s var(--ease-expo); border-radius: 20px; }
+@media (hover: hover) { .studio .svc-row:hover::before { transform: scaleY(1); } }
+
+/* FAQ */
+.studio details.faq summary { list-style: none; cursor: pointer; }
+.studio details.faq summary::-webkit-details-marker { display: none; }
+.studio details.faq .faq-icon { transition: transform .35s var(--ease-expo), background-color .3s; }
+.studio details.faq[open] .faq-icon { transform: rotate(45deg); background: var(--flame); }
+
+@media (prefers-reduced-motion: reduce) {
+  .studio-pre { display: none; }
+  .studio .line-mask > span, .studio .fade-in { animation: none; }
+  .studio .spin { animation: none; }
+  .studio-header { transition: none; }
+  .studio .svc-row::before { transition: none; }
+}
+@media (hover: hover) { .studio .svc-row:hover, .studio .svc-row:hover * { color: var(--ink); } }
+@media (hover: hover) and (pointer: fine) { .studio .work-inline { display: none; } }

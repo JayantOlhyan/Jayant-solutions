@@ -5,10 +5,6 @@ export const metadata: Metadata = {
   description: "Access technical documentation, report system bugs, check live service status, or contact our engineering support team for active client projects.",
   alternates: {
     canonical: "/support",
-    languages: {
-      "en-IN": "/support",
-      "hi-IN": "/hi/support",
-    },
   },
   openGraph: {
     title: "Customer Support & Help Center | JAYANT SYSTEMS",

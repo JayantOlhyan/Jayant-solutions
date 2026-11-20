@@ -41,7 +41,7 @@ export default function DownloadsPage() {
                 </span>
               </h1>
               <p className="text-sm md:text-base text-text-muted leading-relaxed max-w-xl mb-8">
-                Download our company profile to learn about my mission, values, services, expertise, and the impact we create for my clients.
+                Download our company profile to learn about our mission, values, services and how we work.
               </p>
 
               {/* Highlights */}
@@ -79,7 +79,7 @@ export default function DownloadsPage() {
                 <div className="flex flex-col text-left gap-1">
                   <h3 className="font-serif text-base font-bold text-text-base">Company Profile PDF</h3>
                   <p className="text-xs text-text-muted max-w-md leading-relaxed">
-                    Get a comprehensive overview of who I am, what I do, and how I help businesses grow.
+                    Get a comprehensive overview of who we are, what we do, and how we help businesses grow.
                   </p>
                 </div>
               </div>
@@ -142,7 +142,7 @@ export default function DownloadsPage() {
                 Whether you are a startup founder looking for an agile development partner, or a seasoned corporate stakeholder evaluating AI integration capability, our corporate deck covers it all. It contains in-depth information about our technology selections, pricing models, and communication workflows.
               </p>
               <p className="text-xs md:text-sm text-text-muted leading-relaxed">
-                We believe in extreme transparency. That is why our booklet walks you through exactly how we audit datasets, protect user privacy, and ensure high-throughput API scaling. We also outline our strict 30-day post-launch support guarantee so you know you are supported long after deployment.
+                We believe in transparency. The booklet explains how we scope projects, handle your data and what post-launch support looks like, so you know what to expect before you start.
               </p>
             </div>
             

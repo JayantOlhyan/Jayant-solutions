@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
 
-export const alt = 'JAYANT SYSTEMS — Building Digital Systems for Real-World Businesses';
+export const alt = 'JAYANT SYSTEMS — You run the business. We handle the digital.';
 export const size = {
   width: 1200,
   height: 600,
@@ -78,7 +78,7 @@ export default async function Image() {
               marginBottom: '20px',
             }}
           >
-            Building Digital Systems for Real-World Businesses.
+            You run the business. We handle the digital.
           </div>
           <div
             style={{

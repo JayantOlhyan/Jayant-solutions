@@ -91,6 +91,7 @@ export function createOrganizationSchema() {
       "https://www.instagram.com/jayantolhyan/",
       "https://www.youtube.com/@JayantWebAISystems"
     ],
+    "slogan": "You run the business. We handle the digital.",
     "knowsAbout": [
       "Artificial Intelligence",
       "Custom Software Development",
@@ -115,7 +116,7 @@ export function createWebSiteSchema() {
     "@id": `${BASE_URL}/#website`,
     "name": "JAYANT SYSTEMS",
     "url": BASE_URL,
-    "description": "JAYANT SYSTEMS builds custom AI agents, scalable web platforms, mobile apps, and business automation software for modern startups and enterprises.",
+    "description": "You run the business. We handle the digital. Jayant Systems builds websites, custom software, AI automations, brands and digital content — one digital partner for your business.",
     "publisher": {
       "@id": `${BASE_URL}/#organization`
     },

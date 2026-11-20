@@ -31,11 +31,12 @@ function getOfflineServerSnapshot() {
 }
 
 const projectTypes = [
-  "Websites & Web Apps",
-  "AI Solutions & Integrations",
-  "Business Workflow Automation",
-  "Mobile Application",
-  "Technical Consultation",
+  "Websites & e-commerce",
+  "Custom software",
+  "AI & automation",
+  "Design & branding",
+  "SEO, growth & support",
+  "Not sure yet",
   "Other",
 ];
 
@@ -54,7 +55,7 @@ const timelines = [
   "Flexible",
 ];
 
-export default function ContactForm() {
+export default function ContactForm({ presetType }: { presetType?: string }) {
   const idPrefix = useId();
   const nameId = `${idPrefix}-name`;
   const emailId = `${idPrefix}-email`;
@@ -66,7 +67,9 @@ export default function ContactForm() {
   const budgetId = `${idPrefix}-budget`;
   const timelineId = `${idPrefix}-timeline`;
 
-  const [formData, setFormData] = useState<InquiryFormData>(initialInquiryData);
+  const [formData, setFormData] = useState<InquiryFormData>(() =>
+    presetType && projectTypes.includes(presetType) ? { ...initialInquiryData, projectType: presetType } : initialInquiryData,
+  );
   const [errors, setErrors] = useState<Partial<Record<keyof InquiryFormData, string>>>({});
   const [sending, setSending] = useState(false);
   const [submitted, setSubmitted] = useState(false);

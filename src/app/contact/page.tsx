@@ -11,7 +11,7 @@ import {
   Calendar,
   MessageCircle,
 } from "lucide-react";
-import ContactForm from "@/components/ContactForm";
+import ContactForm from "@/components/ContactFormWithPreset";
 import { CONTACT_INFO } from "@/data/contact";
 
 export default function ContactPage() {
@@ -56,7 +56,7 @@ export default function ContactPage() {
 
               <div className="lg:col-span-4 flex flex-col items-start gap-5">
                 <p className="text-sm sm:text-base text-neutral-600 leading-relaxed">
-                  Share your requirements, workflow bottleneck, or existing website URL. I review inquiries personally and typically reply within 12–24 business hours.
+                  Share your requirements, workflow bottleneck, or existing website URL. We reply within one working day.
                 </p>
                 <Link
                   href={CONTACT_INFO.bookingPath}

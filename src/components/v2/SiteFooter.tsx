@@ -7,7 +7,9 @@ import { Mail, Phone, MapPin, ArrowUpRight, Calendar } from "lucide-react";
 import BrandLogo from "@/components/BrandLogo";
 import { CONTACT_INFO } from "@/data/contact";
 
-export function SiteFooter() {
+export type FooterLink = { name: string; href: string };
+
+export function SiteFooter({ services = [], industries = [] }: { services?: FooterLink[]; industries?: FooterLink[] }) {
   const pathname = usePathname();
 
   // Exclude /proposal, /proposal/* and /admin/* (including /admin/sales)
@@ -24,11 +26,24 @@ export function SiteFooter() {
   const currentYear = new Date().getFullYear();
 
   const primaryNav = [
-    { name: "Work", href: isHomePage ? "#work" : "/#work" },
-    { name: "Services", href: isHomePage ? "#services" : "/#services" },
-    { name: "About", href: isHomePage ? "#about" : "/#about" },
-    { name: "Contact", href: isHomePage ? "#contact" : "/#contact" },
+    { name: "About", href: "/about" },
+    { name: "Founder", href: "/company/founder" },
+    { name: "Process", href: "/process" },
+    { name: "Commitments", href: "/company/why-choose-us" },
+    { name: "Work", href: isHomePage ? "#work" : "/portfolio" },
+    { name: "Case studies", href: "/resources/case-studies" },
+    { name: "Verified delivery", href: "/company/testimonials" },
+    { name: "Tools & platforms", href: "/company/partners" },
+    { name: "Insights", href: "/blog" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "FAQ", href: "/faq" },
+    { name: "Support", href: "/support" },
+    { name: "Careers", href: "/company/careers" },
     { name: "Book a call", href: CONTACT_INFO.bookingPath, highlight: true },
+  ];
+  const linkGroups = [
+    { title: "Services", links: [{ name: "All services", href: "/services" }, ...services] },
+    { title: "Industries", links: [{ name: "All industries", href: "/industries" }, ...industries] },
   ];
 
   const legalLinks = [
@@ -47,8 +62,8 @@ export function SiteFooter() {
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 flex flex-col gap-10 sm:gap-12">
         {/* Main Header / Bio & Navigation Split */}
-        <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-10 pb-10 border-b border-[#27272A]">
-          <div className="flex flex-col gap-4 max-w-lg">
+        <div className="grid gap-10 pb-10 border-b border-[#27272A] lg:grid-cols-12">
+          <div className="flex flex-col gap-4 max-w-lg lg:col-span-4">
             <Link
               href="/"
               aria-label="JAYANT SYSTEMS Home"
@@ -56,17 +71,38 @@ export function SiteFooter() {
             >
               <BrandLogo theme="dark" variant="horizontal" showSubtitle={false} />
             </Link>
-            <p className="text-sm sm:text-base text-[#6B6862] leading-relaxed">
-              Founder-led software studio based in New Delhi. We design and engineer high-performance websites, custom web applications, and AI workflows with direct founder accountability and complete source-code ownership.
+            <p className="text-lg sm:text-xl font-medium leading-snug text-white">
+              You run the business.
+              <br />
+              <span className="text-[#F37021]">We handle the digital.</span>
             </p>
+            <p className="text-sm sm:text-base text-[#A1A1AA] leading-relaxed">
+              Founder-led digital agency in New Delhi. Websites, software, AI, automation, design and growth — one partner for
+              your entire digital ecosystem.
+            </p>
+            <p className="font-mono text-[11px] uppercase tracking-wider text-[#A1A1AA]">Build · Automate · Create · Grow</p>
           </div>
 
           {/* Focused Navigation & Quick Contact */}
-          <div className="flex flex-col sm:flex-row gap-8 lg:gap-16">
+          <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-4 lg:col-span-8">
+            {linkGroups.map((g) => (
+              <div key={g.title} className="flex flex-col gap-3">
+                <span className="font-mono text-[11px] uppercase tracking-wider text-[#A1A1AA] font-semibold">{g.title}</span>
+                <ul className="flex flex-col gap-2.5 text-sm">
+                  {g.links.map((item) => (
+                    <li key={item.href}>
+                      <Link href={item.href} className="text-[#A1A1AA] hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-[#E8590C]">
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
             {/* Primary Navigation */}
             <div className="flex flex-col gap-3">
-              <span className="font-mono text-[11px] uppercase tracking-wider text-[#6B6862] font-semibold">
-                Navigation
+              <span className="font-mono text-[11px] uppercase tracking-wider text-[#A1A1AA] font-semibold">
+                Company
               </span>
               <ul className="flex flex-col gap-2.5 text-sm">
                 {primaryNav.map((item) => (
@@ -88,8 +124,8 @@ export function SiteFooter() {
             </div>
 
             {/* Direct Contact Channels */}
-            <div className="flex flex-col gap-3">
-              <span className="font-mono text-[11px] uppercase tracking-wider text-[#6B6862] font-semibold">
+            <div className="col-span-2 flex min-w-0 flex-col gap-3 sm:col-span-1">
+              <span className="font-mono text-[11px] uppercase tracking-wider text-[#A1A1AA] font-semibold">
                 Direct Contact
               </span>
               <div className="flex flex-col gap-2.5 text-xs sm:text-sm font-mono text-[#A1A1AA]">
@@ -98,7 +134,7 @@ export function SiteFooter() {
                   className="inline-flex items-center gap-2 text-white hover:underline focus-visible:outline-2 focus-visible:outline-[#E8590C]"
                 >
                   <Mail className="size-4 text-[#6B6862] shrink-0" aria-hidden="true" />
-                  <span>{CONTACT_INFO.email}</span>
+                  <span className="break-all">{CONTACT_INFO.email}</span>
                 </a>
                 <a
                   href={CONTACT_INFO.whatsappUrl}

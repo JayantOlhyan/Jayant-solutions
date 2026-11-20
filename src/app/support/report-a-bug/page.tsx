@@ -83,7 +83,7 @@ export default function ReportBugPage() {
                 <div className="w-full h-[85%] rounded-2xl bg-[#0B0F19] border-2 border-white/10 shadow-2xl p-6 flex flex-col justify-center text-left text-white/90">
                   <span className="text-4xl mb-4">🔍</span>
                   <h4 className="font-serif text-lg font-bold mb-1">Bug Tracking System</h4>
-                  <p className="text-xs text-white/70">Submit your ticket and our developer team will look into it instantly.</p>
+                  <p className="text-xs text-white/70">Submit the details and we will review it within one working day.</p>
                 </div>
               </div>
             </div>

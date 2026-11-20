@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
 
-export const alt = 'JAYANT SYSTEMS — Building Digital Systems for Real-World Businesses';
+export const alt = 'JAYANT SYSTEMS — You run the business. We handle the digital.';
 export const size = {
   width: 1200,
   height: 630,
@@ -81,7 +81,7 @@ export default async function Image() {
                 marginTop: '4px',
               }}
             >
-              WEB · SOFTWARE · AI ENGINEERING
+              BUILD · AUTOMATE · CREATE · GROW
             </div>
           </div>
         </div>
@@ -98,7 +98,7 @@ export default async function Image() {
               marginBottom: '24px',
             }}
           >
-            Building Digital Systems for Real-World Businesses.
+            You run the business. We handle the digital.
           </div>
           <div
             style={{
@@ -108,7 +108,7 @@ export default async function Image() {
               maxWidth: '860px',
             }}
           >
-            Founder-led technology studio designing and building websites, custom software products, and practical AI-powered workflows.
+            Websites, custom software, AI automation, design and digital growth. One partner for your entire digital ecosystem.
           </div>
         </div>
 

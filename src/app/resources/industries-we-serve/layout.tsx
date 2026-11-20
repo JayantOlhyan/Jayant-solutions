@@ -5,10 +5,6 @@ export const metadata: Metadata = {
   description: "Tailored software engineering and AI workflow systems designed for healthcare, education, retail, real estate, manufacturing, and early-stage startups.",
   alternates: {
     canonical: "/resources/industries-we-serve",
-    languages: {
-      "en-IN": "/resources/industries-we-serve",
-      "hi-IN": "/hi/resources/industries-we-serve",
-    },
   },
   openGraph: {
     title: "Industries We Serve: Custom AI & Software | JAYANT SYSTEMS",

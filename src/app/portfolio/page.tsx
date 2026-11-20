@@ -83,14 +83,14 @@ export default function PortfolioPage() {
     {
       index: "03",
       number: "30+",
-      label: "Hackathons & Tracks",
-      desc: "Recognized across university & tech tracks",
+      label: "Hackathon finals",
+      desc: "Including a win at Elite Hack 1.0",
     },
     {
       index: "04",
-      number: "100%",
-      label: "Code Ownership",
-      desc: "Full repository & IP transfer",
+      number: "Defined",
+      label: "Ownership",
+      desc: "Agreed in writing before work begins",
     },
   ];
 

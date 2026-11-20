@@ -23,6 +23,7 @@ export function SiteHeader() {
 
   // Exclude /proposal, /proposal/* and /admin/* (including /admin/sales)
   const isExcluded =
+    pathname === "/" || // homepage renders its own StudioHeader (src/components/studio)
     pathname === "/proposal" ||
     pathname?.startsWith("/proposal/") ||
     pathname?.startsWith("/admin/sales") ||
@@ -129,10 +130,11 @@ export function SiteHeader() {
   const isHomePage = pathname === "/";
 
   const navLinks = [
-    { label: "Work", href: isHomePage ? "#work" : "/#work" },
-    { label: "Services", href: isHomePage ? "#services" : "/#services" },
-    { label: "About", href: isHomePage ? "#about" : "/#about" },
-    { label: "Contact", href: isHomePage ? "#contact" : "/#contact" },
+    { label: "Services", href: "/services" },
+    { label: "Industries", href: "/industries" },
+    { label: "Work", href: isHomePage ? "#work" : "/portfolio" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
@@ -147,8 +149,8 @@ export function SiteHeader() {
         }}
         className={`fixed top-0 left-0 right-0 z-40 w-full h-[72px] transition-transform duration-250 ease-[cubic-bezier(0.2,0.7,0.2,1)] ${
           isScrolled
-            ? "bg-white/95 backdrop-blur-md border-b border-[#E6E4E0]"
-            : "bg-white border-b border-transparent"
+            ? "bg-[#F7F1EA]/95 backdrop-blur-md border-b border-[#E2D7CA]"
+            : "bg-[#F7F1EA] border-b border-transparent"
         }`}
       >
         <div className="max-w-[1280px] h-full mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between gap-4">
@@ -210,7 +212,7 @@ export function SiteHeader() {
           role="dialog"
           aria-modal="true"
           aria-label="Navigation menu"
-          className="fixed inset-0 z-50 md:hidden bg-white flex flex-col justify-between p-6 sm:p-8 overflow-y-auto max-w-full overflow-x-hidden"
+          className="fixed inset-0 z-50 md:hidden bg-[#F7F1EA] flex flex-col justify-between p-6 sm:p-8 overflow-y-auto max-w-full overflow-x-hidden"
         >
           {/* Top Bar inside Overlay */}
           <div className="flex items-center justify-between gap-4 h-[56px] border-b border-[#E6E4E0] pb-4">
@@ -264,7 +266,7 @@ export function SiteHeader() {
             <Button
               variant="secondary"
               size="lg"
-              href={isHomePage ? "#contact" : "/#contact"}
+              href="/contact"
               className="w-full justify-between"
               onClick={() => setIsMobileMenuOpen(false)}
             >

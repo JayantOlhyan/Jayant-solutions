@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { getBlogPosts } from "@/lib/blog";
+import { divisions, divisionIsLive, industries } from "@/data/framework";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://jayant-systems.online";
@@ -120,7 +121,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const resourceRoutes = [
     "case-studies",
     "downloads",
-    "industries-we-serve",
     "technologies-we-use",
   ];
 
@@ -198,8 +198,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.3,
   }));
 
+  const divisionPages: MetadataRoute.Sitemap = divisions.filter(divisionIsLive).map((d) => ({
+    url: `${baseUrl}/services/${d.slug}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.85,
+  }));
+
+  const industryPages: MetadataRoute.Sitemap = [
+    { url: `${baseUrl}/industries`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    ...industries.map((i) => ({
+      url: `${baseUrl}/industries/${i.slug}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
+
   return [
     ...corePages,
+    ...divisionPages,
+    ...industryPages,
     ...servicePages,
     ...dynamicBlogPages,
     ...companyPages,

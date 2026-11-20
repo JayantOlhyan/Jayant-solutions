@@ -12,7 +12,10 @@ export default function SEOLinks() {
     pathname?.startsWith("/admin/sales") ||
     pathname === "/" ||
     pathname === "/contact" ||
-    pathname === "/contact/book-a-consultation"
+    pathname === "/contact/book-a-consultation" ||
+    // Framework pages render their own related-links section.
+    ["/about", "/process", "/faq", "/support/service-status", "/support/client-portal", "/resources/case-studies"].includes(pathname ?? "") ||
+    /^\/(services|industries|company|pricing)(\/|$)/.test(pathname ?? "")
   ) {
     return null;
   }

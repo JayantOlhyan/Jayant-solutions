@@ -5,10 +5,6 @@ export const metadata: Metadata = {
   description: "Transparent pricing and milestone payment terms: initial deposit structures, deliverable review windows, and invoice handling for software projects.",
   alternates: {
     canonical: "/pricing-policy",
-    languages: {
-      "en-IN": "/pricing-policy",
-      "hi-IN": "/hi/pricing-policy",
-    },
   },
   openGraph: {
     title: "Pricing & Billing Policy | JAYANT SYSTEMS",

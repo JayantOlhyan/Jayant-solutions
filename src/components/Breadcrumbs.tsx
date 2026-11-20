@@ -47,7 +47,11 @@ export default function Breadcrumbs() {
   ];
 
   // If page already renders its own specialized breadcrumb navigation, only output the SEO JSON-LD schema
-  if (pagesWithInPageBreadcrumbs.has(pathname)) {
+  const frameworkPage =
+    ["/about", "/process", "/services", "/industries", "/support/client-portal", "/support/service-status"].includes(pathname) ||
+    pathname.startsWith("/services/") ||
+    pathname.startsWith("/industries/");
+  if (pagesWithInPageBreadcrumbs.has(pathname) || frameworkPage) {
     return <JsonLd schema={createBreadcrumbSchema(breadcrumbItems)} />;
   }
 
