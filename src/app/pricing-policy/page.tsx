@@ -169,7 +169,7 @@ export default function RefundCancellationPolicyPage() {
             {/* Left nav */}
             <div className="lg:col-span-4 flex flex-col gap-6 text-left w-full sticky top-28">
               <div className="hog-card rounded-3xl p-6 bg-card-bg/60 border border-border-custom flex flex-col gap-4">
-                <h3 className="font-serif text-sm font-bold text-text-base border-b border-border-custom pb-2">On this Page</h3>
+                <h2 className="font-serif text-sm font-bold text-text-base border-b border-border-custom pb-2">On this Page</h2>
                 <div className="flex flex-col gap-1.5">
                   {sections.map((s) => (
                     <button
@@ -192,9 +192,9 @@ export default function RefundCancellationPolicyPage() {
 
               {/* Need Help box */}
               <div className="hog-card rounded-3xl p-6 bg-card-bg/60 border border-border-custom flex flex-col gap-3">
-                <h4 className="font-serif text-xs font-bold text-text-base flex items-center gap-2">
+                <h3 className="font-serif text-xs font-bold text-text-base flex items-center gap-2">
                   <span>🙋</span> Need Help?
-                </h4>
+                </h3>
                 <p className="text-[10px] text-text-muted leading-relaxed">
                   If you have any questions regarding refunds or cancellations, our support team is here to help.
                 </p>

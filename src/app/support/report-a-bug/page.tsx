@@ -82,7 +82,7 @@ export default function ReportBugPage() {
               <div className="relative w-full max-w-[420px] aspect-square flex items-center justify-center p-8 select-none">
                 <div className="w-full h-[85%] rounded-2xl bg-[#0B0F19] border-2 border-white/10 shadow-2xl p-6 flex flex-col justify-center text-left text-white/90">
                   <span className="text-4xl mb-4">🔍</span>
-                  <h4 className="font-serif text-lg font-bold mb-1">Bug Tracking System</h4>
+                  <p className="font-serif text-lg font-bold mb-1">Bug Tracking System</p>
                   <p className="text-xs text-white/70">Submit the details and we will review it within one working day.</p>
                 </div>
               </div>
@@ -98,7 +98,7 @@ export default function ReportBugPage() {
               {submitted ? (
                 <div className="border border-border-custom bg-card-bg/60 p-8 rounded-3xl text-center flex flex-col items-center gap-4 max-w-lg mx-auto w-full">
                   <CheckCircle2 className="size-16 text-primary" />
-                  <h3 className="font-serif text-2xl font-bold text-text-base">Bug Report Submitted!</h3>
+                  <h2 className="font-serif text-2xl font-bold text-text-base">Bug Report Submitted!</h2>
                   <p className="text-xs text-text-muted leading-relaxed">
                     Thank you for your report. Our engineering team will review it and investigate the issue. We&apos;ll keep you updated on the progress.
                   </p>
@@ -112,7 +112,7 @@ export default function ReportBugPage() {
               ) : (
                 <form onSubmit={handleSubmit} className="border border-border-custom bg-card-bg/60 p-6 md:p-8 rounded-3xl space-y-6">
                   <div className="border-b border-border-custom/50 pb-3 mb-6">
-                    <h3 className="font-serif text-lg font-bold text-text-base">Bug Report Form</h3>
+                    <h2 className="font-serif text-lg font-bold text-text-base">Bug Report Form</h2>
                     <p className="text-[10px] text-text-muted">Please provide as much detail as possible to help us resolve the issue quickly.</p>
                   </div>
 
@@ -263,7 +263,7 @@ export default function ReportBugPage() {
                     <div key={step.id} className="flex gap-4 relative pl-8">
                       <div className="absolute left-[10px] top-1 size-2 rounded-full bg-primary border-4 border-white dark:border-[#0f172a]" />
                       <div>
-                        <h5 className="font-serif text-xs font-bold text-text-base leading-none mb-1">{step.name}</h5>
+                        <h4 className="font-serif text-xs font-bold text-text-base leading-none mb-1">{step.name}</h4>
                         <p className="text-[10px] text-text-muted leading-tight mt-1">{step.desc}</p>
                       </div>
                     </div>

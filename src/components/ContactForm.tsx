@@ -4,6 +4,7 @@ import React, { useState, useId, useRef, useEffect, useSyncExternalStore } from 
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, MessageCircle, Mail, Loader2, AlertCircle } from "lucide-react";
 import { CONTACT_INFO } from "@/data/contact";
+import { trackContactFormSubmit } from "@/lib/analytics/gtag";
 import {
   InquiryFormData,
   initialInquiryData,
@@ -148,6 +149,7 @@ export default function ContactForm({ presetType }: { presetType?: string }) {
       const result = await submitInquiry(formData, { honeypot });
 
       if (result.ok) {
+        trackContactFormSubmit(formData.projectType || "general"); // GA4 conversion
         setSubmitted(true);
       } else {
         setSendError({
@@ -212,9 +214,9 @@ export default function ContactForm({ presetType }: { presetType?: string }) {
   return (
     <div className="rounded-[24px] p-6 md:p-8 text-left bg-[#FBF8F4] border border-[#E2D7CA]">
       <div className="mb-6 pb-4 border-b border-[#E2D7CA]">
-        <h3 className="text-xl md:text-2xl font-medium tracking-[-0.02em] text-[#161310]">
+        <h2 className="text-xl md:text-2xl font-medium tracking-[-0.02em] text-[#161310]">
           Send a written project brief
-        </h3>
+        </h2>
         <p className="mt-1 text-sm text-[#6B625A] leading-relaxed">
           Provide your project context or requirements. I review inquiries personally and typically reply within 12–24 business hours.
         </p>

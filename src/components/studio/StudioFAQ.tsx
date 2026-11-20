@@ -1,10 +1,13 @@
 import { Plus } from "lucide-react";
 import { faqs } from "@/data/framework";
+import JsonLd from "@/components/seo/JsonLd";
+import { createFAQSchema } from "@/lib/seo/schema";
 
 export default function StudioFAQ() {
   const items = faqs.filter((f) => f.home);
   return (
     <section aria-labelledby="faq-title" className="py-24 md:py-36">
+      <JsonLd schema={createFAQSchema(items)} />
       <div className="container-x grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <h2 id="faq-title" className="display-soft" style={{ fontSize: "clamp(40px, 5vw, 80px)", lineHeight: 1, fontWeight: 700 }}>

@@ -26,7 +26,7 @@ import {
 } from "@/components/framework/blocks";
 
 export const metadata = pageMeta({
-  title: "Services — Websites, Software, AI, Design & Growth",
+  title: "Services — Websites, Software, AI & Growth",
   description:
     "Six connected service divisions under one partner: websites and e-commerce, custom software, AI and automation, design and branding, content, and SEO and support.",
   path: "/services",

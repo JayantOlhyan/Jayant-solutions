@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/pricing-policy",
   },
-  openGraph: {
+  openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Jayant Systems — You run the business. We handle the digital." }], 
     title: "Pricing & Billing Policy | JAYANT SYSTEMS",
     description: "Transparent pricing and milestone payment terms: initial deposit structures, deliverable review windows, and invoice handling for software projects.",
     url: "https://jayant-systems.online/pricing-policy",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     type: "website",
   },
-  twitter: {
+  twitter: { images: ["/twitter-image"], 
     card: "summary_large_image",
     title: "Pricing & Billing Policy | JAYANT SYSTEMS",
     description: "Transparent pricing and milestone payment terms: initial deposit structures, deliverable review windows, and invoice handling for software projects.",

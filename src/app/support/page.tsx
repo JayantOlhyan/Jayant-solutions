@@ -111,8 +111,8 @@ export default function SupportPage() {
             <div className="lg:col-span-5 w-full flex justify-center">
               <div className="relative w-full max-w-[420px] aspect-square flex items-center justify-center p-8 select-none">
                 <div className="w-full h-[85%] rounded-2xl bg-[#0B0F19] border-2 border-white/10 shadow-2xl p-6 flex flex-col justify-center text-left text-white/90">
-                  <h4 className="font-serif text-lg font-bold mb-2">Support That</h4>
-                  <h3 className="font-serif text-2xl font-black text-primary leading-tight mb-2">Always Supports You.</h3>
+                  <p className="font-serif text-lg font-bold mb-2">Support That</p>
+                  <h2 className="font-serif text-2xl font-black text-primary leading-tight mb-2">Always Supports You.</h2>
                   <p className="text-xs text-white/70">From technical issues to general inquiries, we&apos;re just a message away.</p>
                 </div>
               </div>
@@ -139,7 +139,7 @@ export default function SupportPage() {
                       <div className="size-11 rounded-full border border-border-custom bg-card-bg flex items-center justify-center text-xl shadow-sm shrink-0">
                         {chan.icon}
                       </div>
-                      <h4 className="font-serif text-sm md:text-base font-bold text-text-base leading-snug">{chan.title}</h4>
+                      <h3 className="font-serif text-sm md:text-base font-bold text-text-base leading-snug">{chan.title}</h3>
                       <p className="text-[10px] md:text-xs text-text-muted leading-relaxed">{chan.desc}</p>
                     </div>
 
@@ -217,7 +217,7 @@ export default function SupportPage() {
                     {link.icon}
                   </div>
                   <div>
-                    <h5 className="font-serif text-xs font-bold text-text-base leading-none mb-1 group-hover:text-primary transition-colors">{link.label}</h5>
+                    <h4 className="font-serif text-xs font-bold text-text-base leading-none mb-1 group-hover:text-primary transition-colors">{link.label}</h4>
                     <p className="text-[10px] text-text-muted mt-1 leading-tight">{link.desc}</p>
                   </div>
                 </Link>

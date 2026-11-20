@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { pageMeta } from "@/lib/seo/page";
 import { CtaBand, PageHero, PrimaryCta, Section, SecondaryCta, StudioPage, FaqList } from "@/components/framework/blocks";
+import JsonLd from "@/components/seo/JsonLd";
+import { createFAQSchema } from "@/lib/seo/schema";
 
 export const metadata = pageMeta({
   title: "Website Maintenance & Monthly Support Plans",
@@ -39,6 +41,7 @@ const notes = [
 export default function MaintenancePlansPage() {
   return (
     <StudioPage>
+      <JsonLd schema={createFAQSchema(notes)} />
       <main>
         <PageHero
           crumbs={[{ name: "Home", href: "/" }, { name: "Pricing", href: "/pricing" }, { name: "Maintenance plans" }]}

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/resources/downloads",
   },
-  openGraph: {
+  openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Jayant Systems — You run the business. We handle the digital." }], 
     title: "Resources & Software Guides | JAYANT SYSTEMS",
     description: "Download software engineering checklists, AI adoption frameworks, and technical architecture guides to streamline your digital product development.",
     url: "https://jayant-systems.online/resources/downloads",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     type: "website",
   },
-  twitter: {
+  twitter: { images: ["/twitter-image"], 
     card: "summary_large_image",
     title: "Resources & Software Guides | JAYANT SYSTEMS",
     description: "Download software engineering checklists, AI adoption frameworks, and technical architecture guides to streamline your digital product development.",

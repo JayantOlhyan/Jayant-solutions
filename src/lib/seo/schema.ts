@@ -48,11 +48,16 @@ export interface PricingPackageData {
 export function createOrganizationSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    // Organization + ProfessionalService (a LocalBusiness subtype) so local and AI
+    // search get hours, area and service region (checklist 3A / 7B).
+    "@type": ["Organization", "ProfessionalService"],
     "@id": `${BASE_URL}/#organization`,
     "name": "JAYANT SYSTEMS",
     "alternateName": "Jayant Systems",
+    "description":
+      "Founder-led digital studio in Dwarka, New Delhi building websites, custom software, AI automation, design and growth for businesses in India and worldwide.",
     "url": BASE_URL,
+    "image": `${BASE_URL}/opengraph-image`,
     "logo": {
       "@type": "ImageObject",
       "url": LOGO_URL,
@@ -61,11 +66,29 @@ export function createOrganizationSchema() {
     },
     "email": "jayantwebaisystems@gmail.com",
     "telephone": "+91-9667344125",
+    "priceRange": "₹₹",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "New Delhi",
+      "addressLocality": "Dwarka, New Delhi",
+      "addressRegion": "Delhi",
       "addressCountry": "IN"
     },
+    // Dwarka, New Delhi (area centre — the studio works remotely; no walk-in office)
+    "geo": { "@type": "GeoCoordinates", "latitude": 28.5921, "longitude": 77.046 },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "20:00"
+      }
+    ],
+    "areaServed": [
+      { "@type": "City", "name": "New Delhi" },
+      { "@type": "AdministrativeArea", "name": "Delhi NCR" },
+      { "@type": "Country", "name": "India" },
+      "Worldwide (remote)"
+    ],
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+91-9667344125",

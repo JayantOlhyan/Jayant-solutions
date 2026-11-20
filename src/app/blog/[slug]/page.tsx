@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical: url,
     },
-    openGraph: {
+    openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Jayant Systems — You run the business. We handle the digital." }], 
       title,
       description,
       url,
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       publishedTime: post.frontmatter.publishedAt,
       authors: [post.frontmatter.author],
     },
-    twitter: {
+    twitter: { images: ["/twitter-image"], 
       card: "summary_large_image",
       title,
       description,

@@ -89,7 +89,7 @@ export default function RequestQuotePage() {
               <div className="relative w-full max-w-[420px] aspect-square flex items-center justify-center p-8 select-none">
                 <div className="w-full h-[85%] rounded-2xl bg-[#0B0F19] border-2 border-white/10 shadow-2xl p-6 flex flex-col justify-center text-left text-white/90">
                   <span className="text-3xl mb-4">📊</span>
-                  <h4 className="font-serif text-lg font-bold mb-1">Proposal Builder</h4>
+                  <p className="font-serif text-lg font-bold mb-1">Proposal Builder</p>
                   <p className="text-xs text-white/70">Customized scopes and accurate timelines for your custom software.</p>
                 </div>
               </div>
@@ -101,7 +101,7 @@ export default function RequestQuotePage() {
           {submitted ? (
             <div className="border border-border-custom bg-card-bg/60 p-12 rounded-3xl text-center flex flex-col items-center gap-4 max-w-lg mx-auto w-full py-16">
               <CheckCircle2 className="size-16 text-primary" />
-              <h3 className="font-serif text-2xl font-bold text-text-base">Quote Request Submitted!</h3>
+              <h2 className="font-serif text-2xl font-bold text-text-base">Quote Request Submitted!</h2>
               <p className="text-xs text-text-muted leading-relaxed">
                 Thank you for your request. Our team will review your project details and prepare a customized proposal within 24 hours.
               </p>
@@ -140,7 +140,7 @@ export default function RequestQuotePage() {
                 {/* Form box */}
                 <form onSubmit={handleSubmit} className="border border-border-custom bg-card-bg/60 p-6 md:p-8 rounded-3xl space-y-6">
                   <div className="border-b border-border-custom/50 pb-3 mb-6">
-                    <h3 className="font-serif text-lg font-bold text-text-base">Tell Us About Your Project</h3>
+                    <h2 className="font-serif text-lg font-bold text-text-base">Tell Us About Your Project</h2>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -269,7 +269,7 @@ export default function RequestQuotePage() {
                       <div key={idx} className="flex gap-4 relative pl-8">
                         <div className="absolute left-[10px] top-1 size-2 rounded-full bg-primary border-4 border-white dark:border-[#0f172a]" />
                         <div>
-                          <h5 className="font-serif text-xs font-bold text-text-base leading-none mb-1">{step.title}</h5>
+                          <h4 className="font-serif text-xs font-bold text-text-base leading-none mb-1">{step.title}</h4>
                           <p className="text-[10px] text-text-muted leading-tight mt-1">{step.desc}</p>
                         </div>
                       </div>

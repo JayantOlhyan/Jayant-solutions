@@ -6,6 +6,7 @@ export const metadata = pageMeta({
   title: "Client Support",
   description: "Where existing Jayant Systems clients get help: report a bug, request a change, or reach us on email and WhatsApp.",
   path: "/support/client-portal",
+  noindex: true, // existing-client help hub; deliberately excluded from the sitemap
 });
 
 export default function ClientPortalPage() {

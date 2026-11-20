@@ -1,6 +1,8 @@
 import { pageMeta } from "@/lib/seo/page";
 import { CONTACT_INFO } from "@/data/contact";
 import { CtaBand, FaqList, PageHero, PrimaryCta, Section, SecondaryCta, StudioPage } from "@/components/framework/blocks";
+import JsonLd from "@/components/seo/JsonLd";
+import { createFAQSchema } from "@/lib/seo/schema";
 
 export const metadata = pageMeta({
   title: "Service Status & Incident Reporting",
@@ -17,6 +19,7 @@ const steps = [
 export default function ServiceStatusPage() {
   return (
     <StudioPage>
+      <JsonLd schema={createFAQSchema(steps)} />
       <main>
         <PageHero
           crumbs={[{ name: "Home", href: "/" }, { name: "Support", href: "/support" }, { name: "Service status" }]}

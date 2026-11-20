@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/terms",
   },
-  openGraph: {
+  openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Jayant Systems — You run the business. We handle the digital." }], 
     title: "Terms of Service & Engagement | JAYANT SYSTEMS",
     description: "Commercial terms of service, engagement agreements, source code ownership clauses, and client responsibilities for JAYANT SYSTEMS projects.",
     url: "https://jayant-systems.online/terms",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     type: "website",
   },
-  twitter: {
+  twitter: { images: ["/twitter-image"], 
     card: "summary_large_image",
     title: "Terms of Service & Engagement | JAYANT SYSTEMS",
     description: "Commercial terms of service, engagement agreements, source code ownership clauses, and client responsibilities for JAYANT SYSTEMS projects.",

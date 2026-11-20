@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/contact/request-a-quote",
   },
-  openGraph: {
+  openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Jayant Systems — You run the business. We handle the digital." }], 
     title: "Request a Custom Project Scope & Quote | JAYANT SYSTEMS",
     description: "Submit your project details to receive a fixed-scope technical proposal, deliverable breakdown, and transparent milestone quote within 24 business hours.",
     url: "https://jayant-systems.online/contact/request-a-quote",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     type: "website",
   },
-  twitter: {
+  twitter: { images: ["/twitter-image"], 
     card: "summary_large_image",
     title: "Request a Custom Project Scope & Quote | JAYANT SYSTEMS",
     description: "Submit your project details to receive a fixed-scope technical proposal, deliverable breakdown, and transparent milestone quote within 24 business hours.",
