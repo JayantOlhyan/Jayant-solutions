@@ -66,22 +66,21 @@ export default function ContactPage() {
             Start a conversation · Replies within one working day
           </p>
 
-          <div className="relative mt-6">
+          <div className="mt-6 flex items-center justify-between gap-8">
             <h1
-              className="display-soft max-w-[14ch] text-[var(--ink)]"
+              className="display-soft min-w-0 max-w-[14ch] text-[var(--ink)]"
               style={{ fontSize: "clamp(48px, 8.4vw, 132px)", lineHeight: 0.94, fontWeight: 700, letterSpacing: "-0.045em" }}
             >
               <span className="block">Tell us what</span>
               <span className="block text-[var(--flame-ink)]">you&apos;re building.</span>
             </h1>
 
-            {/* Sticker chips — the same promises listed below, as a visual cue */}
-            <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden lg:block">
-              <span className="sticker absolute right-[18%] top-[6%] inline-flex -rotate-6">Founder replies</span>
-              <span className="sticker absolute right-[4%] top-[38%] inline-flex rotate-[5deg]">Scope before spend</span>
-              <span className="sticker absolute bottom-[4%] right-[24%] inline-flex -rotate-3 !bg-[var(--ink)] !text-[var(--paper)]">
-                No sales relay
-              </span>
+            {/* Sticker chips — the same promises listed below, as a visual cue. They live in their own
+                column beside the headline (not floated over it), so they can't collide at any width. */}
+            <div aria-hidden="true" className="pointer-events-none hidden shrink-0 flex-col items-end gap-5 pr-2 lg:flex">
+              <span className="sticker inline-flex -rotate-6 mr-10">Founder replies</span>
+              <span className="sticker inline-flex rotate-[5deg]">Scope before spend</span>
+              <span className="sticker inline-flex -rotate-3 mr-16 !bg-[var(--ink)] !text-[var(--paper)]">No sales relay</span>
             </div>
           </div>
 
