@@ -107,7 +107,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geist.variable} ${geistMono.variable} ${inter.variable} ${bricolage.variable} ${manrope.variable} h-full`} suppressHydrationWarning>
       <head></head>
-      <body className={`min-h-full bg-bg-base text-text-base flex flex-col justify-between selection:bg-primary/10 selection:text-primary transition-colors duration-300 antialiased`}>
+      <body className={`min-h-full bg-bg-base text-text-base flex flex-col justify-between transition-colors duration-300 antialiased`}>
         <SmoothScroll>
           <GoogleAnalytics />
           <a className="skip-link" href="#main-content">Skip to main content</a>

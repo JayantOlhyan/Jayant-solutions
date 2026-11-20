@@ -11,7 +11,6 @@ import Receipts from "@/components/studio/Receipts";
 import ProcessStack from "@/components/studio/ProcessStack";
 import StudioFAQ from "@/components/studio/StudioFAQ";
 import ClosingCTA from "@/components/studio/ClosingCTA";
-import Wordmark from "@/components/studio/Wordmark";
 import StudioMotion from "@/components/studio/StudioMotion";
 
 const title = "Jayant Systems — Web, Software, AI & Digital Agency";
@@ -51,7 +50,6 @@ export default function Home() {
         <StudioFAQ />
         <ClosingCTA />
       </main>
-      <Wordmark />
       <StudioMotion />
     </div>
   );

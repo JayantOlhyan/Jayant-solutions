@@ -81,5 +81,6 @@ See `src/app/globals.css` (`--color-paper`, `--color-ink`, `--color-flame`, `--c
 - Don't copy reference sites' copy, illustrations, characters or fonts.
 
 ## Changelog
+- 2026-11-20 · v2.2 · Site-wide polish. Legacy `:root` tokens now map to paper/ink/flame-ink and every h1–h3 uses Bricolage. Inner-page header uses the homepage grammar (pills · wordmark · hours + “Let’s talk”). Footer moves to a flame field with ink type, a closing line and an edge-to-edge paper wordmark (decorative); the homepage `Wordmark` moved into it. Homepage closing CTA becomes an ink card so it separates from the footer. Contact page and form migrated to the studio direction.
 - 2026-11-20 · v2.1 · Framework integration. Headlines move to sentence case at weight 700 with a two-tone ink / flame-ink second line; uppercase 800 is kept only for the wordmark, preloader, project names and proof numerals. Ribbon copy becomes BUILD • AUTOMATE • CREATE • GROW. New page template (`src/components/framework/blocks.tsx`) used by services, divisions, industries, about, process, pricing, FAQ and company pages. Site header switches to paper (#F7F1EA).
 - 2026-11-19 · v2.0 · New direction for the motion-led homepage (Bricolage Grotesque, paper/ink/flame palette, three motifs).

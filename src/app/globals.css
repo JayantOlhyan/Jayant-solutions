@@ -1,19 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #FFFFFF;
-  --foreground: #0B0F19;
-  --muted: #475569;
-  --muted-light: #64748B;
-  --border: #E2E8F0;
-  --border-subtle: #F1F5F9;
-  --primary: #C25E00; /* WCAG AA 4.8:1 high-contrast burnished amber/orange */
-  --primary-hover: #A34F00;
-  --primary-light: rgba(194, 94, 0, 0.08);
-  --glow: rgba(194, 94, 0, 0.06);
-  --card-bg: #FFFFFF;
-  --card-bg-subtle: #F8FAFC;
-  --surface-raised: #FFFFFF;
+  /* Brand palette (DESIGN.md §4): paper / ink / flame. Legacy pages read these. */
+  --background: #F7F1EA; /* paper */
+  --foreground: #161310; /* ink */
+  --muted: #6B625A;
+  --muted-light: #8A8077;
+  --border: #E2D7CA; /* hairline */
+  --border-subtle: #EFE5DA; /* sand */
+  --primary: #B8430A; /* flame-ink: orange text on paper, 4.87:1 */
+  --primary-hover: #973607;
+  --primary-light: rgba(243, 112, 33, 0.10);
+  --glow: rgba(243, 112, 33, 0.08);
+  --card-bg: #FBF8F4;
+  --card-bg-subtle: #EFE5DA;
+  --surface-raised: #FBF8F4;
 }
 
 .dark {
@@ -34,7 +35,7 @@
 
 @theme {
   --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
@@ -367,29 +368,29 @@ small, .caption, .small-text, .text-caption {
   }
 }
 
-/* H1 (Hero Heading): Manrope ExtraBold */
+/* Headings: Bricolage Grotesque everywhere (DESIGN.md §3). */
 h1, .h1, .hero-heading, .text-h1 {
   font-family: var(--font-display);
-  font-weight: 800;
-  letter-spacing: -0.035em;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+}
+
+h2, .h2, .section-heading, .text-h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
   line-height: 1.08;
 }
 
-/* H2 (Section Heading): Manrope ExtraBold/Bold */
-h2, .h2, .section-heading, .text-h2 {
-  font-family: var(--font-display);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
-}
-
-/* H3 (Feature Title): Manrope Bold */
 h3, .h3, .feature-title, .text-h3 {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.25;
 }
+
+::selection { background: #F37021; color: #161310; }
 
 /* Keyboard Shortcut Kbd Badge Styling */
 kbd {

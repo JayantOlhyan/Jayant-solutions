@@ -91,7 +91,7 @@ export default function BookConsultationPage() {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-white text-neutral-950 pb-24 pt-6 text-left">
+      <div className="min-h-screen text-[#161310] pb-24 pt-6 text-left">
         <main className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 flex flex-col gap-10 md:gap-14">
           {/* Breadcrumbs */}
           <nav aria-label="Breadcrumb" className="text-xs font-mono text-neutral-500 flex items-center gap-2 pt-4">

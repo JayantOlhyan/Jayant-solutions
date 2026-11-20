@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import BrandLogo from "@/components/BrandLogo";
 import { Button } from "./Button";
 import { useScrollDirection } from "./motion/useScrollDirection";
@@ -147,47 +147,55 @@ export function SiteHeader() {
         style={{
           transform: shouldHide ? "translateY(-100%)" : "translateY(0)",
         }}
-        className={`fixed top-0 left-0 right-0 z-40 w-full h-[72px] transition-transform duration-250 ease-[cubic-bezier(0.2,0.7,0.2,1)] ${
+        className={`studio fixed top-0 left-0 right-0 z-40 w-full h-[72px] transition-transform duration-250 ease-[cubic-bezier(0.2,0.7,0.2,1)] ${
           isScrolled
-            ? "bg-[#F7F1EA]/95 backdrop-blur-md border-b border-[#E2D7CA]"
-            : "bg-[#F7F1EA] border-b border-transparent"
+            ? "!bg-[#F7F1EA]/95 backdrop-blur-md border-b border-[#E2D7CA]"
+            : "!bg-[#F7F1EA] border-b border-transparent"
         }`}
       >
-        <div className="max-w-[1280px] h-full mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between gap-4">
-          {/* Logo */}
-          <Link
-            href="/"
-            className="flex items-center shrink-0 focus-visible:outline-2 focus-visible:outline-[#E8590C] focus-visible:outline-offset-2 rounded-lg"
-            aria-label="JAYANT SYSTEMS Home"
-          >
-            <BrandLogo theme="light" variant="horizontal" showSubtitle={false} />
-          </Link>
-
-          {/* Desktop Navigation Links */}
-          <nav
-            aria-label="Primary navigation"
-            className="hidden md:flex items-center gap-1 lg:gap-2 flex-wrap"
-          >
-            {navLinks.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="px-3.5 py-2 text-sm font-medium text-[#6B6862] hover:text-[#0B0B0C] transition-colors duration-200 rounded-full focus-visible:outline-2 focus-visible:outline-[#E8590C] focus-visible:outline-offset-2"
-              >
-                {item.label}
-              </Link>
-            ))}
+        {/* Same grammar as the homepage StudioHeader: pills · wordmark · hours + CTA */}
+        <div className="mx-auto grid h-full max-w-[1360px] grid-cols-[1fr_auto] md:grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 md:px-10">
+          <nav aria-label="Primary navigation" className="hidden items-center gap-2 md:flex">
+            {navLinks.slice(0, 4).map((item) => {
+              const active = pathname === item.href || pathname?.startsWith(item.href + "/");
+              return (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`pill ${active ? "!bg-[#161310] !text-[#F7F1EA]" : ""}`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
 
-          {/* Primary CTA (Desktop) */}
-          <div className="hidden md:flex items-center shrink-0">
-            <Button variant="primary" size="md" href={CONTACT_INFO.bookingPath} arrow>
-              Book a call
-            </Button>
+          <Link
+            href="/"
+            aria-label="JAYANT SYSTEMS Home"
+            className="display justify-self-start whitespace-nowrap text-[19px] leading-none tracking-[-0.03em] text-[#B8430A] md:justify-self-center md:text-[26px]"
+          >
+            JAYANT SYSTEMS
+          </Link>
+
+          {/* Hours + primary CTA (desktop) */}
+          <div className="hidden items-center justify-end gap-5 md:flex">
+            <span className="hidden text-right text-[13px] leading-tight text-[#6B625A] lg:block">
+              Mon – Sat
+              <br />
+              9:00 – 20:00 IST
+            </span>
+            <Link href="/contact" className="btn-ink !min-h-11 !text-[15px] !py-1 !pl-4 !pr-1">
+              Let&apos;s talk
+              <span className="dot !h-9 !w-9" aria-hidden="true">
+                <ArrowUpRight className="size-4" />
+              </span>
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle Button (44px target) */}
-          <div className="flex md:hidden items-center">
+          <div className="flex md:hidden items-center justify-self-end">
             <button
               ref={toggleButtonRef}
               type="button"
@@ -195,7 +203,7 @@ export function SiteHeader() {
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-navigation-menu"
               aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-              className="inline-flex size-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-[#E6E4E0] bg-white text-[#0B0B0C] transition-colors hover:border-[#0B0B0C] focus-visible:outline-2 focus-visible:outline-[#E8590C] focus-visible:outline-offset-2 cursor-pointer"
+              className="inline-flex size-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-[#E2D7CA] bg-[#EFE5DA] text-[#161310] transition-colors hover:border-[#0B0B0C] focus-visible:outline-2 focus-visible:outline-[#E8590C] focus-visible:outline-offset-2 cursor-pointer"
             >
               {isMobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
             </button>
@@ -244,7 +252,7 @@ export function SiteHeader() {
                 key={item.label}
                 href={item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="min-h-[44px] flex items-center py-2 font-display text-3xl sm:text-4xl font-medium tracking-tight text-[#0B0B0C] hover:text-[#6B6862] transition-colors focus-visible:outline-2 focus-visible:outline-[#E8590C] focus-visible:outline-offset-2"
+                className="min-h-[44px] flex items-center py-2 font-display text-4xl sm:text-5xl font-bold tracking-[-0.03em] text-[#161310] hover:text-[#B8430A] transition-colors focus-visible:outline-2 focus-visible:outline-[#E8590C] focus-visible:outline-offset-2"
               >
                 {item.label}
               </Link>

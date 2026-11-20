@@ -167,19 +167,19 @@ export default function ContactForm({ presetType }: { presetType?: string }) {
     return (
       <div
         aria-live="polite"
-        className="rounded-[10px] p-6 sm:p-10 text-center flex flex-col items-center justify-center min-h-[440px] bg-white border border-neutral-200 shadow-sm"
+        className="rounded-[24px] p-6 sm:p-10 text-center flex flex-col items-center justify-center min-h-[440px] bg-[#FBF8F4] border border-[#E2D7CA]"
       >
-        <div className="size-14 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center mb-5 text-emerald-600">
+        <div className="size-14 rounded-full bg-[#F37021]/15 border border-[#F37021]/40 flex items-center justify-center mb-5 text-[#B8430A]">
           <CheckCircle2 className="size-8" aria-hidden="true" />
         </div>
         <h3
           ref={successHeadingRef}
           tabIndex={-1}
-          className="text-2xl font-medium tracking-tight text-neutral-950 mb-2 focus:outline-none"
+          className="text-2xl font-medium tracking-tight text-[#161310] mb-2 focus:outline-none"
         >
           Project inquiry submitted
         </h3>
-        <p className="text-sm text-neutral-600 max-w-md mb-6 leading-relaxed">
+        <p className="text-sm text-[#6B625A] max-w-md mb-6 leading-relaxed">
           Thank you for sharing your project details. Jayant typically reviews inquiries and replies within 12–24 business hours.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3">
@@ -191,7 +191,7 @@ export default function ContactForm({ presetType }: { presetType?: string }) {
               setSendError(null);
               setSubmitted(false);
             }}
-            className="inline-flex min-h-11 items-center rounded-full bg-neutral-950 hover:bg-neutral-800 text-white px-6 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950"
+            className="inline-flex min-h-11 items-center rounded-full bg-[#161310] hover:bg-[#2B241E] text-white px-6 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F37021]"
           >
             Send another inquiry
           </button>
@@ -199,9 +199,9 @@ export default function ContactForm({ presetType }: { presetType?: string }) {
             href={CONTACT_INFO.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-11 items-center gap-1.5 rounded-full border border-neutral-300 px-5 text-sm font-medium text-neutral-950 hover:border-neutral-950 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950"
+            className="inline-flex min-h-11 items-center gap-1.5 rounded-full border border-[#E2D7CA] px-5 text-sm font-medium text-[#161310] hover:border-[#161310] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F37021]"
           >
-            <MessageCircle className="size-4 text-emerald-600" aria-hidden="true" />
+            <MessageCircle className="size-4 text-[#B8430A]" aria-hidden="true" />
             <span>Chat on WhatsApp</span>
           </a>
         </div>
@@ -210,12 +210,12 @@ export default function ContactForm({ presetType }: { presetType?: string }) {
   }
 
   return (
-    <div className="rounded-[10px] p-6 md:p-8 text-left bg-white border border-neutral-200 shadow-sm">
-      <div className="mb-6 pb-4 border-b border-neutral-200">
-        <h3 className="text-xl md:text-2xl font-medium tracking-[-0.02em] text-neutral-950">
+    <div className="rounded-[24px] p-6 md:p-8 text-left bg-[#FBF8F4] border border-[#E2D7CA]">
+      <div className="mb-6 pb-4 border-b border-[#E2D7CA]">
+        <h3 className="text-xl md:text-2xl font-medium tracking-[-0.02em] text-[#161310]">
           Send a written project brief
         </h3>
-        <p className="mt-1 text-sm text-neutral-600 leading-relaxed">
+        <p className="mt-1 text-sm text-[#6B625A] leading-relaxed">
           Provide your project context or requirements. I review inquiries personally and typically reply within 12–24 business hours.
         </p>
       </div>
@@ -271,7 +271,7 @@ export default function ContactForm({ presetType }: { presetType?: string }) {
                 href={getWhatsAppFallbackUrl(formData)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-9 items-center gap-1.5 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white px-3.5 text-xs font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
+                className="inline-flex min-h-9 items-center gap-1.5 rounded-full bg-[#161310] hover:bg-[#2B241E] text-white px-3.5 text-xs font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F37021]"
               >
                 <MessageCircle className="size-3.5" aria-hidden="true" />
                 <span>Send on WhatsApp</span>
@@ -290,8 +290,8 @@ export default function ContactForm({ presetType }: { presetType?: string }) {
         {/* Core Required Fields: Name & Email */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label htmlFor={nameId} className="text-sm font-medium text-neutral-950 block mb-1.5">
-              Full Name <span className="text-neutral-500 font-normal">*</span>
+            <label htmlFor={nameId} className="text-sm font-medium text-[#161310] block mb-1.5">
+              Full Name <span className="text-[#6B625A] font-normal">*</span>
             </label>
             <input
               id={nameId}
@@ -306,9 +306,9 @@ export default function ContactForm({ presetType }: { presetType?: string }) {
               aria-invalid={!!errors.name}
               aria-describedby={errors.name ? `${nameId}-error` : undefined}
               placeholder="e.g. Rahul Sharma"
-              className={`w-full bg-white border ${
-                errors.name ? "border-red-500 focus:border-red-600" : "border-neutral-200 hover:border-neutral-400 focus:border-neutral-950"
-              } rounded-lg px-3.5 py-2.5 text-sm outline-none transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950`}
+              className={`w-full bg-[#F7F1EA] border ${
+                errors.name ? "border-red-500 focus:border-red-600" : "border-[#E2D7CA] hover:border-[#6B625A] focus:border-[#161310]"
+              } rounded-xl px-4.5 py-2.5 text-sm outline-none transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F37021]`}
             />
             {errors.name && (
               <p id={`${nameId}-error`} role="alert" className="mt-1 text-xs text-red-600">
@@ -318,8 +318,8 @@ export default function ContactForm({ presetType }: { presetType?: string }) {
           </div>
 
           <div>
-            <label htmlFor={emailId} className="text-sm font-medium text-neutral-950 block mb-1.5">
-              Email Address <span className="text-neutral-500 font-normal">*</span>
+            <label htmlFor={emailId} className="text-sm font-medium text-[#161310] block mb-1.5">
+              Email Address <span className="text-[#6B625A] font-normal">*</span>
             </label>
             <input
               id={emailId}
@@ -334,9 +334,9 @@ export default function ContactForm({ presetType }: { presetType?: string }) {
               aria-invalid={!!errors.email}
               aria-describedby={errors.email ? `${emailId}-error` : undefined}
               placeholder="rahul@company.com"
-              className={`w-full bg-white border ${
-                errors.email ? "border-red-500 focus:border-red-600" : "border-neutral-200 hover:border-neutral-400 focus:border-neutral-950"
-              } rounded-lg px-3.5 py-2.5 text-sm outline-none transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950`}
+              className={`w-full bg-[#F7F1EA] border ${
+                errors.email ? "border-red-500 focus:border-red-600" : "border-[#E2D7CA] hover:border-[#6B625A] focus:border-[#161310]"
+              } rounded-xl px-4.5 py-2.5 text-sm outline-none transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F37021]`}
             />
             {errors.email && (
               <p id={`${emailId}-error`} role="alert" className="mt-1 text-xs text-red-600">
@@ -348,8 +348,8 @@ export default function ContactForm({ presetType }: { presetType?: string }) {
 
         {/* Core Required Field: Project Description */}
         <div>
-          <label htmlFor={descriptionId} className="text-sm font-medium text-neutral-950 block mb-1.5">
-            Project Description <span className="text-neutral-500 font-normal">*</span>
+          <label htmlFor={descriptionId} className="text-sm font-medium text-[#161310] block mb-1.5">
+            Project Description <span className="text-[#6B625A] font-normal">*</span>
           </label>
           <textarea
             id={descriptionId}
@@ -363,9 +363,9 @@ export default function ContactForm({ presetType }: { presetType?: string }) {
             aria-invalid={!!errors.description}
             aria-describedby={errors.description ? `${descriptionId}-error` : undefined}
             placeholder="What does your business do, and what problem should this project solve?"
-            className={`w-full bg-white border ${
-              errors.description ? "border-red-500 focus:border-red-600" : "border-neutral-200 hover:border-neutral-400 focus:border-neutral-950"
-            } rounded-lg px-3.5 py-2.5 text-sm outline-none transition-colors resize-y min-h-[100px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950`}
+            className={`w-full bg-[#F7F1EA] border ${
+              errors.description ? "border-red-500 focus:border-red-600" : "border-[#E2D7CA] hover:border-[#6B625A] focus:border-[#161310]"
+            } rounded-xl px-4.5 py-2.5 text-sm outline-none transition-colors resize-y min-h-[100px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F37021]`}
           />
           {errors.description && (
             <p id={`${descriptionId}-error`} role="alert" className="mt-1 text-xs text-red-600">
@@ -375,17 +375,17 @@ export default function ContactForm({ presetType }: { presetType?: string }) {
         </div>
 
         {/* Optional Qualification Details in Accessible Disclosure */}
-        <details className="group rounded-lg border border-neutral-200 bg-neutral-50/60 p-4 transition-colors open:bg-neutral-50">
-          <summary className="flex cursor-pointer items-center justify-between text-sm font-medium text-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950 list-none [&::-webkit-details-marker]:hidden">
+        <details className="group rounded-lg border border-[#E2D7CA] bg-[#EFE5DA]/60 p-4 transition-colors open:bg-[#EFE5DA]">
+          <summary className="flex cursor-pointer items-center justify-between text-sm font-medium text-[#161310] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F37021] list-none [&::-webkit-details-marker]:hidden">
             <span>Additional project details (optional)</span>
-            <span className="font-mono text-xs text-neutral-500 group-open:hidden">+ Add details</span>
-            <span className="font-mono text-xs text-neutral-500 hidden group-open:inline">– Hide details</span>
+            <span className="font-mono text-xs text-[#6B625A] group-open:hidden">+ Add details</span>
+            <span className="font-mono text-xs text-[#6B625A] hidden group-open:inline">– Hide details</span>
           </summary>
-          <div className="mt-4 space-y-4 pt-3 border-t border-neutral-200/60">
+          <div className="mt-4 space-y-4 pt-3 border-t border-[#E2D7CA]/60">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor={companyId} className="text-sm font-medium text-neutral-800 block mb-1">
-                  Company Name <span className="text-neutral-500 font-normal">(optional)</span>
+                <label htmlFor={companyId} className="text-sm font-medium text-[#161310] block mb-1">
+                  Company Name <span className="text-[#6B625A] font-normal">(optional)</span>
                 </label>
                 <input
                   id={companyId}
@@ -396,13 +396,13 @@ export default function ContactForm({ presetType }: { presetType?: string }) {
                   value={formData.company}
                   onChange={handleInputChange}
                   placeholder="e.g. Acme Studio"
-                  className="w-full bg-white border border-neutral-200 hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-3.5 py-2 text-sm outline-none transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950"
+                  className="w-full bg-[#F7F1EA] border border-[#E2D7CA] hover:border-[#6B625A] focus:border-[#161310] rounded-xl px-4.5 py-2 text-sm outline-none transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F37021]"
                 />
               </div>
 
               <div>
-                <label htmlFor={phoneId} className="text-sm font-medium text-neutral-800 block mb-1">
-                  Phone Number <span className="text-neutral-500 font-normal">(optional)</span>
+                <label htmlFor={phoneId} className="text-sm font-medium text-[#161310] block mb-1">
+                  Phone Number <span className="text-[#6B625A] font-normal">(optional)</span>
                 </label>
                 <input
                   id={phoneId}
@@ -413,22 +413,22 @@ export default function ContactForm({ presetType }: { presetType?: string }) {
                   value={formData.phone}
                   onChange={handleInputChange}
                   placeholder="+91 98765 43210"
-                  className="w-full bg-white border border-neutral-200 hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-3.5 py-2 text-sm outline-none transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950"
+                  className="w-full bg-[#F7F1EA] border border-[#E2D7CA] hover:border-[#6B625A] focus:border-[#161310] rounded-xl px-4.5 py-2 text-sm outline-none transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F37021]"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div>
-                <label htmlFor={projectTypeId} className="text-sm font-medium text-neutral-800 block mb-1">
-                  Project Type <span className="text-neutral-500 font-normal">(optional)</span>
+                <label htmlFor={projectTypeId} className="text-sm font-medium text-[#161310] block mb-1">
+                  Project Type <span className="text-[#6B625A] font-normal">(optional)</span>
                 </label>
                 <select
                   id={projectTypeId}
                   name="projectType"
                   value={formData.projectType}
                   onChange={handleInputChange}
-                  className="w-full bg-white border border-neutral-200 hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-3 py-2 text-sm outline-none transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950"
+                  className="w-full bg-[#F7F1EA] border border-[#E2D7CA] hover:border-[#6B625A] focus:border-[#161310] rounded-xl px-4 py-2 text-sm outline-none transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F37021]"
                 >
                   <option value="">Select type</option>
                   {projectTypes.map((t) => (
@@ -438,15 +438,15 @@ export default function ContactForm({ presetType }: { presetType?: string }) {
               </div>
 
               <div>
-                <label htmlFor={budgetId} className="text-sm font-medium text-neutral-800 block mb-1">
-                  Budget Range <span className="text-neutral-500 font-normal">(optional)</span>
+                <label htmlFor={budgetId} className="text-sm font-medium text-[#161310] block mb-1">
+                  Budget Range <span className="text-[#6B625A] font-normal">(optional)</span>
                 </label>
                 <select
                   id={budgetId}
                   name="budget"
                   value={formData.budget}
                   onChange={handleInputChange}
-                  className="w-full bg-white border border-neutral-200 hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-3 py-2 text-sm outline-none transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950"
+                  className="w-full bg-[#F7F1EA] border border-[#E2D7CA] hover:border-[#6B625A] focus:border-[#161310] rounded-xl px-4 py-2 text-sm outline-none transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F37021]"
                 >
                   <option value="">Select budget</option>
                   {budgets.map((b) => (
@@ -456,15 +456,15 @@ export default function ContactForm({ presetType }: { presetType?: string }) {
               </div>
 
               <div>
-                <label htmlFor={timelineId} className="text-sm font-medium text-neutral-800 block mb-1">
-                  Timeline <span className="text-neutral-500 font-normal">(optional)</span>
+                <label htmlFor={timelineId} className="text-sm font-medium text-[#161310] block mb-1">
+                  Timeline <span className="text-[#6B625A] font-normal">(optional)</span>
                 </label>
                 <select
                   id={timelineId}
                   name="timeline"
                   value={formData.timeline}
                   onChange={handleInputChange}
-                  className="w-full bg-white border border-neutral-200 hover:border-neutral-400 focus:border-neutral-950 rounded-lg px-3 py-2 text-sm outline-none transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950"
+                  className="w-full bg-[#F7F1EA] border border-[#E2D7CA] hover:border-[#6B625A] focus:border-[#161310] rounded-xl px-4 py-2 text-sm outline-none transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F37021]"
                 >
                   <option value="">Select timeline</option>
                   {timelines.map((t) => (
@@ -489,15 +489,15 @@ export default function ContactForm({ presetType }: { presetType?: string }) {
               aria-required="true"
               aria-invalid={!!errors.agreement}
               aria-describedby={errors.agreement ? `${agreementId}-error` : undefined}
-              className="mt-0.5 rounded border-neutral-300 text-neutral-950 focus:ring-neutral-950 size-4 cursor-pointer"
+              className="mt-0.5 rounded border-[#E2D7CA] text-[#161310] focus:ring-neutral-950 size-4 cursor-pointer"
             />
-            <label htmlFor={agreementId} className="text-xs text-neutral-600 leading-snug cursor-pointer select-none">
+            <label htmlFor={agreementId} className="text-xs text-[#6B625A] leading-snug cursor-pointer select-none">
               I agree to the{" "}
-              <Link href="/privacy" className="underline underline-offset-2 text-neutral-950 hover:text-neutral-700">
+              <Link href="/privacy" className="underline underline-offset-2 text-[#161310] hover:text-[#3D352E]">
                 Privacy Policy
               </Link>{" "}
               and{" "}
-              <Link href="/terms" className="underline underline-offset-2 text-neutral-950 hover:text-neutral-700">
+              <Link href="/terms" className="underline underline-offset-2 text-[#161310] hover:text-[#3D352E]">
                 Terms & Conditions
               </Link>
               .
@@ -515,7 +515,7 @@ export default function ContactForm({ presetType }: { presetType?: string }) {
           <button
             type="submit"
             disabled={sending}
-            className="w-full inline-flex items-center justify-center gap-2 rounded-full text-white text-[15px] font-medium min-h-12 transition-all duration-200 bg-neutral-950 hover:bg-neutral-800 disabled:bg-neutral-400 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-950"
+            className="w-full inline-flex items-center justify-center gap-2 rounded-full text-white text-[15px] font-medium min-h-12 transition-all duration-200 bg-[#161310] hover:bg-[#2B241E] disabled:bg-[#8A8077] disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F37021]"
           >
             {sending ? (
               <>
