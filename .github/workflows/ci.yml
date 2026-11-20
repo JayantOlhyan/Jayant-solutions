@@ -27,6 +27,11 @@ jobs:
       - name: TypeScript Typecheck
         run: npx tsc --noEmit
 
+      # Fails on lint errors (warnings are reported but don't block).
+      # Also catches toolchain breaks, e.g. typescript-eslint crashing on an unsupported TypeScript.
+      - name: ESLint
+        run: npm run lint
+
       - name: Sales cockpit regression tests
         run: npm run test:sales
 
