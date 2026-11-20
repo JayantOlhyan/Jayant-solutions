@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { CONTACT_INFO } from "@/data/contact";
+import FounderDoodleFooter from "./FounderDoodleFooter";
 
 export type FooterLink = { name: string; href: string };
 
@@ -23,6 +24,11 @@ export function SiteFooter({ services = [], industries = [] }: { services?: Foot
     pathname?.startsWith("/admin/")
   ) {
     return null;
+  }
+
+  // The Founder page gets the playful hand-drawn "doodle crew" footer; every other page keeps this one.
+  if (pathname === "/company/founder") {
+    return <FounderDoodleFooter services={services} industries={industries} />;
   }
 
   const isHomePage = pathname === "/";

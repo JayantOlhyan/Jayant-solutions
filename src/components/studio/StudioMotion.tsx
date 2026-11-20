@@ -29,58 +29,54 @@ export default function StudioMotion() {
     const mm = gsap.matchMedia();
 
     mm.add("(prefers-reduced-motion: no-preference)", () => {
-      // 1. Scroll-read statement: a flame "reading wave" moves through the letters.
-      //    Unread = ember, the front of the wave = flame, read = ink (with a warm
-      //    brown fade between flame and ink).
+      // 1–2. Pinned scroll-read statement (technique after two26.studio's about section).
+      //    The section pins when it reaches the top of the screen; while you keep
+      //    scrolling, each letter in turn pops from pale ember to flame (slightly
+      //    larger, a small tilt, a thicker stroke) and then settles to ink. The
+      //    three sticker chips pop in at 35%, 72% and 96% of the way through.
       document.querySelectorAll<HTMLElement>("[data-scrub]").forEach((el) => {
+        const section = el.closest<HTMLElement>("section");
+        if (!section) return;
         const split = SplitText.create(el, { type: "words,chars" });
         const chars = split.chars as HTMLElement[];
-        const n = chars.length;
-        const EMBER = [244, 180, 143], FLAME = [243, 112, 33], INK = [22, 19, 16];
-        const RISE = 4; // chars to go ember → flame
-        const FADE = 22; // chars to go flame → ink
-        const mix = (a: number[], b: number[], t: number) =>
-          `rgb(${a.map((v, k) => Math.round(v + (b[k] - v) * t)).join(",")})`;
-        const last: string[] = new Array(n).fill("");
-        const paint = (progress: number) => {
-          const front = progress * (n + RISE + FADE);
-          for (let i = 0; i < n; i++) {
-            const d = front - i; // how far the wave has passed this char
-            const c =
-              d <= 0 ? mix(EMBER, EMBER, 0)
-              : d < RISE ? mix(EMBER, FLAME, d / RISE)
-              : d < RISE + FADE ? mix(FLAME, INK, (d - RISE) / FADE)
-              : mix(INK, INK, 0);
-            if (c !== last[i]) {
-              chars[i].style.color = c;
-              last[i] = c;
-            }
-          }
-        };
-        paint(0);
-        ScrollTrigger.create({
-          trigger: el,
-          start: "top 78%",
-          end: "bottom 42%",
-          scrub: true,
-          onUpdate: (self) => paint(self.progress),
-          onRefresh: (self) => paint(self.progress),
-        });
-      });
+        if (!chars.length) return;
 
-      // 2. Stickers drop onto the statement with a bounce
-      document.querySelectorAll<HTMLElement>("[data-stickers]").forEach((wrap) => {
-        const stickers = wrap.querySelectorAll<HTMLElement>("[data-sticker]");
-        if (!stickers.length) return;
-        gsap.from(stickers, {
-          y: -140,
-          scale: 0.5,
-          opacity: 0,
-          rotation: "+=24",
-          duration: 1.1,
-          ease: "elastic.out(1, 0.55)",
-          stagger: 0.18,
-          scrollTrigger: { trigger: wrap, start: "top 55%", once: true },
+        const EMBER = "#F4B48F", FLAME = "#F37021", INK = "#161310";
+        gsap.set(chars, { color: EMBER, display: "inline-block", transformOrigin: "50% 60%", willChange: "transform, color" });
+
+        // Desktop chips (absolute, lg+) and the mobile chip row: match them by order.
+        const groups = [
+          Array.from(section.querySelectorAll<HTMLElement>("[data-sticker]")),
+          Array.from(section.querySelectorAll<HTMLElement>("[data-pill]")),
+        ];
+        groups.flat().forEach((p) => gsap.set(p, { opacity: 0, scale: 0.6, y: 24 }));
+
+        const pinDistance = () => (window.innerWidth < 480 ? 1150 : window.innerWidth < 992 ? 1550 : 2200);
+        const tl = gsap.timeline({
+          defaults: { ease: "none" },
+          scrollTrigger: {
+            trigger: section,
+            start: "top top",
+            end: () => `+=${pinDistance()}`,
+            pin: true,
+            pinSpacing: true,
+            scrub: window.innerWidth < 992 ? 0.6 : 0.8,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          },
+        });
+
+        const SPAN = 85; // letters start across 0–85 of a ~92-unit timeline
+        const stroke = (c: string) => `0.6px 0.6px 0 ${c}, -0.6px -0.6px 0 ${c}, 0.6px -0.6px 0 ${c}, -0.6px 0.6px 0 ${c}`;
+        chars.forEach((ch, i) => {
+          const t = (i / chars.length) * SPAN;
+          tl.to(ch, { color: FLAME, scale: 1.12, rotation: gsap.utils.random(-4, 4), textShadow: stroke(FLAME), duration: 3.5, ease: "power1.out" }, t);
+          tl.to(ch, { color: INK, scale: 1, rotation: 0, textShadow: "0 0 0 transparent", duration: 3.5, ease: "power1.inOut" }, t + 3.5);
+        });
+
+        [35, 72, 96].forEach((at, k) => {
+          const targets = groups.map((g) => g[k]).filter(Boolean);
+          if (targets.length) tl.to(targets, { opacity: 1, scale: 1, y: 0, duration: 6, ease: "back.out(2)" }, at * 0.92);
         });
       });
 
