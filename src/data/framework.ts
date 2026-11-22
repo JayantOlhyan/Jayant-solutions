@@ -331,6 +331,12 @@ const workMeta: Omit<WorkItem, "name" | "image" | "href">[] = [
   { id: "sentinelai", kind: "Hackathon build", line: "Real-time scam detection for SMS, email and links.", divisions: ["ai-automation"], industries: ["startups", "enterprises"] },
   { id: "khelclan", kind: "Own project", line: "Home of an offline sports community in Delhi NCR.", divisions: ["websites-ecommerce"], industries: ["local-businesses", "creators"] },
   { id: "civicsetu", kind: "Hackathon build", line: "Grievance platform for citizens, authorities and NGOs.", divisions: ["custom-software"], industries: ["enterprises"] },
+  { id: "yaperz", kind: "Client project · E-commerce", line: "A streetwear brand's own online store.", divisions: ["websites-ecommerce"], industries: ["retail-ecommerce"] },
+  { id: "feeshisab", kind: "Own product", line: "Tuition fee tracking for individual teachers.", divisions: ["custom-software"], industries: ["education", "local-businesses"] },
+  { id: "wdsbughunt", kind: "College society platform", line: "Student-powered website QA with contributor credit.", divisions: ["websites-ecommerce", "custom-software"], industries: ["education"] },
+  { id: "truthlens", kind: "Own product · AI", line: "AI fact-checking for text and images with a Trust Score.", divisions: ["ai-automation"], industries: ["startups"] },
+  { id: "thirtyminute", kind: "Own product", line: "Research an unfamiliar topic in 30 minutes, pitch it in 5.", divisions: ["custom-software"], industries: ["education", "creators"] },
+  { id: "jayantdiaries", kind: "Own project", line: "Photos, journals and places turned into map-based journeys.", divisions: ["websites-ecommerce", "design-branding"], industries: ["creators"] },
   { id: "portfolio-v2", kind: "Personal brand site", line: "A responsive portfolio with a modern interface.", divisions: ["websites-ecommerce", "design-branding"], industries: ["creators"] },
 ];
 
