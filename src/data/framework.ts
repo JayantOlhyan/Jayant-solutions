@@ -658,3 +658,41 @@ export const finalCta = {
   body: "Whether you're starting from scratch, improving an existing business or looking for smarter ways to work, tell us what you need. We'll help you define the right digital solution.",
   primary: "Let's talk. Let's build.",
 };
+
+/* ------------------------------------------------------------------ */
+/* Case studies (one interactive page per live project: /work/[id])     */
+/* ------------------------------------------------------------------ */
+
+export type ProjectGroup = "Client work" | "Own products" | "Hackathons" | "College & community";
+export const projectGroups: ProjectGroup[] = ["Client work", "Own products", "Hackathons", "College & community"];
+
+export type CaseStudyEntry = {
+  id: string;
+  name: string;
+  kind: string;
+  line: string;
+  group: ProjectGroup;
+  study: (typeof caseStudies)[number];
+};
+
+function groupOf(kind: string, client: string): ProjectGroup {
+  const k = `${kind} ${client}`.toLowerCase();
+  if (k.includes("client")) return "Client work";
+  if (k.includes("hackathon")) return "Hackathons";
+  if (k.includes("college") || k.includes("academic") || k.includes("society") || k.includes("community org")) return "College & community";
+  return "Own products";
+}
+
+const groupOrder = (g: ProjectGroup) => projectGroups.indexOf(g);
+
+export const caseStudyEntries: CaseStudyEntry[] = caseStudies
+  .filter((c) => c.liveWebsite)
+  .map((c) => {
+    const m = workMeta.find((w) => w.id === c.id);
+    const kind = m?.kind ?? c.client;
+    return { id: c.id, name: c.title.split(" — ")[0], kind, line: m?.line ?? c.result, group: groupOf(kind, c.client), study: c };
+  })
+  .sort((a, b) => groupOrder(a.group) - groupOrder(b.group));
+
+export const getCaseStudy = (id: string) => caseStudyEntries.find((e) => e.id === id);
+export const caseStudyHref = (id: string) => `/work/${id}`;

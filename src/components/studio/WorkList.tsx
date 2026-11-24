@@ -51,8 +51,6 @@ export default function WorkList() {
             <li key={w.id} className="border-b border-[var(--hair)]">
               <a
                 href={w.href}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="work-row grid grid-cols-[auto_1fr_auto] items-center gap-x-4 gap-y-3 py-6 md:grid-cols-[64px_1.3fr_1fr_auto] md:gap-x-8 md:py-9"
                 onMouseEnter={() => { setActive(i); setShown(i); }}
                 onFocus={() => { setActive(i); setShown(i); }}
@@ -72,7 +70,7 @@ export default function WorkList() {
                 <span className="work-inline col-span-3 row-start-3 block overflow-hidden rounded-[16px]">
                   <LoopVideo name={w.media} alt={`${w.name} — live product`} className="block aspect-square w-full object-cover" />
                 </span>
-                <span className="sr-only">(opens the live product in a new tab)</span>
+                <span className="sr-only">(read the case study)</span>
               </a>
             </li>
           ))}

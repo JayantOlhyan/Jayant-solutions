@@ -22,7 +22,7 @@ export const work = featured
   .map((f) => {
     const cs = caseStudies.find((c) => c.id === f.id);
     if (!cs) return null;
-    return { ...f, name: cs.title.split(" — ")[0], industry: cs.industry, href: cs.liveWebsite ?? "/portfolio" };
+    return { ...f, name: cs.title.split(" — ")[0], industry: cs.industry, href: `/work/${f.id}` };
   })
   .filter((x): x is NonNullable<typeof x> => x !== null);
 

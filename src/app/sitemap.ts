@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 import { getBlogPosts } from "@/lib/blog";
-import { divisions, divisionIsLive, industries } from "@/data/framework";
+import { caseStudyEntries, divisions, divisionIsLive, industries } from "@/data/framework";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://jayant-systems.online";
@@ -215,8 +215,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   ];
 
+  const caseStudyPages: MetadataRoute.Sitemap = caseStudyEntries.map((e) => ({
+    url: `${baseUrl}/work/${e.id}`,
+    lastModified,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   return [
     ...corePages,
+    ...caseStudyPages,
     ...divisionPages,
     ...industryPages,
     ...servicePages,

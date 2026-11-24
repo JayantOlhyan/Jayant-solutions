@@ -1,7 +1,7 @@
 import { pageMeta } from "@/lib/seo/page";
-import { caseStudies } from "@/data/content";
-import { workItems } from "@/data/framework";
-import { CtaBand, PageHero, PrimaryCta, Section, SecondaryCta, StudioPage, TagList, WorkGrid } from "@/components/framework/blocks";
+import { caseStudyEntries, projectGroups } from "@/data/framework";
+import { CtaBand, PageHero, PrimaryCta, Section, SecondaryCta, StudioPage } from "@/components/framework/blocks";
+import CaseStudyIndex from "@/components/work/CaseStudyIndex";
 
 export const metadata = pageMeta({
   title: "Case Studies — Problem, Build, Live Product",
@@ -11,8 +11,6 @@ export const metadata = pageMeta({
 });
 
 export default function CaseStudiesPage() {
-  const ids = workItems.map((w) => w.id);
-  const studies = caseStudies.filter((c) => ids.includes(c.id) && c.liveWebsite);
   return (
     <StudioPage>
       <main>
@@ -20,45 +18,17 @@ export default function CaseStudiesPage() {
           crumbs={[{ name: "Home", href: "/" }, { name: "Work", href: "/portfolio" }, { name: "Case studies" }]}
           eyebrow="Case studies"
           title={["Your ideas.", "Our digital execution."]}
-          lead="The problem, what we built and the live product. We don't publish usage or growth figures we can't verify."
+          lead="An interactive case study for every live project: the problem, what we built and the product itself. We don't publish usage or growth figures we can't verify."
         >
           <PrimaryCta>Discuss your project</PrimaryCta>
           <SecondaryCta href="/portfolio">Full portfolio</SecondaryCta>
         </PageHero>
 
-        <Section tone="sand">
-          <ol className="flex flex-col gap-6">
-            {studies.map((c) => (
-              <li key={c.id} id={c.id} className="scroll-mt-24 rounded-[24px] bg-[var(--paper)] p-6 md:p-10">
-                <p className="eyebrow text-[var(--muted)]">
-                  {c.industry} · {c.client}
-                </p>
-                <h2 className="display-soft mt-3 text-[28px] md:text-[40px]" style={{ fontWeight: 700, lineHeight: 1.05 }}>
-                  {c.title}
-                </h2>
-                <div className="mt-6 grid gap-8 md:grid-cols-2">
-                  <div>
-                    <p className="text-[15px] font-medium">The problem</p>
-                    <p className="mt-1 text-[16px] leading-[1.6] text-[var(--muted)]">{c.problem}</p>
-                  </div>
-                  <div>
-                    <p className="text-[15px] font-medium">What was built</p>
-                    <p className="mt-1 text-[16px] leading-[1.6] text-[var(--muted)]">{c.solution}</p>
-                  </div>
-                </div>
-                <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
-                  <TagList items={c.tech.slice(0, 6)} />
-                  <a href={c.liveWebsite} target="_blank" rel="noopener noreferrer" className="draw text-[16px] font-medium">
-                    Open the live product ↗
-                  </a>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </Section>
-
-        <Section kicker="At a glance" title="Live products">
-          <WorkGrid items={workItems} />
+        <Section tone="sand" kicker="Every kind of project" title="Pick one and explore it." intro="Client sites, our own products, hackathon builds and college work. Each case study walks through the problem, the build and the result, with the live product to try.">
+          <CaseStudyIndex
+            groups={projectGroups}
+            items={caseStudyEntries.map((e) => ({ id: e.id, name: e.name, kind: e.kind, line: e.line, group: e.group, industry: e.study.industry, image: e.study.image }))}
+          />
         </Section>
 
         <CtaBand />
