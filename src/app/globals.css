@@ -826,3 +826,8 @@ html.no-intro .studio .fade-in { animation-delay: calc(.35s + var(--i, 0) * 80ms
   .studio .journey-stop .j-pill[data-side="right"] { rotate: -4deg; }
   .studio .journey-stop .j-pill[data-side="left"] { rotate: 4deg; }
 }
+
+/* Case study explorer: soft swap when a step or state changes */
+@keyframes cs-fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.cs-fade { animation: cs-fade .35s ease both; }
+@media (prefers-reduced-motion: reduce) { .cs-fade { animation: none; } }

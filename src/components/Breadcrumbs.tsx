@@ -51,6 +51,8 @@ export default function Breadcrumbs() {
     ["/about", "/process", "/services", "/industries", "/support/client-portal", "/support/service-status"].includes(pathname) ||
     pathname.startsWith("/services/") ||
     pathname.startsWith("/industries/");
+  // Case studies render their own crumbs and BreadcrumbList with the project name.
+  if (pathname.startsWith("/work/")) return null;
   if (pagesWithInPageBreadcrumbs.has(pathname) || frameworkPage) {
     return <JsonLd schema={createBreadcrumbSchema(breadcrumbItems)} />;
   }

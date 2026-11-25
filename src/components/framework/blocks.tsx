@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, Plus } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Plus } from "lucide-react";
 import type { ReactNode } from "react";
 import { CONTACT_INFO } from "@/data/contact";
 import { finalCta, type Offering, type WorkItem } from "@/data/framework";
@@ -192,7 +192,7 @@ export function WorkGrid({ items }: { items: WorkItem[] }) {
     <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {items.map((w) => (
         <li key={w.id}>
-          <a href={w.href} target="_blank" rel="noopener noreferrer" className="group block">
+          <Link href={`/work/${w.id}`} className="group block">
             <div className="relative aspect-[16/10] overflow-hidden rounded-[20px] bg-[var(--sand)]">
               <Image
                 src={w.image}
@@ -205,11 +205,11 @@ export function WorkGrid({ items }: { items: WorkItem[] }) {
             <p className="eyebrow mt-4 text-[var(--muted)]">{w.kind}</p>
             <p className="mt-1 flex items-center gap-2 text-[20px] font-medium tracking-[-0.01em]">
               <span className="draw">{w.name}</span>
-              <ArrowUpRight className="size-4" aria-hidden="true" />
-              <span className="sr-only">(opens live product in a new tab)</span>
+              <ArrowRight className="size-4" aria-hidden="true" />
+              
             </p>
             <p className="mt-1 text-[15px] text-[var(--muted)]">{w.line}</p>
-          </a>
+          </Link>
         </li>
       ))}
     </ul>

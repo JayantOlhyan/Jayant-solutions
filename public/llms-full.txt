@@ -78,6 +78,12 @@
 - [Sentinel AI](https://sentinel-ai-1.netlify.app): Real-time scam detection for SMS, email and links. (Hackathon build)
 - [KhelClan](https://khelclan.online): Home of an offline sports community in Delhi NCR. (Own project)
 - [CivicSetu](https://civicsetu-1.netlify.app/): Grievance platform for citizens, authorities and NGOs. (Hackathon build)
+- [Yaperz](https://yaperz.netlify.app): A streetwear brand's own online store. (Client project · E-commerce)
+- [Fees Hisab](https://fees-hisab.netlify.app): Tuition fee tracking for individual teachers. (Own product)
+- [WDS Bug Hunt](https://wds-bug-hunt.netlify.app): Student-powered website QA with contributor credit. (College society platform)
+- [TruthLens](https://truthlens.vercel.app): AI fact-checking for text and images with a Trust Score. (Own product · AI)
+- [30 Minute](https://pitch-scroll.netlify.app): Research an unfamiliar topic in 30 minutes, pitch it in 5. (Own product)
+- [The Jayant Diaries](https://the-jayant-diaries.netlify.app): Photos, journals and places turned into map-based journeys. (Own project)
 - [Jayant Portfolio v2](https://jayant-olhyan-portfolio-2.netlify.app/): A responsive portfolio with a modern interface. (Personal brand site)
 
 ## Commercial terms

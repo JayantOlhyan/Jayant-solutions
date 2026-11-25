@@ -329,8 +329,21 @@ const workMeta: Omit<WorkItem, "name" | "image" | "href">[] = [
   { id: "msitwebsite", kind: "College website rebuild", line: "A modern, responsive portal for an engineering college.", divisions: ["websites-ecommerce", "design-branding"], industries: ["education"] },
   { id: "farmiq", kind: "Hackathon winner", line: "Crop and weather guidance for farmers in 11 languages.", divisions: ["ai-automation"], industries: ["startups"] },
   { id: "sentinelai", kind: "Hackathon build", line: "Real-time scam detection for SMS, email and links.", divisions: ["ai-automation"], industries: ["startups", "enterprises"] },
+  { id: "feminyacademy", kind: "Client project · Education", line: "A beauty educator's online course academy.", divisions: ["websites-ecommerce", "design-branding"], industries: ["education", "creators"] },
+  { id: "himaniclinic", kind: "Client project · Healthcare", line: "Clinic website for a Gurugram gynaecologist.", divisions: ["websites-ecommerce", "seo-growth-support"], industries: ["healthcare", "local-businesses"] },
+  { id: "arhamestate", kind: "Client project · Real estate", line: "Premium property showcase for a Kolkata firm.", divisions: ["websites-ecommerce", "design-branding"], industries: ["local-businesses", "enterprises"] },
+  { id: "jatbhawan", kind: "Client project · Community", line: "Donations and hall booking for a Najafgarh community hall.", divisions: ["websites-ecommerce"], industries: ["local-businesses"] },
+  { id: "threattrace", kind: "Own product · AI security", line: "AI forensics for suspicious email.", divisions: ["ai-automation", "custom-software"], industries: ["enterprises", "startups"] },
+  { id: "gatesathi", kind: "Own product", line: "Free digital visitor register for government schools.", divisions: ["custom-software"], industries: ["education"] },
+  { id: "foodbridge", kind: "Own product", line: "Matches surplus event food with nearby NGOs.", divisions: ["custom-software"], industries: ["startups"] },
   { id: "khelclan", kind: "Own project", line: "Home of an offline sports community in Delhi NCR.", divisions: ["websites-ecommerce"], industries: ["local-businesses", "creators"] },
   { id: "civicsetu", kind: "Hackathon build", line: "Grievance platform for citizens, authorities and NGOs.", divisions: ["custom-software"], industries: ["enterprises"] },
+  { id: "yaperz", kind: "Client project · E-commerce", line: "A streetwear brand's own online store.", divisions: ["websites-ecommerce"], industries: ["retail-ecommerce"] },
+  { id: "feeshisab", kind: "Own product", line: "Tuition fee tracking for individual teachers.", divisions: ["custom-software"], industries: ["education", "local-businesses"] },
+  { id: "wdsbughunt", kind: "College society platform", line: "Student-powered website QA with contributor credit.", divisions: ["websites-ecommerce", "custom-software"], industries: ["education"] },
+  { id: "truthlens", kind: "Own product · AI", line: "AI fact-checking for text and images with a Trust Score.", divisions: ["ai-automation"], industries: ["startups"] },
+  { id: "thirtyminute", kind: "Own product", line: "Research an unfamiliar topic in 30 minutes, pitch it in 5.", divisions: ["custom-software"], industries: ["education", "creators"] },
+  { id: "jayantdiaries", kind: "Own project", line: "Photos, journals and places turned into map-based journeys.", divisions: ["websites-ecommerce", "design-branding"], industries: ["creators"] },
   { id: "portfolio-v2", kind: "Personal brand site", line: "A responsive portfolio with a modern interface.", divisions: ["websites-ecommerce", "design-branding"], industries: ["creators"] },
 ];
 
@@ -645,3 +658,41 @@ export const finalCta = {
   body: "Whether you're starting from scratch, improving an existing business or looking for smarter ways to work, tell us what you need. We'll help you define the right digital solution.",
   primary: "Let's talk. Let's build.",
 };
+
+/* ------------------------------------------------------------------ */
+/* Case studies (one interactive page per live project: /work/[id])     */
+/* ------------------------------------------------------------------ */
+
+export type ProjectGroup = "Client work" | "Own products" | "Hackathons" | "College & community";
+export const projectGroups: ProjectGroup[] = ["Client work", "Own products", "Hackathons", "College & community"];
+
+export type CaseStudyEntry = {
+  id: string;
+  name: string;
+  kind: string;
+  line: string;
+  group: ProjectGroup;
+  study: (typeof caseStudies)[number];
+};
+
+function groupOf(kind: string, client: string): ProjectGroup {
+  const k = `${kind} ${client}`.toLowerCase();
+  if (k.includes("client")) return "Client work";
+  if (k.includes("hackathon")) return "Hackathons";
+  if (k.includes("college") || k.includes("academic") || k.includes("society") || k.includes("community org")) return "College & community";
+  return "Own products";
+}
+
+const groupOrder = (g: ProjectGroup) => projectGroups.indexOf(g);
+
+export const caseStudyEntries: CaseStudyEntry[] = caseStudies
+  .filter((c) => c.liveWebsite)
+  .map((c) => {
+    const m = workMeta.find((w) => w.id === c.id);
+    const kind = m?.kind ?? c.client;
+    return { id: c.id, name: c.title.split(" — ")[0], kind, line: m?.line ?? c.result, group: groupOf(kind, c.client), study: c };
+  })
+  .sort((a, b) => groupOrder(a.group) - groupOrder(b.group));
+
+export const getCaseStudy = (id: string) => caseStudyEntries.find((e) => e.id === id);
+export const caseStudyHref = (id: string) => `/work/${id}`;
